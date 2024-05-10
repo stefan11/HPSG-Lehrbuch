@@ -1,0 +1,616 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: 4-hpsg-komplementation.tex,v $
+%%  $Revision: 1.20 $
+%%      $Date: 2007/02/13 11:00:11 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Kopf-Argument-Strukturen}
+\label{chap-komplementation}
+
+In diesem Kapitel wird genauer auf die Repräsentation von Grammatikregeln
+im Formalismus der HPSG eingegangen. Es wird gezeigt, wie Bäume mittels Merkmalbeschreibungen
+repräsentiert werden können. Typhierarchien werden zur Klassifikation verschiedener
+Grammatikregeln benutzt, und es wird gezeigt, wie Generalisierungen in bezug
+auf Grammatikregeln erfaßt werden können. Die Lexikoneinträge, die bisher verwendet wurden,
+werden stärker strukturiert, so daß es möglich wird, die Projektion
+%% \NOTE{Sollte das noch irgendwo rein?
+%%   Unter Projektion\is{Projektion} versteht man in der Linguistik das Übertragen von Merkmalen von einer Kategorie
+%%   auf eine diese unmittelbar dominierende Kategorie. Bei einer Übertragung von Information in die
+%%   andere Richtung spricht man von Perkolation\is{Perkolation}. Wie sich zeigen wird, ist es in der
+%%   HPSG nicht sinnvoll, die Richtungen zu unterscheiden, da Projektion/""Perkolation durch
+%%   Strukturteilung modelliert wird. Die Information ist einfach identisch, und es ist nicht sinnvoll,
+%%   über eine Richtung der Informationsweitergabe zu sprechen.%
+%% } 
+von Merkmalen, die für Phrasen wichtig sind, elegant zu beschreiben. 
+
+\section{Die Modellierung von Konstituentenstruktur mit Hilfe von Merkmalstrukturen}
+
+Wie bereits angedeutet, dienen Merkmalbeschreibungen in der HPSG
+als einheitliches Beschreibungsinventar für morphologische Regeln, Lexikoneinträge
+und syntaktische Regeln. Die Bäume, die bisher zu sehen waren, sind nur Visualisierungen
+der Zusammenhänge, sie haben keinen theoretischen Status. Genauso gibt es
+in der HPSG keine Ersetzungsregeln.\is{Phrasenstrukturgrammatik}\footnote{
+  In vielen Computerimplementationen zur Verarbeitung von HPSG"=Grammatiken werden
+  zur Verbesserung der Verarbeitungsgeschwindigkeit allerdings Phrasenstrukturregeln verwendet.}
+Die Funktion der Phrasenstrukturregeln wird von Merkmalbeschreibungen übernommen.
+Man trennt zwischen unmittelbarer Dominanz\is{Dominanz!unmittelbare} (ID) und linearer Präzedenz\is{Präzedenz} (LP).
+Die Dominanzinformation wird mittels \textsc{dtr}"=Merkmalen (Kopf"|tochter und Nicht-Kopf"|töchter)
+repräsentiert, Information über Präzedenz ist implizit in \phon enthalten.
+In diesem Kapitel beschäftigen wir uns nur mit der Dominanz. Zu Abfolgebeschränkungen
+wird im Kapitel~\ref{chap-Konstituentenreihenfolge} mehr gesagt.
+(\mex{1}) zeigt die Repräsentation der \phonwe in einer Merkmalbeschreibung, die dem Baum in
+Abbildung~\vref{fig-dem-mann-fs} entspricht.
+\begin{figure}[htbp]
+\hfill\begin{tabular}[t]{@{}c@{\hspace{10mm}}c@{}}
+\multicolumn{2}{c}{\rnode{1}{NP}
+}\\
+\\
+\rnode{2}{Det} & \rnode{3}{N}\\
+\\[2ex]
+\rnode{4}{dem}                     & \rnode{5}{Mann}\\
+\end{tabular}%
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{2}{4}\ncline{3}{5}\hfill\mbox{}
+\caption{\label{fig-dem-mann-fs}\emph{dem Mann}}
+\end{figure}
+\ea
+\ms{ 
+  phon     & \phonliste{ dem Mann }\\
+  head-dtr & \onems{ phon \phonliste{ Mann }  \\
+                 }\\
+  non-head-dtrs & \liste{ \onems{ phon \phonliste{ dem } \\
+                            }}\\
+}
+\z
+In (\mex{0}) gibt es genau eine Kopf"|tochter (\textsc{head-dtr}\isfeat{head-dtr}).
+Die Kopf"|tochter ist immer die Tochter, die den Kopf enthält. In einer Struktur mit den Töchtern 
+{\em das\/} und {\em Bild von Maria\/} wäre {\em Bild von Maria\/} die Kopf"|tochter,
+da {\em Bild\/} der Kopf ist. Es kann im Prinzip mehrere Nicht"=Kopf"|töchter geben. 
+Würde man wie in Abbildung~\vref{er-das-buch-dem-mann-gibt-flat} flache Strukturen
+für einen Satz mit einem ditransitiven finiten Verb annehmen, hätte man \zb drei Nicht"=Kopf"|töchter.\isfeat{non-head-dtrs}
+Auch binär verzweigende Strukturen ohne Kopf sind sinnvoll (siehe Kapitel~\ref{chap-rs} zur Analyse
+von Relativsätzen).
+
+
+
+%% \begin{tabular}[t]{@{}c@{\hspace{10mm}}c@{}}%llll}
+%% \multicolumn{2}{c}{\rnode{1}{NP[\begin{tabular}[t]{@{}l}
+%%                                           \textsc{head-dtr} \ibox{2}, \\
+%%                                           \textsc{non-head-dtrs} \liste{\ibox{1}}]\\
+%%                                           \end{tabular}}
+%% }\\
+%% \\[2ex]
+%% \rnode{2}{\ibox{1} Det} & \rnode{3}{\ibox{2} N}\\
+%% \\[2ex]
+%% \rnode{4}{dem}                     & \rnode{5}{Mann}\\
+%% \end{tabular}
+%% \ncline{1}{2} \ncline{1}{3}
+%% \ncline{2}{4} \ncline{3}{5}
+
+
+Das Regelschema (\ref{regelschema-psg-subcat}) aus dem vorigen Kapitel -- hier der Übersichtlichkeit
+halber als (\mex{1}) wiederholt -- kann man analog in Merkmalbeschreibungen ausdrücken.
+\ea
+\label{regelschema-psg-subcat-zwei}
+\begin{tabular}[t]{@{}lll}
+H[SUBCAT \ibox{1}] & $\to$ & H[SUBCAT \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
+\end{tabular}
+\z
+Das zeigt das folgende Schema\is{Schema!Kopf"=Argument"=}:
+\begin{schema}[Kopf-Argument-Schema (binär verzweigend, vorläufige Version)]
+\label{schema-bin-prel}
+\type{head-argument-phrase}\istype{head"=argument"=phrase} \impl\\
+\onems{
+      subcat \ibox{1} \\
+      head-dtr$|$subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} } \\
+      non-head-dtrs \sliste{ \ibox{2} }\\
+      }
+\end{schema}
+Schema~\ref{schema-bin-prel} gibt an,
+welche Eigenschaften ein linguistisches Objekt vom Typ \type{head"=argument"=phrase} haben muß.
+Der Pfeil\is{\impl} steht in Schema~\ref{schema-bin-prel} für eine Implikation\is{Implikation},
+nicht für den Ersetzungspfeil, wie er in Phrasenstrukturregeln vorkommt. Man kann das Schema also
+wie folgt lesen: Wenn ein Objekt vom Typ \type{head"=argument"=phrase} ist, muß es die Eigenschaften
+haben, die auf der rechten Seite der Implikation angegeben sind. Konkret heißt das,
+daß solche Objekte immer eine Valenzliste besitzen, die \iboxt{1} entspricht, daß sie eine Kopf"|tochter haben,
+die eine Valenzliste hat, die sich in die zwei Teillisten \ibox{1} und \sliste{ \ibox{2} }
+unterteilen läßt, und daß sie eine Nicht"=Kopf"|tochter haben, die mit dem letzten Element
+in der \subcatl der Kopf"|tochter \iboxb{2} kompatibel ist. 
+
+Wie ebenfalls im vorigen Kapitel angemerkt, sind Artikel"=Nomen"=Kombinationen
+und Verb"=NP"=Kombinationen zwei mögliche Instantiierungen für (\mex{0}):
+\ea
+\begin{tabular}[t]{@{}lll}
+N[SUBCAT \ibox{1}] & $\to$ & Det N[SUBCAT \ibox{1} $\oplus$ \sliste{ \textrm{Det} } ]\\
+V[SUBCAT \ibox{1}] & $\to$ & V[SUBCAT \ibox{1} $\oplus$ \sliste{ NP } ]~~ NP\\
+\end{tabular}
+\z
+Entsprechend kann man das Schema~\ref{schema-bin-prel} instantiieren und bereits
+mit diesem einen Dominanzschema komplexe Strukturen analysieren, die dem Baum in
+Abbildung~\vref{fig-bin-er-das-buch-dem-mann-gibt} entsprechen.
+\begin{figure}[htp]
+\centering
+\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
+\multicolumn{3}{c}{\rnode{1}{V}}\\
+\\
+\rnode{2}{NP} & \multicolumn{4}{c}{\rnode{3}{V}}\\
+\\
+             & \multicolumn{2}{c}{\hspace{-2mm}\rnode{4}{NP}} & \multicolumn{3}{c}{\hspace{2mm}\rnode{5}{V}}\\
+\\
+             & \rnode{14}{D}  & \rnode{15}{N}     & \multicolumn{2}{c}{\hspace{-2mm}\rnode{6}{NP}} & \rnode{7}{V}\\
+\\
+             &               &                  & \rnode{16}{D}   & \rnode{17}{N}\\
+\\*[2ex]
+\rnode{8}{er} & \rnode{9}{das} & \rnode{12}{Buch}  & \rnode{10}{dem} &\rnode{13}{Mann}  & \rnode{11}{gibt}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{7}{11}%
+\ncline{2}{8}%
+\ncline{6}{16}\ncline{6}{17}%
+\ncline{16}{10}\ncline{17}{13}%
+\ncline{4}{14}\ncline{4}{15}%
+\ncline{14}{9}\ncline{15}{12}%
+\caption{\label{fig-bin-er-das-buch-dem-mann-gibt}Binär verzweigende Kopf-Argument-Strukturen}
+\end{figure}
+Man sieht recht deutlich, daß die Struktur in (\mex{1}) eigentlich dem auf die Seite gelegten
+Baum entspricht.\footnote{
+  \textsc{non-head-dtrs} habe ich mit \textsc{nh-dtrs} abgekürzt.%
+}
+
+\ea
+%\resizebox{\linewidth}{!}{
+\onems[head-argument-phrase]{
+phon      \phonliste{ er das Buch dem Mann gibt }\\
+head-dtr \onems{
+phon     \phonliste{ das Buch dem Mann gibt }\\
+head-dtr \onems{
+      phon     \phonliste{ dem Mann gibt }\\
+      head-dtr \onems{ phon \phonliste{ gibt }\\
+                       } \\
+      nh-dtrs \liste{ \onems{ 
+                                                  phon     \phonliste{ dem Mann }\\
+                                                  head-dtr \onems{ phon \phonliste{ Mann }  \\
+                                                                 }\\
+                                                  nh-dtrs \liste{ \onems{ phon \phonliste{ dem } \\
+                                                                              }}\\
+                                                  }
+                       }\\
+}\\
+nh-dtrs \liste{ \onems{ 
+                                                  phon     \phonliste{ das Buch }\\
+                                                  head-dtr \onems{ phon \phonliste{ Buch }  \\
+                                                                 }\\
+                                                  nh-dtrs \liste{ \onems{ phon \phonliste{ das } \\
+                                                                              }}\\
+                                                  }
+                       }\\
+} \\
+nh-dtrs \liste{ \onems{phon \phonliste{ er }\\
+                       } \\
+}\\
+}
+%}
+\z
+Die Struktur in (\mex{0}) enthält nur den Ausschnitt aus der Beschreibung des linguistischen
+Zeichens, der etwas über \phonwe und den Status der Töchter (Kopf"|tochter vs.\ Nicht"=Kopf"|tochter)
+aussagt. (\mex{1}) zeigt andere Details der Struktur wie die Information über Wortart
+und Valenz:
+\ea
+\label{ms-dem-mann-gibt}
+\onems[head-argument-phrase~]{
+      phon    \phonliste{ dem Mann gibt }\\
+      subcat \ibox{1} \liste{ NP[\textit{nom\/}], NP[\textit{acc}]} \\
+      head-dtr \onems{ phon \phonliste{ gibt }\\
+                                     subcat \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
+                       } \\
+      non-head-dtrs \liste{ \ibox{2} \onems[head-argument-phrase~]{ 
+                                                  phon  \phonliste{ dem Mann }\\
+                                                  p-o-s \textit{noun\/}\\
+                                                  subcat \liste{} \\
+                                                  head-dtr \ldots \\
+                                                  non-head-dtrs \ldots \\
+                                                  }
+                       }\\
+}
+\z
+Natürlich hat die Repräsentation für \emph{dem Mann} selbst wieder eine interne Struktur,
+die aber aus Gründen der Übersichtlichkeit weggelassen wurde.
+Abbildung~\vref{fig-saettigung-valenz} zeigt die Valenzinformation in Baumdarstellung.
+\begin{figure}[htbp]
+\centering
+\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
+\multicolumn{3}{l}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
+  \textsc{subcat} \liste{ }]\\
+  \end{tabular}}
+}\\
+\\*[4ex]
+\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{l}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textsc{subcat} \liste{ \ibox{1} }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{l}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textsc{subcat} \liste{ \ibox{1}, \ibox{2} }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
+                                                                                   \textsc{subcat} \liste{ \ibox{1}, \ibox{2}, \ibox{3} }]\\
+%                                                                                   \textsc{vcomp} \liste{  }, \\
+                                                                                   \end{tabular}}\\
+\\*[6ex]
+\rnode{8}{er} & d\rnode{9}{as Buc}h                     & d\rnode{10}{em Man}n              & \rnode{11}{gibt}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{7}{11}%
+\ncline{2}{8}%
+\ncline{6}{10}%
+\ncline{4}{9}%
+\caption{\label{fig-saettigung-valenz}Abarbeitung der Valenzliste des Verbs}
+\end{figure}
+
+%% \ea
+%% \onems[head-argument-phrase~]{
+%%       phon    \phonliste{ er das Buch dem Mann gibt }\\
+%%       subcat \ibox{1} \liste{ } \\
+%%       head-dtr \onems[head-argument-phrase]{ phon \phonliste{ das Buch dem Mann gibt }\\
+%%                                        subcat \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
+%%                        } \\
+%%       non-head-dtrs \liste{ \ibox{2} \onems[word]{ 
+%%                                        phon \phonliste{ er }\\
+%%                                        p-o-s \textit{noun}\\
+%%                                        subcat  \liste{} \\
+%%                                       }
+%%                        }\\
+%% }
+%% \z
+
+
+
+
+
+\section{Projektion von Kopfeigenschaften}
+\label{sec-kopfeigenschaften}
+
+Auf Seite~\pageref{bsp-projektion-v-merkmale} wurde gezeigt, daß
+die Verbform zu den Merkmalen zählt, die für die Distribution von Verbalprojektionen
+wichtig ist. Die Wortart und Information über Finitheit muß also an der Maximalprojektion
+von Verben wie \emph{gibt} repräsentiert sein. Das verdeutlicht Abbildung~\vref{fig-projektion-head-feat}.
+\begin{figure}[htbp]
+\centerline{\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
+\multicolumn{3}{l}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
+  \rnode{1fin}{\textit{fin\/}}, \textsc{subcat} \liste{ }]\\
+  \end{tabular}}
+}\\
+\\*[4ex]
+\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{l}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
+                                                                    \rnode{2fin}{\textit{fin\/}}, \textsc{subcat} \liste{ \ibox{1} }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{l}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+                                                                    \rnode{3fin}{\textit{fin\/}}, \textsc{subcat} \liste{ \ibox{1}, \ibox{2} }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
+                                                                                   \rnode{4fin}{\textit{fin\/}}, \textsc{subcat} \liste{ \ibox{1}, \ibox{2}, \ibox{3} }]\\
+%                                                                                   \textsc{vcomp} \liste{  }, \\
+                                                                                   \end{tabular}}\\
+\\*[6ex]
+\rnode{8}{er} & d\rnode{9}{as Buc}h                     & d\rnode{10}{em Man}n              & \rnode{11}{gibt}\\
+\end{tabular}}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{7}{11}%
+\ncline{2}{8}%
+\ncline{6}{10}%
+\ncline{4}{9}%
+% \ncline{<->}{1fin}[l]{2fin}{2cm}
+% \ncline{<->}{2fin}[l]{3fin}{2cm}
+% \ncline{<->}{3fin}[l]{4fin}{2cm}
+\ncline{<->}{1fin}[tl]{2fin}%
+\ncline{<->}{2fin}[tl]{3fin}%
+\ncline{<->}{3fin}[tl]{4fin}%
+\caption{\label{fig-projektion-head-feat}Projektion der Kopfmerkmale des Verbs}
+\end{figure}
+Die Verbform\isfeat{vform} ist bisher noch gar nicht in Merkmalbeschreibungen enthalten gewesen.
+Eine mögliche Merkmalsgeometrie zeigt (\mex{1}).
+\ea
+      \ms{ phon   & list~of~phoneme strings\\
+           p-o-s  & p-o-s \\
+           vform  & vform \\ 
+           subcat & list~of~signs\\
+         }\\
+\z
+Diese Struktur ist für das, was erreicht werden soll, aber wenig geeignet.
+Wir wollen immer sowohl die Information über die Wortart und die Verbform gemeinsam
+projizieren. Man könnte das zwar erreichen, indem man jeweils einzelne Strukturteilungen
+zwischen den \textsc{p-o-s}- und \textsc{vform}"=Werten einer verbalen Kopf"|tochter und
+ihrer Mutter vornimmt, eine Bündelung der Information, die projiziert werden soll,
+ist jedoch adäquater: Man führt ein neues Merkmal \textsc{head}\isfeat{head} ein, dessen Wert
+eine komplexe Struktur ist, die alle Merkmale enthält, deren Werte für die
+Erklärung der Distributionseigenschaften\label{page-kopf-merkmal} der Gesamtprojektion relevant sind.
+\ea
+      \ms{ phon & list~of~phoneme strings\\
+           head & \ms{
+                  p-o-s & p-o-s\\
+                  vform & vform\\
+                  } \\
+           subcat & list~of~signs\\
+         }
+\z
+Nun ist es aber so, daß Köpfe je nach ihrer Wortart ganz verschiedene Eigenschaften
+besitzen und somit auch unterschiedliche Merkmale projiziert werden müssen.
+Das Merkmal \textsc{vform} ist nur für Verben sinnvoll. Pränominale Adjektive und 
+Nomina projizieren dagegen Kasus. Verben selegieren zwar Argumente, die einen
+bestimmten Kasus haben müssen, sie haben aber selbst keine Kasusmarkierung.
+Man könnte alle Merkmale, die projiziert werden können, in einer Struktur wie
+(\mex{1}) zusammenfassen und dann sagen, daß \textsc{case} bei Verben und \vform
+bei Nomina keine Werte (bzw.\ einen Wert wie \emph{none}) haben.
+\ea
+      \ms{
+                  p-o-s & p-o-s\\
+                  vform & vform\\
+                  case  & case\\
+         }
+\z
+Besser ist es jedoch, davon auszugehen, daß die Merkmalstrukturen für
+Verben und Nomina Objekte verschiedenen Typs sind: Merkmalstrukturen,
+die Verben modellieren, sind vom Typ \type{verb}\istype{verb} und haben deshalb
+ein Merkmal \textsc{vform}. Merkmalstrukturen, die Nomina modellieren,
+sind vom Typ \type{noun}\istype{noun} und haben ein
+Kasusmerkmal\isfeat{case}\label{page-ref-case-feat}. (\mex{1}) und (\mex{2}) zeigen entsprechende
+Merkmalbeschreibungen.
+\ea
+\ms[verb]{
+vform & vform\\
+}
+\z
+\ea
+        \ms[noun]{
+        case & case\\
+        }
+\z
+
+\noindent
+Der Lexikoneintrag für \emph{gibt}, der auf Seite~\pageref{le-gibt-1}
+angegeben wurde, kann jetzt wie folgt präzisiert werden:
+\ea
+\textit{gibt\/}:\\
+\ms[word]{ 
+     phon   & \phonliste{ gibt }\\
+     head   & \ms[verb]{ vform & fin \\} \\
+     subcat & \liste{ NP[\textit{nom\/}], NP[\textit{acc}], NP[\textit{dat}] } \\
+}
+\z
+Ein Lexikoneintrag enthält also phonologische Information, Informationen über die Kopfeigenschaften (\emph{part of speech}, Verbform, \ldots)
+und Valenzinformation (eine Liste von Merkmalbeschreibungen).
+
+Bis jetzt gibt es in der hier dargestellten Theorie noch nichts, was sicherstellen
+würde, daß die Information, die in Lexikoneinträgen unter \textsc{head} repräsentiert
+ist, auch zum Mutterknoten kommt. Dies wird durch das Kopfmerkmalsprinzip (\emph{Head Feature Principle})
+sichergestellt.
+\begin{prinzip-break}[Kopf"|merkmalprinzip~(\textit{Head~Feature~Principle})]\is{Prinzip!Kopfmerkmals-}
+\label{prinzip-hfp}
+In einer Struktur mit Kopf sind die Kopfmerkmale der Mutter identisch (teilen die Struktur)
+mit den Kopfmerkmalen der Kopf"|tochter.
+\end{prinzip-break}
+Bisher wurde erst ein Dominanzschema behandelt, aber in den kommenden Kapiteln werden
+noch weitere Schemata dazukommen, \zb Schemata für Kopf"=Adjunkt"=Strukturen und
+für die Abbindung von Fernabhängigkeiten. Das Kopfmerkmalsprinzip ist ein allgemeines Prinzip,
+das für alle durch diese Schemata lizenzierten Strukturen erfüllt sein muß. Es muß --
+wie oben verbal ausgedrückt -- für alle Strukturen mit Kopf gelten. Formal kann man
+das erfassen, indem man Strukturen einteilt in solche mit Kopf und solche ohne
+und denen, die einen Kopf haben, den Typ \type{headed"=phrase} zuweist.
+Der Typ \type{head"=argument"=phrase} -- das ist der Typ, den die Beschreibung in
+Schema~\ref{schema-bin-prel} auf Seite~\pageref{schema-bin-prel} hat -- ist ein Untertyp
+von \type{headed"=phrase}. Objekte eines bestimmten Typs haben immer 
+alle Eigenschaften, die Objekte entsprechender Obertypen haben. Es sei an das Beispiel
+aus Kapitel~\ref{sec-formalismus-typen} erinnert: Ein Objekt des Typs \textit{frau}
+hat alle Eigenschaften des Typs \textit{person}. Darüber hinaus haben diese Objekte
+noch weitere, spezifischere Eigenschaften, die andere Untertypen von \type{person}
+nicht teilen.
+
+Man kann also formal eine Beschränkung für einen Obertyp festlegen und erreicht damit
+automatisch, daß alle Untertypen genauso beschränkt sind. Das Kopfmerkmalsprinzip
+läßt sich wie folgt formalisieren:
+\ea
+\type{headed"=phrase}\istype{headed"=phrase} \impl
+\ms{ 
+head \ibox{1}\\
+head-dtr$|$head \ibox{1}\\
+} 
+\z
+Der Pfeil\is{\impl} entspricht der Implikation\is{Implikation} aus der Logik.
+(\mex{0}) kann man wie folgt lesen:
+Wenn eine Struktur vom Typ \type{headed"=phrase} ist, dann muß gelten, daß
+der Wert von \textsc{head} mit dem Wert von \textsc{head-dtr$|$head} identisch ist.
+Einen Ausschnitt aus der Typhierarchie unter \type{sign} zeigt Abbildung~\vref{fig-type-sign}.
+\begin{figure}[htbp]
+\centerline{\begin{pspicture}(0.6,0)(13.2,6.4)
+%\psgrid
+\rput[B](4,6){\rnode{sign}{\textit{sign}}}
+%
+\rput[B](1,4){\rnode{word}{\textit{word}}}
+\rput[B](7,4){\rnode{phrase}{\textit{phrase}}}
+%
+\rput[B](4,2){\rnode{nhs}{\textit{non-headed-phrase}}}
+\rput[B](10,2){\rnode{hs}{\textit{headed-phrase}}}
+%
+%\rput[B](7,0){\rnode{hos1}{\ldots\rule{0cm}{1ex}}}
+\rput[B](10,0){\rnode{hars}{\textit{head-argument-phrase}}}
+%\rput[B](13,0){\rnode{hos2}{\ldots\rule{0cm}{1ex}}}
+%
+\psset{angleA=-90,angleB=90,arm=0pt}
+%
+\ncdiag{hs}{hars}
+%\ncdiag{hs}{hos1}\ncdiag{hs}{hos2}
+\ncdiag{phrase}{hs}\ncdiag{phrase}{nhs}
+\ncdiag{sign}{word}\ncdiag{sign}{phrase}
+%
+\end{pspicture}}
+\caption{\label{fig-type-sign}Typhierarchie für \type{sign}: alle Untertypen von \type{headed"=phrase} erben Beschränkungen.}
+\end{figure}
+\type{word} und \type{phrase} sind Unterklassen sprachlicher Zeichen.
+Phrasen kann man unterteilen in Phrasen ohne Kopf (\type{non"=headed"=phrase})
+und Phrasen mit Kopf (\type{headed"=phrase}). Auch für Phrasen vom Typ
+\type{non"=headed"=phrase} bzw.\ \type{headed"=phrase} gibt es Untertypen.
+Den Typ \type{head"=argument"=phrase} haben wir bereits besprochen. Auf andere
+Typen werden wir in den kommenden Kapiteln eingehen.
+
+Die Beschreibung in (\mex{1}) zeigt das Kopf"=Argument"=Schema 
+von Seite~\pageref{schema-bin-prel} zusammen mit den
+Beschränkungen, die der Typ \type{head"=argument"=phrase} von \type{headed"=phrase} erbt.
+\eas
+Kopf-Argument-Schema + Kopfmerkmalsprinzip:\\
+\ms[head-argument-phrase~]{
+head   & \ibox{1} \\
+subcat & \ibox{2} \\[2mm]
+head-dtr  & \ms{ head   & \ibox{1} \\
+                 subcat & \ibox{2} $\oplus$ \sliste{ \ibox{3} } \\
+               } \\
+non-head-dtrs  & \sliste{ \ibox{3} } \\
+}
+\zs
+(\mex{1}) zeigt eine Beschreibung der Struktur, die durch das Schema~\ref{schema-bin-prel} lizenziert wird.
+Zusätzlich zur Valenzinformation, die schon in (\ref{ms-dem-mann-gibt}) enthalten war,
+ist in (\mex{1}) noch die Kopf"|information spezifiziert, und es ist zu sehen, wie
+das Kopfmerkmalsprinzip die Projektion der Merkmale erzwingt: Der Kopfwert der gesamten Struktur
+\iboxb{1} entspricht dem Kopfwert des Verbs \emph{gibt}.
+\ea
+\onems[head-argument-phrase~]{
+      phon  \phonliste{ dem Mann gibt }\\
+      head  \ibox{1}\\
+      subcat \ibox{2} \sliste{ NP[\textit{nom\/}], NP[\textit{acc}]} \\
+      head-dtr \onems[word]{ phon \phonliste{ gibt }\\
+                                     head \ibox{1} \ms[verb]{vform & fin \\
+                                                            }\\
+                                     subcat \ibox{2}  $\oplus$ \sliste{ \ibox{3} } \\
+                       } \\
+      non-head-dtrs \liste{ \ibox{3} \onems[head-argument-phrase~]{ 
+                                        phon \phonliste{ dem Mann }\\
+                                        head \ms[noun]{ cas & dat\\
+                                                      } \\
+                                        subcat   \eliste \\
+                                        head-dtr \ldots\\
+                                        non-head-dtrs \ldots\\
+                                     }
+                       }\\
+}
+\z
+
+\noindent
+Für den gesamten Satz \emph{er das Buch dem Mann gibt} bekommt man -- wie schon in
+Abbildung~\ref{fig-projektion-head-feat} dargestellt -- eine Struktur, die durch (\mex{1})
+beschrieben wird:
+\ea
+\ms{
+head \ms[verb]{vform & fin \\
+              }\\
+subcat \eliste\\
+}
+\z
+Diese Beschreibung entspricht dem Satzsymbol S in der Grammatik auf
+Seite~\pageref{bsp-grammatik-psg}, wobei (\mex{0}) noch Information über die Verbform enthält.
+
+
+Damit sind bereits einige der wesentlichen Konzepte der HPSG"=Theorie eingeführt. Im folgenden
+Kapitel wird gezeigt, wie man den semantischen Beitrag von Wörtern repräsentieren und den
+semantischen Beitrag von Phrasen kompositionell bestimmen kann.
+
+
+
+
+
+
+\section*{Kontrollfragen}
+
+
+\begin{enumerate}
+\item Wie kann man Konstituentenstrukturen mit Hilfe von Merkmalstrukturen modellieren?
+\item Wodurch zeichnen sich Köpfe gegenüber Nichtköpfen aus?
+\item Wie wird erreicht, daß in bezug auf den Kopf relevante Information auch auf phrasalem
+      Niveau verfügbar ist?
+\end{enumerate}
+
+\section*{Übungsaufgaben}
+
+\begin{enumerate}
+\item Zeichnen Sie einen Syntaxbaum für (\mex{1}):
+\ea
+daß der Mann das spannende Buch liest
+\z
+Markieren Sie die Kanten im Baum mit Ad für Adjunkt, Ar für Argument und
+H für Kopf.
+\item Geben Sie die vollständige Merkmalbeschreibung für die Wortfolge in (\mex{1}), wie sie in
+  \emph{daß das Kind schläft} vorkommt,  an:
+      \ea
+      das Kind schläft
+      \z
+\item\label{uebung-grammix-kapitel4}
+      Dem Buch liegt eine CD mit Implementationen von Grammatiken bei, die
+      den jeweiligen Kapiteln entsprechen. Die CD enthält ein eigenes Betriebssystem,
+      so daß Sie unabhängig vom auf dem Computer installierten Betriebssystem
+      mit der CD arbeiten können. Voraussetzung ist lediglich ein Intel"=kompatibler Prozessor.
+
+      Konfigurieren Sie Ihren Computer so, daß er von einer eingelegten CD bootet und starten
+      Sie den Computer von der Grammix"=CD. Es sollte ein Startbildschirm im Corporate
+      Design der Universität Bremen erscheinen. Wenn der Bootvorgang abgeschlossen ist,
+      sehen Sie einen Bildschirm mit einem Begrüßungsfenster in einem Web"=Browser und
+      mit verschiedenen Icons, die den einzelnen Grammatiken
+      entsprechen. Klicken Sie auf das Icon, unter dem \emph{Grammatik 4} steht. Es werden sich
+      zwei Fenster öffnen, und die Grammatik~4 wird im größeren der beiden Fenster geladen.
+      Nach Beendigung des Ladevorgangs erscheint ein Prompt (\verb+>>>+). An dieser Stelle
+      können Sie Sätze eingeben, die dann vom System mittels der jeweils geladenen Grammatik
+      analysiert werden. Die Lexika, die zu den Grammatiken gehören, sind sehr klein,
+      aber der Leser kann sie bei Bedarf selbst erweitern.
+
+      Weitere Details zum Arbeiten mit der Grammix"=CD finden Sie im Begrüßungsfenster,
+      das beim Starten der CD geöffnet wird, oder auf der zur CD gehörenden Web"=Seite \url{http://www.cl.uni-bremen.de/Software/Grammix/}.
+
+      Analysieren Sie die folgenden Sätze:
+      \eal
+      \ex Der Mann schläft.
+      \ex der Mann die Frau kennt
+      \zl
+      Nach der Eingabe der Sätze öffnet sich ein weiteres Fenster, das Chart"=Display.
+      Das Chart"=Display ist eine Visualisierung der Prozesse, die bei der automatischen
+      Analyse von Sätzen ablaufen. Die einzelnen Teilphrasen, die von der
+      Grammatik lizenziert werden, sind durch Kanten im Chart"=Display dargestellt. Die Kanten
+      kann man anzeigen lassen, indem man sie anklickt.
+
+      Nach einer erfolgreichen Analyse einer Eingabe öffnet sich ein weiteres Fenster mit einem
+      Syntaxbaum. Der Syntaxbaum enthält die Phonologie"=Werte der im Baum enthaltenen
+      linguistischen Objekte und Information über den Typ dieser Objekte.
+      Klickt man die Knoten im Baum an, wird die zugehörige Merkmalbeschreibung
+      angezeigt. Ein weiterer Klick bringt sie wieder zum Verschwinden. Mit der rechten Maustaste
+      kann man Teile von Beschreibungen ausblenden. Durch Klicken auf die Boxen für die Strukturteilung
+      kann man die Werte, die zu den entsprechenden Boxen gehören, ein- und ausblenden.
+
+      Lassen Sie sich die Merkmalbeschreibungen für die Beispiele in (\mex{0}) anzeigen!
+      Überlegen Sie, wieso die Merkmale die Werte haben, die sie haben!
+      
+      Geben Sie die ungrammatischen Wortfolgen in (\mex{1}) (ohne den Stern) ein:
+      \eal
+      \ex[*]{
+      Mann schläft.
+      }
+      \ex[*]{
+      Der Mann kennt.
+      }
+      \zl
+      Inspizieren Sie mit Hilfe des Chart"=Displays die Parse"=Chart! Welche Wörter
+      werden zu Wortgruppen zusammengebaut, welche nicht? Warum ist das so?
+\end{enumerate}
+

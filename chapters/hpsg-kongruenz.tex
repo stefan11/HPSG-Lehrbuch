@@ -1,0 +1,719 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: hpsg-kongruenz.tex,v $
+%%  $Revision: 1.13 $
+%%      $Date: 2007/02/13 11:00:12 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Kongruenz}
+\label{chap-kongruenz}
+\is{Kongruenz|(}
+
+In diesem Kapitel werden Kongruenzphänomene behandelt. Man sagt, daß zwei linguistische
+Objekte kongruieren, wenn sie in bestimmten morpho"=syntaktischen Merkmalen (\zb Kasus,
+Person, Numerus, Genus) immer übereinstimmen.
+So gibt es im Deutschen zum Beispiel Subjekt"=Verb"=Kongruenz: 
+Das Verb muß mit dem Subjekt in Person und Numerus übereinstimmen.
+Wie wir gleich sehen werden, sind Kongruenzphänomene in der HPSG sehr einfach
+zu beschreiben.
+
+\section{Subjekt-Verb-Kongruenz}
+\is{Kongruenz!Subjekt"=Verb"=|(}
+
+Im Deutschen gibt es Subjekt"=Verb"=Kongruenz. Person und Numerus des Subjekts
+müssen zur Form des Verbs passen:
+\eal
+\ex Ich lache.
+\ex Du lachst.
+\ex Er/sie/es lacht.
+\ex Wir lachen.
+\ex Ihr lacht.
+\ex Sie lachen.
+\zl
+Die Analyse der Subjekt"=Verb"=Kongruenz liegt auf der Hand: Das Verb selegiert
+das Subjekt und kann also auch Anforderungen an Person- und Numerus"=Werte stellen \citep[\page 82]{ps2}.
+Den \localw des Lexikoneintrags für das finite Verb \emph{lachst} zeigt (\mex{1}):
+\ea
+\localw für \emph{lachst}:\\
+\ms{ cat & \ms{ head & \ms[verb]{ vform & fin\\
+                                }\\
+                spr & \eliste\\
+                subcat & \liste{ NP[\nom]\ind{1} }\\
+               }\\
+     cont & \ms[lachen]{
+            agens & \ibox{1} \ms{
+                             per & 2\\
+                             num & sg\\
+                             }\\
+            }\\
+}
+\z
+In diesem Lexikoneintrag sind die Person- und Numerus"=Werte des Subjektindexes \iboxb{1}
+spezifiziert. Wird \emph{lachst} mit einer Subjektsnominalphrase kombiniert, muß diese zweite Person Singular
+sein.
+
+Interessant sind Fälle, in denen Formen zusammenfallen. So kann zum Beispiel das Wort
+\emph{gab} sowohl mit einem Subjekt in der ersten Person als auch mit einem in der dritten Person vorkommen:
+\eal
+\ex Ich gab ihm das Buch.
+\ex Er  gab ihm das Buch.
+\zl
+Das kann man modellieren, indem man zwei Lexikoneinträge für \emph{gab} annimmt. Bei einem solchen Vorgehen
+wird allerdings nicht erfaßt, daß diese beiden Einträge bis auf den Wert des \textsc{person}"=Merkmals absolut
+identisch sind. Statt auf der Ebene der Lexikoneinträge eine Disjunktion zu verwenden, verwendet man
+die Disjunktion im Wert des \textsc{person}"=Merkmals.\footnote{
+  Die beiden Ansätze sind logisch äquivalent. Das kann man sich verdeutlichen, wenn man die
+  beiden Repräsentationen in (i) vergleicht:
+  \eal
+  \ex {} [\textsc{per} 1] $\vee$ [\textsc{per} 3]
+  \ex {} [\textsc{per} 1 $\vee$ 3]
+  \zl
+  Beide beschreiben dieselbe Menge von Objekten. Dennoch wird die Repräsentation in (ii.b) der
+  in (ii.a) vorgezogen, da der Numerus"=Wert nicht wie in (ii.a) mehrfach aufgeführt werden
+  muß und es somit von vornherein ausgeschlossen ist, daß die Numerus"=Werte in den Disjunkten
+  verschieden sein können.
+  \eal
+  \ex {} \ms{ per & 1 \\
+              num & sg \\ } $\vee$ \ms{ per & 3 \\
+                                        num & sg \\ }
+  \ex \ms{ per & 1 $\vee$ 3\\
+           num & sg \\ }
+  \zllast
+}
+Für \emph{gab} hat man also:
+\ea
+\label{le-gab}
+\localw für \emph{gab}:\\
+\ms
+{ cat & \ms{ head & \ms[verb]
+                     { vform & fin \\
+                     } \\
+             spr    & \eliste\\
+             subcat & \liste{ NP[\textit{nom\/}]\ind{1}, NP[\textit{acc}]\ind{2}, NP[\textit{dat}]\ind{3}   } \\
+           } \\
+  cont &  \ms[geben]{ agens & \ibox{1} \ms{
+                                       per & 1 $\vee$ 3\\
+                                       num & sg\\
+                                       }\\
+                      thema & \ibox{2} \\
+                      goal  & \ibox{3} \\
+           } \\
+}
+\z
+Verwendet man diesen Lexikoneintrag für die Analyse von (\mex{-1}a), so wird die Agens"=Rolle
+von \emph{geben} mit dem Index des Pronomens \emph{ich} identifiziert. Der \textsc{person}"=Wert von
+\emph{ich} ist \type{1}, weshalb die Kombination der Beschränkung \type{1} $\vee$ \type{3} mit dem \textsc{person}"=Wert 
+des Pronomens \type{1} ergibt. Bei der Analyse von (\mex{-1}b) ist das Ergebnis der Kombination
+der \textsc{person}"=Werte \type{3}.
+
+Verlangt ein Verb keine Nominalphrase im Nominativ, muß es in der dritten Person Singular stehen.
+Beispiele zeigt (\mex{1}):
+\eal
+\ex Ihm graut vor der Prüfung.
+\ex\label{sp-dass-er-kommt-gefaellt-mir}
+Daß er kommt, gefällt mir.
+\ex Den Männern wird geholfen.
+\ex Heute wird gefeiert!
+\ex Hier scheint gefeiert zu werden.\label{bsp-scheint-gefeiert-zu-werden}
+\zl
+Formen wie \noword{graust} oder \word{gefällst} mit Satzargument nach dem Muster von
+(\ref{sp-dass-er-kommt-gefaellt-mir}) gibt es im Lexikon nicht. 
+Die Interaktion von Kongruenzbedingungen mit der Flexionsmorphologie\is{Flexion} wird 
+im Kapitel~\ref{sec-morph-flex-anal} genauer besprochen. Hier soll lediglich festgehalten werden,
+daß \zb die Endung für die zweite Person Singular nur mit einem Verb verknüpft
+werden kann, das ein entsprechend kongruierendes Subjekt hat. Da das bei \emph{grauen} nicht der Fall
+ist, können die Formen der zweiten Person Singular nicht gebildet werden.
+Bei (\mex{0}c,e) ist die Sache etwas schwieriger, da \emph{wird} und \emph{scheint} Verben sind,
+die mit vielen verschiedenen Verben vorkommen können. Wie das Subjekt aussieht bzw.\ ob es überhaupt
+eins gibt, wird von den jeweils anderen Verben bestimmt.\is{Verb!Anhebungs-}
+Siehe hierzu auch Kapitel~\ref{sec-subjektanhebung-anal} und Kapitel~\ref{sec-passive-anal}.
+Die Flexionsregeln erzwingen
+das Vorhandensein eines Subjekts, wenn die Endung von der dritten Person Singular verschieden
+ist. Der Unterschied in (\mex{1}) ist also durch das Zusammenspiel mehrerer Beschränkungen
+erklärt: Ob \emph{scheinst} ein Subjekt hat oder nicht, hängt vom eingebetteten Verb ab,
+ob der Satz grammatisch ist oder nicht, hängt vom Flexionsmorphem ab, das im Fall
+von \emph{scheinst} ein Subjekt verlangt und im Fall von \emph{scheint} sowohl mit
+subjektlosen Verben als auch mit Verben, die ein Subjekt haben, kompatibel ist.
+\eal
+\ex[*]{
+Dir scheinst zu grauen.
+}
+\ex[]{
+Du scheinst zu schlafen.
+}
+\ex[]{
+Ihm scheint zu grauen.
+}
+\ex[]{
+Er scheint zu schlafen.
+}
+\zl
+Das gilt genauso für das Passivhilfsverb\is{Passiv} \emph{werden}:
+\eal\label{bsp-kongruenz-passiv}
+\ex[]{
+Die Männer werden geschlagen.
+}
+\ex[*]{
+Die Männer wird geschlagen.
+}
+\ex[*]{
+Den Männern werden geholfen.
+}
+\ex[]{
+Den Männern wird geholfen.
+}
+\zl
+Das Akkusativobjekt von \emph{schlagen} wird bei Passivierung zum
+Subjekt und muß deshalb mit dem finiten Verb kongruieren. Das Dativobjekt
+von \emph{helfen} wird nicht zum Subjekt, weshalb der gesamte Satz
+dann kein Subjekt hat und das finite Verb in der dritten Person Singular
+stehen muß.
+
+Die Subjekt"=Verb"=Kongruenz\label{page-kongruenz-scheinen} soll im folgenden noch präzisiert werden.
+Dazu müssen wir jedoch auf die Kapitel~\ref{chap-verbalkomplex} und~\ref{chap-anhebung}
+zum Verbalkomplex und das Kapitel~\ref{chap-passiv} zum Passiv vorgreifen:
+Ich gehe davon aus, daß Verbalkomplexe im Deutschen so analysiert werden,
+daß die Argumente des eingebetteten Verbs zu Argumenten\is{Argument!-anziehung|(} des gesamten Komplexes
+werden. In den obigen Beispielen bilden dann \emph{zu grauen} und \emph{scheinen}
+bzw.\ \emph{zu schlafen} und \emph{scheinst} einen Komplex. Selbiges gilt auch für
+das Passivhilfsverb und das eingebettete Partizip.
+Für die Beispiele in (\mex{-1}) und (\mex{0}) ergeben sich die folgenden \subcatlen:\enlargethispage{\baselineskip}
+\ea
+\begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{}}
+  &                          &      \textsc{subcat}\\[2mm]
+a.&zu schlafen scheinst:     & \sliste{NP[\nom]}\\[2mm]
+b.&zu grauen scheint:        & \sliste{NP[\dat]}\\[2mm]
+c.&geschlagen werden:        & \sliste{NP[\nom]}\\[2mm]
+d.&geholfen wird:            & \sliste{NP[\dat]}\\
+\end{tabular}
+\z
+Diese Valenzlisten enthalten jeweils nur ein Argument, und bei Nominativ-NPen muß es
+Kongruenz geben, bei Nicht"=Nominativ"=NPen muß das Verb in der dritten Person stehen.
+
+Die Verhältnisse sind bei Verben mit mehr Argumenten genauso. (\mex{2}) zeigt
+die \subcatlen für die Verbalkomplexe in (\mex{1}):
+\eal
+\ex weil den Studenten vor der Prüfung zu grauen scheint
+\ex weil die Frauen ihn zu lieben scheinen
+\ex weil die Bücher dem Mann überreicht werden
+\zl
+ \ea
+\begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{}}
+  &                          &      \textsc{subcat}\\[2mm]
+a.&zu grauen scheint:        & \sliste{NP[\dat], PP[\textit{vor}]}\\[2mm]
+b.&zu lieben scheinen:       & \sliste{NP[\nom], NP[\acc]}\\[2mm]
+c.&überreicht werden:        & \sliste{NP[\nom], NP[\dat]}\\[2mm]
+\end{tabular}
+\z
+Gibt es ein Nominativelement, so muß das Verb mit ihm übereinstimmen,
+ist das wie in (\mex{-1}a) nicht der Fall, so muß das Verb in der dritten Person Singular stehen.
+
+Bisher stand das Nominativ"=Element immer an der ersten Stelle in der \subcatl. Das ist aber nicht
+immer so. Im Kapitel~\ref{sec-remote-passive-phen} wird das sogenannte Fernpassiv\is{Passiv!Fern-}
+diskutiert, das sich dadurch auszeichnet, daß Objekte des eingebetteten Verbs zum Subjekt werden
+können. Die hier interessierenden Beispiele sind die mit dem Objektkontrollverb \emph{erlauben}
+(siehe auch Beispiel (\ref{bsp-auskosten-fernpassiv}) auf S.\,\pageref{bsp-auskosten-fernpassiv}).
+In einem Satz wie (\mex{1}) wird das Objekt von \emph{lesen} zum Subjekt des gesamten Satzes.
+\ea
+Die Aufsätze wurden ihm zu lesen erlaubt.
+\z
+Die Valenzlisten für den Aktivsatz in (\mex{1}) und den Passivsatz in (\mex{0}) zeigt (\mex{2}):
+\ea
+Ich habe ihm die Aufsätze zu lesen erlaubt.
+\z
+ \ea
+\begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{}}
+  &                          & \textsc{subcat}\\[2mm]
+a.&zu lesen erlaubt habe:    & \sliste{NP[\nom], NP[\dat], NP[\acc]}\\[2mm]
+b.&zu lesen erlaubt wurde:   & \sliste{NP[\dat], NP[\nom]}\\
+\end{tabular}
+\z
+Bei der Passivierung wird das Subjekt von \emph{erlauben} unterdrückt, so daß
+das Dativobjekt an erster Stelle steht. Das Objekt von \emph{lesen} wird im
+Nominativ realisiert und muß auch mit dem Verb kongruieren.\is{Argument!-anziehung|)}
+
+Man kann die Generalisierung in bezug auf die obigen Daten wie folgt zusammenfassen:
+Das Verb muß mit der NP im Nominativ\is{Kasus!Nominativ} kongruieren, wenn es keine
+gibt, muß das Verb in der dritten Person Singular stehen.\footnote{
+  Normalerweise gibt es nur eine NP im Nominativ in einer Valenzliste. In Kopula"=Konstruktionen\is{Kopula} wie
+  (i) kommen zwei Nominative vor:
+  \ea
+  Er ist ein Lügner.
+  \z
+  Hier kann man davon ausgehen, daß das Verb mit der am wenigsten obliquen NP im Nominativ (dem
+  Subjekt) kongruiert. Die Beschreibung der Kongruenzphänomene innerhalb von Kopulakonstruktionen ist
+  jedoch nicht trivial (\citew[\page 197--198]{Reis82}, \citew[\page 274]{Mueller99a}).%
+}
+Es ist nun interessant zu sehen, daß dieses Kongruenzprinzip\is{Prinzip!Kongruenz-} auch für andere Sprachen
+wie \zb Spanisch\il{Spanisch}\footnote{
+Zu den spanischen Daten siehe \citet{VV2000a-u}. Die Analyse, die Vogel und Villada vorschlagen,
+ist im Gegensatz zu der hier vorgeschlagenen keine prinzipielle, sondern nur eine einzelsprachliche
+Analyse.
+} und Hindi\il{Hindi} korrekte Vorhersagen macht \citep{MSHindi}.
+Hindi hat wesentlich komplexere Kongruenzphänomene \citep{Arsenault2002a}, und man kann auch Subjekt nicht ohne weiteres
+mit Nominativ gleichsetzen. Durch ein Kongruenzprinzip, das sicherstellt, daß das Verb
+mit dem am wenigsten obliquen Nominativ"=Element kongruiert, werden die Hindi"=Daten korrekt erfaßt.
+\is{Kongruenz!Subjekt"=Verb"=|)}
+
+\section{NP-interne Kongruenz}
+\label{sec-np-kongruenz}
+
+In\is{Kongruenz!NP"=interne|(}\is{Adjektiv|(}\is{Determinator|(}\is{Nomen|(}
+der Nominalphrase müssen Determinator, Adjektiv und Nomen in Kasus\is{Kasus}, Numerus\is{Numerus}, Genus\is{Genus} 
+und Flexionsklasse\is{Flexion!-sklasse} übereinstimmen. (\mex{1}) zeigt einige Beispiele:
+\eal
+\ex der kluge  Mann
+\ex des klugen Mannes
+\ex ein kluger Mann
+\zl
+In (\mex{0}a,b) sieht man, daß Artikel, Adjektiv und Nomen je nach Kasus variieren. (\mex{0}c)
+zeigt, daß es im Vergleich zu (\mex{0}a) Unterschiede in der Adjektivform gibt, wenn
+der indefinite Artikel benutzt wird. Um den Unterschied zwischen (\mex{0}a) und (\mex{0}c)
+erfassen zu können, teilt man Determinatoren und Adjektive in Flexionsklassen ein und
+verlangt, daß die jeweils in NPen realisierten Elemente bezüglich ihrer Flexionsklassen
+zueinander passen.
+
+Wie bei \emph{gab} fallen in der Flexion im Nominalbereich viele Formen zusammen.
+So ist zum Beispiel der Kasuswert von \emph{Mann} die Disjunktion
+$nom \vee dat \vee acc$.
+Im Singular ist nur der Genitiv von \emph{Mann} morphologisch gekennzeichnet.
+
+Betrachtet man die Beispiele in (\mex{0}), könnte man annehmen, daß die Kongruenz
+in der Flexionsklasse nur den Determinator und das Adjektiv betrifft. Dem ist aber nicht so,
+denn es gibt eine (kleine) Klasse von Nomen, die wie Adjektive mit dem Determinator kongruieren.
+Zu diesen Nomina gehören \emph{Gesandter}, \emph{Verwandter}, \emph{Beamter}.
+\eal
+\ex ein (frustrierter) Beamter
+\ex der (frustrierte)  Beamte
+\zl
+Diese Nomina werden wie Adjektive flektiert, Genus und Flexionsklasse sind morphologisch markiert.
+%ps2:372
+
+
+Traditionell werden die Adjektivformen in drei Flexionsklassen\is{Flexion!-sklasse|(} eingeteilt: schwach, gemischt
+und stark. Dieter Wunderlich\aimention{Dieter Wunderlich} hat 1988 in einer unveröffentlichten Arbeit, die von \citet[\page66]{ps2}
+zitiert wird, vorgeschlagen, nur noch zwei Klassen zu verwenden: stark und schwach. Mit dieser
+Einteilung ergibt sich folgende Tabelle, wobei \type{strong}\istype{strong} heißt, daß der Determinator
+stark sein muß und \type{weak}\istype{weak}, daß der Determinator schwach sein muß.
+\ea
+\begin{tabular}[t]{lllll}
+Form   & \textsc{dtype}  & \textsc{num} & \textsc{gen}  & \textsc{case}\\
+kluge  & \type{dtype}        & \type{sg}   & \type{fem}     & $nom \vee acc$\\
+       & \type{strong}       & \type{sg}   & \type{mas}     & $nom$\\
+       & \type{strong}       & \type{sg}   & \type{neu}     & $nom \vee acc$\\
+       & \type{weak}         & \type{pl}   & \type{genus}   & $nom \vee acc$\\
+klugen & \type{strong}       & \type{sg}   & \type{genus}   & $gen \vee dat$\\
+       & \type{strong}       & \type{pl}   & \type{genus}   & $case$\\
+       & \type{dtype}        & \type{sg}   & \type{mas}     & $acc$\\
+       & \type{weak}         & \type{sg}   & $mas \vee neu$ & $gen$\\
+       & \type{weak}         & \type{pl}   & \type{genus}   & $dat$\\
+klugem & \type{weak}         & \type{sg}   & $mas \vee neu$ & $dat$\\
+kluger & \type{weak}         & \type{sg}   & \type{fem}     & $gen \vee dat$\\
+       & \type{weak}         & \type{pl}   & \type{genus}   & $gen$\\
+       & \type{weak}         & \type{sg}   & \type{mas}     & $nom$\\
+kluges & \type{weak}         & \type{sg}   & \type{neu}     & $nom \vee acc$\\
+\end{tabular}
+\z
+Die Typen \type{dtype}\istype{dtype}, \type{case}\istype{case} und \type{genus}\istype{genus} stehen dabei für den jeweils
+allgemeinsten Typ, \dash, es gibt keine Einschränkung in bezug auf den Wert von \textsc{dtype}\isfeat{dtype}, 
+\textsc{case}\isfeat{case} bzw.\ \textsc{genus}\isfeat{genus} für die entsprechenden Adjektivformen.
+
+Die definiten Artikel haben die Flexionsklasse \type{strong}. Alle flektierten Formen
+des Determinators \emph{ein} werden ebenfalls zu den starken Determinatoren gezählt,
+wohingegen die unflektierte Form als schwacher Determinator gilt.
+\eal
+\ex ein kluger Mann   (schwacher Determinator)
+\ex einem klugen Mann (starker Determinator)
+\zl
+In Nominalphrasen ohne Determinator müssen die Adjektive den \textsc{dtype}"=Wert \type{weak} haben.\is{Flexion!-sklasse|)}
+\eal
+\ex mit frischer Milch
+\ex mit gutem Wein
+\ex mit trockenem Getreide
+\zl
+Die Kongruenz zwischen Determinator und Nomen wird genauso sichergestellt wie die zwischen Subjekt und Verb:
+Das Nomen selegiert einen Determinator, der in den entsprechenden morpho"=syntaktischen Merkmalen
+mit ihm übereinstimmt:
+\ea
+\label{le-mann}
+\localw für \emph{Mann}:\\
+\ms
+{ cat & \ms{ head & \ms[noun]
+                     { case & \ibox{1} $nom \vee dat \vee acc$\\
+                     } \\
+             spr    & \sliste{ Det[\textsc{case} \ibox{1}, \textsc{num} \ibox{2}, \textsc{gen} \ibox{3}] }\\
+             subcat & \eliste\\
+           } \\
+  cont &  \ms{
+          ind &  \ibox{4} \ms{
+                 per & 3\\
+                 num & \ibox{2} sg\\
+                 gen & \ibox{3} mas\\
+                 }\\
+          restr & \liste{ \ms[mann]{ 
+                          inst & \ibox{4}\\
+                          } } \\
+          }\\
+}
+\z
+Hierbei ist es wichtig, daß die Kasuswerte des Determinators mit denen des Nomens
+identifiziert sind. Der Wert ist identisch, denn wäre er nur gleich, würde die Grammatik
+ungrammatische Sätze zulassen. Mit einem Lexikoneintrag, der den \catw in (\mex{1}) hat,
+könnte man den Satz (\mex{2}) analysieren.
+\ea
+\catw für \emph{Mann} (falsch!):\\
+\ms{ head & \ms[noun]
+                     { case & $nom \vee dat \vee acc$\\
+                     } \\
+     spr    & \sliste{ Det[\textsc{case} $nom \vee dat \vee acc$, \textsc{num} \type{sg}, \textsc{gen} \type{mas}] }\\
+     subcat & \eliste\\
+}
+\z
+\ea[*]{
+Dem Mann schläft.
+}
+\z
+Das liegt daran, daß \emph{dem} den Kasuswert \type{dat} hat. Die Kombination der Beschränkung
+$nom \vee dat \vee acc$ mit \type{dat} ist \type{dat}, \dash, man kann \emph{dem}
+mit \emph{Mann} kombinieren. Durch die Identifikation der Beschreibung des Artikels
+in der \textsc{spr}"=Liste mit dem \textsc{synsem}"=Wert des Determinators wird der Kasuswert
+in der \textsc{spr}"=Liste in (\mex{-1}) zu \type{dat}, der Kasuswert des Nomens bleibt
+davon aber unberührt, ist also weiterhin $nom \vee dat \vee acc$. Somit wäre die Nominalphrase
+\emph{dem Mann} mit den Anforderungen des Verbs \emph{schläft} kompatibel, was der
+Datenlage nicht entspricht.
+Bei (\ref{le-mann}) gibt es dagegen kein Problem: Wenn der Determinator mit dem Nomen
+kombiniert wird, wird der Kasuswert in der \textsc{spr}"=Liste spezifischer und da dieser
+Wert mit dem Kasuswert des Nomens identisch ist, hat die gesamte NP den Kasuswert, der
+sich aus der Kombination der Kasuswerte des Nomens und des Determinators ergibt.
+
+
+Für Nomina wie \emph{Beamter} wird zusätzlich noch die Flexionsklasse\is{Flexion!-sklasse} des Determinators
+spezifiziert. (\mex{1}) zeigt ein Beispiel:
+\ea
+\label{le-beamter}
+\localw für \emph{Beamter}:\\
+\ms
+{ cat & \ms{ head & \ms[noun]
+                     { case & \ibox{1} $nom \vee dat \vee acc$\\
+                     } \\
+             spr    & \sliste{ Det[\textsc{case} \ibox{1}, \textsc{num} \ibox{2}, \textsc{gen} \ibox{3}, \textsc{dtype} \type{weak}] }\\
+             subcat & \eliste\\
+           } \\
+  cont &  \ms{
+          ind &  \ibox{4} \ms{
+                 per & 3\\
+                 num & \ibox{2} sg\\
+                 gen & \ibox{3} mas\\
+                 }\\
+          restr & \liste{ \ms[beamter]{ 
+                          inst & \ibox{4}\\
+                          } \\
+                        }\\
+         }\\
+}
+\z
+
+\noindent
+Die Kongruenz der Adjektive ist nicht ganz so einfach zu erfassen, aber auch nicht wirklich schwierig:
+Ein Adjektiv modifiziert eine \nbar"=Projektion, \dash eine Nominalprojektion, die noch mit einem Determinator
+kombiniert werden muß. Das Adjektiv kann also Beschränkungen über die Eigenschaften des Determinators
+formulieren. Insbesondere kann es Kasus, Genus, Numerus und Flexionsklasse des Determinators bestimmen.
+Da das Nomen selbst mit dem Determinator in Kasus, Numerus, Genus und Flexionsklasse\is{Flexion!-sklasse} kongruiert, ist somit
+auch die Kongruenz des Adjektivs mit dem Nomen gewährleistet. (\mex{1}) zeigt das am Beispiel
+des Adjektivs \emph{interessantes}, das bereits im Kapitel über Modifikation auf Seite~\pageref{le-interessantes-sem}
+besprochen wurde:
+
+\eas
+Adjektiveintrag mit Kongruenzinformation (\localw für \emph{interessantes}):\\
+\label{le-interessantes-agr}%
+\ms
+ { cat & \ms{ head & \onems[adj]
+                      { %prd & $-$ \\
+                        mod$|$loc \ms{ cat$|$spr & \liste{~ \textrm{Det[\begin{tabular}[t]{@{}l@{}}
+                                                          \textsc{case} $nom \vee acc$,\\
+                                                          \textsc{num} \type{sg},
+                                                          \textsc{gen} \type{neu},\\
+                                                          \textsc{dtype} \type{weak}]\\
+                                                          \end{tabular}}~~~}\\
+                                       cont & \ms{ ind   & \ibox{1} \\
+                                                                     restr & \ibox{2} \\
+                                                                    } \\
+                                     }\\
+                      } \\
+               spr    & \eliste\\
+               subcat & \eliste \\
+             } \\
+   cont & \ms{ ind & \ibox{1} \\
+                     restr & \liste{ \ms[interessant]{ 
+                                theme & \ibox{1} \\ 
+                               }} $\oplus$ \ibox{2}  \\
+              } \\
+}
+\zs
+
+\noindent
+In (\mex{0}) wird anders als im auf Seite~\pageref{le-interessantes-sem}
+angegebenen Eintrag nur auf die morpho"=syntaktischen Eigenschaften des Determinators Bezug genommen.
+Über den semantischen Index des Adjektivs wird nichts gesagt, außer daß er mit dem des Nomens
+identisch sein muß. Behandelt man die morpho"=syntaktischen Merkmale des Determinators als
+Kopfmerkmale, ist sichergestellt, daß die morpho"=syntaktischen Eigenschaften
+des Determinators und des Adjektivs von den semantischen Eigenschaften des Nomens unabhängig sind.
+Das ist wichtig für Nomina wie \emph{Mädchen} und \emph{Weib}, die innerhalb der NP das Genus Neutrum
+haben, auf die man sich aber sowohl mit \emph{es} als auch mit \emph{sie} beziehen kann:
+\eal
+\ex "`Farbe bringt die meiste Knete!"' verriet ein 14jähriges türkisches {\em Mädchen\/}, {\em die\/} die Mauerstückchen am
+      Nachmittag am Checkpoint Charlie an Japaner und US-Bürger verkauft.\footnote{
+        taz, 14.06.90, S.\,6.
+      }
+\ex Es ist ein junges {\em Mädchen\/}, {\em die\/} auf der Suche nach CDs bei Bolzes reinschaut.\footnote{
+        taz, 13.03.96, S.\,11.
+      }
+\zl
+%Solche Sätze sind jedoch selten und kommen im heutigen Deutsch praktisch nicht vor.
+\eal
+\label{bsp-neu-neu-goethe}
+\ex Das {\em Mädchen\/}, {\em das\/} Rosen und andere Blumen herumtrug, bot ihm \emph{ihren} Korb
+dar, \ldots\footnote{
+        Goethe, {\em Wilhelm Meisters Lehrjahre\/}, Hamburger Ausgabe, Band 7, S.\,90.
+      }
+\ex Nun sitz ich hier, wie ein altes {\em Weib\/}, {\em das\/} ihr Holz von Zäunen stoppelt
+      und \emph{ihr}\iw{ihr!Possessivum} Brot an den Türen, um ihr hinsterbendes, freudloses Dasein noch einen
+      Augenblick zu verlängern und zu erleichtern.\footnote{
+        Goethe, {\em Die Leiden des jungen Werther\/}, Hamburger Ausgabe, Band 6, S.\,99.
+      }\label{bsp-goethe-altes-weib}
+\zl
+Der Genus"=Wert im semantischen Index von \emph{Mädchen} und \emph{Weib} muß also \type{fem} $\vee$ \type{neu} sein, Artikel
+und Adjektiv dürfen aber nie \type{fem} sein.\footnote{
+  Zu Problemen, die Nomina wie \emph{Mädchen} für die Bindungstheorie aufwerfen,
+  siehe \citew[\page417--418]{Mueller99a}.%
+}
+Das wird korrekt erfaßt, wenn \emph{Mädchen} von seinem Determinator verlangt,
+daß dieser das Genus Neutrum hat. Adjektive beziehen sich immer auf die Merkmale des Determinators (in der \textsc{spr}"=Liste
+des Nomens).
+
+Behandelt man Possessivpronomina\is{Pronomen!Possessiv-|(} als Determinatoren, folgt zwangsläufig, daß die Kongruenzmerkmale
+der Determinatoren keine semantischen Merkmale sein können, wie das \zb von \citet[\page 88]{ps2}
+im Zusammenhang mit deutschen Kongruenzphänomenen vorgeschlagen wurde, 
+denn das Pronomen \emph{seine} in (\mex{1}) referiert auf ein Maskulinum oder Neutrum, 
+kongruiert aber mit einem Femininum:
+\ea
+seine Frau
+\z
+Den Eintrag für das Possessivum\is{Pronomen!Possessiv-} zeigt (\mex{1}):
+\eas
+\textit{seine}:\\
+\label{le-seine-agr}
+\ms{
+cat & \ms{ head & \ms[det]{
+                       cas & nom $\vee$ acc \\
+                       gen & fem \\
+                       dtype & strong \\
+                       spec & \textrm{N:[\textsc{ind} \ibox{1}, \textsc{restr} \ibox{2}]} \\
+                      } \\
+            spr & \liste{}\\
+            subcat & \liste{} \\
+           } \\
+cont & \ms{ ind & \ibox{3} \ms{ 
+                            per & 3 \\
+                            num & sg \\
+                            gen & mas $\vee$ neu \\
+                           }} \\
+qstore & \liste{ \ms[def]{
+                 restind & \ms{ ind & \ibox{1}\\
+                                restr & \liste{ \ms[besitzen]{ 
+                                           location & \ibox{3} \\
+                                           thema    & \ibox{1} \\
+                                           }} $\oplus$ \ibox{2} \\
+                        }\\
+                 }}  \\
+}
+\zs
+\is{Pronomen!Possessiv-|)}\is{Kongruenz!NP"=interne|)}%
+\is{Adjektiv|)}\is{Determinator|)}\is{Nomen|)}
+%% \section{Unterspezifikation und Typen}
+
+%% Die Lexikoneintrag in (\ref{le-interessantes-agr}) und (\ref{le-seine-agr}) sind in bezug auf ihren
+%% Kasus unterspezifiziert. Sie können sowohl in Nominativnominalphrasen als auch in Akkusativnominalphrasen
+%% vorkommen.
+
+\begin{comment}
+\section{Alternativen}
+
+Analysen für Kongruenzphänomene müssen erfassen, daß Kongruenzbezieheungen zwischen
+Elementen bestehen können, die sich nicht im selben lokalen Baum befinden.
+So kongruieren in Abbildung~\vref{fig-Du-Maria-erwartest} jeweils Determinator und Nomen
+bzw.\ Subjekt und Verb, obwohl sie nicht Töchter eines gemeinsamen Mutterknotens sind.
+\begin{figure}[htbp]
+%% \centerline{\begin{pspicture}(0.6,0)(8,6.2)
+%% %\psgrid
+%% \rput[B](1,0){\rnode{Peter}{Du}}
+%% \rput[B](3,0){\rnode{Maria}{Maria}}
+%% \rput[B](6,0){\rnode{erwartet}{erwartest}}
+%% %
+%% \rput[B](6,2){\rnode{v}{V}}
+%% \rput[B](3,2){\rnode{np1}{NP}}
+%% %
+%% \rput[B](4.5,4){\rnode{vs}{V}}
+%% \rput[B](1,4){\rnode{np2}{NP}}
+%% %
+%% \rput[B](3,6){\rnode{vp}{V}}
+%% %
+%% \psset{angleA=-90,angleB=90,arm=0pt}
+%% %
+%% \ncdiag{v}{erwartet}
+%% \ncdiag{np2}{Peter}\ncdiag{np1}{Maria}
+%% \ncdiag{vs}{np1}\ncdiag{vs}{v}
+%% \ncdiag{vp}{np2}\ncdiag{vp}{vs}
+%% %
+%% \end{pspicture}}
+\hfill \begin{tabular}[b]{@{}cccc@{}}
+\multicolumn{2}{c}{\rnode{np}{NP}}\\[4ex]
+\rnode{det}{Det} & \multicolumn{2}{c}{\rnode{n1}{N}}\\[4ex]
+                & \rnode{a1}{A}            & \multicolumn{2}{c}{\rnode{n2}{N}}\\[4ex]
+                &                         & \rnode{a2}{A}           & \rnode{n3}{N}\\[4ex]
+\rnode{dem}{dem} & \rnode{kleinen}{kleinen} & \rnode{gruenen}{grünen} & \rnode{maennchen}{Männchen}\\
+\end{tabular}
+\ncline{np}{det}\ncline{np}{n1}%
+\ncline{n1}{a1}\ncline{n1}{n2}%
+\ncline{n2}{a2}\ncline{n2}{n3}%
+\ncline{det}{dem}%
+\ncline{a1}{kleinen}%
+\ncline{a2}{gruenen}%
+\ncline{n3}{maennchen}%
+\hfill \begin{tabular}[b]{@{}cccc@{}}
+\multicolumn{2}{c}{\rnode{v1}{V}}\\[4ex]
+\rnode{np1}{NP} & \multicolumn{2}{c}{\rnode{v2}{V}}\\[4ex]
+               & \rnode{np2}{NP}  & \rnode{v3}{V}\\[4ex]
+\rnode{du}{du}  & \rnode{ihn}{ihn} & \rnode{erw}{erwartest}\\
+\end{tabular}
+\ncline{v1}{np1}\ncline{v1}{v2}%
+\ncline{v2}{np2}\ncline{v2}{v3}%
+\ncline{np1}{du}%
+\ncline{np2}{ihn}%
+\ncline{v3}{erw}%
+\hfill\mbox{}
+\caption{\label{fig-Du-Maria-erwartest}Kongruenz in nichtlokalen Bäumen}
+\end{figure}
+%
+\citet{Kathol99b} entwickelt eine Theorie, in der Kongruenzmerkmale an allen kogruierenden
+Elementen repräsentiert sind. Die Kongruenzmerkmale sind bei ihm Kopfmerkmale. Er vergleicht
+seine Theorie mit der von \citet{ps2}, die auch der Analyse in diesem Kapitel zugrunde liegt.
+In der Analyse der Subjekt"=Verb"=Kongruenz von Pollard und Sag sind Eigenschaften wie
+Person und Numerus nur in der Beschreibung des Subjekts enthalten, nicht jedoch in der Beschreibung
+des Verbs, wenn man von der Valenzinformation absieht.
+Pollard und Sags Analyse skizziert Kathol wie in (\mex{1}a) und seine eigene wie in (\mex{1}b):
+\eal
+\ex\label{ps-agr} \begin{tabular}[t]{@{}ll@{}}
+\multicolumn{2}{c}{\rnode{x}{x}}\\[3ex]
+\rnode{functor}{x / y[F:\iboxt{1}]} & \rnode{argument}{y[F:\iboxt{1}]}\\[2ex]
+\end{tabular}
+\ncline{x}{functor}
+\ncline{x}{argument}
+
+\ex \begin{tabular}[t]{@{}ll@{}}
+\multicolumn{2}{c}{\rnode{x2}{x[F:\iboxt{1}]}}\\[3ex]
+\rnode{functor2}{x[F:\iboxt{1}] / y[F:\iboxt{1'}]} & \rnode{argument2}{y[F:\iboxt{1'}]}\\
+\end{tabular}
+\ncline{x2}{functor2}
+\ncline{x2}{argument2}
+\zl
+Dabei steht \emph{x} für den Kopf und \emph{y} für das selegierte Element. \emph{F} ist ein
+Kongrunezmerkmal. In Kathols Ansatz wird \ibox{1} mit \ibox{1'} identifiziert, so daß
+die Kongruenzinformation an Kopf und selgiertem Element und auch an der gesamten Projektion
+vorhanden ist.
+
+%% Kathol nennt verschiedene Argumente gegen Theorien wie (\ref{ps-agr}):
+%% \begin{enumerate}
+%% \item Im Gegensatz zur Rektion, in der ein Element die Eigenschaften eines anderen bestimmt, gibt
+%% es bei der Kongruenz Markierungen an beiden der beteiligten Elemente. Kathol verweist auf 
+%% \citew{Zwicky86} für Evidenz dafür, wegen dieses Unterschieds auch andere theoretische Mittel
+%% für die Beschreibung der Phänomene zu benutzen.
+%% \item Latein
+%% \item Subjektlose Verben im Deutschen.
+
+%% \end{enumerate}
+
+%% Arnold Zwickys Artikel beschäftigt sich mit einer Beschreibung der Adjektivkongruenz im Rahmen
+%% der \gpsg.
+
+Kathol führt Daten aus dem Latein an, die dafür sprechen, Kongruenzinformation einheitlich
+an allen beteiligten Elementen zu repräsentieren.
+\ea
+\gll illarum             duarum            bonarum            feminarum\\
+     dieser$_{gen}$.\fem.\pl{} zwei$_{gen}$.\fem.\pl{} guten$_{gen}$.\fem.\pl{} Frauen$_{gen}$.\fem.\pl\\
+\z
+Wenn die entsprechende Kongruenzinformation für die beteiligten Nomina und Adjektive an derselben
+Stelle in den Beschreibungen der entsprechenden Wörter repräsentiert ist, kann man für
+die entsprechenden morphologischen Prozesse generalisierte Regeln verwenden. Wird die zu den
+Endungen gehörende Information unterschiedlich repräsentiert, müssen gänzlich verschiedene
+morphologische Regeln angenommen werden.
+
+Was die einheitliche Behandlung der Morphologie angeht, ist Kathols Ansatz vorzusiehen. Es gibt jedoch
+auch Argumente gegen diesen Ansatz, die im folgenden präsentiert werden sollen:
+In Kathols Ansatz haben also alle Knoten in der Abbildung~\ref{fig-Du-Maria-erwartest} links die
+Kongruenzmerkmale Maskulin, Singular, Dativ, strong. Insbesondere haben auch die gesamte NP und
+alle Teilprojektionen diese Eigenschaften. Genauso haben alle Verb"=Knoten in Abbildung~\ref{fig-Du-Maria-erwartest} rechts
+die Eigenschaft zweite Person singular zu sein.
+
+Wir haben im Kapitel~\ref{sec-kopfeigenschaften} auf Seite~\pageref{page-kopf-merkmal}
+die Kopfeigenschaften als die für die Distribution einer Phrase relevanten Eigenschaften 
+definiert. Für Nominalphrasen ist \zb ihr Kasus relevant, da dieser ausschlaggebend dafür ist,
+mit welchen Verben eine Nominalphrase vorkommen kann:
+\eal
+\ex[]{
+Der Mann schläft.
+}
+\ex[*]{
+Dem Mann schläft.
+}
+\ex[]{
+Ein Mann schläft.
+}
+\zl
+Die Flexionsklasse des Determinators ist jedoch für die Distribution der Nominalphrase unerheblich:
+An Stellen, an denen \emph{der Mann} stehen kann, kann auch \emph{ein Mann} stehen.\footnote{
+  Diese Aussage ist zu relativieren, denn in Abhängigkeit von der Informationsstruktur\is{Informationsstruktur} einer
+  Äußerung kann eine indefinite Nominalphrase an Stellen schlecht sein, an denen eine definite
+  erlaubt ist und umgekehrt. Dies liegt dann aber an den semantischen Eigenschaften der Determinatoren
+  und nicht an der für NP"=interne Kongruenz wichtigen Flexionsklasse.%
+}
+\end{comment}
+\is{Kongruenz|)}
+
+
+\section*{Kontrollfragen}
+
+
+\begin{enumerate}
+\item Welche Kongruenzphänomene kennen Sie?
+\end{enumerate}
+
+\section*{Übungsaufgaben}
+
+\begin{enumerate}
+\item Überlegen Sie, wie die Kongruenzverhältnisse in den folgenden beiden Sätzen erfaßt werden:
+\ea
+Das kluge Mädchen konnte über diese Dummheit nur lächeln. Sie wußte längst, daß das Gegenteil
+richtig war.
+\z
+
+\item Laden Sie die zu diesem Kapitel gehörende Grammatik von der Grammix"=CD
+(siehe Übung~\ref{uebung-grammix-kapitel4} auf Seite~\pageref{uebung-grammix-kapitel4}).
+Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluß eine Liste von Beispielen.
+Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem Kapitel besprochenen
+Aspekte.
+
+\end{enumerate}
+
+
+\section*{Literaturhinweise}
+
+\citet[Kapitel~2]{ps2} setzen sich ausführlich mit Kongruenzphänomenen auseinander und diskutieren auch alternative
+Ansätze. In diesem Kapitel wurde semantische Kongruenz (mit bezug auf Index"=Merkmale) und
+syntaktische Kongruenz (mit bezug auf Kopfmerkmale) vorgestellt. Eine Arbeit, die sich detailliert
+mit den verschiedenen Kongruenzformen beschäftigt, ist \citew{Kathol99b}. 
+Ein gutes Buch zur Analyse von Kongruenz im Rahmen der HPSG ist \citew{WZ2003a}.

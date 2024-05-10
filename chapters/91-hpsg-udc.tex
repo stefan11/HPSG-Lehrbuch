@@ -1,0 +1,1686 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: 91-hpsg-udc.tex,v $
+%%  $Revision: 1.19 $
+%%      $Date: 2008/09/30 09:14:41 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Nichtlokale Abhängigkeiten}
+\label{chap-nla}
+
+Bisher können wir Verbletzt und Verberstsätze analysieren. In diesem Kapitel werden wir
+die Mechanismen kennenlernen, die zu einer adäquaten Behandlung der Vorfeld- und
+der Nachfeldbesetzung benötigt werden. Damit werden wir dann in der Lage sein, Verbzweitsätze
+zu analysieren.
+
+\section{Verschiedene Arten von Fernabhängigkeiten}
+
+Das\is{Extraktion|(}\is{nichtlokale Abhängigkeit|(} Vorfeld kann mit einer Konstituente (Adjunkt, Subjekt oder Komplement) besetzt sein (\citealp[Kapitel~2.4]{Erdmann1886a};
+\citealp[\page69, S.\,77]{Paul1919a}), weshalb das Deutsche zu den Verbzweitsprachen\is{Verbzweitsprache} gezählt wird.\footnote{%
+  Die Kategorisierung des Deutschen als Verbzweitsprache scheint im Widerspruch zur Aussage zu stehen, 
+  daß das Deutsche eine Verbletztsprache\is{Verbletztsprache} (siehe Seite~\pageref{page-verbletzt}) ist. Dem ist
+  jedoch nicht so, da bei der Klassifizierung von Sprachen nach der Zugehörigkeit zu den Verbzweitsprachen
+  andere Eigenschaften eine Rolle spielen als bei der Klassifikation nach der Zugehörigkeit zu einem
+  der Grundmuster SVO, SOV, VSO, VOS, OSV bzw.\ OVS. Das Deutsche wird zu den SOV"=Sprachen gezählt,
+  weil davon ausgegangen wird, daß diese Abfolge die zugrundeliegende Abfolge ist. Das Verb kann jedoch auch nach 
+  vorn gestellt werden. Im Gegensatz zum Englischen kann im Deutschen nicht nur
+  das Subjekt vor dem finiten Verb stehen, sondern auch Adjunkte und Komplemente, was eine Eigenschaft
+  von V2"=Sprachen ist. Das Englische ist eine SVO"=Sprache aber keine V2"=Sprache. Das Dänische ist
+  eine SVO"=Sprache aber auch gleichzeitig eine V2"=Sprache \citep{Vikner95a-u,MOeDanish}.%
+}
+(\mex{1}) zeigt einige Beispiele für mögliche Vorfeldbesetzungen:
+\ea
+\label{fragen}
+\begin{tabular}[t]{@{}l@{~}ll}
+a. & Schläft Karl?                                        & Karl schläft.\\
+b. & Kauft Karl diese Jacke?                              & Karl kauft diese Jacke.\\
+   &                                                      & Diese Jacke kauft Karl.\\
+c. & Kauft Karl morgen diese Jacke?                       & Morgen kauft Karl diese Jacke.\\
+d. & Wird die Jacke von Karl gekauft?                     & Von Karl wird die Jacke gekauft.\\
+e. & Ist Maria schön?                                     & Schön ist Maria.\\
+f. & Muß man sich kämmen?                                 & Man muß sich kämmen.\\
+   &                                                      & Sich kämmen muß man.\\
+g. & Glaubt Karl, daß Maria ihn liebt?                    & Daß Maria ihn liebt, glaubt Karl.\\
+h. & Lacht Karl, weil er den Trick kennt?   & Weil er den Trick kennt, lacht Karl.\\
+i. & Schlaf jetzt endlich!                                & Jetzt schlaf endlich!\\
+\end{tabular}
+\z
+
+
+\noindent
+Man könnte versucht sein, die Sätze mit Vorfeldbesetzung als einfache Anordnungsvarianten
+der Verberstsätze aufzufassen: Das Verb würde dann mit dem Kopf"=Argument"=Schema mit seinen
+Argumenten kombiniert, wobei diese links oder rechts des Verbs angeordnet werden
+dürfen. Abbildung~\vref{abb-kathol-flach-vf} zeigt, wie eine solche Analyse für (\mex{1}) bei der
+Annahme flacher Strukturen aussehen würde.
+\ea
+Dem Mann gibt die Frau das Buch.
+\z
+\begin{figure}
+\centerline{\begin{tabular}[t]{@{}c@{\hspace{6mm}}c@{\hspace{6mm}}c@{\hspace{8mm}}c@{}}%llll}
+\multicolumn{4}{c}{\rnode{1}{V[\textit{fin\/}, \textsc{subcat} \sliste{ }]}}\\
+\\[3ex]
+%\hspace{23mm}C & \hspace{12mm}C & \hspace{-5mm}C &\hspace{-14mm}H\\
+\\[3ex]
+\rnode{2}{\ibox{3} NP[\textit{dat\/}]} & \rnode{7}{V[\textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] } & \rnode{4}{\ibox{1} NP[\textit{nom\/}]}     & \rnode{6}{\ibox{2} NP[\textit{acc\/}]}\\
+\\
+\\*[5ex]
+D\rnode{8}{em Man}n & \rnode{11}{gibt} & d\rnode{9}{ie Fra}u  & d\rnode{10}{as Buc}h  \\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{6}%
+\ncline{1}{4}\ncline{1}{7}%
+\ncline{7}{11}%
+\ncline{2}{8}%
+\ncline{4}{9}%
+\ncline{6}{10}}%
+\caption{\label{abb-kathol-flach-vf}Analyse von \emph{Dem Mann gibt die Frau das Buch.} mit
+  einer flachen Struktur, die das Vorfeld enthält}
+\end{figure}
+Bei der Annahme binär verzweigender Strukturen bekäme man die Analyse in
+Abbildung~\ref{abb-kathol-binaer-vf}.
+\begin{figure}
+\centerline{\begin{tabular}[t]{@{}c@{\hspace{6mm}}c@{\hspace{6mm}}c@{\hspace{8mm}}c@{}}%llll}
+\multicolumn{3}{@{}c@{}}{\rnode{1}{V[\textit{fin\/}, \textsc{subcat} \sliste{ }]}}\\
+\\[3ex]
+\\[3ex]
+\rnode{2}{\ibox{3} NP[\textit{dat\/}]} & \multicolumn{3}{@{}c@{}}{\rnode{7c}{V[\textit{fin\/}, \textsc{subcat} \sliste{ \ibox{3} }] }} \\
+\\
+\\*[5ex]
+                                   & \multicolumn{2}{@{}c@{}}{\rnode{7b}{V[\textit{fin\/}, \textsc{subcat} \sliste{ \ibox{2}, \ibox{3} }] }}   & \rnode{6}{\ibox{2} NP[\textit{acc\/}]}\\
+\\
+\\*[5ex]
+                                   & \rnode{7}{V[\textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] } & \rnode{4}{\ibox{1} NP[\textit{nom\/}]}\\
+\\
+\\*[5ex]
+D\rnode{8}{em Man}n & \rnode{11}{gibt} & d\rnode{9}{ie Fra}u  & d\rnode{10}{as Buc}h  \\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{7c}%
+\ncline{7}{11}%
+\ncline{7b}{4}\ncline{7b}{7}%
+\ncline{7c}{6}\ncline{7c}{7b}%
+\ncline{2}{8}%
+\ncline{4}{9}%
+\ncline{6}{10}}%
+\caption{\label{abb-kathol-binaer-vf}Analyse von \emph{Dem Mann gibt die Frau das Buch.} mit
+  binär verzweigenden Strukturen}
+\end{figure}
+
+%\noindent
+Solche Analysen würden funktionieren, wenn die Argumente nur in unmittelbarer Umgebung des Verbs angeordnet
+werden könnten, \dash, wenn es sich bei den Vorfeldbesetzungen um lokale Umstellungen handelte.
+%% JB: Das sind die Alternativenkapitel, die man nicht unbedingt lesen muß!
+%% In einer Analyse mit flachen Strukturen (Kapitel~\ref{sec-flache-strukturen}), 
+%% mit variabler Verzweigungsrichtung oder in einer Linearisierungsgrammatik, wie sie in Kapitel~\ref{sec-Linearisierung} besprochen wurde,
+%% wäre ein solches Vorgehen technisch möglich. Bei variabler Verzweigungsrichtung würden einige Argumente des Verbs 
+%% rechts vom Verb realisiert und ein Argument links des Verbs.
+%% \citet*{NSW94a} haben für Voranstellung von Idiomteilen einen Linearisierungsansatz vorgeschlagen
+%% und auch \citet[Kapitel~6.3]{Kathol95a} entwickelt eine Linearisierungsanalyse
+%% für einfache Voranstellungen wie die in (\mex{0}). 
+Allerdings gibt es Daten, die zeigen, daß es sich bei der Vorfeldbesetzung nicht um eine lokale Umstellung handeln kann.
+So gehören in (\mex{1}) die Konstituenten im \vf zu einem tief eingebetteten Kopf:
+\eal
+\ex\label{bsp-um-zwei-millionen}
+{}[Um zwei Millionen Mark]$_i$ soll er versucht haben, [eine Versicherung \_$_i$ zu betrügen].\footnote{
+         taz, 04.05.2001, S.\,20.
+}
+\ex
+"`Wer$_i$, glaubt\iw{glauben} er, daß er \_$_i$ ist?"' erregte sich ein Politiker vom Nil.\footnote{
+        Spiegel, 8/1999, S.\,18.
+}
+\ex Wen$_i$ glaubst du, daß ich \_$_i$ gesehen habe.\footnote{
+    \citew[\page84]{Scherpenisse86a}.
+    }
+\ex {}[Gegen ihn]$_i$ falle es den Republikanern hingegen schwerer, [ [ Angriffe \_$_i$] zu lancieren].\footnote{
+  taz, 08.02.2008, S.\,9
+}
+\zl
+\emph{um zwei Millionen Mark} gehört zu \emph{betrügen} und nicht zu einem der Verben \emph{soll}, \emph{versucht}
+oder \emph{haben}. Da sich die Verbalphrase \emph{eine Versicherung zu betrügen} im Nachfeld befindet, kann
+also \emph{um zwei Millionen Mark} nicht aufgrund einer Umstellung vorn realisiert worden sein.
+
+Deshalb werden Verbzweitsätze in den meisten Grammatiken für das Deutsche zu Verberstsätzen in Beziehung gesetzt.
+Die Stelle, an der die Vorfeldkonstituente stehen würde, wird meist durch einen `\_' gekennzeichnet. Man nennt
+diesen Platzhalter auch Spur\is{Spur}, Lücke oder \emph{Trace} bzw.\ \emph{Gap}.
+Vergleiche auch Kapitel~\ref{sec-v1}.
+Das zur Lücke gehörige Element im Vorfeld wird auch Füller\is{F"uller} genannt.
+
+Abhängigkeiten, die über Phrasengrenzen hinweggehen, nennt man\NOTE{JB: schwer verständlich, Def-Abgrenzung}
+\emph{Fernabhängigkeiten}\is{Fernabhängigkeit} oder \emph{nichtlokale Abhängigkeiten}. Die Anzahl der Phrasengrenzen, die bei der Voranstellung überschritten werden können, ist im Prinzip
+unbegrenzt. Auch Satzgrenzen können überschritten werden. Bei zu hoher Komplexität ergeben sich
+dann allerdings Verarbeitungsprobleme für den Menschen. 
+Die englische Bezeichnung für Fernabhängigkeiten, die mehrere Satzgrenzen überschreiten können,
+ist \emph{unbounded dependencies}. Im Unterschied dazu gibt es Fernabhängigkeiten, die
+begrenzt sind, aber dennoch nicht lokal. Diese werden auch \emph{long distance dependencies}
+genannt. Ein Beispiel für solch eine Fernabhängigkeit ist die Extraposition\is{Extraposition|(}.
+In (\mex{1}a) ist ein Relativsatz extraponiert worden, der \emph{Frau} im \mf modifiziert.
+In (\mex{1}b) ist ein Infinitivkomplement ins Nachfeld gestellt worden. 
+\eal
+\label{bsp-extrap}
+\ex Der Mann hat [der Frau \_$_i$] den Apfel gegeben, [die er am schönsten fand]$_i$.
+\ex Der Mann hat \_$_i$ behauptet, [einer Frau den Apfel gegeben zu haben]$_i$.
+\zl
+Wie bei den Sätzen
+in (\ref{fragen}) könnte man für (\mex{0}b) eine lokale Umstellung annehmen, doch ist eine
+Theorie, die mit nur einem Mechanismus zur Erklärung bestimmter Abfolgen auskommt, einer
+Theorie, die zwei verschiedene Analysen verwendet, vorzuziehen.
+
+Daß es sich bei der Extraposition wirklich um eine nichtlokale Abhängigkeit handelt,
+zeigen die Beispiele in (\mex{1}):
+\eal
+\ex Karl hat mir [von [der Kopie [einer Fälschung [eines Bildes [einer Frau \_$_i$]]]]] erzählt,
+    [die schon lange tot ist]$_i$.
+\ex Ich habe [von [dem Versuch [eines Beweises [der Vermutung \_$_i$]]]] gehört,\\
+       {}[daß es Zahlen gibt, die die folgenden Bedingungen erfüllen]$_i$.
+\zl
+In (\mex{0}a) gehört der Relativsatz zu einem Nomen, das in fünf maximale Phrasen eingebettet
+ist. Zu solchen und anderen Extrapositionsdaten siehe auch \citew[Kapitel~13.1]{Mueller99a}
+und \citew{Mueller2004d,Mueller2007c}. Im Gegensatz zur Vorfeldbesetzung ist die Extraposition jedoch keine
+\emph{unbounded dependency}, denn die Verschiebung von Material nach rechts ist durch die Satzgrenze
+beschränkt:
+% Ist das die richtige Referenz?? \citep[\page 166]{Ross67}:
+\eal
+\ex[]{
+Karl hat, daß [\sub{S} John \_$_i$ erzählt hat, [daß Maria schläft,]$_i$ ] nicht wirklich behauptet.
+}
+\ex[*]{
+Karl hat, daß [\sub{S} John \_$_i$ erzählt hat] nicht wirklich behauptet, [daß Maria schläft]$_i$.
+}
+\ex[]{
+Der Mann, [\sub{S} der \_$_i$ behauptet hat, [daß Maria nicht kommt]$_i$ ], steht da drüben.
+}
+\ex[*]{
+Der Mann, [\sub{S} der \_$_i$ behauptet hat], steht da drüben, [daß Maria nicht kommt]$_i$.
+}
+\zl
+Extrapositionsanalysen finden sich in \citealp{Keller95b}, \citealp{Bouma96} und
+\citealp[Kapitel~13.2]{Mueller99a}. Spezielle Analysen für die Relativsatzextraposition findet man in
+\citew{Kiss2005a} und \citew{Crysmann2004a}. In diesem Buch werde ich nicht weiter auf Extraposition
+eingehen.\is{Extraposition|)}
+
+Nichtlokale\is{Relativsatz|(} Abhängigkeiten sind auch innerhalb von Relativsätzen zu beobachten: Die Phrase, die
+das Relativpronomen enthält, kann zu tiefer eingebetteten Konstituenten gehören, wie die
+Beispiele in (\mex{1}) und (\mex{2}) zeigen:
+\eal
+\label{bsp-nla-rs}
+\ex\iw{bitten}
+das Thema, [über das]$_i$ er Peter gebeten hat, [\sub{VP} [einen Vortrag\iw{Vortrag} \_$_i$] zu halten],
+\ex\iw{versuchen} 
+Das Tor, [von dem]$_i$ Stein versuchte, [das Schild mit der Aufschrift \frqq Zu verkaufen\flqq{} \_$_i$ zu entfernen], sank mit einem
+Klagelaut um.\footnote{
+  Judith Hermann, \emph{Sommerhaus, später}, Frankfurt: S.\,Fischer Verlags GmbH, 3.\, Auf"|lage, 2001, S.\,148.%
+}
+\zl
+\ea
+Wollen wir mal da hingehen, wo$_i$\iw{wo!Relativpronomen} Jochen gesagt hat, [daß es \_$_i$ so gut schmeckt]?
+\z\is{Relativsatz|)}
+Relativsätze werden im Kapitel~\ref{chap-rs} behandelt. Interrogativnebensätze\is{Interrogativsatz} sind syntaktisch ähnlich aufgebaut.
+Sie werden in diesem Buch nicht behandelt. Im folgenden wenden wir uns der Vorfeldbesetzung zu.
+
+
+\section{Vorfeldbesetzung}
+
+Im letzten Kapitel haben wir bereits Spuren kennengelernt. Die Abhängigkeit zwischen vorangestelltem
+Verb und Verbspur war aber lokaler Natur, was dadurch erfaßt wurde, daß die entsprechende Information
+als Teil der Kopf"|information nach oben gereicht wurde. Wie wir aber im vorigen Abschnitt gesehen haben,
+können Fernabhängigkeiten mehrere Maximalprojektionen überschreiten. Eine Projektion von Merkmalen
+bis zur phrasalen Ebene ist also nicht ausreichend. Deshalb wird die Datenstruktur noch einmal geändert,
+und es wird zusätzlich zu der unter \local repräsentierten lokal relevanten Information noch ein
+Merkmal für Information über Fernabhängigkeiten eingeführt. Dieses Merkmal heißt \nonloc.
+Die Datenstruktur in (\ref{geom-loc}) auf Seite~\pageref{geom-loc} wird also zu (\mex{1}) erweitert:
+\ea
+\label{geom-nonloc}
+\ms{
+phon & list~of~phoneme strings\\
+loc  & \ms{ cat  & \ms{ head   & head \\
+                        subcat & list of signs\\
+                      } \\
+            cont & cont\\
+          }\\
+nonloc & nonloc\\
+}
+\z
+Der \nonlocw ist selbst noch weiter strukturiert:
+\ea
+\ms[nonloc]{
+ que & \type{list~of~npros} \\
+ rel & \type{list~of~indices} \\
+ slash & \type{list~of~local~structures} \\ %\\
+ %extra & \ms[list~of~local~structures]{} \\
+}
+\z
+Dabei ist \textsc{que} für die Analyse von Interrogativsätzen wichtig. Da diese in diesem Buch nicht behandelt
+werden, wird es im folgenden weggelassen. \textsc{rel} ist eine Liste referentieller Indizes von Relativpronomina. Auf
+\textsc{rel} wird im Kapitel~\ref{chap-rs} über Relativsätze noch genauer eingegangen.
+\textsc{slash} ist eine Liste von \textit{local\/}"=Objekten. Diese Liste wird zur Analyse
+der Vorfeldbesetzung benötigt. Für die Analyse von Relativsätzen und Interrogativnebensätzen
+ist sie ebenfalls von Bedeutung.
+
+
+Im vorigen Kapitel haben wir die Verberststellung für Sätze wie (\mex{1}a) analysiert, nun wenden wir uns
+dem Beispiel (\mex{1}b) zu:
+\eal
+\ex Kennt$_i$ das Buch jeder \_$_i$?
+\ex {}[Das Buch]$_j$ kennt$_i$ \_$_j$ jeder \_$_i$?
+\zl
+Die Analyse der Vorfeldbesetzung kann nur unter Einbeziehung der Analyse der Verberststellung erklärt
+werden. Entsprechende Darstellungen würden aber sehr komplex werden. Ich erkläre deshalb
+die Mechanismen im folgenden an einer Struktur für die Verberststellung, die man in einem
+Ansatz %mit variabler Verzweigungsrichtung %bzw.\ mit Linearisierungsdomänen 
+bekommen würde, bei dem das Verb in Erststellung wie auch in Abbildung~\ref{abb-kathol-binaer-vf}
+direkt mit seinen Argumenten kombiniert wird. \Dh statt der korrekten Analyse in (\mex{0}b) erkläre
+ich zuerst die Analyse in (\mex{1}):
+\ea
+{}[Das Buch]$_j$ [[kennt \_$_j$] jeder].\label{ex-das-buch-kennt}
+\z 
+Die komplette Analyse mit korrekter Modellierung der Verberststellung zeigt
+die Abbildung~\vref{abb-das-buch-kennt-jeder}.\NOTE{FB: Lieber Englisch oder Kapitel 9/10 in anderer Reihenfolge.}
+
+
+Wie\is{Spur!Extraktionsspur|(} bei der Analyse der Verbbewegung geht man davon aus, daß es an der Stelle, an der
+das Objekt normalerweise stehen würde, eine Spur gibt, die die Eigenschaften des Objekts
+hat. Das Verb kann also seine Valenzanforderungen lokal befriedigen. Die Information darüber,
+daß eine Kombination mit einer Spur und nicht mit einem echten Argument erfolgt ist,
+wird innerhalb des entstehenden komplexen Zeichens repräsentiert und im Baum nach oben gereicht.
+Die Fernabhängigkeit kann dann weiter oben im Baum durch ein Element im Vorfeld abgebunden werden.
+
+Eingeführt wird die Fernabhängigkeit durch die Spur, die eine
+Merkmalstruktur, die dem \localw des geforderten Arguments entspricht, in ihrer
+\slashl hat. (\mex{1}) zeigt eine Beschreibung der Spur, wie sie für die Analyse von (\mex{0}) benötigt wird:
+
+\eas
+\label{le-spur-acc-o-kennen}
+Spur für das Akkusativkomplement von {\em kennen\/} (vorläufig):\\
+\ms[word]{
+ phon & \phonliste{} \\
+loc   & \ibox{1} \ms{ cat \ms{ head & \ms[noun]{
+                                                     cas & acc\\
+                                                     } \\
+                                              subcat & \liste{}\\
+                                            } \\
+                                   }\\
+nonloc & \ms{ slash & \sliste{ \ibox{1} } \\
+                                                %extra & \liste{} \\
+            } \\
+}
+\zs
+
+\noindent
+Da Spuren keine interne Struktur, \dash keine Töchter haben, sind sie vom Typ \type{word}.
+Die Spur hat die Eigenschaften eines Akkusativobjekts. Daß das Akkusativobjekt
+an der Stelle der Spur fehlt, ist durch den entsprechenden Wert in \slasch ausgedrückt.\is{Spur!Extraktionsspur|)} 
+%
+Abbildung~\vref{abb-das-buch-kennt-er-variable-verzweigung} zeigt das Weiterreichen
+der Information.
+\begin{figure}[htbp]
+\centerline{%
+\begin{tabular}[t]{@{}cccccccc@{}}%llll}
+\multicolumn{3}{l}{\rnode{3all}{V[\begin{tabular}[t]{@{}l}
+                                 \textsc{subcat} \rnode{3}{\sliste{}},\\%,\\
+                                 \textsc{slash} \eliste]\\
+                                 \end{tabular}}
+                                          }\\
+\\*[4ex]
+\rnode{4}{NP[\textsc{loc} \ibox{1} \textit{acc\/}]} & \multicolumn{3}{c}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+                                          \textsc{subcat} \sliste{},\\
+                                          \textsc{slash} \sliste{ \ibox{1} }]\\
+                                          \end{tabular}}
+                                          }\\
+\\*[4ex]
+& \multicolumn{2}{c}{\rnode{6}{V[\begin{tabular}[t]{@{}l}
+                                        \textsc{subcat} \sliste{ \ibox{2} },\\
+                                        \textsc{slash} \sliste{ \ibox{1} }]\\
+                                        \end{tabular}}
+                                                       } & \rnode{7}{\ibox{2} NP[\textit{nom\/}]}\\
+\\*[4ex]
+                              & \rnode{8}{V[\begin{tabular}[t]{@{}l}
+                                           \textsc{subcat} \sliste{ \ibox{2}, \ibox{3} },\\
+                                           \textsc{slash} \sliste{}]\\
+                                           \end{tabular}} & \rnode{11}{\ibox{3} NP[\begin{tabular}[t]{@{}l}
+                                                                       \textsc{loc} \ibox{1} \type{acc},\\
+                                                                       \textsc{slash} \sliste{ \ibox{1} }] \\
+                                                                       \end{tabular}}\\
+\\*[3ex]
+d\rnode{13}{as Buc}h            & \rnode{14}{kennt}  & \rnode{16}{\_} & \rnode{17}{jeder}\\
+\end{tabular}
+\ncline{3all}{4}\ncline{3all}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{6}{8}\ncline{6}{11}%
+\ncline{8}{14}%
+\ncline{4}{13}%
+\ncline{11}{16}%
+\ncline{7}{17}}%
+\caption{\label{abb-das-buch-kennt-er-variable-verzweigung}Perkolation von nichtlokaler Information in einer Struktur mit variabler Verzweigung}
+\end{figure}
+Für das Weiterleiten der \textsc{nonloc}"=Information ist das folgende Prinzip der nichtlokalen Merkmale verantwortlich.
+
+\begin{samepage}
+\is{Prinzip!nonloc-@\textsc{nonloc}-}
+\begin{prinzip-break}[Prinzip der nichtlokalen Merkmale]
+Der Wert des \textsc{nonloc}"=Merkmals eines phrasalen Zeichens ist die Vereinigung der
+\textsc{non\-loc}"=Werte der Töchter des Zeichens abzüglich der abgebundenen Elemente.
+\end{prinzip-break}
+\end{samepage}
+
+\noindent
+Wie auch bei den in Kapitel~\ref{sec-prinzipien} besprochenen Prinzipien gibt es eine
+Formalisierung dieses Prinzips, der wir uns dann nach der Diskussion des Kopf"=Füller"=Schemas
+zuwenden.
+
+Das Kopf"=Füller"=Schema lizenziert den obersten Knoten in Abbildung~\ref{abb-das-buch-kennt-er-variable-verzweigung}:
+\begin{schema}[Kopf"=Füller"=Schema]
+\label{hf-schemaa}\is{Schema!Kopf"=Füller"=}
+~\\\samepage
+\type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
+\ms{ 
+nonloc$|$slash &   \eliste\\
+head-dtr      & \onems{ loc$|$cat \onems{ head \ms[verb]{vform & fin\\
+                                                                 initial & \textrm{+}\\
+                                                                }\\
+                                                  subcat \liste{}\\
+                                               }\\
+                             nonloc$|$slash   \sliste{ \ibox{1} }\\
+                        }\\
+non-head-dtrs & \liste{ \onems{ loc \ibox{1}\\
+                                           nonloc$|$slash \liste{} \\
+                                 }}\\
+   }
+\end{schema}
+Dieses Schema kombiniert einen finiten Satz mit Verb in Verberststellung (\textsc{initial}+) und einem Element in \textsc{slash}
+mit einer Nicht-Kopf"|tochter, deren \textsc{local}"=Wert identisch mit diesem \textsc{slash}"=Element ist.
+In der Struktur werden keine Argumente gesättigt. \type{head-filler-phrase} ist Untertyp von \type{head-non-argument-phrase}
+(siehe Abbildung~\vref{abb-sign-hf-struc}).
+\begin{figure}[htbp]
+\resizebox{\linewidth}{!}{\begin{pspicture}(0.6,-4)(20.2,4.4)
+%\psgrid
+%\rput[B](4,6){\rnode{sign}{\textit{sign}}}
+%
+%\rput[B](1,4){\rnode{word}{\textit{word}}}
+\rput[B](7,4){\rnode{phrase}{\textit{phrase}}}
+%
+\rput[B](4,2){\rnode{nhs}{\textit{non-headed-phrase}}}
+\rput[B](10,2){\rnode{hs}{\textit{headed-phrase}}}
+%
+\rput[B](3,0){\rnode{hnas}{\type{head"=non-adjunct-phrase}}}
+\rput[B](8,0){\rnode{hnars}{\type{head"=non"=argument"=phrase}}}
+\rput[B](13,0){\rnode{hnfs}{\type{head"=non"=filler"=phrase}}}
+\rput[B](18,0){\rnode{hnss}{\type{head"=non"=specifier"=phrase}}}
+\rput[B](3,-4){\rnode{has}{\textit{head"=adjunct"=phrase}}}
+\rput[B](8,-4){\rnode{hars}{\textit{head"=argument"=phrase}}}
+\rput[B](13,-4){\rnode{hfs}{\textit{head-filler-phrase}}}
+\rput[B](18,-4){\rnode{hss}{\textit{head"=specifier-phrase}}}
+%
+\psset{angleA=-90,angleB=90,arm=0pt}
+%
+\ncdiag{sign}{word}\ncdiag{sign}{phrase}
+\ncdiag{phrase}{hs}\ncdiag{phrase}{nhs}
+\ncdiag{hs}{hnas}
+\ncdiag{hs}{hnars}
+\ncdiag{hs}{hnfs}
+\ncdiag{hs}{hnss}
+\ncdiag{hnars}{has}\ncdiag{hnars}{hfs}\ncdiag{hnars}{hss}
+\ncdiag{hnas}{hars}\ncdiag{hnas}{hfs}\ncdiag{hnas}{hss}
+\ncdiag{hnss}{hars}\ncdiag{hnss}{has}\ncdiag{hnss}{hfs}
+\ncdiag{hnfs}{hars}\ncdiag{hnfs}{has}\ncdiag{hnfs}{hss}
+%
+\end{pspicture}}
+\caption{\label{abb-sign-hf-struc}Typhierarchie für \textit{phrase}}
+\end{figure}
+Dadurch wird der \subcatw der Kopf"|tochter automatisch mit dem der Mutter identifiziert (siehe Abschnitt~\ref{sec-valp} zum Valenzprinzip\is{Prinzip!Valenz-}).
+Der semantische Beitrag kommt vom Verb (der Kopf"|tochter). Das folgt aus dem Semantikprinzip, denn der
+Typ \type{head-filler-phrase} ist ein Untertyp von \type{head-non-adjunct-phrase}.
+
+Die Abbildung~\ref{abb-sign-hf-struc} enthält auch einen Typ \type{head"=non"=filler"=phrase}. Die Beschränkung
+für diesen Typ sieht wie folgt aus:
+\eas
+\type{head"=non"=filler"=phrase}\istype{head"=non"=filler"=phrase} \impl\\
+\onems{ 
+nonloc$|$slash \ibox{1} $\oplus$ \ibox{2}\\
+head"=dtr$|$nonloc$|$slash \ibox{1} \\
+non-head"=dtrs  \sliste{ [ nonloc$|$slash \ibox{2} ] }\\
+}
+\zs
+Diese Implikation sorgt dafür, daß in allen bisher eingeführten Strukturen außer der eben besprochenen
+die \slashwe der Töchter zum \slashw der Mutter verknüpft werden.
+Zusammen mit Teilen der Beschränkungen für den Typ \type{head-filler-phrase}, die in (\mex{1})
+wiederholt sind, stellt (\mex{0}) die Formalisierung des Prinzips der nichtlokalen Merkmale dar.
+\eas
+\type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
+\onems{ 
+nonloc$|$slash            \eliste\\
+head-dtr$|$nonloc$|$slash \sliste{ \ibox{1} }\\
+non-head-dtrs             \sliste{ [ loc \ibox{1} ] }\\
+   }
+\zs
+
+\noindent
+In\is{Spur!Extraktionsspur|(} (\ref{le-spur-acc-o-kennen}) wurde eine Spur für das Akkusativobjekt von \emph{kennen} angegeben.
+Genau wie bei der Analyse der Verbbewegung ist es jedoch nicht nötig, verschiedene Spuren mit unterschiedlichen
+Eigenschaften im Lexikon zu haben. Ein allgemeiner Eintrag wie der in (\mex{1}) ist ausreichend:
+
+\eas
+\label{le-extraktionsspur}
+Extraktionsspur: \\
+\onems[word]{
+ phon   \phonliste{} \\
+ loc    \ibox{1} \\
+ nonloc$|$slash  \sliste{ \ibox{1} } \\ 
+%\ms{ %que   & \liste{} \\
+                 %                               rel & \liste{} \\
+%                                                slash & \sliste{ \ibox{1} } \\ 
+                                                %extra & \liste{} \\
+%                                              } \\ 
+}
+\zs
+Das liegt daran, daß der Kopf die \textsc{local}"=Eigenschaften seiner Argumente und damit auch die
+\textsc{local}"=Eigenschaften von Spuren, die mit ihm kombiniert werden, ausreichend bestimmt. Durch
+die Identifikation des Objekts in der \subcatl mit der Spur und durch die Identifikation der
+Information in \textsc{slash} mit der Information über das Element im Vorfeld wird sichergestellt,
+daß nur Elemente im Vorfeld realisiert werden, die zu den Anforderungen in der \subcatl
+passen. Genauso funktioniert die Analyse von vorangestellten Adjunkten: Dadurch daß der
+\localw der Konstituente im Vorfeld über die Vermittlung durch \textsc{slash} mit dem \localw der Spur
+identifiziert wird, ist ausreichend Information über die Art der Spur vorhanden.\is{Spur!Extraktionsspur|)}
+
+
+Im folgenden zeige ich, wie die Extraktionsanalyse
+mit der Verberstanalyse aus Kapitel~\ref{sec-v1} kombiniert werden kann.
+Abbildung~\vref{abb-das-buch-kennt-jeder} zeigt die Analyse für (\ref{ex-das-buch-kennt}),
+hier als (\mex{1}) mit Markierungen für die Verbspur wiederholt:
+\ea
+{}[Das Buch]$_i$ kennt$_j$  \_$_i$ jeder \_$_j$.
+\z
+\begin{figure}[htb]
+% %\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
+% %\centerline{%
+% \resizebox{\textwidth}{!}{%
+% %\nodemargin5pt
+% \begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
+% \multicolumn{2}{@{}c}{\rnode{3all}{V[\begin{tabular}[t]{@{}l}
+%                                  \textsc{subcat} \rnode{3}{\eliste},\\
+%                                  \textsc{slash} \eliste]\\
+%                                  \end{tabular}}
+%                                           }\\
+% \\*[4ex]
+% \rnode{npbuch}{NP[\textsc{loc} \ibox{1} \textit{acc\/}]} & \multicolumn{2}{c}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
+%                                           \textsc{subcat} \sliste{},\\
+%                                           \textsc{slash} \sliste{ \ibox{1} }]\\
+%                                           \end{tabular}}
+%                                           }\\
+% \\*[4ex]
+% &\rnode{2}{V[\textsc{subcat} \sliste{ \ibox{2} }]} & \multicolumn{3}{l}{\rnode{3}{\ibox{2} V[\begin{tabular}[t]{@{}l}
+%                                                                     \textsc{subcat} \sliste{ },
+%                                            \textsc{slash} \sliste{ \ibox{1} }]
+%                                                                     \end{tabular}}
+%                                                        }\\
+% \\
+% & \hspace{8ex}V1-LR\\*[3ex]
+% & \rnode{kennt-vl}{V[\textsc{subcat} \sliste{ \ibox{3}, \ibox{4} }]}  & \rnode{4}{\ibox{4} [\begin{tabular}[t]{@{}l@{}}
+%                                                                         \textsc{loc} \ibox{1},\\
+%                                                                         \textsc{slash} \sliste{ \ibox{1} }] \\
+%                                                                         \end{tabular}}& \multicolumn{2}{l}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+%                                                                                                        \textsc{subcat} \sliste{ \ibox{4} }]\\
+%                                                                                                        \end{tabular}}
+%                                                                                            }\\
+% \\*[4ex]
+% &                                   &                                   & \rnode{6}{\ibox{3} NP[\textit{nom\/}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l@{}}
+%                                                                                                  \textsc{subcat} \sliste{ \ibox{3}, \ibox{4} }] \\
+%                                                                                                  \end{tabular}}\\
+% \\*[3ex]
+% d\rnode{buch}{as Buc}h & \rnode{8}{kennt}                     & \rnode{9}{$-$}                  & \rnode{10}{jeder} & \rnode{11}{$-$}\\
+% \end{tabular}
+% \ncline{3all}{npbuch}\ncline{3all}{1}%
+% \ncline{1}{2}\ncline{1}{3}%
+% \ncline{3}{4}\ncline{3}{5}%
+% \ncline{5}{6}\ncline{5}{7}%
+% \ncline{2}{kennt-vl}\ncline{kennt-vl}{8}%
+% \ncline{4}{9}%
+% \ncline{6}{10}%
+% \ncline{7}{11}%
+% \ncline{npbuch}{buch}%
+% }
+\oneline{%
+\begin{forest}
+sm edges,
+for level={3}{l+=\baselineskip}
+[V\feattab{\subcat \eliste,\\
+           \slasch \eliste}, s sep+=1em
+  [{NP\ibox{1}[\type{acc}]}
+     [das Buch, roof]]
+  [V\feattab{\subcat \eliste,\\
+             \slasch  \sliste{ \ibox{1} }}
+     [{V[\subcat \sliste{ \ibox{2} }]}
+       [{V[\subcat \sliste{ \ibox{3}, \ibox{4} }]},edge label={node[midway,right]{V1-LR}}
+         [kennt]]]
+     [\ibox{2} V\feattab{\subcat \eliste, \slasch \sliste{ \ibox{1} }}
+         [\ibox{4} \feattab{\textsc{loc} \ibox{1},\\
+                            \slasch \sliste{ \ibox{1} } }
+         [\trace]]
+       [V\feattab{\subcat \sliste{ \ibox{4} }}
+         [{\ibox{3} NP[\type{nom}]}
+           [jeder]]
+         [V\feattab{\subcat \sliste{ \ibox{3}, \ibox{4} }}
+           [\trace]]]]]]
+\end{forest}}
+\caption{\label{abb-das-buch-kennt-jeder}Analyse für:\ \emph{Das Buch kennt jeder.} kombiniert mit der Verbbewegungsanalyse für die Verberststellung}
+\end{figure}
+Die Verbbewegungsspur für \emph{kennt} wird mit einer Nominativ"=NP und einer Extraktionsspur kombiniert. 
+Die Extraktionsspur steht im Beispiel für das Akkusativobjekt. Das Akkusativobjekt ist 
+in der \subcatl des Verbs beschrieben \iboxb{4}. Über den Verbbewegungsmechanismus
+gelangt die Valenzinformation, die im ursprünglichen Eintrag für \emph{kennt} enthalten ist
+(\sliste{ \ibox{3}, \ibox{4} }), zur Verbspur. Die Kombination der Projektion der Verbspur mit der
+Extraktionsspur verläuft genau so, wie wir es bisher gesehen haben. Der \slashw der Extraktionsspur
+wird im Baum nach oben gereicht und letztendlich durch das Kopf"=Füller"=Schema abgebunden.
+
+
+Die wesentlichen Punkte der Analyse kann man wie folgt zusammenfassen:
+\begin{itemize}
+\item Nichtlokale Information wird nach oben weitergereicht.
+\item Das erfolgt über Strukturteilung.
+\item Die Information über nichtlokale Abhängigkeiten ist gleichzeitig an den entsprechenden Knoten präsent.
+\end{itemize}
+Diese Analyse kann Sprachen erklären, in denen bestimmte Elemente in Abhängigkeit davon flektieren,
+ob sie Bestandteil einer Konstituente sind, durch die eine Fernabhängigkeit hindurchgeht. \citet*{BMS2001a} nennen 
+Irisch\il{Irisch}, Chamorro\il{Chamorro}, Palauan\il{Palauan}, Isländisch\il{Isländisch},
+Kikuyu\il{Kikuyu}, Ewe\il{Ewe}, Thompson Salish\il{Thompson Salish}, Moore\il{Moore}, 
+Französisch\il{Französisch}, Spanisch\il{Spanisch} und Jiddisch\il{Jiddisch} als Beispiele für
+solche Sprachen und geben entsprechende Literaturverweise. Da in HPSG"=Analysen die Information Schritt für Schritt
+weitergegeben wird, können alle Knoten in der Mitte einer Fernabhängigkeit auf die Elemente, die in
+Fernabhängigkeiten eine Rolle spielen, zugreifen.
+
+
+
+\section{Anhang 1: Der semantische Beitrag von V1- bzw. V2-Sätzen}
+\label{sec-semantik-v1-v2}
+
+%%%  24.08.2011 Was ist mit positionalem `es'?
+%%%  Das muesste dann ja auch durch SLASH gehen.
+%
+% Satztyp --> Satzart
+
+Neben\is{Satztyp|(} der Verbsemantik spielt die Verbstellung eine entscheidende Rolle bei der
+Bestimmung der Bedeutung eines Satzes. So bedeuten die Sätze in (\mex{1}) verschiedenes:\enlargethispage{\baselineskip}
+\eal
+\ex Kommt Peter heute? 
+\ex Peter kommt heute.
+\zl
+Der erste Satz ist eine Frage, mit der der Wahrheitsgehalt der Aussage \emph{Peter kommt heute}
+erfragt wird. Der zweite Satz sagt aus, daß es eine Tatsache ist, daß Peter heute kommt. Die beiden
+Sätze unterscheiden sich lediglich durch ihre Verbstellung voneinander. Der Satz mit Verberststellung
+ist ein Entscheidungsfragesatz\is{Fragesatz} und der mit Verbzweitstellung ist ein
+Aussagesatz\is{Aussagesatz}. Man muß jedoch vorsichtig sein, denn der Satztyp läßt sich
+nicht ohne weiteres an der Position des Verbs festmachen. So gibt es zum Beispiel auch Fragen wie
+(\mex{1}), in denen ein Fragepronomen vor dem Finitum steht.
+\ea
+Wer kommt heute?
+\z
+Und es gibt elliptische Äußerungen, in denen keine Konstituente vor dem finiten Verb zu sehen ist:
+\ea
+A: Und was ist mit Peter?\\
+B: Kommt heute.
+\z
+Im Antwortsatz in (\mex{0}) wurde das Subjekt weggelassen. Es würde normalerweise vor dem Finitum im Vorfeld
+stehen, weshalb man auch von Vorfeldellipse\is{Vorfeldellipse} spricht.
+Bei Verben mit optionalen Argumenten kann man mitunter sogar den Aussagesatz mit Vorfeldellipse
+nicht von einem Fragesatz unterscheiden, wenn man einfach nur die Abfolge der Wörter betrachtet:
+\eal
+\label{bsp-hat-er-gegessen}
+\ex Hat er schon gegessen?
+\ex Und was ist mit dem Kuchen?\\
+    Hat er schon gegessen.
+\zl
+
+\noindent
+Außerdem ist zu berücksichtigen, daß es auch Imperativsätze mit den beiden Verbstellungen gibt:
+\eal
+\ex Gib du mir jetzt das Buch!
+\ex Jetzt gib du mir das Buch!
+\zl
+
+\noindent
+Die Verberststellung kann auch in Konditionalsätzen vorkommen:
+\eal
+\ex Gibst du mir das Buch, helfe ich dir.
+\ex Hätte er Karl das Buch rechtzeitig gegeben, hätte Karl ihm helfen können.
+\zl
+Das sind längst nicht alle Verwendungsweisen für Sätze mit Verberst"= bzw.\ Verbzweitstellung,
+für einen detaillierteren Überblick siehe \citew[Kapitel~4]{Zifonun97a}.
+
+Die Bedeutungskomponente, die durch die Verbstellung in den Satz kommt, kann man zu einem
+großen Teil bereits im Lexikon bestimmen, und zwar in der Lexikonregel, die für die Lizenzierung
+des Verbs in Erststellung verantwortlich ist \citep[\page 205]{Kiss95b}. Das mag sich merkwürdig anhören, denn es scheint
+so zu sein, daß das Verb nicht wissen kann, ob es in einem Verberst"= oder Verbzweitsatz verwendet
+wird. Dem ist aber nicht so, denn das Verb in Erststellung verlangt eine Projektion der Verbspur
+als Argument, und diese Projektion hat entweder ein Element in \slasch oder nicht. Wenn ein Element
+in \slasch enthalten ist, kann die Kombination aus Verb und Verbspurprojektion nur zu einem Verbzweitsatz
+führen, da Elemente in \slasch abgebunden werden müssen. Ist nichts in \slasch enthalten, kann auch nichts
+vor das Finitum gestellt werden, und das Verb kann also nur in einem Verberstsatz verwendet werden.
+
+Die Verberstlexikonregel von Seite~\pageref{lr-verb-movement2} muß entsprechend modifiziert werden.
+Die neue Version in (\mex{1}) bettet den semantischen Beitrag der Projektion der Verbspur \iboxb{2}
+unter eine zusätzliche Relation ein.
+\eas
+\label{lr-verb-movement3}
+Lexikonregel\is{Lexikonregel!Verberststellung} für Verb in Erststellung:\\
+\begin{tabular}[t]{@{}l@{}}
+\ms{
+loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
+                                             initial & $-$\\
+                                          }\\
+                  }\\
+} $\mapsto$\\*
+\onems{
+loc \onems{ cat  \ms{ head & \ms[verb]{ vform & fin\\
+                                        initial & $+$\\
+                                        dsl     & none\\
+                                      }\\
+                           subcat & \sliste{ \onems{ loc \onems{ cat \onems{ head \ms[verb]{
+                                                                             dsl & \ibox{1}\\
+                                                                             }\\
+                                                                      subcat \eliste\\
+                                                                    }\\
+                                                           cont \ibox{2}\\
+                                                         }\\
+                                              }}\\
+                         }\\
+                   cont \ms{
+                        soa-rel & \ibox{2}\\
+                        }\\
+             }\\
+}
+\end{tabular}
+\zs
+Der genaue Typ der Relation ist jedoch unterspezifiziert und wird in Abhängigkeit vom
+\slashw der Projektion der Verbspur festgelegt. Das wird durch die folgenden Implikationen geregelt:
+
+\eas
+Verberstsätze:\istype{verb-initial-lr}\\
+\onems[verb-initial-lr]{
+loc$|$cat$|$subcat \sliste{ [ nonloc$|$slash \eliste ] }\\
+} \impl\\
+\ms{
+loc$|$cont \type{conditional\_or\_imperative\_or\_interrogative}\\
+}
+\zs
+
+\eas
+\label{impl-v2}
+Verbzweitsätze:\istype{verb-initial-lr}\\
+\onems[verb-initial-lr]{
+loc$|$cat$|$subcat \sliste{ [ nonloc$|$slash \sliste{ [ ] } ] }\\
+} \impl\\
+\ms{
+loc$|$cont \type{assertion\_or\_imperative\_or\_interrogative}\\
+}
+\zs
+(\mex{-1}) und (\mex{0}) beziehen sich auf den Typ der Lexikonregel (\type{verb-initial-lr}).
+Dieser ist in (\ref{lr-verb-movement3}) nicht sichtbar, aber in Kapitel~\ref{sec-lr}
+auf Seite~\pageref{pageref-lr-mit-dtr} wurde erklärt, daß die Notation in (\ref{lr-verb-movement3})
+als Variante einer Lexikonregel gesehen werden kann, die durch eine typisierte Merkmalstruktur
+modelliert wird. \type{verb-initial-lr} ist dann der Typ der entsprechenden Struktur.
+Die Implikationen in (\mex{-1}) und (\mex{0}) unterscheiden sich im Hinblick auf den \slashw
+des Elements in der \subcatl. Ist dieser die leere Liste, so kann das Verb nur in der ersten
+Position realisiert werden.\footnote{
+  Das positionale \emph{es}\is{positionales \emph{es}} in Sätzen wie (i.a) kann entweder als Funktor analysiert werden, der einen
+  Fragesatz als Argument nimmt, die Fragesemantik unterdrückt und eine entsprechende
+  Aussagesatzsemantik beisteuert (Tibor Kiss\aimention{Tibor Kiss}, p.\,M.\ 2006), oder aber als
+  extrahiertes Adjunkt, das selbst nichts zur Semantik des von ihm modifizierten Kopfes
+  beiträgt. Bei der zweiten Analyse muß man sicherstellen, daß dieses Adjunkt wirklich extrahiert
+  ist, \dash, daß das \emph{es} im Mittelfeld ausgeschlossen ist.
+\eal
+\ex[]{
+Es kamen drei Männer herein.
+}
+\ex[*]{
+daß es drei Männer hereinkamen
+}
+\zllast
+}
+Der semantische Beitrag muß also vom Typ \type{conditional}, \type{imperative}
+oder \type{interrogative} sein. Der Typ \type{conditional\_or\_imperative\_or\_interrogative} ist
+ein Obertyp dieser drei Typen, und man muß weiter Information wie zum Beispiel Information über
+die Flexion\is{Flexion} des Verbs (Imperativ oder nicht, Verknüpfung mit anderen Sätzen, Intonation\is{Intonation}) heranziehen,
+um den genauen Typ der Relation zu bestimmen.
+
+Enthält die \slashl ein Element, so muß das Verb an zweiter Stelle realisiert werden.
+Es kann sich dann nur um eine Aussage, einen Imperativ oder eine Frage handeln. Auch in diesem
+Fall braucht man für die Bestimmung der genauen Relation weitere Information. Flexionsinformation
+und Information über die Realisierung von Argumenten kann Evidenz für das Vorliegen eines
+Imperativs sein. Ist das vorangestellte Element ein Fragepronomen, so liegt eine Frage vor,
+ansonsten kann es sich um eine Frage oder einen Aussagesatz handeln. Der Bedeutungsbeitrag in (\mex{1})
+läßt sich nur unter Bezug auf die Intonation bestimmen:
+\eal
+\ex Peter kommt morgen?
+\ex Peter kommt morgen.
+\zl
+
+\noindent
+Der aufmerksame Leser wird sich fragen, wie man den korrekten Bedeutungsbeitrag für die Sätze in
+(\ref{bsp-hat-er-gegessen}) bekommt. Die Analyse des Fragesatzes ist einfach: Das optionale Argument
+von \emph{essen} wird nicht realisiert. In (\ref{bsp-hat-er-gegessen}a) liegt ein ganz normaler Verberstsatz
+vor. Da es sich nicht um einen Konditionalsatz handelt, da keine Imperativmorphologie vorliegt
+und da der Satz mit Fragesatzintonation gesprochen wird, handelt es sich um einen Fragesatz,
+\dash, nur der Typ \type{interrogative} kommt als semantischer Beitrag in Frage. In der Analyse von
+(\ref{bsp-hat-er-gegessen}b) wird der Lexikoneintrag mit dem Akkusativobjekt verwendet. Das Akkusativobjekt
+wird durch eine Spur abgebunden und befindet sich dann in der \slashl des Arguments des Verbs
+in Erststellung. Deshalb sind die Bedingungen der Beschränkung in \pref{impl-v2} erfüllt, und
+der semantische Beitrag muß demzufolge \type{assertion\_or\_imperative\_or\_in\-ter\-rog\-a\-tive} sein.
+Da weder Imperativmorphologie noch Frageintonation vorliegt, ist nur die Relation \type{assertion}
+angebracht. Das Element in \slasch wird dann entweder durch ein spezielles Dominanzschema für
+die Vorfeldellipse abgebunden \citep{Mueller2004e} oder ein leeres Element im Vorfeld fungiert als Füller in einer 
+Füller"=Kopf"=Struktur.
+\is{Satztyp|)} 
+
+
+
+\section{Anhang 2: Interaktion mit der Informationsstruktur}
+\label{sec-udc-is}
+
+Eine\is{Informationsstruktur|(} Eigenschaft der Analyse wurde bisher noch nicht erklärt: Bei der Voranstellung nimmt
+die Extraktionsspur immer die höchste Position im Mittelfeld ein. Das heißt bei der Analyse
+von (\mex{1}a) geht man von der Struktur in (\mex{1}b) und nicht von der Struktur in (\mex{1}c) aus:
+\eal
+\ex Das Buch kennt jeder.
+\ex {}[Das Buch]$_i$ kennt$_j$ \_$_i$ jeder \_$_j$.
+\ex {}[Das Buch]$_i$ kennt$_j$ jeder \_$_i$ \_$_j$.
+\zl
+Das mag überraschen, denn die Normalstellung\is{Normalabfolge} der Argumente von \emph{kennen} ist ja Nominativ vor Akkusativ.
+Prinzipiell läßt die Analyse bisher beide Abfolgen zu: Da wir sowohl (\mex{1}a) als auch (\mex{1}b)
+analysieren können (siehe Kapitel~\ref{sec-mf}), wären ohne eine weitere Einschränkung
+auch beide Strukturen in (\mex{0}) möglich.%% \footnote{
+%%   \citet{Nerbonne94a} benutzt die zwei Analysemöglichkeiten in 
+\eal
+\ex Kennt jeder das Buch?
+\ex Kennt das Buch jeder?
+\zl
+\citet{Fanselow2003d} und \citet{Frey2004a} argumentieren jedoch dafür, daß der Satz in (\mex{-1}a) nach dem
+Muster von (\mex{-1}b) analysiert werden sollte. Frey hat festgestellt, daß die pragmatischen\is{Pragmatik}
+Bedingungen für die Voranstellung von Elementen aus einem einfachen Satz ins Vorfeld den Bedingungen der Voranstellung
+im Mittelfeld entsprechen. Insbesondere kann man feststellen, daß die Plazierung von Subjekten (\mex{1}a), 
+bestimmten Objekten (\mex{1}b--c) und bestimmten Adverbialen (\mex{1}d--e) im Vorfeld pragmatisch
+unmarkiert 
+% Seitenzahlen. Bei GMueller2004 steht das verteilt.
+ist (\citealp{Lenerz77}, \citealp[\page 73--74]{Haider84c}, \citealp{Fanselow2003d};
+G.\,\citealp[\page 189]{GMueller2004a}, \citealp{Frey2004a}),\NOTE{Koster zitieren: \citealp{Koster78a}} 
+\dash, es muß sich beim vorangestellten Element nicht zwangsläufig 
+um einen Topik\is{Topik} oder um einen Fokus\is{Fokus} handeln.\footnote{
+  Die Beispiele in (\mex{1}) und (\mex{2}) sind von \citet{Frey2004a}. 
+%%
+%% Das stimmt aber nicht, denn Berman nimmt ja für lokale Umstellung keine Extraktion an, deshalb
+%% darf dann auch irgendwas, was zur lokalen f-Struktur beiträgt in SpecCP stehen.
+%%
+%% Frey merkt auch an, daß die
+%%   Beispiele mit pragmatisch unmarkierten Beispielen \lfg"=Ansätze wiederlegen, die davon ausgehen,
+%%   daß Elemente im Vorfeld die gramatikalisierten Diskursfunktionen Subjekt (\subj), Topik (\topic)
+%%   oder Fokus (\focus) haben müssen (\citew{Berman97a},\cite[\page 29--30]{Berman2003a}, \citew[\page 181]Bresnan2001a}).%
+}
+
+\eal
+\label{bsp-voranstellung-pragmatik}
+\ex Karl hat das Paket weggebracht.
+\ex Dem Karl hat das Spiel gut gefallen.
+\ex Einem Mitbewohner wurde die Geldbörse entwendet.
+\ex Leider hat keiner dem alten Mann geholfen.
+\ex In Europa spielen Jungen gerne Fußball.
+\zl
+Daß das Vorfeld nicht mit einer pragmatischen Funktion wie Topik oder Fokus verbunden ist,
+wird noch klarer, wenn man sich die Wetterverben\is{Verb!Wetter-} ansieht:
+\ea
+Es wird bald regnen.
+\z
+Das Expletivum in (\mex{0}) ist nicht referentiell, kann also keinen Anschluß an bereits Gesagtes bilden.
+
+Der Zusammenhang zwischen der pragmatischen Funktion, die ein Element in der ersten Position des Mittelfelds
+haben würde, und der Vorfeldpositionierung wird erfaßt, wenn man annimmt, 
+daß die Vorfeldbesetzung bei einfachen Sätzen durch das Element erfolgt,
+das in einem Verbletztsatz am weitesten links im Mittelfeld stehen würde.
+
+\citet{Frey2004a} weist darauf hin, daß Sätze wie (\mex{1}) gesondert behandelt werden müssen:
+\eal
+\ex[]{
+weil es den Otto friert
+}
+\ex[]{\label{bsp-den-otto-friert-es}
+Den Otto friert es.
+}
+\ex[*]{
+weil den Otto es friert
+}
+\zl
+Obwohl \emph{den Otto} nicht vor dem Pronomen\is{Pronomen!Linearisierung} stehen kann, ist die Stellung in (\mex{0}b) unmarkiert.
+Frey behandelt das \emph{es} deshalb als Klitikon\is{Klitisierung}, das für die Besetzung des Vorfeldes keine Rolle
+spielt. Alternativ kann man -- wie das in der HPSG üblich ist -- annehmen, daß die Abfolge der Elemente
+im Mittelfeld über Linearisierungsbeschränkungen\is{Linearisierung!-sregel} geregelt wird, und diese würden Pronomina im Mittelfeld
+vor der Spur anordnen, so daß man auch die Unmarkiertheit von (\mex{0}b) ableiten kann.%
+\is{Informationsstruktur|)}%
+\is{Extraktion|)}
+%
+%% Da das in unserer Analyse genau das Element ist, das zuletzt mit dem Verb kombiniert wird, erzwingt
+%% die folgende Beschränkung, das nur dieses Element extrahiert werden kann.
+%% \ea
+%% \label{implikation-extraktion-hoechstes-element}
+%% \ms[head-argument-phrase]{
+%% non-head-dtrs & \liste{ \ms{ phon & \eliste\\ } }\\
+%% } \impl \ms{ synsem$|$loc$|$cat$|$subcat & \eliste \\ }
+%% \z
+%% Die Beschränkung drückt Folgendes aus: Wenn die Nicht"=Kopf"|tochter in einer Kopf"=Argument"=Struktur
+%% eine Spur ist, dann muß die gesamte Struktur vollständig gesättigt sein, \dash, die Nicht"=Kopf"|tochter
+%% ist das höchste Argument.
+
+
+%% Die Implikation wird ja nicht benutzt, da das mit den Pronomina nicht hinhaut.
+%% \is{Verbalkomplex|(}%
+%% Die folgenden Daten scheinen den Ansatz zu widerlegen, denn obwohl eine Voranstellung von \emph{in der Kneipe gelesen}
+%% möglich ist, ist die Voranstellung im Mittelfeld schlecht.
+%% \eal
+%% \ex[]{
+%% In der Kneipe gelesen hat er das Buch.
+%% }
+%% \ex[*]{
+%% weil in der Kneipe gelesen er das Buch hat
+%% }
+%% \zl
+%% Im Vorgriff auf das Kapitel~\ref{chap-verbalkomplex} kann ich hier sagen, daß die Kombination
+%% von \emph{gelesen} bzw.\ \emph{in der Kneipe gelesen} mit \emph{hat} nicht über das Kopf"=Argument"=Schema,
+%% sondern über ein spezielles Schema für Prädikatskomplexe läuft. Das Prädikatskomplexschema erlaubt keine
+%% lokale Umstellung von Argumenten, weshalb Abfolgen wie die in (\mex{0}b) durch das Prädikatskomplexschema
+%% nicht lizenziert sind. Allerdings läßt das Prädikatskomplexschema die Voranstellung von Elementen
+%% ins Vorfeld zu (siehe Kapitel~\ref{sec-pvp}). Die Implikation in (\ref{implikation-extraktion-hoechstes-element})
+%% sagt nur etwas über Kopf"=Argument"=Strukturen aus, betrifft also das Prädikatskomplexschema nicht.
+%% \is{Verbalkomplex|)}%
+
+
+\section{Alternativen}
+
+
+\NOTE{Kathol95a vielleicht noch diskutieren}
+
+In diesem Abschnitt sollen zwei Alternativen zu Teilbereichen der hier vorgestellten
+Analyse untersucht werden: Die Bestimmung der Satztypen aufgrund von Abfolgemustern und die
+lexikalische Einführung von Fernabhängigkeiten.
+
+\subsection{Bestimmung des Satztyps in Abhängigkeit von der Reihenfolge sichtbarer Elemente}
+\label{sec-satztypen-kathol}
+
+\mbox{}\citet{Kathol95a,Kathol97a,Kathol2000a,Kathol2001a} hat eine Theorie des deutschen\is{Linearisierung!-sdom"ane|(}
+Satzes entwickelt, die die von Mike Reape in die HPSG eingeführten Linearisierungsdomänen
+benutzt (Siehe \citew{Reape90a,Reape92a,Reape94a} und Kapitel~\ref{sec-Reape-Linearisierung}).
+Die Linearisierungsdomänen verbaler Köpfe werden nach den im Kapitel~\ref{topo} eingeführten topologischen Feldern
+eingeteilt. Die Felder werden durchnumeriert: 1 = Vorfeld, 2 = linke Satzklammer, 3 = Mittelfeld
+und 4 = rechte Satzklammer. Linearisierungsbeschränkungen sorgen dann dafür, daß Elemente,
+die den entsprechenden Feldern zugewiesen wurden, auch in der bekannten Reihenfolge stehen,
+\dash 1"=Elemente vor 2"=Elementen usw.
+
+Kathol schlägt vor, den Satztyp in Abhängigkeit von sichtbarem Material\is{leere Kategorie|(} zu bestimmen.
+\citet{Kathol97a} weist die klassische CP/IP"=Analyse der deutschen Satzstruktur aufgrund von
+Lernbarkeitserwägungen zurück und argumentiert für eine nicht"=abstrakte Syntax, \dash
+eine Syntax, in der nur die Reihenfolge sichtbarer Elemente eine Rolle spielt und in der
+abstrakte syntaktische Objekte wie \zb leere funktionale Köpfe keine Rolle spielen (S.\,89).
+
+
+\citet{Kathol2001a} definiert die Satztypen mit Bezug auf die Domänenelemente.
+Er nimmt an, daß alle Satztypen Untertypen der folgenden drei Typen sind:
+\eal
+\label{clause-types}
+\ex\label{v1-clause-type} \type{V1-clause} \impl \onems{
+                                                  S[\textit{fin}]\\
+                                                  dom  \liste{ \onems[2]{
+                                                               V[\textit{fin\/}]\\
+                                                               }, \ldots }
+                                                  }
+
+\ex\label{v2-clause-type} \type{V2-clause} \impl \onems{
+                                                  S[\textit{fin}]\\
+                                                  dom \liste{ [ \textit{1} ], \onems[2]{
+                                                                              V[\textit{fin\/}]\\
+                                                                              }, \ldots }
+                                                  }
+\ex\label{subord-clause-types} \type{subord-clause} \impl \onems{
+                                                           S[\textit{fin}]\\
+                                                           dom  \liste{ \ldots, \onems[2]{
+                                                                                \textsc{head} $\neg$ V[\textit{fin\/}]\\
+                                                                                }, \ldots } 
+                                                           }
+\zl
+Die Beschränkung für den ersten Typ besagt, daß das finite Verb an erster Stelle stehen muß,
+die für den zweiten Typ sagt, daß es ein Element im Feld \type{1} geben muß und daß das
+finite Verb unmittelbar anschließend im Feld \type{2} steht. Für Sätze vom Typ
+\type{subord-clause} muß gelten, daß im Feld \type{2} (der linken Satzklammer) kein finites
+Verb steht. Das finite Verb muß in solchen Sätzen also in einem anderen Feld stehen. Da das
+finite Verb aber nur in einer der beiden Satzklammern stehen kann, bleibt nur die rechte Satzklammer
+-- also das Feld~\type{4} -- übrig.
+
+Kathol kreuzklassifiziert die Typen in (\mex{0}) mit den Typen \type{declarative}, \type{wh-interrogative} und
+\type{polar}. Die entsprechende Typhierarchie zeigt Abbildung~\vref{fig-clausal-types}.
+% For this paper it is sufficient to know that \textit{v2-clause} and \textit{declarative} have a common
+% subtype and that \textit{v1-clause\/} and \textit{polar\/} have a common subtype. \textit{v2-clause} and \textit{polar\/}
+% and \textit{v1-clause\/} and \textit{declarative} are incompatible, respectively.
+%
+\begin{figure}[htbp]
+\centering{%
+\begin{tabular}{cccccc}
+    & & \rnode{fc}{\textit{finite-clause\/}}\\[4ex]
+\multicolumn{2}{c}{\rnode{is}{\framebox{\textit{internal-syntax\/}}}} &  & &\rnode{cl}{\framebox{\textit{clausality\/}}}\\[3ex]
+\rnode{root}{\textit{root\/}} & \rnode{subord}{\textit{subord\/}} &     & \multicolumn{2}{c}{\rnode{inter}{\textit{inter\/}}}\\[2ex]
+\rnode{v2}{\textit{v2\/}}   & \rnode{v1}{\textit{v1\/}}     &     & \rnode{wh}{\textit{wh\/}} & \rnode{polar}{\textit{polar\/}} & \rnode{decl}{\textit{decl\/}}\\[6ex]
+\rnode{r-wh-int}{\textit{r-wh-int\/}} & \rnode{r-decl}{\textit{r-decl\/}} & \rnode{r-pol-int}{\textit{r-pol-int\/}} & \rnode{s-wh-int}{\textit{s-wh-int\/}} & \rnode{s-pol-int}{\textit{s-pol-int\/}} & \rnode{s-decl}{\textit{s-decl\/}}\\
+\end{tabular}%
+\ncline{fc}{is}\ncline{fc}{cl}%
+\ncline{is}{root}\ncline{is}{subord}%
+\ncline{root}{v1}\ncline{root}{v2}%
+\ncline{v2}{r-wh-int}\ncline{v2}{r-decl}%
+\ncline{v1}{r-pol-int}%
+\ncline{cl}{inter}\ncline{cl}{decl}%
+\ncline{inter}{wh}\ncline{inter}{polar}%
+\ncline{wh}{r-wh-int}\ncline{wh}{s-wh-int}%%
+\ncline{decl}{r-decl}\ncline{decl}{s-decl}%
+\ncline{polar}{r-pol-int}\ncline{polar}{s-pol-int}%
+\ncline{subord}{s-wh-int}\ncline{subord}{s-pol-int}\ncline{subord}{s-decl}%
+}
+\caption{\label{fig-clausal-types}Satztypen nach \citew{Kathol2001a}}
+\end{figure}
+Die Boxen stehen hier für sogenannte Partitionen\is{Partition}, \dash, linguistische Objekte müssen
+jeweils einen der Typen haben, die direkt von einer Box dominiert werden.
+
+Ein solcher Ansatz zur Satztypbestimmung wäre sehr attraktiv, wenn es eine eineindeutige Beziehung
+zwischen der Abfolge sichtbarer Elemente und dem Satztyp gäbe. Dem ist jedoch nicht so: In elliptischen
+Äußerungen kann man alle Elemente, die in Kathols Satztypbestimmung eine Rolle spielen, weglassen.
+Wie bereits in den Kapiteln~\ref{sec-konst-test-probleme-voranstellung}
+und~\ref{sec-flache-strukturen} erwähnt wurde, scheint bei oberflächlicher Betrachtung 
+das Vorfeld auch mehrfach besetzbar zu sein. Die relevanten Beispiele werden im folgenden diskutiert.
+
+Kathol definiert Verberst- und Verbzweitsätze als Sätze, in deren linker Satzklammer
+ein finites Verb steht. Es gibt im Deutschen aber Äußerungen wie die in (\mex{1}),
+in denen es (im Hauptsatz) kein Finitum gibt (siehe auch \citew[\page 41]{Paul1919a} für weitere
+Beispiele).
+\eal
+\ex Doch egal,      was  noch  passiert, der Norddeutsche Rundfunk             steht  schon   jetzt als Gewinner fest.\footnote{
+        Spiegel, 12/1999, S.\,258.
+}
+\ex Interessant, zu erwähnen, daß ihre Seele völlig    in Ordnung war.\footnote{
+        Michail Bulgakow, \emph{Der Meister und Margarita}. München: Deutscher Taschenbuch Verlag. 1997, S.\,422.
+      }
+\ex Ein Treppenwitz der    Musikgeschichte, daß die Kollegen   von Rammstein vor    fünf Jahren noch im      Vorprogramm   von Sandow spielten.\footnote{
+        Flüstern \& Schweigen, taz, 12.07.1999, S.\,14. %war das englisch? 07.12.1999, p.\,14
+}
+\zl
+In den Äußerungen in (\mex{0}) wurde die Kopula\is{Kopula|(} {\em sein\/} weggelassen.
+Diese Äußerungen entsprechen den Sätzen in (\mex{1}):
+\eal
+\ex Doch was noch passiert, ist egal, \ldots
+\ex Zu erwähnen, daß ihre Seele völlig in Ordnung war, ist interessant.
+\ex Daß die Kollegen von Rammstein vor fünf Jahren noch im Vorprogramm von Sandow spielten ist ein Treppenwitz der Musikgeschichte.
+\zl
+Die Kopula, die mit Adjektiven benutzt wird, leistet keinen eigenen semantischen Beitrag,
+sie stellt lediglich die Kongruenzinformation und die verbalen Merkmale zur Verfügung, die von anderen Prädikaten
+gebraucht werden, die das Adjektiv + Kopula einbetten \citep[\page 41]{Paul1919a}.
+Wie die Beispiele in (\mex{-1}) zeigen, kann die Kopula weggelassen werden. Das Ergebnis sind dann
+Sätze ohne finites Verb.
+
+Die Beispiele in (\mex{-1}) sind Deklarativsätze, \dash, sie sollten dem Muster in
+(\ref{v2-clause-type}) entsprechen. (\mex{1}) ist ein Beispiel für eine verblose Frage.
+Dieser Satz entspricht einem Verberstsatz mit der Kopula an der ersten Position,
+\dash, er sollte dem Muster in (\ref{v1-clause-type}) entsprechen.
+\ea
+Niemand da?\footnote{
+        \citew[\page 13]{Paul1919a}.
+}
+\z
+
+\noindent
+Man kann die Satztypbestimmung retten, indem man ein phonologisch leeres Verb annimmt.\footnote{
+  Siehe auch \citew{Bender2000a} und \citew*[\page 464]{SWB2003a} für Analysen
+  mit einer phonologisch leeren Kopula für \emph{African American Vernacular English}\il{African American Vernacular English}.%
+}\is{Kopula|)}
+\citew[Kapitel~5.4.1]{Kathol95a} schließt jedoch phonologisch leere Domänenelemente explizit aus.
+%I gives a lexical entry for a trace as used in nonlocal dependency constructions.
+Eine weitere Argumentation gegen leere Elemente findet sich in \citew[\page 38]{Kathol2001a}.
+In Kathols nicht"=abstrakter Syntax haben leere Elemente keinen Platz.
+
+Ein anderes Phänomen, das ebenfalls problematisch für den Linearisierungsansatz ist,
+ist die sogenannte Vorfeldellipse, die auch \emph{Topic Drop} genannt
+wird. \citet{Huang84},\NOTE{FB: Scheint ein Widerspruch zu früherer Anmerkung zu sein, daß das
+  Vorfeld nichts mit pragmatischen Funktionen zu tun hat.}
+\citet{Fries88b} und \citet{Hoffmann97a} diskutieren diese Konstruktion im Detail.
+Wie bereits im Abschnitt~\ref{sec-semantik-v1-v2} festgestellt wurde, läßt sich in bestimmten
+Fällen die Vorfeldellipse nicht von Fragen unterscheiden, wenn man nur die lineare Abfolge
+von realisierten Elementen betrachtet. Das entsprechende Beispiel sei hier wiederholt:
+\eal
+\label{bsp-hat-er-gegessen-zwei}
+\ex Hat er schon gegessen?
+\ex Und was ist mit dem Kuchen?\\
+    Hat er schon gegessen.
+\zl
+Die Sätze unterscheiden sich nur in bezug auf ihre Intonation.
+
+Die Bestimmung des Satztyps würde funktionieren, wenn man annehmen würde, daß das Vorfeld
+durch ein leeres Element besetzt sein kann. Dann wäre (\mex{0}b) als Verbzweitsatz analysierbar.
+
+Will man keine leeren Elemente verwenden, bleibt nur, weitere Muster aufzuschreiben. Für die Vorfeldellipse
+müßte man dann \zb folgende Beschränkung formulieren:
+\ea
+\type{V1-topic-drop-clause} \impl \onems{
+                                                  S[\textit{fin}]\\
+                                                  dom  \liste{ \onems[2]{
+                                                               V[\textit{fin\/}]\\
+                                                               }, \ldots }
+                                                  }
+\z
+Der Typ \type{V1-topic-drop-clause} wäre dann ein Untertyp von \type{root}, und man müßte
+noch einen gemeinsamen Untertyp von \type{V1-topic-drop-clause} und \type{decl} definieren.
+
+Genauso könnte man Typen für die Fälle mit fehlender Kopula\is{Kopula} definieren. Auf diese Weise würde
+man jedoch nur alle Abfolgemuster aufzählen, ohne die Zusammenhänge zwischen diesen Mustern
+zu erfassen. Für die bisher diskutierten Fälle ist es zwar unschön, aber doch immerhin
+möglich, sie in die Typhierarchie zu integrieren. Betrachtet man jedoch die Beispiele mit scheinbar
+mehrfacher Vorfeldbesetzung, wie sie schon im Kapitel~\ref{sec-konst-test-probleme-voranstellung}
+diskutiert wurden, sieht man, daß ein rein linearisierungsbasierter Ansatz ohne leere Elemente
+erhebliche Probleme bekommt.
+\eal
+\ex {}[Nichts] [mit  derartigen     Entstehungstheorien] hat es natürlich zu tun, wenn \ldots\footnote{
+        K. Fleischmann, {\em Verbstellung und Relieftheorie\/}, München, 1973, S.\,72.
+        zitiert nach \citew[\page 135]{vdVelde78a}.}
+\label{bsp-nichts-mit-derartigen-udc}
+\ex {}[Trocken] [durch   die Stadt] kommt man am     Wochenende auch mit  der BVG.\footnote{
+        taz berlin, 10.07.1998, S.\,22.
+      }\label{bsp-trocken-durch-die-stadt-udc}
+\ex\label{bsp-alle-traeume-udc}
+    {}[Alle Träume] [gleichzeitig]  lassen sich nur  selten verwirklichen.\footnote{
+        Broschüre der Berliner Sparkasse, 1/1999.
+        }
+\zl
+In diesen Beispielen steht das finite Verb nicht an zweiter Stelle, obwohl es sich um Deklarativsätze
+handelt. Eine Möglichkeit, das zu erfassen, wäre, die Typbeschränkung in (\ref{v2-clause-type}) so aufzuweichen,
+daß beliebig viele Elemente vor dem Verb in der linken Satzklammer stehen können:
+\ea
+ \type{Vn-clause} \impl \onems{
+                                                  S[\textit{fin}]\\
+                                                  dom \liste{ [ \textit{1} ], \ldots, \onems[2]{
+                                                                              V[\textit{fin\/}]\\
+                                                                              }, \ldots }
+                                                  }
+\z
+Das ist aber problematisch, da Kathol Linearisierungsbeschränkungen annimmt, die dafür sorgen,
+daß alle Domänenelemente entsprechend ihrer Feldnummer angeordnet sind. Daraus folgt, daß
+vor \type{2} nur \type{1}"=Elemente stehen können. Für die Sätze in (\mex{1}) ergibt sich
+deshalb, daß \emph{los} und \emph{damit} und \emph{den Atem} und \emph{an} bzw.\ \emph{gut}
+und \emph{an} im Vorfeld stehen müssen.
+\eal
+\label{bsp-particle-vf-udc}
+\ex\label{bsp-los-damit-udc} 
+\emph{Los} damit \emph{geht} es schon am 15.\ April.\footnote{
+        taz, 01.03.2002, S.\,8.%
+    }
+\ex\label{bsp-den-atem-an-haelt-udc}
+Den Atem an hielt die ganze Judenheit des römischen Reichs und weit hinaus über die Grenzen.\footnote{
+        Lion Feuchtwanger, \emph{Jud Süß}, S.\,276, zitiert nach \citew[\page56]{Grubacic65a}.
+}
+\ex Sein Vortrag wirkte [\ldots] %(trotz Verweis auf seine Familie, natürlich) 
+ein wenig arrogant, nicht zuletzt wegen seiner Anmerkung,
+neulich habe er bei der Premiere des neuen "`Luther"'"=Films in München neben
+Sir Peter Ustinov und Uwe Ochsenknecht gesessen. %Ansatz
+Gut \emph{an kommt}\iw{ankommen} dagegen die Rede des Jokers im Kandidatenspiel: des Thüringer Landesbischofs Christoph Kähler (59).\footnote{
+        taz, 04.11.2003, S.\,3, siehe auch \citew[\page313]{Mueller2005d}.%
+}
+\zl
+In einem solchen Setting kann man nicht erklären, wieso die Sätze in (\mex{1}) schlecht sind:
+\eal
+\ex[*]{
+An den Atem hielt die ganze Judenheit.
+}
+\ex[*]{
+An gut kommt dagegen die Rede des Jokers im Kandidatenspiel.
+}
+\zl
+In der Analyse der Sätze in (\mex{-1}), die ich in \citew{Mueller2005d} vertrete, bildet
+die Verbpartikel die rechte Satzklammer in einem komplexen Vorfeld
+und \emph{den Atem} bzw.\ \emph{gut} stehen davor. Es ist jedoch nicht so, daß die Verbpartikel
+und das jeweils andere Element als eigenständige Konstituenten im Vorfeld stehen. Würde man eine
+eigenständige Voranstellung der Elemente annehmen, so ließe sich nicht erklären, wieso die Sätze
+in (\mex{0}) ungrammatisch sind, denn prinzipiell kann eine Partikel auch an erster Stelle stehen,
+wie (\ref{bsp-los-damit-udc}) zeigt. Mit einem intern strukturierten komplexen Vorfeld sind die Verhältnisse
+in (\mex{-1}) und (\mex{0}) dagegen erklärbar, denn dann ist die Abfolge in (\ref{bsp-los-damit-udc}) eine
+Extraposition\is{Extraposition} von \emph{damit}, wie sie auch sonst möglich ist (\mex{1}a), und die
+Beispiele in (\mex{0}) sind schlecht, weil \emph{den Atem} und \emph{gut} auch ansonsten nicht ins
+Nachfeld gestellt werden können, wie (\mex{1}b,c) zeigen:
+\eal
+\ex[]{
+Es geht schon am 15.\ April los damit.
+}
+\ex[*]{
+Deshalb hielt die ganze Judenheit an den Atem.
+}
+\ex[*]{
+Die Rede kommt an gut.
+}
+\zl
+
+\noindent
+Eine Alternative zur Aufweichung der Beschränkung, daß nur eine Konstituente vor dem finiten
+Verb stehen darf, besteht darin anzunehmen, daß die Elemente vor dem Finitum eine Konstituente
+bilden. Ich habe vorgeschlagen, die Elemente mit dem leeren verbalen Kopf zu kombinieren, der
+auch im Kapitel~\ref{sec-v1} für die Analyse der Verbstellung verwendet wurde. Wenn man keine
+leeren Köpfe annehmen will, bleibt nur, spezielle Grammatikregeln anzunehmen, die die Elemente
+im Vorfeld zu größeren Konstituenten kombinieren. Die Daten, die ich in \citew{Mueller2003b}
+diskutiert habe, zeigen jedoch, daß sehr viele verschiedene Arten von Kombinationen
+im Vorfeld möglich sind. So können zwei Argumente (\ref{bsp-nichts-mit-derartigen-udc}) oder wie in
+(\ref{bsp-trocken-durch-die-stadt-udc}) und in (\ref{bsp-alle-traeume-udc}) Adjunkte und Argumente
+gemeinsam im Vorfeld auf"|treten. Die Beispiele in (\ref{bsp-particle-vf-udc}) zeigen, daß eine
+Verbpartikel zusammen mit einem anderen Element im Vorfeld stehen kann. Somit braucht man mindestens
+drei zusätzliche Grammatikregeln, die Argumente, Adjunkte und Prädikatskomplexbestandteile zu Verben projizieren und auf diese
+Weise erreichen, was ein einziger leerer Kopf leisten würde. In Analysen der Verbstellung,
+die einen leeren Kopf für das Verb in Endstellung annehmen, ist der entsprechende leere Kopf
+ohnehin vorhanden, muß also nicht stipuliert werden. In einer Linearisierungsanalyse gibt es
+den leeren Kopf dagegen nicht, weshalb die Stipulation eines leeren Kopfes oder der drei Grammatikregeln
+zur Vermeidung des leeren Kopfes nur für die Analyse der scheinbar mehrfachen Vorfeldbesetzung
+in die Grammatik aufgenommen werden müssen. Aus diesem Grund ist der in Kapitel~\ref{sec-v1}
+und im Abschnitt~\ref{sec-semantik-v1-v2} entwickelten Analyse der Satztypen im Deutschen
+gegenüber der linearisierungsbasierten Analyse der Vorzug zu geben.%
+\is{leere Kategorie|)}\is{Linearisierung!-sdom"ane|)}
+
+
+\subsection{Lexikalische Einführung von Fernabhängigkeiten}
+\label{sec-lex-intro-udc}
+
+\mbox{}\citet*{BMS2001a}\is{Extraktion|(} entwickeln eine Analyse der Fernabhängigkeiten, bei der
+die Information über die Fernabhängigkeit im Lexikon eingeführt wird. Es gibt
+eine Liste, die Information über die Valenz eines Kopfes enthält (\argst)\isfeat{arg-st}.
+Von dieser Liste gibt es eine Abbildung auf eine weitere Liste (\textsc{deps})\isfeat{deps},
+die sowohl Argumente als auch Adjunkte enthält. 
+\ea
+Argument Structure Extension \citep*[\page 12]{BMS2001a}\\
+\type{verb} \impl \ms{
+arg-st & \ibox{1}\\
+deps   & \ibox{1} $\oplus$ list\textrm{(}`adverbial'\textrm{)}\\
+}
+\z
+Von dieser Liste gibt es schließlich eine Abbildung auf die \textsc{subj}\isfeat{subj}- und \textsc{comps}\isfeat{comps}"=Liste.
+\textsc{subj} und \textsc{comps} regeln die Kombinatorik in der Syntax, auf diese Merkmale
+wird in den Dominanzschemata Bezug genommen. (\subj und \comps entsprechen der hier verwendeten
+\subcatl, wobei Subjekte getrennt von Komplementen repräsentiert werden.)
+
+\eas
+Argument Realization \citep*[\page 12]{BMS2001a}\\
+\type{word} \impl \ms{
+subj  & \ibox{1} \\
+comps & \ibox{2} $\ominus$ list\textrm{(}`gap-ss'\textrm{)}\\
+deps  & \ibox{1} $\oplus$ \ibox{2}\\
+} 
+\zs
+Dabei ist \type{gap-ss} ein Untertyp von \type{synsem}, für den gilt, daß der \localw mit einem
+Element in \slasch identisch ist. Das Subtraktionszeichen $\ominus$\is{$\ominus$}\isrel{$\ominus$} wird dazu benutzt, alle Objekte
+vom Typ \type{gap-ss} von der Liste \iboxt{2} abzuziehen. Das heißt, die Liste der abhängigen
+Elemente ist \textsc{deps}. Davon werden die Elemente abgezogen, die Gaps sind, und das Ergebnis der Subtraktion wird mit der
+\textsc{comps}"=Liste identifiziert.
+
+% Nö, denn SUBJ könnte ja auch leer sein.
+%% Eine solche Abbildung sagt voraus, daß Subjekte nicht extrahiert werden können,
+%% was für das Englische richtig ist, für das Deutsche aber nicht. 
+Paßt man das
+Argumentrealisierungsprinzip an die in diesem Buch vertretene Merkmalsgeometrie an,
+bekommt man für finite Verben folgendes (siehe Kapitel~\ref{chap-passiv}):
+\ea
+Argument Realization\\
+\type{word} \impl \ms{
+subcat & \ibox{1} $\ominus$ list\textrm{(}`gap-ss'\textrm{)}\\
+deps   & \ibox{1}\\
+} 
+\z
+
+
+\noindent
+Für ein ditransitives Verb wie \emph{geben} bekommt man in einem solchen Ansatz
+unter anderem die drei \subcatlen in (\mex{1}b--d):
+\eal
+\ex \liste{ NP[\textit{nom}], NP[\textit{acc}], NP[\textit{dat}] }
+\ex \liste{ \hphantom{NP[\textit{nom}],~}NP[\textit{acc}], NP[\textit{dat}] }
+\ex \liste{ NP[\textit{nom}],\hphantom{~NP[\textit{acc}],~}NP[\textit{dat}] }
+\ex \liste{ NP[\textit{nom}], NP[\textit{acc}]\hphantom{,~NP[\textit{dat}]} }
+\zl
+Das Subjekt, das Akkusativ"=Objekt bzw.\ das Dativ"=Objekt ist in (\mex{0}b--d) extrahiert, wird
+also nicht von \textsc{deps} auf die \subcatl übernommen.
+
+\citet[\page147--148]{Nerbonne94a} argumentiert gegen die Verwendung von Spuren\is{leere Kategorie} und für
+die lexikalische Einführung von Fernabhängigkeiten, da man bei der Verwendung von Spuren
+das Problem der Serialisierung\is{Serialisierung} der Spuren hat. Wie sich in den letzten Jahren gezeigt hat,
+ist das aber kein Problem, sondern im Gegenteil erwünscht.
+Die Diskussion in Abschnitt~\ref{sec-udc-is} hat gezeigt, daß das Element im Vorfeld
+bei Voranstellung aus dem lokalen Satz dieselbe pragmatische Funktion hat, die es
+haben würde, wenn es ganz links im Mittelfeld stehen würde. In einem Ansatz mit Spuren kann
+man die entsprechenden Beschränkungen formulieren, \dash, man kann erzwingen, daß die
+Spur am weitesten links im Mittelfeld steht, und durch die Interaktion mit Linearisierungsregeln\is{Linearisierung!-sregel}
+läßt sich die informationsstrukturelle Funktion der extrahierten Konstituente bestimmen.
+Im lexikonbasierten Ansatz läßt sich hingegen nicht feststellen, ob die Argumente
+des Verbs definit oder indefinit sind, ob es unbetonbare Pronomina sind oder nicht usw.
+Diese Information ist in den Beschreibungen NP[\textit{nom}] nicht enthalten, da man nicht im
+Lexikon festlegen muß, daß \emph{geben} mit einer definiten Nominalphrase vorkommt. Die Beschreibung
+NP[\textit{nom}] sagt nichts über die Definitheit/""Indefinitheit des Subjekts von \emph{geben} aus
+und läßt damit sowohl Definitheit als auch Indefinitheit zu.
+Da die extrahierten Elemente in bezug auf ihre informationsstrukturellen Eigenschaften nicht
+bestimmt sind, sind also auch die informationsstrukturellen Eigenschaften, die der zum extrahierten
+Element gehörende Füller haben muß, nicht beschränkt.
+%%
+%% \eal
+%% \ex weil dem Mann eine Frau ein Buch gibt
+%% \ex Dem Mann gibt eine Frau ein Buch.
+%% \zl
+Der einzige Ausweg scheint hier zu sein, daß man alle Information, die im Zusammenhang
+mit der Linearisierung relevant ist, im Lexikon spezifiziert. Man würde dann für jede
+Abfolge einen eigenen Lexikoneintrag mit entsprechend geordneter Valenzliste annehmen
+und verlangen, daß die Elemente der Valenzliste von rechts nach links abgebunden werden
+(also mit \emph{append} statt \emph{delete}). Für das Verb \emph{geben}, wie es in (\mex{1}a)
+benutzt wird, müßte man also eine \subcatl wie in (\mex{1}b) annehmen:
+\eal
+\ex weil dem Mann eine Frau ein Buch gibt
+\ex \liste{ NP[\textit{dat}, \textsc{def}+], NP[\textit{nom}, \textsc{def}$-$], NP[\textit{acc}, \textsc{def}$-$] }
+\zl
+\citet{Uszkoreit86b} hat eine solche Analyse vorgeschlagen.
+Da \citet*{BMS2001a} Adjunkte genau wie Argumente in den \textsc{deps}"=Listen verwalten, würde die Liste
+für (\mex{1}a) auch ein Adjunkt enthalten:
+\eal
+\ex weil dem Mann hoffentlich eine Frau ein Buch gibt
+\ex \liste{ NP[\textit{dat}, \textsc{def}+], Adjunct, NP[\textit{nom}, \textsc{def}$-$], NP[\textit{acc}, \textsc{def}$-$] }
+\zl
+Die beiden folgenden Beispiele von \citet{Frey2004a}\NOTE{Seitenzahl} zeigen, daß
+Frame"=Adverbiale (\mex{1}a) im Gegensatz zu Instrumental"=Präpositionalphrasen (\mex{1}b) ins
+Vorfeld gestellt werden können, ohne daß die Sätze pragmatisch markiert wären.
+\eal
+\ex In Europa spielen Jungen gerne Fußball. 
+\ex Mit dem Hammer hat Otto das Fenster eingeschlagen.
+\zl
+Das entspricht der Markiertheit/""Unmarkiertheit der entsprechenden Sätze in (\mex{1}):
+\eal
+\ex daß in Europa Jungen gerne Fußball spielen
+\ex daß Otto mit dem Hammer das Fenster eingeschlagen hat
+\ex daß mit dem Hammer Otto das Fenster eingeschlagen hat
+\zl
+Um diesen Unterschied im Lexikon erfassen zu können, muß man bereits bei der lexikalischen
+Einführung der Adjunkte und Fernabhängigkeiten sagen, welcher Art die Adverbiale im Vorfeld
+sein werden, \dash, die Tatsache, daß eine Instrumental-PP bzw.\ ein Frame"=Adverbial oder Satzadverb
+extrahiert wurde, muß bereits im Lexikoneintrag eines Verbs enthalten sein.
+
+Überlegt man sich, was das genau bedeutet, so sieht man, daß die gesamte Sprache einfach im Lexikon
+aufgeschrieben wird. Einzig die genaue phonologische Realisierung und die semantische Relation
+werden ausgelassen. 
+%% Der Ansatz ist also genauso unbefriedigend wie der oberflächenorientierte Ansatz
+%% von Kathol, der einfach auf"|tretende Muster klassifiziert.
+
+Darüber hinaus gibt es das Problem, daß man normalerweise davon ausgeht, daß Elemente in Valenzlisten
+Objekte vom Typ \type{synsem} sind (siehe Kapitel~\ref{chap-lokalitaet} zur Lokalität der Selektion)
+und daß deshalb im Lexikon phonologische Information abhängiger Elemente nicht zur Verfügung steht,
+da \phon nicht Teil der in \type{synsem}"=Objekten enthaltenen Information ist. Man kann also nicht
+erkennen, ob ein unbetonbares Pronomen\is{Pronomen!Linearisierung} vor dem zu extrahierenden Element steht oder nicht, was für
+die Analyse von Sätzen wie (\ref{bsp-den-otto-friert-es}) -- hier als (\mex{1}) wiederholt -- ein
+Problem darstellt. 
+\ea
+\label{bsp-den-otto-friert-es-zwei}
+Den Otto friert es.
+\z
+Vielleicht könnte man dieses Problem lösen, indem man ein syntaktisches Merkmal \textsc{betonbar}
+innerhalb von \synsem stipuliert, aber \citet[\page 178]{Abraham95a-u} formuliert für die Abfolge
+von Pronomina die Regel Dentale\is{Dental} vor Labialen\is{Labial}. Information über die Aussprache von syntaktischem
+Material gehört aber eindeutig zu \phon und nicht zu \synsem.
+%
+%
+%Dental [n] und der Labial [m] soll das ihn < ihm bedeuten? Vielleicht gibt es da ja Unterschiede
+% zu anderen Pronomina und diese gewichtete Regel spielt wirklich eine Rolle.
+%
+%
+
+
+
+\begin{comment}
+\subsection{Mittelfeldabfolge und Vorfeldbesetzung in LFG}
+
+
+LFG\is{Lexical Functional Grammar@\emph{Lexical Functional Grammar} (LFG)|(}
+ist im Gegensatz zur HPSG keine monostratale Theorie. Es gibt eine Beschreibung für die
+Konstituentenstruktur (c"=Struktur\is{c"=Struktur}) und eine für die funktionale Struktur (f"=Struktur\is{f"=Struktur}). Die
+f"=Struktur enthält Informationen über grammatische Funktionen, die wie \subj, \obj
+(Akkusativobjekt), \objz (Dativobjekt) und \comp von einem Verb regiert sein müssen oder wie \topic,
+\focus und \adj (Adjunkt) unregiert sind. In einer 
+\fstr gibt es ein \predm, das eine Repräsentation des Prädikats in einem gewissen lokalen Kontext und
+die vom Prädikat regierten grammatischen Funktionen als Wert hat. Von der
+c"=Struktur gibt es eine Abbildung auf die f"=Struktur. Die Diskussion der Analyse des Satzes
+(\mex{1}) in Abbildung~\vref{abb-vl-lfg} soll das verdeutlichen.
+\ea
+{}daß der Mann dem Jungen hilft
+\z
+\begin{figure}[htbp]
+\centerline{%
+\begin{tabular}{@{}ccc}
+\multicolumn{3}{c}{\rnode{vp}{VP}}\\[2ex]
+\rnode{npnom_oben}{(\up \textsc{subj}) = \down} & \rnode{npacc_oben}{(\up \textsc{obj}) = \down} & \rnode{v_oben}{\up = \down}\\
+\rnode{npnom}{NP[nom]}  & \rnode{npdat}{NP[dat]} & \rnode{v}{V}\\[3ex]
+d\rnode{David}{er Man}n & d\rnode{s}{em Junge}n  & \rnode{hilft}{hilft}\\
+\end{tabular}%
+\ncline{vp}{npnom_oben}\ncline{vp}{npacc_oben}\ncline{vp}{v_oben}%
+\ncline{npnom}{David}\ncline{npdat}{s}\ncline{v}{hilft}%
+\hspace{4em}%
+\rnode{alles}{\lfgms{ pred & `helfen\sliste{\subj,\objz}'\\
+         subj  & \rnode{fmann}{\lfgms{ pred & `Mann' \\
+                                     }}\\
+         tense & PRESENT\\
+         obj2  & \rnode{fjunge}{\lfgms{ pred & `Junge'\\
+                                    }}\\
+       }}
+{%\nodemargin1pt
+\ncline{<->}[r]{vp}[l][340]{alles}{6em}%
+\ncline{<->}[r]{v}[l]{alles}{3em}%
+\ncline{<->}[r][60]{npnom}[l][330]{fmann}{6em}%
+\ncline{<->}[r][340]{npdat}[l][40]{fjunge}{6em}%
+}}
+\caption{\label{abb-vl-lfg}Beispiel"=Analyse für \emph{der Mann dem Jungen hilft}}
+\end{figure}
+Die Annotation (\up \textsc{subj}) = \down{} besagt, daß der Subjektwert der \fstr, die zum Mutterknoten
+(der VP) gehört, identisch ist mit der \fstr des Knotens unterhalb der Annotation (NP[nom]). Durch
+entsprechende \cstr"=Annotationen kann man erreichen, daß bestimmte Phrasenstrukturpositionen auf
+grammatische Funktionen in der \fstr des zugehörigen Kopfes abgebildet werden. Bei Köpfen wird die
+\fstr einfach an den Mutterknoten weitergegeben (\up = \down). In Abbildung~\ref{abb-vl-lfg} kommt
+der Hauptanteil der \fstr vom Verb \emph{hilft}. Das Verb steuert den \pred"= und den \textsc{tense}"=Wert bei. Die beiden NPen
+liefern die Werte für \subj und \obj in dieser \fstr.
+
+Nun stellt sich die Frage, wie die zugehörige \cstr aussieht. Eine Möglichkeit ist eine
+Phrasenstrukturregel wie (\mex{1}):\footnote{
+  Siehe auch \citew[\page 110]{Bresnan2001a-u} und \citew[Abschnitt~2.2]{Dalrymple2006a} zu einer entsprechenden Regel mit
+  optionalen Konstituenten auf der rechten Regelseite.
+}
+
+\ea
+\phraserule{VP}{
+\rulenode{(NP[nom])\\*(\up\ \subj) = \down}
+\rulenode{(NP[dat])\\*(\up\ \objz) = \down}
+\rulenode{(NP[acc])\\*(\up\ \obj) = \down}
+\rulenode{(V)\\* \up = \down}}
+\z
+In dieser Regel sind alle Bestandteile der rechten Regelseite als optional gekennzeichnet. Daß
+obligatorische Argumente nicht weggelassen werden, wird durch Wohlgeformtheitsbedingungen für
+\fstren sichergestellt, die besagen, daß alle im \predw vorkommenden grammatischen Funktionen auch
+in einer \fstr realisiert sein müssen (\emph{Completeness}\is{Vollständigkeit}\is{Completeness@\emph{Completeness}|see{Vollst"andigkeit}}). Dafür daß \emph{helfen} nicht mit einem
+Akkusativobjekt realisiert wird, sorgt eine Wohlgeformtheitsbedingung, die verlangt, daß in einer
+\fstr keine Argumentfunktionen auf"|tauchen dürfen, die nicht in \pred vorkommen 
+(\emph{Coherence}\is{Coherence@\emph{Coherence}|see{Koh"arenz}}\is{Koh"arenz!LFG}).
+
+Das Problem mit (\mex{0}) ist nun, daß man mit (\mex{0}) genau eine Anordnung der Argumente im
+Mittelfeld ableiten kann. Das liegt daran, daß LFG keine Trennung zwischen Dominanz\is{Dominanz} und Präzedenz\is{Pr"azedenz}
+annimmt. Durch die Spezifikation der Kasuswerte in (\mex{0}) ist also die Reihenfolge der Argumente
+genau festgelegt.
+
+Man könnte nun einen Ansatz mit "`Bewegung"' und Spuren annehmen, wie das oft auch in der \gbt
+gemacht wird. Diese Analysen wurden bereits im Kapitel~\ref{sec-Scrambling-Skopus} kritisiert. Will
+man keinen bewegungsbasierten Ansatz, so bleiben zwei Möglichkeiten: explizite Aufzählung der
+möglichen Anordnungsmuster und andere Zuordnung der grammatischen Funktionen. Beide sind nicht
+unproblematisch, wie ich im folgenden darlegen werde: Bei der ersten Variante, der expliziten
+Aufzählung der Abfolgemuster ergibt sich ein Problem mit den als optional markierten Konstituenten.
+Für die Analyse des Satzes in (\mex{1}) würde man wohl die Stellungsvariante (\mex{2}) der Regel in (\mex{0}) verwenden.
+\ea
+daß ihm keiner hilft
+\z
+\ea
+\phraserule{VP}{
+\rulenode{(NP[dat])\\*(\up\ \objz) = \down}
+\rulenode{(NP[nom])\\*(\up\ \subj) = \down}
+\rulenode{(NP[acc])\\*(\up\ \obj) = \down}
+\rulenode{(V)\\* \up = \down}}
+\z
+Das Problem ist jedoch, daß es außerdem die Regeln in (\mex{1}) geben muß, damit die entsprechenden
+Anordnungen bei Sätzen mit ditransitiven Verben analysierbar sind:
+\eal
+\ex
+\phraserule{VP}{
+\rulenode{(NP[dat])\\*(\up\ \objz) = \down}
+\rulenode{(NP[acc])\\*(\up\ \obj) = \down}
+\rulenode{(NP[nom])\\*(\up\ \subj) = \down}
+\rulenode{(V)\\* \up = \down}}
+\ex
+\phraserule{VP}{
+\rulenode{(NP[acc])\\*(\up\ \obj) = \down}
+\rulenode{(NP[dat])\\*(\up\ \objz) = \down}
+\rulenode{(NP[nom])\\*(\up\ \subj) = \down}
+\rulenode{(V)\\* \up = \down}}
+\zl
+Die Regeln in (\mex{0}) unterscheiden sich von der in (\mex{-1}) nur durch die Position der
+Akkusativ"=NP. Diese ist jedoch optional, wird in der \fstr von \emph{hilft} nicht verlangt und wird
+deshalb bei einer Analyse von (\mex{-2}) auch nicht realisiert. In der Analyse von (\mex{-2}) können
+somit alle drei Regeln angewendet werden, weshalb man für Sätze mit zweistelligen Verben immer drei
+Analysen bekommt.\is{Mehrdeutigkeit!unechte} Dies läßt sich nur beheben, indem man die umstellbaren Argumente obligatorisch
+macht und für alle Anordnungsmuster eine eigene Regel annimmt. Damit ist man aber wieder bei einer
+Grammatik angelangt, die von Chomsky und den Vertretern der GPSG als nicht adäquat eingestuft wurde.
+
+Ein alternativer Ansatz wurde von Berman (\citeyear[Abschnitt~2.1.3]{Berman96a-u}; \citeyear[\page 37]{Berman2003a}) 
+vorgeschlagen. Sie geht von binär verzweigenden Strukturen aus. Die VP besteht bei ihr nur aus dem
+Verbalkomplex und einem V0. V0 kann bei \citet[\page 34]{Berman96a-u} ein overtes Verb oder eine
+Verbspur\is{Spur!Verb-} sein, \citet[\page 41]{Berman2003a} geht dagegen von einer Analyse mit optionalem finiten
+Verb in der VP aus. Bei Verberstsätzen steht das finite Verb in C und steuert von dort seine
+\fstr"=Information bei. Die Argumente stehen bei Berman nicht innerhalb der VP, sondern außerhalb
+und werden über die folgende Regel mit der VP verbunden:
+\ea
+\phraserule{VP}{
+\rulenode{ZP\\*\up = \down}
+\rulenode{VP\\*\up = \down}}
+\z
+
+\noindent
+ZP steht dabei für alle Phrasen, die sowohl im Vorfeld als auch im Mittelfeld auf"|treten können,
+\dash für Subjekte, Objekte verschiedenster Art und Adjunkte (S.\,30). (\mex{1}) zeigt einen vereinfachten Ausschnitt
+der ZP"=Regel für DPen:
+\ea
+\label{LFG-ZP-Regel}
+\phraserule{ZP}{
+\rulenode{\begin{tabular}[t]{@{}l@{~}l@{}}
+          DP\\
+          \{  & (\up\ \subj) = \down\\
+          $|$ & (\up\ \vcomp{}* \{\obj $|$ \objz $|$ \ldots\}) = \down \}\\
+          \ldots\\
+          \end{tabular} } }
+\z
+Der senkrechte Strich steht in (\mex{0}) für \emph{Disjunktion}\is{Disjunktion}. Die Regel besagt, daß die
+abgeleitete DP das \subj, \obj bzw.\ \objz in der \fstr der Mutter 
+beisteuert. Da die \fstr der ZP in der Regel (\mex{-1}) mit der \fstr der VP identifiziert wird
+(\up = \down), trägt die DP also zur \fstr des Verbs in der VP bei. Der Zusatz \vcomp{}* im zweiten
+Disjunkt in (\mex{0}) wird in Bermans Analyse benötigt, da das Hauptverb in Sätzen mit Hilfsverben
+unter die Hilfsverben eingebettet sein kann. Die \fstr des Hauptverbs ist dann in die \fstr des
+Hilfsverb unter dem Merkmal \vcomp eingebettet. \vcomp{}* steht für einen beliebig langen Pfad aus
+\vcomp"=Merkmalen (\textsc{vcomp$|$vcomp$|$vcomp \ldots}). Insbesondere ist auch ein Pfad der länge
+Null möglich. In diesem Fall steuert die DP ihre \fstr direkt als \obj"= oder \objz"=Wert zur
+übergeordneten \fstr bei. Ausdrücke wie \vcomp{}* werden auch zur Modellierung von
+Fernabhängigkeiten verwendet \citep{KZ89a}. Da es damit eine gewisse Variabilität in der Abbildung von der \cstr
+zur \fstr gibt, spricht man auch von \emph{funktionaler Ungewissheit} (\emph{functional
+uncertainty}). \citet[\page 31--33]{Berman97a} gibt weitere Ersetzungsregeln für ZP an, die aus ZP
+Präpositionalphrasen, Adverbphrasen und Adjektivphrasen ableiten.
+% 
+% Abschnitt 2.3.3 eigene syntaktische Kategorie für VPen im Vorfeld
+
+\citet{Berman2003a} gibt keine Phrasenstrukturregeln an. Sie formuliert aber
+die beiden folgenden Beschränkungen, die DPen in Abhängigkeit von ihrem Kasus eine grammatische
+Funktion zuordnen (S.\,37):
+\eal
+\ex (\down \textsc{case}) = NOM $\Rightarrow$ (\up \subj) = \down{}
+\ex (\down \textsc{case}) = ACC $\Rightarrow$ (\up \obj) = \down{}
+\zl
+Solche Bedingungen sind aber problematisch, denn nicht alle Nominative sind Subjekte und nicht alle
+Akkusative sind Objekte. In (\mex{1}a, b) gibt es neben dem Subjekt bzw.\ Objekt Prädikate im
+Nominativ bzw.\ im Akkusativ. In (\mex{1}c) liegt ein Akkusativ"=Adjunkt vor. Siehe
+Kapitel~\ref{sec-sem-kasus} zu anderen Beispielen für Adjunkt"=Nominalphrasen.
+\eal
+\ex Er ist ein Lügner.
+\ex Er nannte ihn einen Lügner.
+\ex Er arbeitete den ganzen Tag.
+\zl
+
+\noindent
+Man muß also eine sehr viel genauere Fallunterscheidung vornehmen. Das geht wohl am einfachsten in
+einer disjunktiven Regel wie der in (\ref{LFG-ZP-Regel}).
+
+Für die Vorfeldbesetzung nimmt \citet[\page]{Berman2003a} Strukturen wie die in
+Abbildung~\vref{Abb-LFG-Vorfeld} an.
+\begin{figure}[htbp]
+
+\centerline{%
+\begin{tabular}{@{}ccc@{}}
+\multicolumn{2}{c}{\rnode{cp}{CP}}\\[4ex]
+\rnode{npnom_oben}{(\up \textsc{subj}) = \down} & \rnode{c1_oben}{\up = \down}\\
+\rnode{npnom}{NP[nom]}  & \rnode{c1}{C$'$}\\[4ex]
+                       & \rnode{c_oben}{\up = \down} & \rnode{vp_oben}{\up = \down}\\
+                       & \rnode{c}{C}              & \rnode{vp}{VP}\\[4ex]
+                       &                          & \rnode{npacc_oben}{(\up \textsc{obj}) = \down}\\
+                       &                          & \rnode{npacc}{NP[dat]}\\[5ex]
+D\rnode{David}{er Man}n &\rnode{ver}{hilft}   & de\rnode{s}{m Jung}en\\
+\end{tabular}%
+\ncline{cp}{c1_oben}\ncline{cp}{npnom_oben}%
+\ncline{c1}{c_oben}\ncline{c1}{vp_oben}%
+\ncline{vp}{npacc_oben}%
+\ncline{c}{ver}\ncline{npnom}{David}\ncline{npacc}{s}%
+\hspace{4em}
+\raisebox{3em}{\rnode{alles}{\lfgms{ pred & `helfen\sliste{\subj,\objz}'\\
+         subj & \rnode{fmann}{\lfgms{ pred &  `Mann' \\
+                   }}\\
+         tense & PRESENT\\
+         obj2  & \rnode{fjunge}{\lfgms{ pred & `Junge'\\
+                   }}\\
+       }}}
+\ncline{<->}[r]{vp}[l]{alles}{3em}%
+\ncline{<->}[r]{c1}[l]{alles}{3em}%
+\ncline{<->}[r][30]{c}[l]{alles}{6em}%
+\ncline{<->}[r][25]{npnom}[l][330]{fmann}{3em}%
+\ncline{<->}[r]{npacc}[l][40]{fjunge}{3em}%
+}
+
+\caption{\label{Abb-LFG-Vorfeld}Analyse für \emph{Der Mann hilft dem Jungen.}}
+\end{figure}
+In \citew[\page 20]{Berman96a-u} gibt sie eine Regel für die CP, die der folgenden entspricht:
+\ea
+\phraserule{CP}{
+\rulenode{ZP\\*\up = \down}
+\rulenode{C\\*\up = \down}}
+\z
+Diese Regel besagt, daß im Vorfeld dieselben Phrasen stehen können, die auch im Mittelfeld
+vorkommen. Das ist nicht ganz richtig, da zum Beispiel die Reflexivpronomina, die zu inheränt
+reflexiven Verben gehören, nicht vorfeldfähig sind:
+\eal
+\ex[]{
+weil er sich wirklich gut erholt hat
+}
+\ex[*]{
+Sich hat er wirklich gut erholt.
+}
+\zl
+Sätze wie (\mex{0}b) lassen sich leicht über zusätzliche Beschränkungen für die Vorfeldposition
+ausschließen. Problematisch ist jedoch die \fstr"=Annotation in der ZP"=Regel in
+(\ref{LFG-ZP-Regel}), denn die besagt, daß eine ZP Information zu einem \subj, \obj bzw.\ \objz in der übergeordneten
+\fstr oder zu einem über \vcomp"=Pfade zugänglichen \obj bzw.\ \objz in der übergeordneten \fstr beiträgt.
+
+Damit ist es aber nicht möglich nicht"=lokale Fälle von Vorfeldbesetzung wie
+(\ref{bsp-um-zwei-millionen}) -- hier als (\mex{1}) wiederholt -- richtig zu erfassen:
+\ea
+\label{bsp-um-zwei-Millionen-zwei}
+{}[Um zwei Millionen Mark]$_i$ soll er versucht haben, [eine Versicherung \_$_i$ zu betrügen].\footnote{
+         taz, 04.05.2001, S.\,20.
+}
+\z
+Das Präpositionalobjekt in (\mex{0}) hängt weder von \emph{soll}, noch von \emph{haben}, noch von
+\emph{versucht} ab. Das sind die drei Verben, deren \fstren man über \vcomp{}* erreichen
+könnte. \zuie wie \emph{eine Versicherung zu betrügen} werden in der LFG normalerweise als \xcomp
+analysiert \citep{Dalrymple2006a}. \citet[\page 17]{Berman96a-u} argumentiert jedoch dafür, ihnen auch
+die grammatische Funkton \obj zuzuordnen. Damit man (\mex{0}) analysieren kann, müßte man
+(\ref{LFG-ZP-Regel}) wie folgt abändern:
+\ea
+\phraserule{ZP}{
+\rulenode{\begin{tabular}[t]{@{}l@{~}l@{}}
+          DP\\
+          \{  & (\up\ \subj) = \down\\
+          $|$ & (\up\ \{\vcomp $|$ \obj{}\}* \{\obj $|$ \objz $|$ \ldots\}) = \down \}\\
+          \ldots\\
+          \end{tabular} } }
+\z
+In (\mex{0}) steht nun statt \vcomp{}* der Ausdruck \{\vcomp $|$ \obj{}\}*. Dieser erlaubt unter
+anderem eine beliebig lange Folge von \obj"=Merkmalen. Die Vorfeldkonstituente in
+(\ref{bsp-um-zwei-Millionen-zwei}) kann also einen \fstr"=Beitrag zur \fstr unter
+\textsc{vcomp$|$""vcomp$|$""obj} leisten. Damit ergibt sich aber ein neues
+Problem: Wenn eine DP im Akkusativ das Objekt zu einer \fstr oder aber auch ein beliebig tief in die
+\fstr eingebettetes Objekt beitragen kann, dann gibt es nichts, was eine (\mex{1}c) entsprechende
+Lesart von (\mex{1}a) ausschließt.
+\eal
+\ex Diesen Hund hat er Peter gezwungen, sofort einzuschläfern.
+\ex Er hat Peter gezwungen, diesen Hund sofort einzuschläfern.
+\ex Er hat diesen Hund gezwungen, Peter sofort einzuschläfern.
+\zl
+\emph{diesen Hund} befindet sich in (\mex{0}a) im Vorfeld und kann somit den Wert eines beliebigen \obj in der
+Gesamtstruktur füllen, \ua auch den \objw von \emph{gezwungen}. \emph{Peter} steht im Mittelfeld und
+kann zur \fstr von \emph{hat gezwungen} beitragen. Da \emph{einzuschläfern} eine grammatische
+Funktion in der \fstr von \emph{hat gezwungen} hat und da Fernabhängigkeiten -- wie (\mex{1}a) zeigt
+-- in die VP hineinreichen, kann \emph{Peter} also auch den \objw von \emph{einzuschläfern} beitragen. Alle
+Strukturen sind kohärent und vollständig, es gibt also nichts, was die unerwünschte Analyse in
+(\mex{0}c) ausschließt. Die Konsequenz ist, daß man für die Konstituenten im Mittelfeld eine andere
+\fstr"=Annotation braucht als für die im Vorfeld: Objekte im Vorfeld können zum obersten Verb(alkomplex) oder
+aber zu tiefer eingebetteten Verben gehören, Objekte im Mittelfeld dagegen nur zu den Verben
+im entsprechenden Kohärenzfeld (siehe Kapitel~\ref{chap-anhebung}). Das heißt aber, daß man an zwei verschiedenen
+Stellen in der Grammatik sagen muß, daß (bestimmte) Nominative \subj sind, daß (bestimmte)
+Akkusative \obj sind usw. 
+%
+%Alternativ zur Verwendung einer Annotation der Vorfeldkonstituente, die
+%mit funktionaler Ungewißheit eine zur Vorfeldkonstituente passende f"=Struktur sucht, kann man auch
+%eine Spur annehmen und die Spur entsprechend annotieren. Die Spur würde sich dann eine Konstituente
+%im Vorfeld suchen
+%
+Im Gegensatz zu der hier beschriebenen Theorie im Rahmen der LFG gibt es
+in der HPSG keine grammatischen Funktionen. Eine Nominalphrase kann als Argument, als Adjunkt oder
+prädikativ auf"|treten. Welche Funktion vorliegt, wird durch den Lexikoneintrag des Nomens
+bestimmt. Fernabhängigkeiten interagieren mit der Funktion nicht, da die Vorfeldkonstituente mit einer
+Spur identifiziert wird und somit alle relevante Information in beiden Teilstrukturen präsent ist:
+Befindet sich im Vorfeld eine Akkusativ"=NP die Verbprojektionen modifiziert, so ist diese
+Information auch bei der Spur präsent und wird im Mittelfeld in einer entsprechenden
+Kopf"=Adjunkt"=Struktur mit dem Verb verknüpft. Parallel funktioniert das für Argumente bzw.\
+prädikative Nominalphrasen.
+\is{Lexical Functional Grammar@\emph{Lexical Functional Grammar} (LFG)|)}%
+\end{comment}
+\is{Extraktion|)}\is{nichtlokale Abhängigkeit|)}
+
+
+\section*{Kontrollfragen}
+
+
+\begin{enumerate}
+\item Nennen Sie Beispiele für Fernabhängigkeiten.
+\item Warum kann man Fernabhängigkeiten nicht wie Umstellungen im Mittelfeld behandeln?
+\item Was unterscheidet die HPSG"=Analysen von transformationsgrammatischen Analysen?
+\end{enumerate}
+
+\section*{Übungsaufgaben}
+
+\begin{enumerate}
+%% \item Suchen Sie einen Beleg für eine idiomatische Redewendung, bei der sich ein Idiombestandteil im \vf
+%%       befindet.
+\item Skizzieren Sie einen Baum für den folgenden Satz:
+\ea
+Diese Wohnung mietet er.
+\z
+Geben Sie die \slashwe und die \dslwe an.
+
+\item Laden Sie die zu diesem Kapitel gehörende Grammatik von der Grammix"=CD
+(siehe Übung~\ref{uebung-grammix-kapitel4} auf Seite~\pageref{uebung-grammix-kapitel4}).
+Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluß eine Liste von Beispielen.
+Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem Kapitel besprochenen
+Aspekte.
+
+\end{enumerate}
+
+
+
+\section*{Literaturhinweise}
+
+
+Die Analyse der Fernabhängigkeiten in der HPSG geht auf Arbeiten von \citet{Gazdar81} im Rahmen der
+\gpsg zurück. Einen guten Überblick über Extraktionsphänomene im Englischen, die Geschichte der
+Extraktionsanalysen und einen Vergleich mit transformationellen Analysen geben
+\citet{LH2006a}. \citet{Thiersch78a} hat als erster im Rahmen der \gbt eine Analyse der Verbstellung
+im Deutschen vorgelegt, die der hier vorgestellten entspricht. \citet{Uszkoreit87a} hat eine Analyse
+der Vorfeldbesetzung im Rahmen der GPSG entwickelt, die ebenfalls die von Gazdar entwickelten
+Mechanismen zur Analyse von Fernabhängigkeiten verwendet.
+
+
+
+% Jong Bok: Which man and which woman did [[Tom hug t] and [Mary kiss t]] respectively?
+
+

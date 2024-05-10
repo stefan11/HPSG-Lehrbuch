@@ -1,0 +1,297 @@
+%% -*- coding:utf-8 -*-
+
+\usepackage{csquotes}
+
+% \up for relative clause chapter
+
+
+% http://tex.stackexchange.com/questions/38607/no-room-for-a-new-dimen
+%\usepackage{etex}\reserveinserts{28}
+
+
+% for subnodes in trees
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\newtcbox{\mybox}[1][]{empty,shrink tight,nobeforeafter,on line,before upper=\vphantom{gM},remember as=#1,top=2pt,bottom=2pt}
+
+
+
+\newcommand{\page}{}
+
+
+% http://tex.stackexchange.com/questions/229500/tikzmark-and-xelatex
+% temporary fix, remove later
+%\newcount\pdftexversion \pdftexversion140 \def\pgfsysdriver{pgfsys-dvipdfm.def} \usepackage{tikz} \usetikzlibrary{tikzmark}
+
+
+
+% \justify to switch of \raggedright in translations
+%\usepackage{ragged2e}
+
+
+
+%\usepackage{metalogo} % xelatex
+
+\usepackage{multicol}
+
+\usepackage{bookmark}
+
+%\usepackage{my-ccg-ohne-colortbl}
+
+
+
+
+% This has side effects on my-ccg commands do no know why
+%\usepackage{./langsci/langsci-optional}
+
+\usepackage{todonotes}
+
+% used to be in this package
+\providecommand{\citegen}{}
+\renewcommand{\citegen}[2][]{\citeauthor{#2}'s (\citeyear*[#1]{#2})}
+\providecommand{\lsptoprule}{}
+\renewcommand{\lsptoprule}{\midrule\toprule}
+\providecommand{\lspbottomrule}{}
+\renewcommand{\lspbottomrule}{\bottomrule\midrule}
+\providecommand{\largerpage}{}
+\renewcommand{\largerpage}[1][1]{\enlargethispage{#1\baselineskip}}
+
+
+\usepackage{./styles/oneline}
+
+%\let\oneline\onelinetextwidthhack
+
+
+\usepackage{./styles/biblatex-series-number-checks}
+
+% not needed for 2024. It does not exist.
+%\usepackage{langsci-basic}
+%\usepackage{langsci-optional}
+%\usepackage{langsci-lgr}
+%\newcommand{\M}{\textsc{m}{}\xspace}        % use at own risk
+
+
+
+\usepackage{langsci-branding}
+\usepackage[danger]{langsci-lgr}
+
+\usepackage{graphicx}
+
+\usepackage{soul}
+
+%\usepackage{./styles/mycommands}% \spacebr
+
+
+\usepackage{langsci-gb4e}
+\usepackage{styles/jambox}
+
+% fixes problem with to much vertical space between \zl and \eal due to the \nopagebreak
+% command.
+\makeatletter
+\def\@exe[#1]{\ifnum \@xnumdepth >0%
+                 \if@xrec\@exrecwarn\fi%
+                 \if@noftnote\@exrecwarn\fi%
+                 \@xnumdepth0\@listdepth0\@xrectrue%
+                 \save@counters%
+              \fi%
+                 \advance\@xnumdepth \@ne \@@xsi%
+                 \if@noftnote%
+                        \begin{list}{(\thexnumi)}%
+                        {\usecounter{xnumi}\@subex{#1}{\@gblabelsep}{0em}%
+                        \setcounter{xnumi}{\value{equation}}}
+% this is commented out here since it causes additional space between \zl and \eal 06.06.2020
+%                        \nopagebreak}%
+                 \else%
+                        \begin{list}{(\roman{xnumi})}%
+                        {\usecounter{xnumi}\@subex{(iiv)}{\@gblabelsep}{\footexindent}%
+                        \setcounter{xnumi}{\value{fnx}}}%
+                 \fi}
+\makeatother
+
+
+\makeatletter
+\def\eas{\ifnum\@xnumdepth=0\begin{exe}[(34)]\else\begin{xlist}[iv.]\fi\ex\begin{tabular}[t]{@{}p{.99\linewidth}@{}}}
+\makeatother
+
+\settowidth\jamwidth{(German)}
+
+%\usepackage{subfig}
+
+%\renewcommand{\xbar}{X̅\xspace}
+
+
+%\usepackage[external,linguistics]{styles/forest/forest}
+
+
+% for reasons I do not understand this cannot be moved further down and 
+% the loading of forest further down cannot be removed. St. Mü. 26.01.2017
+% It breaks the dependency grammar trees in forest.
+\usepackage{langsci-forest-setup}
+
+% for Germanic history tree
+\useforestlibrary{edges} 
+
+%\usepackage{memoize} 
+%\usepackage{nomemoize} % use this if memoize caues chaos.
+%\memoizeset{
+%  memo filename prefix={germanic.memo.dir/},
+%}
+% uncomment this if your figures change frequently and you do not want memoize to externalize them.
+%\memoizeset{readonly}
+
+
+
+
+% has to be loaded after forest-setup because of incompatibilities with the dg-style.
+%\usepackage{german}\selectlanguage{ngerman}
+%\usepackage[ngerman]{babel}
+
+%\selectlanguage{ngerman}
+
+\usepackage{./styles/merkmalstruktur,./styles/abbrev,./styles/makros.2020,./styles/my-xspace,./styles/article-ex,./styles/additional-langsci-index-shortcuts,
+./styles/de-date,./styles/my-theorems}
+
+\usepackage{langsci-avm}
+
+\let\vref\ref
+\newcommand\figuresref[2]{%
+Figure~\ref{#1} and Figure~\ref{#2}%
+}
+
+\if0
+
+% loaded in macros.2e \usepackage[english]{varioref}
+% do not stop and warn! This will be tested in the final version
+%\usepackage[english]{varioref}
+%\vrefwarning
+
+\newcommand\thefiguresref[2]{%
+ \vrefpagenum\firstnum{#1}%
+ \vrefpagenum\secondnum{#2}%
+\ifthenelse{\equal\firstnum\secondnum}%
+{the Figures~\ref{#1} and~\ref{#2}\vpageref[]{#1}}%
+{the Figures~\ref{#1} and~\ref{#2}}}
+
+\newcommand\figuresref[2]{%
+ \vrefpagenum\firstnum{#1}%
+ \vrefpagenum\secondnum{#2}%
+\ifthenelse{\equal\firstnum\secondnum}%
+{\iflanguage{german}{%
+die Abbildungen~\ref{#1} und~\ref{#2} \vpageref[]{#1}%
+}% end German
+{Figures~\ref{#1} and~\ref{#2} \vpageref[]{#1}}}%
+{\iflanguage{german}{%
+Abbildung~\ref{#1}\vpageref[]{#1} und Abbildung~\ref{#2} \vpageref{#2}%
+}% end German
+{%
+Figure~\ref{#1}\vpageref[]{#1} and Figure~\ref{#2} \vpageref{#2}}}%
+}
+
+
+\newcommand\pagerefonlyifdifferent[2]{%
+\vrefpagenum\firstnum{#1}%
+\vrefpagenum\secondnum{#2}%
+\ifthenelse{\equal\firstnum\secondnum}%
+{}
+{\vpageref{#2}}}
+
+
+
+\newcommand\figuretwoonsamepagesref[2]{%
+ \vrefpagenum\firstnum{#1}%
+ \vrefpagenum\secondnum{#2}%
+\ifthenelse{\equal\firstnum\secondnum}%
+%{ on the same page as Figure~\ref{#1}}%
+{}%
+{ on page~\vpageref{#2}}%
+}
+\renewcommand{\reftextcurrent}{}
+
+\newcommand\refORregion[2]{%
+ \vrefpagenum\firstnum{#1}%
+ \vrefpagenum\secondnum{#2}%
+\ifthenelse{\equal\firstnum\secondnum}%
+{\pageref{#1}}%
+{\pageref{#1}--\pageref{#2}}%
+}
+
+%\let\reftextfaceafter\reftextafter
+%\let\reftextfacebefore\reftextbefore
+
+\addto\extrasenglish{%
+     \renewcommand\reftextfaceafter {\reftextafter}%
+     \renewcommand\reftextfacebefore {\reftextbefore}%
+}
+
+\fi
+
+% draw a grid for getting the coordinates
+\usepackage{./styles/tikz-grid}
+
+% Adapted from https://tex.stackexchange.com/questions/255234/how-does-one-pick-control-points-to-control-b%C3%A9zier-curves-in-tikz
+% \DrawControl{(12,4)}{1}\DrawControl{(-4,4)}{2};  
+\newcommand\DrawControl[2]{
+  \node[circle,fill=red,inner sep=2pt,label={above:$#1$},label={[black]below:{\footnotesize#2}}] at #1 {};
+}
+
+% for offsets in trees
+%\newlength{\offset}
+%\newlength{\offsetup}
+
+\ifxetex
+\usepackage{./styles/eng-hyp-utf8}
+\else
+\usepackage{./styles/eng-hyp}
+\fi
+
+\usepackage{appendix}
+
+
+% adds lines to both the odd and even page.
+% bloddy hell! This is really an alpha package! Do not use the draft option! 07.03.2016
+\usepackage{addlines}
+
+%% \let\addlinesold=\addlines
+%% % there is one optional argument. Second element in brackets is the default 
+%% \renewcommand{\addlines}[1][1]{
+%% \todosatz{addlines}
+%% \addlinesold[#1]
+%% }
+
+
+% do nothing now
+%\let\addlinesold=\addlines
+\renewcommand{\addlines}[1][1]{}
+
+% for addlines to work
+\strictpagecheck
+
+
+
+% http://tex.stackexchange.com/questions/3223/subscripts-for-primed-variables
+%
+% to get 
+% {}[ af   [~]\sub{V} ]\sub{V$'$}
+%
+% typeset properly. Thanks, Sebastian.
+%
+\usepackage{subdepth}
+
+
+%\usepackage{caption}
+
+
+
+\usepackage{langsci-tbls}
+% do not need identation for enumerate since we are in a box anyway.
+\usepackage{enumitem}
+
+
+
+% for abbreviations 02.05.2020
+\usepackage{tabularx}
+
+
+% remove when finished
+\usepackage{proofread}
+

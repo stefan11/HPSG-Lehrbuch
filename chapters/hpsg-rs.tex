@@ -1,0 +1,975 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: hpsg-rs.tex,v $
+%%  $Revision: 1.16 $
+%%      $Date: 2008/09/30 09:14:41 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Relativsätze}
+\label{chap-rs}
+\is{Relativsatz|(}
+
+{\exewidth{(9)}%
+Nach der Behandlung der Vorfeldbesetzung im vorigen Kapitel widmen wir uns jetzt
+der Analyse der Relativsätze. Im Abschnitt~\ref{sec-rs-phenomena} werden die syntaktischen
+Eigenschaften von Relativsätzen diskutiert, und in Abschnitt~\ref{sec-rs-anal}
+wird die Analyse vorgestellt.
+
+\section{Das Phänomen}
+\label{sec-rs-phenomena}
+
+Relativsätze bestehen aus einer Phrase, die ein Relativpronomen enthält, die ich im folgenden
+\emph{Relativphrase}\is{Relativphrase} nennen werde, und einem sich daran anschließenden finiten Satz mit dem finiten Verb in 
+Endstellung, aus dem die Relativphrase vorangestellt wurde. Beispiele verschiedenster Art zeigt (\mex{1}):
+\eal
+\label{bsp-relativsaetze}
+\ex Der Mann, [{\em der\/}] Maria küßt, liebt sie. \label{r1}
+\ex Der Mann, [{\em den\/}] Maria küßt, liebt sie. \label{r1b}
+\ex Der Mann, [{\em dem\/}] Maria zuhört, liebt sie.\label{r1c}
+\ex Der Mann, [von {\em dem\/}] Maria geküßt wird, liebt sie. \label{r2}
+\ex Die Stadt, [in {\em der\/}] Karl arbeitet, ist attraktiv. \label{r3}
+\ex Ich machte Änderungen, [{\em deren\/}\iw{deren!Relativpronomen} Tragweite] mir nicht bewußt war.\label{r4}
+\ex es hätte die FDP zerrissen und Kandidat Scharping das Signal gebracht, [{\em dessen\/} entbehrend] er schließlich scheiterte.\footnote{
+  taz, 20.10.1998, S.\,1.}
+\ex Das ist ein Umstand, [{\em den\/} zu berücksichtigen] meist vergessen wird.\label{r5}\footnote{
+  \citet[\page79]{Bech55a}\ia{Bech} gibt ein nahezu identisches Beispiel.%
+}
+\ex Die Nato befindet sich in einem Zustand, [\emph{den} zu verhindern] sie eigentlich gegründet wurde.\footnote{
+  Martin Schulze, Bericht aus Bonn, ARD, 23.04.1999.}
+\zl
+Die Relativphrase kann ein Subjekt, (Akk/Dat/Gen/PP) Objekt, Adjunkt oder VP"=Komplement sein.
+\label{page-rattenfaenger}%
+Die Relativphrase kann komplex sein (VP, PP, NP) oder nur aus einem Pronomen bestehen.
+Bei komplexen NPen ist das Relativwort ein Possesivum\is{Pronomen!Possessiv-}. 
+Beispiele wie (\mex{0}d--i) werden nach \citet*[\page 108]{Ross67} in Anlehnung an die Geschichte vom 
+\href{http://www.hameln.de/tourismus/rattenfaenger/}{Rat\-ten\-fän\-ger von Hameln} 
+auch Rattenfängerkonstruktionen\is{Rattenfängerkonstruktion} genannt,
+weil das Relativpronomen das Material in der jeweils vorangestellten Konstituente "`mitzieht"', \dash
+zusammen mit anderem Material vorangestellt wird.
+
+Das Relativwort\is{Kongruenz!Relativwort"=Nomen} muß mit seinem Bezugsnomen in Numerus und Genus übereinstimmen. Die Kasus von
+Bezugsnomen und Relativpronomen können allerdings verschieden sein. Der Kasus des Relativpronomens
+wird nur von dessen jeweiligem Kopf, meist dem Verb im Relativsatz bestimmt.
+
+In (\mex{0}) handelt es sich bei den Relativpronomina\is{Pronomen!Relativ-|(} um sogenannte {\em d\/}"=Pronomina, aber
+auch {\em w\/}"=Pronomina kommen als Relativum vor, wie die Beispiele in (\mex{1}) zeigen.
+\eal
+\label{bsp-rs-w-pron}
+% weiterführender RS
+% \ex Ich komme eben aus der Stadt, [\emph{wo}] ich Zeuge eines Unglücks gewesen bin.\footnote{
+% 	\citep*[\page672]{Duden84}
+% 	}\label{bsp-wo-ich-zeuge}
+\ex Studien haben gezeigt, daß mehr Unfälle in Städten passieren, [\emph{wo}\iw{wo!Relativpronomen}] 
+      die Zebrastreifen abgebaut werden, weil die Autofahrer unaufmerksam werden.\footnote{
+        taz berlin, 03.11.1997, S.\,23.
+        }
+\ex Zufällig war ich in dem Augenblick zugegen, [\emph{wo}] der Steppenwolf 
+      zum erstenmal unser Haus betrat und bei meiner Tante sich einmietete.\footnote{
+                Herman Hesse, \emph{Der Steppenwolf}. Berlin und Weimar: Auf"|bau-Verlag. 1986, S.\,6.
+	}
+\ex Tage, [an \emph{welchen}] selbst die Frage, ob es nicht an der Zeit sei, dem Beispiele
+      Adalbert Stifters zu folgen und beim Rasieren zu verunglücken, ohne Auf"|regung
+      oder Angstgefühle sachlich und ruhig erwogen wird,\footnote{
+		ebenda, S.\,27.
+	}
+\ex War das, [\emph{worum}\iw{worum!Relativpronomen}] wir Narren uns mühten, schon immer vielleicht nur ein Phantom gewesen?\footnote{
+		ebenda, S.\,39.
+	}
+
+\ex Den Hass gegen Bill Gates' Firma schürten auch Meldungen, [\emph{wonach}]\iw{wonach!Relativpronomen} die USA die Angriffssoftware
+      taiwanischer Kampfjets auf Microsoft"=Basis "`ziel\-an\-ge\-paßt"' hätten.\footnote{
+        taz, 12.01.2000, S.\,9.
+      }
+\ex Dort vielleicht war das, [\emph{was}\iw{was!Relativpronomen}] ich begehrte, dort vielleicht würde meine Musik gespielt.\footnote{
+                Herman Hesse, \emph{Der Steppenwolf}. Berlin und Weimar: Auf"|bau-Verlag. 1986, S.\,40.
+	}\label{bsp-meine-musik}
+\ex {}[\ldots], das ist nun wieder eine Frage, [über \emph{welche}\iw{welche}] müßige Leute nach Belieben brüten
+	mögen.\footnote{
+                ebenda, Tractat vom Steppenwolf, S.\,6.
+	} 
+\ex {}[\ldots], heute gibt es nichts, [\emph{was}] der kritischen Betrachtung wert wäre oder
+      [\emph{wor\-über}] sich auf"|zuregen lohnte.\footnote{
+	taz, 14.11.1996, S.\,13.
+      }
+% GRI/SAG.00391 Die Langobarden und Aßipiter, S. 359
+% Und um dies glaubhafter zu machen, stellten sie ihre Zelte weit auseinander und zündeten viele Feuer im Lager an. Die Aßipiter gerieten dadurch in Furcht und wagten nun den Krieg, womit sie gedroht hatten, nicht mehr zu führen.
+\zl
+\is{Pronomen!Relativ-|)}
+
+\noindent
+Es gibt verschiedene Arten von Relativsätzen: Sie können wie in (\mex{1}) Nomina modifizieren,
+sie können sich als weiterführende Relativsätze\is{Relativsatz!weiterführender} auf einen ganzen Satz beziehen (\mex{2}), oder sie
+können direkt als Argument (\mex{3}) oder Adjunkt (\mex{4}) eines Kopfes
+frei\is{Relativsatz!freier} auf"|treten.
+\ea
+der Mann, der schläft
+\z
+
+\ea
+Anna hat die Schachpartie gewonnen, was Peter ärgerte.
+\z                                              
+
+\eal
+\label{bsp-frei-rs-subj}
+\ex Wer das schriftliche Produkt eines Verwaltungsbeamten 
+      als "`mittleren Schwachsinn"' bezeichnet,
+      muß mit 2.400 Mark Geldstrafe rechnen.\footnote{
+        taz, 30.11.1995, S.\,20.}
+\ex Macht kaputt, [\emph{was}] euch kaputtmacht!\footnote{
+        Ton, Steine, Scherben, {\em Warum geht es mir so dreckig?\/}, erschienen bei Indigo, David Volksmund Prod.\ als LP und CD, 1971.
+      }
+\zl
+\eal
+\label{bsp-frei-rs-mod}
+\ex Wo das Rauchen derartig stigmatisiert ist wie von Köppl geplant, 
+      kann man sich leicht als Rebell fühlen, bloß weil man raucht.\footnote{
+	taz, 15.11.1996, S.\,10.
+}\label{bsp-rauchen-stigmatisiert}
+\ex Wo noch bis zum Dezember vergangenen Jahres die "`Projekte am Kollwitzplatz"' und
+      "`Netzwerk Spielkultur"' ihren Sitz hatten, prangt heute das Schild "`Zu vermieten"'.\footnote{
+        taz berlin, 27.07.1997, S.\,23.
+        }
+\zl
+}%exewidth
+
+\noindent
+Weiterführende und freie Relativsätze können hier nicht besprochen werden. Der interessierte Leser
+sei auf \citew{Holler2003a} bzw.\ auf \citew{Bausewein90} und \citew{Mueller99a,Mueller99b} verwiesen.
+
+Wie bereits im vorigen Kapitel gezeigt wurde (siehe Seite~\pageref{bsp-nla-rs}), 
+kann man die Abfolgen in Relativsätzen nicht durch
+eine lokale Umordnung der Relativphrase erklären. Beispiele wie die in (\mex{1}) zeigen
+klar, daß hier eine Fernabhängigkeit vorliegt:
+\ea
+das Thema, [über das]$_i$ er Peter gebeten\iw{bitten} hat, [\sub{VP} [einen Vortrag\iw{Vortrag} \_$_i$] zu halten],
+\z
+\ea
+Wollen wir mal da hingehen, wo$_i$\iw{wo!Relativpronomen} Jochen gesagt hat, [daß es \_$_i$ so gut schmeckt]?
+\z
+Hier besteht eine Analogie zur Vorfeldbesetzung in (\mex{1}).
+\eal
+\ex Über dieses Thema hat er Peter gebeten, einen Vortrag zu halten.
+\ex Wo hat Jochen gesagt, daß es so gut schmeckt?
+\zl
+
+
+
+\section{Die Analyse}
+\label{sec-rs-anal}
+
+Dieser Abschnitt ist in zwei Teile geteilt: Zuerst beschäftigen wir uns
+mit der Syntax der Relativsätze. Im Abschnitt~\ref{sec-rs-sem-anal} wird dann ihre Semantik
+behandelt.
+
+\subsection{Die Syntax von Relativsätzen}
+\label{sec-syntax-rs}
+\label{lp-rs}% Sections zusammengeschmissen
+
+Nach der Lektüre des vorangegangenen Kapitels ist klar, wie Fernabhängigkeiten wie \zb die
+Vorfeldbesetzung und die Voranstellung in Relativsätzen modelliert werden können. In Relativsätzen gibt
+es jedoch noch eine zweite Fernabhängigkeit: Relativpronomina können tief in der Relativphrase
+eingebettet sein. Die Information darüber, daß eine Phrase ein Relativpronomen enthält, muß
+am obersten Knoten der betreffenden Phrase vorhanden sein, denn sonst wäre es nicht möglich zu erklären,
+wieso die Sätze in (\mex{1}b,c) keine Relativsätze sind und höchstens als Einschübe zu verstehen sind.
+\eal
+\ex[]{
+Der Mann, der schläft, schnarcht.
+}
+\ex[*]{
+Der Mann, er schläft, schnarcht.
+}
+\ex[*]{
+Der Mann, der Mann schläft, schnarcht.
+}
+\zl
+In (\mex{0}b) und (\mex{0}c) steht \emph{er} bzw.\ \emph{der Mann} an der Stelle des
+Relativpronomens, und weder \emph{er} noch \emph{der Mann} enthält ein Relativpronomen.
+
+Außerdem muß man die Übereinstimmung des Relativpronomens mit seinem Bezugswort in Numerus und Genus sicherstellen.
+\eal
+\ex Der Mann$_i$, [von {\em dem\/}$_i$] Maria geküßt wird, liebt sie.
+\ex Die Stadt$_i$, [in {\em der\/}$_i$] Karl arbeitet, ist attraktiv.
+\ex Änderungen$_i$, [{\em deren\/}$_i$ Tragweite] mir nicht bewußt war
+\ex das Signal$_i$, [{\em dessen\/}$_i$ entbehrend] er schließlich scheiterte
+\ex ein Umstand$_i$, [{\em den\/}$_i$ zu berücksichtigen] meist vergessen wird
+\zl
+Die Kongruenz und Koreferenz von Bezugsnomen und Relativpronomen läßt sich einfach durch eine Koindizierung\is{Koindizierung}, 
+eine Strukturteilung der \textsc{index}"=Werte ausdrücken. Dazu wird der referentielle Index
+des Relativwortes nach oben gereicht, so wie das für die Vorfeldbesetzung mit
+\textsc{local}"=Werten gemacht wurde (vergleiche die Extraktionsspur in (\ref{le-extraktionsspur}) auf Seite~\pageref{le-extraktionsspur}).
+Die entsprechende Fernabhängigkeit beginnt jedoch in einem phonologisch gefüllten Lexikoneintrag:
+\ea\is{Pronomen!Relativ-}
+\ms[word]{ phon & \phonliste{ dem } \\
+    loc & \ms{ cat & \ms{ head & \ms[noun]{
+                                                  cas & dat\/ \\ 
+                                                } \\
+                                         spr    & \liste{} \\
+                                         subcat & \liste{} \\
+                                       } \\
+                               cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
+                                                               num & sg \\
+                                                               gen & mas $\vee$ neu \\
+                                                             } \\
+                                         } \\
+                             } \\
+                     nonloc & \ms{ %que   & \liste{} \\
+                                                rel   & \sliste{ \ibox{1} } \\
+                                                slash & \liste{} \\ 
+                                                %extra & \liste{} \\
+                                  } \\
+   }
+\z
+In der Extraktionsspur wird der \localw mit dem \slashel identifiziert,
+in den Einträgen für Relativpronomina gibt es eine Strukturteilung zwischen dem Index des Pronomens
+und dem Element von \textsc{rel}.
+
+Abbildung~\vref{abb-rel-percolation} zeigt das Weiterreichen der Information über
+den referentiellen Index eines Relativpronomens in einer komplexen Präpositionalphrase.
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\tikzset{level 1+/.style={level distance=3\baselineskip}}
+\tikzset{frontier/.style={distance from root=9\baselineskip}}
+\Tree[.{PP[\textsc{rel} \sliste{ \ibox{1} }]}
+          [.P von ]
+          [.{NP[\textsc{rel} \sliste{ \ibox{1} }]}
+            [.{DET[\textsc{rel} \sliste{ \ibox{1} }] } dessen ]
+            [.N Schwester ] ] ]
+\end{tikzpicture}
+\caption{\label{abb-rel-percolation}Weiterreichen des \textsc{rel}-Wertes in Relativphrasen}
+\end{figure}
+
+\noindent
+Bei der Analyse des Relativsatzes in (\mex{1}) muß die Fernabhängigkeit, die
+im finiten Satz beginnt, abgebunden werden.
+\ea
+Mann, [von dessen Schwester]$_i$ [Maria ein Bild \_$_i$ gemalt hat]
+\z
+Der Füller der Fernabhängigkeit ist die Relativphrase. Da der gesamte Relativsatz
+Eigenschaften hat, die nicht mit denen von finiten Sätzen kompatibel sind, kann
+das finite Verb nicht der Kopf des Relativsatzes sein (mehr dazu im nächsten Abschnitt).
+Ich gehe deshalb davon aus, daß sowohl die Relativphrase als auch der finite Satz, aus
+dem sie extrahiert wurde, Nicht"=Kopf"|töchter sind. Abbildung~\vref{abb-mann-von-dessen-schwester-syn}
+zeigt die syntaktischen Aspekte der Analyse im Überblick.
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\tikzset{level 1+/.style={level distance=3\baselineskip}}
+\tikzset{frontier/.style={distance from root=12\baselineskip}}
+\Tree[.{RS[\textsc{rel} \eliste, \textsc{slash} \eliste] }
+          [.{PP[\textsc{loc} \ibox{2}, \textsc{rel} \sliste{ \ibox{1} }]}
+            [.P von ]
+            [.{NP[\textsc{rel} \sliste{ \ibox{1} }]}
+                 [.{DET[\textsc{rel} \sliste{ \ibox{1} }] } dessen ]
+                 [.N Schwester ] ] ]
+          [.{S[\textit{fin\/}, \textsc{slash} \sliste{ \ibox{2} }] } \edge[roof]; 
+              {Maria ein Bild \_ gemalt hat} ] ]
+\end{tikzpicture}
+\caption{\label{abb-mann-von-dessen-schwester-syn}Perkolation und Abbindung der \textsc{rel}- und \slashwe}
+\end{figure}
+Der \relw wird vom Relativpronomen bis zum obersten Knoten der Relativphrase hochgereicht. Im Relativsatzschema\is{Schema!Relativsatz-}
+wird überprüft, ob die erste Nicht"=Kopf"|tochter einen gefüllten \relw enthält, \dash ob es in der ersten
+Phrase ein Relativpronomen gibt. Der \relw der Mutter ist die leere Liste, da der zum Relativpronomen gehörige
+Index nicht aus dem Relativsatz hinaus weitergereicht wird. Die Abbindung des \textsc{slash}"=Wertes aus dem
+finiten Satz funktioniert parallel zur Vorfeldbesetzung: Der \slashw des Satzes wird mit dem \localw
+der Relativphrase identifiziert, der \slashw des Mutterknotens ist die leere Liste, da die Fernabhängigkeit
+durch die Relativphrase abgebunden wird. Schema~\vref{rs-schema-struk} zeigt einen Auszug des Schemas, das die Struktur in 
+Abbildung~\ref{abb-mann-von-dessen-schwester-syn} lizenziert.
+\begin{figure}[htbp]
+\begin{samepage}
+\begin{schema}[Relativsatzschema (strukturelle Aspekte)]
+\label{rs-schema-struk}
+\type{relative-clause}\istype{relative"=clause} \impl\\
+%\resizebox{\linewidth}{!}{
+\onems{ loc$|$cat \ms{ head & relativizer \\
+                       spr  & \eliste\\
+                       subcat & \liste{ } \\
+                     } \\
+                 nonloc \ms{  rel   & \liste{} \\
+                              slash & \liste{} \\
+                           } \\[6mm]
+   nh-dtrs \liste{ \begin{tabular}{@{}l@{}}
+                            \ms{ loc    & \ibox{1} \\
+                                               nonloc & \ms{%  que   & \liste{} \\
+                                                              rel   & \sliste{ [] } \\
+                                                              slash & \eliste \\
+                                                           } \\
+                                   }, %\\
+                            \onems{ loc$|$cat \onems{ head \ms[verb]{ initial & $-$ \\
+                                                                      vform   & fin \\
+                                                                      dsl     & none\\
+                                                                                } \\
+                                                               subcat \liste{} \\
+                                                                     } \\
+                                                 nonloc \ms{% que   & \liste{} \\
+                                                             rel   & \eliste \\
+                                                             slash & \sliste{ \ibox{1} } \\
+                                                             } \\
+                                               } \\
+                            \end{tabular}
+                         } \\
+}%}
+\end{schema}
+\end{samepage}
+\vspace{-\baselineskip}\end{figure}
+%
+Die erste Nicht"=Kopf"|tochter muß ein Element in \rel enthalten. Der \localw der ersten
+Nicht"=Kopf"|tochter \iboxb{1} entspricht dem \slashw, der zweiten Nicht"=Kopf"|tochter, einer
+vollständig gesättigten (\subcat \eliste) Projektion eines finiten Verbs in Letztstellung. Der \dslw
+\emph{none} schließt die Verwendung der Verbspur in Relativsätzen aus. Ohne diese Restriktion würde
+die Grammatik die ungrammatische Folge in (\mex{1}a) lizenzieren, die aus (\mex{1}b) entsteht, wenn
+man statt des Verbs eine Verbspur einsetzt:
+\eal
+\ex[*]{
+Der Mann, den Maria, schläft.
+}
+\ex[]{
+Der Mann, den Maria kennt, schläft.
+}
+\zl
+
+\noindent
+Die Relativphrase bindet die Fernabhängigkeit aus dem finiten Satz in Verbletztstellung ab,
+weshalb der \slashw der Mutter die leere Liste ist. Genauso wird die Information über das
+Relativpronomen innerhalb des Relativsatzes abgebunden: Der \relw der Gesamtstruktur ist die leere Liste. 
+
+Das Ergebnis der Kombination ist ein Relativsatz und hat deshalb den Kopfwert
+\type{relativizer}.\label{Erklaerung-relativizer} Relativsätze unterscheiden sich von normalen Sätzen dadurch, daß sie Nomina
+modifizieren können, \dash, sie haben einen gefüllten \modw. Würde man Relativsätze einfach als eine
+Projektion des finiten Verbs (mit entsprechendem \modw beim Verb) analysieren, müßten finite Verben,
+auch wenn sie nicht in Relativsätzen verwendet werden, Nomina modifizieren können. (\mex{1}) sollte
+also grammatisch sein, was aber nicht der Fall ist.
+\ea[*]{
+der Mann, Maria den Mann kennt
+}
+\z
+Die Modifikation setzt die Relativsatzsyntax voraus, \dash, es muß eine Relativphrase geben und einen
+finiten Satz mit Verbletztstellung, aus dem diese Relativphrase vorangestellt wurde. Einfache
+Projektionen von Verben wie \emph{Maria den Mann kennt} können nicht modifizieren.
+
+
+%\subsection{Linearisierungsregeln für Relativsätze}
+%\label{lp-rs}
+
+Bisher\is{Linearisierung!-sregel|(} wurden noch keine Beschränkungen
+für die Abfolge der Nicht"=Kopf"|töchter in Relativsätzen angegeben. Natürlich muß die das
+Relativpronomen enthaltende Phrase immer vor dem finiten Satz stehen, aus dem sie bewegt wurde. Eine
+andere Abfolge ist ungrammatisch, wie das folgende Beispiel zeigt:
+\ea[*]{
+\label{bsp-lp-rs}
+Mann, [\sub{S} Maria \_$_i$ liebt] den$_i$
+}
+\z
+Außerdem kann die Relativphrase nicht innerhalb einer komplexen
+Nominalphrase rechts des Kopfnomens stehen:\footnote{
+  Hierin unterscheiden sich Relativsätze von Interrogativsätzen\is{Interrogativsatz},
+  denn bei letzteren sind solche Abfolgen möglich:
+\ea
+Viele Angehörige wußten nicht, an Bord welcher Maschine ihre Angehörigen waren.
+  (Tagesschau, 03.01.2004, 20:00)
+\zlast
+}
+\eal
+\ex[*]{
+Der Mann, [ein Bild von dessen Schwester] Maria malt, schläft.
+}
+\ex[*]{
+         der Vortrag, die Verfasserin dessen uns sehr attraktiv erscheint\footnote{
+           \citew[\page211]{Fanselow87a}.
+         }
+}
+\zl
+In (\mex{0}a) gibt es eine nach vorn bewegte Konstituente, die ein Relativpronomen enthält 
+(\emph{ein Bild von dessen Schwester}), und dennoch ist der Satz ungrammatisch.
+Konstituenten, die ein Relativpronomen enthalten, stehen immer vor anderen Konstituenten.
+Eine Ausnahme bilden Präpositionen\is{Pr"aposition} 
+und koordinierende Konjunktionen.\is{Koordination}
+\eal
+\ex der Stuhl, [auf dem] Maria sitzt
+\ex der Moment, [auf den] ich gewartet habe
+\zl
+\ea
+der Mann, [dessen Frau [und dessen Tochter]] ich kenne,
+\z
+Das wird von der folgenden Linearisierungsregel korrekt erfaßt.
+\footnote{
+        \citet*{Riemsdijk85}\iaf{Riemsdijk} 
+        formuliert eine ähnliche Regel. Zu einer Präzisierung dieser
+        Regel in bezug auf Koordinationsstrukturen siehe \citew[\page151]{Mueller99a}.%
+}
+%% \footnote{
+%%         \citet*[\page150]{Wunderlich80}\ia{Wunderlich|fn{\thefootnote}} 
+%%         gibt folgendes Beispiel, das der LP-Regel (\ref{lp-rel}) widerspricht.
+%%         \ea
+%%         ungefähr zu der Zeit, drei Stunden vor der wir im Kino gewesen sind,
+%%         \z
+%%         Ich finde diesen Satz nicht akzeptabel. Allerdings gibt es Sätze wie (ii),
+%%         die Gegenbeispiele zu sein scheinen.
+%%         \eal
+%%         \ex Die Dativ-NP bezeichnet die Größe, in bezug auf welche der Vergleich
+%%         gilt, \ldots{} (Im Haupttext von \citep*[\page54]{Wegener85b}) %auch S. 56
+%%         \ex \ldots{} eröffnet eine Möglichkeit, in bezug auf die das Repräsentationsformat
+%%               den Rahmen des $\lambda$"=Kalküls verläßt. (Im Haupttext von \citep*[\page54]{Kaufmann95a})
+%% %auch S. 142, 191
+%%         \ex Wie oben aber schon angesprochen, gibt es andere Optionen in der
+%%         Universalgrammatik, die das Auftreten von expletiven Elementen unnötig machen können,
+%%         etwa den PRO-DROP-Parameter, mit Hilfe dessen qua Inversion die Subjekts-NP in den Rektionsbereich
+%%         des Verbs gelangt. (Im Haupttext von \citep[\page216]{Fanselow87a})
+%%         \ex Wir haben in diesem Fall also zwei regierende Kategorien anzunehmen,
+%%         relativ zu denen jeweils Pronominalisierung bzw.\ Refelxivierung mit den Mitteln
+%%         der Bindungstheorie erklärt ist. (Im Haupttext von \citep[\page187]{Grewendorf83a})
+%%         \ex Es gibt jedoch ein syntaktisches Kriterium, auf Grund dessen die
+%%         beiden Sätze unterschieden werden können. (Im Haupttext von \citew[\page41]{Steinitz69a})
+%%         \zl
+%%         Eventuell kann man \emph{in bezug auf} als feste Wendung, die
+%%         Wortcharakter hat, einordnen. Bei Phrasen wie \emph{mit Hilfe} ist ja eine Zusammenschreibung
+%%         und eine Einordnung als Präposition möglich.
+
+%%         Fanselow macht sich übrigens auf S.\,211 Gedanken über \textit{Pied Piping}
+%%         und gibt die (ii.b) ziemlich ähnliche Phrase (iii) an.
+%%         \ea[*]{
+%%         der Vortrag, die Verfasserin dessen uns sehr attraktiv erscheint
+%%         }
+%%         \zlast
+%% }
+\ea
+\label{lp-rel}
+\textsc{rel} \sliste{ \type{index} } $< \neg$ P
+\z
+Diese Regel besagt, daß jede Tochter eines Zeichens mit nichtleerer 
+\textsc{rel}"=Liste vor allen anderen Töchtern steht, wobei Präpositionen ausgenommen sind. 
+
+Man beachte, daß die LP"=Regel in (\ref{lp-rel}) für das
+Englische\il{Englisch} nicht gilt.
+\ea
+Here's the minister [[in [the middle [of [whose seremon]]]] 
+the dog barked].\footnote{ 
+	\citew*[\page212]{ps2}.
+}
+\z
+Diesen Satz kann man nicht mit (\mex{1}) übersetzen.\NOTE{JB: find ich aber fast okay}
+\ea[*]{
+Das ist der Pfarrer, in der Mitte von dessen Predigt der Hund bellte.
+}
+\z
+Eine Übersetzung wie (\mex{1}) wäre wohl angebrachter.
+\ea
+Das ist der Pfarrer, der die Predigt hielt, in deren\iw{deren!Relativpronomen} Mitte der Hund bellte.
+\z
+\is{Linearisierung!-sregel|)}
+
+
+\subsection{Die Semantik von Relativsätzen}
+\label{sec-rs-sem-anal}
+
+Die hier betrachteten Relativsätze (\mex{1}a) verhalten sich wie pränominale
+Adjektive (\mex{1}b) oder PPen, die Nomina modifizieren (\mex{1}c).
+\eal
+\ex die Frau, die alle kennen
+\ex die schöne Frau
+\ex die Frau im Cafe
+\zl
+Genau wie diese selegieren sie ein \nbar über das \textsc{mod}"=Merkmal und 
+integrieren den semantischen Beitrag des Nomens in ihre Restriktionsliste (siehe Abschnitt~\ref{sem-adj}).
+Das heißt, die Relativsätze verhalten sich anders als normale finite Sätze,
+denn normale Verbletztsätze können keine Nomina modifizieren:
+\eal
+\ex[*]{
+die Frau, den Bruder alle kennen
+}
+\ex[*]{
+die Frau, alle deren Bruder kennen
+}
+\zl
+Die Modifikation ist nur genau dann möglich, wenn die spezielle Relativsatzsyntax vorliegt.
+Enthält der Satz kein Relativpronomen oder ist dieses irgendwo anders als in der ersten
+Phrase, werden die Äußerungen ungrammatisch.
+
+Es gibt mehrere Möglichkeiten, mit dieser Situation umzugehen: Man kann
+einen phonologisch leeren Kopf annehmen, der einen Satz als Komplement nimmt 
+und selbst ein Modifikator ist, der dann nach der Kombination mit dem Satz
+die \nbar modifizieren kann. Diesen Weg sind \citet[Kapitel~5]{ps2} gegangen.\footnote{
+  Diese Analyse für das Deutsche findet man neben der hier vorgestellten in \citew{Mueller99a,Mueller99b}.
+  \citet{Sag97a} schlägt eine weitere Möglichkeit vor: Der \modw von Verben ist
+  bei ihm unterspezifiziert. Verben können also in Relativsatzkonstruktionen
+  als Kopf auf"|treten. Fälle wie (\mex{0}) muß er anders ausschließen. Siehe Abschnitt~\ref{sec-konstruktionsbasierte-rs}.%
+}
+Eine Alternative ist, ein Schema zu verwenden, das den Satz
+zu einem Modifikator projiziert. In einem solchen Schema gibt es dann keinen
+Kopf. Der leere Kopf ist quasi direkt in die Regel integriert. Dieser Ansatz entspricht dem aus Abschnitt~\ref{sec-syntax-rs}.
+Das folgende
+Schema zeigt die semantischen Aspekte des Relativsatzschemas:
+
+
+\begin{schema}[Relativsatzschema (semantische Aspekte und Kongruenz)]
+\label{rs-schema-sem}\is{Schema!Relativsatz-}
+%\medskip
+\samepage
+\type{relative-clause} \impl\\
+%\resizebox{\linewidth}{!}{%
+\onems{ loc \ms{ cat & \ms{ head & \onems[relativizer]{ mod \textrm{$\overline{\mbox{\textrm{N}}}$:} \ms{ ind   & \ibox{1} \\
+                                                                                           restr & \ibox{2}  \\
+                                                                                         } \\
+                                                              } \\
+                                     } \\
+                           cont  & \ms{ ind   & \ibox{1}  \\
+                                        restr & \sliste{ \ibox{3} } $\oplus$ \ibox{2} \\
+                                     } \\
+               }\\[6mm]
+   nh-dtrs \liste{ [ nonloc$|$rel   \sliste{ \ibox{1} } ], [ loc$|$cont \ibox{3} ] } \\[2mm]
+}%}
+\end{schema}
+
+\noindent
+Dabei gleicht das, was unter \textsc{loc} steht, dem, was wir schon im Abschnitt~\ref{sem-adj}
+kennengelernt haben. Man vergleiche den \locw mit dem Lexikoneintrag für das
+Adjektiv \emph{interessantes} in (\ref{le-interessantes-sem}) auf
+Seite~\pageref{le-interessantes-sem}. Der \locw von \emph{interessantes} ist der Übersichtlichkeit
+halber auch hier in (\mex{1}) angegeben:
+
+\ea
+\locw für \emph{interessantes}:\\
+\label{le-interessantes-zwei}%
+\ms{ 
+   cat & \ms{ head & \ms[adj]
+                      { %prd & $-$ \\
+                        mod &  \textrm{$\overline{\mbox{\textrm{N}}}$:} \ms{ ind   & \ibox{1} \\
+                                                                     restr & \ibox{2} \\
+                                                                    } \\
+                      } \\
+               subcat & \liste{} \\
+             } \\
+   cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
+                                 num & sg \\
+                                 gen & neu \\
+                               } \\
+                     restr & \liste{ \ms[interessant]{ 
+                                theme & \ibox{1} \\ 
+                               }} $\oplus$ \ibox{2}  \\
+              } \\
+}
+\z
+Das Adjektiv hat aufgrund seiner Flexion einen bestimmten Genus"=Wert, der sich unter
+\textsc{ind} widerspiegelt. Bei Relativsätzen sind die Numerus"= und Genuswerte durch das Relativpronomen
+bestimmt. Die entsprechende Information wird im Baum nach oben gereicht, und durch die Strukturteilung
+des \textsc{rel}"=Wertes (\iboxt{1} im Schema~\ref{rs-schema-sem}) mit dem \textsc{ind}"=Wert wird dann sichergestellt, daß der gesamte Relativsatz
+einen referentiellen Index hat, der dem des Relativpronomens entspricht. Dadurch daß der semantische
+Index des modifizierten Nomens ebenfalls mit dem semantischen Index des Relativsatzes identifiziert wird,
+ist sichergestellt, daß das Relativpronomen mit dem Nomen, auf das sich der Relativsatz bezieht, in
+Numerus und Genus kongruiert.
+
+Adjektive wie \emph{interessantes} steuern in ihrem Lexikoneintrag eine Relation zur Gesamtbedeutung der Phrase,
+in der sie dann verwendet werden, bei. In Relativsätzen entspricht diese Relation der Relation, die
+vom Verb im Relativsatz kommt, also der \iboxt{3} im Schema~\ref{rs-schema-sem}.
+Für einen einfachen Relativsatz wie den in (\mex{1}) bekommt man somit eine Struktur wie (\mex{2}):
+\ea
+das Kind, das lacht
+\z
+\ea
+\ms{ phon & \phonliste{ das, lacht }\\
+   cat & \ms{ head & \ms[relativizer]
+                      { %prd & $-$ \\
+                        mod &  \textrm{$\overline{\mbox{\textrm{N}}}$:} \ms{ ind   & \ibox{1} \\
+                                                                     restr & \ibox{2} \\
+                                                                    } \\
+                      } \\
+               subcat & \liste{} \\
+             } \\
+   cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
+                                 num & sg \\
+                                 gen & neu \\
+                               } \\
+                     restr & \liste{ \ms[lachen]{ 
+                                agens & \ibox{1} \\ 
+                               }} $\oplus$ \ibox{2}  \\
+              } \\
+}
+\z
+Die Bedeutungskombination der gesamten Nominalphrase in (\mex{-1}) erfolgt dann wie in
+Abschnitt~\ref{sem-adj} beschrieben: Da Relativsätze Adjunkte sind, werden sie in Kopf"=Adjunkt"=Strukturen
+mit einer entsprechenden \nbar kombiniert. In (\mex{-1}) ist das das Nomen \emph{Kind}. Der \modw des Relativsatzes
+wird mit der Kopf"|tochter identifiziert. Die Restriktionsliste von
+\emph{Kind} \iboxb{2} wird, wie in (\mex{0}) zu sehen ist, mit der vom Relativsatz beigesteuerten vereinigt.
+Da der semantische Beitrag in Kopf"=Adjunkt"=Strukturen von der Adjunkttochter übernommen wird,
+enthält der Gesamtbeitrag dann \sliste{ \textrm{kind\iboxb{1}, lachen\iboxb{1}} }.
+
+Die Analyse unseres Standardbeispiels in (\mex{1}) mit Modifikation der \nbar
+zeigt Abbildung~\vref{abb-mann-von-dessen-schwester}.
+\ea
+Mann, von dessen Schwester Maria ein Bild gemalt hat
+\z
+\begin{figure}[htbp]
+\centerline{%
+\begin{tabular}[t]{@{}cc@{}cccccc@{}}%llll}
+\multicolumn{3}{c}{\rnode{1}{\nbar\ind{1} }}\\
+\\[4ex]
+\rnode{2}{\ibox{2}\nbar\ind{1}} & \multicolumn{5}{c}{\rnode{3}{RS[\textsc{mod} \ibox{2}, \textsc{rel} \eliste, \textsc{slash} \eliste] }}\\
+\\[4ex]
+& \multicolumn{3}{c}{\rnode{4}{PP[\textsc{loc} \ibox{3}, \textsc{rel} \sliste{ \ibox{1} }]}}  & \multicolumn{2}{c}{\rnode{9}{S[\textit{fin\/}, \textsc{slash} \sliste{ \ibox{3} }] }}\\
+\\[4ex]
+                                    & \rnode{P}{P}   & \multicolumn{2}{c}{\rnode{8}{NP[\textsc{rel} \sliste{ \ibox{1} }]}} \\
+\\[4ex]
+                  &                           & \rnode{10}{DET[\textsc{rel} \sliste{ \ibox{1} }] } & \rnode{11}{N}\\
+\\*[3ex]
+\rnode{12}{Mann} & \rnode{13}{von}            & \rnode{14}{dessen}         & \rnode{15}{Schwester}                 & M\rnode{16}{aria ein Bild \_ gemalt h}at \\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{9}%
+\ncline{4}{8}%
+% \ncline{6}{9}
+\ncline{8}{10}\ncline{8}{11}%
+\ncline{2}{12}%
+\ncline{4}{P}%
+\ncline{P}{13}%
+\ncline{10}{14}%
+\ncline{11}{15}%
+\ncline{9}{16}}
+\caption{\label{abb-mann-von-dessen-schwester}Perkolation und Abbindung der \textsc{rel}- und \slashwe}
+\end{figure}
+
+
+\noindent
+Schema~\ref{rs-schema}\vpageref{rs-schema} enthält sowohl die bisher diskutierten syntaktischen als auch die semantischen
+Beschränkungen.
+
+\begin{figure}[htbp]
+\begin{schema}[Relativsatzschema]
+\label{rs-schema}\is{Schema!Relativsatz-}
+\medskip\samepage
+\type{relative-clause} \impl\\
+\oneline{%
+\onems{ loc \ms{ cat & \ms{ head & \onems[relativizer]{ mod \textrm{$\overline{\mbox{\textrm{N}}}$:} \ms{ ind   & \ibox{1} \\
+                                                                                           restr & \ibox{2}  \\
+                                                                                         } \\
+                                                              } \\
+                                     subcat & \liste{ } \\
+                                     } \\
+                           cont  & \ms{ ind   & \ibox{1}  \\
+                                        restr & \sliste{ \ibox{3} } $\oplus$ \ibox{2} \\
+                                     } \\
+                              } \\
+                 nonloc \ms{  rel   & \liste{} \\
+                              slash & \liste{} \\
+                           } \\
+   nh-dtrs \liste{ \begin{tabular}{@{}l@{}}
+                            \ms{ loc    & \ibox{4} \\
+                                               nonloc & \ms{%  que   & \liste{} \\
+                                                              rel   & \sliste{ \ibox{1} } \\
+                                                              slash & \eliste \\
+                                                           } \\
+                                   }, %\\
+                            \onems{ loc  \onems{ cat \onems{ head \ms[verb]{ initial & $-$ \\
+                                                                                  vform   & fin \\
+                                                                                } \\
+                                                               subcat \liste{} \\
+                                                               % vcomp none is nicht nötig, ergibt sich aus anderen Schemata
+                                                                     } \\
+                                                            cont \ibox{3} \\
+                                                          } \\
+                                                 nonloc \ms{% que   & \liste{} \\
+                                                             rel   & \liste{} \\
+                                                             slash & \sliste{ \ibox{4} } \\
+                                                             } \\
+                                               } \\
+                            \end{tabular}
+                         } \\
+}}
+\end{schema}
+\vspace{-\baselineskip}\end{figure}
+
+
+%\noindent
+\type{relative-clause} ist kein Untertyp von \type{headed-phrase},
+das Valenzprinzip und das Semantikprinzip gelten deshalb nicht. Die entsprechende Information
+ist im Schema daher explizit spezifiziert.
+Einen Überblick über die aktuelle Typhierarchie unter \type{sign} gibt Abbildung~\vref{abb-sign-relcl}.
+%
+\begin{figure}[htbp]
+\centering
+\scalebox{0.8}{%
+\begin{sideways}%
+\begin{pspicture}(-0.2,-4)(22.1,6.4)
+%\psgrid
+\rput[B](4,6){\rnode{sign}{\textit{sign}}\istype{sign}}
+%
+\rput[B](1,4){\rnode{word}{\textit{word}}\istype{word}}
+\rput[B](7,4){\rnode{phrase}{\textit{phrase}}\istype{phrase}}
+%
+\rput[B](4,2){\rnode{nhs}{\textit{non-headed-phrase}}\istype{non"=headed"=phrase}}
+\rput[B](10,2){\rnode{hs}{\textit{headed-phrase}}\istype{headed"=phrase}}
+%
+\rput[B](1,0){\rnode{rc}{\type{relative-clause}}}\istype{relative"=clause}
+\rput[B](5,0){\rnode{hnas}{\type{head"=non-adjunct-phrase}}}\istype{head"=non"=adjunct"=phrase}
+\rput[B](10,0){\rnode{hnars}{\type{head"=non"=argument"=phrase}}}\istype{head"=non"=argument"=phrase}
+\rput[B](15,0){\rnode{hnfs}{\type{head"=non"=filler"=phrase}}}\istype{head"=non"=filler"=phrase}
+\rput[B](20,0){\rnode{hnss}{\type{head"=non"=specifier"=phrase}}}\istype{head"=non"=specifier"=phrase}
+\rput[B](5,-4){\rnode{has}{\textit{head"=adjunct-phrase}}\istype{head"=adjunct"=phrase}}
+\rput[B](10,-4){\rnode{hars}{\textit{head"=argument-phrase}}\istype{head"=argument"=phrase}}
+\rput[B](15,-4){\rnode{hfs}{\textit{head-filler-phrase}}\istype{head"=filler"=phrase}}
+\rput[B](20,-4){\rnode{hss}{\textit{head"=specifier-phrase}}\istype{head"=specifier"=phrase}}
+%
+\psset{angleA=-90,angleB=90,arm=0pt}
+%
+\ncdiag{sign}{word}\ncdiag{sign}{phrase}
+\ncdiag{phrase}{hs}\ncdiag{phrase}{nhs}
+\ncdiag{nhs}{rc}
+\ncdiag{hs}{hnas}
+\ncdiag{hs}{hnars}
+\ncdiag{hs}{hnfs}
+\ncdiag{hs}{hnss}
+\ncdiag{hnars}{has}\ncdiag{hnars}{hfs}\ncdiag{hnars}{hss}
+\ncdiag{hnas}{hars}\ncdiag{hnas}{hfs}\ncdiag{hnas}{hss}
+\ncdiag{hnss}{hars}\ncdiag{hnss}{has}\ncdiag{hnss}{hfs}
+\ncdiag{hnfs}{hars}\ncdiag{hnfs}{has}\ncdiag{hnfs}{hss}
+%
+\end{pspicture}%
+\end{sideways}}
+\caption{\label{abb-sign-relcl}Typhierarchie für \textit{sign}}
+\end{figure}
+
+
+
+
+\section{Alternativen}
+
+In den beiden folgenden Abschnitten wird eine alternative HPSG"=Analyse und ein
+Kategorialgrammatik"=Ansatz diskutiert.
+
+\subsection{Eine konstruktionsbasierte Relativsatzanalyse}
+\label{sec-konstruktionsbasierte-rs}
+
+
+Die klassische Relativsatzanalyse in \citew[Kapitel~5]{ps2} geht davon aus, daß ein leerer
+Komplementierer mit einer Relativphrase und einem Satz, aus dem die Relativphrase extrahiert wurde,
+kombiniert wird. Für den Relativsatz \emph{to whom Kim gave a book} nehmen Pollard und Sag folgende Struktur an:
+\ea
+{}[\sub{RP} [\sub{PP} to whom]$_i$ [\sub{R'} e [\sub{S/PP} Kim gave a book \_$_i$]]]
+\z
+e ist dabei ein leerer Kopf der Kategorie Relativierer\is{Relativierer} (\emph{relativizer}). Er wird zuerst mit
+\emph{Kim gave a book} kombiniert und bildet eine R'"=Projektion. Die R'"=Projektion selegiert die
+Relativphrase und bildet mit ihr zusammen dann eine vollständige R"=Projektion. Diese Analyse
+entspricht der \xbart: Es gibt einen Kopf in jeder 
+der Teilstrukturen. Der Kopf selegiert entsprechende Argumente und bestimmt den Bedeutungsbeitrag
+der Gesamtkonstruktion. Die im Abschnitt~\ref{sec-rs-anal} vorgestellte Analyse unterscheidet sich
+nur darin in der von Pollard und Sag, daß der Effekt des leeren Kopfes in eine Grammatikregel
+integriert wurde. \citet*[\page153, Lemma~4.1]{BHPS61a} haben gezeigt, daß man
+Phrasenstrukturgrammatiken mit leeren Elementen in solche ohne leere Elemente umwandeln
+kann. Dieselbe Technik, die sie vorgeschlagen haben, wurde auch hier für die Relativsatzanalyse
+verwendet: Statt einen leeren Kopf mit zwei Argumenten zu kombinieren, verwendet man eine
+Grammatikregel, die die beiden Elemente direkt kombiniert und das Ergebnis, das die Kombination des
+leeren Kopfes mit seinen zwei Argumenten hätte, direkt am Mutterknoten repräsentiert.
+
+Einen anderen Weg geht \citet{Sag97a}. Er schlägt zwar ebenfalls Grammatikregeln statt leerer Köpfe
+für die Analyse von Relativsätzen vor, geht aber davon aus, daß in Relativsätzen das Verb der Kopf
+ist. Aus dieser Annahme ergeben sich zwei Probleme: Das erste wurde bereits auf
+Seite~\pageref{Erklaerung-relativizer} angesprochen. Wenn das Verb der Kopf des Relativsatzes ist,
+dann muß das Verb einen spezifizierten \modw haben (können), und man muß sicherstellen, daß
+Verbalprojektionen, die nicht in Relativsätzen vorkommen, nicht \nbar{}s modifizieren können. Das
+zweite Problem besteht darin, daß man für die Kombination eines Relativsatzes mit einem \nbar eine
+nominale Semantik braucht. Verbalprojektionen haben aber eine verbale Semantik. Sag löst das erste
+Problem, indem er für den Typ \type{clause} die als Default\is{Default} spezifizierte Beschränkung
+einführt, daß der \modw \type{none} ist (S.\,480). Der \modw von Verben ist damit nicht mehr eine
+lexikalische Eigenschaft der Verben, sondern wird je nach Verwendungsweise des Verbs
+festgelegt. Damit die erwünschten Resultate erzielt werden, muß man bei einem solchen Vorgehen also
+mindestens zwei Typen von Sätzen unterscheiden: Relativsätze und Nicht"=Relativsätze. Bei
+Relativsätzen wird der Default"=Wert überschrieben, bei Nicht"=Relativsätzen bleibt er erhalten. Sag geht von
+mindestens vier Untertypen von \type{clause} aus: \type{decl-cl}, \type{inter-cl}, \type{imp-cl} und
+\type{rel-cl}. 
+%% Für diese Typen legt er die folgenden Beschränkungen fest:
+%% \ea
+%% \begin{tabular}[t]{@{}ll@{}}
+%% Typ      & Beschränkung\\
+%% \type{decl-cl}  & [ \textsc{content} \type{proposition}] \\
+%% \type{inter-cl} & [ \textsc{content} \type{question}]    \\
+%% \type{imp-cl}   & [ \textsc{content} \type{directive}]   \\
+%% \type{rel-cl}   & \ms{ head    & \ms{ mc & -\\
+%%                                inv & -\\
+%%                                mod & \textrm{[}{\textsc{head} noun \textrm{]}}\\
+%%                              } \\
+%%                 content & proposition \\
+%%               }\\
+%% \end{tabular}
+%% \z
+%% Diese Typen haben gemeinsame Untertypen mit \type{head-adj-ph}, \type{hd-fill}, \type{hd-comp-ph},
+%% \type{fin-hd-subj-ph}, \type{hd-spr-ph} und \type{non-hd-ph}, für die ähnliche Beschränkungen
+%% gelten wie für die in diesem Buch verwendeten Typen \type{head-adjunct-phrase},
+%% \type{head-argument-phrase}, \type{head-specifier-phrase} und
+%% \type{head-filler-phrase}. Daraus ergibt sich folgendes Problem: Da \zb Deklarativsätze vom Typ
+%% \type{hd-fill} sind, gilt für sie das Semantikprinzip, das dafür sorgt, daß der \contw des Satzes
+%% mit dem \contw der Kopftochter übereinstimmt. Da der \contw des Verbs auch in Teilstrukturen für
+%% VPen projiziert wird, ist der \contw des Deklarativsatzes identisch mit dem \contw des Verbs. Dieser
+%% Typ ist aber ein Typ, der die Argumentrollen des Verbs einführt (\zb \type{geben}) und nicht ein Typ
+%% wie \type{proposition}. \citet{SWB2003a} verwenden deshalb ein spezielles Merkmal innerhalb von
+%% \cont, das sie \textsc{mode} nennen. Der Wert gibt Auskunft über den Satzmodus.
+
+Die Lösung des zweiten Problems ist sehr unschön: Da die Relativsätze eine verbale Semantik haben,
+muß die Verrechnung dieser Semantik mit der des modifizierten Nomens außerhalb des Relativsatzes
+passieren. \citet[\page475]{Sag97a} schlägt deshalb ein spezielles Schema vor, das eine \nbar mit
+einem Relativsatz kombiniert. Diese Analyse widerspricht den Grundannahmen in der HPSG, die auf
+\citet{Saussure16a-de} zurückgehen: Sprachliche Zeichen sollen Form"=Bedeutungs"=Paare sein. So ist ein
+Relativsatz etwas, das einen bestimmten syntaktischen Aufbau hat, der einer Relativsatzbedeutung
+entspricht. In der Sagschen Analyse ist das nicht widergespiegelt, denn dort hat der Relativsatz die
+dem Verb entsprechende Bedeutung, die Relativsatzbedeutung kommt erst bei Kombination mit einem
+Nomen hinzu.
+
+Zusätzlich zur \nbar"=Relativsatz"=Spezialregel, die nur für die Analyse von
+Nominalstrukturen mit Relativsatz gebraucht wird, gibt es noch das allgemeine
+Kopf"=Adjunkt"=Schema (\type{simple-hd-adj-ph}). Die im Abschnitt~\ref{sec-rs-anal} vorgestellte
+Analyse kommt dagegen mit einem sehr allgemeinen Kopf"=Adjunkt"=Schema aus.
+
+
+
+
+
+\subsection{Das Relativpronomen als Kopf}
+
+
+\citet{Steedman89a}\is{Pronomen!Relativ-|(} stellt in seinem Artikel die Kategorialgrammatik\is{Kategorialgrammatik (CG)|(} vor.
+Er diskutiert englische Relativsätze wie (\mex{1}) und gibt den
+Lexikoneintrag in (\mex{2}) für Relativpronomina wie \emph{which} und \emph{who}(\emph{m})
+(S.\,217):\footnote{
+  Siehe auch \citew[\page 614]{SB2006a-u}.
+}
+\ea
+apples which Harry eats
+\z
+\ea
+(N$\backslash$N)/(S/NP)
+\z
+Die Symbole `/' und `$\backslash$' stehen für Kombination nach links bzw.\
+rechts, \dash, S/NP steht für etwas, das einen Satz ergibt, wenn es mit einer NP,
+die sich rechts von ihm befindet, kombiniert wird. In (\mex{0}) steht
+S/NP für \emph{Harry eats}, \dash die Verbprojektion, der ein Objekt fehlt.
+Der Eintrag für das Relativpronomen bedeutet folgendes: Das Relativpronomen
+verlangt rechts von sich eine Wortgruppe der Kategorie S/NP (den Satz mit einer
+fehlenden NP), und wenn es mit dieser Wortgruppe kombiniert worden ist, ist das
+Ergebnis N$\backslash$N. N$\backslash$N steht für eine Kategorie, die sich
+nach links mit einem Nomen verbindet und ein Nomen ergibt. 
+%X/X bzw.\ X$\backslash$X
+%sind die allgemeinen Muster für Modifikatoren in der Kategorialgrammatik.
+Der Aspekt der Analyse, der hier interessiert, ist, daß das Relativpronomen
+die externen Eigenschaften des gesamten Relativsatzes bestimmt. Das Relativpronomen
+ist ein Funktor, der einen Satz mit fehlendem Objekt selegiert und festlegt,
+daß das Resultat der Kombination ein Nomen modifizieren kann.
+
+Ähnliche Analysen wurden im Rahmen der HPSG für sogenannte freie Relativsätze\is{Relativsatz!freier}
+vorgeschlagen. Freie Relativsätze sind Relativsätze, die im Satz ohne Bezugsnomen
+stehen und direkt als Argument oder Adjunkt zu einem höheren Verb fungieren.
+Der Satz in (\mex{1}) ist ein Beispiel für eine Konstruktion mit einem freien Relativsatz.
+\ea
+Wer die Hausaufgaben sofort abgibt, kann die Ferien genießen.
+\z
+In (\mex{0}) gibt es für den Relativsatz \emph{wer die Hausaufgaben sofort abgibt} kein
+sichtbares Bezugswort. Man kann sich überlegen, daß der Satz einem Satz wie (\mex{1})
+mit sichtbarem Bezugswort entspricht:
+\ea
+Jeder, der die Hausaufgaben sofort abgibt, kann die Ferien genießen.
+\z
+Eine Analyse, die für das Deutsche \citep{Kubota2002a} und das Englische \citep{WK03a}
+% und das Französische 
+vorgeschlagen wurde, geht davon aus, daß in Sätzen wie (\mex{-1}) das Relativpronomen der Kopf ist.
+Damit wäre ohne weitere Annahmen \emph{wer die Hausaufgaben sofort abgibt} eine NP,
+und es wäre erklärt, warum dieser Relativsatz an Stelle einer Argument"=NP stehen kann.
+
+Das Problem, das alle Ansätze haben, die davon ausgehen, daß das Relativpronomen der
+Kopf/""Funktor ist, ist jedoch, daß Relativpronomina tief eingebettet sein können.
+(\mex{1}) zeigt englische\il{Englisch} Beispiele von \citet[\page212]{ps2} bzw.\ von \citet[\page 109]{Ross67}\nocite{Ross86a-u}:
+\eal
+\ex Here's the minister [[in [the middle [of [whose sermon]]]] the dog barked].
+\ex Reports [the height of the lettering on the covers of which] the government prescribes should be abolished.
+\zl
+In (\mex{0}a) ist das Relativpronomen der Determinator von \emph{sermon}.
+Je nach Analyse ist \emph{whose} der Kopf der Phrase \emph{whose sermon},
+diese NP allerdings ist unter \emph{of} eingebettet und die Phrase \emph{of whose sermon}
+ist von \emph{middle} abhängig. Die gesamte NP \emph{the middle of whose sermon}
+ist ein Komplement der Präposition \emph{in}. Wollte man behaupten, daß \emph{whose}
+der Kopf des Relativsatzes in (\mex{0}a) ist, müßte man schon einige Handstände (oder Kopfstände?)
+machen. In (\mex{0}b) ist das Relativpronomen noch tiefer eingebettet.
+In der Kategorialgrammatik gibt es neben der Funktionalapplikation, die
+für die Kombination von Konstituenten verwendet wird, noch die Typanhebung\is{Typanhebung} von
+Konstituenten. Mit solchen Typanhebungen ist es dann möglich, Wortfolgen als
+Konstituenten zu analysieren, die normalerweise nicht als Konstituenten betrachtet
+werden, aber zum Beispiel für die einfache Analyse von Koordinationsstrukturen\is{Koordination}
+gebraucht werden \citep{Steedman89a}. \citet[\page 204]{Morrill95a} diskutiert für das
+Relativpronomen im Relativsatz in (\mex{1}a) den Lexikoneintrag in (\mex{1}b):\footnote{
+  Morrill verwendet eine andere Notation. Ich habe sie an die von Steedman angepaßt.
+% Schreibt (PP/NP)$\backslash$(N$\backslash$N)/(S/NP), meint aber wohl
+%          (PP/NP)$\backslash$(N$\backslash$N)/(S/PP)
+}
+\eal
+\ex about which John talked
+\ex (PP/NP)$\backslash$(N$\backslash$N)/(S/PP)
+\zl
+In diesem Lexikoneintrag verlangt das \emph{which} links von sich etwas, das eine Nominalphrase
+braucht, um eine vollständige Präpositionalphrase zu ergeben, \dash, \emph{wich} selegiert die
+Präposition. Morrill stellt fest, daß zusätzliche Einträge für Fälle angenommen werden müssen, in
+denen das Relativpronomen in der Mitte der vorangestellten Phrase steht.
+\ea
+the contract the loss of which after so much wrangling John would finally have to pay for
+\z
+Morrill stellt fest, dass man alle Fälle durch zusätzliche lexikalische Stipulationen behandeln
+kann. Er schlägt stattdessen zusätzliche Arten der Kombination von Funktoren und Argumenten vor,
+die einen Funktor B $\uparrow$ A sein Argument A umschließen lassen und B ergeben bzw.\ einen Funktor A $\downarrow$
+B in sein Argument A einfügen, um dann B zu ergeben (S.\,190). Mit diesen zusätzlichen Operationen
+braucht er dann noch die beiden Lexikoneinträge in (\mex{1}), um die diversen
+Rattenfängerkonstruktionen ableiten zu können:
+\eal
+\ex (NP $\uparrow$ NP) $\downarrow$ (N$\backslash$N)/(S/NP)
+\ex (PP $\uparrow$ NP) $\downarrow$ (N$\backslash$N)/(S/PP)
+\zl
+Morrill ist es auf diese Weise gelungen, die Anzahl der Lexikoneinträge für \emph{which} zu
+reduzieren, trotzdem bleibt der Fakt, daß er die Kategorien, die in Rattenfängerkonstruktionen
+vorkommen können, im Lexikoneintrag des Relativpronomens erwähnen muß. 
+%% Im Deutschen ist die
+%% Rattenfängerkonstruktion bei Präpositionalphrasen, Adjektivphrasen und auch Verbphrasen möglich.
+Auch geht die Einsicht, daß es sich bei Relativsätzen um eine Phrase mit einem Relativpronomen
++ Satz, dem die Relativphrase fehlt, handelt, in solchen Analysen verloren.
+
+Für die Behandlung freier Relativsätze wie (\mex{1}) schlägt \citet[\page 164]{Kubota2002a} im
+Rahmen der HPSG vor, das Relativpronomen als Kopf zu betrachten, wobei das Relativpronomen eine Präposition und einen finiten
+Satz mit extrahierter PP selegiert.
+\ea
+Aus wem noch etwas herausgequetscht werden kann, ist sozial dazu verpflichtet, es abzuliefern; \ldots\footnote{
+        Wiglaf Droste, taz, 01.08.1997, S.\,16.
+      }
+\z
+Diese Analyse kann nicht erfassen, wieso das Relativpronomen den Kasus hat, den die Präposition
+\emph{aus} verlangt (Dativ) und wieso der gesamte freie Relativsatz trotzdem den Platz des
+Nominativarguments von \emph{verpflichtet} einnehmen kann. Man könnte die Analyse technisch retten,
+wenn man annehmen würde, daß es sich bei \emph{wem} um ein Pronomen mit dem Kasus Nominativ handelt,
+das eine Präposition selegiert, die ein Element im Dativ verlangt. Da es so etwas aber an keiner
+anderen Stelle in der deutschen Grammatik gibt, ist eine solche Lösung abzulehnen. Alternative
+Lösungen, die \emph{aus wem noch etwas herausgequetscht werden kann} als vollständigen Relativsatz
+analysieren, der dann die Nominativstelle einnehmen kann, sind Kubotas Ansatz vorzuziehen. Siehe
+\citew{Mueller99a,Mueller99b} für eine entsprechende Analyse im Rahmen der HPSG.%
+\is{Relativsatz|)}
+\is{Kategorialgrammatik (CG)|)}
+\is{Pronomen!Relativ-|)}
+
+\section*{Kontrollfragen}
+
+
+\begin{enumerate}
+\item Wie sind Relativsätze aufgebaut?
+\end{enumerate}
+
+\section*{Übungsaufgaben}
+
+\begin{enumerate}
+\item Welche Relativpronomina kennen Sie?
+\item Skizzieren Sie die syntaktsichen Aspekte der Analyse für die folgende Phrase:
+\ea
+die Blume, die allen gefällt
+\z
+Gehen Sie auf die \slashwe und die \relwe ein.
+
+\item Laden Sie die zu diesem Kapitel gehörende Grammatik von der Grammix"=CD
+(siehe Übung~\ref{uebung-grammix-kapitel4} auf Seite~\pageref{uebung-grammix-kapitel4}).
+Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluß eine Liste von Beispielen.
+Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem Kapitel besprochenen
+Aspekte.
+
+\end{enumerate}

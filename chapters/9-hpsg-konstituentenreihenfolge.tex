@@ -1,0 +1,2256 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: 9-hpsg-konstituentenreihenfolge.tex,v $
+%%  $Revision: 1.17 $
+%%      $Date: 2008/09/30 09:14:41 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Konstituentenreihenfolge}
+\label{chap-Konstituentenreihenfolge}
+
+Das Deutsche ist eine Sprache mit relativ freier Konstituentenstellung.
+Außerdem wird das Deutsche typologisch zu den Verbletztsprachen (SOV) gezählt.
+In deklarativen Hauptsätzen und in Fragesätzen steht das Verb jedoch an zweiter
+bzw.\ an erster Stelle. In den folgenden Abschnitten soll erklärt werden, wie man
+die relativ freie Konstituentenstellung behandeln kann, und in Abschnitt~\ref{sec-v1}
+wird gezeigt, wie die Verberststellung zur Verbletztstellung in Beziehung gesetzt werden
+kann.
+
+\section{Anordnung von Konstituenten im Mittelfeld}
+\label{sec-mf}
+
+Das Deutsche ist eine Sprache mit relativ freier Konstituentenstellung.
+Im \mf können Argumente in nahezu beliebiger Abfolge angeordnet werden.
+So kann man statt der Abfolge in (\mex{1}a) auch die Abfolgen in (\mex{1}b--f)
+verwenden:
+\eal
+\label{bsp-perm-mf}
+\ex weil der Mann der Frau das Buch gibt
+\ex weil der Mann das Buch der Frau gibt
+\ex weil das Buch der Mann der Frau gibt
+\ex weil das Buch der Frau der Mann gibt
+\ex weil der Frau der Mann das Buch gibt
+\ex weil der Frau das Buch der Mann gibt
+\zl
+Bei den Abfolgen in (\mex{0}b--f) muß man die Konstituenten anders betonen
+und die Menge der Kontexte, in denen der Satz mit der jeweiligen Abfolge
+geäußert werden kann, ist gegenüber der Menge der Kontexte, in denen (\mex{0}a)
+geäußert werden kann, eingeschränkt \citep{Hoehle82a}. Man nennt die
+Abfolge in (\mex{0}a) deshalb auch die \wis{Normalabfolge} bzw.\ die unmarkierte
+Abfolge.
+
+Außer den Argumenten können sich noch Adjunkte im \mf befinden. Diese können
+an beliebigen Positionen zwischen den Argumenten stehen. Für (\mex{0}b) ergeben
+sich \zb folgende Möglichkeiten:
+\eal
+\label{bsp-adj-mf}
+\ex weil morgen der Mann das Buch der Frau gibt
+\ex weil der Mann morgen das Buch der Frau gibt
+\ex weil der Mann das Buch morgen der Frau gibt
+\ex weil der Mann das Buch der Frau morgen gibt
+\zl
+Skopustragende Adjunkte unterscheiden sich aber von Argumenten dadurch, daß man mehrere
+Adjunkte im Mittelfeld nicht einfach umordnen kann, ohne die Bedeutung des Satzes zu ändern.
+Die beiden Sätze in (\mex{1}) bedeuten verschiedene Sachen:\footnote{
+  Im Gegensatz dazu ändert sich bei sogenannten intersektiven Adjunkten die Hauptbedeutung nicht:
+\eal
+\ex weil er morgen in der Schule singt
+\ex weil er in der Schule morgen singt
+\zl
+Die beiden Sätze in (i) unterscheiden sich hinsichtlich der Kontexte, in denen sie geäußert
+werden können, aber in beiden Sätzen wird etwas darüber ausgesagt, was jemand morgen tut und wo
+das entsprechende Ereignis stattfindet.%
+}
+\eal\is{Adverb!Skopus}
+\label{bsp-absichtlich-nicht}
+\ex weil er absichtlich nicht lacht
+\ex weil er nicht absichtlich lacht
+\zl
+
+\noindent
+In der HPSG"=Theorie wurde eine große Anzahl von alternativen Vorschlägen zur Erklärung der
+Daten in \fromto{\mex{-2}}{\mex{0}} diskutiert. Bei der Behandlung der Mittelfeldabfolgen
+spielt immer auch die Behandlung der Verbstellung eine Rolle. Diese wird jedoch erst im
+folgenden Abschnitt behandelt. Wichtig für die Auswahl des richtigen Ansatzes sind
+bestimmte Arten von Vorfeldbesetzung. Vorfeldbesetzung ist Gegenstand des Kapitels~\ref{chap-nla},
+so daß es erst im Anschluß an das Kapitel~\ref{chap-nla} möglich ist, alternative
+Analysen für \fromto{\mex{-2}}{\mex{0}} zu besprechen.
+
+Bisher wurden binär verzweigende Strukturen angenommen (Schema~\ref{schema-bin-prel} auf
+Seite~\pageref{schema-bin-prel} und Schema~\ref{ha-schema} auf Seite~\pageref{ha-schema}).
+Mit den entsprechenden Schemata können wir (\mex{-2}b), (\mex{-1}) und auch (\mex{0})
+ohne Probleme analysieren: Bei der Analyse von (\mex{-2}b) wird das Verb mit dem jeweils
+letzten Element der \subcatl kombiniert. Bei der Analyse der Sätze in (\mex{-1})
+wird eine bestimmte Verbalprojektion mit einem Adjunkt kombiniert, und die verbleibenden
+Argumente werden danach gesättigt. Die unterschiedliche Bedeutung der Sätze in (\mex{0})
+ergibt sich daraus, daß in (\mex{0}a) \emph{absichtlich} mit der Projektion \emph{nicht lacht} verbunden
+wird, wohingegen in (\mex{0}b) \emph{nicht} mit \emph{absichtlich lacht} kombiniert wird.
+
+Es bleibt zu klären, wodurch die Abfolgen in (\mex{-2}a,c--f) lizenziert sind. Diese
+Sätze lassen sich nach einer leichten Änderung des Kopf"=Argument"=Schemas ebenfalls
+analysieren: Das Schema muß so abgeändert werden, daß es die Sättigung von Argumenten
+in beliebiger Reihenfolge erlaubt. Das wird dadurch erreicht, daß die \subcatl nicht
+in einen Listenanfang und einen einelementigen Rest sondern in drei Teile geteilt wird: Der erste
+Teil ist eine Liste beliebiger Länge (\,\ibox{1} im Schema~\ref{schema-bin-prel2}), der zweite eine einelementige Liste (\sliste{
+  \ibox{2} }) und der dritte wieder eine
+Liste beliebiger Länge \iboxb{3}.\footnote{
+  \citet{Gunji86a} hat in seiner Analyse des Japanischen\il{Japanisch} die Verwendung eines
+  mengenwertigen \textsc{subcat}"=Merkmals vorgeschlagen, wodurch ebenfalls eine variable Sättigungsreihenfolge
+  entsteht. \citet{HN89a}, \citet{Pollard90a} und \citet*{EEU92a} nehmen für das Deutsche
+  ein mengenwertiges \subcatm an. Die Verwendung eines listenwertigen Merkmals hat den
+  Vorteil, daß die Elemente geordnet sind und man somit Beschränkungen, die sich auf
+  Hierarchien beziehen, formulieren kann. Siehe Seite~\pageref{page-obliquen-h} zur Obliqueness"=Hierarchie. % Nee, steht da nicht drin. \citep[\page ]{Mueller2004b}.
+% wohl wegen ARG-ST
+
+  \citet[\page185]{FR92} und \citet[\page218--223]{Kiss95b} nehmen ebenfalls eine \subcatl und ein Valenzprinzip an, das es erlaubt,
+  einen Kopf mit einem beliebigen Element aus der \subcatl zu kombinieren.%
+}
+Das Kopf"=Argument"=Schema hat also folgende Form:
+\begin{samepage}
+\begin{schema}[Kopf-Argument-Schema (binär verzweigend, vorläufige Version)]
+\label{schema-bin-prel2}\is{Schema!Kopf"=Argument"=}
+\type{head"=argument"=phrase}\istype{head"=argument"=phrase} \impl\\
+\onems{
+      cat$|$subcat \ibox{1} $\oplus$ \ibox{3}\\
+      head-dtr$|$cat$|$subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3} \\
+      non-head-dtrs \sliste{ \ibox{2} }\\
+}
+\end{schema}
+\end{samepage}
+Mit diesem Schema kann man alle Abfolgen in (\ref{bsp-perm-mf}) analysieren. Das soll
+anhand der einfacheren Sätze in (\mex{1}) verdeutlicht werden.
+%\enlargethispage{\baselineskip} Dann kommt es weiter hinten zum Umbruch in (8).
+\eal
+\ex weil jeder das Buch kennt
+\ex weil das Buch jeder kennt
+\zl
+Die Analyse von (\mex{0}a) zeigt Abbildung~\vref{abb-jeder-das-buch-kennt}
+und die von (\mex{0}b) 
+Abbildung~\ref{abb-das-buch-jeder-kennt}.%
+\begin{figure}[htb]
+\psset{xunit=1cm,yunit=8mm}%
+\centerline{%
+\begin{pspicture}(4.3,1)(12.4,7.6)
+\rput[B](5,1){\rnode{jeder}{jeder}}
+\rput[B](7,1){\rnode{ihnmf}{das Buch}}
+\rput[B](9,1){\rnode{kennt}{kennt}}
+%
+\rput[B](7,3){\rnode{np1}{\ibox{2} NP[\textit{acc}]}}
+\rput[B](9,3){\rnode{v}{V[\subcat}}\nput[labelsep=2pt]{0}{v}{ \nliste{\ibox{1}, \ibox{2}}]}
+%
+\rput[B](5,5){\rnode{np2}{\ibox{1} NP[\textit{nom}]}}
+\rput[B](8,5){\rnode{vs1}{V[\subcat \nliste{\ibox{1}}]}}
+%
+\rput[B](6.5,7){\rnode{vp}{V[\subcat \nliste{ }]}}
+%
+\psset{angleA=-90,angleB=90,arm=0pt}
+%
+\ncdiag{v}{kennt}
+\ncdiag{vs1}{np1}\ncdiag{vs1}{v}
+\ncdiag{vs2}{np2}\ncdiag{vs2}{vs1}
+\ncdiag{vp}{vs2}
+%
+%
+\ncdiag{i}{t2}
+\ncdiag{is}{i}\ncdiag{is}{vp}
+\ncdiag{vp}{np2}\ncdiag{ip}{is}
+%
+\ncdiag{np2}{jeder}
+%\ncdiag{np1}{ihnmf}
+\ncdiag{vp}{vs1}
+%
+\pstriangle(7,1.5)(1.4,1.2)
+%\psgrid
+\end{pspicture}}%
+\caption{\label{abb-jeder-das-buch-kennt}Analyse für \emph{jeder das Buch kennt}}
+\end{figure}%
+\begin{figure}[htb]
+\psset{xunit=1cm,yunit=8mm}%
+\centerline{%
+\begin{pspicture}(4.3,1)(12.4,7.6)
+\rput[B](7,1){\rnode{jeder}{jeder}}
+\rput[B](5,1){\rnode{ihnmf}{das Buch}}
+\rput[B](9,1){\rnode{kennt}{kennt}}
+%
+\rput[B](7,3){\rnode{np1}{\ibox{1} NP[\textit{nom}]}}
+\rput[B](9,3){\rnode{v}{V[\subcat}}\nput[labelsep=2pt]{0}{v}{ \nliste{\ibox{1}, \ibox{2}}]}
+%
+\rput[B](5,5){\rnode{np2}{\ibox{2} NP[\textit{acc}]}}
+\rput[B](8,5){\rnode{vs1}{V[\subcat \nliste{\ibox{2}}]}}
+%
+\rput[B](6.5,7){\rnode{vp}{V[\subcat \nliste{ }]}}
+%
+\psset{angleA=-90,angleB=90,arm=0pt}
+%
+\ncdiag{v}{kennt}
+\ncdiag{vs1}{np1}\ncdiag{vs1}{v}
+\ncdiag{vs2}{np2}\ncdiag{vs2}{vs1}
+\ncdiag{vp}{vs2}
+%
+%
+\ncdiag{i}{t2}
+\ncdiag{is}{i}\ncdiag{is}{vp}
+\ncdiag{vp}{np2}\ncdiag{ip}{is}
+%
+\ncdiag{np1}{jeder}
+%\ncdiag{np1}{ihnmf}
+\ncdiag{vp}{vs1}
+%
+\pstriangle(5,1.5)(1.4,3.2)
+%\psgrid
+\end{pspicture}}%
+\caption{\label{abb-das-buch-jeder-kennt}Analyse für \emph{das Buch jeder kennt}}
+\end{figure}
+Die beiden Analysen unterscheiden sich einzig und allein darin, welches Element der \subcatl
+zuerst abgebunden wird: In Abbildung~\ref{abb-jeder-das-buch-kennt} wird zuerst das Akkusativobjekt
+mit dem Verb kombiniert und in Abbildung~\ref{abb-das-buch-jeder-kennt} zuerst das Subjekt. In der
+Analyse in Abbildung~\ref{abb-jeder-das-buch-kennt} ist bei der Kombination von \emph{das Buch} und
+\emph{kennt} die \ibox{3} aus Schema~\ref{schema-bin-prel2} die leere Liste und \ibox{1} die Liste
+\sliste{ NP[\type{nom}] }. Die Verkettung von \ibox{1} und \ibox{3} ist demzufolge ebenfalls
+\sliste{ NP[\type{nom}] }, weshalb der \subcatw der Verknüpfung aus \emph{das Buch} und \emph{kennt}
+die Liste \sliste{ NP[\type{nom}] } ist (\sliste{ \ibox{1} } in
+Abbildung~\ref{abb-jeder-das-buch-kennt}).  Das Nominativargument wird im zweiten Schritt gesättigt:
+Bei der Verbindung von \emph{jeder} mit \emph{das Buch kennt} sind sowohl \ibox{1} als auch \ibox{3}
+aus Schema~\ref{schema-bin-prel2} die leere Liste. Das Ergebnis der Kombination ist eine vollständig
+gesättigte Phrase. In der Analyse in Abbildung~\ref{abb-das-buch-jeder-kennt} ist die \ibox{3}
+die Liste \sliste{ NP[\type{acc}] } und \ibox{1} die leere Liste. Die Verkettung von \ibox{1} und
+\ibox{3} ist \sliste{ NP[\type{acc}] }. Die Kombination von \emph{jeder kennt} mit NP[\type{acc}]
+erfolgt im zweiten Schritt.
+
+Sprachen mit fester
+Konstituentenstellung\is{Konstituentenstellung!feste}\is{Konstituentenstellung!freie} (wie das
+Englische\il{Englisch}) unterscheiden sich von Sprachen wie dem Deutschen dadurch, daß sie die
+Argumente von einer Seite beginnend abbinden (im Englischen\il{Englisch} wird das Subjekt in einer separaten
+Valenzliste repräsentiert, so daß das Subjekt links des Verbs und alle anderen Argumente rechts des
+Verbs realisiert werden), wohingegen Sprachen mit freierer Konstituentenstellung die Argumente
+in beliebiger Reihenfolge abbinden können. In Sprachen mit fester Konstituentenstellung ist also
+\ibox{1} bzw.\ \ibox{3} die leere Liste. Da die Strukturen des Deutschen nicht hinsichtlich \ibox{1}
+bzw.\ \ibox{3} beschränkt sind, \dash, \ibox{1} und \ibox{3} können die leere Liste sein oder auch
+Elemente enthalten, ist die Intuition erfasst, daß es in Sprachen mit freier Konstituentenstellung
+weniger Beschränkungen gibt, als in Sprachen mit fester Konstituentenstellung. Man vergleiche das
+mit der Analyse, die \citet{Kayne94a-u} im Minimalistischen\is{Minimalistisches Programm} Rahmen ausgearbeitet hat. Kayne geht
+davon aus, daß alle Sprachen aus der [Spezifikator [Kopf Komplement]]"=Grundstellung abgeleitet sind
+(\citet{Laenzlinger2004a} hat eine entsprechende Analyse für das Deutsche als
+SVO"=Sprache vorgestellt). In solchen Analysen sind Sprachen wie
+Englisch der einfache Fall und Sprachen mit freier Stellung erfordern einen erheblichen
+theoretischen Aufwand, wohingegen man in der hier vorgestellten Analyse stärkere theoretische
+Beschränkungen formulieren muss, wenn die Sprache stärkeren Restriktionen in Bezug auf die
+Umstellbarkeit von Konstituenten unterliegt. Auch die Komplexität der lizenzierten Strukturen
+unterscheidet sich in der HPSG nicht wesentlich von Sprache zu Sprache. Die Sprachen unterscheiden
+sich lediglich in der Art der Verzweigung.\footnote{ 
+Das schließt natürlich nicht aus, daß die
+  jeweiligen Strukturen von Menschen entsprechend der Art der Verzweigung verschieden gut zu
+  verarbeiten sind. Siehe \citew{Gibson98a,Hawkins99a} und \citet[Abschnitt~11.3]{MuellerGTBuch1}.
+}$^,$\footnote{%
+\citet[\page 18]{Haider97c} hat darauf hingewiesen, daß sich VX"=Sprachen von XV"=Sprachen bei
+Analysen wie der hier vorgestellten in der Art der Verzweigung unterscheiden und daß das bei bestimmten
+theoretischen Annahmen Auswirkungen auf die Bindungstheorie\is{Bindungstheorie} hat, \dash auf die
+Beschränkungen bzgl.\ möglicher Bezüge referentieller Ausdrücke. Für HPSG"=Analysen
+ist die Verzweigungsrichtung jedoch irrelevant, denn die Bindungsprinzipien sind mit Hilfe von
+o"=Kommando\is{o"=Kommando} definiert \citep[Kapitel~6]{ps2} und o"=Kommando nimmt Bezug auf die
+Obliqueness"=Hierarchie\is{Obliqueness}, \dash auf die Reihenfolge der Elemente in der \subcatl und nicht auf die
+Richtung, in der diese Elemente mit ihrem Kopf kombiniert werden. 
+}
+
+
+\section{Linearisierungsregeln}
+
+Wie\is{Linearisierung!-sregel|(} auf der Seite~\pageref{abstraktion-linearisierung} bei der Diskussion der Regelschemata in
+(\ref{abstraktion-linearisierung}) angemerkt, sind die Dominanzschemata in der HPSG abstrakte
+Repräsentationen, die nur etwas über die Bestandteile einer Phrase (unmittelbare Dominanz)
+aussagen, jedoch keine Beschränkungen über die Abfolge von Töchtern (lineare Präzedenz\is{Pr"azedenz})
+enthalten. Eine solche Trennung zwischen unmittelbarer Dominanz\is{Dominanz} (\emph{immediate dominance})
+und linearer Abfolge (\emph{linear precedence}) gab es schon in der \gpsg
+\citep*{GKPS85a}. Grammatiken, die eine solche Trennung zwischen \emph{immediate dominance} und
+\emph{linear precedence} vornehmen, nennt man ID/LP"=Grammatiken. Regeln, die die lineare Abfolge
+beschränken, werden \emph{LP"=Regeln}\is{LP"=Regel} genannt.
+
+Zur Motivation dieser Trennung erinnern wir uns an die einfache Phrasenstrukturgrammatik,
+die im Abschnitt~\ref{sec-psg} auf Seite~\pageref{ditrans-ps-regeln} diskutiert wurde. Will man
+mit solchen Phrasenstrukturregeln ausdrücken, daß alle Abfolgen in (\ref{bsp-perm-mf}) möglich sind,
+dann braucht man für ditransitive Verben die folgenden sechs Phrasenstrukturregeln:
+\ea
+\begin{tabular}[t]{@{}l@{ }l@{ }l@{ }l@{ }l}
+S  & $\to$ NP[nom],& NP[acc], & NP[dat], & V\\
+S  & $\to$ NP[nom],& NP[dat], & NP[acc], & V\\
+S  & $\to$ NP[acc],& NP[nom], & NP[dat], & V\\
+S  & $\to$ NP[acc],& NP[dat], & NP[nom], & V\\
+S  & $\to$ NP[dat],& NP[nom], & NP[acc], & V\\
+S  & $\to$ NP[dat],& NP[acc], & NP[nom], & V\\
+\end{tabular}
+\z
+Die Gemeinsamkeit, die diese sechs Regeln haben, wird in (\mex{0}) nicht erfaßt. Abstrahiert man
+dagegen von der linearen Abfolge und läßt Regeln nur etwas über Dominanz aussagen, so erhält man
+statt der Regeln in (\mex{0}) nur die eine Regel in (\mex{1}):
+ \ea
+S $\to$ NP[nom] NP[acc] NP[dat] V
+\z
+(\mex{0}) besagt, daß der S"=Knoten drei Nominalphrasen und ein Verb in beliebiger Reihenfolge
+dominiert. Das ist natürlich zu wenig restriktiv, da so auch zugelassen wird, daß das Verb an beliebiger
+Stelle zwischen den Nominalphrasen steht. Entsprechend formulierte Linearisierungsbeschränkungen
+schließen dann Abfolgen wie NP[nom] NP[acc] V NP[dat] aus.
+
+Zu Beschränkungen in bezug auf die Abfolge wurde in der in den vorigen Kapiteln entwickelten
+HPSG"=Grammatik noch nichts gesagt. Betrachtet man das Schema~\ref{schema-bin-prel2}, so sieht man,
+daß die Kopf"|tochter und die Nicht"=Kopf"|töchter im Schema übereinander und nicht in irgendeiner
+Reihenfolge nebeneinander stehen. Durch das Schema wird also keine Reihenfolge festgelegt. Bei binär
+verzweigenden Strukturen mit Kopf gibt es somit zwei Möglichkeiten für die Anordnung der
+Konstituenten:
+\begin{itemize}
+\item \begin{tabular}[t]{@{}ll@{}}
+der Kopf kommt zuerst:                                   & Beispiel:\\
+%
+\ms{
+phon & \ibox{1} $\oplus$ \ibox{2}\\
+head-dtr & \onems{ phon \ibox{1}}\\
+non-head-dtrs & \liste{ \onems{ phon \ibox{2} }} \\
+}&%
+\ms{
+phon & \phonliste{ schläft, Karl}\\
+head-dtr & \onems{ phon \phonliste{ schläft } }\\
+non-head-dtrs & \phonliste{ \onems{ phon \phonliste{ Karl } }} \\
+}\\
+\end{tabular}
+\item \begin{tabular}[t]{@{}ll@{}}
+der Kopf kommt zum Schluß:                            & Beispiel:\\
+%
+\ms{
+phon & \ibox{2} $\oplus$ \ibox{1}\\
+head-dtr & \onems{ phon \ibox{1}}\\
+non-head-dtrs & \liste{ \onems{ phon \ibox{2} }} \\
+}&%
+\ms{
+phon & \phonliste{Karl, schläft }\\
+head-dtr & \onems{ phon \phonliste{ schläft } }\\
+non-head-dtrs & \liste{ \onems{ phon \phonliste{ Karl } }} \\
+}\\
+\end{tabular}
+\end{itemize}
+
+
+\noindent
+Mit den bisher formulierten Beschränkungen kann man also auch Phrasen wie die in (\mex{1}) und (\mex{2}) ableiten:
+\eal
+\ex[*]{
+{}[[den Schrank] in]
+}
+\ex[*]{
+{}daß [er [es [gibt ihm]]]
+}
+\zl
+\eal
+\ex[*]{
+daß [er [es [ihm [gibt nicht]]]]
+}
+\ex[*]{
+{}[der [Mann kluge]]
+}
+\ex[*]{
+{}[das [[am Wald] Haus]]
+}
+\zl
+In (\mex{-1}a) steht die Präposition \emph{in} rechts der Nominalphrase, obwohl sie eigentlich links von
+ihr stehen müßte, und in (\mex{-1}b) handelt es sich um einen Verbletztsatz, in dem aber \emph{gibt} und \emph{ihm}
+vertauscht sind, \dash, eigentlich müßte das Verb an letzter Stelle stehen. In (\mex{0}a) steht das Verb vor
+dem Adjunkt, obwohl es danach stehen müßte, in (\mex{0}b) folgt das Adjektiv dem Nomen,
+obwohl es ihm vorangehen müßte, und in (\mex{0}c) schließlich steht die PP vor dem Nomen, obwohl
+PPen, die ein Nomen modifizieren, diesem innerhalb von NPen folgen.
+
+Linearisierungsregeln sagen etwas über die Reihenfolge von zwei beschriebenen Objekten aus.
+Es gibt verschiedene Arten von Linearisierungsregeln: Manche nehmen nur Bezug auf Merkmale der jeweiligen
+Objekte, andere beziehen sich auf die syntaktische Funktion (Kopf\is{Kopf}, Argument\is{Argument}, Adjunkt\is{Adjunkt}, \ldots) und
+wieder andere mischen beides.
+Wenn man für alle Köpfe ein Merkmal \textsc{initial}\isfeat{initial} annimmt, dann kann man Köpfe,
+die ihren Argumenten vorangehen, den \initialw `+' geben und Köpfen, die ihren Argumenten folgen,
+den Wert `--'. Die Linearisierungsregeln in (\mex{1}) sorgen dann dafür, daß ungrammatische
+Abfolgen wie die in (\mex{-1}a,b) ausgeschlossen sind.\footnote{
+  Nominalphrasen sind in bezug auf (\mex{1}) ein Problem: Der Determinierer wurde bisher wie
+  ein Argument behandelt und in der \subcatl des Kopfnomens aufgeführt. Determinierer stehen allerdings
+  links des Nomens, wohingegen alle anderen Argumente des Nomens rechts stehen. Man kann dieses Problem
+  entweder dadurch lösen, daß man die Linearisierungsregeln entsprechend verfeinert oder dadurch,
+  daß man ein spezielles Valenzmerkmal für Determinatoren einführt. \citet[Abschnitt~9.4]{ps2} verwenden
+  das Merkmal \textsc{spr} zur Selektion von Determinierern, und ich schließe
+  mich dem an. Siehe Abschnitt~\ref{sec-spr}.%
+}
+\eal
+\ex\label{lp-ini-arg} Head[\initial+] $<$ Argument
+\ex Argument $<$ Head[\initial --]
+\zl
+Präpositionen haben den \initialw `+', und Regel (\mex{0}a) erzwingt somit die Anordnung des präpositionalen
+Kopfes vor dem nominalen Argument. Verben in Letztstellung haben den \initialw `--'. (\mex{0}b) schließt
+also die Abfolge in (\mex{-2}b) aus.
+
+Die beiden Regeln in (\mex{1}) sorgen dafür, daß Prämodifikatoren immer vor den Köpfen, die sie modifizieren,
+angeordnet werden und daß Postmodifikatoren immer nach den Köpfen angeordnet werden.\isfeat{pre"=modifier}
+\eal
+\label{lp-head-argument-initial}
+\ex Adjunct[\textsc{pre-modifier} +] $<$ Head
+\ex Head $<$ Adjunct[\textsc{pre-modifier} --]
+\zl
+Die erste Linearisierungsregel sorgt dafür, daß die Phrasen in (\mex{-2}a,b) ausgeschlossen sind, und die zweite
+schließt (\mex{-2}c) aus.
+
+Die%\enlargethispage{\baselineskip} 
+Konsequenz der Linearisierungsregel in (\mex{-1}) ist, daß jetzt nur noch die beiden 
+Kopf"=Argument"=Strukturen durch die Grammatik lizenziert werden, die durch (\mex{1}a) und
+(\mex{1}b) beschrieben werden:\footnote{
+  Sätzen wie in (i) wenden wir uns im Kapitel~\ref{chap-nla} zu.
+  \ea
+  Das Buch kennt jeder.
+  \zlast
+}
+\eal
+\ex \onems{
+phon \ibox{1} $\oplus$ \ibox{2}\\ 
+cat$|$subcat \ibox{3} $\oplus$ \ibox{4}\\
+head-dtr \ms{ phon & \ibox{1}\\
+              cat  & \ms{ head$|$initial +\\
+                          subcat \ibox{3} $\oplus$ \ibox{5} $\oplus$ \ibox{4} \\
+                        }\\
+            }\\
+non-head-dtrs \sliste{ \ibox{5} [ \phon \ibox{2} ] }\\
+}
+\ex \onems{
+phon \ibox{2} $\oplus$ \ibox{1}\\ 
+cat$|$subcat \ibox{3} $\oplus$ \ibox{4}\\
+head-dtr \ms{ phon & \ibox{1}\\
+              cat  & \ms{ head$|$initial $-$\\
+                          subcat \ibox{3} $\oplus$ \ibox{5} $\oplus$ \ibox{4} \\
+                        }\\
+            }\\
+non-head-dtrs \sliste{ \ibox{5} [ \phon \ibox{2} ] }\\
+}
+\zl
+Diese beiden Beschreibungen entsprechen dem Schema~\ref{schema-bin-prel2},
+enthalten aber zusätzlich Information über den \initialw der
+Kopf"|tochter und die entsprechende Verknüpfung der \phonwe
+der Töchter: In (\mex{0}a) stehen alle Elemente aus der \phonl der Kopf"|tochter
+links der Elemente aus der \phonl der Nichtkopftochter. In (\mex{0}b)
+ist es andersherum.
+
+Bevor wir uns den Spezifikator"=Kopf"=Strukturen zuwenden, möchte ich noch kurz
+auf die Stellung von Adjunkten eingehen. Sie können überall zwischen den Argumenten
+stehen, wie die Beispiele in (\ref{bsp-adj-mf}) zeigen. Die Sätze kann man analysieren,
+indem man annimmt, daß ein Adjunkt sich prinzipiell mit einer beliebigen Verbprojektion
+verbinden kann. In (\mex{1}) sind entsprechende Beispielstrukturen zu sehen:
+\eal
+\label{bsp-adj-mf-zwei}
+\ex weil morgen [der Mann das Buch der Frau gibt]
+\ex weil der Mann morgen [das Buch der Frau gibt]
+\ex weil der Mann das Buch morgen [der Frau gibt]
+\ex weil der Mann das Buch der Frau morgen gibt
+\zl
+In (\mex{0}a) wurde \emph{gibt} mit all seinen Argumenten kombiniert und erst danach
+mit dem Adverb\is{Adverb}. In (\mex{0}b) wurde \emph{gibt} mit den Objekten kombiniert. Nach der
+Modifikation der Phrase \emph{das Buch der Frau gibt} durch \emph{morgen} wird dann
+in einem weiteren Schritt das Subjekt gesättigt. (\mex{0}c) und (\mex{0}d) zeigen Beispiele mit kleineren
+Projektionen von \emph{gibt}. Genauso lassen sich natürlich die Sätze in (\mex{1})
+analysieren:
+\eal
+\ex weil der Mann der Frau morgen [das Buch gibt]
+\ex weil der Mann der Frau das Buch morgen gibt
+\zl
+Diese Sätze sind Varianten von (\mex{-1}c) und (\mex{-1}d), die sich von den ersten Sätzen
+nur durch die Anordnung der Objekte unterscheiden. Da das Kopf"=Argument"=Schema die Kombination
+eines Kopfes mit seinen Argumenten in beliebiger Reihenfolge gestattet, kann auch wie in (\mex{0}a)
+das Akkusativobjekt mit dem Verb kombiniert werden, bevor das Adverb die entsprechende Wortgruppe
+modifiziert.%
+\is{Linearisierung!-sregel|)}
+
+%% Wie \citet[\page25--26]{HR98a}\NOTE{Seitenzahl prüfen} und \citet[\page214--215]{Fanselow2003b}
+%% gehe ich also davon aus, daß Adjunkte nicht wie Argumente variabel angeordnet werden, sondern
+%% daß Adjunkte im Mittelfeld mit beliebig komplexen Projektionen kombiniert werden können, woraus
+%% sich dann der Eindruck der Stellungsfreiheit ergibt.
+
+\section{Spezifikator-Kopf-Strukturen}
+\label{sec-spr}
+
+Im vorigen Abschnitt wurden Kopf"=Argument"=Strukturen mit dem Kopf in Erst-
+bzw.\ Letztstellung diskutiert. Betrachtet man die Nominalphrase in (\mex{1}),
+sieht man, daß der Determinator\is{Determinator!Stellung|(} links des Nomens steht und alle anderen abhängigen
+Elemente rechts.
+\ea
+\label{ex-die-zerstoerung-der-stadt-dds}
+die Zerstörung der Stadt durch die Soldaten
+\z
+Man kann diese Fälle nicht mit dem Kopf"=Argument"=Schema behandeln, da die Linearisierungsregel
+(\ref{lp-head-argument-initial}) je nach \textsc{initial}"=Wert des Nomens die Stellungen in (\mex{1})
+erzwingen würde:
+\eal
+\ex[*]{
+Zerstörung die der Stadt durch die Soldaten
+}
+\ex[*]{
+die der Stadt durch die Soldaten Zerstörung
+}
+\zl
+Die Beispiele (\mex{-1}) und (\mex{0}b) zeigen, daß die Argumente, die semantisch von \emph{Zerstörung} abhängen, rechts des
+Nomens stehen müssen, was für den \textsc{initial}"=Wert `+' für Nomina spricht.
+
+Würde man annehmen, daß der Determinator der Kopf ist, bekäme man Strukturen,
+in denen die Argumente immer nur auf einer Seite des Kopfes stehen. (\mex{1}) zeigt die
+Klammerstruktur für die DP"=Analyse von (\ref{ex-die-zerstoerung-der-stadt-dds}):
+\ea
+{}[\sub{DP} [\sub{Det} die] [\sub{NP} [\sub{N} Zerstörung] [\sub{DP} der Stadt] [\sub{PP} durch die Soldaten]]]
+\z
+Im Kapitel~\ref{sec-dp-analyse}
+wurde aber gezeigt, daß die DP"=Analyse\is{Determinator!-phrase} Probleme mit der Behandlung
+der Possessivpronomina hat, weshalb wir bei der NP"=Analyse geblieben sind.
+Auch ist es nicht so, daß diese Art Abfolge etwas völlig Ungewöhnliches ist.
+Im Englischen steht zum Beispiel das Subjekt immer links des Verbs, aber alle
+anderen Argumente stehen rechts. Diesen Unterschieden in der Verzweigungsrichtung wird
+durch eine eigene Grammatikregel Rechnung getragen \citep[\page 38,\page 362]{ps2}.
+Ich nehme also an, daß es für Determinatoren (allgemeiner Spezifikatoren) ein eigenes
+Valenzmerkmal (\textsc{spr}\isfeat{spr}) gibt. Die entsprechende Analyse von
+\pref{ex-die-zerstoerung-der-stadt-dds} zeigt Abbildung~\vref{Abbildung-die-Zerstorung}.
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{cccc}
+\mc{2}{@{}c@{}}{\rnode{n4}{N[\begin{tabular}[t]{@{}l@{}}
+        \spr \sliste{  },\\
+        \subcat \sliste{  } ]\\
+      \end{tabular}}}\\
+\\[3ex]
+\rnode{det}{\ibox{1} Det} & \mc{3}{@{}c@{}}{\rnode{n3}{N[\begin{tabular}[t]{@{}l@{}}
+        \spr \sliste{ \ibox{1} },\\
+        \subcat \sliste{  } ]\\
+      \end{tabular}}}\\
+\\[3ex]
+    & \mc{2}{@{}c@{}}{\rnode{n2}{N[\begin{tabular}[t]{@{}l@{}}
+        \spr \sliste{ \ibox{1} },\\
+        \subcat \sliste{ \ibox{2} } ]\\
+      \end{tabular}}}                             & \rnode{pp}{\ibox{2} PP[durch]}\\
+\\[3ex]
+    & \rnode{n1}{N[\begin{tabular}[t]{@{}l@{}}
+        \spr \sliste{ \ibox{1} },\\
+        \subcat \sliste{ \ibox{2}, \ibox{3} } ]\\
+      \end{tabular}} & \rnode{np}{\ibox{3} NP[\type{gen}]}  \\
+\\[3ex]
+\rnode{die}{die} & \rnode{zerstoerung}{Zerstörung} & d\rnode{ds}{er Stad}t & d\rnode{dds}{urch die Soldate}n\\
+\end{tabular}
+\ncline{n4}{det}\ncline{n4}{n3}%
+\ncline{n3}{n2}\ncline{n3}{pp}%
+\ncline{n2}{n1}\ncline{n2}{np}%
+\ncline{det}{die}\ncline{n1}{zerstoerung}%
+\ncline{np}{ds}\ncline{pp}{dds}%
+\caption{NP-Analyse mit Valenzmerkmal \spr}\label{Abbildung-die-Zerstorung} 
+\end{figure}
+Die Kombination einer \nbar mit dem Determinator wird dann durch das folgende Schema lizenziert, das analog zum Kopf"=Argument"=Schema
+auf Seite~\pageref{schema-bin-prel} ist.
+\begin{schema}[Spezifikator-Kopf-Schema]\is{Schema!Spezifikator"=Kopf"=}
+\label{schema-spr-h}
+\type{head-specifier"=phrase}\istype{head"=specifier"=phrase} \impl\\
+\onems{
+      cat$|$spr \ibox{1} \\
+      head-dtr$|$cat  \ms{ spr    & \ibox{1} $\oplus$ \sliste{ \ibox{2} } \\
+                           subcat & \eliste \\
+                         }\\
+      non-head-dtrs \sliste{ \ibox{2} }\\
+      }
+\end{schema}
+
+\noindent
+Für das Nomen \emph{Zerstörung} wird der folgende \catw angenommen:
+\ea
+\ms{ head & \ms[noun]{ initial & +\\
+                     }\\
+     spr & \sliste{ Det }\\
+           subcat & \sliste{ NP[\gen], PP[\type{durch}] }\\[2mm]
+         }
+\z
+Das Kopf"=Argument"=Schema lizenziert die Phrasen  \emph{Zerstörung der Stadt}
+und  \emph{Zerstörung der Stadt durch die Soldaten}. Die Phrase  \emph{Zerstörung der Stadt durch
+  die Soldaten} hat eine leere \subcatl und einen Determinator in \textsc{spr}. Damit kann sie als
+Kopf"|tochter in das Schema~\ref{schema-spr-h} eingesetzt werden und dann mit einem Determinator zur
+Nominalphrasen in (\ref{ex-die-zerstoerung-der-stadt-dds}) kombiniert werden. Die Spezifikation der \subcatl der Kopf"|tochter
+im Schema~\ref{schema-spr-h} ist wichtig, da man sonst für (\ref{ex-die-zerstoerung-der-stadt-dds})
+eine ungewollte Analyse bekäme, in der das Nomen zuerst mit dem Spezifikator und erst danach
+mit den anderen Argumenten kombiniert würde. Man hätte dann zwei Analysen für
+(\ref{ex-die-zerstoerung-der-stadt-dds}) mit derselben Bedeutung. Da den beiden Strukturen keine
+Mehrdeutigkeit der Phrase zugrunde liegt, nennt man solche Zuweisung mehrerer Strukturen
+\emph{unechte Mehrdeutigkeit}\is{Mehrdeutigkeit!unechte}. Durch die Spezifikation des \subcatwes wird
+solch eine unechte Mehrdeutigkeit verhindert.
+
+Die Anordnung der Elemente in der NP wird dann durch die Linearisierungsregel in (\ref{lp-ini-arg})
+zusammen mit der LP"=Regel in (\mex{1}) erzwungen, die besagt, daß Spezifikatoren vor ihren
+jeweiligen Köpfen stehen:
+\ea
+Specifier $<$ Head
+\z
+Die Regel in (\ref{lp-ini-arg}) sorgt dafür, daß \emph{Zerstörung} vor allen Elementen steht, die in seiner
+\subcatl enthalten sind, \dash vor \emph{der Stadt} und \emph{durch die Soldaten}, und die Regel in
+(\mex{0}) sorgt dafür, daß der Determinator \emph{die} vor \emph{Zerstörung der Stadt durch die
+Soldaten} angeordnet wird.\is{Determinator!Stellung|)}
+
+Als Gegenstück zum Typ \type{head"=non"=argument"=phrase}, der auf Seite~\pageref{def-head-non-arg-phrase}
+diskutiert wurde, braucht man den Typ \type{head"=non"=specifier"=phrase}, für den die folgenden Beschränkungen gelten:
+\ea
+\label{def-head-non-spr-phrase}
+\type{head"=non"=specifier"=phrase}\istype{head"=non"=specifier"=phrase} \impl
+\onems{
+      cat$|$spr \ibox{1} \\
+      head"=dtr$|$cat$|$spr \ibox{1}\\
+      }
+\z
+Dieser Typ ist Bestandteil des Valenzprinzips\is{Prinzip!Valenz-} und sorgt dafür,
+daß Information über nicht abgebundene Spezifikatoren im Baum nach oben gereicht wird.
+
+Die aktuelle Hierarchie unter dem Typ \type{phrase} zeigt Abbildung~\vref{abb-phrase-hs-struc}.
+\begin{figure}[htbp]
+\resizebox{\linewidth}{!}{\begin{pspicture}(0.6,-2)(17.2,4.4)
+%\psgrid
+%\rput[B](4,6){\rnode{sign}{\textit{sign}}}
+%
+%\rput[B](1,4){\rnode{word}{\textit{word}}}
+\rput[B](7,4){\rnode{phrase}{\textit{phrase}}}
+%
+\rput[B](4,2){\rnode{nhs}{\textit{non-headed-phrase}}}
+\rput[B](10,2){\rnode{hs}{\textit{headed-phrase}}}
+%
+\rput[B](3,0){\rnode{hnas}{\type{head"=non-adjunct"=phrase}}}
+\rput[B](9,0){\rnode{hnars}{\type{head"=non"=argument"=phrase}}}
+%\rput[B](15,0){\rnode{hnfs}{\type{head"=non"=filler"=phrase}}}
+\rput[B](15,0){\rnode{hnss}{\type{head"=non"=specifier"=phrase}}}
+\rput[B](3,-2){\rnode{has}{\textit{head"=adjunct"=phrase}}}
+\rput[B](9,-2){\rnode{hars}{\textit{head"=argument"=phrase}}}
+%\rput[B](15,-2){\rnode{hfs}{\textit{head-filler"=phrase}}}
+\rput[B](15,-2){\rnode{hss}{\textit{head"=specifier"=phrase}}}
+%
+\psset{angleA=-90,angleB=90,arm=0pt}
+%
+\ncdiag{sign}{word}\ncdiag{sign}{phrase}
+\ncdiag{phrase}{hs}\ncdiag{phrase}{nhs}
+\ncdiag{hs}{hnas}
+\ncdiag{hs}{hnars}
+%\ncdiag{hs}{hnfs}
+\ncdiag{hs}{hnss}
+\ncdiag{hnars}{has}\ncdiag{hnars}{hss}
+\ncdiag{hnas}{hars}\ncdiag{hnas}{hss}
+\ncdiag{hnss}{hars}\ncdiag{hnss}{has}
+%
+\end{pspicture}}
+\caption{\label{abb-phrase-hs-struc}Typhierarchie für \textit{phrase}}
+\end{figure}
+Man sieht, daß sowohl \type{head"=argument"=phrase} als auch \type{head"=adjunct"=phrase}
+Untertypen von \type{head"=non"=specifier"=phrase} sind. Deshalb ist in Strukturen 
+dieses Typs der \sprw der Kopf"|tochter immer mit dem \sprw der Mutter identisch.
+
+\section{Verberststellung}
+\label{sec-v1}
+
+Innerhalb der Transformationsgrammatik\is{Government and Binding (GB)@\textit{Government and Binding\/} (GB)}
+wird angenommen, daß das Deutsche eine SOV"=Sprache\is{SOV}\is{Verbletztsprache|(} ist, \dash, daß die Stellung
+Subjekt Objekt Verb als die Normalstellung betrachtet wird (\citealp{Bach62a}; \citealp*[\page34]{Bierwisch63a};
+\citealp{Reis74a}; \citealp[Kapitel~1]{Thiersch78a}).\footnote{%
+  Bierwisch schreibt die Annahme einer zugrundeliegenden Verbletztstellung Fourquet
+  zu \citep{Fourquet57a}. Eine Übersetzung des von Bierwisch zitierten
+  französischen Manuskripts kann man in \citew[\page117--135]{Fourquet70a}
+  finden.%
+}
+Sätze wie (\mex{1}b, c), bei denen das finite Verb an der ersten oder zweiten Stelle steht,
+gelten als aus Verbletztsätzen durch Umstellung des finiten Verbs abgeleitet.
+\eal
+\ex daß er ihr gestern das Buch gegeben hat.
+\ex Hat er ihr gestern das Buch gegeben?
+\ex Er hat ihr gestern das Buch gegeben.
+\zl
+Dabei wird folgendes Bild verwendet: Das finite Verb kämpft mit der Konjunktion um die linke Satzklammer:
+Wenn die Konjunktion in der linken Satzklammer steht, muß das finite Verb in die rechte Satzklammer.
+Ansonsten steht das Finitum in der linken Satzklammer.\footnote{
+  Dieses Bild trifft nicht für alle germanischen Sprachen zu. Zum Beispiel im Jiddischen werden
+  Komplementierer mit Verbzweitsätzen kombiniert \citep[\page 196]{Diesing2004a}.
+} Man geht davon aus, daß die subordinierende Konjunktion
+der Kopf ist. Diese wird auch Komplementierer\is{Komplementierer} genannt.
+
+Ähnliche Ansätze gibt es auch in der kategorialgrammatischen GPSG"=Variante von \citet[\page 110]{Jacobs86a}
+und innerhalb der HPSG (\citealp*{KW91a}\iaf{Kiss}\iaf{Wesche}; \citealp{Oliva92a}; \citealp*{Netter92}\iaf{Netter};
+\citealp*{Kiss93}; \citealp*{Frank94}\iaf{Frank}; \citealp*{Kiss95a}; \citealp{Feldhaus97};
+\citealp{Meurers2000b}; \citealp{Mueller2005c}).
+
+Die Annahme der Verbletztstellung\label{page-verbletzt} als Grundstellung wird durch folgende Beobachtungen
+motiviert:\footnote{
+  Zu den Punkten 1 und 2 siehe auch \citew[\page34--36]{Bierwisch63a}. Zum Punkt
+  3 siehe \citew[Abschnitt~2.3]{Netter92}.%
+}
+\begin{enumerate}
+\item Sogenannte Verbzusätze oder Verbpartikel bilden mit dem Verb eine enge Einheit.
+\eal
+\ex weil er morgen anfängt
+\ex Er fängt morgen an.
+\zl
+Diese Einheit ist nur in der Verbletztstellung zu sehen, was dafür spricht, diese
+Stellung als Grundstellung anzusehen. 
+
+Verben, die aus einem Nomen durch \wis{Rückbildung} entstanden sind, können oft nicht
+in ihre Bestandteile geteilt werden, und Verbzweitsätze sind dadurch ausgeschlossen:
+\eal
+\ex[]{
+weil sie das Stück heute uraufführen
+}
+\ex[*]{
+Sie uraufführen heute das Stück.
+}
+\ex[*]{
+Sie führen heute das Stück urauf.
+}
+\zl
+Es gibt also nur die Stellung, von der man auch annimmt, daß sie die Grundstellung ist.
+\item Verben in infiniten Nebensätzen und in durch eine Konjunktion eingeleiteten
+finiten Nebensätzen stehen immer am Ende (von Ausklammerungen ins Nachfeld abgesehen):
+\eal
+\ex Der Clown versucht, Kurt-Martin die Ware zu geben.
+\ex daß der Clown Kurt-Martin die Ware gibt
+\zl
+\item\is{Skopus|(} Im Abschnitt~\ref{sec-mf} wurden die Beispiele (\ref{bsp-absichtlich-nicht}) diskutiert,
+und es wurde darauf hingewiesen, daß die Skopusbeziehung der Adverbien
+von ihrer Reihenfolge abhängt. Das links stehende Adverb hat Skopus über das folgende Adverb
+und das Verb in Letztstellung.\footnote{%
+An dieser Stelle darf nicht verschwiegen werden,
+  daß es Ausnahmen von der Regel zu geben scheint, daß weiter links stehende Modifikatoren
+  Skopus über Modifikatoren rechts von ihnen haben. \citet*[\page47]{Kasper94a}
+  diskutiert die Beispiele in (i), die auf  \citet*[\page137]{BV72} zurückgehen.
+\eal
+\label{bsp-peter-liest-gut-wegen}
+\ex Peter liest gut wegen der Nachhilfestunden.
+\ex Peter liest wegen der Nachhilfestunden gut.
+\zl
+% Kiss95b:212
+  Wie \citet[Abschnitt~6]{Koster75a} und \citet*[\page67]{Reis80a} gezeigt haben, sind diese Daten jedoch nicht
+  zwingend, weil in den Beispielen die rechte Satzklammer nicht besetzt ist, und es sich
+  somit nicht zwangsläufig um eine normale Umstellung im Mittelfeld handeln muß, sondern um 
+  eine Extraposition\is{Extraposition} handeln kann. Wie Koster und Reis festgestellt haben,
+  sind die von Kasper diskutierten Beispiele sogar ungrammatisch,
+  wenn man die rechte Satzklammer ohne Ausklammerung der Kausalbestimmung besetzt:
+\eal
+\ex[*]{
+Hans hat gut wegen der Nachhilfestunden gelesen.
+}
+\ex[]{
+Hans hat gut gelesen wegen der Nachhilfestunden.
+}
+\zl
+  Das folgende Beispiel von \citet[\page 383]{Crysmann2004a}
+  zeigt allerdings, daß auch bei besetzter Satzklammer eine Anordnung der Adjunkte
+  möglich ist, in der ein weiter rechts stehendes Adjunkt Skopus über ein links stehendes hat:
+\ea
+Da muß es schon erhebliche Probleme mit der Ausrüstung gegeben haben, da wegen schlechten
+  Wetters ein Reinhold Messmer niemals aufgäbe.
+%\ex Stefan  ist wohl deshalb krank geworden, weil er äußerst hart wegen der Konferenz in Bremen gearbeitet hat.
+\z
+Das ändert jedoch nichts an der Tatsache, daß die entsprechenden
+Sätze in (\ref{bsp-absichtlich-nicht-anal}) und (\ref{bsp-absichtlich-nicht-anal-v1}) unabhängig von der Verbstellung
+dieselbe Bedeutung haben. Die allgemeine Bedeutungskomposition muß man jedoch eventuell
+auf die von Crysmann beschriebene Weise behandeln. Crysmann benutzt für die semantische Repräsentation
+Minimal Recursion Semantics\is{Minimal Recursion Semantics@\emph{Minimal Recursion Semantics} (MRS)}. 
+Eine Einführung in die \emph{Minimal Recursion Semantics} würde den Rahmen dieses Buches sprengen.%
+}
+Das wurde dann mittels folgender Struktur erklärt:
+\eal
+\label{bsp-absichtlich-nicht-anal}
+\ex weil er [absichtlich [nicht lacht]]
+\ex weil er [nicht [absichtlich lacht]]
+\zl
+Nun kann man feststellen, daß sich bei Verberststellung die Skopusverhältnisse nicht ändern.
+Nimmt man an, daß Sätze mit Verberststellung eine Struktur haben, die der in (\mex{0})
+ähnelt, dann ist diese Tatsache automatisch erklärt. Eine solche Parallelität kann man
+erreichen, indem man ein leeres Element annimmt, das den Platz des Verbs in (\mex{0}) füllt
+und bis auf die Tatsache, daß es phonologisch leer ist, identisch
+mit dem normalen Verb ist, \dash, es hat dieselbe Valenz und leistet auch denselben semantischen
+Beitrag. Dieses leere Element (auch \emph{Spur}\is{Spur!Verb-|(} oder \emph{Lücke}
+oder \emph{Trace} bzw.\ \emph{Gap} genannt)
+ist in (\mex{1}) als \_$_i$ gekennzeichnet. 
+Daß das Verb \emph{lacht} zu dieser Spur gehört, wird durch den gemeinsamen
+Index gekennzeichnet.
+\eal
+\label{bsp-absichtlich-nicht-anal-v1}
+\ex Lacht$_i$ er [absichtlich [nicht \_$_i$]]?
+\ex Lacht$_i$ er [nicht [absichtlich \_$_i$]]?
+\zl\is{Skopus|)}
+%\item Verum-Fokus
+\nocite{Hoehle88a,Hoehle97a}
+\end{enumerate}\is{Verbletztsprache|)}
+Zur Verdeutlichung soll die Analyse des Satzes in (\ref{bsp-kennt-er-das-buch}) erklärt werden:
+\eal
+\ex daß er das Buch kennt\label{bsp-dass-er-das-buch-kennt}
+\ex Kennt$_i$ er das Buch \_$_i$?\label{bsp-kennt-er-das-buch}
+\zl
+Für die Spur in (\mex{0}b) könnte man den folgenden Lexikoneintrag annehmen:
+\ea
+Verbspur für \emph{kennt}:\\\samepage
+\ms{
+phon & \phonliste{}\\
+cat  & \ms{ head & \ms[verb]{ vform & fin\\
+                            }\\
+            subcat & \sliste{ \npnom\ind{1}, \npacc\ind{2} }\\
+          }\\
+cont & \ms[kennen]{
+       experiencer & \ibox{1}\\
+       theme       & \ibox{2}\\
+       }\\
+}
+\z
+Dieser Lexikoneintrag unterscheidet sich vom normalen Verb \emph{kennt} nur in seinem \phonw.
+
+Die syntaktischen Aspekte der Analyse von (\ref{bsp-kennt-er-das-buch}) sind in Abbildung~\vref{verb-movement-syn-simple}
+dargestellt. 
+\begin{figure}[htbp]
+%\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
+\centerline{%\resizebox{0.9\textwidth}{!}{%
+%\nodemargin5pt
+\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
+\multicolumn{2}{@{}c@{}}{\rnode{1}{V[\subcat \eliste]}}\\
+\\*[3ex]
+\rnode{2}{V} & \multicolumn{2}{@{}c@{}}{\rnode{3}{V[\subcat \eliste]}}\\
+\\*[4ex]
+                                     & \rnode{4}{\ibox{3} NP[\textit{nom\/}]}& \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\subcat \sliste{ \ibox{3} }]}}\\
+\\*[4ex]
+                                   &                                   & \rnode{6}{\ibox{4} NP[\textit{acc}]} & \rnode{7}{V[\subcat \sliste{ \ibox{3}, \ibox{4} }]} \\
+\\*[3ex]
+\rnode{8}{kennt}                     & \rnode{9}{er}                  & d\rnode{10}{as Buc}h & \rnode{11}{$-$}\\
+\end{tabular}%
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{2}{8}%
+\ncline{4}{9}%
+\ncline{6}{10}%
+\ncline{7}{11}%
+}%}
+\caption{\label{verb-movement-syn-simple}Analyse von \emph{Kennt er das Buch?}}
+\end{figure}
+Die Kombination der Spur mit \emph{das Buch} und \emph{er} folgt den Regeln und Prinzipien, die
+wir bisher kennengelernt haben. Es stellt sich aber sofort die Frage, wodurch das Verb \emph{kennt}
+in Abbildung~\ref{verb-movement-syn-simple} lizenziert wird und welchen Status es hat.
+
+Will man erfassen, daß sich das finite Verb in Initialstellung wie ein Komplementierer verhält, so liegt
+es nahe, \emph{kennt} in Abbildung~\ref{verb-movement-syn-simple} Kopfstatus zuzuschreiben und
+\emph{kennt} eine gesättigte Verbalprojektion mit Verbletztstellung selegieren zu lassen.
+Finite Verben in Initialstellung unterscheiden sich dann von Komplementierern dadurch,
+daß sie eine Projektion einer Verbspur verlangen, wohingegen Komplementierer Projektionen
+von overten Verben verlangen:
+\eal
+\ex daß [er das Buch kennt]
+\ex Kennt [er das Buch \_ ]
+\zl
+Nun ist es aber normalerweise nicht so, daß \emph{kennen}
+einen vollständigen Satz selegiert und sonst nichts weiter, wie es zur Analyse des Verberstsatzes
+mit \emph{kennt} als Kopf notwendig wäre. Auch muß sichergestellt werden, daß die Verbalprojektion,
+mit der \emph{kennt} kombiniert wird, genau die zu \emph{kennt} gehörige Verbspur enthält. Könnte
+sie nämlich die Verbspur enthalten, die zu \emph{gibt} gehört, so würde man Sätze wie (\mex{1}b)
+analysieren können:
+\eal
+\ex[]{
+Gibt [der Mann der Frau das Buch \_$_{gibt}$].
+}
+\ex[*]{
+\label{bsp-kennt-gibt}
+Kennt [der Mann der Frau das Buch \_$_{gibt}$].
+}
+\zl
+In den obigen Erläuterungen wurde die Zusammengehörigkeit von vorangestelltem Verb und Verbspur
+durch eine Koindizierung ausgedrückt. In HPSG wird Identität von Information immer durch Strukturteilung
+hergestellt. Das Verb in Initialstellung muß also fordern, daß die Spur genau die Eigenschaften des
+Verbs hat, die das Verb hätte, wenn es sich in Letztstellung befände. Die Information, die geteilt
+werden muß, ist also sämtliche syntaktische und semantische Information, \dash alle bisher eingeführten
+Merkmale bis auf das \phonm. Um die benötigte Strukturteilung vornehmen zu können, strukturieren
+wir unsere Merkmalstrukturen stärker: Syntaktische und semantische Information wird unter dem
+Pfad \textsc{local}\isfeat{loc} gebündelt. Die Datenstruktur in (\ref{geom-cat-cont}) auf Seite~\pageref{geom-cat-cont}
+wird also zu (\mex{1}) erweitert:
+\ea
+\label{geom-loc}
+\ms{ phon & list~of~phoneme strings\\
+     loc & \ms{
+           cat  & \ms{ head   & head\\
+                            subcat & list~of~signs\\
+                          } \\
+           cont & cont\\
+         }\\
+   }
+\z
+
+\noindent
+Die Verbspur für \emph{kennt} hat dann die folgende Form:
+
+\ea
+\label{le-verbspur-kennt-ohne-dsl}
+Verbspur für \emph{kennt}:\\\samepage
+\ms{
+phon & \phonliste{}\\
+loc  & \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin\\
+                                        }\\
+                        subcat & \sliste{ \npnom\ind{1}, \npacc\ind{2} }\\
+                      }\\
+            cont & \ms[kennen]{
+                    experiencer & \ibox{1}\\
+                    theme       & \ibox{2}\\
+                   }\\
+          }\\
+}
+\z
+
+\noindent
+Unter \textsc{local} steht nun alle Information, die in lokalen Kontexten eine Rolle spielt.
+Diese Information wird zwischen Spur und Verb geteilt. Bisher ist es jedoch noch nicht möglich,
+eine entsprechende Strukturteilung vorzunehmen, denn das Verb \emph{kennt} kann ja nur
+die Eigenschaften der Projektion der Spur selegieren und die \subcatl der selegierten
+Projektion ist die leere Liste, was uns wieder zu dem Problem mit (\ref{bsp-kennt-gibt}) bringt. Man
+muß also sicherstellen, daß die gesamte Information über die Verbspur am obersten Knoten
+ihrer Projektion verfügbar ist. Das kann man erreichen, indem man ein entsprechendes Kopfmerkmal
+einführt, dessen Wert genau dem \localw der Spur entspricht. Dieses Merkmal wird \textsc{dsl}
+genannt. Es steht für \emph{double slash} und wurde so genannt, weil es eine ähnliche
+Funktion wie das \slashm hat, mit dem wir uns im nächsten Kapitel beschäftigen werden.\footnote{
+  Das Merkmal \dsl wurde von \citet*{Jacobson87} zur Beschreibung von Kopfbewegung 
+  für englische\il{Englisch} invertierte Strukturen eingeführt. \citet{Borsley89}
+  hat diese Idee aufgegriffen, innerhalb der HPSG"=Theorie umgesetzt und 
+  auch gezeigt, wie Kopfbewegung im CP/IP"=System der \gbt mittels \textsc{dsl} modelliert werden
+  kann.
+  Die Einführung des \textsc{dsl}"=Merkmals zur Beschreibung von Bewegungsprozessen
+  in die Theorie der HPSG ist dadurch motiviert, daß es sich bei solcherart Bewegung
+  im Gegensatz zu Fernabhängigkeiten, wie sie im Kapitel~\ref{chap-nla}
+  besprochen werden, um eine lokale Bewegung handelt.
+
+  Der Vorschlag, Information über die Verbspur als Teil der Kopf"|information nach oben zu reichen,
+  stammt von \citet{Oliva92a}.%
+}
+(\mex{1}) zeigt den angepaßten Eintrag für die Verbspur:
+
+\eas
+Verbspur für \emph{kennt}:\\
+\label{le-verbspur-kennt}%
+\samepage
+\ms{
+phon & \phonliste{}\\
+loc  & \ibox{1} \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin\\
+                                                   dsl   & \ibox{1}\\
+                                        }\\
+                        subcat & \sliste{ \npnom\ind{2}, \npacc\ind{3} }\\
+                      }\\
+            cont & \ms[kennen]{
+                    experiencer & \ibox{2}\\
+                    theme       & \ibox{3}\\
+                   }\\
+          }\\
+}
+\zs
+Durch die Teilung des \localw{}es mit dem \dslw in (\mex{0}) ist die Information
+über syntaktische und semantische Information der Verbspur auch an ihrer Maximalprojektion
+verfügbar, und das Verb in Erststellung kann sicherstellen, daß die Projektion der Spur zu ihm paßt.
+\is{Spur!Verb-|)}
+
+Der spezielle Lexikoneintrag für die Verberststellung wird durch die folgende
+Lexikonregel\is{Lexikonregel!Verberststellung|(} lizenziert:
+\eas
+\label{lr-verb-movement}
+\begin{tabular}[t]{@{}l@{}}
+Lexikonregel für Verb in Erststellung (vorläufige Version):\\
+\ms{
+loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
+                                                     initial & $-$\\
+                                             }\\
+                  }\\
+} $\mapsto$\\
+\ms{
+loc$|$cat & \ms{ head & \ms[verb]{vform & fin\\
+                                          initial & $+$\\
+                                          dsl     & none\\
+                                 }\\
+                           subcat & \sliste{ \onems{ loc$|$cat \onems{ head  \ms[verb]{
+                                                               dsl & \ibox{1}\\
+                                                               }\\
+                                                         subcat \eliste\\
+                                                       }\\
+                                              }}\\
+                         }\\
+}
+\end{tabular}
+\zs
+
+\noindent
+Das durch diese Lexikonregel lizenzierte Verb selegiert eine maximale Projektion der Verbspur,
+die dieselben lokalen Eigenschaften wie das Eingabeverb hat. Das wird durch die
+Koindizierung des \localw{}es des Eingabeverbs und des \dslw{}es der selegierten
+Verbalprojektion erreicht. Eingabe für die Regel können nur finite Verben in Endstellung
+(\textsc{initial}$-$) sein. Die Ausgabe ist ein Verb in Erststellung (\textsc{initial}+).
+%Linearisierungsregeln nehmen auf das \textsc{initial}"=Merkmal Bezug und sorgen für
+%die korrekte Anordnung der Köpfe in lokalen Bäumen.
+%
+Die Analyse von (\ref{bsp-kennt-er-das-buch}) zeigt Abbildung~\vref{verb-movement-syn}.
+\begin{figure}[htb]
+%\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
+\centerline{%\resizebox{0.9\textwidth}{!}{%
+%\nodemargin5pt
+\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
+\multicolumn{3}{@{}c@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l@{}}
+  \textsc{subcat} \sliste{ }]\\
+  \end{tabular}}
+}\\
+\\*[4ex]
+\rnode{2}{V[\textsc{subcat} \sliste{ \ibox{1} }]} & \multicolumn{3}{@{}l@{}}{\rnode{3}{\ibox{1} V[\begin{tabular}[t]{@{}l}
+                                                                    \textsc{dsl$|$cat$|$subcat} \ibox{2},\\
+                                                                    \textsc{subcat} \sliste{ }]
+                                                                    \end{tabular}}
+                                                       }\\
+\\
+\hspace{8ex}V1-LR\\*[3ex]
+\rnode{2b}{V[\textsc{subcat} \ibox{2} ]} & \rnode{4}{\ibox{3} NP[\textit{nom\/}]}& \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+                                                                                                       \textsc{dsl$|$cat$|$subcat} \ibox{2},\\
+                                                                                                       \textsc{subcat} \sliste{ \ibox{3} }]\\
+                                                                                                       \end{tabular}}
+                                                                                           }\\
+\\*[4ex]
+                                   &                                   & \rnode{6}{\ibox{4} NP[\textit{acc}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l}
+                                                                                                 \textsc{dsl$|$cat$|$subcat} \ibox{2},\\
+                                                                                                 \textsc{subcat} \ibox{2} \sliste{ \ibox{3}, \ibox{4} }] \\
+                                                                                                 \end{tabular}}\\
+\\*[3ex]
+\rnode{8}{kennt}                     & \rnode{9}{er}                  & d\rnode{10}{as Buc}h & \rnode{11}{$-$}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{2}{2b}\ncline{2b}{8}%
+\ncline{4}{9}%
+\ncline{6}{10}%
+\ncline{7}{11}%
+}%}
+\caption{\label{verb-movement-syn}Veranschaulichung der Analyse von \emph{Kennt er das Buch?}}
+\end{figure}
+V1-LR steht für die Verberst"=Lexikonregel.
+
+
+Die Lexikonregel in (\mex{0}) lizenziert ein Verb, das eine VP (\iboxt{1} in
+Abbildung~\ref{verb-movement-syn}) selegiert. Der \dslw dieser VP entspricht dem \locw des
+Eingabeverbs für die Lexikonregel. Teil des \dslwes ist auch die Valenzinformation, die in
+Abbildung~\ref{verb-movement-syn} dargestellt ist \iboxb{2}. Da \dsl ein Kopfmerkmal ist, ist der
+\dslw der VP mit dem der Verbspur identisch, und da der \locw der Verbspur mit dem \dslw
+identifiziert ist, ist auch die \subcat"=Information des Verbs \emph{kennen} in der Spur
+verfügbar. Die Kombination der Spur mit ihren Argumenten erfolgt genau so, wie das bei normalen
+Verben der Fall wäre.
+
+
+In der Lexikonregel in (\ref{lr-verb-movement}) wurde noch nichts zur Semantik gesagt. Man geht im allgemeinen davon aus, daß
+die Verbspur in Verberstsätzen auch semantisch für das Verb in Erststellung steht und
+daß Verberstsätze entsprechend ihren Verbletztgegenstücken interpretiert werden. Dies
+wird dadurch modelliert, daß man den semantischen Beitrag parallel zur Valenzinformation
+durch den Baum fädelt. 
+Bei der Kombination mit Argumenten sorgt das Semantikprinzip dafür, 
+daß der \contw entlang der Kopfprojektion im Baum nach
+oben gereicht wird. Im letzten Projektionsschritt in Abbildung~\ref{verb-movement-syn}
+ist das Verb in Erststellung der Kopf und deshalb wird auch der semantische Beitrag
+dieses Verbs projiziert. In der Lexikonregel (\mex{1}) für das Verb in Erststellung wird
+der semantische Beitrag der Projektion der Spur in Endstellung \iboxb{2} mit
+dem \contw des Verbs in Erststellung identifiziert:
+
+\eas
+\label{lr-verb-movement2}
+Lexikonregel für Verb in Erststellung (mit semantischem Beitrag):\\
+\begin{tabular}[t]{@{}l@{}}
+\ms{
+loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
+                                                     initial & $-$\\
+                                             }\\
+                  }\\
+} $\mapsto$\\*
+\onems{
+loc \onems{ cat  \ms{ head & \ms[verb]{ vform & fin\\
+                                        initial & $+$\\
+                                        dsl     & none\\
+                                             }\\
+                           subcat & \sliste{ \onems{ loc \onems{ cat \onems{ head \ms[verb]{
+                                                                             dsl & \ibox{1}\\
+                                                                             }\\
+                                                                      subcat \eliste\\
+                                                                    }\\
+                                                           cont \ibox{2}\\
+                                                         }\\
+                                              }}\\
+                         }\\
+                   cont \ibox{2}\\
+             }\\
+}
+\end{tabular}
+\zs
+
+\noindent
+Bei der Kombination des Verbs in Erststellung mit der Projektion der Verbspur wird also der semantische
+Beitrag von der Verbspurprojektion übernommen und wegen des Semantikprinzips
+zum Beitrag der gesamten Konstruktion. Abbildung~\vref{verb-movement-sem} zeigt die semantischen
+Aspekte der Verbbewegungsanalyse mit der Spur in (\ref{le-verbspur-kennt}) und der Lexikonregel
+in (\ref{lr-verb-movement2}).
+% \begin{figure}[htbp]
+% %\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
+% \centerline{%\resizebox{0.9\textwidth}{!}{%
+% \nodemargin5pt
+% \begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
+% \multicolumn{3}{@{}c@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l@{}}
+%   \textsc{subcat} \sliste{ },\\
+%   \cont \ibox{1}]\\
+%   \end{tabular}}
+% }\\
+% \\
+% \hspace{10mm}H                     & \hspace{19mm}C\\*[3ex]
+% \rnode{2}{V[\begin{tabular}[t]{@{}l@{}}
+% \textsc{subcat} \sliste{ \ibox{2} },\\
+% \cont \ibox{1}]
+% \end{tabular}} & \multicolumn{3}{@{}l@{}}{\rnode{3}{\ibox{2} V[\begin{tabular}[t]{@{}l@{}}
+%                                                                     \textsc{dsl$|$cat$|$subcat} \ibox{3},\\
+%                                                                     \textsc{subcat} \sliste{ }\\
+% \cont \ibox{1}]
+%                                                                     \end{tabular}}
+%                                                        }\\
+% \\
+%                                    & \hspace{0mm}C                   & \hspace{15mm}H\\*[3ex]
+%                                    & \rnode{4}{\ibox{4} NP[\textit{nom\/}]}& \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+%                                                                                                        \textsc{dsl$|$cat$|$subcat} \ibox{3},\\
+%                                                                                                        \textsc{subcat} \sliste{ \ibox{4} }\\
+% \cont \ibox{1}]\\
+%                                                                                                        \end{tabular}}
+%                                                                                            }\\
+% \\
+%                                    &                                   & C                                & \hspace{-5mm}H\\*[3ex]
+%                                    &                                   & \rnode{6}{\ibox{5} NP[\textit{acc}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l}
+%                                                                                                  \textsc{dsl$|$cat$|$subcat} \ibox{3},\\
+%                                                                                                  \textsc{subcat} \ibox{4} \sliste{ \ibox{5}, \ibox{4} }\\
+% \cont \ibox{1}] \\
+%                                                                                                  \end{tabular}}\\
+% \\*[3ex]
+% \rnode{8}{kennt}                     & \rnode{9}{er}                  & d\rnode{10}{as Buc}h & \rnode{11}{$-$}\\
+% \end{tabular}
+% \ncline{1}{2}\ncline{1}{3}%
+% \ncline{3}{4}\ncline{3}{5}%
+% \ncline{5}{6}\ncline{5}{7}%
+% \ncline{2}{8}%
+% \ncline{4}{9}%
+% \ncline{6}{10}%
+% \ncline{7}{11}%
+% }%}
+% \caption{\label{verb-movement-syn}Analyse von \emph{Kennt er das Buch?}}
+% \end{figure}
+\begin{figure}[htb]
+%\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
+\centerline{%\resizebox{0.9\textwidth}{!}{%
+%\nodemargin5pt
+\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
+\multicolumn{3}{@{}c@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l@{}}
+  \cont \ibox{2}]\\
+  \end{tabular}}
+}\\
+\\*[4ex]
+\rnode{2}{V[\begin{tabular}[t]{@{}l@{}}
+\cont \ibox{2}]
+\end{tabular}} & \multicolumn{3}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l@{}}
+                                                                    \textsc{dsl$|$cont} \ibox{1},\\
+                                                                    \cont \ibox{2}]
+                                                                    \end{tabular}}
+                                                       }\\
+\\
+\hspace{8ex}V1-LR\\*[3ex]
+\rnode{2b}{V[\cont \ibox{1}  kennen'(er,buch)]} & \rnode{4}{NP[\textit{nom\/}]}& \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+                                                                                                       \textsc{dsl$|$cont} \ibox{1},\\
+                                                                                                       \cont \ibox{2}]\\
+                                                                                                       \end{tabular}}
+                                                                                           }\\
+\\*[4ex]
+                                   &                                   & \rnode{6}{NP[\textit{acc}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l}
+                                                                                                 \textsc{dsl$|$cont} \ibox{1},\\
+                                                                                                  \cont \ibox{2} = \ibox{1}] \\
+                                                                                                 \end{tabular}}\\
+\\*[3ex]
+\rnode{8}{kennt}                     & \rnode{9}{er}                  & d\rnode{10}{as Buc}h & \rnode{11}{$-$}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{2}{2b}\ncline{2b}{8}%
+\ncline{4}{9}%
+\ncline{6}{10}%
+\ncline{7}{11}%
+}%}
+\caption{\label{verb-movement-sem}Veranschaulichung der Analyse von \emph{Kennt er das Buch?}}
+\end{figure}
+Rein technisch sind \iboxt{1} und \iboxt{2} in Abbildung~\ref{verb-movement-sem} identisch. Ich habe
+aus Darstellungsgründen dennoch zwei verschiedene Ziffern verwendet. Die Identifikation von \ibox{1}
+und \ibox{2} wird durch die Identität der Information unter \textsc{local} und \textsc{dsl}
+in der Spur (\ref{le-verbspur-kennt}) erzwungen, da \cont zu den \textsc{local}"=Merkmalen gehört.
+
+Die Analyse in Abbildung~\ref{verb-movement-sem} mag etwas kompliziert erscheinen, da die semantische
+Information einerseits über \dsl vom Verb in Verberststellung zur Verbspur und andererseits wieder von
+der Verbspur zum Verb in Erststellung weitergereicht wird. Anhand eines Beispiels mit einem Adjunkt
+wird aber klar, daß diese kompliziert erscheinende Behandlung gerechtfertigt ist. Die Analyse des
+Satzes (\mex{1}) zeigt Abbildung~\vref{verb-movement-adjunkt-sem}.
+\ea
+Kennt er das Buch nicht?
+\z
+\begin{figure}[htb]
+%\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
+%\centerline{%
+\resizebox{\textwidth}{!}{%
+%\nodemargin5pt
+\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
+\multicolumn{3}{@{}c@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l@{}}
+  \cont \ibox{2}]\\
+  \end{tabular}}
+}\\
+\\*[4ex]
+\rnode{2}{V[\begin{tabular}[t]{@{}l@{}}
+\cont \ibox{2}]
+\end{tabular}} & \multicolumn{3}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l@{}}
+                                                                    \textsc{dsl$|$cont} \ibox{1},\\
+                                                                    \cont \ibox{2}]
+                                                                    \end{tabular}}
+                                                       }\\
+\\
+\hspace{8ex}V1-LR\\*[3ex]
+\rnode{2b}{V[\cont \ibox{1} kennen'(er,buch)]} & \rnode{4}{NP[\textit{nom\/}]}& \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l@{}}
+                                                                                                       \textsc{dsl$|$cont} \ibox{1},\\
+                                                                                                       \cont \ibox{2}]\\
+                                                                                                       \end{tabular}}
+                                                                                           }\\
+\\*[4ex]
+                                   &                                   & \rnode{6}{NP[\textit{acc}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l@{}}
+                                                                                                 \textsc{dsl$|$cont} \ibox{1},\\
+                                                                                                 \cont \ibox{2}] \\
+                                                                                                 \end{tabular}}\\
+\\*[4ex]
+                                   &                                  &                          & \rnode{8}{Adv[\begin{tabular}[t]{@{}l@{}}
+                                                                             \textsc{mod} \ibox{3} [\textsc{loc}$|$\cont \ibox{1}],\\
+                                                                             \cont \ibox{2} $\neg$ \ibox{1}]
+                                                                             \end{tabular}}                 & \rnode{9}{\ibox{3} V[\begin{tabular}[t]{@{}l@{}}
+                                                                                                    \textsc{dsl$|$cont} \ibox{1},\\
+                                                                                                    \cont \ibox{1}]
+                                                                                                    \end{tabular}}\\
+\\*[3ex]
+\rnode{10}{kennt}                     & \rnode{11}{er}                  & d\rnode{12}{as Buc}h & \rnode{13}{nicht} & \rnode{14}{$-$}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{7}{8}\ncline{7}{9}%
+\ncline{2}{2b}\ncline{2b}{10}%
+\ncline{4}{11}%
+\ncline{6}{12}%
+\ncline{8}{13}%
+\ncline{9}{14}%
+}%}
+\caption{\label{verb-movement-adjunkt-sem}Veranschaulichung der Analyse von \emph{Kennt er das Buch nicht?}}
+\end{figure}
+Das durch die Lexikonregel lizenzierte Verberstverb \emph{kennt} verlangt als Komplement eine
+verbale Projektion mit dem \textsc{dsl$|$cont}"=Wert $kennen'(x, y)$, wobei $x$ und $y$ in den
+Lexikoneinträgen für \emph{kennt} bereits mit den Argumenten verbunden sind, die später durch
+\emph{er} und \emph{das Buch} gesättigt werden. Der \textsc{dsl$|$cont}"=Wert der verbalen Projektion
+ist -- da \dsl ein Kopfmerkmal ist -- auch in der Spur entsprechend beschränkt. In der Spur wird
+durch die Identifikation von \dsl und \local dafür gesorgt, daß der \contw der Spur mit dem \contw
+unter \dsl identisch ist, so daß die Spur den semantischen Beitrag des Verbs \emph{kennt} hat, das
+Eingabe zur Verberstlexikonregel war (\ibox{1} = \relation{kennen}(er,buch)). Die Verbspur wird dann vom
+Adjunkt \emph{nicht} modifiziert. $\neg$ \ibox{1} bzw.\ $\neg$ \relation{kennen}(er,buch) ist das Ergebnis der
+Kombination der Bedeutung von \emph{nicht} mit der Bedeutung der Verbspur. Diese ist als \contw des
+Adjunkts repräsentiert und wird innerhalb der Kopf"=Adjunkt"=Struktur vom Adjunkt an den Mutterknoten hochgereicht
+\iboxb{2}, so daß der \contw der Struktur, die \emph{nicht} und die Verbspur enthält, $\neg$
+\relation{kennen}(er,buch) ist. Bei der Kombination mit Argumenten wird diese Bedeutung dann bis zur Maximalprojektion
+der Verbspur in Abbildung~\ref{verb-movement-adjunkt-sem} hochgegeben. Der \contw dieser Projektion
+ist wegen der Strukturteilung im durch die Lexikonregel (\ref{lr-verb-movement2}) lizenzierten
+Lexikoneintrag für das Verberstverb identisch mit dem \contw des Verberstverbs.  Da das Verberstverb
+der Kopf der gesamten Struktur ist und da die gesamte Struktur eine Kopf"=Argument"=Struktur ist,
+ist der semantische Beitrag der gesamten Struktur identisch mit dem semantischen Beitrag des
+Verberstverbs, also \iboxt{2} in Abbildung~\ref{verb-movement-adjunkt-sem}.
+\is{Lexikonregel!Verberststellung|)}
+
+Zum Schluß müssen noch Sätze wie (\mex{1}) ausgeschlossen werden:
+\ea[*]{
+Kennt er das Buch kennt.
+}
+\z
+(\mex{0}) könnte analysiert werden, wenn das erste Vorkommen von \emph{kennt} als Ausgabe der Verbbewegungsregel
+analysiert wird und wenn der \textsc{dsl}"=Wert des zweiten \emph{kennt} nicht restringiert ist, so daß das
+zweite \emph{kennt} dieselbe Rolle wie die Verbspur in der Analyse übernehmen könnte. Man kann nicht allgemein
+für alle overt realisierten Verben verlangen, daß deren \textsc{dsl}"=Wert \emph{none} ist, da die Verben ja
+die Eingabe für die Verbbewegungslexikonregel darstellen und der \textsc{local}"=Wert des Eingabeverbs mit dem
+\textsc{dsl}"=Wert der vom Ausgabeverb selegierten Verbspur identifiziert wird. Hätten alle overten Verben
+den \textsc{dsl}"=Wert \emph{none}, entstünde bei der Kombination mit der Spur ein Widerspruch, da die Spur einen
+spezifizierten \textsc{dsl}"=Wert hat (Die Spur ist zyklisch\is{Zyklus}, deshalb ist der Wert von \textsc{loc$|$cat$|$\-head$|$\-dsl$|$\-loc$|$\-cat$|$\-head$|$\-dsl}
+mit \emph{none} unverträglich.).
+(\mex{0}) muß durch eine Beschränkung ausgeschlossen werden, die besagt, daß ein Verb, wenn es overt realisiert
+wird und in syntaktische Strukturen eintritt, den \textsc{dsl}"=Wert \emph{none} haben muß. (\mex{1}) leistet das
+Verlangte:
+\ea
+\ms{ head-dtr & \ms[word]{ phon & non-empty-list \\
+                         }
+} \impl\\
+\onems{ loc$|$cat$|$head$|$dsl \textit{none}\\
+            }
+\z
+Diese Beschränkung unterscheidet sich von der von \citet[\page207]{Meurers2000b} angegebenen \ua
+dadurch, daß die Kopftochter im Antezedens vom Typ \emph{word} sein muß. Ohne diese
+Einschränkung auf \type{word} würde das Constraint auch auf Projektionen der Verbspur anwendbar sein
+und somit wohlgeformte Sätze ausschließen.
+
+Es wäre unbefriedigend, wenn man für jedes Verb eine spezielle Spur haben müßte. Das ist aber 
+zum Glück nicht nötig, da eine ganz allgemeine Spur der Form in (\mex{1}) für die Analyse
+von Sätzen mit Verbbewegung ausreicht.
+\eas
+Allgemeine Verbspur:\is{Spur!Verb-}\\
+\label{le-verbspur}
+\ms{
+phon & \phonliste{}\\
+loc  & \ibox{1} \ms{ cat$|$head$|$dsl   & \ibox{1}\\
+                   }\\
+}
+\zs
+Dies mag auf den ersten Blick verwundern, doch wenn man sich das Zusammenspiel der Lexikonregel
+(\ref{lr-verb-movement2}) und die Perkolation des \textsc{dsl}"=Merkmals im Baum genau ansieht, wird
+man erkennen, daß der \dslw der Verbprojektion und somit der \localw der Verbspur durch den
+\localw des Eingabeverbs bestimmt ist. In Abbildung~\ref{verb-movement-syn} und~\ref{verb-movement-sem}
+ist \emph{kennt} die Eingabe zur Verbbewegungsregel. Der \localw der Verbspur entspricht
+also dem \localw von \emph{kennt}. Durch die entsprechenden Strukturteilungen wird  sichergestellt,
+daß bei einer Analyse des Satzes (\ref{bsp-kennt-er-das-buch}) der \localw der Verbspur genau dem entspricht, was in
+(\ref{le-verbspur-kennt}) angegeben ist.
+
+Diese Analyse der Verbstellung ist die komplexeste Analyse im vorliegenden Buch. Wenn man sie verstanden
+hat, braucht man nichts mehr zu fürchten. Die wichtigsten Punkte seien hier noch einmal zusammengefaßt:
+\begin{itemize}
+\item Eine Lexikonregel lizenziert für jedes finite Verb einen besonderen Lexikoneintrag.
+\item Dieser Lexikoneintrag steht in Initialstellung und verlangt als Argument eine vollständige Projektion
+      einer Verbspur.
+\item Die Projektion der Verbspur muß einen \dslw haben, der dem \localw des Eingabeverbs für die Lexikonregel
+      entspricht.
+\item Da \dsl ein Kopfmerkmal ist, ist der selegierte \dslw auch an der Spur präsent.
+\item Da der \dslw der Spur mit deren \localw identisch ist, ist der \localw der Spur also
+      auch mit dem \localw des Eingabeverbs der Lexikonregel identisch.
+\end{itemize}
+
+\noindent
+Nach der Diskussion der Analyse von Verberstsätzen in diesem Kapitel wird im folgenden Kapitel
+die Analyse von Verbzweitsätzen erklärt. Vorher sollen aber noch alternative HPSG"=Ansätze zur Konstituentenstellung
+und die Behandlung der Konstituentenstellung in anderen Theorien diskutiert werden.
+
+\section{Alternativen}
+
+Abschnitt~\ref{sec-konstituentenreihenfolge-alternativen} diskutiert einige Aspekte bisheriger
+HPSG"=Ansätze. Abschnitt~\ref{sec-alternativen-konstituentenreihenfolge-gb} setzt sich mit der
+Behandlung der Konstituentenstellung innerhalb der GB"=Theorie bzw.\ innerhalb des Minimalistischen
+Programms auseinander.
+
+\subsection{Alternative HPSG-Ansätze}
+\label{sec-konstituentenreihenfolge-alternativen}
+
+Alternative HPSG"=Ansätze werden ausführlich in \citew{Mueller2004b} und in \citew{Mueller2005c,Mueller2005d} diskutiert.
+Hier seien nur einige Punkte kurz erwähnt.
+
+\subsubsection{Flache Strukturen mit freier Linearisierung des Verbs}
+\label{sec-flache-strukturen}
+
+\citet{Uszkoreit87a}\is{Verzweigung!flache|(} hat eine GPSG"=Grammatik für das Deutsche entworfen, die davon ausgeht,
+daß das Verb mit seinen Argumenten in einem lokalen Baum realisiert wird. Da das Verb
+und dessen Argumente vom selben Knoten dominiert werden, können sie nach GPSG"=Annahmen beliebig
+angeordnet werden, solange bestimmte innerhalb der Theorie spezifizierte Linearisierungsbeschränkungen\is{Linearisierung!-sregel}
+nicht verletzt werden. \citet{Pollard90a} hat Uszkoreits Ansatz für eine Beschreibung der Satzstruktur
+des Deutschen in seine HPSG"=Analyse übernommen. Die Analyse des Satzes (\ref{bsp-perm-mf}) zeigt
+Abbildung~\vref{abb-uszkoreit-pollard}.
+\begin{figure}
+\centerline{\begin{tabular}[t]{@{}c@{\hspace{6mm}}c@{\hspace{6mm}}c@{\hspace{8mm}}c@{}}%llll}
+\multicolumn{4}{c}{\rnode{1}{V[\textit{fin\/}, \textsc{subcat} \sliste{ }]}}\\
+\\[3ex]
+%\hspace{23mm}C & \hspace{12mm}C & \hspace{-5mm}C &\hspace{-14mm}H\\
+\\[3ex]
+\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \rnode{4}{\ibox{3} NP[\textit{dat\/}]}     & \rnode{6}{\ibox{2} NP[\textit{acc\/}]} & \rnode{7}{V[\textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] }\\
+\\
+\\*[5ex]
+d\rnode{8}{er Man}n & d\rnode{9}{er Fra}u  & d\rnode{10}{as Buc}h  & \rnode{11}{gibt}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{6}%
+\ncline{1}{4}\ncline{1}{7}%
+\ncline{7}{11}%
+\ncline{2}{8}%
+\ncline{4}{9}%
+\ncline{6}{10}}%
+\caption{\label{abb-uszkoreit-pollard}Analyse von \emph{der Mann der Frau das Buch gibt} mit flachen Strukturen}
+\end{figure}
+
+%% Mitunter wird mit Lernbarkeitsargumenten\is{Lernbarkeit} gegen flache Strukturen argumentiert \citep[Kapitel~2.5]{Haegeman94a-u}.
+%% Die Behauptung ist, daß man bei flach verzweigenden Strukturen mehr Regeln benötigt und daß demzufolge
+%% Grammatiken mit flach verzweigenden Strukturen schwerer zu erlernen wären. Dieses Argument kann jedoch
+%% nur verwendet werden, wenn die flach verzweigenden Regeln wirklich einzeln als verschiedene Phrasenstrukturregeln
+%% formuliert werden (wie \zb in der GPSG von Uszkoreit). Verwendet man abstrakte Schemata wie die
+%% im Kapitel~\ref{sec-xbar} angegebenen \xbar-Regeln bzw.\ die HPSG"=Schemata ist die Anzahl der benötigten
+%% Regeln gleich, denn die Regeln enthalten keine Information darüber, wieviele Argumente ein bestimmter
+%% Kopf hat, diese Information ist im Kopf selbst enthalten. Wenn ein Kopf zwei Argumente verlangt (\emph{erwarten})
+%% dann gibt es in einer flach verzweigenden Struktur, die diesen Kopf als Kopf"=Tochter hat, drei Töchter:
+%% die Kopf"=Tochter und zwei Nicht"=Kopf"=Töchter. Bei einem dreistelligen Verb wie \emph{geben} gäbe
+%% es entsprechend vier Töchter. Das Schema, das diese Strukturen lizenziert, ist jeweils dasselbe. Zu erlernen
+%% wäre lediglich, daß es in einer Sprache bzw.\ in Sprachen die Möglichkeit gibt, einen Kopf
+%% mit seinen Argumenten zu kombinieren.
+%%
+%% Lernbarkeit ist also keine Eigenschaft, die helfen würde, zwischen den beiden Alternativen zu unterscheiden.
+%% Es gibt jedoch einige relevante Unterschiede, die im folgenden diskutiert werden sollen:
+Wie \citet[\page220]{Netter92} anmerkt sind Adjunkte in solch flache Strukturen nicht ohne weiteres zu
+integrieren, da die Bestimmung des semantischen Beitrags der Gesamtphrase sich auf den Beitrag
+der einzelnen Adjunkte beziehen muß. \citet{Kasper94a} hat gezeigt, wie Adjunkte in so eine flache
+Analyse integriert werden können. Er verwendet komplexe relationale Beschränkungen, die alle
+Adjunkttöchter nacheinander in die Berechnung der Gesamtbedeutung einbeziehen. Da relationale
+Beschränkungen ein sehr mächtiges Beschreibungsmittel sind, sind Ansätze, die sie vermeiden bzw.\
+sich auf einfache Beschränkungen wie \emph{append} beschränken, vorzuziehen.
+
+Ansätze mit flachen Strukturen haben den Vorteil, daß sie ohne leere Köpfe\is{leere Kategorie} für die Beschreibung der
+Verbstellung auskommen. Bei solchen Analysen scheint es jedoch nicht möglich zu sein, die scheinbar
+mehrfache Vorfeldbesetzung\is{Vorfeldbesetzung} \citep{Mueller2005d} auf adäquate Weise zu analysieren. Beispiele für
+solche problematischen Voranstellungen sind in (\mex{1}) gegeben (siehe auch Seite~\pageref{bsp-mehr-vf}):
+\eal
+\label{bsp-smvfb}
+%% \ex Fachleute erkennen Salzschäden an Bäumen relativ gut. [\ldots] Es kann also einige
+%%     Winterperioden dauern, bis man den Effekt beobachten kann. [\ldots] [Exakt] [auf das Salz]
+%%     kann man es tatsächlich erst zurückführen, wenn es für den Baum zu spät ist.\footnote{
+%%         taz berlin, 22.12.2003, S.\,22
+%%     }
+\ex {}[Trocken] [durch die Stadt] kommt man am Wochenende auch mit der BVG.\footnote{
+        taz berlin, 10.07.1998, S.\,22.
+      }
+\ex Unverhohlen verärgert auf Kronewetters Vorwurf reagierte Silke Fischer.\footnote{
+    taz berlin, 23.04.2004, S.\,21.
+}
+\ex {}[Hart] [ins Gericht] ging Klug mit dem Studienkontenmodell der Landesregierung.\footnote{
+  taz nord, 19.02.2004, S.\,24.
+  }
+\zl
+In diesen Beispielen befinden sich zwei Konstituenten vor dem finiten Verb, obwohl das Deutsche
+zu den Verbzweitsprachen gerechnet wird, weil in Aussagesätzen
+normalerweise eben nur genau eine Konstituente vor dem Finitum steht (zu den Details siehe Kapitel~\ref{chap-nla}).
+Weitere Beispiele und eine ausführliche Diskussion findet man in \citew{Mueller2003b}
+bzw.\ in der \href{http://www.cl.uni-bremen.de/~stefan/Pub/mehr-vf-ds.html}{im WWW zugänglichen Datensammlung}\footnote{
+  \url{http://www.cl.uni-bremen.de/~stefan/Pub/mehr-vf-ds.html}.%
+}.
+
+Bei einem Ansatz, der Verbspuren annimmt, kann man davon ausgehen, daß sich in (\mex{0}) eine Projektion
+einer solchen Spur im Vorfeld befindet, \dash, daß das gesamte Material vor dem Finitum eine komplexe Konstituente
+bildet. Bei Linearisierungsansätzen gibt es dagegen einfach keine Möglichkeit, 
+die Konstituenten im Vorfeld zu einer Konstituente zusammenzufassen. Man
+könnte natürlich -- wie in \citew{Mueller2002f,Mueller2002c,Mueller2005d} vorgeschlagen 
+-- einen leeren Kopf im Vorfeld annehmen, nur wäre dieser dann ein spezielles leeres Element,
+was nirgends sonst in der Grammatik gebraucht würde
+und nur zur Erfassung der scheinbar mehrfachen Vorfeldbesetzung stipuliert würde.
+
+Alternativ könnte man Spezialregeln formulieren, die das Material
+im Vorfeld zu einer Konstituente kombinieren. Dabei stellt sich natürlich die Frage nach
+der syntaktischen Kategorie dieser Konstituente. Nähme man an, daß es sich um eine verbale
+Projektion handelt, müßte man kopflose Spezialregeln annehmen, da die Konstituenten vor dem finiten
+Verb in (\mex{0}) keine Verben sind und demzufolge nicht der Kopf einer verbalen Projektion sein
+können.
+\is{Verzweigung!flache|)}
+
+\subsubsection{Binär verzweigende Strukturen und Linearisierungsdomänen}
+\label{sec-Linearisierung}
+\label{sec-Reape-Linearisierung}
+\is{Linearisierung!-sdom"ane|(}
+
+\citet{Reape90a,Reape92a,Reape94a}\is{Verzweigung!bin"are|(} hat mit seinen Arbeiten 
+den Weg für Linearisierungsgrammatiken\is{Linearisierung!-sgrammatik} geebnet,
+die binär verzweigende Strukturen, aber flache Linearisierungsdomänen annehmen. Ein Verb
+befindet sich dann mit seinen Argumenten in derselben Linearisierungsdomäne und kann,
+obwohl es nicht zum selben lokalen Baum gehört, den Linearisierungsbeschränkungen entsprechend
+angeordnet werden. Solche Modelle wurden für das Deutsche von \citet{Kathol95a,Kathol2000a} und 
+auch von mir vertreten \citep{Mueller95c,Mueller99a,Mueller2002b}. Wie ich jedoch gleich zeigen
+werde, gibt es Daten, die sich nicht gut erklären lassen. 
+
+Linearisierungsgrammatiken unterscheiden sich von anderen Grammatikmodellen dadurch, daß
+sie diskontinuierliche Konstituenten\is{Konstituente!diskontinuierliche} zulassen, \dash, es können auch Konstituenten miteinander
+kombiniert werden, die nicht nebeneinander stehen. Im folgenden soll kurz die formale Umsetzung
+einer Linearisierungsgrammatik vorgestellt werden: Reape führt ein listenwertiges Merkmal
+\dom für die Linearisierungsdomäne ein. Alle eingekreisten Elemente in Abbildung~\vref{abb-lin-domains}
+werden in diese Liste eingesetzt.
+\begin{figure}[htb]
+%\centerline{%
+\resizebox{\linewidth}{!}{%
+%\nodemargin9pt
+\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
+\multicolumn{3}{@{}l@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
+  \textit{fin\/}, \textsc{subcat} \sliste{ }]\\
+  \end{tabular}}
+}\\
+\\*[4ex]
+\psovalbox{\rnode{2}{\ibox{1} NP[\textit{nom\/}]}} & \multicolumn{2}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1} }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+& \psovalbox{\rnode{4}{\ibox{2} NP[\textit{acc\/}]}} & \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+&                                   & \psovalbox{\rnode{6}{\ibox{3} NP[\textit{dat\/}]}}& \psovalbox{\rnode{7}{V[\begin{tabular}[t]{@{}l}
+                                                                                   \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]\\
+%                                                                                   \textsc{vcomp} \sliste{  }, \\
+                                                                                   \end{tabular}}}\\
+\\*[6ex]
+d\rnode{8}{er Man}n & d\rnode{9}{as Buc}h                     & d\rnode{10}{er Fra}u              & \rnode{11}{gibt}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{7}{11}%
+\ncline{2}{8}%
+\ncline{6}{10}%
+\ncline{4}{9}%
+}
+\caption{\label{abb-lin-domains}Eingekreiste Knoten werden in eine Linearisierungsdomäne eingesetzt.}
+\end{figure}
+
+\noindent
+In \citew[\page162]{Mueller99a} habe ich vorgeschlagen,
+Köpfe so zu repräsentieren, daß jeder Kopf in seiner Konstituentenstellungsdomäne eine Beschreibung
+von sich selbst enthält. (\mex{1}) zeigt eine Beschreibung, die für alle Köpfe zutrifft:
+\ea
+\ms[word]{
+phon   & \ibox{1} \\
+synsem & \ibox{2} \\
+dom & \liste{ \ms[word]{ phon   & \ibox{1} \\
+                         synsem & \ibox{2} \\
+                         dom    & \liste{}\\
+                       }
+            } \\
+}
+\z
+Dabei sind unter dem Merkmal \synsem\isfeat{synsem}
+sowohl syntaktische als auch semantische Informationen zusammengefaßt.
+Zu \textsc{synsem} siehe auch Kapitel~\ref{chap-lokalitaet}.
+
+In Kopf"=Argument- und Kopf"=Adjunkt"=Strukturen werden Adjunkt- und Komplementtöchter in diese Liste eingesetzt 
+und relativ zum Kopf angeordnet. Das sieht formal wie folgt aus:\footnote{
+  In \citew{Mueller2002b} gilt diese Beschränkung für Verbalkomplexe nicht.%
+}
+\ea
+\type{headed"=phrase}\istype{headed"=phrase} \impl
+\ms{
+  head-dtr$|$dom  & \ibox{1} \\
+  non-head-dtrs   & \ibox{2} \\
+  dom  & \ibox{1} $\bigcirc$ \ibox{2} \\
+}
+\z
+Das Symbol `$\bigcirc$'\is{$\bigcirc$}\is{Relation!$\bigcirc$}\isrel{shuffle}\label{rel-shuffle} steht für die Relation
+\emph{shuffle}. Die \textit{shuffle\/}"=Relation besteht zwischen drei Listen
+A, B und C, gdw.\ C alle Elemente von A und B enthält und die Reihenfolge
+der Elemente von A und die Reihenfolge der Elemente in B in C erhalten ist. (\mex{1}) zeigt die
+Verknüpfung zweier zweielementiger Listen:
+\ea
+$\phonliste{ a, b } \bigcirc \phonliste{ c, d } =
+\begin{tabular}[t]{@{}l}
+\phonliste{ a, b, c, d } $\vee$\\*[1mm]
+\phonliste{ a, c, b, d } $\vee$\\*[1mm]
+\phonliste{ a, c, d, b } $\vee$\\*[1mm]
+\phonliste{ c, a, b, d } $\vee$\\*[1mm]
+\phonliste{ c, a, d, b } $\vee$\\*[1mm]
+\phonliste{ c, d, a, b }
+\end{tabular}$
+\z
+Das Ergebnis ist eine Disjunktion von sechs Listen. In all diesen Listen steht \emph{a} immer vor \emph{b}
+und \emph{c} immer vor \emph{d}, weil das in den verknüpften Listen \phonliste{ a, b } und
+\phonliste{ c, d } so ist.
+\emph{b} kann aber durchaus zwischen oder hinter \emph{c} und \emph{d} stehen.
+
+Elemente in der \doml können frei angeordnet werden, solange LP"=Regeln nicht verletzt werden.
+Die Linearisierungsdomänen sind Kopfdomänen, \dash, nur Elemente, die zum selben Kopf gehören,
+können relativ zueinander umgestellt werden. Dadurch wird erfaßt, daß diese Art Umstellung 
+ein lokales Phänomen ist.
+
+Die Elemente der Konstituentenstellungsdomäne sind entsprechend der Oberflächenreihenfolge angeordnet.
+Der \phonw eines phrasalen Zeichens ergibt sich also aus der Verknüpfung der einzelnen \phonwe, der
+Elemente in der \doml:
+\ea
+\type{phrase} \impl
+\ms{
+ phon & \ibox{1} $\oplus$ \ldots $\oplus$ \ibox{n} \\ \\
+     dom  & \liste{ \ms[sign]{ phon & \ibox{1} \\ }, \ldots, \ms[sign]{ phon & \ibox{n} \\ }
+                  } \\
+   }
+\z
+Die folgenden Abbildungen zeigen die Analysen für die wichtigsten Fälle:
+\eal
+\ex (weil) der Mann der Frau das Buch gibt
+\ex (weil) der Mann das Buch der Frau gibt
+\ex Gibt der Mann das Buch der Frau?
+\zl
+Die Variabilität in der Stellung wird in diesem Ansatz nicht dadurch erreicht, daß ein beliebiges
+Element aus der \subcatl mit dem Kopf verbunden werden kann, sondern dadurch, daß das Element, das
+mit dem Kopf kombiniert wird, nicht unbedingt neben dem Kopf stehen muß.
+Abbildung~\vref{abb-linearisierung-kont} zeigt die Analyse von (\mex{0}b). Die Elemente,
+die in Abbildung~\ref{abb-linearisierung-kont} kombiniert werden, grenzen aneinander. Die Analyse
+gleicht also der, die wir mit den in Kapitel~\ref{chap-komplementation} beschriebenen Mitteln auch
+bekommen würden. Neu ist lediglich die \doml. Bei der Kombination von \emph{gibt} mit seinen Argumenten
+werden diese in die \doml eingesetzt. Die Anordnung der Konstituenten entspricht der Abfolge
+der Domänenelemente am obersten Knoten in Abbildung~\ref{abb-linearisierung-kont}.
+\begin{figure}[htb]
+\centerline{%
+\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
+\multicolumn{3}{@{}l@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
+  \textit{fin\/}, \textsc{subcat} \sliste{ },\\
+                                                                                   \textsc{dom} \phonliste{ der Mann, das Buch, der Frau, gibt }]\\
+  \end{tabular}}
+}\\
+\\*[4ex]
+\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1} },\\
+                                                                                   \textsc{dom} \phonliste{ das Buch, der Frau, gibt }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} },\\
+                                                                                   \textsc{dom} \phonliste{ der Frau, gibt }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
+                                                                                   \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+                                                                                   \textsc{dom} \phonliste{ gibt }]\\
+%                                                                                   \textsc{vcomp} \sliste{  }, \\
+                                                                                   \end{tabular}}\\
+\\*[6ex]
+d\rnode{8}{er Man}n & d\rnode{9}{as Buc}h                     & d\rnode{10}{er Fra}u              & \rnode{11}{gibt}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{7}{11}%
+\ncline{2}{8}%
+\ncline{6}{10}%
+\ncline{4}{9}%
+}
+\caption{\label{abb-linearisierung-kont}Linearisierungsanalyse mit einem Beispiel für kontinuierliche Konstituenten}
+\end{figure}
+
+\noindent
+Die Analyse von (\mex{0}a) zeigt Abbildung~\vref{abb-linearisierung-diskont}. Im Gegensatz zu (\mex{0}b) grenzt
+\emph{der Frau} in (\mex{0}a) nicht an \emph{gibt}. In der Analyse von (\mex{0}a) bilden \emph{der Frau} und
+\emph{gibt} eine diskontinuierliche Konstituente. Zwischen den beiden Elementen ist noch Platz, was man daran sehen
+kann, daß \emph{das Buch} am nächsthöheren Knoten zwischen den beiden Elementen zu stehen kommt.
+%
+\begin{figure}[htb]
+\centerline{%
+\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
+\multicolumn{3}{@{}l@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
+  \textit{fin\/}, \textsc{subcat} \sliste{ },\\
+                                                                                   \textsc{dom} \phonliste{ der Mann, der Frau, das Buch, gibt }]\\
+  \end{tabular}}
+}\\
+\\*[4ex]
+\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1} },\\
+                                                                                   \textsc{dom} \phonliste{ der Frau, das Buch, gibt }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} },\\
+                                                                                   \textsc{dom} \phonliste{ der Frau, gibt }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
+                                                                                   \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+                                                                                   \textsc{dom} \phonliste{ gibt }]\\
+%                                                                                   \textsc{vcomp} \sliste{  }, \\
+                                                                                   \end{tabular}}\\
+\\*[6ex]
+d\rnode{8}{er Man}n & d\rnode{9}{as Buc}h                     & d\rnode{10}{er Fra}u              & \rnode{11}{gibt}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{7}{11}%
+\ncline{2}{8}%
+\ncline{6}{10}%
+\ncline{4}{9}%
+}
+\caption{\label{abb-linearisierung-diskont}Linearisierungsanalyse mit einem Beispiel für diskontinuierliche Konstituenten}
+\end{figure}
+
+\noindent
+Abbildung~\vref{abb-linearisierung-diskont-verb} zeigt schließlich die Analyse eines Satzes mit Verberststellung. Hier
+wird das Verb als erstes Element der Linearisierungsdomäne angeordnet. Die entstehenden Konstituenten sind zum Teil wieder
+diskontinuierlich.
+\begin{figure}[htb]
+\centerline{%
+\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
+\multicolumn{3}{@{}l@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
+  \textit{fin\/}, \textsc{subcat} \sliste{ },\\
+                                                                                   \textsc{dom} \phonliste{ gibt, der Mann, das Buch, der Frau }]\\
+  \end{tabular}}
+}\\
+\\*[4ex]
+\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1} },\\
+                                                                                   \textsc{dom} \phonliste{ gibt, das Buch, der Frau }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} },\\
+                                                                                   \textsc{dom} \phonliste{ gibt, der Frau }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
+                                                                                   \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+                                                                                   \textsc{dom} \phonliste{ gibt }]\\
+%                                                                                   \textsc{vcomp} \sliste{  }, \\
+                                                                                   \end{tabular}}\\
+\\*[6ex]
+d\rnode{8}{er Man}n & d\rnode{9}{as Buc}h                     & d\rnode{10}{er Fra}u              & \rnode{11}{gibt}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{7}{11}%
+\ncline{2}{8}%
+\ncline{6}{10}%
+\ncline{4}{9}%
+}
+\caption{\label{abb-linearisierung-diskont-verb}Linearisierungsanalyse mit einem Beispiel für diskontinuierliche Konstituenten und Verbstellung}
+\end{figure}
+
+Man kann sich leicht selbst davon überzeugen, daß die Dominanzstrukturen für alle Sätze in (\mex{0}) identisch sind.
+Die Analysen unterscheiden sich lediglich hinsichtlich der Anordnung der Elemente in den Stellungsdomänen.
+
+Abbildung~\vref{abb-linear-surface} stellt die Analyse von (\mex{0}c) noch einmal anders dar. Die Konstituenten sind hier entsprechend
+der Oberflächenreihenfolge angeordnet. Man sieht in dieser Abbildung recht deutlich, daß diskontinuierliche Konstituenten vorliegen.
+%
+\begin{figure}[htb]
+\centerline{%
+\begin{tabular}[t]{@{}l@{~}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
+\multicolumn{2}{@{}l}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
+  \textit{fin}, \textsc{subcat} \liste{ },\\
+  \textsc{dom} \phonliste{ \rnode{1bot}{gibt}, der Mann, das Buch, der Frau }]\\
+  \end{tabular}}}\\
+\\*[4ex]
+\rnode{3}{V[\begin{tabular}[t]{@{}l}
+         \textit{fin}, \textsc{subc\rnode{3top}{\rule{0cm}{1.5ex}}at} \liste{ \ibox{1} },\\
+         \textsc{dom} \phonliste{ \rnode{3bot}{gibt}, das Buch, der Frau }]\\
+         \end{tabular}}                                     & \rnode{2aux}{} \\
+\\*[4ex]
+\rnode{5}{V[\begin{tabular}[t]{@{}l}
+         \textit{fin}, \textsc{subc\rnode{5top}{\rule{0cm}{1.5ex}}at} \liste{ \ibox{1}, \ibox{2} },\\
+         \textsc{dom} \phonliste{ \rnode{5bot}{gibt}, der Frau }]\\
+         \end{tabular}} & & \rnode{4aux}{}\\
+\\*[4ex]
+\rnode{7}{V[\begin{tabular}[t]{@{}l}
+            \textit{fin}, \textsc{subc\rnode{7top}{\rule{0cm}{1.5ex}}at} \liste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+            \textsc{dom} \phonliste{ \rnode{7bot}{gibt} }]\\
+%            \textsc{vcomp} \liste{  }, \\
+            \end{tabular}} & &                                   & \rnode{6aux}{}\\
+\\[2ex]
+&  \rnode{2}{\ibox{1} NP[\textit{nom}]} &  \rnode{4}{\ibox{2} NP[\textit{acc}]}           & \rnode{6}{\ibox{3} NP[\textit{dat}]}\\
+\\*[8ex]
+\hspace{9ex}\rnode{11}{gibt} & d\rnode{8}{er Man}n & d\rnode{9}{as Buc}h                   & d\rnode{10}{er Fra}u\\
+\end{tabular}
+\ncline{1bot}{2aux}\ncline{1bot}{3top}%
+\ncline{3bot}{4aux}\ncline{3bot}{5top}%
+\ncline{5bot}{6aux}\ncline{5bot}{7top}%
+\ncline{7bot}{11}%
+\ncline{2}{8}%
+\ncline{6}{10}% 
+\ncline{4}{9}%
+\ncline{2aux}{2}%
+\ncline{4aux}{4}%
+\ncline{6aux}{6}%
+}
+\caption{\label{abb-linear-surface}Linearisierungsanalyse mit Konstituenten in Oberflächenreihenfolge}
+\end{figure}
+
+Nach dieser kurzen Vorstellung der Linearisierungsansätze von Reape, Kathol und mir sollen
+jetzt die Probleme dieser Ansätze besprochen werden: Diese Ansätze haben denselben Nachteil
+wie die Ansätze, die von flachen Strukturen ausgehen: Man kann nicht motivieren,
+daß mehrere Konstituenten im Vorfeld eine gemeinsame Konstituente bilden.
+
+\is{Vorfeldbesetzung|(}%
+Außerdem haben Linearisierungsanalysen mit binär verzweigender Struktur den Nachteil,
+daß man nicht ohne weiteres erklären kann,
+wieso sowohl Dativobjekte als auch Akkusativobjekte mit dem Verb im Vorfeld stehen können.
+Die Beispiele in (\mex{1}) zeigen, daß mit demselben Verb verschiedene Voranstellungen möglich sind,
+je nach dem wie man die Argumentstellen belegt:
+%% \NOTE{JB: findet Beispiele nicht schön, fragt nach
+%%   Korpusbelegen, FB: find sie gut.}
+\eal
+\label{bsp-acc-dat-pvp-zwei}
+\ex Den Wählern erzählen sollte man diese Geschichte nicht.
+\ex Märchen erzählen sollte man den Wählern nicht.
+\zl
+\emph{den Wählern erzählen} und \emph{Märchen erzählen} bilden eine Konstituente (zu den Details
+siehe Abschnitt~\ref{sec-pvp}). In Linearisierungsgrammatiken muß man die Argumente eines Kopfes
+in einer festen Reihenfolge sättigen, da die Sättigungsreihenfolge von der Oberflächenreihenfolge unabhängig ist. Ließe
+man beliebige Sättigungsreihenfolgen zu, bekäme man unechte Mehrdeutigkeiten\is{Mehrdeutigkeit!unechte}.
+Nimmt man für \emph{erzählen} eine \subcatl der Form $\langle$ NP[\textit{nom}], NP[\textit{acc}],
+NP[\textit{dat}]~$\rangle$ an, dann kann man nur (\mex{0}a) analysieren, (\mex{0}b) bleibt unanalysierbar,
+da \emph{Märchen} erst mit \emph{erzählen} kombiniert werden kann, wenn die Kombination
+mit dem Dativobjekt erfolgt ist.
+
+\citet[\page242]{Kathol2000a} schlägt zur Lösung dieses Problems vor,
+für die Objekte keine Reihenfolge in der \subcatl festzulegen. Damit sind
+die Sätze in (\mex{0}) zwar analysierbar, aber ein Satz wie (\mex{1}) hätte
+dann zwei Analysen:
+\ea
+daß er den Wählern Märchen erzählt
+\z
+Da die Reihenfolge der Konstituenten im Satz in Linearisierungsgrammatiken
+von der Reihenfolge der Elemente in der \subcatl unabhängig ist, kann man
+für jede Abfolge in der \subcatl jede Oberflächenreihenfolge ableiten und bekommt
+somit für (\mex{0}) unerwünschte unechte Mehrdeutigkeiten.
+
+Für den hier vorgestellten Ansatz sind die Sätze in (\ref{bsp-acc-dat-pvp-zwei}) unproblematisch,
+da das Kopf"=Argument"=Schema auf S.\,\pageref{schema-bin-prel2} die Kombination von Argumenten
+mit ihrem Kopf in beliebiger Reihenfolge zuläßt.
+\is{Vorfeldbesetzung|)}%
+\is{Linearisierung!-sdom"ane|)}%
+\is{Verzweigung!bin"are|)}
+
+
+\subsubsection{Variable Verzweigung}
+\label{crysmann}
+
+In \citew[Kapitel~11.5.2]{Mueller99a} und \citew{Mueller2004b} habe ich darauf hingewiesen,
+daß die maschinelle Bottom"=Up"=Verarbeitung von Grammatiken, die leere verbale Köpfe enthalten, sehr aufwendig
+ist, da beliebige Phrasen mit den leeren verbalen Köpfen verbunden werden können, weil
+Valenz und semantischer Beitrag der Verbspur so lange unbekannt sind, bis ihre Projektion
+mit dem Verb in Erststellung kombiniert wird. 
+%Auch ist ohne zusätzliche Hilfsmittel wie
+%statistische Verfahren die Position der Verbspur nicht vorherzusagen, so daß
+%
+Berthold Crysmann hat die von mir im \verbmobil-Projekt
+entwickelte Grammatik \citep{MK2000a} so verändert, daß sie sich effektiver verarbeiten läßt \citep{Crysmann2003b}.
+Er hat dazu die unär verzweigenden Grammatikregeln, die der Verbspur entsprechen, entfernt und statt einer
+Analyse mit uniformer Rechtsverzweigung eine Analyse mit Linksverzweigung bei unbesetzter
+rechter Satzklammer und mit Rechtsverzweigung bei besetzter Satzklammer implementiert.
+Für die beiden Sätze in (\mex{1}) gibt es also unterschiedliche Verzweigungen:
+\eal
+\ex {}[[[Gibt er] dem Mann] das Buch]?
+\ex {}[Hat [er [dem Mann [das Buch gegeben]]]]?
+\zl
+In Crysmanns Analyse gibt es somit Verbbewegung, wenn ein Verbalkomplex vorliegt, und es
+gibt keine Verbbewegung, wenn die rechte Satzklammer nicht besetzt ist.
+Zu ähnlichen Vorschlägen siehe auch \citew*[\page225]{KW91a} und \citew*{SRTD96a}.
+Auf diese Weise hat man zwar die Verarbeitungsprobleme, die ein leerer verbaler Kopf mit sich
+bringt, beseitigt, aber man hat auch keine Möglichkeit mehr, die scheinbar mehrfache
+Vorfeldbesetzung\is{Vorfeldbesetzung} mit Hilfe eines leeren verbalen Kopfes\is{leere Kategorie} zu erklären.
+
+Crysmann (in der Diskussion zu seinem Vortrag auf dem Workshop \emph{Large"=Scale Grammar Development and Grammar Engineering} 
+2006 in Haifa) hat vorgeschlagen, die Tatsache, daß die Elemente, die bei der scheinbar mehrfachen Vorfeldbesetzung
+vorangestellt werden, vom selben Verb abhängen müssen \citep[\page67]{Fanselow93a}, dadurch zu erfassen, daß bei der Einführung
+der Fernabhängigkeiten offen gelassen wird, ob sich ein oder mehrere Elemente in \slasch befinden
+(zu \slasch und der Behandlung der Fernabhängigkeiten siehe Kapitel~\ref{chap-nla}).
+Für die mehrfache Vorfeldbesetzung würde man annehmen, daß es mehrere Elemente in \slasch gibt,
+die jeweils zum selben Kopf in Beziehung stehen. Die Fernabhängigkeiten können dann entweder mit einem
+flach verzweigenden Schema gemeinsam oder aber eins nach dem anderen abgebunden werden.
+Die Ausarbeitung einer solchen Analyse muß folgende Fakten erklären:
+\begin{enumerate}
+\item Sowohl Adjunkte als auch Argumente können in Sätzen mit scheinbar mehrfacher Vorfeldbesetzung auf"|treten.
+      Man vergleiche die Datensammlung in \citew{Mueller2003b}, ein Beispiel sei hier gegeben:
+      \ea
+      {}[Gezielt] [Mitglieder] [im Seniorenbereich] wollen die Kendoka allerdings nicht
+      werben.\label{bsp-gezielt-mitglieder}\footnote{
+        taz, 07.07.1999, S.\,18.
+      }
+      \z
+\item Die Reihenfolge der Elemente vor dem finiten Verb muß der Reihenfolge entsprechen, 
+      die diese bei unmarkierter Stellung im Mittelfeld haben würden 
+      (\citealp[\page412--413]{Eisenberg94a}; \citealp[Abschnitt~2.10]{Mueller2005d}).
+      Die Beispiele in (\mex{1}) und (\mex{2}) sollen das verdeutlichen: (\mex{1}a) ist ein Beleg für mehrfache Vorfeldbesetzung
+      und (\mex{1}b) die Variante mit Umstellung der Konstituenten innerhalb des Vorfelds.
+\judgewidth{??}
+\eal
+\ex[]{ {}[Alle Träume] [gleichzeitig] lassen sich nur selten 
+      verwirklichen.\label{bsp-alle-traeume-gleichzeitig}\footnote{
+        Broschüre der Berliner Sparkasse, 1/1999.
+        }
+}
+\ex[?*]{
+Gleichzeitig alle Träume lassen sich nur selten verwirklichen.
+}
+\zl
+(\mex{0}b) ist markiert und genauso verhält es sich mit der Abfolge in (\mex{1}b) im Vergleich zu (\mex{1}a):
+\eal\NOTE{FB: findet b toll.}
+\ex[]{
+weil sich nur selten alle Träume gleichzeitig verwirklichen lassen
+}
+\ex[??]{
+weil sich nur selten gleichzeitig alle Träume verwirklichen lassen
+}
+\zl
+\item In Fällen, in denen mehr als ein Bestandteil eines idiomatischen Ausdrucks vorangestellt wurde,
+      kann mitunter einer der Idiombestandteile nicht in Isolation vorangestellt werden, ohne daß die
+      Äußerung ungrammatisch würde bzw.\ die idiomatische Lesart verlöre \citep[Abschnitt~2.9]{Mueller2005d}.
+\eal
+\ex {}[Öl] [ins Feuer] goß\iw{gießen!Öl ins Feuer $\sim$} gestern das Rote-Khmer-Radio:
+      \ldots\footnote{
+        taz, 18.06.1997, S.\,8.
+}
+\ex\iw{setzen!das Tüpfel aufs i $\sim$}
+{}[Das Tüpfel] [aufs i] setzte der Bürgermeister von Miami, als er am Samstagmorgen von einer schändlichen 
+Attacke der US-Regierung sprach.\footnote{
+        taz, 25.04.2000, S.\,3. %taz Nr. 6126 vom 25.4.2000 Seite 3 im Original steht `setze'
+    }
+\ex {}[Ihr Fett] [weg] bekamen natürlich auch alte und neue Regierung [\ldots]\footnote{
+        Mannheimer Morgen, 10.03.1999, Lokales; SPD setzt auf den "`Doppel-Baaß"'. %M99/903.16159 Mannheimer Morgen, 10.03.1999, Lokales; SPD setzt auf den "Doppel-Baaß"
+      }
+\zl
+\eal
+\ex[*]{
+Ins Feuer goß gestern das Rote-Khmer-Radio Öl.
+}
+\ex[*]{
+Aufs i setzte der Bürgermeister von Miami das Tüpfel, als er am Samstagmorgen von einer schändlichen 
+Attacke der US-Regierung sprach.
+}
+\ex[*]{
+Weg bekamen natürlich auch alte und neue Regierung ihr Fett.
+}
+\zl
+\end{enumerate}
+Diese Fakten sind für eine Analyse mit mehreren Elementen in \slasch aus folgenden Gründen problematisch:
+Der semantische Beitrag einer Konstituente muß berücksichtigt werden. In der HPSG"=Theorie
+wird das bei der Einführung der Fernabhängigkeit gemacht. Deshalb müßte die Tatsache, daß
+sowohl Adjunkte als auch Argumente in den verschiedensten Kombinationen im Vorfeld stehen
+können, bei der Einführung der Fernabhängigkeiten berücksichtigt werden. Werden Adjunkte
+syntaktisch eingeführt, bedeutet das, daß der \modw eines zu extrahierenden Adjunkts mit dem
+\synsemw des Kopfes, den das Adjunkt modifiziert, identifiziert werden muß. Bei Argumenten
+ist dies natürlich nicht der Fall.\footnote{
+  Bei einer Analyse, die Adjunkte als Argumente behandelt \citep*{BMS2001a}, entfällt dieses Problem. Allerdings hat
+  eine solche Analyse Probleme mit bestimmten Skopusverhältnissen bei koordinierten VPen.
+  Siehe \citew{Cipollone2001a,Levine2003a}, \citew[Kapitel~3.6.1]{LH2006a}.%
+}
+Das heißt, man kann nicht ohne weiteres, wie das von
+Crysmann vorgeschlagen wurde, annehmen, daß die Anzahl der extrahierten Elemente unterspezifiziert
+bleibt. Es ist sicher möglich, eine unterspezifizierte Einführung von Fernabhängigkeiten
+zu entwickeln, allerdings ist das dann eine Spezialbehandlung, während bei Verwendung
+eines leeren Kopfes, wie er für die Verbbewegung verwendet wurde, keine zusätzlichen Annahmen
+nötig sind. Adjunkte im Vorfeld werden ganz normal über das Kopf"=Adjunkt"=Schema mit dem leeren
+verbalen Kopf verbunden und Argumente werden ebenfalls unspektakulär über das Kopf"=Argument"=Schema
+mit dem leeren verbalen Kopf kombiniert \citep[Abschnitt~4]{Mueller2005d}.
+
+Zum zweiten Punkt ist zu sagen, daß eine Analyse ohne einen verbalen Kopf im Vorfeld nicht erklären
+kann, warum das nichtverbale Material im Vorfeld denselben Linearisierungsgesetzmäßigkeiten 
+wie im Mittelfeld unterliegt.\footnote{
+  Siehe auch Kapitel~\ref{sec-disc-entry} (insbesondere die Diskussion der Beispiele (\ref{bsp-partikel+anderes+material-topo-felder})
+  auf Seite~\pageref{bsp-partikel+anderes+material-topo-felder}) zu Verbpartikeln, die mit anderem Material zusammen
+  innerhalb eines komplexen Vorfelds stehen können. Die Partikel steht dann in der rechten Satzklammer
+  und die anderen Konstituenten im Mittelfeld bzw.\ im Nachfeld.%
+} Wollte man die Abfolge der \slasch"=Elemente bei der Einführung der Fernabhängigkeiten
+regeln, so müßte man dort auf alle linearisierungsrelevante Information Bezug nehmen und \zb
+sagen, daß Pronomina in der \slashl vor nichtpronominalen Elementen stehen müssen (siehe auch Kapitel~\ref{sec-lex-intro-udc}
+zur lexikalischen Einführung von Fernabhängigkeiten). Alternativ
+könnte man diese Beschränkungen bei der Abbindung der Fernabhängigkeiten überprüfen. In jedem Fall
+wären gesonderte Mechanismen stipuliert worden, die von den Mechanismen, die für die Anordnung
+im Mittelfeld verwendet werden, verschieden sind.
+
+Bei der Annahme eines leeren verbalen Kopfes kann man die Verhältnisse hingegen leicht erklären:
+Innerhalb des komplexen Vorfelds gibt es wieder ein Mittelfeld.
+Die Umordnung im Mittelfeld ist mit bestimmten pragmatischen Effekten verbunden und die Voranstellung
+von komplexen Verbalprojektionen ebenso. Wenn beides zusammen auf"|tritt, gibt es Konflikte bei der
+Erfüllung der pragmatischen Restriktionen, weshalb die Beispiele mit Umstellungen innerhalb eines
+komplexen Vorfelds schlecht sind.
+
+Auch der dritte Punkt läßt sich in einer \slasch"=basierten Analyse nicht ohne weiteres erklären:
+Hier müßten Beschränkungen bei der Einführung bzw.\ Abbindung von Idiombestandteilen
+in \slasch formuliert werden. So müßte man \zb irgendwie sicherstellen, daß \emph{ins Feuer} nur
+dann in \slasch aufgenommen werden darf, wenn auch \emph{Öl} in \slasch ist.
+Bei der Analyse mit der Verbspur ist das hingegen nicht nötig: In einer Theorie, die davon ausgeht, daß
+\emph{Öl ins Feuer gießen} einen Komplex nach der Art der Verbalkomplexe bildet, die in
+Kapitel~\ref{chap-verbalkomplex} besprochen werden, folgt automatisch, daß \emph{ins Feuer} nicht
+aus der Mitte des Komplexes vorangestellt werden kann. Ob das Verb dabei als Spur oder overt neben
+\emph{Feuer} realisiert wird, ist dabei unerheblich. Siehe Kapitel~\ref{sec-pvp}.
+
+%% In der Diskussion von (\ref{bsp-absichtlich-nicht-anal}) haben wir gesehen, daß linksstehende
+%% Elemente Skopus über rechtsstehende Elemente haben. Dabei werden Verberstsätze wie (\ref{bsp-absichtlich-nicht-anal-v1}) 
+%% so interpretiert, als stünde das Verb noch am Ende. Ansätze mit variabler Verzweigung können das nicht erfassen.
+%% \citet{Crysmann2003b} argumentiert, daß das nicht allgemein gilt, und daß die Skopusregel
+%% deshalb als extragrammatische Präferenzregel behandelt werden sollte. Er gibt das folgende
+%% Beispiel an:
+%% \ea
+%% Da muß es schon erhebliche Probleme mit der Ausrüstung gegeben haben, da wegen schlechten Wetters ein Reinhold Messmer niemals aufgäbe.
+%% \z
+%% In (\mex{0}) hat das \emph{niemals} Skopus über \emph{wegen des schlechten Wetters} obwohl
+%% es rechts der PP steht. Bei diesem Beispiel handelt es sich jedoch wahrscheinlich um eine Fokusumstellung.
+%% Diese Art Umstellung hat andere Eigenschaften als die bisher behandelten Mittelfeldumstellungen.
+%% Sie ähnelt Voranstellungen, wie wir sie im nächsten Kapitel kennenlernen werden.
+%% Die abweichende Interpretationsmöglichkeit ist also auch in dem hier vertretenen Ansatz erklärbar.
+
+
+\subsection{Andere Theorien}
+\label{sec-alternativen-konstituentenreihenfolge-gb}
+
+Im Abschnitt~\ref{sec-mf} wurde eine Möglichkeit für die Analyse der Stellung von Konstituenten im Mittelfeld vorgestellt.
+In der \gbt und ihren Nachfolgern wird die Umstellung von Konstituenten mitunter mit Bewegung modelliert.
+Konstituenten werden in einer zugrundeliegenden Struktur in einer bestimmten Abfolge lizenziert
+und dann über Umstellungen in die endgültige Position gebracht. Welcher Art die Zielpositionen sind,
+ist von Analyse zu Analyse verschieden. In den folgenden Abschnitten sollen einige GB"=Varianten
+besprochen werden. Eine LFG"=Analyse der Abfolgevarianten im Mittelfeld wird erst im nächsten
+Kapitel besprochen, da sie mit der Vorfeldbesetzung interagiert.
+
+\subsubsection{Funktionale Kategorien}
+
+In den folgenden beiden Teilabschnitten diskutiere ich erst Ansätze, die die funktionalen Projektionen
+AgrS, AgrO und AgrIO benutzen und dann solche, die spezielle funktionale Projektionen 
+mit Informationsstrukturbezug verwenden.
+
+\subsubsubsection{AgrS, AgrO und AgrIO}
+
+\is{Kategorie!funktionale|(}%
+Als Beispiel sei in Abbildung~\vref{fig-konstituentenstellung-meinunger} eine Struktur von \citet{Meinunger2000a} angegeben.\footnote{
+  Siehe auch \citew{Haftka96a}.%
+}
+\begin{figure}[htbp]
+%\centerline{
+\oneline{%
+\begin{pspicture}(1.6,0)(17.4,16.3)
+%\psgrid
+\rput[B](3,0){\rnode{die Firma}{die Firma Müller}}
+\rput[B](6,0){\rnode{meinem Onkel}{meinem Onkel}}
+\rput[B](9,0){\rnode{diese Moebel}{diese Möbel}}
+\rput[B](12,0){\rnode{erst gestern}{erst gestern}}
+\rput[B](15,0){\rnode{zugestellt}{zugestellt}}
+\rput[B](17,0){\rnode{hat}{hat}}
+%
+\rput[B](14,2){\rnode{tdo}{t\sub{DO}}}
+\rput[B](15,2){\rnode{v}{V}}
+\rput[B](14.5,3){\rnode{vp1}{VP}}
+%
+\rput[B](13.5,3){\rnode{tio}{t\sub{IO}}}
+\rput[B](14,4){\rnode{vs}{V$'$}}
+%
+\rput[B](13,4){\rnode{tsu}{t\sub{SU}}}
+\rput[B](13.5,5){\rnode{vp2}{VP}}
+%
+\rput[B](12,5){\rnode{adv}{Adv}}
+\rput[B](13,6){\rnode{vp3}{VP}}
+%
+\rput[B](15,6){\rnode{agro0}{AgrO$^0$}}
+\rput[B](14,7){\rnode{agros}{AgrO$'$}}
+%
+\rput[B](9,7){\rnode{do}{DO}}
+\rput[B](11.5,9){\rnode{agrop}{AgrOP}}
+%
+\rput[B](13.5,9){\rnode{agrio0}{AgrIO$^0$}}
+\rput[B](12.5,10){\rnode{agrios}{AgrIO$'$}}
+%
+\rput[B](6,10){\rnode{io}{IO}}
+\rput[B](9.25,12){\rnode{agriop}{AgrIOP}}
+%
+\rput[B](17,12){\rnode{agrs0}{AgrS$^0$}}
+\rput[B](13.125,14){\rnode{agrss}{AgrS$'$}}
+%
+\rput[B](3,14){\rnode{su}{SU}}
+\rput[B](8.06125,16){\rnode{agrsp}{AgrSP}}
+%
+\psset{angleA=-90,angleB=90,arm=0pt}
+%
+\ncdiag{vp1}{v}
+\ncdiag{vp1}{tdo}
+%
+\ncdiag{vs}{tio}
+\ncdiag{vs}{vp1}
+%
+\ncdiag{vp2}{vs}
+\ncdiag{vp2}{tsu}
+%
+\ncdiag{vp3}{vp2}
+\ncdiag{vp3}{adv}
+%
+\ncdiag{agros}{vp3}
+\ncdiag{agros}{agro0}
+%
+\ncdiag{agrop}{agros}
+\ncdiag{agrop}{do}
+%
+\ncdiag{agrios}{agrop}
+\ncdiag{agrios}{agrio0}
+%
+\ncdiag{agriop}{agrios}
+\ncdiag{agriop}{io}
+%
+\ncdiag{agrss}{agriop}
+\ncdiag{agrss}{agrs0}
+%
+\ncdiag{agrsp}{agrss}
+\ncdiag{agrsp}{su}
+%
+\pstriangle(3,0.4)(2.6,13.5)
+\pstriangle(6,0.4)(2.3,9.5)
+\pstriangle(9,0.4)(1.9,6.5)
+\pstriangle(12,0.4)(1.7,4.5)
+\ncdiag{v}{zugestellt}
+\ncdiag{agrs0}{hat}
+\end{pspicture}}
+\caption{\label{fig-konstituentenstellung-meinunger}Analyse für \emph{daß die Firma Müller meinem Onkel diese Möbel erst gestern zugestellt hat} 
+nach \citew[\page101]{Meinunger2000a}}
+\end{figure}
+Das Subjekt (SU), das indirekte Objekt (IO) und das direkte Objekt (DO) werden als Konstituenten
+einer komplex strukturierten VP erzeugt und dann in spezielle Positionen (Spezifikatorpositionen)
+funktionaler Projektionen verschoben. Die Stellen, an denen die Konstituenten eigentlich stehen würden,
+sind durch Spuren (t\sub{SU}, t\sub{IO}, t\sub{DO}) markiert. AgrS, AgrIO und AgrDO sind dabei leere
+Kategorien,\is{leere Kategorie} die für die Analyse von Kongruenz eine Rolle spielen. AgrIO und
+AgrDO wurden ursprünglich für Sprachen mit Objektkongruenz\is{Kongruenz!Objekt-} eingeführt, ein
+Phänomen, das es im Deutschen nicht gibt.
+
+
+In der HPSG wurde in den letzten Jahren versucht, ohne leere Elemente auszukommen. Meiner Meinung
+nach ist dies jedoch nicht möglich, wenn man die Zusammenhänge auf einsichtsvolle Weise erfassen
+will. Eine genauere Diskussion hierzu findet man in \citew{Mueller2004e}. Allerdings ist man immer
+noch bestrebt, so wenig wie möglich leere Elemente zu verwenden, \dash, man versucht die Stipulation
+unsichtbarer Einheiten zu vermeiden, wo immer es geht.
+Kongruenz wird in der HPSG deshalb über die Identität von Merkmalen erzwungen (siehe
+Kapitel~\ref{chap-kongruenz}), leere Agreement"=Köpfe und Bewegungen in bestimmte Baumpositionen
+spielen bei der Beschreibung keine Rolle.  Man modelliert vielmehr direkt beobachtbare Eigenschaften
+linguistischer Zeichen: In (\mex{1}a) haben die NP und das Verb die Eigenschaft, Plural zu sein, und
+in (\mex{1}b) sind sie Singular.
+
+\eal
+\ex Die Kinder schlafen.
+\ex Das Kind schläft.
+\zl
+Genauso können informationsstrukturelle\is{Informationsstruktur} Eigenschaften direkt modelliert
+werden, und man muß dazu keine komplexen Strukturen annehmen. Zur Behandlung der
+Informationsstruktur im Rahmen der HPSG siehe \citew{Kuhn95b}, \citew{EV96a} und
+\citew{deKuthy2002a}.%
+
+
+\subsubsubsection{TopP, FocP und KontrP}
+
+\mbox{}\citet{Frey2004a}\NOTE{Seitenzahl}\is{Topik|(}\is{Fokus|(}\is{Informationsstruktur|(} nimmt eine KontrP (Kontrastphrase) und 
+%\citet[\page165]{Frey2000a-u} 
+\citet{Frey2004b-u}
+eine TopP (Topikphrase) an (siehe auch \citew{Rizzi97a-u} für TopP und FocP (Fokusphrase) im Italienischen und 
+\citew{Haftka95a}, \citew[\page19]{Abraham2003a} für Analysen mit TopP und/""oder FocP für das Deutsche).
+Konstituenten müssen je nach ihrem informationsstrukturellen Status in die Spezifikatorpositionen
+dieser funktionalen Köpfe bewegt werden. \citet{Fanselow2003b} hat gezeigt, daß solche bewegungsbasierten
+Theorien für die Anordnung von Elementen im Mittelfeld nicht mit gegenwärtigen Annahmen innerhalb
+des Minimalistischen Programms\is{Minimalistisches Programm} (aus dem diese Theorien stammen) kompatibel sind. Der Grund ist,
+daß manche Umstellungen erfolgen, um anderen Elementen Platz zu machen. So wird zum Beispiel
+durch die Anordnung in (\mex{1}b) erreicht, daß nur \emph{verhaftete} oder auch nur \emph{gestern}
+fokussiert sein kann.\NOTE{FB: Das ist komisch. Damit in (\mex{1}b) nur \emph{gestern} fokussiert
+  sein kann, braucht \emph{gestern} die Hauptbetonung. Aber das geht doch auch in (\mex{1}a). Und
+  für \emph{verhaftete} gilt (denke ich) das gleiche.}
+\eal
+\ex dass die Polizei gestern Linguisten verhaftete
+\ex dass die Polizei Linguisten gestern verhaftete
+\zl
+Fanselow formuliert die Generalisierung in bezug auf Umstellungen so: Ein direktes Objekt wird
+umgestellt, wenn die mit einem Satz verbundene Informationsstruktur verlangt, daß entweder
+eine andere Konstituente im Fokus ist oder daß das Objekt nicht Teil des Fokus ist. Im Deutschen
+kann man Teilfokussierungen auch mit besonderer Intonation erreichen, in Sprachen wie dem Spanischen
+ist das jedoch nicht möglich.
+
+Man kann also nicht annehmen, daß Elemente in eine bestimmte Baumposition bewegt werden müssen,
+da dort ein Merkmal überprüft werden muß. Das ist jedoch eine Voraussetzung für Bewegung in
+der gegenwärtigen Minimalistischen Theorie. Fanselow (\citeyear[Abschnitt~4]{Fanselow2003b}; \citeyear[\page8]{Fanselow2006a}) 
+hat außerdem gezeigt, daß sich die Abfolgebeschränkungen,
+die man für Topik und Fokus und Satzadverbiale
+%\NOTE{FB: vielleicht erklären} 
+feststellen kann, mit einer Theorie erfassen lassen,
+die zu der hier vorgestellten parallel ist: Argumente können eins nach dem anderen mit ihrem Kopf
+kombiniert (in Minimalistischer Terminologie: \emph{gemergt}\is{Merge} werden) und Adjunkte können an jede
+Projektionsstufe angeschlossen werden. Die Stellung der Satzadverbien direkt vor dem fokussierten
+Teilbereich des Satzes wird semantisch erklärt: Da Satzadverbien sich wie fokussensitive Operatoren
+verhalten, müssen sie direkt vor den Elementen stehen, auf die sie sich beziehen. Daraus folgt,
+daß Elemente, die nicht zum Fokus gehören (Topiks), vor dem Satzadverb stehen müssen. Eine besondere
+Topikposition ist zur Beschreibung lokaler Umstellungen im Mittelfeld jedoch nicht nötig.
+\is{Topik|)}\is{Fokus|)}%
+\is{Kategorie!funktionale|)}\is{Informationsstruktur|)}
+
+\subsubsection{Quantorenskopus}
+\label{sec-Scrambling-Skopus}
+
+Außer\is{Skopus|(}
+dem Ziel, Eigenschaften von Objekten möglichst direkt zu modellieren, gibt es aber noch wichtigere
+Gründe, keine Bewegungsanalyse für die relativ freie Abfolge von Konstituenten im Mittelfeld anzunehmen:
+Lange Zeit wurde gegen Ansätze, die die Konstituentenstellung im \mf ohne Bewegung erklären wollen,
+mit Skopus"=Daten argumentiert. Sätze wie (\mex{1}b) sind hinsichtlich des Quantorenskopus ambig.
+\eal
+\ex Es ist nicht der Fall, daß er mindestens einem Verleger fast jedes Gedicht anbot.
+\ex Es ist nicht der Fall, daß er fast jedes Gedicht$_i$ mindestens einem Verleger \_$_i$ anbot.
+\zl
+Es wurde behauptet, daß man zur Erklärung der Ambiguität verschiedene Strukturen benötigt, nämlich
+zum einen die direkt beobachtbare und zum anderen solche, die der Rückübertragung einer oder
+mehrerer umgestellter Phrasen in die Position der Spur entsprechen \citep{Frey93a}.
+Nun hat sich aber herausgestellt, daß Ansätze, die Spuren annehmen,
+problematisch sind, denn sie sagen für Sätze, in denen es mehrere Spuren gibt, 
+Lesarten voraus, die nicht wirklich vorhanden sind (siehe \citew[\page 146]{Kiss2001a} und \citew[Abschnitt~2.6]{Fanselow2001a}).
+So könnte \zb in (\mex{1}) \emph{mindestens einem Verleger} an der Stelle von \_$_i$ interpretiert werden,
+was dann zur Folge hätte, daß man eine Lesart bekommt, in der
+\emph{fast jedes Gedicht} Skopus über \emph{mindestens einem Verleger} hat.
+\ea
+Ich glaube, daß mindestens einem Verleger$_i$ fast jedes Gedicht$_j$ nur dieser Dichter \_$_i$ \_$_j$ angeboten hat.
+\z
+Eine solche Lesart gibt es aber nicht.%
+\is{Skopus|)}
+
+\subsubsection{Freezing}
+\is{Freezing@\emph{Freezing}|(}
+
+In \gb nimmt man an, daß aus bewegten Phrasen nichts mehr extrahiert, \dash \zb ins Vorfeld gestellt werden kann.
+Das wurde als Test für den Status der Umstellungen im \mf benutzt. Zum Beispiel \citet{Diesing92a} behauptet,
+daß der Inselstatus\is{Extraktion!sinsel} von umgestellten Phrasen für eine Bewegungsanalyse spricht. Wie aber
+das folgende Beispiel aus \citew[\page101]{Mueller99a} zeigt, ist die Behauptung empirisch nicht haltbar:
+\eal
+\ex {}[Zum Gartenvereinsvorsitzenden]$_i$ hätte er [das Talent \_$_i$].\iw{Talent}
+\ex {}[Zum Gartenvereinsvorsitzenden]$_i$ hätte [das Talent \_$_i$] wohl nur dieser Mann.\label{bsp-gartenvereinsvorsitzender}
+\zl
+Siehe auch \citew[\page187--192]{Fanselow91a} und \citew[Abschnitt~2.3]{Fanselow2001a}.%
+\is{Freezing@\emph{Freezing}|)}
+
+\section*{Kontrollfragen}
+
+\begin{enumerate}
+\item Welche Konstituentenstellungsphänomene kennen Sie?
+\item Warum wurden Kopf"=Spezifikator"=Strukturen eingeführt?
+\end{enumerate}
+
+\section*{Übungsaufgaben}
+
+\begin{enumerate}
+\item Skizzieren Sie die Analysebäume für folgende Sätze und erläutern Sie,
+      wie die Unterschiede zwischen den Sätzen von der in diesem Kapitel
+      vorgestellten Analyse erfaßt werden:
+\eal
+\ex daß Kurt-Martin drei Mark dem Clown gibt
+\ex daß dem Clown Kurt-Martin drei Mark gibt 
+\ex Gibt Kurt-Martin dem Clown drei Mark?
+\zl
+
+\item Laden Sie die zu diesem Kapitel gehörende Grammatik von der Grammix"=CD
+(siehe Übung~\ref{uebung-grammix-kapitel4} auf Seite~\pageref{uebung-grammix-kapitel4}).
+Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluß eine Liste von Beispielen.
+Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem Kapitel besprochenen
+Aspekte.
+
+\item (Zusatzaufgabe) Laden Sie das Babel"=System, das ebenfalls auf der Grammix"=CD enthalten ist. 
+Nach Beendigung des Ladevorgangs erscheint ein Prompt (\verb+>>>+). Geben Sie den folgenden Satz
+ein:
+\ea
+Er glaubt, dass der Mann der Frau das Buch gibt.
+\z
+Sehen Sie sich im Chart-Display die Kanten für \emph{der Mann der Frau das Buch gibt} an. Mit der
+rechten Maustaste bekommen Sie im Chart"=Display ein Menü, in dem es einen Eintrag gibt, mit dem man
+nur die Kanten anzeigen lassen kann, die zu einer Analyse der vollständigen Eingabe beitragen. Wenn
+sie diesen Menüpunkt anklicken, werden Sie sehen, daß es zwei Kanten gibt, die \emph{der Frau das
+Buch gibt} überspannen. Die untere der beiden ist diskontinuierlich, was man sehen kann, wenn man
+die Kante anklickt und den Menüpunkt "`Zeige Kinder"' auswählt. Experimentieren Sie mit anderen Sätzen
+aus dem Abschnitt~\ref{sec-Linearisierung}.
+\end{enumerate}
+
+\section*{Literaturhinweise}
+
+\citew{Mueller2004b} diskutiert die Möglichkeiten, die es im Rahmen der HPSG für die Analyse der
+relativ freien Konstituentenstellung gibt. Teile dieser Diskussion sind auch hier im
+Alternativenabschnitt enthalten.
+
+Die Analyse des Deutschen als Verbletztsprache ist relativ alt (\citealp{Bach62a};
+\citealp*[\page34]{Bierwisch63a}; \citealp{Reis74a}; \citealp[Kapitel~1]{Thiersch78a}). Bierwisch
+schreibt die Annahme einer zugrundeliegenden Verbletztstellung \citet{Fourquet57a} zu. Eine
+Übersetzung des von Bierwisch zitierten französischen Manuskripts kann man in
+\citew[\page117--135]{Fourquet70a} finden.
+
+Auf Seite~\pageref{page-verbletzt} habe ich Argumente für die Annahme aufgeführt, daß die Stellung
+mit dem Verb in Letztposition die Grundstellung ist. Die Linearisierungsanalysen, die in
+\citew{Reape94a}, \citew{Kathol2001a} und \citew{Mueller99a,Mueller2002b,Mueller2004b} vertreten wurden, sind mit
+diesen Beobachtungen aber auch kompatibel. Einzig und allein das Phänomen der scheinbar mehrfachen
+Vorfeldbesetzung \citep{Mueller2005d} stellt wirklich harte Evidenz gegen linearisierungsbasierte Analysen dar.

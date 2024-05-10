@@ -1,0 +1,234 @@
+%% -*- coding:utf-8 -*-
+
+
+\hypersetup{bookmarksopenlevel=0}
+
+\setcounter{secnumdepth}{4}
+
+\let\citew\citet
+
+\newcommand{\danish}{\jambox{(\ili{Danish})}}
+\newcommand{\dutch}{\jambox{(\ili{Dutch})}}
+\newcommand{\english}{\jambox{(\ili{English})}}
+\newcommand{\german}{\jambox{(\ili{German})}}
+\newcommand{\yiddish}{\jambox{(\ili{Yiddish})}}
+\newcommand{\icelandic}{\jambox{(\ili{Icelandic})}}
+
+
+
+
+%\newcommand{\rot}[1]{{\color{red}#1}}
+% like Lab Phon
+%\newcommand{\rot}[1]{{\color{lsLightWine}#1}}
+% like Niger Congo
+\newcommand{\rot}[1]{{\color{lsRed}#1}}
+\newcommand{\rotbf}[1]{\rot{#1}}
+\newcommand{\rotit}[1]{\rot{#1}}
+%\newcommand{\gruen}[1]{{\color{green}#1}}
+% like OGS
+\newcommand{\gruen}[1]{{\color{lsDarkGreenOne}#1}}
+\newcommand{\gruenbf}[1]{\gruen{#1}}
+\newcommand{\gruensc}[1]{\gruen{#1}}
+\newcommand{\gruenit}[1]{\gruen{#1}}
+
+%\newcommand{\blau}[1]{{\color{blue}#1}}
+
+% Topics at the grammar icours interface
+% lsMidDarkBlue
+
+% EOTMS
+% lsMidBlue
+\newcommand{\blau}[1]{{\color{lsMidBlue}#1}}
+
+\newcommand{\blaubf}[1]{\blau{#1}}
+\newcommand{\blausc}[1]{\blau{#1}}
+\newcommand{\blauit}[1]{\blau{#1}}
+
+
+
+\let\mc=\multicolumn
+
+
+\newcommand{\sigle}[1]{\tiny{#1}}
+
+
+%% now loaded by the langsci class
+% \iftoggle{draft}{
+% \usepackage{todonotes}
+% }{
+% \usepackage[disable]{todonotes}
+% }
+
+\iftoggle{draft}{}{
+\presetkeys{todonotes}{disable}{}
+}
+
+\newcommand{\todostefan}[1]{\todo[color=orange!80]{\footnotesize #1}\xspace}
+\newcommand{\todosatz}[1]{\todo[color=red!40]{\footnotesize #1}\xspace}
+
+\newcommand{\inlinetodostefan}[1]{\todo[color=green!40,inline]{\footnotesize #1}\xspace}
+
+\newcommand{\inlinetodoopt}[1]{\todo[color=green!40,inline]{\footnotesize #1}\xspace}
+\newcommand{\inlinetodoobl}[1]{\todo[color=red!40,inline]{\footnotesize #1}\xspace}
+
+\newcommand{\itd}[1]{\iftoggle{draft}{\inlinetodoobl{#1}}{}}
+\newcommand{\itdobl}[1]{\iftoggle{draft}{\inlinetodoobl{#1}}{}}
+\newcommand{\itdopt}[1]{\iftoggle{draft}{\inlinetodoopt{#1}}{}}
+
+% for editing, remove later
+%\usepackage{xcolor}
+\newcommand{\iaddpages}{\iftoggle{draft}{\yel[add pages]{pages}\xspace}}
+
+\newcommand{\addpages}{\iftoggle{draft}{\todostefan{add pages}}\xspace}
+\newcommand{\addsource}{\iftoggle{draft}{\todostefan{add source}}\xspace}
+\newcommand{\addglosses}{\iftoggle{draft}{\todostefan{add glosses}}\xspace}
+
+
+
+%% % This sets the default for the positioning
+%% % will be in the main class
+%% \makeatletter
+%% \renewcommand{\fps@figure}{htbp}
+%% \renewcommand{\fps@table}{htbp}
+%% \makeatother
+%% \renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+%% 	% N.B.: floatpagefraction MUST be less than topfraction !!
+
+
+
+
+\robustify\textsc
+\robustify\textit
+
+
+% https://tex.stackexchange.com/questions/95014/aligning-overline-to-italics-font/95079#95079
+\newbox\usefulbox
+
+\makeatletter
+    \def\getslant #1{\strip@pt\fontdimen1 #1}
+
+    \def\skoverline #1{\mathchoice
+     {{\setbox\usefulbox=\hbox{$\m@th\displaystyle #1$}%
+        \dimen@ \getslant\the\textfont\symletters \ht\usefulbox
+        \divide\dimen@ \tw@ 
+        \kern\dimen@ 
+        \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}
+     {{\setbox\usefulbox=\hbox{$\m@th\textstyle #1$}%
+        \dimen@ \getslant\the\textfont\symletters \ht\usefulbox
+        \divide\dimen@ \tw@ 
+        \kern\dimen@ 
+        \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}
+     {{\setbox\usefulbox=\hbox{$\m@th\scriptstyle #1$}%
+        \dimen@ \getslant\the\scriptfont\symletters \ht\usefulbox
+        \divide\dimen@ \tw@ 
+        \kern\dimen@ 
+        \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}
+     {{\setbox\usefulbox=\hbox{$\m@th\scriptscriptstyle #1$}%
+        \dimen@ \getslant\the\scriptscriptfont\symletters \ht\usefulbox
+        \divide\dimen@ \tw@ 
+        \kern\dimen@ 
+        \overline{\kern-\dimen@ \box\usefulbox\kern\dimen@ }\kern-\dimen@ }}%
+     {}}
+    \makeatother
+
+
+
+\newcommand{\questions}[1]{~\newline\vspace*{-10mm}
+{\memoizeset{disable}%
+\tblssy{people}{Comprehension questions}{\setlist{leftmargin=*}#1}}}
+%\tblssy{people}{Comprehension questions}{#1}}
+
+\newcommand{\exercises}[1]{{\memoizeset{disable}%
+\tblssy{pencil}{Exercises}{\setlist{leftmargin=*}#1}}}
+%\tblssy{pencil}{Exercises}{#1}}
+
+\newcommand{\furtherreading}[1]{%~\newline\vspace*{-10mm}
+{\memoizeset{disable}%
+\tblssy{book}{Further reading}{#1}}}
+
+\newcommand{\greyboxrest}[1]{
+{\memoizeset{disable}%
+\begin{mdframed}[style=greyexercise]
+#1
+\end{mdframed}}}
+
+\mdfdefinestyle{greyexercisenologo}{%
+	everyline=true,ignorelastdescenders=true,
+	linewidth=0pt,backgroundcolor=\tblsboxcolor,
+	innerleftmargin=5mm, innerrightmargin=5mm, innerbottommargin=5mm, innertopmargin=5mm,
+	frametitleaboveskip=15mm, frametitlebelowskip=5mm,frametitlerule=false, repeatframetitle=false
+}
+
+
+% get rid of these morewrite messages:
+% https://tex.stackexchange.com/questions/419489/suppressing-messages-to-standard-output-from-package-morewrites/419494#419494
+\ExplSyntaxOn
+\cs_set_protected:Npn \__morewrites_shipout_ii:
+  {
+    \__morewrites_before_shipout:
+    \__morewrites_tex_shipout:w \tex_box:D \g__morewrites_shipout_box
+    \edef\tmp{\interactionmode\the\interactionmode\space}\batchmode\__morewrites_after_shipout:\tmp
+  }
+\ExplSyntaxOff
+
+\newcommand{\term}[1]{\emph{\isi{#1}}}
+
+
+
+% Felix 09.06.2020: copy code from the third line into localcommands.tex: https://github.com/langsci/langscibook#defined-environments-commands-etc
+\patchcmd{\mkbibindexname}{\ifdefvoid{#3}{}{\MakeCapital{#3} }}{\ifdefvoid{#3}{}{#3 }}{}{\AtEndDocument{\typeout{mkbibindexname could not be patched.}}}
+
+
+
+% This does a linebreak for \gll for long sentences leaving space for the language at the right
+% margin.
+% St.Mü. 17.06.2021
+% \newcommand{\longexampleandlanguage}[2]{
+% \begin{tabularx}{.99\linewidth}[t]{@{}X@{}p{\widthof{(#2)}}@{}}
+% \begin{minipage}[t]{\linewidth-1em}
+% #1
+% \end{minipage} & (\ili{#2})
+% \end{tabularx}}
+
+% From stackexchange:
+% https://tex.stackexchange.com/questions/600695/limiting-space-used-by-gb4e-and-adding-language-information-to-the-right/649414#649414
+\newcommand{\longexampleandlanguage}[2]{
+%\begin{tabularx}{\linewidth}[t]{@{}X@{}p{\widthof{(#2)}}@{}}
+\begin{minipage}[t]{\linewidth-1em-\widthof{(#2)}}
+#1
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{\widthof{(#2)}}
+ (\ili{#2})
+\end{minipage}
+%\end{tabularx}
+}
+
+
+% This is needed for the index since the ! will be interpreted as subitem.
+\newcommand{\dslmath}{$/\!/$}
+
+
+
+% http://tex.stackexchange.com/questions/230300/doing-something-like-psframebox-in-tikz#230306
+\tikzset{
+frbox/.style={
+  rounded corners,
+  draw,
+  thick,
+  inner sep=5pt
+  }
+}
+\newcommand\TZbox[1]{\tikz{\node[frbox,baseline] {#1};}}
+
+\newgray{hell}{.85}
+\newcommand{\highlight}[1]{\psframebox[linecolor=hell,fillcolor=hell,fillstyle=solid]{#1}}
+
+\newcommand{\nom}{\textit{nom}}
+\newcommand{\gen}{\textit{gen}}
+\newcommand{\dat}{\textit{dat}}
+\newcommand{\acc}{\textit{acc}}
+
+%\newcommand{\mod}{\textsc{mod}\xspace}  % wegen beamer.cls nicht in abbrev.sty
+\newcommand{\rel}{\textsc{rel}\xspace}  % wegen avm.sty nicht in abbrev.sty
+

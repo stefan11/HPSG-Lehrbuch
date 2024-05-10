@@ -1,0 +1,37 @@
+#!/bin/tcsh -f
+
+
+foreach x (*.tex)
+echo $x
+#sed -e 's/\[ppp/\[{\\it ppp\\\/}/g'   $x >$x.neu
+#sed -e 's/_S/_{\\mbox{\\footnotesize S}}/g'   $x >$x.neu
+#sed -e 's/Lesetips/Literatur/g'   $x >$x.neu
+#sed -e 's/HB70/HB72a/g'   $x >$x.neu
+#sed -e 's/ vform-/ \{\\sc vform}-/g'   $x >$x.neu
+#sed -e 's/Kopfmerkmalprinzip/Kopfmerkmalsprinzip/g'   $x >$x.neu
+#iconv -t ISO-8859-1 -f utf-8 $x > $x.neu
+#sed -e 's/(\\ibox{\([0-9]*\)})/\\iboxb{\1}/g'   $x >$x.neu
+#sed -e 's/\\nodetriangle{/\\ncline{/g'   $x >$x.neu
+#sed -e 's/\\aanodeconnect/\\ncline{<->}/g'   $x >$x.neu
+sed -e 's/\\anodeconnect/\\ncline{->}/g'   $x >$x.neu
+#sed -e 's/\\aanodecurve/\\ncline{<->}/g'   $x >$x.neu
+#sed -e 's/\\anodecurve/\\ncline{<->}/g'   $x >$x.neu
+#sed -e 's/\\nodeconnect\[t\]/\\ncline/g'   $x >$x.neu
+#sed -e 's/\\hspaceThis/\\hphantom/g'   $x >$x.neu
+#sed -e 's/\\mod,/\\textsc{mod},/g'   $x >$x.neu
+end
+
+
+#foreach x (*.tex)
+#echo $x
+#sed -e 's/subind}{Scrambling/subind}{Scrambling@\{\\it Scrambling\\\/\}/g' $x >$x.neu
+#end
+
+foreach x (*.tex)
+printf "."
+mv -f $x $x.old
+mv $x.neu $x
+end
+
+printf "\n"
+

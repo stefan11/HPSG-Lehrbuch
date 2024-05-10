@@ -1,0 +1,518 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: hpsg-lokalitaet.tex,v $
+%%  $Revision: 1.17 $
+%%      $Date: 2008/09/30 09:14:41 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Lokalität}
+\label{chap-lokalitaet}
+\is{Lokalität|(}
+
+
+In diesem kurzen Kapitel wird die Frage der Lokalität von Selektion erörtert.
+
+\section{Einschränkung der selegierbaren Merkmale}
+\label{sec-synsem}
+
+Mit der aktuellen Merkmalsgeometrie in (\mex{1}) hat ein Kopf Zugriff auf die phonologische Form und 
+die interne Struktur von selegierten Elementen, da Köpfe ganze Zeichen selegieren.
+\ea
+\ms{ phon & list~of~phoneme strings\\
+     loc  & \ms[loc]{  cat  & \ms[cat]{ head   & head \\
+                                        subcat & list of signs\\
+                                      } \\
+                       cont & cont\\
+                    }\\
+     nonloc & \ms[nonloc]{
+              que & \type{list~of~npros} \\
+              rel & \type{list~of~indices} \\
+              slash & \type{list~of~local~structures} \\ %\\
+              %extra & \ms[list~of~local~structures]{} \\
+              }\\
+     head-dtr & sign\\
+     non-head-dtrs & list~of~signs\\ 
+}
+\z
+Man könnte \zb einen Kopf spezifizieren, der ein Argument mit dem \textsc{phon}"=Wert {\em dem Mann\/} selegiert. Genauso ist es möglich,
+eine Nominalphrase zu selegieren, die einen Relativsatz enthält, weil man im
+bisherigen Setup auch auf Tochterkonstituenten zugreifen kann.
+
+Da man zwischen den Ebenen Phonologie, Syntax/""Semantik und Konstituentenstruktur trennen will
+und da solcherart Selektion nicht möglich sein soll \citep[\page143--144]{ps}, gruppiert man die Merkmale so,
+daß genau die Merkmale, die für Selektion zugänglich sein sollen,
+unter einem gemeinsamen Pfad repräsentiert sind \citep[\page23]{ps2}.
+Sowohl syntaktische als auch semantische Information kann selegiert werden, weshalb diese
+Information als Wert des Merkmals \textsc{syntax-semantics} (\textsc{synsem}) zusammengefaßt wird. (\mex{1})
+zeigt die neue Datenstruktur.
+Nur der in (\mex{1}) markierte Bereich soll selegierbar sein. Damit ist der direkte
+Zugriff auf Töchter oder \textsc{phon}"=Werte ausgeschlossen. Die Elemente von \subcat{}"=Listen
+und der Wert des \textsc{mod}"=Merkmals sind nicht mehr wie bisher vom Typ \type{sign}, sondern vom Typ
+\type{synsem}.
+%\begin{figure}[htbp]
+\ea
+\ms{ phon & list~of~phoneme strings\\
+     syntax-semantics & \highlight{\ms[synsem]{
+     loc  & \ms[loc]{  cat  & \ms[cat]{ head   & head \\
+                                        subcat & list of synsems\\
+                                      } \\
+                       cont & cont\\
+                    }\\
+     nonloc & \ms[nonloc]{
+              que & \type{list~of~npros} \\
+              rel & \type{list~of~indices} \\
+              slash & \type{list~of~local~structures} \\ %\\
+              %extra & \ms[list~of~local~structures]{} \\
+              }\\
+     }} \\
+     head-dtr & sign\\
+     non-head-dtrs & list~of~signs\\ 
+}
+\z
+%\vspace{-\baselineskip}\end{figure}
+%
+
+\noindent
+Die Schemata müssen entsprechend angepaßt werden. Das neue Kopf"=Argument"=Schema\is{Schema!Kopf"=Argument"=}
+hat folgende Form:
+\begin{schema}[Kopf-Argument-Schema]
+\label{schema-head-arg}
+\type{head"=argument"=phrase}\istype{head"=argument"=phrase} \impl\\
+\ms{
+      synsem & \onems{ loc$|$cat$|$subcat \ibox{1} $\oplus$ \ibox{3}\\
+                     }\\
+      head-dtr & \onems{ synsem$|$loc$|$cat$|$subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3} \\
+                       }\\
+      non-head-dtrs & \sliste{ \onems{ synsem \ibox{2}  \\ } }
+}
+\end{schema}
+Statt wie in der Version auf Seite~\pageref{schema-bin-prel2} ein Element
+der \subcatl vollständig mit der Nicht"=Kopf"|tochter zu identifizieren, wird
+das Element aus der \subcatl nur mit dem \synsemw der Nicht"=Kopf"|tochter identifiziert.
+Die hier direkt in die Merkmalsgeometrie integrierte Annahme der Lokalität der Selektion
+wird im Abschnitt~\ref{disc-lokalitaet} noch kritisch beleuchtet.
+
+
+\section{Lokalität und Idiome}
+\label{disc-lokalitaet}
+
+\is{Idiom|(}%
+Im Abschnitt~\ref{sec-synsem} habe ich versucht, deutlich zu machen, daß Selektion im allgemeinen
+lokal ist, daß also nicht die interne Struktur abhängiger Elemente selegiert
+wird, sondern nur deren unmittelbare Eigenschaften. Genauso soll die Selektion phonologischer
+Information ausgeschlossen sein. Leider liegen die Dinge nicht ganz so einfach:
+In der Phraseologieforschung ist man sich inzwischen einig, daß idiomatische Ausdrücke wie
+\emph{den Garaus machen} nicht einfach als feste, untrennbare Ausdrücke ins Lexikon geschrieben werden
+können \citep*{NSW94a,Burger98a}. In der GB"=Theorie geht man mitunter davon aus, daß \emph{den Garaus mach}- oder
+auch \emph{kick the bucket} (`ins Gras beißen' = sterben) ein einziges Wort (\vnull) ist.\footnote{
+  Siehe \zb \citew[\page 609--610]{Abraham2005a} für einen entsprechenden Vorschlag.%
+}
+In solchen Analysen entspricht \emph{den Garaus mach}- einem Verb, das ein Dativobjekt und ein Subjekt verlangt,
+und \emph{kick the bucket} entspricht dem intransitiven Verb \emph{die}, das nur ein Subjekt
+selegiert. Der Grund für die Annahme, daß Idiome \vnull"=Status haben, ist, daß sie manchmal
+Umstellungen, Passivierungen oder andere syntaktische Umformungen nicht ohne einen Verlust der
+idiomatischen Lesart erlauben. So hat zum Beispiel (\mex{1}b) im Gegensatz zu (\mex{1}) keine
+idiomatische Lesart mehr.
+\eal
+\ex Er goß noch mehr Öl ins Feuer.
+\ex Ins Feuer goß er noch mehr Öl.
+\zl
+Allerdings können selbst intransparente idiomatische Ausdrücke mitunter in vielen verschiedenen syntaktischen Konfigurationen auf"|treten.
+So kann \emph{Garaus machen} \zb passiviert bzw.\ in passivähnlichen Konstruktionen
+verwendet werden (\mex{1}), und Teile des Idioms können umgestellt werden (\mex{2}).
+\ea
+in Heidelberg wird "`parasitären Elementen"' unter den Professoren \emph{der Garaus gemacht}\footnote{
+Mannheimer Morgen, 28.06.1999, Sport; Schrauben allein genügen nicht.%%M99/906.41526 Mannheimer
+%%Morgen, 28.06.1999, Sport; Schrauben allein genügen nicht
+% doch wirklich: Ressort Sport
+}
+\z
+
+\eal
+%
+% Das zeigt eher, daß Garaus wieder eine Bedeutung hat.
+%
+%% \ex Selbst bei den Luftangriffen des Zweiten Weltkrieges, von denen heute noch Bombensplitter zeugen, die in zahlreichen Stämmen stecken, blieben sie standhaft. Doch jetzt müssen die Bäume im Käfertaler Wald gefällt werden. Den Garaus bereitet ihnen eine unerklärliche Abwehrschwäche -- sie können sich gegen den Befall von Misteln nicht mehr wehren und sterben ab.\footnote{
+%% M01/112.93601 Mannheimer Morgen, 19.12.2001, Lokales; Der Käfertaler Wald ist nach wie vor ein Sorgenkind.%
+%% }
+\ex In Amerika sagte man der Kamera nach, die größte Kleinbildkamera der Welt zu sein. Sie war laut Schleiffer am Ende der Sargnagel der Mühlheimer Kameraproduktion. 
+\emph{Den Garaus machte} ihr die Diskussion um die Standardisierung des 16-Millimeter-Filmformats, an dessen Ende die DIN-Norm 19022 (Patrone mit Spule für 16-Millimeter-Film) stand, die im März 1963 zur Norm wurde.\footnote{
+Frankfurter Rundschau, 28.06.1997, S.\,2. %, Ressort: LOKAL-RUNDSCHAU; Fotoapparatesammler Karl-Christian Schelzke regt Ausstellungen an
+}
+\ex
+In der zweiten Hälfte des letzten Jahrhunderts gehörten Bordelle zum Stadtbild. 
+\emph{Den Garaus machten} ihnen hier vor fast genau 100 Jahren die «Zürcherischen Vereine zur Hebung der Sittlichkeit».\footnote{
+St. Galler Tagblatt, 25.02.1998 ; Rotlichtlokal ohne Missbrauch?
+}
+%\ex
+%% Die grösste Veränderung wurde bei den Meeresvögeln festgestellt. Bei Albatrossen und Sturmvögeln sind 55 Arten vom Aussterben bedroht, 1994 waren es noch 32 gewesen. Den Garaus macht den Seglern - und nicht nur ihnen - die Langleinenfischerei.
+%% St. Galler Tagblatt, 15.11.2000 ; 12 Prozent aller Vögel sind weltweit bedroht
+
+%% 16 Albatrosarten sind gefährdet, zuvor waren es noch drei Arten gewesen. Damit sind weltweit nur noch fünf Albatrosarten nicht akut gefährdet. Den Garaus macht den Seglern - und nicht nur ihnen - die Langleinenfischerei.
+%% Vorarlberger Nachrichten, 18.11.2000, S. F12; Zwölf Prozent Vogelarten weltweit bedroht
+
+%% Besonders gefährdet sind Albatrosse (hier im Bild). 16 Albatrosarten stehen vor dem Aussterben. Den Garaus macht den Seglern die Langleinenfischerei.
+%% Salzburger Nachrichten, 15.11.2000, IN GEFAHR SCHWEBEN
+
+
+%% In den "`hutongs"' standen Hofhäuser, beschattet von mächtigen Bäumen. Die Gassen und Hofhäuser überstanden die Kaiserzeit, sie überlebten Bauernrebellen und Invasoren, sie trotzten kommunistischen Bürokraten und Roten Garden. Den Garaus machten ihnen erst die Grundstückspekulanten der Neunzigerjahre.
+%% Züricher Tagesanzeiger, 26.11.1999, S. 5, Ressort: Ausland; Wenn Behörden unter die Spekulanten gehen
+
+% braucht man wegen der diskontinuierlichen Realisierung
+\ex Nur noch rund 19 Landwirte haben sich der Viehzucht verschrieben. Neun davon züchten Rinder, zehn davon Schweine. 
+\emph{Den Garaus} haben den Viehzüchtern vor allem Anrainerproteste wegen Geruchs- und Lärmbelästigung sowie Probleme mit Auflagen -- etwa bei der Kanalisation -- \emph{gemacht}.\footnote{
+Die Presse, 20.03.1997, Bald gibt's kein Wiener Rindvieh mehr. %Bauern lassen sich nicht.
+}
+
+%% "`Alles harte Arbeit. Aber was wir gegen Austria geboten haben, das war schon am höchsten Level."' Den Garaus machten der Austria vor allem Gilewicz und Jezek.
+%% Die Presse, 23.07.1999, S. ; "`Unser Spiel war schon am höchsten Level!"'
+
+%% In die Richtung geht ja auch die Vermutung von Alex, bloß jibbet ja auch Leser, die nur an "ihrem" Verlag interessiert sind. Und die nervt`s halt.
+%% Mein Versuch bei Panini-DC reinzuschnuppern (an Ehapa hat mich damals allein schon genervt, daß die munter weiter veröffentlichen konnten - die Qualität mal dahin gestellt -, während Williams den Betrieb einstellen mußte - war vielleicht zu viel Qualität gewesen) war jedenfalls kurz (je fünf Hefte), aber nicht umbedingt kurzweilig. Endgültig den Garaus hat mir dann aber Frank Miller gemacht - die Zeichnungen von Der Dunkle Ritter hätte ich mir mal besser vor dem Kauf ansehen sollen - hätte allerdings nach DD:Visionen nicht im Traum daran gedacht, daß der Mann zu sowas in der Lage ist...
+%% http://www.paninicomics.de/forum/thread.php?threadid=32&sid=0a3f220956369cd5b03c3fe9d558fc4a 17.12.2005
+
+\zl
+Man könnte denken, daß in (\mex{0}a,b) das Idiom als Ganzes umgestellt wurde, aber wenn man sich
+erinnert, wie in den Kapiteln~\ref{chap-Konstituentenreihenfolge} und~\ref{chap-nla} deutsche Sätze
+analysiert wurden, wird klar, daß die Abfolge \emph{den Garaus machten} dadurch zustande kommt, daß
+\emph{machten} in Verberststellung steht und daß \emph{den Garaus} vor das Verb gestellt wurde. Das diese
+Analyse auch für die Spezialfälle der Idiome sinnvoll ist, zeigt der Satz in (\mex{0}c), in dem
+\emph{den Garaus} im Vorfeld steht, ohne daß \emph{machen} in Erststellung steht.
+
+Das Idiom \emph{den Garaus machen} ist also eindeutig syntaktisch aktiv und dieser Variabilität muß
+Rechnung getragen werden. Eine Analyse als \vnull ist deshalb nicht angebracht. Andererseits
+sind gewisse Bestandteile und Eigenschaften des Idioms fest. So kann man \zb den definiten Artikel nicht durch einen
+indefiniten Artikel ersetzen:
+\ea[*]{
+weil er ihm einen Garaus gemacht hat
+}
+\z
+\citet{Erbach92a} und \citet{KE94a} entwickeln eine Analyse, die die Selektion von Töchtern zuläßt und können
+somit einen Lexikoneintrag für \emph{machen} formulieren, der eine NP mit der Kopf"|tochter \emph{Garaus}
+und eine Nicht"=Kopf"|tochter für den definiten Artikel selegiert. Für das Idiom \emph{jemandem die Leviten
+lesen} nehmen Krenn und Erbach an, daß die phonologische Form von \emph{die Leviten} direkt selegiert
+wird.
+
+Eine Alternative besteht darin, die Merkmalsgemotrie, die direkte Selektion von Töchtern und \phon
+ausschließt, beizubehalten und relationale Beschränkungen zu formulieren, die etwas darüber
+aussagen, wie bestimmte Töchter innerhalb eines bestimmten strukturellen Kontextes aussehen
+müssen. Diesen Weg geht \zb \citet{Sailer2000a}. Hier stellt sich die Frage, ob man solche
+komplexen Mechanismen zur Umgehung der selbstauferlegten Lokalitätsbeschränkung
+in der Grammatik haben will oder ob es nicht ehrlicher wäre, die direkte Selektion gleich zuzulassen.
+Der Vorteil der Beibehaltung der in diesem Kapitel eingeführten Merkmalsgeometrie ist, daß
+man die Verhältnisse im nichtidiomatischen Bereich korrekt repräsentiert und die aufwendigen
+Mechanismen nur in ohnehin idiosynkratischen Bereichen der Grammatik verwendet.%
+
+
+\section{Lokalität in der Repräsentation von Phrasen}
+
+\mbox{}\citet*[475--489]{SWB2003a} und \citet{Sag2007a,Sag2012a} im Rahmen einer HPSG"=Variante, der
+Sign"=Based\is{Sign"=Based Construction Grammar (SB-CxG)|(}
+Construction Grammar (SB-CxG), schlagen eine andere Merkmalsgeometrie vor, um noch
+stärkere
+%\NOTE{JB: versteht den ganzen Abschnitt mit SWB nicht. Sollte jetzt besser sein.}
+Lokalitätsrestriktionen für die Formulierung von Dominanzschemata zu haben. Zusätzlich zu den Tochterwerten
+verwenden sie ein \textsc{mother}"=Merkmal\isfeat{mother}. Das Kopf"=Argument"=Schema mit der hier
+verwendeten Repräsentation für Valenzinformation und Töchter hätte die Form in (\mex{1}):
+\ea
+Kopf"=Argument"=Schema nach \citet*[481]{SWB2003a}:\\
+\type{head-argument-construction}\istype{head"=argument"=construction} \impl\\
+\ms{
+mother$|$syn$|$subcat   & \ibox{1}\\
+head-dtr$|$syn$|$subcat & \ibox{1} $\oplus$ \ibox{2}\\
+non-head-dtrs & \liste{ \ibox{2} } \\
+}
+\z
+Über Valenzlisten werden nicht mehr \type{synsem}"=Objekte, sondern Zeichen selegiert. Eine an die hier verwendete
+Darstellungsform angepaßte Beispielstruktur für die Analyse der Phrase \emph{aß eine Pizza} zeigt
+(\mex{1}).
+% \label{feat-geom-swb} sollte eigentlich hier stehen, aber Aufteilung schlecht
+Der Unterschied zu der bisher in diesem Buch entwickelten Grammatik ist, 
+daß Zeichen bei Sag, Wasow und Bender keine Töchter haben, weshalb
+diese auch nicht selegiert werden können. Das \synsemm wird dadurch überflüssig. (Die Selektion von
+\phon ist in \citew*{SWB2003a} erlaubt.) Die Information
+über den Tochterstatus ist nur noch ganz außen in der Struktur repräsentiert. Das unter
+\textsc{mother} repräsentierte Zeichen ist vom Typ \type{phrase}, enthält aber keine Information
+über die Töchter. 
+\ea
+\label{feat-geom-swb}
+\ms[head-argument-construction]{
+mother & \ms[phrase]{
+         phon  & \phonliste{ aß, eine Pizza }\\
+         syn   & \ms{ head   & verb\\
+                      subcat & \sliste{ NP\ind{1} }\\
+                    }\\
+         sem   & \ibox{2}\\
+         }\\
+head-dtr & \ms[lex-sign]{
+           syn & \ms{ head   & verb\\
+                      subcat & \sliste{ NP\ind{1}, \ibox{4} NP\ind{3} }\\
+                    }\\
+           sem   & \ibox{2} \ms[essen]{
+                   agens & \ibox{1}\\
+                   thema & \ibox{3}\\ 
+                   }\\
+           }\\
+non-head-dtrs & \sliste{ \ibox{4} }\\
+}
+\z
+Das in (\mex{0}) beschriebene Objekt ist natürlich von einem anderen Typ
+als die phrasalen oder lexikalischen Zeichen, die als Töchter vorkommen können. Man braucht daher
+noch die folgende Erweiterung, damit die Grammatik funktioniert:
+\ea
+\label{meta-konstruktionsstatemnet}
+$\Phi$ ist eine wohlgeformte Struktur in bezug auf eine Grammatik $G$ gdw.\
+\begin{enumerate}
+\item es eine Konstruktion $K$ in $G$ gibt und
+\item es eine Merkmalstruktur $I$ gibt, die eine Instanz von $K$ ist, so daß
+      $\Phi$ der Wert des \textsc{mother}"=Merkmals von $I$ ist.
+\end{enumerate}
+\z
+Zum Vergleich sei hier die Struktur angegeben, die in diesem Buch angenommen wird:
+\ea
+\onems[head-argument-phrase]{
+phon   \phonliste{ aß, eine Pizza }\\
+synsem$|$loc  \ms{ cat   & \ms{ head   & verb\\
+                            subcat & \sliste{ NP\ind{1} }\\
+                          }\\
+                    cont  & \ibox{2}\\
+                  }\\
+head-dtr  \ms[lex-sign]{
+           synsem$|$loc & \ms{ cat & \ms{ head   & verb\\
+                                          subcat & \sliste{ NP\ind{1}, \ibox{4} NP\ind{3} }\\
+                                        }\\
+                               cont & \ibox{2} \ms[essen]{
+                                      agens & \ibox{1}\\
+                                      thema & \ibox{3}\\ 
+                                      }\\
+                             }\\
+           }\\
+non-head-dtrs  \sliste{ [ \textsc{synsem} \ibox{4} ] }\\
+}
+\z
+In (\mex{0}) gehören die Merkmale \textsc{head-dtr} und \textsc{non-head-dtrs} zu den Merkmalen, die
+\zb Phrasen vom Typ \type{head"=argument"=phrase} haben. In (\ref{feat-geom-swb}) entsprechen
+Phrasen dagegen dem, was unter \textsc{mother} repräsentiert ist, haben also keine im Zeichen selbst
+repräsentierten Töchter. Mit der Merkmalsgeometrie in (\mex{0}) ist es prinzipiell möglich,
+Beschränkungen für die Töchter des Objekts in der \textsc{non-head-dtrs}"=Liste zu formulieren, was bei
+der Annahme der Merkmalsgeometrie in (\ref{feat-geom-swb}) zusammen mit der Beschränkung in
+(\ref{meta-konstruktionsstatemnet}) ausgeschlossen ist. 
+
+Es gibt mehrere Argumente gegen diese Merkmalsgeometrie: Der erste Grund dafür, sie abzulehnen, ist ein empirischer: Die
+Lokalitätsbeschränkung ist zu stark, da man bei der Beschreibung von bestimmten, phrasal festen
+Idiomen genau solche Bezugnahmen auf Töchter von Töchtern braucht. \citew{RS2009a} diskutieren die folgenden Idiome als
+Beispiel:
+\eal
+\ex nicht wissen, wo X-Dat der Kopf steht
+\ex\label{mich-tritt-ein-Pferd}
+glauben, X-Akk tritt ein Pferd
+\ex aussehen, als hätten X-Dat die Hühner das Brot weggefressen
+\ex
+\gll look as if butter wouldn't melt [in X's mouth]\\
+     aussehen als ob Butter würde.nicht schmelzen \hphantom{[}in Xs Mund\\
+\glt `absolut unschuldig aussehen'
+\zl
+In Sätzen mit den Idiomen in (\mex{0}a--c) muss die X"=Konstituente ein Pronomen sein, das sich auf
+das Subjekt des Matrixsatzes bezieht. Wenn das nicht der Fall ist, werden die Sätze ungrammatisch
+oder verlieren ihre idiomatische Bedeutung.
+\ea
+Ich glaube, mich/\#dich tritt ein Pferd.
+\z
+Um diese Koreferenz zu erzwingen, muss man in einer Beschränkung gleichzeitig auf das Subjekt von
+\emph{glauben} und das Objekt von \emph{treten} zugreifen können. In Sb-CxG besteht die Möglichkeit
+auf das Subjekt zuzugreifen, da die entsprechende Information auch an Maximalprojektionen zugänglich
+ist (der Wert eines speziellen Merkmals (\textsc{xarg}\isfeat{xarg}) ist mit dem Subjekt eines Kopfes identisch). In
+(\mex{-1}a--c) handelt es sich jedoch um Akkusativ- und Dativobjekte. Man könnte statt nur
+Information über ein Argument zugänglich zu machen, die gesamte Argumentstruktur an der
+Maximalprojektion repräsentieren. Damit ist die Lokalität der Selektion aber ausgehebelt, denn wenn
+alle Köpfe ihre Argumentstruktur projizieren, kann man, indem man die Elemente in der
+Argumentstruktur anschaut, Eigenschaften von Argumenten von Argumenten bestimmen. So enthält \zb die
+Argumentstruktur von \emph{wissen} in (\mex{1}) eine Beschreibung des \emph{dass}"=Satzes.
+\ea
+Peter weiß, dass Klaus kommt.
+\z
+Da diese Beschreibung die Argumentstruktur von \emph{dass} enthält, kann man auf das Argument von
+\emph{dass} zugreifen. \emph{wissen} hat also Zugriff auf \emph{Klaus kommt}. Damit hat aber
+\emph{wissen} auch Zugriff auf die Argumentstruktur von \emph{kommt}, weshalb \emph{Klaus} für
+\emph{wissen} zugänglich ist. Das sollte aber gerade durch die restriktivere Merkmalsgeometrie
+ausgeschlossen werden. Richter und Sailer weisen darauf hin, dass neben den Argumenten auch Adjunkte
+zugänglich sein müssen, damit man englische Idiome wie (\mex{-2}d) erfassen kann. In (\mex{-2}d)
+muss die Koreferenz in einem Adjunkt hergestellt werden.
+
+\citet[\page 313]{RS2009a} nehmen für  \emph{X-Akk tritt ein Pferd} in (\ref{mich-tritt-ein-Pferd})
+eine Struktur an, die unter anderem die Beschränkungen in (\mex{1}) enthält:
+\eanoraggedright
+\oneline{%
+\onems[phrase]{
+synsem$|$loc \ms{ cat$|$listeme & very-surprised\\
+                  cont$|$main   & \relation{surprised}(x\ind{2})\\
+                }\\
+dtrs \onems{ filler-dtr  \ms[word]{ synsem$|$loc & \ibox{1} \\
+                                  }\\
+          h-dtr  \onems{ lf$|$exc  `\textrm{a horse kicks x\ind{2}}'\\
+                             (dtrs$|$h-dtr)$^+$ \onems[word]{
+                                                     synsem$|$loc$|$cat \ms{ head    & \ms{ tense &
+                                                         pres\\ }\\
+                                                                             listeme & treten\\
+                                                                           }\\
+                                                     arg-st \liste{ NP[listeme \type{pferd}, def $-$, \type{sg}],\\
+                                                       \ms{ loc \ibox{1} \onems{ cat$|$head$|$case \type{acc}\\
+                                                                                 cont \ms[ppro]{
+                                                                                   index & \ibox{2}\\
+                                                                                 }\\
+                                                          } }}\\
+                                                     }\\
+                             }\\                              
+          }\\
+}}
+\z
+Die Merkmalsgeometrie weicht etwas von der in diesem Buch verwendeten ab, aber das
+soll hier nicht interessieren. Wichtig ist, dass der Bedeutungsbeitrag der gesamten
+Phrase \relation{surprised}(x\ind{2}) ist. Über den internen Aufbau der Phrase wird Folgendes
+gesagt: Sie besteht aus einer Füller"=Tochter (einem extrahierten Element) und aus einer
+Kopf"|tochter, die dem Satz entspricht, aus dem etwas extrahiert wurde. Die Kopf"|tochter bedeutet
+`\textrm{a horse kicks x\ind{2}}' und hat irgendwo intern einen Kopf, in dessen Argumentstrukturliste eine definite
+NP im Singular mit dem Wort \emph{Pferd} als Kopf vorkommt. Das zweite Element in der
+Argumentstruktur ist eine pronominale Nominalphrase im Akkusativ, deren \localw mit dem des Füllers
+identisch ist \iboxb{1}. Die Gesamtbedeutung des Teilsatzes ist \relation{surprised}(x\ind{2}),
+wobei \ibox{2} mit dem referentiellen Index des Pronomens identisch ist. Zusätzlich zu den in
+(\mex{0}) aufgeführten Beschränkungen gibt es Beschränkungen, die sicherstellen, dass dieser
+Teilsatz mit der entsprechenden Form von \emph{glauben} bzw.\ \emph{denken} vorkommt. Die genauen
+Details sind hier nicht so wichtig. Wichtig ist lediglich, dass man Beschränkungen über komplexe
+syntaktische Gebilde spezifizieren kann, \dash, dass man sich auf Töchter von Töchtern beziehen
+kann. Das ist mit der klassischen HPSG"=Merkmalsgeometrie möglich, mit der Merkmalsgeometrie der
+SB"=CxG jedoch nicht. 
+
+
+Von diesen empirischen Problemen abgesehen gibt es mit (\ref{meta-konstruktionsstatemnet}) noch ein konzeptuelles Problem:
+(\ref{meta-konstruktionsstatemnet}) ist nicht Bestandteil des Formalismus der getypten Merkmalstrukturen, sondern eine
+Meta"=Aussage. Somit lassen sich Grammatiken, die (\ref{meta-konstruktionsstatemnet}) verwenden, 
+nicht mit dem normalen Formalismus beschreiben. Die Formalisierung von \citet{Richter2004a-u} lässt sich
+nicht direkt auf SB"=CxG übertragen, weshalb die formalen Grundlagen für SB"=CxG erst noch
+ausgearbeitet werden müssen.
+Auch ist das Problem, das (\ref{meta-konstruktionsstatemnet}) lösen soll, nicht gelöst, denn
+das eigentliche Problem ist nur auf eine andere Ebene verlagert, da man nun eine Theorie
+darüber braucht, was an Meta"=Aussagen zulässig ist, und was nicht. So könnte ein Grammatiker zu (\ref{meta-konstruktionsstatemnet})
+eine weitere Beschränkung hinzufügen, die besagt, dass $\Phi$ nur dann eine wohlgeformte Struktur
+ist, wenn für die Töchter einer entsprechenden Konstruktion K gilt, dass sie der \textsc{mother}"=Wert
+einer Konstruktion K$'$ sind. Über die Konstruktion K$'$ oder einzelne Werte innerhalb der entsprechenden
+Merkmalbeschreibungen könnte man innerhalb der Meta"=Aussage ebenfalls Beschränkungen formulieren.
+Auf diese Weise hat man die Lokalität wieder aufgehoben, da man auf Töchter von Töchtern Bezug nehmen kann.
+Durch (\ref{meta-konstruktionsstatemnet}) ist also das theoretische Inventar vergrößert worden,
+ohne dass dadurch irgendetwas gewonnen wäre.
+
+
+Frank Richter\aimention{Frank Richter} (p.\,M.\,2006) hat mich darauf hingewiesen, dass man auch mit
+der neuen Merkmalsgeometrie einfach auf Töchter zugreifen kann, wenn man die gesamte Konstruktion
+zum Wert eines Merkmals innerhalb von \textsc{mother} macht:
+
+\ea
+\ibox{1} \ms[head-complement-construction~]{
+mother & \ms[phrase]{
+         structure & \ibox{1} \\
+         }\\
+head-dtr & \ldots \\
+dtrs & \ldots \\
+}
+\z
+Durch die Spezifikation des Zyklus\is{Zyklus!in Merkmalstruktur} in (\mex{0}) ist die gesamte Beschreibung selbst innerhalb des
+\textsc{mother}"=Wertes enthalten. Insbesondere gibt es unter dem Pfad \textsc{mother$|$""struc\-ture$|$""head-dtr} Information über die Kopf"|tochter, was durch die neue
+Merkmalsgeometrie ja ausgeschlossen werden sollte. Ist die Kopf"|tochter phrasal, so kann man den Pfad
+entsprechend erweitern, \zb auf  \textsc{mother$|$""struc\-ture$|$""head-dtr$|$""struc\-ture$|$""head-dtr}.
+
+%% Sag (p.\,M., 2006) schließt Zyklen\is{Zyklus!in Merkmalstruktur|(} per Definition aus (siehe auch \citew[\page
+%% 37]{ps}). Damit ist aber auch eine gegenseitige Selektion von Determinator und Nomen, wie sie von
+\citet[\page 37]{ps} schließen Zyklen\is{Zyklus!in Merkmalstruktur|(} per Definition aus. Würde man annehmen, dass
+Zyklen wie der in (\mex{0}) verboten sind, wäre auch eine gegenseitige Selektion von Determinator und Nomen, wie sie von
+\citet[Abschnitt~1.8]{ps2} vorgeschlagen wurde, % (siehe auch Abschnitt~\ref{sec-spec-kopf}),
+ausgeschlossen. Bei der Kombination eines Possessivpronomens mit einem Nomen entsteht eine Struktur, die durch (\mex{1})
+beschrieben wird:
+\ea
+\ms{
+phon & \phonliste{ seine, Freundin }\\
+head-dtr & \ms{ synsem \ibox{1} loc$|$cat$|$subcat \liste{ \ibox{2} } }\\
+non-head-dtrs & \liste{ [ synsem \ibox{2} loc$|$cat$|$head$|$spec \ibox{1} ] } \\
+}
+\z
+Die Nicht"=Kopf"|tochter ist in der Valenzliste des Nomens enthalten, und die Kopf"|tochter wird
+über \textsc{spec} vom Possessivum selegiert. Folgt man dem Pfad
+\textsc{non-head-dtrs$|$""hd$|$""synsem$|$""loc$|$""cat$|$""head$|$""spec$|$""loc$|$""cat$|$""subcat$|$""hd}\footnote{
+  \textsc{hd} steht dabei für den Pfad zum ersten Element einer Liste.%
+}, so gelangt man wieder zu \iboxt{2}, \dash, es liegt ein Zyklus vor, da \iboxt{2} auch schon am
+Beginn des genannten Pfades nämlich als Wert von \textsc{non-head-dtrs$|$""hd$|$""synsem} auf"|tritt.
+
+Auch die Analyse von Idiomen, die von \citet{SS2003a}
+diskutiert wird, wäre dann nicht mehr ohne weiteres möglich. Man könnte statt des einfachen
+Spezifikator"=Prinzips, das Strukturen wie (\mex{0}) erzeugt, ein komplizierteres formulieren, das
+nur relevante Merkmale teilt und nicht die gesamte Struktur. So würden keine Zyklen entstehen, aber
+die Analyse wäre komplexer. 
+
+Ein weiteres Beispiel für die Verwendung zyklischer Strukturen ist die Verbspur in
+(\ref{le-verbspur}) auf Seite~\pageref{le-verbspur}. Auch sie ließe sich umformulieren, doch wäre
+die entstehende Analyse komplizierter und würde nicht direkt das ausdrücken, was man ausdrücken will.%
+
+% Das machen dann aber die Konstruktionen
+%\citet{Meurers2001a} verwendet zyklische Strukturen im Zusammenhang mit der Formalisierung von
+%Lexikonregeln, und a
+In Arbeiten zur Informationsstruktur\is{Informationsstruktur} (\citealp[\page 56]{EV94a}), zur
+Formalisierung von Lexikonregeln \citep[\page 176]{Meurers2001a} und zur
+sogenannten Ezafe"=Konstruktion\is{Ezafe} im Persischen\il{Persisch} \citep[\page 638]{Samvelian2007a} werden
+ebenfalls zyklische Strukturen verwendet.
+\is{Zyklus!in Merkmalstruktur|)}
+
+%% Felix Bildhauer (p.\,M.) hat die Analyse mit dem \textsc{mother}"=Merkmal versuchsweise in einer
+%% computerverarbeitbaren Grammatik implementiert. Da der Parser des Verarbeitungssystems nicht auf
+%% eine Meta"=Beschränkung wie (\ref{meta-konstruktionsstatemnet}) vorbereitet ist, hat er ein Schema
+%% der folgenden Art in die Grammatik aufgenommen:
+%% \ea
+%% \ibox{1} \ms{
+%% non-head-dtrs & \liste{ [ \textsc{mother} \ibox{1} ]}\\
+%% }
+%% \z
+
+
+Außerdem hindert das \textsc{mother}"=Merkmal einen nicht daran, die Töchter zu Bestandteilen des \textsc{mother}"=Wertes zu machen:
+\ea
+\label{sb-cxg-daughters-in-mother}
+\ms[head-complement-construction~]{
+mother & \ms[phrase]{
+         dtrs & \ibox{1} \\
+         }\\
+head-dtr & \ldots \\
+dtrs & \ibox{1} \\
+}
+\z
+Man müsste also zusätzlich zur neuen Merkmalsgeometrie noch verlangen, dass Töchter nie innerhalb
+von \textsc{mother}"=Werten vorkommen dürfen. Das ist jedoch nur eine Stilvorgabe und solche
+Beschränkungen könnte man -- wenn man sie für empirisch adäquat hielte -- auch bei der
+klassischen HPSG-Merkmalsgeometrie formulieren. Man würde verlangen, dass Konstruktionen und Prinzipien nie auf die
+Töchter von Töchtern Bezug nehmen dürfen.
+
+Wegen der konzeptuellen Probleme mit Meta"=Aussagen und der leichten Umgehbarkeit der Restriktion
+bringt die Neuorganisation der Merkmale keine Vorteile. Da die Grammatik dadurch aber komplizierter
+wird (ein zusätzliches Merkmal, eine Meta"=Bedingung), ist diese Änderung abzulehnen und ich bleibe
+somit bei der von \citet{ps2} eingeführten Merkmalsgeometrie.
+\is{Lokalität|)}\is{Idiom|)}\is{Sign"=Based Construction Grammar (SB-CxG)|)}
+
+
+\section*{Übungsaufgaben}
+
+\begin{enumerate}
+\item  Suchen Sie ein Idiom, das syntaktische Umformungen erlaubt. Erläutern Sie, wie Sie
+bei Ihrer Suche vorgegangen sind.
+
+\item Laden Sie die zu diesem Kapitel gehörende Grammatik von der Grammix"=CD
+(siehe Übung~\ref{uebung-grammix-kapitel4} auf Seite~\pageref{uebung-grammix-kapitel4}).
+Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluß eine Liste von Beispielen.
+Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem Kapitel besprochenen
+Aspekte.
+
+\end{enumerate}
+
+
+\section*{Literaturhinweise}
+
+Eine allgemeinere Diskussion von Lokalität in verschiedenen Grammatiktheorien findet sich in \citew[Abschnitt~11.7]{MuellerGTBuch1}.

@@ -1,0 +1,699 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: 5-hpsg-semantik.tex,v $
+%%  $Revision: 1.22 $
+%%      $Date: 2008/09/30 09:14:41 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Semantik}
+\label{chap-sem}
+
+
+Innerhalb\is{Semantik|(} der HPSG"=Forschung gibt es zwei verschiedene Ansätze
+zur Beschreibung der Bedeutung sprachlicher Ausdrücke. In den ersten
+HPSG"=Arbeiten \citep{ps,ps2,Mueller99a} und auch in einigen Umsetzungen 
+innerhalb der Computerlinguistik wurde die Situationssemantik
+\citep*{BP83a,CMP90,Devlin92}\nocite{BP87a} verwendet.
+Eine Publikation neueren Datums, die ebenfalls Situationssemantik verwendet,
+ist \citew{GSag2000a-u}.
+Einige aktuellere theoretische Arbeiten (\zb \citew{Kiss2001a}) benutzen
+\emph{Minimal Recursion Semantics}\is{Minimal Recursion Semantics@\emph{Minimal Recursion Semantics} (MRS)}
+(MRS) \citep*{CFPS2005a}. MRS ist für computerlinguistische Systeme gut geeignet, da
+Skopusbeziehungen\is{Skopus} unterspezifiziert dargestellt werden können, was eine effizientere
+Verarbeitung der Grammatiken durch Computer ermöglicht.
+
+Im folgenden werde ich Situationssemantik nutzen, da die Theorie und ihre
+Umsetzung in Merkmalstrukturen leichter zu verstehen ist.
+
+\section{Die Situationssemantik}
+
+In der Situationssemantik\is{Situationssemantik} werden Situationen\is{Situation} beschrieben.
+Situationen sind durch Sachverhalte\is{Sachverhalt}, die in ihnen wahr sind, charakterisiert.
+Dinge von einer gewissen zeitlichen Dauer, die zur kausalen Ordnung der
+Welt gehören, die man wahrnehmen kann, auf die man reagieren kann,
+werden als \emph{Individuen}\is{Individuum} bezeichnet (\emph{Karl}, \emph{die Frau}).
+Dazu gehören auch Konzepte (\emph{die Angst}, \emph{das Versprechen}).
+Sachverhalte sind Relationen zwischen solchen Individuen.
+Relationen können verschiedene Stelligkeiten haben:
+\begin{itemize}
+\item nullstellig: \relation{regnen} (\emph{Es regnet.}) 
+\item einstellig: \relation{ sterben} (\emph{Er stirbt.})
+\item zweistellig: \relation{lieben}  (\emph{Er liebt sie.})
+\item dreistellig: \relation{geben}   (\emph{Er gibt ihm den Aufsatz.})
+\item vierstellig: \relation{kaufen}  (\emph{Er kauft den Mantel vom Händler für fünf Euro.})
+\end{itemize}
+Die Bezeichnungen der genannten Relationen entsprechen den Infinitivformen
+der Verben. Für die Repräsentation der Tatsache, daß jemand jemanden liebt,
+ist Flexionsinformation nicht relevant, weshalb man sich für die Bedeutungsrepräsentation
+auf eine beliebige Form des Verbs geeinigt hat. Außerdem wird für die Bedeutungsrepräsentation
+von der konkreten Realisierung im Satz abstrahiert. In der Prädikatenlogik\is{Prädikatenlogik} wird
+\zb dem Satz (\mex{1}a) die Repräsentation (\mex{1}b) zugeordnet.
+\eal
+\ex Peter liebt Maria.
+\ex \relation{lieben}(Peter', Maria')
+\zl
+Dieselbe Bedeutung kann aber auch durch den Passivsatz in (\mex{1}) ausgedrückt werden.
+\ea
+Maria wird von Peter geliebt.
+\z
+
+\noindent
+Um Generalisierungen in bezug auf die Verbindung zwischen Syntax und Semantik (das sogenannte
+\emph{Linking}\is{Linking}) vornehmen zu können, verwendet man zur Kennzeichnung der Argumente\is{Argument}
+in Relationen semantische Rollen\is{semantische Rolle} \citep{Fillmore68,Fillmore77,Kunze91}. Beispiele für
+solche Rollen sind: 
+\textsc{agens}\is{semantische Rolle!Agens}, 
+\textsc{patiens}\is{semantische Rolle!Patiens}, 
+\textsc{experiencer}\is{semantische Rolle!Experiencer}, 
+\textsc{source}\is{semantische Rolle!Source}, 
+\textsc{goal}\is{semantische Rolle!Goal}, 
+\textsc{thema}\is{semantische Rolle!Thema}, 
+\textsc{location}\is{semantische Rolle!Location}, 
+\textsc{trans-obj}\is{semantische Rolle!Trans-Obj}, 
+\textsc{instrument}\is{semantische Rolle!Instrument}, 
+\textsc{means}\is{semantische Rolle!Means} und 
+\textsc{proposition}\is{semantische Rolle!Proposition}.
+Die Zuordnung von Argumenten zu einzelnen Rollen kann von Autor zu Autor stark variieren.
+\citet{Dowty91a} formuliert Kriterien dafür, welche Rolle man für welche Art von Argument
+verwenden sollte. Er schlägt Bezeichnungen wie Proto"=Agens und Proto"=Patiens vor.
+Ich werde im folgenden die etablierten Rollenbezeichnungen verwenden.
+
+%\subsection{Parametrisierte Sachverhalte}
+
+In der Situationssemantik werden Relationen immer in doppelten spitzen Klammern
+geschrieben. Innerhalb der Klammern steht an erster Stelle der Name der Relation, gefolgt
+von Paaren aus Rollenbezeichnungen und Variablen. (\mex{1}) zeigt Beispiele für Relationen, die einem Verb, einem Adjektiv
+und einem Nomen entsprechen:\footnote{
+  In der Situationssemantik gehört noch ein Polaritätsbit zu den semantischen Repräsentationen, das
+  anzeigt, ob ein gewisser Sachverhalt in einer Situation gilt oder nicht.
+  Da das hier aber nicht benötigt wird, lasse ich es im folgenden weg.%
+}
+\ea\is{Verb}\is{Nomen}\is{Adjektiv}
+\begin{tabular}[t]{@{}ll}
+Verb:     & $\ll schlagen, agens:X, patiens:Y\gg$\\
+Adjektiv: & $\ll interessant, thema: X\gg$\\
+Nomen:    & $\ll mann, instance: X\gg$\\
+\end{tabular}
+\z
+Die Variablen in (\mex{0}) werden auch \emph{Parameter}\is{Parameter} genannt. Sachverhalte,
+die solche Variablen enthalten, bezeichnet man als 
+\emph{parametrisierte Sachverhalte}\is{Sachverhalt!parametrisierter ~}
+(\emph{parametrized state of affairs} (\emph{psoa}))\label{page-psoa}\is{psoa}\is{SOA}. Parameter
+können durch Sachverhalte restringiert werden. (\mex{2}) zeigt eine Repräsentation
+für (\mex{1}):
+\ea
+\label{bsp-mann-schlaegt-hund}
+Der Mann schlägt den Hund.
+\z
+\ea
+\label{ex-sachverhalt}
+$\ll schlagen, agens:X, patiens:Y\gg$\\
+$X|\ll mann, instance:X\gg,$\\
+$Y|\ll hund, instance:Y\gg$
+\z
+Der Sachverhalt \emph{schlagen} hat die beiden Parameter X und Y. X
+bezieht sich auf etwas, das eine Instanz von \emph{mann} ist, und Y bezieht
+sich auf etwas, das eine Instanz von \emph{hund} ist.
+
+Die Bedeutungsrepräsentation für den Satz (\mex{1}) ist ganz analog:
+\ea
+Das Buch ist interessant.
+\z
+\ea
+$\ll interessant, thema:X\gg$\\
+$X|\ll buch, instance:X\gg$
+\z
+X ist das Thema der \relation{interessant}"=Relation,
+und X bezieht sich auf ein Buch.
+
+\section{Die Repräsentation parametrisierter Sachverhalte mit Hilfe von Merkmalstrukturen}
+\label{sec-rep-semantik-merkmalstruktur}
+
+Die situationssemantischen Ausdrücke lassen sich sehr leicht durch Merkmalstrukturen
+modellieren: Die Relationsbezeichnung wird zu einem Typ, und alle Rolle"=Variable"=Paare
+werden innerhalb der Merkmalstruktur als Merkmal"=Wert"=Paare aufgeführt. Wir erhalten
+zum Beispiel die beiden folgenden Strukturen:
+\ea
+\ms[schlagen]
+{ 
+ agens & X \\
+ patiens & Y\\
+}
+\z
+
+\ea
+\ms[mann]
+{ 
+ inst & X \\
+}
+\z
+
+
+\section{Repräsentation des \textsc{content}-Wertes}
+
+
+Die semantische Information muß in Lexikoneinträge integriert
+werden. Das geschieht als Wert des Merkmals \textsc{content} (Abkürzung \textsc{cont}\isfeat{cont}).
+Erweitert man die bisherige Beschreibung einfach um dieses Merkmal, so erhält man (\mex{1}):
+\ea
+      \ms{ phon   & list~of~phoneme strings\\
+           head   & head \\
+           subcat & list~of~signs\\
+           cont   & cont\\
+         }\\
+\z
+Es ist aber sinnvoll, noch eine stärkere Gliederung vorzunehmen und zwischen syntaktischer und semantischer
+Information zu trennen. Dazu führt man das Merkmal \textsc{category}\isfeat{cat} (Abkürzung \textsc{cat}) ein. Der Wert
+von \textsc{cat} ist eine Merkmalstruktur mit den Merkmalen \textsc{head} und \textsc{subcat}. (\mex{1})
+zeigt eine entsprechende Beschreibung:
+\ea
+\label{geom-cat-cont}
+      \ms{ phon & list~of~phoneme strings\\
+           cat  & \ms{ head   & head\\
+                            subcat & list~of~signs\\
+                          } \\
+           cont & cont\\
+         }
+\z
+Mit einer solchen Aufteilung der Information wird es möglich, durch eine einfache
+Strukturteilung nur syntaktische Information zu teilen. Zum Beispiel möchte
+man Fälle\is{Koordination|(} symmetrischer\label{page-symmetrische-koordination} Koordination wie in (\mex{1}) so behandeln, daß
+man einfach die \textsc{cat}"=Werte der Konjunkte identifiziert:
+\eal
+\ex {}[der Mann] und [die Frau]
+\ex Er [kennt] und [liebt] diese Schallplatte.
+\ex Er ist [dumm] und [arrogant].
+\zl
+In den jeweiligen Beispielen in (\mex{0}) sind Konjunkte verschiedener Kategorien (N, V, A) und 
+verschiedener Sättigungsgrade (gesättigt,
+zwei offene Argumente, ein offenes Argument) miteinander
+koordiniert worden. Allen Koordinationen ist jedoch gemein, daß die Konjunkte gleiche syntaktische
+Eigenschaften haben. Dies wird durch Identifikation der \textsc{cat}"=Werte der Konjunkte erreicht.
+Der \textsc{cat}"=Wert der gesamten Koordination entspricht den \textsc{cat}"=Werten der Konjunkte:
+Die Verbindung aus \emph{kennt} und \emph{liebt} verhält sich so, wie sich \emph{kennt} und \emph{liebt}
+einzeln verhalten würden.\is{Koordination|)}
+
+
+\section{Nominale Objekte}
+\label{sec-index}
+
+Nominale Objekte führen einen Index (\textsc{ind}) ein. Diesen Index kann man
+sich wie eine Variable vorstellen. Zum semantischen Beitrag nominaler Objekte
+können auch Restriktionen (\textsc{restrictions}) zum eingeführten Index\isfeat{ind}\isfeat{restr} zählen.
+Die Restriktionen schränken die Menge der Objekte ein, auf die man sich mit einem referentiellen
+Index beziehen kann. Mit \relation{mann}(x) bezieht man sich auf ein \emph{x} mit der
+Eigenschaft, Mann zu sein. Mit den beiden Restriktionen \relation{mann}(x) und \relation{klug}(x)
+bezieht man sich auf eine Teilmenge der Männer, nämlich genau auf die, die klug sind.
+Der Wert von \textsc{restrictions} ist eine Liste der jeweiligen Restriktionen.\footnote{
+  Bei \citet[\page26]{ps2} ist der Wert von \textsc{restrictions} eine Menge\is{Menge}.
+  Mengen unterscheiden sich von Listen dadurch, daß nichts über die Reihenfolge 
+  der Elemente ausgesagt wird. Wie in Kapitel~\ref{kap-merkmalstrukturen} bereits angemerkt, ist die
+  Formalisierung von Mengen recht kompliziert, weshalb ich auf die Einführung von Mengen verzichtet habe.%
+}
+(\mex{1}) zeigt den Lexikoneintrag für \emph{Buch}:
+\ea
+\label{le-buch}
+Lexikoneintrag für \textit{Buch\/}:\\
+\ms{ 
+  cat & \ms{ head & noun\\
+             subcat & \sliste{ Det } \\
+           } \\
+  cont &  \ms
+           { ind & \ibox{1} \ms{ per & 3 \\
+                                 num & sg \\
+                                 gen & neu \\
+                               } \\
+             restr & \liste{ \ms[buch]{ inst & \ibox{1} \\ }} \\
+           } \\
+}
+\z
+Zu einem Index gehören auch Merkmale wie Person\isfeat{per},\is{Person} Numerus\isfeat{num} und Genus\isfeat{gen}.\is{Kasus}\is{Genus}\is{Numerus}
+Diese sind für die Bestimmung der Referenz/""Koreferenz wichtig. So kann
+sich \emph{sie} in (\mex{1}) nur auf \emph{Frau}, nicht aber auf \emph{Buch}
+beziehen. \emph{es} dagegen kann nicht auf \emph{Frau} referieren.
+\ea
+Die Frau$_i$ kauft ein Buch$_j$. Sie$_i$ liest es$_j$.
+\z
+Pronomina müssen im allgemeinen mit dem Element, auf das sie sich beziehen, in Person,
+Numerus und Genus übereinstimmen. Die Indizes werden dann entsprechend identifiziert.
+In der HPSG wird das mittels Strukturteilung gemacht. Man spricht auch von Koindizierung\is{Koindizierung}.
+(\mex{1}) zeigt Beispiele für die Koindizierung von Reflexivpronomina\is{Pronomen!Reflexiv-}:
+\eal
+\ex Ich$_i$ sehe mich$_i$.
+\ex Du$_i$ siehst dich$_i$.
+\ex Er$_i$ sieht sich$_i$.
+\ex Wir$_i$ sehen uns$_i$.
+\ex Ihr$_i$ seht euch$_i$.
+\ex Sie$_i$ sehen sich$_i$.
+\zl
+Welche Koindizierungen möglich und welche zwingend sind, wird durch die Bindungstheorie\is{Bindungstheorie}
+geregelt. \citet{PS92a,ps2} haben eine Bindungstheorie im Rahmen der HPSG vorgestellt, die viele Probleme
+nicht hat, die man bekommt, wenn man Bindung in bezug auf Verhältnisse in Bäumen erklärt. Allerdings bleiben
+einige Fragen offen, die soweit ich weiß auch in anderen Theorien noch nicht zufriedenstellend beantwortet
+wurden. Einige der Probleme wurden in \citew[Kapitel~20]{Mueller99a} diskutiert. In diesem Buch werde
+ich auf die Bindungstheorie nicht weiter eingehen. Da es keine zufriedenstellenden Bindungstheorien gibt,
+werde ich Bindungsdaten auch nicht für die Argumentation für bestimmte syntaktische Strukturen verwenden.
+
+Die Struktur in (\mex{1}) zeigt einen Lexikoneintrag für das Pronomen \emph{er}. Das Pronomen hat eine
+leere Valenzliste, da es keine weiteren Konstituenten benötigt, um als vollständige Nominalphrase in Sätzen
+verwendet zu werden.
+\ea
+Lexikoneintrag für \emph{er}:\\
+\ms{ 
+  cat & \ms{ head   & noun\\
+             subcat & \sliste{ } \\
+           } \\
+  cont &  \ms
+           { ind & \ms{ per & 3   \\
+                        num & sg  \\
+                        gen & mas \\
+                      } \\
+             restr & \liste{ } \\
+           } \\
+}
+\z
+Die Liste der Restriktionen ist die leere Liste, da wir, wenn wir einen Satz wie (\mex{1}) äußern, nur
+wissen, daß wir von einem Individuum sprechen, auf das wir uns entweder deiktisch beziehen oder das
+im bisherigen Diskurs mit einem Nomen in der dritten Person Singular maskulin erwähnt wurde.
+\ea
+Er schläft.
+\z
+Wir wissen außerdem noch, daß dieses Individuum schläft, aber diese Information kommt vom Verb, sie
+gehört nicht zu den Relationen, die das Subjekt \emph{er} zur Gesamtbedeutung des Satzes beisteuert.
+
+Im folgenden werden die Abkürzungen in (\mex{1}) verwendet:
+\ea
+\label{abkuerzungen-sem}
+\begin{tabular}[t]{@{}lp{4.8cm}@{\hspace{0mm}}lp{4.2cm}@{}}
+NP$_{[3,sg,fem]}$     & \onems{ cat \ms{ head & \type{noun} \\
+                                         subcat & \liste{} \\
+                                       } \\
+                                cont$|$ind \ms{ per & 3 \\
+                                                num & sg \\
+                                                gen & fem \\
+                                              } \\
+                              }  &
+NP$_{\ibox{1}}$ & \onems{ cat  \ms{ head & \type{noun} \\
+		                  subcat & \liste{} \\
+                                } \\
+                       cont$|$ind \ibox{1}\\
+                     }\\\\
+\is{:}%
+\baro{N}:\label{ex-abkuerzung-nbar} \ibox{1} & \ms{ cat & \ms{ head   & noun \\
+                                     subcat & \sliste{ Det } \\
+                                   } \\
+                          cont & \ibox{1} \\
+                        } \\
+\end{tabular}
+\z
+Tiefer gestellte Werte beziehen sich auf Index"=Merkmale, der Doppelpunkt
+auf den Wert von \cont und \baro{N} entspricht einer Nominalprojektion
+mit dem Bar"=Level~1 aus der \xbart. In der HPSG handelt es sich bei \baro{N}
+um ein nominales Objekt, das in seiner Valenzliste noch einen Determinierer enthält.
+
+
+
+
+
+\section{Repräsentation parametrisierter Sachverhalte mit Merkmalstrukturen}
+
+Den parametrisierten Sachverhalt aus (\ref{ex-sachverhalt}), hier der Übersichtlichkeit
+halber als (\mex{1}) wiederholt, kann man wie in (\mex{2}) mittels Merkmalbeschreibungen beschreiben.
+\ea
+\label{ex-sachverhalt-zwei}
+$\ll schlagen, agens:X, patiens:Y\gg$\\
+$X|\ll mann, instance:X\gg,$\\
+$Y|\ll hund, instance:Y\gg$
+\z
+\ea
+\ms[schlagen]
+{ 
+ agens & \ibox{1} \\
+ patiens & \ibox{2} \\
+}
+\bigskip
+
+\ms{
+ind & \ibox{1} \ms{ per & 3 \\
+                    num & sg \\
+                    gen & mas \\
+                  } \\
+restr & \liste{ \ms[mann]{ 
+                inst & \ibox{1} \\
+                }}\\
+}
+\hspace{1.5cm}
+\ms{
+ind & \ibox{2} \ms{ per & 3 \\
+                    num & sg \\
+                    gen & mas \\
+                  }\\
+restr & \liste{ \ms[hund]{
+                inst & \ibox{2} \\
+                }} \\
+}
+\z
+Dabei steht die \ibox{1} in der oberen Beschreibung und in der linken unteren Beschreibung
+für den gleichen Wert. Entsprechendes gilt für die \ibox{2}. Strukturteilung über mehrere Merkmalbeschreibungen
+hinweg wie in (\mex{0}) ist eigentlich nicht sinnvoll, aber die Teilstrukturen in (\mex{0}) sind 
+nur Ausschnitte aus einer größeren Beschreibung, und innerhalb von größeren Beschreibungen kann man natürlich solche Strukturteilungen
+vornehmen. Welche Gesamtstrukturen lizenziert werden, wird in Kürze gezeigt werden.
+
+\section{Linking}
+\label{sec-linking}
+\is{Linking|(}
+
+Bisher gibt es noch keine Zuordnung der Elemente in der Valenzliste\is{Valenz} zu
+Argumentrollen\is{semantische Rolle} im semantischem Beitrag.
+Eine solche Verbindung wird auch \emph{Linking} genannt.
+(\mex{1}) zeigt, wie einfach das Linking in der HPSG funktioniert.
+Die referentiellen Indizes der Nominalphrasen sind mit den semantischen Rollen identifiziert.\is{Argument}
+\ea
+\label{le-geben}
+\textit{gibt\/} (finite Form):\\
+\ms
+{ cat & \ms{ head & \ms[verb]
+                     { vform & fin \\} \\
+             subcat & \liste{ NP[\textit{nom\/}]\ind{1}, NP[\textit{acc}]\ind{2}, NP[\textit{dat}]\ind{3}   } \\
+           } \\
+  cont &  \ms[geben]{ agens & \ibox{1} \\
+                      thema & \ibox{2} \\
+                      goal  & \ibox{3} \\
+           } \\
+}
+\z
+Dadurch daß für die Argumentrollen allgemeine Bezeichnungen wie \textsc{agens} und \textsc{patiens}
+verwendet werden, kann man Generalisierungen über Valenzklassen und
+Argumentrollenrealisierungen aufstellen. Man kann \zb Verben in Verben mit Agens, Verben mit Agens
+und Thema, Verben mit Agens und Patiens usw.\ unterteilen. Verschiedene Valenz/""Linking"=Muster kann man
+in Typhierarchien spezifizieren und die spezifischen Lexikoneinträge diesen Mustern zuordnen,
+\dash von den entsprechenden Typen Beschränkungen erben lassen. Eine Typbeschränkung für
+Verben mit Agens, Thema und Goal hat die Form in (\mex{1}):
+\ea
+\onems
+{ cat$|$subcat \liste{ []\ind{1}, []\ind{2}, []\ind{3}  } \\[1mm]
+  cont  \ms[agens-thema-goal-rel~]{ agens & \ibox{1} \\
+                      thema & \ibox{2} \\
+                      goal  & \ibox{3} \\
+           } \\
+}
+\z
+[]\ind{1} steht dabei für ein Objekt mit beliebiger syntaktischer Kategorie und dem Index
+\iboxt{1}. 
+%% \etag steht für einen unspezifizierten Wert. In (\mex{0}) kann \etag die leere Liste
+%% sein oder aber auch eine Liste mit einem oder mehreren Elementen. Wichtig ist nur, daß
+%% die \subcatl mit drei Elementen beginnt, deren Index mit Werten von Argumentrollen innerhalb von \cont
+%% identisch ist.
+Der Typ für die Relation \textit{geben\/} ist Untertyp von \textit{agens-thema-goal-rel\/}.
+Der Lexikoneintrag für das Wort \emph{geben} bzw.\ den Stamm \stem{geb} hat das Linking"=Muster in (\mex{0}).
+
+Zu Linking"=Theorien im Rahmen der HPSG siehe \citew{Davis96a-u} und \citew{Wechsler91a-u}.
+\is{Linking|)}
+
+\section{Der semantische Beitrag von Phrasen}
+\label{sec-semp-i}
+
+Bisher wurde nur etwas darüber ausgesagt, wie der Bedeutungsbeitrag von Lexikoneinträgen repräsentiert
+werden kann. Wie sich der semantische Beitrag von Phrasen ergibt, ist noch nicht geklärt.
+Es ist klar, daß der semantische Beitrag einer Phrase wesentlich von deren Kopf bestimmt
+wird. In Kopf"=Argument"=Strukturen ist der semantische Hauptbeitrag der Phrase mit dem
+Beitrag des Kopfes identisch. Das verdeutlicht Abbildung~\vref{abb-sem-proj}.
+\begin{figure}[htp]
+\centering%
+\oneline{%
+\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
+\multicolumn{3}{l}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
+  \textit{fin\/}, \textsc{subcat} \sliste{ }]\\
+  \end{tabular}}
+}\\
+\\*[4ex]
+\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{l}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1} }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{l}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
+                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} }]\\
+                                                                    \end{tabular}}
+                                                       }\\
+\\
+&                                   &                      & & \hspace{6mm} \relation{geben}($e,b,m$)\\*[3ex]
+&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
+                                                                                   \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]\\
+%                                                                                   \textsc{vcomp} \liste{  }, \\
+                                                                                   \end{tabular}}\\
+\\*[6ex]
+\rnode{8}{er} & d\rnode{9}{as Buc}h                     & d\rnode{10}{em Man}n              & \rnode{11}{gibt}\\
+\end{tabular}%
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{3}{4}\ncline{3}{5}%
+\ncline{5}{6}\ncline{5}{7}%
+\ncline{7}{11}%
+\ncline{2}{8}%
+\ncline{6}{10}%
+\ncline{4}{9}%
+\ncline{<->}[r]{7}[r]{5}{2cm}%
+\ncline{<->}[r]{5}[r]{3}{2cm}%
+\ncline{<->}[r]{3}[r]{1}{2cm}%
+}
+\caption{\label{abb-sem-proj}Projektion des semantischen Beitrags des Kopfes}
+\end{figure}
+$e$, $b$ und $m$ stehen dabei verkürzend für \emph{er}, \emph{das Buch} und \emph{dem Mann}.
+
+Diese Identifikation des semantischen Beitrags von Kopf"|tochter und Mutterknoten
+stellt das Semantikprinzip sicher:
+% In Strukturen mit Kopf, die keine Kopf-Adjunkt-Strukturen sind, ist der
+% semantische Beitrag der Mutter identisch mit dem der Kopf"|tochter.
+%
+\begin{prinzip-break}[Semantikprinzip (vorläufige Version)]
+\label{semp-i}
+In Strukturen, in denen es eine Kopf"|tochter gibt, ist der
+semantische Beitrag der Mutter identisch mit dem der Kopf"|tochter.
+\end{prinzip-break}
+Diese Beschränkung gilt nicht für Kopf"=Adjunkt"=Strukturen, 
+die im Kapitel~\ref{chap-adjunkte} behandelt werden.
+Führt man einen Typ \textit{head-non-adjunct-phrase} ein, von dem alle Typen
+erben, die keine Adjunktstrukturen sind, kann man das Semantikprinzip wie folgt formalisieren:
+\ea
+\textit{head-non-adjunct-phrase}\istype{head"=non"=adjunct"=phrase} \impl
+\ms{
+cont & \ibox{1} \\
+head-dtr$|$cont & \ibox{1} \\
+}
+\z
+
+\noindent
+Abbildung~\vref{abb-sign-non-ha-struc} zeigt, wie der Typ \type{head"=non"=adjunct"=phrase}
+in die in Abbildung~\ref{fig-type-sign} entwickelte Hierarchie unter \textit{sign} integriert werden muß.
+\begin{figure}[htbp]
+\centerline{\begin{pspicture}(0.6,-2)(13.2,6.4)
+%\psgrid
+\rput[B](4,6){\rnode{sign}{\textit{sign}}}
+%
+\rput[B](1,4){\rnode{word}{\textit{word}}}
+\rput[B](7,4){\rnode{phrase}{\textit{phrase}}}
+%
+\rput[B](4,2){\rnode{nhs}{\textit{non-headed-phrase}}}
+\rput[B](10,2){\rnode{hs}{\textit{headed-phrase}}}
+%
+\rput[B](10,0){\rnode{hnas}{\textit{head-non-adjunct-phrase}}}
+\rput[B](10,-2){\rnode{hars}{\textit{head-argument-phrase}}}
+%
+\psset{angleA=-90,angleB=90,arm=0pt}
+%
+\ncdiag{sign}{word}\ncdiag{sign}{phrase}
+\ncdiag{phrase}{hs}\ncdiag{phrase}{nhs}
+\ncdiag{hs}{hnas}
+\ncdiag{hnas}{hars}
+%
+\end{pspicture}}
+\caption{\label{abb-sign-non-ha-struc}Typhierarchie für \textit{sign}}
+\end{figure}
+
+Die Merkmalbeschreibung in (\mex{1})\vpageref{ha-struc-mit-constraints} zeigt alle Beschränkungen,
+die für Strukturen vom Typ \textit{head-argument-phrase\/} gelten.
+Das sind die Beschränkungen des Schemas~\ref{schema-bin-prel} und die von \textit{headed-phrase\/} und 
+\textit{head-non-adjunct-phrase\/} ererbte Information:
+\ea
+Head-Argument-Schema + Kopfmerkmalsprinzip + Semantikprinzip:\\
+\onems[head-argument-phrase~]{
+\label{ha-struc-mit-constraints}
+cat  \ms{ head   & \ibox{1} \\
+           subcat & \ibox{2} \\ 
+         }\\
+cont  \ibox{3}\\[2mm]
+head-dtr   \ms{ cat & \ms{ head   & \ibox{1} \\
+                            subcat & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
+                          } \\
+                 cont & \ibox{3} \\
+               }\\
+non-head-dtrs  \sliste{ \ibox{4} } \\
+}
+\z
+
+\noindent
+Die Verbindung zwischen semantischem Beitrag des Verbs und seinen Argumenten wird im Lexikoneintrag
+des Verbs hergestellt. Somit ist dafür gesorgt, daß \emph{e}, \emph{b} und \emph{m} in 
+Abbildung~\ref{abb-sem-proj} den Indizes der jeweiligen NPen entsprechen. Zusätzlich zur Hauptbedeutung
+\relation{geben}($e,b,m$) müssen die zu den Indizes gehörenden Restriktionen in der Repräsentation der Bedeutung
+des gesamten Ausdrucks enthalten sein. Das erreicht man, indem man die semantische Information aus den
+NPen ebenfalls im Baum nach oben gibt. Dazu kann man \zb eine Liste verwenden, in die beim Zusammenbau
+komplexer Einheiten der Bedeutungsbeitrag von NPen aufgenommen wird. Leider ist die Sache nicht ganz so einfach,
+da es in Sätzen mit Quantoren\is{Quantor} wie \emph{alle}, \emph{jeder}, \emph{ein} usw.\ komplexe Interaktionen
+zwischen mehreren Quantoren geben kann, die zu verschiedenen Lesarten führen \citep{Frey93a,Kiss2001a}.
+Auf diesen Phänomenbereich kann hier nicht weiter eingegangen werden.
+Einige Anmerkungen finden sich noch im Kapitel~\ref{sec-spec-kopf}.%
+\is{Semantik|)}
+
+
+\begin{comment}
+Wir hatten für den Satz (\ref{bsp-mann-schlaegt-hund}) die semantische
+Repräsentation in (\ref{ex-sachverhalt}) die hier als (\ref{ex-sachverhalt-drei})
+wiederholt ist:
+\ea
+\label{ex-sachverhalt-drei}
+$\ll schlagen, agens:X, patiens:Y\gg$\\
+$X|\ll mann, instance:X\gg,$\\
+$Y|\ll hund, instance:Y\gg$
+\z
+Bisher wurde nur gezeigt, wie der semantische Hauptbeitrag des Verbs zum 
+Beitrag der gesamten Struktur wird, aber auch die Information über die beiteiligten
+Nominalphrasen muß am Mutterknoten repräsentiert sein. Dazu wird das Merkmal \textsc{indices}\isfeat{indices}
+verwendet \citep[Kapitel~4.4]{ps}. Es steht innerhalb einer Merkmalstruktur, 
+die Information über den Äußerungskontext enthält \citep[\page22]{ps2}.
+Das Merkmal, das die Information über den Äußerungskontext enthält, heißt \textsc{context}\isfeat{context}.
+%Beim Zusammenbau der 
+\ea
+\onems
+{   cont \ibox{1} \ms{ ind & \ibox{2} \ms{  per & 3 \\
+                                            num & sg \\
+                                            gen & mas \\
+                                         } \\
+                       restr & \liste{\ms[mann]{
+                                      instance & \ibox{2} \\
+                                      }} \\
+                     } \\
+   context$|$inds   \textrm{\sliste{ \ibox{1} }} \\
+}
+\z
+
+\noindent
+Der \textsc{indices}"=Wert eines phrasalen Zeichens ergibt sich aus der Verknüpfung
+der \textsc{indices}"=Werte der Töchter. (\mex{1}) zeigt die Auswirkungen einer
+entsprechenden Beschränkung für binär verzweigende Strukturen, die eine Kopf"|tochter haben:
+\ea
+\onems{
+context$|$inds  \ibox{1} $\oplus$ \ibox{2} \\
+head-dtr$|$context$|$inds \ibox{1} \\
+non-head-dtrs \liste{ \onems{
+                       context$|$inds \ibox{2} \\
+                      }}\\
+}
+\z
+
+Zum Abschluß dieses Kapitels soll eine Repräsentation für den Satz in (\mex{1})
+angegeben werden, die Information über den semantischen Beitrag des Verbs und die Indices
+enthält.
+\ea
+weil er den Hund schlägt.
+\z
+(\mex{1})\vpageref{rep-er-den-hund-schlaegt} zeigt die Struktur des Satzes, wobei
+die interne Struktur der Phrase \emph{der Hund} aus Platzgründen und aus Gründen der Übersichtlichkeit
+weggelassen wurde.
+\begin{figure}[htbp]
+\ea
+\label{rep-er-den-hund-schlaegt}
+Repräsentation für \emph{er den Hund schlägt}:\\
+\onems{
+phon \phonliste{ er den Hund schlägt }\\
+cat  \ms{ head  & \ibox{1} \ms[verb]{ vform & fin\\
+                           }\\
+          subcat & \sliste{ }\\
+        }\\
+cont \ibox{2} \ms[schlagen]{
+       agens & \ibox{3}\\
+       patiens & \ibox{4}\\
+       }\\
+context$|$inds \liste{ \ibox{5} \ms{
+                       ind & \ibox{3} \ms{ per & 3\\
+                                           num & sg\\
+                                           gen & mas\\
+                                         }\\
+                       restr & \sliste{ }\\
+                       }, \ibox{6} \ms{
+                       ind & \ibox{4} \ms{ per & 3\\
+                                           num & sg\\
+                                           gen & mas\\
+                                         }\\
+                       restr & \liste{ \ms[hund]{
+                                       inst & \ibox{4}\\
+                                       }}\\
+                       }}\\
+head-dtr \onems{ phon \phonliste{ den Hund schlägt }\\
+                 cat  \ms{ head & \ibox{1} \\
+                           subcat & \sliste{ \ibox{7} }\\
+                         }\\
+                 cont \ibox{2}\\
+                 context$|$inds \liste{ \ibox{6} }\\
+                 head-dtr \ms{ phon \phonliste{ schlägt }\\
+                               cat  \ms{ head  & \ibox{1} \\
+                                         subcat & \sliste{ \ibox{7}, \ibox{8} }\\
+                                       }\\
+                               cont \ibox{2} \\
+                               context$|$inds \liste{}\\
+                             }\\
+                 non-head-dtrs \liste{ \ibox{8} \onems{
+                                        phon \phonliste{ den Hund }\\
+                                        cat  \ms{ head  & \ms[noun]{ case & acc\\
+                                                                   }\\
+                                                  subcat & \sliste{ }\\
+                                                }\\
+                                        cont \ibox{6} \\
+                                        context$|$inds \liste{ \ibox{6} }\\
+                                     }\\ }\\
+               }\\
+non-head-dtrs \liste{ \ibox{7} \onems{
+                phon \phonliste{ er }\\
+                cat  \ms{ head  & \ms[noun]{ case & nom\\
+                                           }\\
+                          subcat & \sliste{ }\\
+                        }\\
+                cont \ibox{5} \\
+                context$|$inds \liste{ \ibox{5} }\\
+                }\\ }\\
+}
+\z
+\end{figure}
+\end{comment}
+
+\section*{Kontrollfragen}
+
+
+\begin{enumerate}
+\item Was versteht man unter Linking?
+\item Wie wird in der HPSG eine Verbindung zwischen Form und Bedeutung eines (komplexen)
+      sprachlichen Zeichens hergestellt?
+\end{enumerate}
+
+\section*{Übungsaufgaben}
+
+\begin{enumerate}
+\item Wie kann man den semantischen Beitrag von \emph{lacht} repräsentieren? Geben Sie den
+  Lexikoneintrag für \emph{lacht} an und berücksichtigen Sie das Linking.
+\item Geben Sie die vollständige Merkmalbeschreibung für die Wortfolge in (\mex{1}), wie sie in
+  \emph{daß er lacht} vorkommt,  an: 
+      \ea
+      er lacht
+      \z
+      Dabei soll sowohl die syntaktische Struktur als auch der Bedeutungsbeitrag berücksichtigt werden.
+
+\item Laden Sie die zu diesem Kapitel gehörende Grammatik von der Grammix"=CD
+(siehe Übung~\ref{uebung-grammix-kapitel4} auf Seite~\pageref{uebung-grammix-kapitel4}).
+Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluß eine Liste von Beispielen.
+Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem Kapitel besprochenen
+Aspekte.
+\end{enumerate}
+

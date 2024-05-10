@@ -1,0 +1,245 @@
+%% -*- coding:utf-8 -*-
+
+\chapter*{Vorwort}
+
+\begin{sloppypar}
+Seit 1994 unterrichte ich die Kopfgesteuerte Phrasenstrukturgrammatik (Head-Driven Phrase
+Structure Grammar). In den ersten Jahren habe ich dazu ein Vorlesungsskript verwendet, das
+dann in \citew{Mueller99a} eingeflossen ist. Dieses Buch ist allerdings komplex und
+für eine Einführung wohl weniger geeignet. Ich habe mich also entschlossen, ein Lehrbuch zu
+schreiben, das sich auf das Wesentliche konzentriert und Problemfälle nicht erörtert.
+\end{sloppypar}
+
+Das Buch sollte für alle verständlich sein, die mit Wortarten und dem Valenzbegriff vertraut
+sind. Nach der Lektüre dieses Buches soll der Leser bzw.\ die Leserin in der Lage sein, aktuelle
+HPSG"=Publikationen zu verstehen. Ziel ist es deshalb, die aktuelle Merkmalsgeometrie zu motivieren
+und darzustellen, wie zentrale Konzepte wie Valenz und Selektion, Modifikation und lexikalische
+Prozesse modelliert werden.
+
+In jedem der Kapitel wird ein bestimmter Aspekt der Theorie behandelt, weshalb die Kapitel teilweise
+recht kurz sind. Die Kapitel bestehen aus der Besprechung des jeweiligen Aspekts, eventuell einer
+Diskussion alternativer Theorien, einem kurzen Abschnitt mit Kontrollfragen, einem Abschnitt
+mit Übungs\-aufgaben und bei einigen Kapiteln Hinweisen zu weiterführender Literatur. Die Diskussion
+alternativer Theorien ist für den fortgeschrittenen Leser gedacht, 
+dem eine Bewertung der HPSG im gegenwärtigen Forschungsumfeld wichtig ist. Die Argumentation
+bezieht sich mitunter auf Konzepte, die in diesem Buch nicht ausführlich dargestellt werden können.
+Es gibt dann immer Verweise auf weiterführende Literatur. Für einen ersten Überblick über
+die HPSG kann man die Diskussionsabschnitte überspringen und eventuell später beim vertiefenden
+Lesen zu einzelnen Abschnitten zurückkehren.
+
+\begin{sloppy}
+Zu diesem Buch gehört ein Foliensatz, der unter 
+\url{https://hpsg.hu-berlin.de/~stefan/Lehre/HPSG/}
+verfügbar ist. Von dieser Seite gelangt man auch zu einer Seite, die computerverarbeitbare
+Grammatiken enthält, die den jeweiligen Ka\-pi\-teln in diesem Buch entsprechen. Eine CD, die
+alle zum Grammatikentwickeln benötigte Software und auch die Grammatiken enthält, ist unter
+\url{https://hpsg.hu-berlin.de/Software/Grammix/} verfügbar. Dem interessierten Leser
+wird nahegelegt, sich mit den Grammatiken zu beschäftigen, da das anschaulicher ist,
+als es jeder noch so gute Text sein könnte.
+\end{sloppy}
+
+\section*{Benutzte Korpora}
+
+Die meisten der Beispiele in diesem Buch sind Belege aus der {\em taz}\footnote{
+\url{http://www.taz.de/}}, einer überregionalen
+deutschen Tageszeitung. Andere sind aus dem Magazin \emph{Der Spiegel},
+aus der Computerzeitschrift c't oder aus der \emph{zitty}, einer kleinen Zeitschrift mit
+Veranstaltungshinweisen aus Berlin. 
+%% Auch Beispiele aus Romanen oder wissenschaftlichen Texten über
+%% Linguistik wurden berücksichtigt. I have also considered examples from novels
+%% and some from scientific texts on linguistics. Of course, it is clear to
+%% me that the language of linguists changes according to their research topic
+%% and according to the theories they have at a certain stage, but in many cases
+%% I have quoted examples that show that a claim of the author is wrong and this excludes
+%% the possibility that the production of the respective sentences was influenced
+%% by the author's theoretical work.
+
+
+Es ist sehr bequem, elektronische Korpora zu verwenden, um bestimmte Behauptungen zu rechtfertigen
+oder zu widerlegen.
+Für diese Zwecke habe ich die taz-CD"=Roms benutzt, die über 20 Jahrgänge der Zeitung enthalten.
+Außerdem habe ich das \cosmas"=Korpus\footnote{\url{https://cosmas2.ids-mannheim.de/cosmas2-web/}} 
+verwendet, das vom Institut für Deutsche Sprache (IDS) Mannheim zur Verfügung gestellt
+wird. Die Version, die über das World Wide Web zugänglich ist, enthält 1,489 Milliarden Wörter.
+Neben \cosmas habe ich das \negra"=Korpus\footnote{
+\url{http://www.coli.uni-sb.de/sfb378/negra-corpus/}}, das
+Tiger"=Korpus\footnote{\url{http://www.ims.uni-stuttgart.de/projekte/TIGER/TIGERCorpus/}}
+und das Digitale Wörterbuch der deutschen Sprache\footnote{\url{http://www.dwds.de/}} der 
+Berlin"=Brandenburgischen Akademie der Wissenschaften benutzt.
+
+
+\section*{Danksagungen}
+
+Ich danke allen Studierenden der Universitäten Bremen und Potsdam, 
+an denen ich das Buch ausprobieren konnte.
+Felix Bildhauer,
+Johannes Bubenzer, % Uni Potsdam, Mann mit Bart aus Hamburg, Script
+Daniel Clerc, % Kommentare zu Übungsaufgaben
+Anna Iwanow, % Uni Potsdam, Script
+Katarina Klein, 
+Till Kolter, 
+Oleg Lichtenwald, 
+Haitao Liu,
+Frank Richter,
+Wolfgang Seeker,
+Wilko Steffens,
+Ralf Vogel
+und
+Arne Zeschel
+danke ich für Kommentare zu früheren Versionen dieses Buches.
+%Felix Bildhauer, 
+Olivier Bonami, % Situationssemantik
+Gosse Bouma, 
+Ann Copestake, 
+Gisbert Fanselow, 
+Kerstin Fischer, 
+Dan Flickinger, 
+Martin Forst,
+Frederik Fouvry,
+Tibor Kiss, 
+Valia Kordoni, 
+Detmar Meurers, 
+Ivan Sag, 
+Manfred Sailer,       % Idioms
+Jan-Philipp Soehn,    % Idioms
+Anatol Stefanowitsch,
+Gertjan van Noord
+und
+Shravan Vasishth % Performance/Competence
+%und Arne Zeschel 
+danke ich für Diskussionen.
+
+Beim Tutorial \emph{Grammar Implementation}, das im Rahmen des von der DFG geförderten Netzwerks
+Cogeti (Constraintbasierte Grammatik: Empirie, Theorie und Implementierung) am Seminar für
+Computerlinguistik der Universität Heidelberg durchgeführt wurde,
+konnte ich noch einige kleinere Fehler in der Grammix"=CD finden. Ich danke allen Teilnehmern des Tutoriums.
+
+Bei Felix Bildhauer und Renate Schmidt möchte ich mich für das Korrekturlesen des fast fertigen
+Manuskripts bedanken. Die Fehler, die jetzt noch im Buch enthalten sind, habe ich gestern bei
+letzten Änderungen reingemacht.
+
+~\medskip
+
+\noindent
+Bremen, 12.\ Februar, 2007\hfill Stefan Müller
+
+\section*{Vorwort zur zweiten Auf"|lage}
+
+Die zweite Auf"|lage unterscheidet sich nur geringfügig von der ersten. Ich habe einige
+Literaturverweise ergänzt und einige erklärende Sätze eingefügt. Die Diskussion der
+vererbungsbasierten Analyse des Passivs in Abschnitt~\ref{sec-vererbung-koenig} habe ich geändert und
+die Beispiele aus dem Yukatekischen\il{Yukatekisch} durch Beispiele aus dem Türkischen\il{Türkisch}
+ersetzt. Zur Motivation siehe \citew[\page 387]{Mueller2007d}. Die Analyse von Zeitausdrücken im
+Akkusativ wurde entfernt, da man sie nicht -- wie in der ersten Auf"|lage vorgeschlagen -- an Lexikoneinträgen festmachen kann 
+(siehe Seite~\pageref{bsp-den-groessten-Teil-der-Woche}).
+
+Ich bedanke mich bei Jürgen Bohnemeyer\aimention{J{\"u}rgen Bohnemeyer} und bei Jacob Maché\aimention{Jacob Mach{\'e}} für Diskussion bzw.\ für Kommentare zur
+ersten Auf"|lage.
+
+~\medskip
+
+\noindent
+Berlin, 01.\ August, 2008\hfill Stefan Müller
+
+\section*{Vorwort zur dritten Auf"|lage}
+
+Die wichtigste Änderung von der zweiten zur dritten Auf"|lage besteht in einer Anpassung des
+Kopf"=Argument"=Schemas. Ich verwende jetzt nicht mehr die \emph{del}"=Relation sondern
+\emph{append} \citep[Abschnitt~8.4]{MuellerGTBuch1}. Das ermöglicht eine einfache sprachübergreifende Analyse der Konstituentenstellung
+\citep{MuellerCopula}. Die entsprechenden Analysen haben sich im CoreGram"=Projekt\footnote{
+  \url{http://hpsg.fu-berlin.de/Projects/CoreGram.html}. Zu einer Beschreibung des Projekts siehe \citew{MuellerCoreGram}. Das CoreGram"=Projekt beschäftigt sich mit der Implementation von Grammatiken für so
+verschiedene Sprachen wie Deutsch, Dänisch\il{Dänisch}
+\citep{MOe2011a,MuellerPredication,MuellerCopula,MOeDanish}, Englisch\il{Englisch}
+\citep{MuellerPredication,MuellerCopula}, Jiddisch\il{Jiddisch} \citep{MOe2011a}, Spanisch\il{Spanisch}, Französisch\il{Französisch},
+Maltesisch\il{Maltesisch} \citep{MuellerMalteseSketch},
+Persisch\il{Persisch} \citep{MuellerPersian} und Mandarin Chinesisch\il{Mandarin Chinesisch} \citep{Lipenkova2009a,ML2009a}.
+}, bewährt. 
+
+Wir haben uns entschlossen, die CD-Rom, die bisher mit dem Buch zusammen ausgeliefert wurde, nicht
+mehr gemeinsam mit dem Buch zu vertreiben. Die Grammaix-CD \citep{Mueller2007b} ist im Netz verfügbar\footnote{
+  \url{https://hpsg.hu-berlin.de/Software/Grammix/}
+} und die Netzverbindungen sind inzwischen so gut, dass man sich CDs herunterladen kann. Denjenigen,
+die über keine ausreichend schnelle Internetanbindung verfügen, schicken wir gern eine CD zu (bitte
+mein Sekretariat kontaktieren). 
+Die Änderung des Kopf"=Argument"=Schemas ist auf der Grammix"=CD in der gegenwärtig auf der
+Web-Seite verfügbaren Version noch nicht enthalten. Die Grammix"=CD
+wird komplett umgestaltet: Es wird ein neues Betriebssystem geben, eine neue wesentlich verbesserte
+und effizientere Version von TRALE und die Grammatiken aus dem CoreGram"=Projekt. Ich hoffe, die
+Arbeiten an der neue Version der CD noch vor der Fertigstellung des Berliner Flughafens abschließen
+zu können. Die angepassten Lehrbuchgrammatiken und die Grammatiken aus dem CoreGram"=Projekt sind
+aber bereits jetzt über meine Webseite zugänglich.
+
+Der Abschnitt~\ref{sec-vererbung-koenig} zur vererbungsbasierten Analyse des Passivs wurde nochmals
+überarbeitet und enthält jetzt auch eine Diskussion von Doppeltpassivierungen im Türkischen\il{Türkisch} und
+anderen Sprachen. Außerdem habe ich im Abschnitt~\ref{sec-spr} etwas erklärenden Text und eine
+Abbildung hinzugefügt. Die Diskussion des \textsc{mother}"=Merkmals im Kapitel~\ref{chap-lokalitaet} wurde erweitert und auf
+den Stand von \citew{MuellerGTBuch1} bzw.\ \citew{MuellerGTBuch2} gebracht. 
+Ein Fehler in den Schemata~\ref{schema-bin-mark} und~\ref{schema-bin-mark-final} wurde korrigiert.
+
+Es gibt jetzt einen Anhang mit Lösungen zu ausgewählten Übungsaufgaben.
+
+Ich bedanke mich bei Antonio Machicao y Priemer\aimention{Antonio {Machicao y Priemer}} für Kommentare zur zweiten Auf"|lage.
+
+~\medskip
+
+\noindent
+Berlin, 23. Januar 2013\hfill Stefan Müller
+
+
+\section*{Vorwort zur vierten Auf"|lage}
+
+% Timm Lichte: Falsches Verb in Erklärungen für Passivbeispiel.
+% Tibor Kiss 6.5.2014: Merkmalstruktur statt beschreibung, Symbole in PSGen.
+% Pied Piping gegen PSGen? To Do.
+Ich bedanke mich bei Tibor Kiss und Timm Lichte\aimention{Timm Lichte} für Kommentare zur dritten Auf"|lage.
+
+% ein Komma und Optionalität bei Valenz von denken
+Bei Anja Herrmann bedanke ich mich für den Hinweis auf Typos und Fragen zu den Übungsaufgaben.
+
+% 23.05.2022 Im Kausus-Kapitel Verweis auf 2 statt auf 1. Karla Jerabeck hats gefunden.
+% 19) a. Er goß ihr die Blumen.
+%     b. ErzündeteihrdasHausan.
+% Wegener (1985a) hat jedoch gezeigt, daß diese Dative Komplementstatus haben.
+%
+% Erklären, wieso Komplementstatus.
+
+% To do:
+%
+% Abbildung 4.5 ist nicht zentiriert
+
+% Sophie Reule, Studentin 22.01.2018
+% Auf S. 74 des HPSG-Lehrbuchs werden die Elemente der Liste Phon durch Kommata getrennt, zuvor war
+% dies nicht der Fall. Welche Bedeutung hat die Notation an dieser Stelle? 
+
+% 
+% Auf Seite 75 wird vom SYNSEM-Wert gesprochen, der wurde aber gar nicht eingeführt.
+
+% Wert von PSOA-ARG ist eine Liste, also muss Mörder in eine Liste in (21) Kapitel 6.4
+
+% 17.05.18 Auf S. 282 war ein "ist" doppelt.
+
+% 28.08.2018 Steve Wechsler: Kongruenzmerkmale des Nomens müssen Kopfmerkmale sein,
+% denn wenn es Depiktive gibt, die mit Nomina kongruieren, müssen deren CONCORD-Merkmale nach außen
+% verfügbar sein.
+
+%On p.237 of your HPSG Lehrbuch (3rd edition) you're saying:
+
+%% Przepiórkowski (1999a) integriert deshalb Meurers Ansatz der Kasuszuweisung (1999b;
+%% 2000, Kapitel 10.4.1.4) in seine Theorie und führt zusätzlich zum REALIZED -Merkmal das
+%% Merkmal RAISED ein, das den Wert + hat, wenn ein Argument angehoben wird, und den
+%% Wert −, wenn das nicht der Fall ist.
+
+%% The following part is false:
+
+%% führt zusätzlich zum REALIZED -Merkmal das Merkmal RAISED ein
+
+%% Rather, RAISED replaces REALIZED.
+
+%% Please, remember when you prepare the 4th edition ;-)
+
+%% BTW, I expect to send you the chapter on case on 31 July.  But just in case: do you think I can ask for a 3-day deadline extension (without losing the right to the free volumes)?  This might drastically increase the quality of my submission ;-)
+
+~\medskip
+
+\noindent
+Berlin, \today\hfill Stefan Müller

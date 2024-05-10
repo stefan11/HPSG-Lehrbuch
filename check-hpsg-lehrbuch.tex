@@ -1,0 +1,116 @@
+%% -*- coding:utf-8 -*-
+\documentclass[output=book
+%                ,series=tbls,
+%		,modfonts
+%		,nonflat
+%		,multiauthors
+%	        ,collection
+%	        ,collectionchapter
+%	        ,collectiontoclongg
+ 	        ,biblatex
+%                ,babel
+                ,booklanguage=german
+%                ,babelshorthands
+%                ,showindex
+                ,newtxmath
+%                ,colorlinks, citecolor=brown % for drafts
+%                ,draftmode
+% 	        ,coverus
+                ,uniformtopskip
+                ,tblseight % to get the fonts for the Chinese title of GT
+		  ]{langscibook} 
+
+\renewcommand{\lsBookLanguage}{german}
+
+\usepackage{ifthen}
+\provideboolean{draft}
+\setboolean{draft}{false}
+
+\newtoggle{draft}\togglefalse{draft}
+%\newtoggle{draft}\toggletrue{draft}
+%\newtoggle{finished}\togglefalse{finished}
+
+
+
+% load memoize before german.sty
+
+%\usepackage{nomemoize} 
+\usepackage{memoize} % The figures have been created with an earlier version of texlive. Recreating
+                     % them changes the layout of the pages, so we have to rely on them. Unless ... 16.03.2023
+%\memoizeset{readonly}
+% see below for further settings
+
+\input{localmetadata.tex}
+\input{localpackages.tex}
+\input{localcommands.tex}
+\input{localhyphenation.tex}
+
+
+\input{locallangscifixes.tex}
+
+
+\usepackage[german]{varioref}
+% do not stop and warn! This will be tested in the final version
+\vrefwarning
+
+\usepackage{pstricks,pst-node}
+
+\usepackage{tikz-qtree}
+% has strange side effects
+%\tikzset{every tree node/.style={align=left, anchor=north}}
+\tikzset{every roof node/.append style={inner sep=0.1pt,text height=2ex,text depth=0.3ex}}
+
+
+\newcommand{\NOTE}[1]{}
+%\newcommand{\NOTE}[1]{\marginpar{#1}}
+
+\memoizeset{
+  memo filename prefix={hpsg.memo.dir/},
+  register=\todo{O{}+m},
+  prevent=\todo,
+}
+
+
+% \renewcommand{\itd}[1]{}
+% \renewcommand{\itdobl}[1]{}
+% \renewcommand{\itdopt}[1]{}
+
+% \renewcommand{\addpages}{}
+% \renewcommand{\addsource}{}
+% \renewcommand{\addglosses}{}
+
+
+%\bibliography{germanic}
+\bibliography{bib-abbr,biblio-xdata-en,biblio}
+
+\includeonly{chapters/0-vorwort}
+%\includeonly{chapters/1-hpsg-einleitung}
+%\includeonly{chapters/2-hpsg-formalismus}
+%\includeonly{chapters/3-hpsg-valenz-psg}
+%\includeonly{chapters/4-hpsg-komplementation}
+%\includeonly{chapters/5-hpsg-semantik}
+%\includeonly{chapters/6-hpsg-adjunkte}
+%\includeonly{chapters/7-hpsg-lexikon}
+%\includeonly{chapters/8-hpsg-topologie}
+%\includeonly{chapters/9-hpsg-konstituentenreihenfolge}
+%\includeonly{chapters/91-hpsg-udc}
+%\includeonly{chapters/hpsg-rs}
+%\includeonly{chapters/hpsg-lokalitaet}
+%\includeonly{chapters/hpsg-kongruenz}
+%\includeonly{chapters/hpsg-kasus}
+%\includeonly{chapters/hpsg-verbalkomplex}
+%\includeonly{chapters/hpsg-anhebung}
+%\includeonly{chapters/hpsg-passiv}
+%\includeonly{chapters/hpsg-partikel}
+%\includeonly{chapters/hpsg-morphologie}
+%\includeonly{chapters/hpsg-theorie}
+%\includeonly{chapters/hpsg-loesungen}
+
+
+\input hpsg-lehrbuch-include
+
+\end{document}
+
+%%% Local Variables:
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:

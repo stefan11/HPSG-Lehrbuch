@@ -1,0 +1,1495 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: hpsg-kasus.tex,v $
+%%  $Revision: 1.15 $
+%%      $Date: 2008/09/30 09:14:41 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\chapter{Kasus}
+\label{chap-kasus}
+
+In diesem Kapitel werden verschiedene Arten von Kasus vorgestellt, und es wird gezeigt,
+wie sich die Kasusvergabe in Abhängigkeit vom syntaktischen Kontext regeln läßt.
+Die Formulierung allgemeiner Prinzipien für die Kasusvergabe ist sehr sinnvoll,
+da sie es ermöglicht, im Lexikon Information über Kasus unterspezifiziert zu lassen.
+Somit braucht man für die Sätze in (\mex{1}) nur einen Lexikoneintrag für das Verb \emph{lesen}:
+\eal
+\ex Er möchte das Buch lesen.
+\ex Ich sah ihn das Buch lesen.
+\zl
+In (\mex{0}a) hat das Subjekt von \emph{lesen} Nominativ, in (\mex{0}b) dagegen Akkusativ.
+Welchen Kasus das Subjekt von \emph{lesen} bekommt, hängt vom Kontext ab, in dem das
+Verb \emph{lesen} verwendet wird, und wird über ein allgemeines Prinzip geregelt. Damit
+ein solches Prinzip formuliert werden kann, muß klar sein, was für Arten von Kasus es
+(im Deutschen) gibt. Verschiedene Kasusarten werden im folgenden Abschnitt vorgestellt.
+
+\section{Das Phänomen}
+
+Im folgenden Abschnitt wird die Unterscheidung zwischen lexikalischem und strukturellem
+Kasus eingeführt. Abschnitt~\ref{sec-sem-kasus} beschäftigt sich mit dem sogenannten
+semantischen Kasus, bestimmten Kasusformen, die durch die Verwendung eines Adjunkts
+mit einer bestimmten Bedeutung erzwungen sind. 
+%Kongruenzkasus wird im Abschnitt~\ref{sec-kongruenzkasus} besprochen.
+
+\subsection{Der Kasus von Argumenten: Struktureller und lexikalischer Kasus}
+\label{sec-struk-lex-kas}
+\label{sec-struc-lex-kas}
+\is{Kasus!struktureller|(}%
+\is{Kasus!lexikalischer|(}
+
+Es gibt Prädikate, deren Argumente Kasus haben, der von der syntaktischen Umgebung,
+in der das Prädikat realisiert wird, abhängt. Man bezeichnet solche Argumente
+als Argumente mit strukturellem Kasus. Bei kasusmarkierten Argumenten,
+die keinen strukturellen Kasus haben, spricht man von lexikalischem Kasus.
+
+\is{Verb!AcI-|uu}
+Beispiele für strukturellen Kasus sind:\footnote{
+        Vergleiche \citew*[\page 200]{HM94a}\iaf{Heinz}\iaf{Matiasek}.
+
+        Bei (\mex{1}b) handelt es sich um eine AcI"=Konstruktion. AcI heißt Akkusativ mit
+        Infinitiv. Das logische Subjekt des eingebetteten Verbs (im Beispiel \emph{kommen})
+        wird zum Akkusativobjekt des Matrixverbs (im Beispiel \emph{lassen}).
+        Beispiele für AcI-Verben sind Wahrnehmungsverben\is{Verb!Wahrnehmungs-} wie \emph{hören} und 
+        \emph{sehen} sowie \emph{lassen}. Siehe auch Kapitel~\ref{sec-aci}.
+}
+\eal
+\ex Der Installateur kommt.
+\ex Der Mann läßt\iw{lassen} den Installateur kommen.
+\ex das Kommen des Installateurs
+\zl
+Im ersten Satz wird dem Subjekt Nominativ\is{Kasus!Nominativ} zugewiesen, wogegen \emph{Installateur} im
+zweiten Satz im Akkusativ\is{Kasus!Akkusativ} steht und im dritten in Verbindung mit der Nominalisierung\is{Nominalisierung}
+im Genitiv\is{Kasus!Genitiv}. Der Akkusativ von Objekten ist gewöhnlich auch ein struktureller Kasus. 
+Bei Passivierung\is{Passiv} wird er zum Nominativ:
+\eal
+\ex Karl schlägt den Hund.
+\ex Der Hund wird geschlagen.
+\zl
+Im Gegensatz zum Akkusativ ist der von einem Verb abhängige Genitiv\is{Kasus!Genitiv} ein lexikalischer Kasus:
+Bei Passivierung ändert sich der Kasus eines Genitivobjekts nicht.
+\eal
+\ex Wir gedenken der Opfer.\iw{gedenken}
+\ex Der Opfer wird gedacht.
+\zl
+In (\mex{0}b) handelt es sich um ein sogenanntes unpersönliches Passiv\is{Passiv!unpersönliches},
+\dash, im Gegensatz zum Beispiel (\mex{-1}b), in dem das Akkusativobjekt zum Subjekt wird, 
+gibt es in (\mex{0}b) kein Subjekt.
+
+Genauso gibt es keine Veränderungen bei Dativobjekten\is{Kasus!Dativ|(}:
+\eal
+\ex Der Mann hat ihm geholfen.
+\ex Ihm wird geholfen.
+\zl
+Es wird kontrovers diskutiert, ob einige oder alle Dative in verbalen Umgebungen als
+strukturelle Kasus behandelt werden sollten \citep{denBesten85,denBesten85b,Fanselow87a,Fanselow2000b,%
+Fanselow2003b,% 206
+Czepluch88,Wegener90,Sternefeld95a,% 77
+Stechow96a,Wunderlich97a,Wunderlich97c,Ryu97a,Molnarfi98a,Gunkel2003b}
+% Welke2009a:530
+%Wunderlich97a:48,
+%Wunderlich97c:107,Ryu97a:199,denBesten85:26
+%----------------------------------------------------------------------------------------------------
+oder ob alle Dative lexikalischen Kasus bekommen \citep{Haider85b,Haider86,Haider93a,%
+HR2003a,% S. 222
+HM94a,%
+Scherpenisse86a,%S.\,97
+Pollard94a,Mueller99a,Mueller2001a,Meurers99b,VS98a,Abraham95a-u,%
+McIntyre2006a}. %S. 187
+% MdK2001a sagen explizit nichts zum Dativ
+%
+% Abraham86a:12 Dativ von helfen = lexikalisch
+% Abraham93a:176 behauptet, daß freie Dative nicht strukturell sein kann
+% Abraham95a: 236, 2005:219, 235
+% Wegener90:98 behauptet nicht von allen Dativen, daß sie strukturell sind (zB grauen)
+%
+Das sogenannte Dativpassiv\is{Passiv!Dativ-}, das mit Verben wie
+\word{bekommen}, \word{erhalten} und \word{kriegen} gebildet werden kann,
+wird als Evidenz für den Dativ als strukturellen Kasus gesehen.
+In (\mex{1}b) steht das Dativargument von \emph{schenken} im Nominativ:
+\eal
+\ex Der Mann  hat   den Ball dem Jungen geschenkt.
+\ex Der Junge bekam den Ball            geschenkt.
+\zl
+Manche derjenigen, die den Dativ zu den lexikalischen Kasus zählen, nehmen
+einen besonderen Prozeß an, der im Zusammenhang mit dem Dativ"=Passiv
+eine Dativ"=NP in eine NP mit strukturellem Kasus umwandelt 
+(\citealp[Abschnitt~4.1]{Haider86}; \citealp[\page 228]{HM94a}; \citealp[\page 298]{Mueller99a}).
+\citet{Gunkel2003b} kritisiert diese Ansätze zu Recht, denn wenn man all die
+Kasus zu den strukturellen Kasus zählen will, die sich in Abhängigkeit von
+ihrer syntaktischen Umgebung ändern können, dann muß man Argumentdative wie die
+in (\mex{0}a) zu den strukturellen Kasus zählen.
+
+Ich werde trotzdem den Dativ zu den lexikalischen Kasus zählen und möchte dies im folgenden
+begründen: \citet[\page 20]{Haider86} führt folgende Beispiele als Evidenz
+für eine Behandlung des Dativs als lexikalischen Kasus an:
+\eal
+\ex[]{\iw{streicheln}
+Er       streichelt den Hund.
+}
+\ex[]{
+Der Hund wurde gestreichelt.
+}
+\ex[]{
+sein Streicheln des    Hundes
+}
+\ex[]{\label{bsp-er-hilft-den-kindern}\iw{helfen}
+Er hilft den Kindern.
+}
+\ex[]{
+Den Kindern wurde geholfen.
+}
+\ex[]{
+das Helfen der Kinder
+}\label{das-helfen-der-Kinder}
+\ex[*]{
+sein Helfen der Kinder
+}\label{sein-helfen-der-Kinder}
+\zl
+Der Akkusativ in (\mex{0}a) ist strukturell und kann bei Passivierung als Nominativ
+und nach einer Nominalisierung als Genitiv realisiert werden.
+Der Dativ in (\ref{bsp-er-hilft-den-kindern}) kann dagegen in Nominalisierungen nicht zum Genitiv werden,
+sondern nur in einer komplexen Nominalisierung pränominal realisiert werden:
+% Genauso Genitiv:
+% Opfergedenken mit armenischer Hymne, taz, 26.04.2004, S.\,10
+\ea
+das Den-Kindern-Helfen
+\z
+Die Genitiv"=NP \emph{der Kinder} in (\ref{das-helfen-der-Kinder}) bezieht sich auf das Agens
+von \emph{helfen}. Das Agens hat strukturellen Kasus und kann deshalb auch als Genitiv in
+nominalen Umgebungen auf"|treten. Wenn das Subjekt wie in (\ref{sein-helfen-der-Kinder})
+durch ein Possessivum ausgedrückt wird, wird die Phrase ungrammatisch. Die Verhältnisse in
+(\mex{-1}) sind erklärt, wenn man annimmt, daß in Nominalisierungen nur Elemente mit strukturellem
+Kasus realisiert werden können und daß der Dativ ein lexikalischer Kasus ist.
+Die Daten in (\mex{-1})
+werden von denjenigen, die annehmen, daß der Dativ ein struktureller Kasus ist, oft
+nicht besprochen.
+
+Ein weiteres Problem, das sich ergibt, wenn man den Dativ zu den strukturellen Kasus
+zählt, ist, daß man die Dativobjekte zweistelliger Verben\NOTE{JB: Was sind zweistellige Verben? Versteht diesen Abschnitt nicht.}
+nicht von Akkusativobjekten
+unterscheiden kann, wenn man als einzige Information über den Kasus eines Objektes
+die Information hat, daß es strukturellen Kasus hat. Man betrachte \zb \emph{helfen} und
+\emph{unterstützen} in (\mex{1}).
+\eal
+\ex Er hilft ihm.
+\ex Er unterstützt ihn.
+\zl
+Beide Verben haben ein Subjekt mit strukturellem Kasus. Wären nun sowohl der Dativ als auch der
+Akkusativ strukturelle Kasus, würden sich die Valenzanforderungen der beiden Verben nicht
+unterscheiden, was nicht adäquat ist.\footnote{
+  \citet{Gunkel2003b} führt zwei verschiedene strukturelle Kasus ein, so daß man die Verben in
+  (\mex{0}) wieder unterscheiden kann. Zu einer Diskussion seines Ansatzes siehe
+  Abschnitt~\ref{sec-alternativen-struc-dativ}.%
+}
+
+Bei ditransitiven Verben kann man sagen, daß das erste Argument Nominativ, das zweite
+%% \NOTE{Iwanowa:
+%%   Die Diskussion um lexikalischen und strukturellen Kasus, und die kurzen Argumentationen der
+%%   einzelnen Verfechter sind sehr verwirrend und tragen wenig zum Verständnis der Kasus bei.} 
+Akkusativ und das dritte Dativ bekommt, aber bei zweistelligen Verben kann man nicht aus allgemeinen
+Prinzipien ableiten, wann Akkusativ und wann Dativ auf"|treten muß.
+Von Stechow und Sternefeld \citeyearpar[\page 435]{SS88a} und
+\citet[\page 187]{Stechow90a} und Autoren, die die Unterscheidung zwischen
+strukturellem und lexikalischem Kasus aus semantischer Sicht\is{Linking} machen,\footnote{
+  \citealp[\page 12]{Kaufmann95a}; \citealp[\page 21--26]{Stiebels96a}; \citealp[\page 313]{Olsen97c};
+  \citealp[\page 57, S.\,129]{Rapp97a}. Siehe jedoch \citew[\page 51]{Wunderlich97a}.%
+% Wunderlich wird immer in Manuscriptfassung zitiert. In der endgültigen Version ist es dann anders.
+}
+nehmen deshalb an,
+daß der Dativ zweistelliger Verben ein lexikalischer Kasus ist.
+%(\citealp[\page 22]{Stiebels96a}\ia{Stiebels})
+Das sagt voraus, daß das Dativpassiv mit solchen Verben nicht möglich ist.
+Es ist richtig, daß das Dativpassiv mit zweistelligen Verben selten ist \citep{HW95a},
+aber es ist entgegen den Vorhersagen nicht ausgeschlossen.  \citet[\page 75]{Wegener90} erklärt die
+Seltenheit mit der niedrigen Frequenz zweistelliger unakkusativer\is{Verb!unakkusativisches}\footnote{ 
+  Zur Unterscheidung zwischen unergativen und unakkusativischen Verben 
+  siehe Kapitel~\ref{sec-unakkusativitaet}. Die unergativen Verben erlauben kein Passiv
+  oder wenn, dann nur unter sehr eingeschränkten Bedingungen.%
+}
+Verben mit Dativobjekt.
+Wegener (\citeyear[\page 134]{Wegener85a}; \citeyear[\page 75]{Wegener90}\ia{Wegener}) 
+gibt die Beispiele in (\mex{1}) an:\footnote{
+        Siehe auch \citew[\page 161--162]{Fanselow87a} und \citew[\page 143]{Eisenberg94a}.
+}
+\eal
+\label{ex-er-kriegte-geholfen}
+\ex\iw{helfen}\iw{gratulieren}\iw{applaudieren}
+Er kriegte von vielen geholfen / gratuliert / applaudiert.
+\ex\iw{danken} 
+Man kriegt täglich gedankt.
+\zl
+
+\noindent
+Die Beispiele in (\mex{1}) sind Korpusbelege:
+\eal
+\ex\label{ex-kriegen-fr} "`Da kriege ich geholfen."'\footnote{
+Frankfurter Rundschau, 26.06.1998, S.\,7.%
+}
+\ex\label{bsp-bekommen-feldpost}
+% auch nach applaudiert geholfen + bekommen und kriegen gesucht 21.09.2003
+Heute morgen bekam ich sogar schon gratuliert.\footnote{%
+Brief von Irene G.\ an Ernst G.\ vom 10.04.1943, Feldpost-Archive mkb-fp-0270.}
+%Branich IG-Vorsitzender Friedel Schönel meinte deshalb, 
+\ex\label{ex-klaerle} 
+"`Klärle"' hätte es wirklich mehr als verdient, auch mal zu einem "`unrunden"' Geburtstag gratuliert zu bekommen.\footnote{
+Mannheimer Morgen, 28.07.1999, Lokales; "`Klärle"' feiert heute Geburtstag.%
+}
+\ex\label{bsp-elvis}
+Mit dem alten Titel von Elvis Presley "`I can't help falling in love"' bekam Kassier Markus Reiß zum Geburtstag gratuliert, [\ldots]\footnote{
+%der dann noch viel später bekannte: "Ich hab' immer noch Gänsehaut, das war der schönste Teil meines Geburtstages." Doch auch die anderen Abteilungen des Bürgervereins können auf ein erfolgreiches Jahr 1998 zurückblicken.
+Mannheimer Morgen, 21.04.1999, Lokales; Motor des gesellschaftlichen Lebens.%
+}
+\zl
+Die Beispiele (\ref{ex-kriegen-fr}), (\ref{ex-klaerle}) und (\ref{bsp-elvis}) 
+sind aus folgendem Grund besonders interessant:\label{frequenz-von-korpusbelegen}
+\citet{HW95a} stellen fest, daß es im Korpus\is{Korpus} des Instituts für Deutsche Sprache in Mannheim keine
+Belege für das Dativpassiv mit zweistelligen Verben gibt, stufen dieses Muster aber als grammatisch
+möglich ein. Eine Sichtweise, die auch von Wegener, Fanselow und Eisenberg geteilt wird (siehe (\ref{ex-er-kriegte-geholfen})).
+1999 finden sich dann plötzlich Sätze aus der Frankfurter Rundschau und dem Mannheimer Morgen im IDS"=Korpus, die genau dem Muster 
+entsprechen. Man kann also aus der Nichtexistenz von Daten im Korpus nicht unbedingt etwas schließen. Man kann sich
+Gedanken darüber machen, warum ein Muster relativ selten ist und vielleicht auch strukturelle
+Gründe dafür finden, das Korpus aber als alleiniges Mittel zur Rechtfertigung negativer
+Aussagen zu verwenden, ist gefährlich. Negative Aussagen sollten immer noch durch Experimente abgesichert
+werden. (\ref{bsp-bekommen-feldpost}) zeigt übrigens, daß es das \emph{bekommen}"=Passiv mit \emph{gratulieren} 
+schon 1943 gab. Hätte das IDS"=Korpus diese Daten 1995 enthalten, hätte man auch 1995 schon etwas finden können.
+
+Nach der Besprechung der strukturellen Kasus Nominativ und Akkusativ haben wir bereits den Genitiv und den
+Dativ von Verbargumenten bei den lexikalischen Kasus eingeordnet. Neben den bisher besprochenen
+strukturellen Akkusativen gibt es aber auch lexikalische:
+%\eal
+\ea Ihn dürstet.\iw{dürsten}
+%\ex Die Mutter lehrte ihren Sohn einen neuen Kanon.\label{bsp-die-mutter-lehrte}\iw{lehren}
+\z
+% Die Beurteilungen sind zu schwankend. Wunderlich 2002 nimmt OT-Ansatz.
+%% In (\mex{0}) haben \emph{ihn} und \emph{ihren Sohn} nicht die Möglichkeit,
+%% ihren Kasus (\zb durch Passivierung) zu ändern.\footnote{
+%%   Merkwürdigerweise ist (i) für einige Sprecher akzeptabel:
+%% \ea
+%% Ihr Sohn bekam einen neuen Kanon gelehrt.
+%% \z
+%% Interessant hieran ist, daß es sich um ein Dativ"=Passiv handelt. Der Aktivsatz zu (i) muß
+%% also (ii) sein und nicht (\mex{0}b).
+%% \ea[?*]{
+%% Jemand lehrte ihrem Sohn einen neuen Kanon.
+%% }
+%% \z
+%% Für die Analyse von (i) müßte man wohl einen eigenen Lexikoneintrag für \emph{lehren} mit
+%% Dativobjekt annehmen.
+%% }
+%% \emph{ein neuer Kanon} kann Subjekt in einem Passivsatz werden, \emph{ihren Sohn} nie.
+In (\mex{0}) hat \emph{ihn} nicht die Möglichkeit, seinen Kasus (\zb durch Passivierung) zu ändern,
+weshalb es sinnvoll ist, diese Akkusative zu den lexikalischen Akkusativen zu zählen.
+
+\is{Pr"aposition|(}%
+Haider argumentiert dafür, daß auch die Nominalphrasen
+in Präpositionalobjekten vom Verb strukturellen Kasus zugewiesen bekommen
+(bei Haider kommt hier nur der Akkusativ in Frage, da er den Dativ als lexikalischen Kasus behandelt).
+Modifizierende Präpositionen sollen dagegen ihren nominalen Komplementen selbst Kasus zuweisen.
+In Abhängigkeit von der jeweiligen Präposition ist der Kasus dann Genitiv, Dativ bzw.\
+Akkusativ oder hängt -- wie in (\mex{1}) -- von der Bedeutung der Präposition ab.
+\eal
+\ex Er läuft in diesen Wald.
+\ex Er läuft in diesem Wald.
+\zl
+Eine strukturelle Vergabe von Kasus an Präpositionalobjekte wäre in Haiders
+System nur gerechtfertigt, wenn es keine Präpositionalobjekte mit Dativ"=Objekt gäbe.
+\citet[\page 78]{Eisenberg94a} gibt aber die Beispiele in (\mex{1}), und (\mex{1}a) zeigt,
+daß es durchaus Komplementpräpositionalphrasen gibt, deren NP nicht im Akkusativ steht.\enlargethispage{1.5\baselineskip}
+\eal
+\ex Sie hängt an\iw{hängen an} ihrer elektrischen Eisenbahn.
+\ex Sie denkt an\iw{denken an} ihre Vergangenheit.
+\zl
+Nimmt man an, daß der Dativ auch ein struktureller Kasus ist, könnte man zwar
+trotzdem davon ausgehen, daß Präpositionalobjekte strukturellen Kasus tragen, doch
+entfällt hier die Motivation über das (Dativ-)Passiv, denn die Präpositionalobjekte
+können im Deutschen nie zum Subjekt werden, und der Kasus der NP ändert sich in
+Präpositionalobjekten auch nicht.
+
+Ich behandle also Präpositionen einheitlich: Eine Präposition weist unabhängig von ihrer
+Verwendung als Modifikator oder Komplement der von ihr selegierten Nominalphrase
+lexikalischen Kasus zu.
+%
+\is{Pr"aposition|)}%
+
+Genau wie der Kasus von NPen in Präpositionalphrasen sich nicht ändern kann, kann
+sich der Kasus von Objekten von Adjektiven nicht ändern.
+Adjektive\is{Adjektiv} können Genitiv und Dativ zuweisen:
+\eal
+\ex Er war sich dessen sicher.\iw{sicher}
+\ex Sie ist ihm treu.\iw{treu}
+\zl
+Die Zuweisung von Akkusativ ist ebenfalls möglich, wie die folgenden Beispiele zeigen:
+\eal
+\ex Das ist diesen Preis nicht wert.
+\ex Der Student ist das Leben im Wohnheim nicht gewohnt.\iw{gewohnt}\footnote{
+        \citew*[\page 312]{HB72a}.
+      }
+\ex Du bist mir eine Erklärung schuldig.\footnote{
+        \citew*[\page 620]{HFM81}.
+      }
+\zl
+Der Akkusativ ist bei Komplementen von Adjektiven aber selten \citep*[\page 98, Fn.\,3]{Haider85b}.
+
+Im Gegensatz zum Kasus der Objekte hängt der Kasus der Adjektivsubjekte von der syntaktischen
+Umgebung ab:\footnote{
+  Siehe auch \citew[\page 84]{Wunderlich84} zur Diskussion ähnlicher Beispiele.%
+}
+\eal
+\ex Der Mond wurde kleiner.\iw{klein}
+\ex Er sah\iw{sehen} den Mond kleiner werden.
+\zl
+
+
+\subsection{Semantische Kasus}
+\label{sec-sem-kasus}
+\is{Kasus!semantischer|(}
+
+Nominalphrasen können sowohl als Komplement als auch als Adjunkt
+auf"|treten. \citet*{Haider85b} gibt folgende 
+Beispiele für adverbiale Nominalphrasen:\is{adverbialer Akkusativ}
+\eal
+\ex Sie hörten \emph{den ganzen Tag}\iw{Tag} dieselbe Schallplatte.\label{bsp-den-ganzen-tag-dieselbe-schallplatte}
+\ex Laßt \emph{mir} den Hund in Ruhe!\label{bsp-lasst-mir}
+\ex \emph{Eines Tages}\iw{Tag} erschien ein Fremder.
+\zl
+% Er kam eines Morgens und bleib den ganzen Tag. Wegener85b:108
+Haider rechnet auch Dative, die auf denjenigen referieren, zu dessen Gunsten (\ref{bsp-er-goss-ihr})
+bzw.\ Ungunsten (\mex{1}b) etwas geschieht (\textit{dativus commodi\/}\is{Dativ!commodi@{\it
+    commodi\/}} und \textit{dativus incommodi\/}\is{Dativ!incommodi@\textit{incommodi\/}})\footnote{\label{fn-dativ-commodi}%
+        Die Unterscheidung zwischen \textit{dativus commodi\/} und \textit{dativus incommodi\/}
+        ist aus syntaktischer Sicht wenig sinnvoll, wie \citet*[\page 100]{Wegener85b}\iaf{Wegener}
+        gezeigt hat.
+        Ob es sich um einen \textit{dativus commodi\/} oder um einen \textit{dativus incommodi\/} handelt,
+        hängt von außersprachlichen Faktoren ab.
+        \eal
+        \ex Der kleine Junge / der berühmte Maler bemalt ihr den Tisch.
+        \ex Er öffnet ihr die Bluse.
+        \zl
+        Selbst (\ref{bsp-er-zuendet-ihr}) kann als \textit{dativus commodi\/} verstanden werden, wenn
+        er ihr bei einem Versicherungsbetrug hilft.%
+}, zu den adverbialen Nominalphrasen.
+\eal
+\ex Er goß \emph{ihr} die Blumen.\label{bsp-er-goss-ihr}
+\ex Er zündete \emph{ihr} das Haus an.\label{bsp-er-zuendet-ihr}
+\zl
+\citet*{Wegener85b}\ia{Wegener} hat jedoch gezeigt, daß diese Dative Komplementstatus haben.
+Nur der ethische Dativ\NOTE{FB: ethischen Dativ erklären} (\ref{bsp-lasst-mir})\is{Dativ!ethischer} und der Urteilsdativ (\textit{Dativ iudicantis}\is{Dativ!iudicantis@\textit{iudicantis}}) (\mex{1})
+sind als Adjunkte und als wirklich "`freie Dative"'\is{Dativ!freier} einzuordnen.\footnote{
+        Die Beispiele in (\mex{1}) sind von \citet*[\page 53]{Wegener85b}.
+}
+\eal
+\ex Das ist \emph{mir} zu\iw{zu!Grad} schwer.
+\ex Das ist \emph{dem Kind} zu langweilig / nicht interessant genug.\iw{genug!Grad}
+\ex Du läufst \emph{der Oma} zu\iw{zu!Grad} schnell.
+\ex Das Wasser ist \emph{dem Baby} warm genug.\iw{genug!Grad}
+\zl
+
+\noindent
+Haider zeigt, daß die Annahme, daß in (\ref{bsp-den-ganzen-tag-dieselbe-schallplatte}) beide
+Nominalphrasen vom Verb den Akkusativ zugewiesen bekommen,
+nicht sinnvoll ist, da Zeitangaben wie \emph{den ganzen Tag} auch in adjektivischen und
+nominalen Umgebungen vorkommen.
+% zitiert Toman83
+\eal
+\ex die Ereignisse \emph{letzten Sommer}\iw{Sommer}
+\ex der Flirt \emph{vorigen Dienstag}\iw{Dienstag}
+\ex die \emph{diesen Sommer} sehr günstige Witterung
+\ex die \emph{diesen Sommer} sehr teuren Urlaubsreisen
+\zl
+Da Elemente mit strukturellem Kasus in Nominalumgebungen
+im Genitiv stehen müssen, kann es sich in (\mex{0}a,b)
+nicht um die Zuweisung eines strukturellen Kasus handeln.
+%
+Die Kasus in (\mex{0}) werden nicht aufgrund ihres Vorkommens in einer bestimmten
+syntaktischen Struktur zugewiesen, sondern sind vielmehr durch die Bedeutung des Nomens bestimmt.
+
+%\citep*{ZMT85a} -> semantische Kasusmarkierung
+Der freie Akkusativ kommt bei Maß"-angaben\is{Maßangaben} (Zeitdauer und Zeitpunkt)
+vor (\mex{1}) und Genitiv bei Lokalangaben oder Zeitangaben (\mex{2}).
+\eal
+\ex Sie studierte \emph{den ganzen Abend}.\iw{Abend}
+\ex \emph{Nächsten Monat}\iw{Monat} kommen wir.
+\zl
+\eal
+\ex Ein Mann kam \emph{des Weges}.\iw{Weg}
+\ex \emph{Eines Tages}\iw{Tag} sah ich sie wieder.
+\zl
+
+Interessanterweise können auch komplexere Nominalphrasen als Adjunkte verwendet werden:\footnote{
+  Siehe hierzu auch \citew{Flickinger2008a}.
+}
+\ea
+\label{bsp-den-groessten-Teil-der-Woche}
+Er arbeitet \emph{den größten Teil der Woche} zu hause.
+\z
+Beispiele wie (\mex{0}) zeigen, dass das Nomen, das den Zeitausdruck beisteuert, nicht
+notwendigerweise im Akkusativ stehen muss. Es kann wie in (\mex{0}) Teil einer größeren
+Nominalphrase im Akkusativ sein, die dann als Ganzes als Modifikator verwendet werden kann.
+% reicht nicht \enlargethispage{2\baselineskip}
+%
+\is{Kasus!semantischer|)}
+
+
+
+%% \subsection{Kongruenzkasus}
+%% \label{sec-kongruenzkasus}
+%% \is{Kasus!Kongruenz-|(}
+
+%% Interessant sind Verben wie \word{nennen}, die mit zwei Akkusativen
+%% auf"|treten:\footnote{
+%%         Die Beispiele in (\mex{1}) und (\mex{2}) sind von \citet[\page 548]{Flaeming81a}\iaf{Fläming}.
+%% }
+%% % Haider85:99 mit Verräter
+%% \ea
+%% Er nannte ihn einen Experten.
+%% \z
+%% Hier scheint ein Verb vorzuliegen, das wie \emph{lehren} mit zwei Akkusativen vorkommt.
+%% Sieht man sich die Passivvariante des Satzes in (\mex{0}) an, stellt man jedoch fest,
+%% daß es sich beim Kasus von \emph{einen Experten} nicht um einen normalen Akkusativ handeln
+%% kann:
+%% \ea
+%% Er wurde ein Experte genannt.
+%% \z
+%% Lägen in (\mex{-1}) zwei normale Akkusative vor, würde sich nur der Kasus eines Akkusativs
+%% bei der Passivierung ändern, es ändern sich aber beide Kasus. Man nennt den Kasus von \emph{einen Experten}
+%% auch Kongruenzkasus. Die prädikative Phrase \emph{einen Experten} stimmt in ihrem Kasus mit dem
+%% Element, über das prädiziert wird, überein. 
+
+%% Ähnliche Effekte kann man in Sätzen mit den Präpositionen\is{Pr"aposition} \emph{als}\iw{als|(} und \emph{wie}\iw{wie|(}
+%% beobachten.\footnote{
+%%         Das Handwörterbuch der deutschen Gegenwartssprache \citep{Kempcke84}\ia{Kempcke} ordnet \emph{als}
+%%         und \emph{wie} als nebenordnende Konjunktionen\is{Konjunktion} ein.
+%% %Wunderlich84:73; Fanselow86:361, Fanselow91a:87 -> Präposition
+%%         Zu einer Kritik an der Bezeichnung "`Präposition"' siehe auch 
+%%         \citew[\page 173, Fußnote 4, S.\,204--205]{Heringer73a}.
+%%         Heringer nennt diese Elemente Identifikationstranslative\is{Identifikationstranslativ}.
+%% %
+%% %        Oft wird behauptet, daß Präpositionen keinen Nominativ regieren können. (i)
+%% %        scheint zu belegen, daß \emph{als} den Nominativ regieren kann, denn
+%% %        in (ia) und (ic) gibt es kein Element, auf das sich \emph{künftiger Ministerpräsident}
+%% %        bezieht. \emph{Man} scheidet aus semantischen Gründen aus.
+%% %\fneenumsentence{
+%% %\ex Der Mann, dem gute Chancen als künftiger Ministerpräsident eingeräumt werden, \ldots%\footnote{
+%% %        (taz, 19./20.09.1998, S.\,3)
+%% %%}
+%% %% zieht dieser Tage über Wochenmärkte und verteilt rote Kärtchen mit dem Schriftzug:
+%% %% "`Zeigt den Rechten die rote Karte. Besonders im Osten. SPD."'
+%% %\ex der Mann, dem als künftigem Ministerpräsidenten gute Chancen eingeräumt werden
+%% %\ex Man räumt ihm Chancen als künftiger Ministerpräsident ein.
+%% %\ex Man räumt ihm als künftigem Ministerpräsidenten Chancen ein.
+%% %}
+%% }
+%% \eal
+%% \label{bsp-gelten-als}
+%% \ex Er gilt als großer Künstler.\footnote{
+%%         \citew[\page 203--204]{Heringer73a}.
+%%       }
+%% \ex Man läßt ihn als großen Künstler gelten\iw{gelten als}.
+%% \zl
+%% \eal
+%% \label{bsp-ansehen-als}
+%% \ex Ich sehe ihn als meinen Freund an.\iw{ansehen}\footnote{
+%%         \citew*[\page 154]{SS88a}.
+%% }
+%% \ex Er wird als mein Freund angesehen.
+%% \zl
+%% In (\mex{-1}) und (\mex{0}) sind die Präpositionalphrasen direkte Komplemente der Verben \emph{gelten}
+%% bzw.\ \emph{ansehen}.
+%% Treten solche Verben als adjektivisches Partizip auf, so kongruiert die \emph{als}"=Phrase
+%% mit dem nicht ausgedrückten Subjekt, das im Nominativ steht (siehe auch Abschnitt~\ref{sec-kasus-nicht-realisierter-subj}).
+%% \ea
+%% eine als Hebel wirkende\iw{wirken als} Stange\footnote{
+%%         \citet[\page 212]{Heringer73a}\iafwrong{Heringer} erklärt diesen Nominativ mit der Tendenz, prädikative
+%%         nominale Komplemente nicht mehr zu deklinieren. Diese Beobachtung ist im allgemeinen richtig
+%%         (siehe lexikalischer Nominativ in Kopulakonstruktionen), doch für die diskutierte Verbklasse
+%%         falsch.
+%% }
+%% \z
+%% Der Kasus des modifizierten Nomens ist unabhängig vom Kasus des Subjekts innerhalb der Partizipialkonstruktion.
+
+%% Während die \emph{wie}"=Präpositionalphrasen\iw{wie} in (\mex{1}a--b) als Argumente zu analysieren sind,
+%% handelt es sich bei denen in (\mex{1}c--d) um modifizierende.\footnote{
+%%         Die Beispiele (\ref{bsp-verhalten-behandeln-helfen-wie}) sind von \citet*[\page 75]{Wunderlich84}\iaf{Wunderlich}.
+%% } 
+%% \eal
+%% \label{bsp-verhalten-behandeln-helfen-wie}
+%% \ex Sie verhielt\iw{verhalten} sich wie ihr Vater.
+%% \ex Ich behandelte\iw{behandeln} ihn wie meinen Bruder.
+%% \ex Ich half\iw{helfen} ihm wie einem Freund.
+%% \ex Ich erinnerte\iw{erinnern} mich dessen wie eines fernen Alptraums.
+%% \zl
+%% %% Die modifizierenden Präpositionalphrasen
+%% %% verhalten sich syntaktisch genauso wie 
+%% %% die {\em ein- nach d- ander-\/}-Ad\-ver\-bial\-phra\-sen:\iw{ein- nach d- ander-} 
+%% %% Sie modifizieren ein Verb und stimmen mit einem Argument des Verbs in einem bestimmten Merkmal überein.
+%% \iw{wie|)}
+
+%% \begin{comment}
+%% Interessanterweise scheint es auch Verben bzw.\ Funktionsverbgefüge\is{Funktionsverbgefüge}
+%% zu geben, in denen der Kasus der \emph{als}-Phrase feststeht.
+%% \end{comment}
+
+%% %% Auch bei diesen Konstruktionen muß -- genau wie bei den Kopulakonstruktionen\is{Kopula} in 
+%% %% (\ref{bsp-kopula-kein-agreement}) -- das Element in der Präpositionalphrase bzw.\ im zweiten Objekt
+%% %% nicht in Genus und Numerus mit dem ersten Objekt übereinstimmen, wie das \zb 
+%% %% von \citet[\page 154]{SS88a}\ia{von Stechow}\ia{Sternefeld} behauptet wird.
+%% %% % auch Admoni66:114, Heringer73a:205,Fn2 Schmidt65:129  ??
+%% %% \eal
+%% %% \ex Er empfand\iw{empfinden} diese Anschuldigungen als große Beleidigung.
+%% %% \ex Er nannte\iw{nennen} diese Behauptungen einen Schmarrn.
+%% %% \ex Er nannte diese Frau ein Genie.
+%% %% \zl%
+
+%% \begin{comment}
+%% Zum Lexikoneintrag in (\ref{le-nennen}) ist noch anzumerken, daß explizit angenommen wird, daß \emph{ihn}
+%% und \emph{einen Lügner} Komplemente von \emph{nennen} sind. Das unterscheidet die Analyse
+%% von solchen, die mitunter für englische Sätze wie (\mex{1}) angenommen werden.
+%% \ea
+%% He considered him a fool.
+%% \z
+%% So nimmt \zb \citet[\page 14]{Rothstein}\ia{Rotstein} an, daß \emph{him a fool} einen
+%% sogenannten {\em Small Clause}\is{Small Clause@\textit{Small Clause}} bildet.
+%% Würde man das aufs Deutsche übertragen, wäre nicht zu erklären, warum in
+%% (\mex{1}) \emph{einen Lügner} zwischen Elementen des Satzes \emph{ihn einen Lügner}
+%% stehen kann.
+%% \ea
+%% Er nannte ihn mit Nachdruck einen Lügner.
+%% \z
+%% Auch die Passivdaten wären nicht ohne weiteres erklärbar.
+%% \end{comment}
+
+%% Man könnte dieses Verhältnis gut erfassen, wenn man annehmen würde, daß prädikative
+%% Phrasen immer mit dem Element, über das sie prädizieren, im Kasus übereinstimmen.
+%% Dies würde sofort auch Beispiele wie das in (\mex{1}) erklären:
+%% %% , wenn man davon ausgeht,
+%% %% daß das nicht realisierte Subjekt von Infinitiven im Nominativ steht.
+%% \ea
+%% \label{bsp-lex-nom}
+%% Er wird ein großer Linguist.\label{bsp-er-wird-ein-grosser}\footnote{
+%% %        (\ref{bsp-er-wird-ein-grosser}) und (\ref{bsp-lass-ihn-einen-grossen}) sind von 
+%% \citew[\page 205]{Heringer73a}.
+%% %.
+%%       }
+%% %% \ex Er beschloß, ein Linguist zu werden.\footnote{
+%% %%         \citep*[\page 216]{Oppenrieder91a}\iaf{Oppenrieder}
+%% %%         }\label{bsp-er-beschloss}
+%% % Er brauchte nicht einmal sechs Minuten, um gegen Trevor Berbick der jüngste Schwergewichtsweltmeister
+%% % aller Zeiten zu werden. taz, 08./09.06.2002, taz-mag, S.\,III
+%% \z
+%% Leider ist die Sache mit den Kopulakonstruktionen\is{Kopula} nicht so einfach, denn wenn
+%% die beiden Nominalphrasen immer im Kasus übereinstimmen müßten, dann würde
+%% man erwarten, daß in AcI"=Konstruktionen (siehe Kapitel~\ref{sec-aci}) beide Nominalphrasen im Akkusativ stehen.
+%% Wie die Beispiele in (\mex{1}) zeigen, ist dem nicht so:\footnote{
+%%         Die Sätze in (i) entsprechen dem, was man bei Kongruenzkasus erwarten würde.
+%%         Man muß diese Konstruktion aber zu den idiomatischen\is{Idiom} Wendungen zählen.
+%%         \eal
+%%         \ex[]{
+%%         Er läßt den lieben Gott 'n frommen Mann sein.\iw{lassen}
+%%         }
+%%         \ex[*]{
+%%         Er läßt den lieben Gott 'n frommer Mann sein.
+%%         }
+%%         \zl
+%%         Der \citet*[{\S}\,1473]{Duden73}\iaf{Duden} bezeichnet solche Konstruktionen mit Akkusativ als veraltet.
+%%         Der \citet*[{\S}\,1259]{Duden95} behauptet darüber hinaus, daß der Akkusativ in Sätzen wie (\mex{1})
+%%         nach dem Muster von (i) in der Schweiz üblich ist. Für diese Varianten des Deutschen ist
+%%         dann der Kasus des Prädikats als Kongruenzkasus zu behandeln.
+%% %
+%% % Adam P und Fanselow2000b:4
+%% % Fanselow zitiert Yip et al: Es gibt keinen lexikalischen Nominativ
+%% %
+%% %        Folgt man der Analyse aus Abschnitt~\ref{sec-kongruenzkasus}, liegt in (\ref{bsp-lex-nom})
+%% %        lexikalischer Nominativ vor.
+
+%%         Zu erwähnen sind in diesem Zusammenhang auch noch Sätze wie (ii), die nach \citet[\page 174]{Plank85a}\iadata{Plank}
+%%         im Niederdeutschen\il{Niederdeutsch} grammatisch sein sollen:
+%%         \ea
+%%         Der Kanzler ist einen starken Mann.
+%%         \zlast
+%% }
+%% \eal
+%% \label{bsp-aci-kopula}
+%% %\ex Laß ihn einen großen Linguisten werden.\label{bsp-lass-ihn-einen-grossen}
+%% \ex Laß\iw{lassen|(} den wüsten Kerl [\ldots] meinetwegen ihr Komplize sein.\footnote{
+%%         (\ref{bsp-lass-den-wuesten-kerl}) und (\ref{bsp-lass-mich}) sind aus dem \citet*[{\S}\,6925]{Duden66}.\iaf{Duden} %\citet*[{\S}\,1473]{Duden73}.\iaf{Duden}
+%%         Die Quellen finden sich dort.
+%%       }\label{bsp-lass-den-wuesten-kerl}
+%% \ex Laß mich dein treuer Herold sein.\label{bsp-lass-mich}
+%% \ex Baby, laß\iw{lassen|)} mich dein Tanzpartner sein.\footnote{
+%%         Funny van Dannen, Benno-Ohnesorg-Theater, Berlin, Volksbühne, 11.10.1995
+%%         }
+%% \zl
+%% \NOTE{Quelle Funny van Dannen genau mit CD}
+%% Für Kopulakonstruktionen muß man wohl wie \citet[\page 54]{Thiersch78a} davon ausgehen,
+%% daß der Nominativ des Nicht"=Subjekts ein lexikalischer Kasus ist.
+\is{Kasus!struktureller|)}%
+\is{Kasus!lexikalischer|)}%
+%\is{Kasus!Kongruenz-|)}
+\ia{Haider|)}%
+
+
+\subsection{Der Kasus nicht ausgedrückter Subjekte}
+\label{sec-kasus-nicht-realisierter-subj}
+
+\citet*[Kapitel~6]{Hoehle83a}
+hat gezeigt, wie man den Kasus nicht an der Oberfläche
+auf"|tretender Elemente bestimmen kann. Mit der Phrase {\em ein- nach d- ander-\/}\iw{ein- nach d- ander-|(uu} kann
+man sich auf mehrzahlige Konstituenten beziehen. Dabei muß \emph{ein- nach d- ander-}
+in Kasus und Genus mit der Bezugsphrase übereinstimmen.
+(\mex{1}) zeigt einfache Sätze, in denen \emph{ein- nach d- ander-} sich auf Subjekte bzw.\
+Objekte bezieht:\footnote{
+        \fromto{\mex{1}}{\mex{3}} sind von Höhle.
+}
+\eal
+\label{bsp-tueren-hoehle}
+\ex Die Türen sind eine nach der anderen kaputtgegangen.
+\ex Einer nach dem anderen haben wir die Burschen runtergeputzt.
+\ex Einen nach dem anderen haben wir die Burschen runtergeputzt.
+\ex Ich ließ die Burschen einen nach dem anderen einsteigen.
+\ex Uns wurde einer nach der anderen der Stuhl vor die Tür gesetzt.
+\zl
+In (\mex{1}) bezieht sich \emph{ein- nach d- ander-} auf Dativ- bzw.\ Akkusativobjekte
+eingebetteter Infinitive mit \emph{zu}:
+\is{Inkoh"arenz}
+\eal
+\ex Er hat uns gedroht, die Burschen demnächst einen nach dem anderen wegzuschicken.
+\ex Er hat angekündigt, uns dann einer nach der anderen den Stuhl vor die Tür zu setzen.
+\ex Es ist nötig, die Fenster, sobald es geht, eins nach dem anderen auszutauschen.
+\zl
+In (\mex{1}) befindet sich \emph{ein- nach d- ander-} ebenfalls innerhalb der Infinitiv"=VP:
+\eal
+\label{bsp-nominativ-inkoh}
+\ex Ich habe den Burschen geraten, im Abstand von wenigen Tagen einer nach dem anderen
+      zu kündigen.\label{bsp-nominativ-inkoh-geraten}
+\ex Die Türen sind viel zu wertvoll, um eine nach der anderen verheizt zu werden.
+\ex Wir sind es leid, eine nach der anderen den Stuhl vor die Tür gesetzt zu kriegen.
+\ex Es wäre fatal für die Sklavenjäger, unter Kannibalen zu fallen und einer nach dem
+      anderen verspeist zu werden.
+\zl
+{\em ein- nach d- ander-\/} ist in keinem der Sätze in (\mex{0}) das Subjekt,
+%\NOTE{FB: Vielleicht sagen, was es      sonst ist: Adjunkt}
+da dieses in dieser
+Form Infinitivkonstruktion nie realisiert wird. {\em Ein- nach d- ander-\/} bezieht sich
+jedoch auf das Subjekt des \zuis. Daraus daß {\em ein- nach d- ander-\/} in (\mex{0}) im Nominativ
+steht, kann man schließen, daß das nicht realisierte Subjekt ebenfalls im Nominativ
+stehen muß.
+\ia{Höhle|)}
+
+Dasselbe gilt für nicht realisierte Subjekte in Umgebungen adjektivischer Partizipien.
+\eal
+\label{bsp-nominativ-adj}
+\ex die eines nach dem anderen einschlafenden Kinder
+\ex die einer nach dem anderen durchstartenden Halbstarken
+\ex die eine nach der anderen loskichernden Frauen
+\zl
+Die Wörter \emph{Kinder}, \emph{Halbstarken} und \emph{Frauen} sind in (\mex{0}) keine syntaktischen
+Argumente der Partizipien. Sie sind vielmehr der Kopf der Nominalphrase und werden von den Partizipien
+modifiziert. Daß die Nomina nicht die Subjekte der Partizipien sein können, kann man daran
+feststellen, daß sie in Kasus stehen können, die als Kasus von Subjekten im Deutschen nicht möglich sind:
+\ea
+Sie helfen den einer nach dem anderen durchstartenden Männern.
+\z
+In (\mex{0}) steht \emph{den \ldots{} Männern} im Dativ. Der Dativ wurde von uns zu den lexikalischen
+Kasus gezählt, Subjekte haben aber immer strukturellen Kasus. Zu Subjektstests und Dativen im Deutschen
+siehe auch Seite~\pageref{page-dativsubjekte}.
+Das Subjekt der adjektivischen Partizipien ist also nicht als syntaktisches Argument des
+Adjektivs ausgedrückt.
+
+Man muß deshalb sicherstellen, daß auch nicht realisierte Subjekte Kasus zugewiesen bekommen.
+Würde man diesen Kasus unterspezifiziert lassen, würden Sätze wie (\mex{1}) falsch analysiert werden.
+\ea[\#]{
+Ich habe den Burschen geraten, im Abstand von wenigen Tagen einen nach dem anderen zu kündigen.
+}
+\z
+In der zulässigen Lesart von (\mex{0}) ist die Phrase 
+\emph{einen nach dem anderen} das Objekt von \emph{kündigen} und kann
+sich nicht auf das Subjekt des Infinitivs, das referenzidentisch
+mit \emph{den Burschen} ist, beziehen.
+\iw{ein- nach d- ander-|)uu}
+
+
+
+\section{Die Analyse}
+\is{Kasus!struktureller|(}\is{Kasus!lexikalischer|(}
+
+In den folgenden beiden Abschnitten werden die Vergabe von Kasus an Argumente und 
+die Restriktionen in bezug auf semantische Kasus erklärt. 
+%% Auf die Analyse
+%% der Kongruenzkasus wird in diesem Buch nicht eingegangen, da Kopulakonstruktionen
+%% und Prädikationen nach dem Muster \emph{jemanden für etwas halten} nicht besprochen
+%% werden.
+
+
+\subsection{Kasus von Argumenten}
+
+Ich gehe im folgenden davon aus, daß der Dativ immer ein lexikalischer Kasus ist. 
+Ein ditransitives Verb wie \word{geben} hat dann einen \subcatw \sliste{ NP[\str], NP[\str], NP[\ldat] },
+wobei \textit{str\/}\istype{str} für strukturellen Kasus und \type{ldat} für lexikalischen Dativ steht.
+Die Zuweisung struktureller Kasus wird durch das folgende Prinzip geregelt (\citealp{Prze99}; 
+\citealp{Meurers99b}; \citealp[Kapitel~10.4.1.4]{Meurers2000b}\ia{Meurers}; \citealp{MdK2001a}):\footnote{
+  Eine korrekte Formalisierung wurde von Detmar Meurers
+  vorgeschlagen (\citealp{Meurers99b}; \citealp{MdK2001a}; \citealp[Kapitel~10.4.1.4]{Meurers2000b}).
+  Diese ist recht komplex und wird deshalb hier in einem Anhang diskutiert (siehe Abschnitt~\ref{kasus-anhang}).
+  Zu \prz{}s Ansatz siehe Abschnitt~\ref{kasus-adamp}.%
+}
+\begin{prinzip-break}[Kasusprinzip]\is{Prinzip!Kasus-}
+\label{case-p}
+\begin{itemize}
+\item In einer Liste, die sowohl das Subjekt als auch die Komplemente eines verbalen Kopfes
+      enthält, bekommt das am wenigsten oblique Element mit strukturellem Kasus 
+      Nominativ\is{Kasus!Nominativ}, es sei denn es wird von einem übergeordneten Kopf angehoben.
+\item Alle anderen nicht angehobenen Elemente der Liste, die strukturellen Kasus tragen, bekommen Akkusativ\is{Kasus!Akkusativ}.
+\item In nominalen Umgebungen wird Elementen mit strukturellem Kasus Genitiv\is{Kasus!Genitiv} zugewiesen.
+\end{itemize}
+\end{prinzip-break}
+Die Einschränkung in bezug auf die Anhebung von Elementen dient zur korrekten Erfassung der
+Kasuszuweisung in bestimmten Sätzen mit mehreren Verben (\zb AcI"=Konstruktionen, siehe
+Kapitel~\ref{chap-anhebung} und S.\,\pageref{page-aci-kasus}).
+%% Die Formulierung des Prinzips wurde wesentlich durch die Arbeiten
+%% von Adam Przepi{\'o}rkowski und Detmar Meurers beeinflußt (\citealp{Prze99}; 
+%% \citealp{Meurers99b}; \citealp[Kapitel~10.4.1.4]{Meurers2000b}\ia{Meurers}; \citealp{MdK2001a}).
+%% Die Unterschiede zu den von diesen Autoren vorgeschlagenen Prinzipien werden im
+%% Abschnitt~\ref{sec-kasus-alternativen} diskutiert.
+
+Das Wirken des Kasusprinzips soll an den Beispielen in (\mex{1}) erklärt werden. Die \subcatlen der
+jeweiligen Verben sind entsprechend der Obliqueness der Argumente geordnet (siehe
+Seite~\pageref{page-obliquen-h}), \dash, das Subjekt steht an erster Stelle. Wenn es ein
+Akkusativobjekt gibt, steht es an zweiter Stelle. Gibt es zusätzlich zum Akkusativobjekt ein
+Dativobjekt folgt dieses dem Akkusativobjekt:
+\ea
+\begin{tabular}[t]{@{}l@{~}l@{~}l}
+a. & \emph{schläft}:     & \subcat \sliste{ NP[\type{str}]$_j$ }\\[2mm]
+b. & \emph{unterstützt}: & \subcat \sliste{ NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2mm]
+c. & \emph{hilft}:       & \subcat \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2mm]
+d. & \emph{schenkt}:     & \subcat \sliste{ NP[\type{str}]$_j$, NP[\type{str}]$_k$, NP[\type{ldat}]$_l$ }\\
+\end{tabular}
+\z
+Die \subcatl von \emph{schläft} enthält genau ein Element: eine NP mit strukturellem Kasus.
+Da diese NP das erste Element der \subcatl ist, bekommt sie Nominativ. Genauso bekommt die erste NP
+in der \subcatl von \emph{unterstützt} Nominativ, die zweite bekommt allerdings Akkusativ. Bei
+\emph{hilft} bekommt das erste Element Nominativ, das zweite ist lexikalisch als Dativ markiert. Bei
+\emph{schenkt} bekommen die ersten beiden Elemente wieder jeweils Nominativ und Akkusativ, das dritte
+Element ist wie das Objekt von \emph{hilft} lexikalisch als Dativ markiert.
+
+Bei Passivierung der Verben in (\mex{0}) ergeben sich die folgenden \subcat"=Listen:
+\ea
+\begin{tabular}[t]{@{}l@{~}l@{~}l}
+a. & \emph{geschlafen wird}:  & \subcat \sliste{ }\\[2mm]
+b. & \emph{unterstützt wird}: & \subcat \sliste{ NP[\type{str}]$_k$ }\\[2mm]
+c. & \emph{geholfen wird}:    & \subcat \sliste{ NP[\type{ldat}]$_k$ }\\[2mm]
+d. & \emph{geschenkt wird}:   & \subcat \sliste{ NP[\type{str}]$_k$, NP[\type{ldat}]$_l$ }\\
+\end{tabular}
+\z
+In (\mex{0}) steht jetzt eine andere NP an erster Stelle. Wenn diese NP strukturellen Kasus hat,
+bekommt sie Nominativ, wenn das wie in (\mex{0}c) nicht der Fall ist, bleibt der Kasus wie er
+ist, nämlich lexikalisch spezifiziert.
+
+Für das Dativpassiv muß man ein bißchen zaubern: Bei der Kombination von \emph{geholfen} und
+\emph{bekommen} bzw.\ von \emph{geschenkt} und \emph{bekommen} wird das Dativargument von 
+\emph{geholfen} bzw.\ von \emph{geschenkt} zum ersten Argument gemacht und der lexikalische
+Dativ beim eingebetteten Verb wird zu einem strukturellen Kasus bei der Kombination mit dem Passiv"=Hilfsverb:
+\ea
+\begin{tabular}[t]{@{}l@{~}l@{~}l}
+a. & \emph{geholfen bekommt}:    & \subcat \sliste{ NP[\type{str}]$_k$ }\\[2mm]
+b. & \emph{geschenkt bekommt}:   & \subcat \sliste{ NP[\type{str}]$_l$, NP[\type{str}]$_k$ }\\
+\end{tabular}
+\z
+Wie diese Umordnung genau passiert, wird im Kapitel~\ref{sec:dat-pass} ausführlicher erklärt. Hier ist
+nur wichtig, wie die Kasusvergabe funktioniert: Dadurch daß das Dativargument bei Kombination mit
+dem Passivhilfsverb strukturellen Kasus hat und an erster Stelle in der Valenzliste von
+\emph{geholfen bekommen} bzw.\ von \emph{geschenkt bekommen} steht, kriegt es Nominativ. Bei
+\emph{geschenkt bekommen} bekommt das zweite Element (das direkte Objekt) Akkusativ. 
+
+Die Umwandlung eines lexikalischen in einen strukturellen Kasus ist unschön,
+aber es scheint zur Zeit keine bessere Alternative zu geben. Einen Vorschlag diskutiere ich in
+Abschnitt~\ref{sec-alternativen-struc-dativ}.
+
+
+Für die Erklärung der Kasusvergabe in AcI"=Konstruktionen\label{page-aci-kasus}\is{Verb!AcI-} müssen wir etwas vorgreifen:
+Bei der Analyse der AcI"=Konstruktion findet eine Argumentkomposition statt, \dash, die Argumente
+des eingebetteten Verbs werden zu Argumenten des AcI"=Verbs (\zb \emph{sehen}, \emph{lassen}).
+Man sagt, daß Verben wie \emph{sehen} und \emph{lassen} die Argumente der unter sie eingebetteten
+Verben anheben. Solche Verben werden deshalb auch Anhebungsverben\is{Verb!Anhebungs-} (\emph{raising verbs}) genannt.
+Entsprechende Valenzlisten sind in (\mex{1}) zu sehen:
+\ea
+\begin{tabular}[t]{@{}l@{~}l@{~}l}
+a. & \emph{schlafen läßt}:     & \subcat \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$ }\\[2mm]
+b. & \emph{unterstützen läßt}: & \subcat \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2mm]
+c. & \emph{helfen läßt}:       & \subcat \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2mm]
+d. & \emph{schenken läßt}:     & \subcat \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{str}]$_k$, NP[\type{ldat}]$_l$ }\\
+\end{tabular}
+\z
+NP[\str]$_i$ steht hierbei jeweils für das Subjekt des AcI-Verbs. 
+NP[\type{str}]$_j$, NP[\type{str}]$_k$ bzw.\ NP[\type{ldat}]$_l$ sind die Argumente des eingebetteten
+Verbs. Für die Kasusvergabe sind nur die Valenzlisten in (\mex{0}) maßgeblich. Die Argumente in den Valenzlisten der
+eigentlichen Verben spielen für die Kasusvergabe keine Rolle, da das Kasusprinzip die Kasuszuweisung ausschließt,
+wenn ein Element angehoben wird. Damit sind nur die Verhältnisse in (\mex{0}) für die Kasuszuweisung interessant,
+das erste Element in den Listen in (\mex{0}) bekommt immer Nominativ, die restlichen Elemente mit strukturellem
+Kasus bekommen Akkusativ. Die logischen Subjekte der eingebetteten Verben werden also im Akkusativ realisiert.
+
+Die Kasuszuweisung an das Subjekt von Adjektiven\is{Adjektiv} funktioniert analog. Die Kopula\is{Kopula} wird mit dem Adjektiv
+verbunden, und es entsteht eine Valenzliste, die die Argumente des Adjektivs enthält (\mex{1}a). Wird
+ein solcher Komplex noch unter ein AcI"=Verb wie \emph{sehen} eingebettet, erhält man die Liste in (\mex{1}b):
+\ea
+\begin{tabular}[t]{@{}l@{~}l@{~}l}
+a. & \emph{kleiner werden}:     & \subcat \sliste{ NP[\str]$_j$ }\\[2mm]
+b. & \emph{kleiner werden sah}: & \subcat \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$ }\\
+\end{tabular}
+\z
+Die Kasuszuweisung funktioniert analog zu den bereits diskutierten Fällen. In den verbalen Umgebungen
+der Kopula bzw.\ des AcI"=Verbs bekommen die NPen mit strukturellem Kasus Nominativ bzw.\ Akkusativ.%
+\is{Kasus!struktureller|)}\is{Kasus!lexikalischer|)}
+
+
+\subsection{Semantischer Kasus}
+
+\is{Kasus!semantischer|(}%
+Der Kasus von NPen wie \emph{den ganzen Tag} in (\mex{1}) ist von der syntaktischen Umgebung unabhängig.
+\eal
+\ex Sie arbeiten den ganzen Tag.
+\ex Den ganzen Tag wird gearbeitet, [\ldots].\footnote{
+  \url{http://www.philo-forum.de/philoforum/viewtopic.html?p=146060}. \urlchecked{12}{05}{2005}.
+}
+\zl
+Daß die NP im Akkusativ steht, hängt mit ihrer Funktion zusammen. Die NP \emph{den ganzen Tag} in
+der Verwendung in (\mex{0}) unterscheidet sich von den NPen mit dem Kopf \emph{Tag}, wie
+man sie für die Analyse der Sätze in (\mex{1}) braucht:
+\eal
+\ex Ich liebe diesen Tag.
+\ex Dieser Tag gefällt mir.
+\zl
+In (\mex{0}) liegen ganz gewöhnliche Argumente vor, in (\mex{-1}) dagegen ein Adjunkt. Adjunkte
+unterscheiden sich von Argumenten durch ihren \modw: Bei Argumenten ist der \modw \type{none},
+bei Adjunkten ist der \modw eine Merkmalstruktur vom Typ \type{synsem}. Man kann jedoch nicht
+einfach annehmen, daß es für Nomina wie \emph{Tag} neben dem Argument"=Lexikoneintrag noch einen für
+die Funktion als Adjunkt gibt, denn wie (\ref{bsp-den-groessten-Teil-der-Woche}) -- hier als
+(\mex{1}) wiederholt -- zeigt, kann der Zeitausdruck unter ein anderes Nomen eingebettet sein.
+\ea
+\label{bsp-den-groessten-Teil-der-Woche-zwei}
+Er arbeitet \emph{den größten Teil der Woche} zu hause.
+\z
+In (\mex{0}) modifiziert nicht \emph{Woche} bzw.\ \emph{der Woche} das Verb, sondern nur die gesamte
+Nominalphrase \emph{den größten Teil der Woche}. 
+
+Statt verschiedene Lexikoneinträge für Zeitausdrücke anzunehmen, verwende ich deshalb ein
+Dominanzschema, das eine Akkusativ"=NP, die einen Zeitabschnitt beschreibt, zu einer NP macht, die
+einen verbalen Ausdruck modifizieren kann, \dash zu einer NP mit entsprechendem \modw.\footnote{
+  Ein solches Schema ist nicht außergewöhnlich. Semantiker verwenden oft solche Regeln für
+  sogenanntes \mbox{Type}"=Shifting \citep{Partee86b-u}. Zum Beispiel werden referentielle Nominalgruppen
+  wie in (i) so zu prädikativen Nominalphrasen wie in (ii):
+  \eal
+  \ex Ein Lehrer lacht.
+  \ex Er ist ein Lehrer.
+  \zl
+  Zu einer HPSG"=Analyse siehe \citew{MuellerPredication,MuellerCopula}.
+} Da das Schema
+nur auf NPen im Akkusativ angewendet wird, ist sichergestellt, daß Sätze wie (\mex{1}) nicht
+analysiert werden: 
+\eal 
+\ex[*]{ 
+Er arbeitet der ganze Tag.  
+}
+\ex[*]{
+weil der ganze Tag gearbeitet wurde
+}
+\zl
+%%
+%% \eas
+%% semantischer Kasus für Akkusative der Zeit:\\
+%% \onems{
+%% phon  \phonliste{ Tag }\\
+%% synsem$|$loc \onems{ cat  \ms{ head & \ms[noun]{
+%%                                       case & acc\\
+%%                                       mod  & \onems{ loc \ms{ cat  & \ms{ head & verbal\\
+%%                                                                         }\\
+%%                                                               cont & \ibox{1}\\
+%%                                                             }\\
+%%                                                    }\\
+%%                                       }\\
+%%                                subcat & \sliste{ Det }\\
+%%                              }\\
+%%                     cont \ms[and]{
+%%                            arg1 & \ibox{1}\\
+%%                            arg2 & \textrm{duration(\ibox{1},\ibox{2})}\\
+%%                            }\\
+%%                     context$|$inds \liste{ \ms{ ind & \ibox{2} \ms{ per & 3\\
+%%                                                                       num & sg\\
+%%                                                                       gen & mas\\
+%%                                                                     } \\
+%%                                                   restr & \liste{ \ms[tag]{
+%%                                                                   inst & \ibox{2} \\
+%%                                                                   } }\\
+%%                                                 }  }\\
+%%                   }\\
+%% } 
+%% \zs
+\is{Kasus!semantischer|)}
+%\section{Kongruenzkasus}
+
+
+
+
+\section{Alternativen}
+\label{sec-kasus-alternativen}
+
+In den Abschnitten~\ref{sec-alternativen-struc-dativ}--\ref{kasus-adamp} diskutiere ich verschiedene HPSG"=Ansätze,
+und Abschnitt~\ref{sec-kasus-fin-verb-nullkasus} beschäftigt sich mit der Kasuszuweisung in der GB"=Theorie.
+
+\subsection{Struktureller Dativ}
+\label{sec-alternativen-struc-dativ}
+
+\citet[\page 76]{Gunkel2003b} kritisiert andere HPSG"=Analysen, die Vorschlägen von Haider folgend
+den Dativ als lexikalischen Kasus behandelt haben. Er entwickelt eine Typhierarchie,
+in die er zwei spezielle Typen \type{scase1} und \type{scase2} aufnimmt (S.\,96). Dabei steht \type{scase1}
+für die strukturellen Kasus, die in verbalen Umgebungen als Nominativ oder Akkusativ realisiert
+werden können, und \type{scase2} steht für die Kasus, die in verbalen Umgebungen als Nominativ (im Dativpassiv)
+oder Dativ realisiert werden können. Auf die Kasusvergabe in nominalen Umgebungen geht Gunkel
+nicht ein. Integriert man den Genitiv in die Typhierarchie, bekommt man etwas
+wie Abbildung~\vref{abb-case}. Statt Gunkels \type{scase1} und \type{scase2} habe ich
+die etwas aussagekräftigeren Bezeichnungen \type{structural\_nga} und \type{structural\_nd}
+gewählt.\istype{snom}\istype{sgen}\istype{sdat}\istype{sacc}\istype{lnom}\istype{lgen}\istype{ldat}\istype{lacc}
+\begin{figure}[htbp]
+\centerline{\begin{pspicture}(-0.2,1)(10.4,7.2)
+%\psgrid
+\rput[B](5,7){\rnode{case}{\textit{case}}}
+%
+\rput[B](2.5,5){\rnode{structural}{\textit{structural}}}
+%
+\rput[B](1,3){\rnode{structuralnga}{\textit{structural\_nga}}}
+\rput[B](4,3){\rnode{structuralnd}{\textit{structural\_nd}}}
+\rput[B](6,3){\rnode{nom}{\textit{nom}}}
+\rput[B](7,3){\rnode{gen}{\textit{gen}}}
+\rput[B](8,3){\rnode{dat}{\textit{dat}}}
+\rput[B](9,3){\rnode{acc}{\textit{acc}}}
+%\rput[B](11,3){\rnode{lexical}{\textit{lexical}}}
+%
+\rput[B](2,1){\rnode{snom}{\textit{snom}}}
+\rput[B](3,1){\rnode{sgen}{\textit{sgen}}}
+\rput[B](4,1){\rnode{sdat}{\textit{sdat}}}
+\rput[B](5,1){\rnode{sacc}{\textit{sacc}}}
+%
+\rput[B](7,1){\rnode{lnom}{\textit{lnom}}}
+\rput[B](8,1){\rnode{lgen}{\textit{lgen}}}
+\rput[B](9,1){\rnode{ldat}{\textit{ldat}}}
+\rput[B](10,1){\rnode{lacc}{\textit{lacc}}}
+%
+\psset{angleA=-90,angleB=90,arm=0pt}
+%
+\ncdiag{case}{structural}\ncdiag{case}{lexical}
+\ncdiag{structural}{structuralnga}\ncdiag{structural}{structuralnd}
+\ncdiag{case}{nom}\ncdiag{case}{acc}\ncdiag{case}{gen}\ncdiag{case}{dat}
+\ncdiag{structuralnga}{snom}\ncdiag{structuralnga}{sacc}\ncdiag{structuralnga}{sgen}
+\ncdiag{structuralnd}{snom}\ncdiag{structuralnd}{sdat}
+\ncdiag{nom}{snom}
+\ncdiag{gen}{sgen}
+\ncdiag{dat}{sdat}
+\ncdiag{acc}{sacc}
+%\ncdiag{lexical}{lnom}\ncdiag{lexical}{lgen}\ncdiag{lexical}{ldat}\ncdiag{lexical}{lacc}
+\ncdiag{nom}{lnom}
+\ncdiag{gen}{lgen}
+\ncdiag{dat}{ldat}
+\ncdiag{acc}{lacc}
+%
+\end{pspicture}}
+\caption{\label{abb-case}Typhierarchie für die Subtypen von \type{case} nach \citew{Gunkel2003b} erweitert um \type{sgen}}
+\end{figure}
+Wie das Nominalisierungsbeispiel in (\ref{sein-helfen-der-Kinder}) -- hier als (\mex{1}) wiederholt -- zeigt,
+können Dativargumente nie im Genitiv realisiert werden. 
+\ea[*]{
+sein Helfen der Kinder
+}
+\z
+In Abbildung~\ref{abb-case} 
+hat der Typ \type{structural\_nd} deshalb nur die Untertypen \type{snom} und \type{sdat},
+nicht aber \type{sgen}. \type{structural\_nga} hat dagegen \type{snom}, \type{sgen} und \type{sacc}
+als Untertypen.
+
+Die Valenzrepräsentationen für einige typische Verben sind in (\mex{1}) zu sehen:
+\ea
+\begin{tabular}[t]{@{}l@{~}l@{~}l@{}}
+a. & \emph{schlafen}:     & \subcat \sliste{ NP[\type{str\_nga}] }\\
+b. & \emph{unterstützen}: & \subcat \sliste{ NP[\type{str\_nga}], NP[\type{str\_nga}] }\\
+c. & \emph{helfen}:       & \subcat \sliste{ NP[\type{str\_nga}], NP[\type{str\_nd}] }\\
+d. & \emph{schenken}:     & \subcat \sliste{ NP[\type{str\_nga}], NP[\type{str\_nga}], NP[\type{str\_nd}] }\\
+\end{tabular}
+\z
+Gunkels Kasusprinzip (Kapitel~2.3.12) sagt dann, daß in verbalen Umgebungen das erste Argument Nominativ bekommt
+und alle anderen Argumente nicht Nominativ ($\neg nom$) sind. Wenn man den Genitiv in die Hierarchie aufnimmt, bleiben
+für den Kasus des Objekts von \emph{unterstützen} dann immer noch \type{sgen} und \type{sacc}. Man müßte
+also bei der Verwendung der Typhierarchie in Abbildung~\ref{abb-case} auch den Genitiv ausschließen,
+das kann man wie folgt tun: Man sagt, daß alle Argumente, die in verbalen Umgebungen nicht an erster Stelle
+stehen, weder Nominativ noch Genitiv sein dürfen ($\neg nom \wedge \neg gen$). Das ist aber äquivalent
+mit $dat \vee acc$ bzw.\ mit einem in die obige Hierarchie integrierten Typ
+\type{structural\_da}. Macht man sich klar, daß ein Typ in einer Hierarchie für eine Disjunktion 
+all seiner maximal spezifischen Untertypen steht, so wird auch klar, daß die Kodierung in
+Abbildung~\ref{abb-case} nichts anderes ist als eine disjunktive Aufzählung von Möglichkeiten.
+\type{structural\_nga} steht für $snom \vee sgen \vee sacc$. Damit stehen die Lexikoneinträge in (\mex{0})
+aber für folgendes:
+\ea
+\begin{tabular}[t]{@{}l@{~}l@{~}l@{}}
+a. & \emph{schlafen}:     & \subcat \sliste{ NP[$snom \vee sacc \vee sgen$] }\\
+b. & \emph{unterstützen}: & \subcat \sliste{ NP[$snom \vee sacc \vee sgen$], NP[$snom \vee sacc \vee sgen$] }\\
+c. & \emph{helfen}:       & \subcat \sliste{ NP[$snom \vee sacc \vee sgen$], NP[$snom \vee sdat$] }\\
+d. & \emph{schenken}:     & \subcat $\langle$ \begin{tabular}[t]{@{}l@{}}
+                                              \textsc{NP[$snom \vee sacc \vee sgen$], NP[$snom \vee sacc \vee sgen$],}\\
+                                              \textsc{NP[$snom \vee sdat$]} $\rangle$\\
+                                              \end{tabular}
+\end{tabular}
+\z
+Damit die Analyse funktioniert, muß man also in Lexikoneinträgen Möglichkeiten disjunktiv spezifizieren (bzw.\
+entsprechend unterspezifizieren) und im Kasusprinzip auch, \dash, man zählt entweder
+alle Möglichkeiten einfach auf oder kodiert sie in Typen. 
+% Wieso eigentlich??
+%Die Abbildung~\ref{abb-case} müßte noch um einen Typ für $dat \vee acc$ erweitert werden. 
+Ich ziehe das sehr viel einfachere\footnote{
+  Die formale Umsetzung ist nicht einfach. Das liegt aber an der Einschränkung in bezug auf Anhebung.
+  Eine solche Einschränkung braucht Gunkel auch.%
+}, im vorigen Abschnitt formulierte Prinzip
+vor. Der Preis, den man dafür zahlen muß, ist ein spezieller
+Lexikoneintrag für die Hilfsverben, die beim Dativpassiv\is{Passiv!Dativ-} vorkommen. In diesem Lexikoneintrag
+wird der lexikalische Dativ zum strukturellen Nominativ gemacht. Wie das genau funktioniert,
+wird im Kapitel~\ref{chap-passiv} erklärt.
+
+Ein weiterer Nachteil des Gunkelschen Ansatzes ist, daß nicht ohne weiteres erklärt werden kann,
+wieso Partizipien wie \emph{geholfen} nicht wie in (\mex{1}) pränominal verwendet werden können.
+% Auch Abraham2005:236
+%   das dem Mann von der Frau gezeigte Etwas
+% * der Etwas von der Frau gezeigte Mann
+\ea[*]{
+der geholfene Mann
+}
+\z
+Mit der Passivanalyse, die in Kapitel~\ref{chap-passiv} vorgestellt wird, würde man die
+folgende Valenzliste für \emph{geholfen} bekommen:
+\ea
+\emph{geholfen}: \subcat \sliste{ NP[\type{str\_nd}] }
+\z
+An der ersten Stelle der Valenzliste stünde ein struktureller Kasus. Die Lexikonregel für die
+Ableitung von adjektivischen Partizipien in (\ref{lr-adjective-formation-da-approach}) 
+auf Seite~\pageref{lr-adjective-formation-da-approach} ist für den im vorigen Abschnitt vorgestellten
+Ansatz sehr einfach: Sie besagt, daß eine Adjektivform abgeleitet werden kann, wenn das
+erste Element der \subcatl des Partizips strukturellen Kasus hat. Dieses Element mit strukturellem
+Kasus wird dann zum Subjekt des Adjektivs, \dash zu dem Element, über das prädiziert wird.
+Das entspricht dem modifizierten Nomen. Das Objekt von \emph{unterstützt} wird somit zu dem
+Element, das dem modifizierten Nomen entspricht. Da der Kasus des Objekts von \emph{helfen}
+aber lexikalisch ist, wird ein Wort wie \noword{geholfene} überhaupt nicht lizenziert. Mit einer
+\subcatl wie in (\mex{0}) müßte man dagegen in der Lexikonregel für die Adjektivderivation
+noch festlegen, daß das Objekt des Verbs, das dann zum Subjekt des Adjektivs wird,
+kein Dativobjekt sein darf. Dies ist jedoch nicht ohne weiteres möglich, denn \type{str\_nd}
+steht für $\nom \vee dat$, und wenn man so etwas wie $\neg dat$ sagt, bleibt immer noch \type{nom}
+übrig. Man kann auch nicht verlangen, daß das Objekt nicht vom Typ \type{str\_nd} sein darf, denn
+das würde den Nominativ ausschließen, und Subjekte von adjektivischen Partizipien haben strukturellen Nominativ,
+wie die Beispiele in (\ref{bsp-nominativ-adj}) für adjektivische Partizipien gezeigt haben.
+Was man zur Lösung dieses Problems braucht und was Gunkel auch vorschlägt, ist ein listenwertiges\footnote{
+  Gunkel verwendet Mengen.%
+}
+Merkmal (\textsc{ia} = \emph{internal argument}), das eine Liste mit dem Element mit Akkusativobjekteigenschaften zum Wert hat. Die
+Adjektivlexikonregel kann dann dieses Element zum Subjekt des Adjektivs machen. Bei unakkusativen
+Verben ist das logische Subjekt in \textsc{ia}, bei unergativen Verben ist es das Akkusativobjekt \citep[\page 97]{Gunkel2003b}.
+Verben, die nur ein Subjekt und ein Dativobjekt regieren, haben die leere Liste als Wert von \textsc{ia}.
+Wie ich in Kapitel~\ref{chap-passiv} zeigen werde, braucht man ein Merkmal zur Auszeichnung des
+Akkusativobjekts nicht, wenn man annimmt, daß der Dativ ein lexikalischer Kasus ist.
+
+\subsection{Zuweisung in Abhängigkeit von phrasaler Konfiguration}
+
+\mbox{}\citew[\page 209--210]{HM94a}, \citew[\page 280--281]{Mueller99a} und \citew[\page 112]{Gunkel2003b}
+schlagen Kasusprinzipien vor, die Kasus innerhalb von Kopf"=Argumentstrukturen, \dash in bestimmten
+phrasalen Konfigurationen, zuweisen. So sorgt \zb die folgende Implikation dafür,
+daß wenn es an der ersten Stelle der \subcatl der Kopf"|tochter eine NP mit strukturellem
+Kasus gibt, diese NP Nominativ bekommt:\footnote{
+  Im 99er Buch gehe ich davon aus, daß die Argumente vom Ende der \subcatl vor denen am Anfang der
+  Liste gesättigt werden. Das Kopf"=Argument"=Schema entspricht also dem Schema auf
+  Seite~\pageref{schema-bin-prel} mit \emph{append}   und nicht dem Schema auf
+  Seite~\pageref{schema-bin-prel2} mit \emph{delete}. Deshalb steht das Subjekt auch bei
+  Verbprojektionen immer an erster Stelle der \subcatl. Es kann nicht passieren, daß das Subjekt
+  gesättigt wird und dann eine Objektsnominalphrase mit strukturellem Kasus an erster Stelle der \subcatl steht.%
+}
+
+\eas
+Ausschnitt aus dem Kasusprinzip von \citew[\page 280]{Mueller99a}\\\istype{head"=argument"=structure}
+\onems[head"=argument"=structure]{ 
+     synsem  \ms{ loc$|$cat$|$head & \ms[verb]{ vform & fin \\ } \\ 
+                 } \\
+     h-dtr$|$synsem$|$loc$|$cat$|$subcat \sliste{ NP[\textit{str\/}] } $\oplus$ \ibox{1} \\
+    } ~\impl \\ \\
+\mbox{}\hspace{3cm}\ms{ h-dtr$|$synsem$|$loc$|$cat$|$subcat & \sliste{ NP[\textit{snom\/}] } $\oplus$ \ibox{1}  \\
+   }
+\zs
+
+\noindent
+Das Problem an dieser Art Kasuszuweisung ist, daß phrasale Strukturen vorliegen müssen,
+damit Kasus zugewiesen werden kann. Die Konsequenz ist, daß auch intransitive Verben wie \emph{schlafen}
+in Infinitivkonstruktionen wie (\mex{1}) in Kopf"=Argument"=Strukturen oder ähnlichen Strukturen
+projiziert werden müssen, damit das Subjekt Kasus erhält.
+\ea
+weil er nicht versucht hat zu schlafen
+\z
+Eine solche unäre Projektion wurde von \citet*[\page 32, Fn. 32]{ps2} für das Englische
+angenommen, würde aber zu vielfältigen Interaktionen mit der hier für das Deutsche
+entwickelten Grammatik führen. Zum Beispiel bekommt man unechte Mehrdeutigkeiten,
+wenn man annimmt, daß die Information über den phrasalen Status eines Komplements 
+nicht Teil der Information ist, die in nichtlokalen Abhängigkeiten durch Strukturteilung
+identifiziert wird (wenn der \lexw\isfeat{lex} Teil von \synsem und nicht von \HPSGloc ist).\footnote{
+  Zu \textsc{lex} siehe Kapitel~\ref{chap-verbalkomplex}.%
+}
+\ea
+Schlafen will Maria.
+\z
+Bei einer Analyse für (\mex{0}), wie sie im Kapitel~\ref{sec-pvp} vorgestellt wird, ergeben
+sich dann zwei Lesarten: eine, in der {\em schlafen\/} direkt Füller für {\em will Maria\/}
+ist, und eine, in der {\em schlafen\/} vorher projiziert wird (zu diesem und anderen Problemen siehe
+\citew[Kapitel~15.8]{Mueller99a}).
+
+Gunkel schlägt eine andere Behandlung der Voranstellung von Teilphrasen vor, die
+zwar dieses Problem nicht, aber dafür andere, schwerwiegendere hat. Gunkels Analyse
+für die Voranstellung von Phrasen wird in Kapitel~\ref{sec-pvp-vdrei} genauer diskutiert.
+
+
+
+
+
+
+\subsection{Przepi{\'o}rkowski: 1999b}
+\label{kasus-adamp}
+
+Für das Verständnis der beiden folgenden Abschnitte wird die Lektüre
+der Kapitel~\ref{chap-verbalkomplex}--\ref{chap-passiv} empfohlen.
+
+\citet{Prze99} schlägt vor, Kasus in bezug auf die \argstl zuzuweisen. \argst\isfeat{arg-st} ist eine
+Liste, die sämtliche Argumente eines Kopfes enthält. Die Verwendung einer
+Liste mit allen Argumenten wurde von \citet[Kapitel~9]{ps2} eingeführt. Pollard
+und Sag schlagen vor, Fernabhängigkeiten\is{Extraktion} über Lexikonregeln einzuführen.
+Extrahierte Elemente sind dann nicht mehr in den Valenzlisten enthalten.
+Da extrahierte Elemente aber auch für andere Teilbereiche der Theorie -- wie \zb
+die Bindungstheorie\is{Bindungstheorie} -- wichtig sind und da Eigenschaften wie
+relative Obliqueness\is{Obliqueness} durch die Stellung in einer Liste kodiert sind, wird für die
+Kodierung dieser Eigenschaften eine weitere Liste, die \argstl, verwendet.
+
+\prz schlägt vor, die Repräsentation von Argumenten in Valenzlisten
+weiter zu strukturieren. Zusätzlich zur \type{synsem}"=Information wird
+ein Boolesches Merkmal (\textsc{realized}\isfeat{realized}\label{page-realized}) verwendet,
+das Auskunft darüber gibt, ob ein Argument lokal realisiert 
+oder angehoben wurde. Elemente, die mit ihrem Kopf über das Kopf"=Argument"=Schema
+verbunden werden, werden als \textsc{realized}+ gekennzeichnet. Dasselbe gilt
+für Argumente, die extrahiert oder als Klitikon\is{Klitisierung}
+morphologisch realisiert werden.
+Argumente, die von übergeordneten Köpfen angezogen werden, werden als
+\textsc{realized}$-$ markiert. Für die Kasuszuweisung ist dann jeweils nur
+die Umgebung relevant, in der ein Element realisiert wird.
+\citet[\page 238]{Prze99} gibt folgendes Kasusprinzip an:
+\eal
+\label{case-prz}
+\ex \ms[cat]{
+    head & verb\\
+    arg-st & \liste{ \ms{ argument & \textrm{NP[\str]}\\
+                          realized & +\\
+                        } } $\oplus$ \ibox{2}\\ } \impl \\
+    \mbox{}\hspace{3cm}\ms{ arg-st & \liste{ \ms{ argument & \textrm{NP[\type{snom}]}\\ } } $\oplus$ \ibox{2} }
+\ex \ms[cat]{
+    head & verb\\
+    arg-st & \ibox{1} \type{ne\_list} $\oplus$ \liste{ \ms{ argument & \textrm{NP[\str]}\\
+                          realized & +\\
+                        } } $\oplus$ \ibox{2}\\ } \impl \\
+    \mbox{}\hspace{3cm}\ms{ arg-st & \ibox{1} $\oplus$ \liste{ \ms{ argument & \textrm{NP[\type{sacc}]}\\ } } $\oplus$ \ibox{2} }
+\zl
+Diese Formalisierung erfaßt die Kerndaten in (\mex{1}) und (\mex{2}) korrekt:
+\eal
+\ex Er repariert den Wagen.
+\ex Sie läßt ihn den Wagen reparieren.
+\zl
+\eal
+\ex weil er den Wagen zu reparieren versuchte
+\ex weil der Wagen zu reparieren versucht wurde
+\zl
+In (\mex{-1}a) werden die Argumente von \emph{repariert} direkt realisiert.
+Sie bekommen deshalb entsprechend der Implikationen in (\mex{-2}) Nominativ
+bzw.\ Akkusativ zugewiesen. In (\mex{-1}b) dagegen werden die Argumente von
+\emph{reparieren} nicht als Argumente des Hauptverbs, sondern als Argumente
+von \emph{reparieren läßt} realisiert. Dies führt dazu, daß das Subjekt
+von \emph{reparieren} Akkusativ bekommt, da es an der zweiten Stelle
+der Argumentstruktur des Komplexes \emph{reparieren läßt} steht.
+
+Die Erklärung des sogenannten Fernpassivs\is{Passiv!Fern-} in (\mex{0}b) verläuft analog:
+In (\mex{0}a) wird dem Objekt von \emph{reparieren} als Argument von \emph{reparieren} Kasus
+zugewiesen, in (\mex{0}b) dagegen wird das Objekt angehoben, und da
+das Subjekt von \emph{versucht} durch die Passivierung unterdrückt wird,
+wird das Objekt von \emph{zu reparieren} zum ersten Element der
+Argumentstruktur von \emph{zu reparieren versucht wurde} und erhält somit
+Nominativ.
+
+Bestimmte schwierige Fälle von Fernpassiv lassen sich mit den Implikationen
+in (\mex{-2}) aber nicht erfassen. Sätze wie die
+in (\mex{1}) werden im Kapitel~\ref{sec-remote-passive-phen}
+noch ausführlich diskutiert:
+\ea\label{erfolg-auszukosten-erlaubt-kasus}
+\iw{auskosten}
+Der Erfolg        wurde uns      nicht auszukosten erlaubt.\footnote{
+        \citew[\page 110]{Haider86c}.%
+}
+\z
+In (\mex{0}) wurde das Objektkontrollverb \emph{erlauben} passiviert,
+und das Objekt von \emph{auskosten} wird zum Subjekt der gesamten Konstruktion.
+Der Verbalkomplex \emph{auszukosten erlaubt wurde} hat die Valenz- bzw.\
+Argumentstrukturliste in (\mex{1}):
+\ea
+\emph{auszukosten erlaubt wurde}:   \subcat \sliste{ NP[\type{ldat}], NP[\type{str}] }
+\z
+Die Implikation in (\ref{case-prz}) würden der NP[\str] Akkusativ zuweisen.
+Das läßt sich reparieren, indem man verlangt, daß in der ersten Implikation
+keine Nominalphrase mit strukturellem Kasus vor der NP[\str] steht, die dann
+Nominativ bekommt, \dash, entweder steht vor dieser NP nichts, eine NP mit lexikalischem
+Kasus oder etwas, das keine NP ist. Analog muß die zweite Implikation 
+so geändert werden, daß beliebiges Material vor der NP[\str] stehen kann,
+vorausgesetzt dieses enthält eine weitere NP mit strukturellem Kasus.
+
+\prz kritisiert Heinz und Matiaseks Bezugnahme auf die Konstituentenstruktur
+als nicht angemessen, da Kasusvergabe ein lokales Phänomen ist und eine
+Analyse deshalb ohne Bezug auf bestimmte Konfigurationen auskommen sollte. \prz{}s Analyse ist aber
+mit der normalerweise angenommenen Analyse der Voranstellung von Teilverbalphrasen nicht verträglich, wenn er nicht
+selbst Restriktionen in bezug auf Lokalität\is{Lokalität} aufgibt. Das soll im folgenden
+etwas ausführlicher erläutert werden: \argst ist ein Merkmal, das nur für
+Wörter zulässig ist \citep[\page 236]{Prze99}. Betrachtet man nun Sätze wie
+(\mex{1}), sieht man, daß das Vorfeld von einer komplexen Projektion
+besetzt wird.
+\eal
+\label{bsp-der-aufsatz-gelesen}
+\ex {}[Der Aufsatz gelesen] wurde am Wochenende.
+\ex {}[Den Aufsatz gelesen] hat er am Wochenende.
+\zl
+Innerhalb dieser Projektion wird ein Argument des Verbs realisiert,
+aber welchen Kasus es tragen muß, hängt vom Rest des Satzes ab.
+Zu weiteren Daten nach dem Muster von (\mex{0}a)
+siehe auch (\ref{bsp-subjekt-im-vf-passiv}) auf Seite~\pageref{bsp-subjekt-im-vf-passiv}.
+
+
+Die Kombination der Hilfsverben (bzw.\ der entsprechenden Verbspur)
+mit der Projektion im Vorfeld kann nicht auf die Argumentstruktur von
+\emph{gelesen} Bezug nehmen, da diese nicht Bestandteil der Projektion
+\emph{der/den Aufsatz gelesen} ist. Sie ist nur bei \emph{gelesen} selbst repräsentiert.
+
+Man könnte dieses Problem zu lösen versuchen, indem man die Argumentstruktur
+projiziert, so daß sie auch an phrasalen Knoten präsent ist. Dann könnten Perfekt
+und Passiv"=Hilfsverb auf die Argumentstruktur von \emph{gelesen} zugreifen.
+Für die korrekte Kasuszuweisung in (\mex{0}) muß man aber zusätzlich
+in der Argumentstruktur von \emph{gelesen} markieren, daß das Subjekt
+in (\mex{0}a) blockiert, also für die Kasuszuweisung irrelevant ist.
+Diese argumentstrukturbezogene Lösung läßt sich aber nicht auf Beispiele
+wie (\mex{1}) anwenden. In (\mex{1}) muß das Subjekt des Verbs im Vorfeld
+als Akkusativ realisiert werden.
+\eal
+\label{bsp-den-saenger-jodeln}
+\ex[?]{
+{}[Den Sänger jodeln]\iw{jodeln} läßt\iw{lassen} der König.\footnote{
+	\citew[\page 57]{Oppenrieder91a}.
+	}
+}
+\ex[*]{
+Der Sänger jodeln\iw{jodeln} läßt\iw{lassen} der König.
+}
+\ex[]{
+{}[Den Mechaniker das Auto reparieren] ließ der Lehrer schon oft.\footnote{
+  \citew[\page 32]{Grewendorf94a}.
+}
+}
+\ex[*]{
+Der Mechaniker das Auto reparieren ließ der Lehrer schon oft.
+}
+\zl
+Selbst wenn die Argumentstruktur von \emph{jodeln} bzw.\ \emph{reparieren}
+für \emph{lassen} zugänglich ist, nützt das nichts, denn in \prz{}s
+Ansatz ist für die Kasusvergabe entscheidend, wo ein Element realisiert wird.
+
+\citet{Prze99b} integriert deshalb Meurers Ansatz der Kasuszuweisung (\citeyear{Meurers99b}; \citeyear[Kapitel~10.4.1.4]{Meurers2000b})
+in seine Theorie und führt zusätzlich zum \textsc{realized}"=Merkmal
+das Merkmal \textsc{raised}\isfeat{raised} ein, das den Wert + hat, wenn ein
+Argument angehoben wird, und den Wert $-$, wenn das nicht der Fall ist.
+Der \textsc{raised}"=Wert eines Arguments wird über die folgende Beschränkung
+festgelegt:
+\ea
+\label{raised-wert}
+\type{unembedded-sign}\istype{unembedded-sign} \impl\\
+\mbox{}\hspace{3ex}($\forall$\ibox{0},\ibox{1},\ibox{2},\ibox{3} (\ibox{0} \ms[cat]{
+                                                           head   & \ibox{1}\\
+                                                           arg-st & \ibox{2}\\
+                                                      } $\wedge$ member(\ibox{3}[\textsc{arg} \ibox{4} ], \ibox{2})) \impl\\
+\mbox{}\hspace{6ex}(\ibox{3} [\textsc{raised} +] $\leftrightarrow$\\
+\mbox{}\hspace{9ex}$\exists$[\argst \ibox{5} ]\\
+\mbox{}\hspace{9ex}(member([\textsc{arg} \ibox{4} ],\ibox{5}) $\wedge$ member([\textsc{arg$|$loc$|$cat$|$head} \ibox{1} ], \ibox{5}))))
+\z
+Übersetzt man diesen Ausdruck in eine besser lesbare Form, erhält man:
+\ea
+In einem nicht eingebetteten Zeichen (\dash in einer Äußerung)\\
+\mbox{}\hspace{3ex}gilt für alle \type{category}"=Objekte in diesem Zeichen, die den \headw \iboxt{1} und\\
+\mbox{}\hspace{3ex}die \argst \iboxt{2} haben, wobei \iboxt{3} ein Element von \iboxt{2} mit dem
+     \textsc{argument}"=Wert \iboxt{4}\\
+\mbox{}\hspace{3ex}ist,\\
+\mbox{}\hspace{3ex}daß dieses Element \iboxt{3} \textsc{raised}+ ist gdw.\ \\
+\mbox{}\hspace{6ex}es eine \argstl gibt, die ein Element mit demselben [\textsc{arg} \ibox{4} ] und\\
+\mbox{}\hspace{6ex}außerdem noch ein Element mit demselben \headw wie \ibox{0}, nämlich \iboxt{1},\\
+\mbox{}\hspace{6ex}enthält.
+\z
+Das heißt, man sucht nach einer Argumentstrukturliste, die zu einem Matrixverb gehört, das
+\iboxt{0} einbettet. Ein Argument von \iboxt{0}, nämlich \iboxt{3}, kommt in beiden Argumentstrukturlisten
+vor und wird deshalb in der Argumentstrukturliste des eingebetteten Kopfes als \textsc{raised}+ markiert.
+
+Das Kasusprinzip wird dann unter Bezugnahme auf die \textsc{raised}"=Werte wie folgt neu formuliert:
+\eal
+\label{case-prz-zwei}
+\ex \begin{tabular}[t]{@{}l@{}}
+    \ms[cat]{
+    head & verb\\
+    arg-st & \liste{ \ms{ argument & \textrm{NP[\str]}\\
+                          raised & $-$\\
+                        } } $\oplus$ \ibox{2}\\ } \impl \\
+    \mbox{}\hspace{3cm}\ms{ arg-st & \sliste{ [ \textsc{argument}~~  \textrm{NP[\type{snom}]} ] } $\oplus$
+    \ibox{2} }
+    \end{tabular}
+\ex \begin{tabular}[t]{@{}l@{}}
+    \ms[cat]{
+    head & verb\\
+    arg-st & \ibox{1} \type{ne\_list} $\oplus$ \liste{ \ms{ argument & \textrm{NP[\str]}\\
+                          raised & $-$\\
+                        } } $\oplus$ \ibox{2}\\ } \impl \\
+    \mbox{}\hspace{3cm}\ms{ arg-st & \ibox{1} $\oplus$ \sliste{ [ \textsc{argument}~~ \textrm{ NP[\type{sacc}]} ] } $\oplus$ \ibox{2} }
+    \end{tabular}
+\zl
+Diesen Ansatz kann man aus zweierlei Gründen kritisieren: Zum einen ist die globale Beschränkung
+unschön, die nur für eine gesamte Äußerung festlegt, welche Elemente angehoben wurden und welche nicht.
+Die Theorie würde Äußerungen wie (\mex{1}) also nur mit Bezug auf eine vollständige Struktur zurückweisen.
+\eal
+\ex[*]{
+Der Mann, den ihn kennt, lacht.
+}
+\ex[*]{
+Er kommt herüber, um der Mann zu begrüßen.
+}
+\zl
+In beiden Fällen ist jedoch klar, daß Kasus innerhalb des Relativsatzes bzw.\
+innerhalb des Infinitivs zugewiesen wird, denn aus diesen Bereichen kann nichts angehoben werden. 
+Siehe Kapitel~\ref{kasus-anhang} zu einem anderen Vorschlag zur Bestimmung des \textsc{raised}"=Wertes.
+
+Das zweite Problem mit dem revidierten Ansatz ist dasselbe, das bereits diskutiert
+wurde: Die Argumentstruktur wird bei \prz nicht projiziert. Deshalb ist
+unklar, wie in (\ref{bsp-der-aufsatz-gelesen}) bzw.\ (\ref{bsp-den-saenger-jodeln})
+die Information über die Argumentstruktur des Verbs im Vorfeld zum
+Matrixverb gelangen soll. Man muß also die Argumentstruktur bzw.\ eine entsprechende
+Repräsentation projizieren. Ein entsprechender Vorschlag wurde von Detmar Meurers gemacht.
+Dieser kann erst im Kapitel~\ref{kasus-anhang} vorgestellt werden, da erst dann 
+die Verbalkomplexbildung und das Fernpassiv besprochen wurden.
+
+
+
+
+\subsection{Nominativzuweisung durch das finite Verb und Nullkasus}
+\label{sec-kasus-fin-verb-nullkasus}
+
+%Abney87a:16
+%Haider hat noch PRO und PRO ist immer Nominativ  ???
+% Grewendorf88a:161 -> PRO hat keinen Kasus
+Ansätze,\is{Kasus!Null-|(} die davon ausgehen, daß der Nominativ nur vom finiten Verb\footnote{
+  Mitunter wird angenommen, daß Nominativ nur von funktionalen Köpfen wie INFL (Inflection) oder T (Tense) zugewiesen
+  wird. Aus den Texten wird dann nicht ganz klar, ob die Autoren annehmen, daß INFL bzw.\ T nur für
+  die Projektionen finiter Verben eine Rolle spielen, oder ob sie davon ausgehen, daß auch
+  Infinitive unter T eingebettet sind. Siehe \citet[\page 58]{Wurmbrand2003a} für einen Vorschlag der Einbettung
+  der Infinitive mit \emph{zu} unter T.%
+} zugewiesen wird
+% Chomsky / Lasnik im Handbuch Syntax, Chomsky 1995:
+% PRO has Null Case and therefore can only appear in infinitive clauses where the verb lacks Tense,
+% and thus has no Nom Case. (Karimi2005a:102)
+%
+(\citealp[\page 50]{Chomsky93a}, \citealp[\page 26]{Haider84b}, \citealp[\page 73]{FF87a},
+% Wunderlich läßt aber offen, ob es INFL oder das Verb ist, das Kasus zuweist.
+%\citealp[\page 286]{Wunderlich87c},
+\citealp[\page 183]{Bierwisch90a}, \citealp{Molnarfi98a},
+\citealp*[\page 475]{BBM2001a}, \citealp[\page 88]{Eroms2000a}, \citealp[\page 21, \page 45, \page 295]{Abraham2005a}), 
+können die Daten in (\ref{bsp-nominativ-inkoh}) und (\ref{bsp-nominativ-adj}) nicht erklären.
+In (\ref{bsp-nominativ-inkoh}) wird das nicht realisierte Subjekt der Infinitivverbphrase
+zwar vom finiten Verb kontrolliert,\is{Objekt!-kontrolle} der Kasus wird jedoch nicht durch das finite Verb
+bestimmt. So ist \zb in (\ref{bsp-nominativ-inkoh-geraten}) -- hier als (\mex{1}) wiederholt -- das Dativobjekt 
+des finiten Verbs (\emph{raten}) koreferent mit dem Subjekt von \emph{kündigen}. 
+\ea
+Ich habe den Burschen geraten, im Abstand von wenigen Tagen einer nach dem anderen zu kündigen.
+\z
+Der Kasus der beiden Elemente ist jedoch verschieden. Das heißt, daß der Kasus in (\mex{0})
+innerhalb der Infinitivumgebung zugewiesen werden muß. In der GB-Theorie wird meist davon
+ausgegangen, daß das Subjekt von kontrollierten Infinitiven nicht regiert ist, also auch
+keinen Kasus bekommen kann. Es wird gesagt, daß solche Subjekte Null"=Kasus bzw.\ keinen Kasus
+haben (\citealp[\page 161]{Grewendorf88a}; \citealp[\page 42]{Frey93a}).
+Wenn das Subjekt von \emph{kündigen} Null"=Kasus hat,
+dann braucht man einen speziellen Mechanismus, der sicherstellt,
+daß {\em ein- nach d- ander-\/} immer im Nominativ steht, wenn es sich auf ein nicht 
+ausgedrücktes Subjekt bezieht. Die hier vertretene Analyse scheint einfacher,
+da nicht angehobene Subjekte immer Nominativ bekommen und somit
+die Kongruenz der \emph{ein- nach d- ander}"=Phrase erwartet ist.
+%\ifthenelse{\boolean{draft}}{
+%}{}
+\is{Kasus!Null-|)}
+
+
+
+
+\section*{Kontrollfragen}
+
+
+\begin{enumerate}
+\item Welche Arten von Kasus unterscheidet man?
+\item Warum wird bei der Passivierung von (\mex{1}a) der Akkusativ nicht zum Nominativ?
+      \eal
+      \ex[]{
+      weil er den ganzen Tag arbeitete
+      }
+      \ex[*]{
+      weil der ganze Tag gearbeitet wurde
+      }
+      \ex[]{
+      weil den ganzen Tag gearbeitet wurde
+      }
+      \zl
+\end{enumerate}
+
+\section*{Übungsaufgaben}
+
+\begin{enumerate}
+\item Welche der NPen in den folgenden Sätzen haben strukturellen, welche lexikalischen Kasus?
+\eal
+\ex Der Junge lacht.  
+\ex Mich friert.    
+\ex Er zerstört das Auto.
+\ex Das dauert ein ganzes Jahr.
+\ex Er hat nur einen Tag dafür gebraucht.
+\ex Er denkt an den morgigen Tag.
+\zl
+
+\item Laden Sie die zu diesem Kapitel gehörende Grammatik von der Grammix"=CD
+(siehe Übung~\ref{uebung-grammix-kapitel4} auf Seite~\pageref{uebung-grammix-kapitel4}).
+Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluß eine Liste von Beispielen.
+Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem Kapitel besprochenen
+Aspekte.
+
+\end{enumerate}
+
+
+
+\section*{Literaturhinweise}
+
+Kasus werden von Wissenschaftlern aus dem angloamerikanischen Raum oft vernachlässigt, da das
+Englische in bezug auf Kasus nicht so interessant zu sein scheint. \citet{ps,ps2} machen zum
+Beispiel keinen Unterschied zwischen strukturellen und lexikalischen Kasus. In HPSG"=Grammatiken für
+das Deutsche wurden dagegen schon in den ersten Arbeiten zum Deutschen Haiders Ansätze
+\citeyearpar{Haider85b} aus der \gbt übernommen und wurde struktureller Kasus in Abhängigkeit von der
+syntaktischen Konfiguration zugewiesen \citep[\page 209--210]{HM94a}. Es hat sich jedoch gezeigt,
+daß eine rein strukturelle Kasuszuweisung ungeeignet ist. \citet{Meurers99a} und \citet{Prze99b}
+haben deshalb Analysen entwickelt, die für die Kasuszuweisung auf die Argumentstruktur bzw.\
+Valenzinformation eines Kopfes Bezug nehmen. Siehe auch Kapitel~\ref{kasus-anhang}. 
+Das hier vorgestellte Kasusprinzip ähnelt sehr stark dem von \citet*{YMJ87} vorgeschlagenen und kann
+damit auch die Kasussysteme verschiedener Sprachen erklären, die von den genannten Autoren besprochen
+wurden, insbesondere auch das komplizierte Kasussystem des Isländischen\il{Isländisch}.
+Ein wesentlicher Unterschied zwischen dem hier angegebenen Kasusprinzip und dem von
+Yip, Maling und Jackendoff ist, daß das Prinzip~\ref{case-p} wegen der Anhebungseinschränkung
+monoton\is{Monotonie} ist, \dash, Kasus, die einmal zugewiesen wurden, werden nicht von einem übergeordneten Prädikat überschrieben.
+

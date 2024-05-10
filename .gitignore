@@ -299,3 +299,8 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
+hpsg.memo.dir
+Kommentare
+check-hpsg-lehrbuch.pdf
+langscibook.cls-2022-06-02
+temp.tex

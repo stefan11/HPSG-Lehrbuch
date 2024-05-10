@@ -1,0 +1,860 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: 3-hpsg-valenz-psg.tex,v $
+%%  $Revision: 1.17 $
+%%      $Date: 2008/09/30 09:14:41 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Valenz und Grammatikregeln}
+\label{chap-valenz}
+
+%% \NOTE{
+%% Haitao Liu:
+%% A small note: the title of the third chapter is "`Valenz unu and
+%% Grammatikregeln"'. I can understand there the term "`valence"' should lie
+%% within the framework of HPSG, but it seems to me if you can mention 2 or
+%% 3 important documents of valency theory outside HPSG, it is helpful to
+%% the readers. Why I hope to see that, because there are many documents in
+%% German about valency theory, it is good if we could link the term to
+%% traditional use of the term. I have noted that in the reference already
+%% is the name of Helbig's valency dictionary. 
+%% }
+In diesem Kapitel geht es um die Interaktion zwischen Grammatikregeln und Valenzinformation.
+Der Begriff der Valenz stammt aus der Chemie. Atome können sich mit anderen Atomen
+zu mehr oder weniger stabilen Molekülen verbinden. Wichtig für die Stabilität ist, wie
+Elektronenschalen besetzt sind. Eine Verbindung mit anderen Atomen kann dazu führen,
+daß eine Elektronenschale voll besetzt ist, was dann zu einer stabilen Verbindung führt.\footnote{
+%\url{http://www.quantenwelt.de/atomphysik/modelle/bindungen/valenz.html}.
+\url{http://www.iap.uni-bonn.de/P2K/periodic_table/valences.html}. \urlchecked{09}{11}{2006}.%
+}
+Die Valenz\is{Valenz|(} sagt etwas über die Anzahl der Wasserstoffatome aus,
+die mit einem Atom eines Elements verbunden werden können. In der Verbindung H$_2$O
+hat Sauerstoff die Valenz 2. Man kann nun die Elemente in Valenzklassen einteilen.
+Elemente mit einer bestimmten Valenz werden im Periodensystem von Mendeleev
+in einer Spalte repräsentiert.
+
+Dieses Konzept wurde von \citet{Tesniere59a-u}\nocite{Tesniere80a-u}
+auf die Linguistik übertragen: Ein Kopf braucht bestimmte Argumente,
+um eine stabile Verbindung einzugehen. Wörter mit der gleichen Valenz -- also mit der gleichen
+Anzahl und Art von Argumenten\is{Argument} -- werden in Valenzklassen eingeordnet, da sie sich in bezug
+auf die Verbindungen, die sie eingehen, gleich verhalten. Abbildung~\vref{abb-chemie-valenz}
+zeigt Beispiele aus der Chemie und der Linguistik.
+\begin{figure}[htb]
+\centering
+\begin{tabular}{ccc@{\hspace{5em}}ccc}
+  & \rnode{o}{O} &   &       & \rnode{lieben}{liebt} &\\[5ex]
+\rnode{h1}{H} &   & \rnode{h2}{H} & \rnode{peter}{Peter} &        & \rnode{maria}{Maria}\\
+\end{tabular}
+\ncline{o}{h1}\ncline{o}{h2}%
+\ncline{lieben}{peter}\ncline{lieben}{maria}%
+\caption{\label{abb-chemie-valenz}Verbindung von Sauerstoff mit Wasserstoff und Verbindung
+eines Verbs mit seinen Argumenten}
+\end{figure}
+Weitere Information zum Valenzbegriff in der Linguistik findet man in \citew*{AEEHHL2003a-ed,AEEHHL2006a-ed}.
+
+Im folgenden wird gezeigt, wie Valenzinformation so repräsentiert werden kann,
+daß man statt vieler spezifischer Phrasenstrukturregeln ganz allgemeine Schemata 
+zur Lizenzierung syntaktischer Strukturen verwenden kann.
+
+\section{Repräsentation von Valenzinformation}
+
+Die in Kapitel~\ref{sec-psg} diskutierten Phrasenstrukturgrammatiken\is{Phrasenstrukturgrammatik}
+haben den Nachteil, daß man sehr viele Regeln für die verschiedenen Valenzmuster
+braucht. (\mex{1}) zeigt beispielhaft einige solche Regeln und die
+dazugehörigen Verben.\enlargethispage{\baselineskip}
+\ea
+\label{psg-valenz}
+\begin{tabular}[t]{l@{~$\to$~}l@{\hspace{4em}}l}
+      S & NP, V                             & \emph{X schläft}\\
+      S & NP, NP, V                         & \emph{X Y erwartet}\\
+      S & NP, PP[\textit{über\/}], V           & \emph{X über Y spricht}\\
+      S & NP, NP, NP, V                     & \emph{X Y Z gibt}\\
+      S & NP, NP, PP[\textit{mit\/}], V        & \emph{X Y mit Z dient}\\
+      \end{tabular}
+\z
+Damit die Grammatik keine falschen Sätze erzeugt, muß man dafür sorgen, 
+daß Verben nur mit passenden Regeln verwendet werden können.
+\eal
+\ex[*]{
+daß Peter das Buch schläft
+}
+\ex[*]{
+daß Peter erwartet
+}
+\ex[*]{
+daß Peter über den Mann erwartet 
+}
+\zl
+Man muß also Verben (allgemein Köpfe) in Valenzklassen einordnen. Diese
+Valenzklassen müssen den Grammatikregeln zugeordnet sein. Damit
+ist die Valenz doppelt kodiert: Zum einen sagt man in den Regeln etwas
+darüber aus, welche Elemente zusammen vorkommen müssen/""können,
+und zum anderen ist Valenzinformation im Lexikon enthalten.
+
+Um solcherart redundante Repräsentation zu vermeiden, nimmt
+man in der HPSG -- wie in der Kategorialgrammatik\is{Kategorialgrammatik (CG)} -- Beschreibungen der Argumente eines
+Kopfes in die lexikalische Repräsentation des Kopfes auf: In der Beschreibung
+von Köpfen gibt es ein listenwertiges \textsc{subcat}"=Merkmal, das Beschreibungen
+der Objekte enthält, die mit einem Kopf kombiniert werden müssen, damit eine
+vollständige Phrase vorliegt. (\mex{1}) zeigt Beispiele für die Verben aus (\mex{-1}):
+\ea
+\begin{tabular}[t]{@{}lll}
+      Verb             & \subcat\\
+      \emph{schlafen} & \sliste{ NP }\\
+      \emph{erwarten} & \sliste{ NP, NP }\\
+      \emph{sprechen} & \sliste{ NP, PP[\textit{über\/}] }\\
+      \emph{geben}    & \sliste{ NP, NP, NP }\\
+      \emph{dienen}   & \sliste{ NP, NP, PP[\textit{mit\/}] }\\  
+      \end{tabular}
+\z
+\subcat ist die Abkürzung für \textsc{subcategorization}. Man spricht auch davon,
+daß ein bestimmter Kopf für bestimmte Argumente subkategorisiert\is{Subkategorisierung} ist. Diese Redeweise kommt
+wohl daher, daß die Köpfe bezüglich ihrer Wortart bereits kategorisiert sind
+und dann durch die Valenzinformation weitere Unterklassen (wie \zb intransitives oder transitives Verb)
+%\glossary{name={intransitives Verb},description={Intransitive Verben können im Gegensatz zu transitiven Verben kein Akkusativobjekt binden bzw. benötigen zusätzlich eine Präposition.}}
+gebildet werden. Im Englischen gibt es auch die Verwendung \emph{X subcategorizes for Y}, was soviel wie
+\emph{X verlangt Y} oder \emph{X selegiert Y}\is{Selektion} heißt. Man sagt auch, daß X Y \emph{regiert}.\is{Rektion}
+% Rektion schließt in der Dependenzgrammatik auch Adjunkte ein. Das ist also vielleicht etwas
+% irreführend, aber irgendwo muß Rektion noch erwähnt werden.
+
+Statt spezifische Regeln wie die in (\ref{psg-valenz}) zu verwenden, kann man Regelschemata wie die in (\mex{1})
+für Kopf"=Argument"=Kombination benutzen:
+\ea
+\label{psg-regeln-append}
+\begin{tabular}[t]{@{}l@{~}l@{~$\to$~}l}
+a.& V[SUBCAT \ibox{A}] &  \ibox{B}, V[SUBCAT \ibox{A} $\oplus$ \sliste{ \ibox{B} } ]\\
+b.& A[SUBCAT \ibox{A}] &  \ibox{B}, A[SUBCAT \ibox{A} $\oplus$ \sliste{ \ibox{B} } ]\\
+c.& N[SUBCAT \ibox{A}] &  \ibox{B}, N[SUBCAT \ibox{A} $\oplus$ \sliste{ \ibox{B} } ]\\
+d.& P[SUBCAT \ibox{A}] &  P[SUBCAT \ibox{A} $\oplus$ \sliste{ \ibox{B} } ], \ibox{B}\\
+\end{tabular}
+\z
+In den Boxen verwende ich \emph{A} und \emph{B} statt 1 oder 2, damit man nicht mit den
+Strukturteilungen in den folgenden Abbildungen durcheinanderkommt.
+
+Die Schemata lizenzieren die Verbindung von V, A, N bzw.\ P mit einem Element aus der
+\subcatl.
+Dabei ist `$\oplus$'\is{$\oplus$} (\emph{append}\is{Relation!\emph{append}}) eine Relation zur Verknüpfung zweier Listen:\\
+\ea
+\begin{tabular}[t]{@{}l@{~}l@{}}
+\phonliste{ x, y } = & \phonliste{ x } $\oplus$ \phonliste{ y } oder\\
+                     & \phonliste{} $\oplus$ \phonliste{ x, y } oder\\
+                     & \phonliste{ x, y } $\oplus$ \phonliste{}\\
+\end{tabular}
+\z
+Die Anwendung der Regel (\mex{-1}a) soll anhand der Beispiele in (\mex{1}) erklärt werden:
+\eal
+\ex daß Peter schläft
+\ex\label{bsp-weil-peter-maria-erwartet}
+daß Peter Maria erwartet
+\zl
+Die \subcatl im Lexikoneintrag von \emph{schläft} enthält genau eine NP. Setzt man
+den Lexikoneintrag für \emph{schläft} in die Regel in (\ref{psg-regeln-append}a) ein,
+ergibt sich (\mex{1}):
+\ea
+V[SUBCAT \ibox{A}] $\to$ \ibox{B} NP, V[SUBCAT \ibox{A} \sliste{} $\oplus$ \sliste{ \ibox{B} NP } ]
+\z
+\emph{append} teilt die \subcatl von \emph{schläft} in zwei Teile. 
+Ein Teil ist eine einelementige Liste, die die NP enthält, der zweite Teil ist die leere Liste. 
+Die leere Liste entspricht der Liste der noch zu sättigenden Argumente.
+Abbildung~\vref{fig-Peter-schlaeft} zeigt den durch das Regelschema lizenzierten Baum.
+\begin{figure}[htbp]
+\centerline{\begin{pspicture}(2.6,0)(7.4,4.3)
+%\psgrid
+\rput[B](3,0){\rnode{Peter}{Peter}}
+\rput[B](6,0){\rnode{schlaeft}{schläft}}
+%
+\rput[B](6,2){\rnode{v}{V[\subcat \sliste{ \ibox{1} }]}}
+\rput[B](3,2){\rnode{np1}{\ibox{1} NP}}
+%
+\rput[B](4.5,4){\rnode{vp}{V[\subcat \eliste ]}}
+%
+\psset{angleA=-90,angleB=90,arm=0pt}
+%
+\ncdiag{v}{schlaeft}
+\ncdiag{np1}{Peter}
+\ncdiag{vp}{np1}\ncdiag{vp}{v}
+%
+\end{pspicture}}
+\caption{\label{fig-Peter-schlaeft}Analyse für \emph{Peter schläft}}
+\end{figure}
+
+Läßt man die Ausdrücke in Klammern in (\mex{0}) weg, bleibt nur (\mex{1}) übrig.
+\ea
+V $\to$ NP, V
+\z
+Obwohl die Regel in (\mex{0}) genauso aussieht wie die Phrasenstrukturregeln, die
+wir im Kapitel~\ref{sec-psg} behandelt haben, ist sie anderer Natur:
+Die Information darüber, daß ein Verb mit einer NP kombiniert wird, wird nicht in
+den Regeln spezifiziert, sondern wird über die \subcat{}"=Information durch das Verb
+beigesteuert.
+
+Die \subcatl im Lexikoneintrag von \emph{erwartet} enthält genau zwei NPen. Setzt man
+den Lexikoneintrag für \emph{erwartet} in die erste Regel in (\ref{psg-regeln-append}) ein,
+ergibt sich (\mex{1}):
+\ea
+V[SUBCAT \ibox{A}] $\to$ \ibox{B} NP, V[SUBCAT \ibox{A} \sliste{ NP } $\oplus$ \sliste{ \ibox{B} NP } ]
+\z
+Das Ergebnis der Regelanwendung ist V[SUBCAT \sliste{ NP }]. Das entspricht dem
+Lexikoneintrag von \emph{schläft}. Die Regel kann also wie in (\mex{-1}) noch einmal
+angewendet werden, so daß man dann eine vollständig gesättigte Phrase bekommt. Das zeigt
+Abbildung~\vref{fig-Peter-Maria-erwartet}.
+
+%\psset{xunit=1cm,yunit=5.4mm}
+\begin{figure}[htbp]
+\centerline{\begin{pspicture}(0.6,0)(8,6.2)
+%\psgrid
+\rput[B](1,0){\rnode{Peter}{Peter}}
+\rput[B](3,0){\rnode{Maria}{Maria}}
+\rput[B](6,0){\rnode{erwartet}{erwartet}}
+%
+\rput[B](6,2){\rnode{v}{V[\subcat \sliste{ \ibox{1}, \ibox{2} }]}}
+\rput[B](3,2){\rnode{np1}{\ibox{2} NP}}
+%
+\rput[B](4.5,4){\rnode{vs}{V[\subcat \sliste{ \ibox{1} }]}}
+\rput[B](1,4){\rnode{np2}{\ibox{1} NP}}
+%
+\rput[B](3,6){\rnode{vp}{V[\subcat \eliste ]}}
+%
+\psset{angleA=-90,angleB=90,arm=0pt}
+%
+\ncdiag{v}{erwartet}
+\ncdiag{np2}{Peter}\ncdiag{np1}{Maria}
+\ncdiag{vs}{np1}\ncdiag{vs}{v}
+\ncdiag{vp}{np2}\ncdiag{vp}{vs}
+%
+\end{pspicture}}
+\caption{\label{fig-Peter-Maria-erwartet}Analyse für \emph{Peter Maria erwartet}}
+\end{figure}
+
+Die Regeln in (\ref{psg-regeln-append}) kann man nun auf zweierlei Weise verallgemeinern:
+Zuerst kann man von der Abfolge der Konstituenten auf der rechten Regelseite abstrahieren
+(dazu später noch mehr). Man erhält dann (\mex{1}):
+\ea
+\label{abstraktion-linearisierung}
+      \begin{tabular}[t]{@{}lll}
+      V[SUBCAT \ibox{A}] & $\to$ & V[SUBCAT \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \ibox{B}\\
+      N[SUBCAT \ibox{A}] & $\to$ & N[SUBCAT \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \ibox{B}\\
+      A[SUBCAT \ibox{A}] & $\to$ & A[SUBCAT \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \ibox{B}\\
+      P[SUBCAT \ibox{A}] & $\to$ & P[SUBCAT \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \ibox{B}\\
+      \end{tabular}
+\z
+In einem zweiten Schritt kann man, wie das in den \xbar-Schemata gemacht wurde, über
+die Kategorie des Kopfes abstrahieren. Man erhält dann ein abstraktes Schema, das
+die Regeln in (\ref{psg-regeln-append}) bzw.\ in (\mex{0}) zusammenfaßt:
+\ea
+\label{regelschema-psg-subcat}
+\begin{tabular}[t]{@{}lll}
+H[SUBCAT \ibox{A}] & $\to$ & H[SUBCAT \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \ibox{B}\\
+\end{tabular}
+\z
+`H' steht hierbei für irgendeinen Kopf (also \zb A, N, P oder V).
+%% Zwei mögliche Instantiierungen dieses Schemas zeigt (\mex{1}):
+%% \ea
+%% \begin{tabular}[t]{@{}lll}
+%% N[SUBCAT \ibox{1}] & $\to$ & Det N[SUBCAT \ibox{1} $\oplus$ \sliste{ Det } ]\\
+%% V[SUBCAT \ibox{1}] & $\to$ & V[SUBCAT \ibox{1} $\oplus$ \sliste{ NP } ]~~ NP\
+%% \end{tabular}
+%% \z
+
+Nach diesen Vorbemerkungen zur Repräsentation von Valenzinformation können wir uns nun
+dem Aufbau von Lexikoneinträgen zuwenden: Lexikoneinträge werden immer durch Merkmalstrukturen modelliert. Information über die
+Aussprache (\textsc{phonology}\isfeat{phon}), die Wortart (\textsc{part-of-speech}, kurs \textsc{p-o-s}) und die Valenz
+(\subcat)\isfeat{subcat} kann wie folgt dargestellt werden:
+\ea
+\label{le-gibt-1}
+\textit{gibt\/} (finite Form):\\
+\ms[word]{ 
+     phon   & \phonliste{ gibt } \\
+     p-o-s  & verb\\
+     subcat & \liste{ NP[\textit{nom\/}], NP[\textit{acc}], NP[\textit{dat}]   } \\
+}
+\z
+Als Wert von \phon müßten phonologische Umschriften der Wörter angegeben werden,
+was oft der Einfachheit halber nicht gemacht wird.
+Statt dessen verwendet man die orthographische Form. Zur Behandlung der Phonologie in HPSG siehe
+\citew{BK94b} und \citew{Hoehle99a-u}.
+
+NP[\textit{nom\/}], NP[\textit{acc}] und NP[\textit{dat}] stehen für komplexe Merkmalstrukturen, die intern
+genauso aufgebaut sind wie der Eintrag für \emph{gibt} in (\mex{0}). Wie die Kasusinformation
+repräsentiert wird, wird auf Seite~\pageref{page-ref-case-feat} erklärt.
+%
+Die Reihenfolge der Elemente in der \subcatl entspricht der Obliqueness"=Hierarchie\is{Obliqueness}
+von \citet{KC77a} und \citet{Pullum77a}:
+\begin{table}[H]
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}l@{\hspace{1ex}}l@{\hspace{1ex}}l@{\hspace{1ex}}l@{\hspace{1ex}}l@{\hspace{1ex}}l@{}}
+SUBJECT $=>$ & DIRECT $=>$ & INDIRECT $=>$ & OBLIQUES $=>$ & GENITIVES $=>$  & OBJECTS OF \\
+             & OBJECT      & OBJECT        &               &                 & COMPARISON 
+\end{tabular}%
+}\label{page-obliquen-h}
+\end{table}
+\noindent
+Diese Hierarchie gibt die unterschiedliche syntaktische Aktivität der grammatischen Funktion wieder.
+Elemente, die weiter links stehen, kommen eher in bestimmten syntaktischen Konstruktionen vor. Beispiele
+für syntaktische Konstruktionen, in denen Obliqueness eine Rolle spielt, sind:
+\begin{itemize}
+\item Ellipse\is{Ellipse} \citep{Klein85}
+\item Vorfeldellipse\is{Vorfeldellipse} \citep{Fries88b}
+\item freie Relativsätze\is{Relativsatz!freier}
+      \citep{Bausewein90,Pittner95b,Mueller99b}
+\item Passiv\is{Passiv} \citep{KC77a}
+\item Zustandsprädikate\is{Zustandsprädikat} \citep{Mueller2001c,Mueller2002b,Mueller2008a}
+\item Bindungstheorie\is{Bindungstheorie} (\citealp{Grewendorf85a}; \citealp{PS92a,ps2})
+\end{itemize}
+
+\noindent
+Eine Alternative für die Anordnung der Elemente in der \subcatl wäre die Abfolge 
+NP[\textit{nom\/}], NP[\textit{dat}], NP[\textit{acc}], die ebenfalls bei vielen Phänomenen eine Rolle spielt. 
+Ein Beispiel für ein solches Phänomen ist die Konstituentenstellung. Diese ist im Deutschen relativ frei. Statt (\mex{1}a) kann
+man in bestimmten Kontexten auch (\mex{1}b) äußern:
+\eal
+\ex weil der Mann der Frau das Buch gibt
+\ex weil der Mann das Buch der Frau gibt
+\zl
+Die Anzahl der Kontexte, in denen (\mex{0}b) geäußert werden kann, ist jedoch kleiner
+als die, in denen (\mex{0}a) geäußert werden kann. Man bezeichnet die Abfolge in (\mex{0}a)
+deshalb auch als präferierte Abfolge oder als Normalabfolge\is{Normalabfolge} \citep{Hoehle82a}.
+
+In der Literatur wird mitunter von einer größeren Verbnähe des Akkusativs\is{Kasus!Akkusativ} gesprochen,
+und es wird behauptet, daß eine Voranstellung des Verbs mit einem Dativ\is{Kasus!Dativ} nicht möglich
+ist (\citealt{Haftka81a}; \citealt{Haider82}; \citealt{Wegener90}; \citealt{Zifonun92a}).
+Zu dieser Behauptung gibt es Gegenbeispiele bei \citet{Uszkoreit87a}, \citet{SS88a}, %zitieren Thiersch82a-u
+\citet{Oppenrieder91a}, \citet{Grewendorf93} und G.\ \citet[\page5]{GMueller98a}.
+(\mex{1}) zeigt Korpusbelege, in denen ein Dativobjekt, das normalerweise vor dem Akkusativ
+angeordnet werden würde, zusammen mit einem infiniten Verb vorangestellt wurde:
+
+\eal
+\label{bsp-syntax-pvp-besonders}
+\ex Besonders Einsteigern empfehlen möchte ich Quarterdeck Mosaic, dessen gelungene grafische 
+    Oberfläche und Benutzerführung auf angenehme Weise über die ersten Hürden 
+    hinweghilft, obwohl sich die Funktionalität auch nicht zu verstecken braucht.\footnote{
+      c't, 9/95, S.\,156.}
+\ex Der Nachwelt hinterlassen hat sie eine aufgeschlagene \textit{Hör zu\/} und einen kurzen
+    Abschiedsbrief: \ldots\footnote{
+      taz, 18.11.98, S.\,20.}
+\zl
+Man könnte annehmen, daß der Dativ nur bei bestimmten Verben zusammen mit dem Verb vorangestellt
+werden kann und daß bei solchen Verben dafür der Akkusativ nicht mit dem Verb gemeinsam
+voranstellbar ist. Man würde also für einige Verben die Hierarchie SU $>$ DO $>$ IO und für andere
+SU $>$ IO $>$ DO annehmen. Die Beispiele in (\mex{1}) zeigen jedoch, daß mit demselben Verb Dativ +
+V und Akkusativ + V vorangestellt werden können.
+\eal
+\label{bsp-acc-dat-pvp}
+\ex Den Wählern erzählen sollte man diese Geschichte nicht.
+\ex Märchen erzählen sollte man den Wählern nicht.
+\zl
+\is{Valenz|)}
+
+\section{Alternativen}
+
+In diesem Abschnitt werden alternative Vorschläge aus anderen Grammatikmodellen diskutiert.
+Die Abschnitte, in denen solche Diskussionen stattfinden, sind anders geschrieben als das restliche
+Lehrbuch. Sie enthalten ausführliche Literatur- und Datendiskussionen, wie das für wissenschaftliche
+Texte nötig ist. Außerdem gibt es mitunter Querverweise auf spätere Kapitel. Dem Neueinsteiger
+wird geraten, diese Abschnitte zu überspringen und sie erst beim zweiten Lesen des Buches zu berücksichtigen.
+
+Im vorangegangenen Abschnitt wurde das Subjekt genauso wie andere Argumente des Verbs
+in der Valenzliste repräsentiert und auch in syntaktischen Strukturen wie die anderen
+Argumente behandelt. Das wird in anderen Grammatiktheorien anders gesehen.
+
+Für Sätze wie (\ref{bsp-weil-peter-maria-erwartet}) wird in der \gbt oft die Struktur
+in Abbildung~\vref{fig-Peter-Maria-erwartet-ip} angenommen (siehe \zb \citew[\page 49]{Grewendorf88a}).
+%
+\begin{figure}[htbp]
+\psset{xunit=1cm,yunit=5.4mm}
+% node labels for moving elements will be typeset by the \tmove command
+% here we have to provide invisible boxes to get the line drawing right.
+\hfill\begin{pspicture}(4.6,1.1)(11.2,11.6)
+%\psgrid
+\rput[B](5,1){\rnode{jeder}{Peter}}
+\rput[B](7,1){\rnode{ihnmf}{Maria}}
+\rput[B](9,1){\rnode{kennt}{erwartet}}
+\rput[B](11,1){\rnode{t2}{ \_ }}
+
+\rput[B](7,3){\rnode{np1}{NP}}
+\rput[B](9,3){\rnode{v}{\vnull}}
+
+\rput[B](8,5){\rnode{vs1}{V'}}
+
+\rput[B](8,7){\rnode{vp}{VP}}
+\rput[B](11,7){\rnode{i}{\inull}}
+
+\rput[B](5,9){\rnode{np2}{NP}}
+\rput[B](9.5,9){\rnode{is}{I'}}
+
+
+\rput[B](7.25,11){\rnode{ip}{IP}}
+
+
+
+\psset{angleA=-90,angleB=90,arm=0pt}
+
+\ncdiag{v}{kennt}
+\ncdiag{vs1}{np1}\ncdiag{vs1}{v}
+\ncdiag{vs2}{np2}\ncdiag{vs2}{vs1}
+\ncdiag{vp}{vs2}
+
+\ncdiag{np3}{t1}
+
+\ncdiag{i}{t2}
+\ncdiag{is}{i}\ncdiag{is}{vp}
+\ncdiag{ip}{np2}\ncdiag{ip}{is}
+
+\ncdiag{np3}{speccp}
+\ncdiag{np2}{jeder}
+\ncdiag{np1}{ihnmf}
+\ncdiag{vp}{vs1}
+\end{pspicture}\hfill\mbox{}
+\caption{\label{fig-Peter-Maria-erwartet-ip}Analyse von \emph{Peter Maria erwartet} mit IP/VP"=Unterscheidung}
+\end{figure}
+Die Kategorie I ist eine funktionale Kategorie\is{Kategorie!funktionale!I}, die in Grammatiken des Englischen durch
+das Stellungsverhalten von Hilfsverben motiviert werden kann. Im Deutschen verhalten sich
+Hilfsverben in bezug auf ihre Stellung aber wie Vollverben, so daß eine Zuordnung von
+Voll- und Hilfsverben zu verschiedenen Kategorien nicht gerechtfertigt wäre.
+In Analysen, die dem in Abbildung~\ref{fig-Peter-Maria-erwartet-ip}
+skizzierten Ansatz folgen, geht man davon aus, daß das Subjekt\is{Subjekt} einen Sonderstatus hat und
+nicht innerhalb der Projektion des Verbs (der VP) steht. Das Subjekt wird deshalb auch
+\hypertarget{externesArgument}{\emph{externes Argument}}\is{Argument!externes} genannt. Es lassen sich durchaus
+Subjekt"=Objekt"=Asymmetrien feststellen, ob das allerdings eine strukturell andere
+Behandlung von Subjekten rechtfertigt, ist eine kontrovers diskutierte Frage 
+(vergleiche \zb \citew*{Haider82,Grewendorf83a,Kratzer84a,Webelhuth85a,%
+Sternefeld85b,%
+Scherpenisse86a,%S. 31, Kapitel~4
+Fanselow87a,Grewendorf88a,Duerscheid89a,Webelhuth90,Oppenrieder91a,Wilder91a,Haider93a,Grewendorf93,%
+Frey93a,%S.30
+%Duerscheid89a:60
+Lenerz94a,%
+Meinunger2000a%S. 30
+}). 
+In Abbildung~\vref{fig-Peter-Maria-erwartet} werden alle Komplemente des Verbs auf die gleiche Weise gesättigt.
+Die maximale Projektion ist eine Projektion des Verbs.
+Es gibt in dieser Analyse für Sätze mit finiten Verben
+also keine besonders lizenzierte Zwischenstufe VP wie \zb in HPSG"=Grammatiken des Englischen 
+(vergleiche \citew*[Kapitel~6.1]{ps}, 
+\citew*[Kapitel~1.4]{ps2}).\footnote{
+	Hierbei ist unwesentlich, ob man flache oder binär verzweigende Strukturen
+	annimmt (siehe Kapitel~\ref{sec-konstituentenreihenfolge-alternativen}). Wesentlich ist, ob das Subjekt durch
+	ein eigenes Schema gesättigt wird.
+}
+% 
+Sowohl Subjekt als auch Objekte des finiten Verbs sind Elemente der \subcatl und werden in Strukturen
+gleichen Typs mit dem Verb verbunden.
+Das heißt, es gibt keine strukturelle Unterscheidung zwischen Subjekt und 
+Objekten. In der GB"=Literatur geht man meistens
+davon aus, daß Subjekte nicht subkategorisiert sind (siehe \zb \citew[\page26--28]{Chomsky93a}, \citew[\page33]{Hoekstra87a}).
+Die Anwesenheit eines Subjekts wird durch das Erweiterte Projektionsprinzip\is{Prinzip!Erweitertes Projektionsprinzip} (\emph{Extended Projection
+Principle} = EPP) erzwungen:
+% Carnie2002a:175
+\ea
+Erweitertes Projektionsprinzip (EPP):
+\begin{itemize}
+\item Lexikalische Information muß syntaktisch realisiert werden.
+\item Jeder Satz enthält ein Subjekt. 
+\end{itemize}
+\z
+
+\noindent
+\citet[Kapitel~2]{Bresnan82c} hat gezeigt, daß die Behauptungen,
+die eine solche Sonderbehandlung des Subjekts rechtfertigen sollen, empirisch falsch sind.
+
+% Bresnan82c:349f zu Subjekt, Selektionsrestriktion und Subjektidiomen
+
+\subsection{Subjekte als Bestandteil von Idiomen}
+
+% Chomsky2007a:23 Why do idioms typically exclude EA?
+
+\is{Idiom|(}%
+Eine dieser Behauptungen ist, daß es keine Idiome gibt, die ein Subjekt haben, das Bestandteil des
+Phraseologismus ist, wobei ein Objekt frei belegbar ist (\citealp[\page50--51]{Marantz81a-u}).
+\citet[\page349--350]{Bresnan82c} diskutiert folgende Beispiele, die zeigen, daß es durchaus
+Idiome gibt, deren Subjekt fester Bestandteil des Idioms ist, wobei Nicht"=Subjekt"=Teile
+frei belegt werden können:
+\eal
+\ex\label{cat-tounge}
+The cat's got x's tongue.
+\glt `X kann nicht sprechen.'
+\ex\label{what-is-eating-x}
+What's eating x?
+\glt `Warum ist X so gereizt?'
+%% \ex X's goose is cooked.
+%% \glt `X hat Probleme und es gibt keinen Ausweg.'
+\zl
+\citet[\page29]{Marantz84a} merkt an, daß Beispiele wie (\ref{cat-tounge}) für die Diskussion seiner
+Behauptung irrelevant sind, da das freie Element nicht das Objekt ist. Zu (\ref{what-is-eating-x}) schreibt
+Marantz:
+\begin{quote}
+From the point of view of the present theory, it is important that this apparent subject idiom
+has no S-internal syntax, for it is precisely S-internal syntax that is at issue. \emph{What's eating NP?}
+is not a combination of subject and verb, forming a predicate on the object, but rather a combination of \emph{wh}-question
+syntax, progressive aspect, plus subject and verb---that is, a complete sentence frame---with an open slot
+for an argument. \citep[\page27]{Marantz84a}
+\end{quote}
+Wenn man diesem Ansatz folgt, kann man nicht erfassen, wieso (\ref{what-is-eating-x}) anderen englischen
+Sätzen ähnelt und wieso (\ref{what-is-eating-x}) intern den normalen syntaktischen Gesetzmäßigkeiten folgend strukturiert ist.
+Aus diesem Grund wird idiomatischen Phrasen in HPSG"=Ansätzen sehr wohl eine interne Struktur zugesprochen 
+(siehe \citew{KE94a,Sailer2000a,SS2003a,Soehn2006a} zu Idiomanalysen im Rahmen der HPSG). 
+
+Andere Beispiele, die Bresnan angeführt hat, erklärt Marantz mit der Annahme, daß es sich bei
+den Subjekten nicht eigentlich um Subjekte handelt, sondern um zugrundeliegende Objekte. Die
+Verben in den entsprechenden Wendungen werden in die Klasse der unakkusativischen Verben eingeteilt
+(Zur Unterscheidung zwischen unakkusativen und unergativen Verben siehe Kapitel~\ref{sec-unakkusativitaet}).
+
+Die Behauptung, daß Subjekte nie Bestandteile von idiomatischen Wendungen sind, die ein frei belegbares
+Argument enthalten, ist weit verbreitet (siehe \zb \citew[\page92]{denDikken95a},
+\citew[\page112--116]{Kratzer96a}) und wird auch explizit für das Deutsche formuliert, \zb bei \citet[\page50]{Grewendorf2002a}.
+Daß die Behauptung für das Deutsche nicht richtig ist -- und also auch nicht für alle Sprachen richtig sein kann -- ,
+zeigen Beispiele wie die in (\mex{1}) und (\mex{2}), die zum Teil schon von \citet[\page178]{Reis82} diskutiert
+wurden:\footnote{
+(\ref{bsp-sticht-der-hafer}), (\ref{bsp-reitet-der-teufel}), (\ref{bsp-felle-davonschwimmen}),
+(\ref{bsp-reisst-der-geduldfaden}) und (\ref{bsp-platzt-der-kragen})
+ sind von \citet[\page178]{Reis82}. Siehe auch \citet[\page 173]{Haider93a} für Beispiele,
+die denen in (\mex{1}) ähneln.%
+}
+\eal
+\ex\label{bsp-sticht-der-hafer}
+weil ihn der Hafer sticht          % Reis
+\ex\label{bsp-reitet-der-teufel}
+weil ihn der Teufel reitet         % Reis, Haider93a:173
+\ex\label{bsp-felle-davonschwimmen}
+weil ihm alle Felle davonschwimmen % Reis
+\ex weil ihn der Schlag trifft     % Haider93a:173
+\ex\label{ex-ihn-die-wut-packt}
+weil ihn die Wut packt         % Haider SynCom
+\ex weil ihm der Kopf raucht       % Keil97:171
+\ex\label{kein-hahn-danach-kräht}
+weil kein Hahn danach kräht    % Burger:25          ist von Burger, aber in anderem Kontext zitiert
+\ex 
+weil nach ihm kein Hahn kräht                  % Haider93a:173
+\ex 
+weil ihn der Esel im Galopp verloren hat   % Haider93a:173
+\ex\label{spatzen-gepfiffen}
+weil die Spatzen das vom Dach gepfiffen haben  % Haider93a:173
+\zl
+\eal
+\ex\label{bsp-reisst-der-geduldfaden}
+weil ihm der Geduldsfaden reißt
+\ex\label{bsp-platzt-der-kragen}
+weil ihm der Kragen geplatzt ist
+\ex weil ihm ein Stein vom Herzen fällt
+\ex weil bei ihm Hopfen und Malz verloren ist% Keil97:171
+%
+%\ex Ihm läuft es kalt den Rücken hinunter.    = ein Schauer
+\ex weil ihm der Atem stockt
+\zl
+\citet[\page208--209]{Marantz97a} formuliert eine Variante seiner Behauptung, die besagt, daß ein Agens\is{semantische Rolle!Agens} 
+nicht Bestandteil eines Idioms sein
+darf. Wie die Beispiele in (\ref{bsp-reitet-der-teufel}) und (\ref{kein-hahn-danach-kräht})
+zeigen, ist das ebenfalls falsch.
+
+\is{Verb!unakkusativisches|(}
+\citet[\page89]{Scherpenisse86a} behauptet in einer Arbeit zum Deutschen wie auch \citet{Marantz84a}
+in bezug auf englische Beispiele,
+daß es sich bei Beispielen mit Subjekten als Idiombestandteil um sogenannte unakkusativische Verben
+handelt, das heißt, daß die Subjekte keine wirklichen Subjekte,
+sondern zugrundeliegende Objekte sind. 
+\is{Passiv|(}%
+Wäre diese Annahme richtig,
+dürften keine Passivvarianten von Idiomen mit festem Subjekt existieren,
+da bei der Passivierung das Subjekt unterdrückt wird und unakkusativische
+Verben eben kein zugrundeliegendes Subjekt haben (siehe Kapitel~\ref{chap-passiv}).
+Betrachtet man die oben aufgeführten Beispiele, so stellt man fest, daß die Verben in
+(\mex{-1}) in der wörtlichen Lesart durchaus passivierbar sind.
+Daß manche Passivierungen der Idiombeispiele schlecht sind, ist
+von anderen Idiomen bekannt. In vielen der Beispiele ist der Nominativ
+unbelebt, was Einfluß auf die Passivierbarkeit haben dürfte.\footnote{
+        Siehe jedoch \citew[Kapitel~3.1.2]{Mueller2002b} zu Passiven mit
+        unbelebtem Subjekt.%
+}
+Beispiele für Passivierungen auch mit der idiomatischen Variante zeigen (\mex{1}) %\fromto{\mex{1}}{\mex{2}}
+und (\ref{wut-gepackt}a, b):
+
+\eal
+\ex Was schon von den Dächern gepfiffen wurde, jetzt ist es amtlich: In \emph{Britische Besatzer unterstützten protestantische Mörder} berichtet der Spiegel über die Vorlage eines offiziellen Untersuchungsberichtes über die Zusammenarbeit der britischen Besatzer mit der Ulster Defence Association (UDA), einer der größten paramilitärischen Gruppen in Nordirland.\footnote{
+  \url{http://witch.muensterland.org/2003/04/18.html}. 05.01.2007.
+}
+\ex Was vor wenigen Wochen nur vereinzelt von den Dächern gepfiffen wurde, nahm in der letzten Woche konkrete Formen an: US-Milliardär Haim Saban, 58 Jahre, hat den Hamburger Verleger Heinz Bauer beim Bieten um die Konkursmasse des Kirch-Konzerns besiegt und gehört damit nun zu den wichtigen Figuren auf dem deutschen Medienmarkt.\footnote{
+  \url{http://heim.at/paysuspends/kulturmedien/saban.htm}.
+}
+\ex In einer Pressemitteilung bestätigte die WWF am 23.03.2001 offiziell die Nachricht, die von allen Spatzen längst von den Dächern gepfiffen wurde.\footnote{
+  \url{http://people.freenet.de/wwf-hp/WWFschlucktWCW.htm}. 05.01.2007.
+}
+\zl
+
+%% %\emph{Der Esel hat X im Galopp verloren.} kann ebenfalls passiviert werden, wie die Beispiele in (\mex{1}) zeigen:
+%% \eal
+%% %\ex Wer weiß, ob dieses armselig dummerhaftige Individuum einfach vom Esel im Galopp verloren wurde oder ob sich da nicht 'n Dackel mit 'ner Lokomotive gemischt hat und dabei so'n Schwachköppchen herausgemendelt wurde... ?!\footnote{nur noch im Cache
+%% %
+%% \ex  ob das kleine Menschenkind vom Storch gebracht oder vom Esel im Galopp verloren oder als Geschenk des Himmels von einem Engel geleitet wird\footnote{
+%%   http://www.offenes-forum-glaube.de/Longard/EngelW00.html. 11.12.2004
+%% }
+%% \ex Januar 1982 wurde ich, laut Aussage meiner Eltern, vom Esel im Galopp verloren.\footnote{
+%%   http://www.twenchatter.com/Profile/schnee.HTM. 11.12.2004
+%% }
+%% \zl
+\noindent
+Beispiel (\mex{1}) zeigt ein Zustandspassiv von (\ref{bsp-sticht-der-hafer}), und die Beispiele in
+(\mex{2}) sind Passive von (\ref{ex-ihn-die-wut-packt}), wobei (\ref{bsp-von-wut-gepackt}) ein
+pränominales Partizip mit passivischer Argumentstruktur enthält: 
+\ea
+Vom Hafer gestochen\footnote{
+  taz, 06.04.2000, S.\,20.
+}
+\z
+\eal
+\label{wut-gepackt}
+\ex Und doch kann sich kaum eine Frau davon freisprechen, daß sie von Empörung oder gar heiliger Wut gepackt wird, sobald sie eines Mannes auf ihrem Territorium ansichtig wird.\footnote{
+  taz bremen, 29.11.1997, S.\,26.
+}
+\ex "`Ich war so narrisch, weil ich im ersten Lauf so einen Scheiß gefahren bin"', 
+    sagte nach dem Rennen Michaela Gerg, die nach einem verkorksten ersten Lauf von Wut gepackt wurde, 
+    im zweiten Durchgang Bestzeit fuhr und noch auf den siebten Rang kam.\footnote{
+      taz, 29.01.1990, S.\,13.
+    }
+\ex\label{bsp-von-wut-gepackt}
+Mit 2:6 gab sie den ersten Satz übernervös ab, drehte daraufhin von Wut gepackt teuflisch auf und holte sich den zweiten Satz unter Zuhilfenahme göttlicher Passierschläge und perfekter Lobs ebenfalls mit 6:2.\footnote{
+  taz, 22.10.1991, S.\,13.
+}
+\zl
+
+\noindent
+In (\mex{1}) und (\mex{2}) liegen weitere Passivierungen bzw.\ pränominale Partizipien mit passivischer
+Argumentstruktur vor.
+\eal
+\label{vom-teufel-geritten}
+\ex 
+"`Iordannis wird vom Teufel geritten"', witzelte Vangelis.\footnote{
+Jentzsch, Kerstin, Seit die Götter ratlos sind, München: Heyne 1999 [1994] S.\,227.
+}
+\ex Wird Gerda vom Teufel geritten?\footnote{
+Dietlof Reiche, Unterwegs mit Gerda, in: Die Zeit 17.09.1998, S.\,71.
+}
+\ex
+Er wurde verhext, oder sie wurde vom Teufel geritten.\footnote{
+Schwanitz, Dietrich, Männer, Frankfurt a.M.: Eichborn 2001, S.\,241.
+}
+\zl
+\eal
+\ex viele vom Schlag getroffene und Lahme aber wurden geheilt.\footnote{
+        http://members.tirol.com/vineyard.grk/predigt.html. 22.09.2003.
+}
+\ex Jeffrey, der Sohn des vom Schlag Getroffenen, besucht seinen Vater im Krankenhaus.\footnote{
+         Frankfurter Allgemeine Zeitung; 13.11.1986. \url{http://www.davidlynch.de/bluefaz86.html}.\newline 22.09.2003.%
+}
+\zl
+Das zeigt, daß die Idiome \emph{Die Spatzen pfeifen X von den Dächern}, \emph{X packt die Wut},
+\emph{der Teufel reitet X} und \emph{Y trifft der Schlag} syntaktisch aktiv sind. Eine Grammatiktheorie
+sollte erfassen, daß die Aktivstrukturen der Idiome genauso zu den Passivstrukturen in Beziehung stehen,
+wie das bei nichtidiomatischen Wendungen der Fall ist.
+%daß also bei diesen Idiomen keine Inkorporierung der Idiombestandteile
+%in das Verb vorliegen kann.
+%% Hier meint er wohl im Idiom schon selbst.
+%% Bsp: Das ist an den Haaren herbeigezogen.
+%%
+%% Die Passivierungen in (\ref{vom-teufel-geritten}) zeigen außerdem, daß Marantz' Behauptung \citeyearpar[\page208]{Marantz97a},
+%% daß Vorgangspassive nicht mit Idiomen verträglich sind, sondern nur Zustandspassive, falsch ist.%
+
+\citet[\page435]{Sternefeld85a} merkt an, daß die Nominative in den von Marga Reis
+diskutierten Idiomen sich wie Objekte verhalten, da sie adjazent
+zum Verb auf"|treten und somit dieselben Stellungseigenschaften wie Objekte haben.
+Sternefeld nimmt eine Inkorporationsanalyse\is{Inkorporation} für solche Idiome an,
+\dash, die Nominativphrase bildet eine feste Einheit mit dem Verb.
+Die Beispiele (\ref{kein-hahn-danach-kräht}) und (\ref{spatzen-gepfiffen}) zeigen, daß die Idiombestandteile nicht unbedingt
+adjazent zum Verb sein müssen. Außerdem ist dieses Idiom passivierbar, was zeigt, daß
+es nicht legitim wäre, es als unveränderbare Einheit einfach im Lexikon aufzuführen.
+\emph{die Spatzen} ist ein syntaktisch normales Subjekt, das sich bei Umformungen
+wie Passivierung auch ganz normal verhält.
+
+Zusammenfassend kann man also sagen:
+\begin{itemize}
+\item Es gibt Idiome, deren Subjekt Idiombestandteil ist und die gleichzeitig ein frei belegbares Objekt haben.
+\item Eine Teilklasse dieser Idiome enthält Verben, die nicht unakkusativisch sind.
+\item Es gibt Idiome mit festem Subjekt, die passiviert werden können bzw.\ passivische adjektivische Partizipien bilden.
+\item Es gibt Idiome mit festem Subjekt, deren Bestandteile (inklusive Subjekt) umstellbar sind.
+\end{itemize}
+Damit ist Marantz' Behauptung für eine Sprache widerlegt und kann somit auch nicht für alle Sprachen gültig sein.
+\is{Passiv|)}
+\is{Idiom|)}\is{Verb!unakkusativisches|)}
+
+\subsection{Expletivpronomina in Objektposition}
+\label{sec-expletivum-in-obj-position}
+
+\is{Pronomen!Expletiv-|(}%
+Zum anderen wird behauptet, daß Expletivpronomina nicht in Objektsposition auf"|treten.
+%\citep[S.\,175]{Carnie2002a}.\footnote{
+%  Carnie schreibt `usually'
+Doch auch das
+ist falsch, wie die Beispiele in (\mex{1}) zeigen.\footnote{
+  Die Beispiele (\mex{1}b--e) sind aus \citew[\page 107]{Tarvainen2000a}.
+}
+\eal
+\ex Er hat es weit gebracht.\footnote{
+        \citew[\page172]{Lenerz81a}.
+}
+\ex Ich habe es heute eilig.
+\ex Sie hat es ihm angetan.
+\ex Er hat es auf sie abgesehen.
+\ex Ich meine es gut mit dir.
+\zl
+% Wir ließen es dabei bewenden [\ldots]\footnote{
+%        Murakami Haruki, \emph{Hard-boiled Wonderland und das Ende der Welt}, suhrkamp taschenbuch, 3197, 2000,
+%        Übersetzung Annelie Ortmanns und Jürgen Stalph, S.\,73
+%}
+
+%% (\mex{0}) widerlegt übrigens auch Hoekstras Behauptung \citeyearpar[\page35]{Hoekstra87a},
+%% daß die Anzahl der Argumente nicht größer als die Anzahl der durch ein Prädikat 
+%% zugewiesenen semantischen Rollen sein kann. 
+\noindent
+Man könnte die Behauptung retten, indem man annimmt, daß \emph{es} eine
+Quasi"=Theta"=Rolle\is{semantische Rolle!Quasi"=Theta"=Rolle} bekommt, wie das mitunter für
+Wetterverben\is{Verb!Wetter-} wie die in (\mex{1}) angenommen wird
+  \citep[\page324--327]{Chomsky93a}\nocite{Chomsky81a}.\footnote{ 
+  \citet{Berman99a} zitiert ein Manuskript von Christian Fortmann\aimention{Christian Fortmann} 
+  mit den Beispielen in (\mex{1}).%
+}
+\eal
+\ex Gestern hat es geblitzt, ohne zu donnern.
+\ex Gestern hat es geregnet, anstatt zu schneien.
+\zl
+Die Behauptung, daß \emph{es} eine semantische Rolle zugewiesen bekommt, wird dadurch
+motiviert, daß man sagt, daß sich das \emph{es} in (\mex{0}) genauso verhält wie eine
+normale Nominalphrase in bestimmten Infinitivkonstruktionen.
+Man sagt, daß in (\mex{1}) das Subjekt von \emph{fährt} mit dem Subjekt von \emph{anzustrengen}
+referenzidentisch ist, sich also auf dasselbe Individuum bezieht (in (\mex{1}) auf \emph{Peter}).
+\ea
+Peter fährt schnell, ohne sich anzustrengen.
+\z
+Man kann aber Fälle wie (\mex{-1}) auch erfassen, ohne annehmen
+zu müssen, daß \emph{es} eine semantische Rolle bekommt: Man muß für (\mex{-1}) und (\mex{0})
+lediglich verlangen, daß der semantische Index\is{Index} der beiden
+Subjekte identisch\is{Koindizierung} ist. In (\mex{-1}) handelt es sich um einen
+nicht"=referentiellen Index, in (\mex{0}) dagegen um einen referentiellen 
+(zu semantischen Indices siehe Kapitel~\ref{sec-index}).
+
+Ich nehme im folgenden an, daß sowohl expletive Objekte als auch expletive Subjekte
+vom entsprechenden Kopf syntaktisch, nicht aber semantisch selegiert werden.
+Durch die Einführung von Quasi"=Theta"=Rollen würde der Begriff der semantischen Rolle 
+syntaktisiert\label{page-syntaktisierung} und somit entwertet.
+\is{Pronomen!Expletiv-|)}
+% Das ist das Theta-Kriterium (Fanselow91a:46)
+
+\subsection{Subjektlose Prädikate}
+\label{sec-subjekt-valenz}
+% Berman99: Safir85, Cardinaletti90, Grewendorf89, Vikner95 -> expletives pro
+
+% Hoekstra87a:72
+Die Behauptung, daß alle Sätze ein Subjekt haben müssen, die Bestandteil des
+\emph{Extended Projection Principle}\is{Extended Projection Principle@\emph{Extended Projection Principle}} ist,
+ist für das Deutsche ebenfalls problematisch,
+wie die Beispiele in (\mex{1}) zeigen:
+\eal
+\iw{grauen}
+\ex Den Studenten graut vor der Prüfung.
+\ex Heute wird getanzt.\is{Passiv!unpersönliches}
+\zl
+Wenn man Subjekte mit in der Valenzinformation von Köpfen repräsentiert, dann
+ist der Unterschied zwischen Prädikaten, die ein Subjekt selegieren, und subjektlosen
+Prädikaten leicht zu erfassen: Bei subjektlosen Prädikaten wie \emph{grauen}
+gibt es in der Valenzinformation einfach kein Subjekt.
+Das \emph{Extended Projection Principle} wurde benutzt, um das Auf"|treten von Expletivpronomina
+(nichtreferierenden \emph{it} bzw.\ \emph{es}) in Subjektsposition vorherzusagen.
+Man könnte für Fälle wie (\mex{0}) behaupten, daß es ein Subjekt gibt, daß
+dieses jedoch abstrakt ist und nicht phonetisch realisiert wird\is{leere Kategorie}. Folgt
+man einer solchen Erklärung, bleibt aber offen, warum Subjekte, die für
+die Bedeutung von Ausdrücken irrelevant sind, mal phonetisch leer realisiert werden
+können (im Fall von \emph{grauen}) und mal -- wie bei \emph{regnen} --
+als \emph{es} realisiert werden müssen \citep[\page80]{Fanselow91a}. 
+% Grewendorf89 Kapitel 3,90b expletives pro bei Passiv
+Zu subjektlosen Verben und dem
+\emph{Extended Projection Principle} siehe auch \citew[Kapitel~6.2.1]{Haider93a}, 
+Berman \citeyear{Berman99a}, \citeyear[Kapitel~4]{Berman2003a} und \citew{Fanselow2000b}.
+Zu leeren Subjekten und Kontrolle\is{Kontrolle} siehe \citew[\page912]{Nerbonne86b}.
+
+%% \subsection{Prädikate mit fakultativ expletivem Subjekt}
+%%
+%% Hubert Haider (p.\,M., 2005) hat mich noch auf die folgenden Daten hingewiesen,
+%% die schon Hermann \citet[\S 24]{Paul1919a} diskutiert:\footnote{
+%%   Siehe auch \citew[\page156]{SG82a}, wo das Beispiel (i) diskutiert wird.
+%% \ea
+%% Oft treibt es ihn ins Gasthaus.
+%% \zlast
+%% }
+%% \eal
+%% \ex Mich ergreift es.
+%% \ex Mich hält es nicht länger.
+%% \ex Mich schüttelt/juckt/reizt/treibt/lockt/reißt/zieht/drängt es. 
+%% \zl
+%% Diese Verben können sowohl mit einem persönlichen als auch mit einem expletiven
+%% Subjekt benutzt werden. Würde man diese Eigenschaft nicht als lexikalische Eigenschaft
+%% von Verben erfassen, so würde man vorhersagen, daß man alle Verben mit einem expletiven
+%% Subjekt verwenden kann. So müßte nach Haider (\mex{1}) auch bedeuten können,
+%% daß sich gestern ein Anrufensereignis mit mir als Angerufenem ereignete.
+%% \ea
+%% Gestern hat es mich angerufen.
+%% \z
+%% Das ist jedoch nicht der Fall. Es handelt sich also um Eigenheiten der Verben
+%% in (\mex{-1}) und dies muß sich in der Argumentstruktur dieser Verben widerspiegeln.
+%% Das Subjekt muß demzufolge Bestandteil der Argumentstruktur von Verben sein.
+
+
+%% nee is ja Quatsch, denn dann müßte es ja in SLASH landen.
+%%
+%% \citet{Aranovich2003a} macht einen interessanten Vorschlag zur Repräsentation
+%% von leeren Subjekten: Er nimmt ein leeres Subjekt in der Argumentstruktur (\argst)
+%% an, das dann nicht in die Valenzlisten aufgenommen wird.
+%%
+%% Bei finiten Verben wird das Subjekt gemeinsam mit den Objekten realisiert, bei
+%% infinite Verbphrasen wie \zb \emph{Maria zu lieben} in (\mex{1})
+%% taucht allerdings kein Subjekt an der Oberfläche auf.
+%% \ea
+%% Karl behauptet, Maria zu lieben.
+%% \z
+%% Bei infiniten Verbphrasen gibt es also strukturelle Unterschiede zwischen Subjekt und Objekten:
+%% Subjekte werden nicht realisiert, andere Argumente müssen dagegen (wenn sie nicht optional sind)
+%% realisiert werden.
+%% % Kratzer84: finite IP mit Subjekt und infinite VP
+%% Genaueres dazu findet man in den Kapiteln~\ref{passiv} und~\ref{kontrolle}.
+%% Ein weiterer Vorteil der separaten Auf"|listung des Subjekts infiniter
+%% Verben liegt darin, daß sowohl Verbphrasen wie die oben auf"|geführte als
+%% auch finite Sätze Maximalprojektionen sind und somit ihr ähnliches
+%% syntaktisches Verhalten erklärt werden kann.
+%%
+%% \citet*{Borsley87}\iaright{Borsley} plädierte schon 1987 dafür, 
+%% das Subjekt nicht in die Sub\-cat"=Liste auf"|zunehmen.
+%% \citet*{Kiss92}\iaright{Kiss} dagegen schlug vor, nur das Subjekt 
+%% infiniter Verben in einer Liste als Kopf"|merkmal zu repräsentieren.
+%% Nur in finiten Sätzen wird das Subjekt gesättigt. Deshalb ist
+%% das Subjekt auch nur bei finiten Verbformen ein Element der Sub\-cat"=Liste. 
+%% Bei nichtfiniten Verbformen dagegen ist das Subjekt nicht Element der Sub\-cat"=Liste. 
+%% Statt dessen gibt es ein Kopf"|merkmal \textsc{subj}, das als Wert eine maximal 
+%% einelementige Liste hat. Diese Liste enthält das Subjekt bei Verben,
+%% die ein Subjekt haben, und ist leer bei Verben, die kein Subjekt haben 
+%% (\zb \emph{grauen} in {\em Mir graut.\/}).\is{Verb!subjektloses}
+%% % Hoekstra87a: Perkolation der Subjekt-Theta-Rolle = SUBJ-Merkmal
+
+
+
+
+
+\section*{Kontrollfragen}
+
+
+\begin{enumerate}
+\item Wofür steht `$\oplus$'?
+\item Was ist die Obliqueness"=Hierarchie?
+\end{enumerate}
+
+\section*{Übungsaufgaben}
+
+\begin{enumerate}
+\item Geben Sie die Valenzlisten für folgende Wörter an:
+      \eal
+      \ex er
+      \ex seine (in \emph{seine Ankündigung})
+      \ex schnarcht
+      \ex denkt
+      \ex graut
+      \zl
+\end{enumerate}

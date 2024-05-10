@@ -1,0 +1,866 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: hpsg-verbalkomplex.tex,v $
+%%  $Revision: 1.15 $
+%%      $Date: 2008/09/30 09:14:41 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Der Verbalkomplex}
+\label{chap-verbalkomplex}
+\is{Verbalkomplex|(}
+
+%\section
+
+
+% \citet{HN89} haben auf der Grundlage von Voranstellungs- (\mex{1}) und Oberfeldumstellungsdaten (\mex{2}) dafür
+% argumentiert, daß Hilfs- und Modalverben im Deutschen mit dem Hauptverb einen Verbalkomplex bilden.
+% \ea
+% Geholfen haben wird er dem Mann.
+% \z
+% % mehr
+% %Since German is assumed to be a verb second language, i.e., a language with exactly one constituent before the
+% %finite verb, examples like (\mex{0}) are evidence for the existence of the constituent \emph{geholfen haben}.
+% \eal
+% \ex
+% daß er dem Mann helfen müssen wird
+% \ex
+% daß er dem Mann wird helfen müssen
+% \zl
+% Die Beispiele in (\mex{0}) kann man leicht erklären, wenn man annimmt, daß
+% \emph{helfen} und \emph{müssen} einen Komplex bilden, der dann unter \emph{wird} eingebettet wird.
+% \emph{wird} kann entweder links oder rechts des eingebetteten Verbalkomplexes stehen.
+%
+% In Hinrichs und Nakazawas analyse bilden auch \emph{geholfen} und das Hilfsverb
+% \emph{hat} in (\mex{1}) einen Verbalkomplex:
+% \ea
+% \label{ex-er-geholfen-hat}
+% daß er dem Mann [geholfen hat]
+% \z
+
+
+In diesem Kapitel wird die Analyse des Verbalkomplexes vorgestellt (Abschnitt~\ref{sec-verbalkomplex}).
+Die für die Analyse notwendige Technik der Argumentanziehung wird hier eingeführt. Diese spielen
+auch bei der Analyse sogenannter kohärenter Konstruktionen (Kapitel~\ref{chap-anhebung}) und bei
+der Analyse des Passivs (Kapitel~\ref{chap-passiv}) eine wesentliche Rolle. Abschnitt~\ref{sec-pvp}
+geht auf ein interessantes Kapitel der deutschen Syntax ein: das Voranstellen von Phrasenteilen,
+auch unter den Bezeichnungen \emph{Incomplete Category Fronting} oder \emph{Partial Verb Phrase Fronting}
+bekannt.
+
+\section{Die Analyse des Verbalkomplexes in der rechten Satzklammer}
+\label{sec-verbalkomplex}
+
+In verschiedenen anderen Arbeiten (\zb \citew[Kapitel~3]{Uszkoreit87a}\ia{Uszkoreit}) 
+wird angenommen, daß ein Hilfsverb eine Verbphrase als Komplement verlangt. 
+\ea
+\label{ex-uf}
+daß niemand [[[das Buch lesen] können] wird]
+\z
+Mit solchen Strukturen ist jedoch innerhalb der HPSG"=Theorie
+die Abfolge der Verben in (\ref{ex-of}) schwer zu erklären,
+da das Hilfsverb \emph{wird} zwischen Bestandteilen der Verbphrase steht.
+\ea
+\label{ex-of}
+daß niemand das Buch wird lesen können
+\z
+Außerdem sind die Sätze in (\mex{1}) mit einer solchen Analyse nicht ohne weiteres auszuschließen,
+da \emph{das Buch lesen} eine Phrase bildet, die im Mittelfeld nach links verschoben
+werden bzw.\ in einer sogenannten Rattenfängerkonstruktion\is{Rattenfängerkonstruktion} (siehe S.\,\pageref{page-rattenfaenger})
+in einem Relativsatz\is{Relativsatz} auf"|treten könnte.
+\eal
+\ex[*]{\label{bsp-das-Buch-lesen-niemand-wird}
+daß das Buch lesen niemand wird
+}
+\ex[*]{\label{bsp-das-lesen-niemand-wird}
+das Buch, das lesen niemand wird
+}
+\zl
+Daß Stellungen wie die in (\mex{0}) prinzipiell möglich sind, zeigt (\mex{1}):
+\eal
+\ex daß [das Buch zu lesen] niemand versucht
+\ex Für einige Länder Afrikas ist der Export von Kakao und Kakaobutter eine wichtige
+Einnahmequelle, [die zu erhalten] sich die EU im Kakaoabkommen von 1993 ausdrücklich
+verpflichtet hat.\footnote{
+        taz, 23.11.1997, S.\,9.
+}
+\zl
+Es muß also eine Unterscheidung in der Grammatik geben, die für den Kontrast
+zwischen (\mex{-1}) und (\mex{0}) verantwortlich ist.
+\citet*{HN94a}\ia{Hinrichs}\ia{Nakazawa} 
+schlagen deshalb die Benutzung eines speziellen Dominanzschemas vor, 
+das dafür sorgt, daß (bestimmte) verbale Argumente vor nichtverbalen gesättigt werden. Das heißt,
+in der Analyse von (\ref{ex-uf}) und (\ref{ex-of}) wird zuerst \emph{lesen} mit \emph{können}
+und dann der entstandene Verbalkomplex mit \emph{wird} kombiniert:
+\ea
+\label{ex-struktur-lesen-koennen-wird}
+daß niemand das Buch [[lesen können] wird]
+\z
+\emph{wird} kann wie in \pref{ex-uf} rechts oder wie in \pref{ex-of} links des eingebetteten Verbalkomplexes
+stehen. Nach dem Aufbau des Verbalkomplexes \emph{lesen können wird} wird dieser mit den Argumenten 
+der beteiligten Verben, also mit \emph{das Buch} und \emph{niemand} kombiniert.\footnote{
+        Eine solche Struktur wurde schon von 
+        \citet*{Johnson86a}\iaf{Johnson, Mark}
+        im Zusammenhang mit der Positionierung des Verbalkomplexes im
+        Vorfeld vorgeschlagen.
+}
+
+\is{Koordination|(}
+Für ein solches Vorgehen sprechen auch Koordinationsdaten
+wie der Satz in (\mex{1}).
+\ea
+Ich liebte ihn, und ich fühlte, daß er mich auch geliebt hat oder doch, daß er mich
+hätte lieben wollen\iw{wollen} oder lieben müssen.\footnote{
+        \citew*[\page36]{Hoberg81a}.
+}\iw{müssen}
+\z
+Auf Seite~\pageref{page-symmetrische-koordination} wurde dafür argumentiert,
+syntaktische Information unter \textsc{cat} zu bündeln. In Koordinationsstrukturen werden
+dann einfach die \catwe der Konjunkte identifiziert. Würde man -- wie \zb \citet*{BvN96,BvN98a}\ia{Bouma}\ia{van Noord} --
+eine völlig flache Struktur annehmen, in der alle Verben
+gleichzeitig miteinander und mit ihren Komplementen kombiniert werden,
+so wäre die Koordination in (\mex{0}) nicht als symmetrische Koordination zu erklären.\footnote{
+        Es existiert zur Zeit keine umfassende Analyse für Koordinationsphänomene. Es ist also
+        nicht völlig auszuschließen, daß (\mex{0}) auch mit einer flachen Struktur zu erklären ist.
+        Mit einem strukturierten Verbalkomplex ist (\mex{0}) jedenfalls unproblematisch.%
+}
+Geht man dagegen von Strukturen wie (\ref{ex-struktur-lesen-koennen-wird}) aus, bilden \emph{lieben wollen}
+und \emph{lieben müssen} in (\mex{0}) jeweils eigene Konstituenten, die dann auch mit einer Konjunktion
+verknüpft werden können. Die gesamte Wortgruppe \emph{lieben wollen oder lieben müssen} wird dann unter
+\emph{hätte} eingebettet.
+\is{Koordination|)}
+
+
+Das folgende Schema, das eine Abwandlung des von
+Hinrichs und Nakazawa vorgeschlagenen ist, lizenziert die Prädikatskomplexe\is{Schema!Prädikatskomplex-}:
+\begin{samepage}
+\begin{schema}[Prädikatskomplexschema]
+\label{schema-vk}
+\type{head"=cluster"=phrase}\istype{head"=cluster"=phrase} \impl\\
+\ms{
+ synsem & \onems{ loc$|$cat$|$subcat \ibox{1} \\ 
+                } \\
+ head-dtr & \onems{ synsem$|$loc$|$cat$|$subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} }\\ } \\
+ nonhead-dtrs & \sliste{ [ \synsem  \ibox{2} ]                     } \\
+}
+\end{schema}
+\end{samepage}
+%
+Dieses Schema entspricht dem Kopf"=Argument"=Schema, das wir bis zum Kapitel~\ref{chap-Konstituentenreihenfolge}
+benutzt haben, bzw.\ der angepaßten Version auf Seite~\pageref{schema-head-arg}.
+Im Kapitel~\ref{chap-Konstituentenreihenfolge} wurde das \emph{append} durch \emph{delete}
+ersetzt, um die relativ freie Anordnung von Konstituenten im Mittelfeld erklären zu können.
+Bei der Verbalkomplexbildung ist Reihenfolge der Abbindung von verbalen Argumenten strikt: Es wird
+immer mit dem letzten Argument begonnen. Deshalb wird im Prädikatskomplexschema \emph{append} ($\oplus$)
+verwendet. Das Kopf"=Argument"=Schema wird auf Seite~\pageref{schema-bin} noch so revidiert,
+daß es korrekt mit dem Schema~\ref{schema-vk} und den entsprechenden Lexikoneinträgen für komplexbildende
+Verben interagiert.
+
+Für das Hilfsverb\is{Verb!Hilfs-} \emph{werden} nehme ich die Repräsentation in (\mex{1}) an:\footnote{\label{subj-fn}%
+        \citet{Pollard90a} und \citet*{Kiss92} haben vorgeschlagen, das Subjekt infiniter
+Verben nicht in der \textsc{subcat}"=Liste des Verbs, sondern als Element einer gesonderten Liste (\subj)
+zu repräsentieren. Aus Gründen der Übersichtlichkeit habe ich im folgenden die Subjekte finiter
+und infiniter Verben gleichermaßen auf der \textsc{subcat}"=Liste repräsentiert. Diese Annahme
+wird im Kapitel~\ref{sec-subj-merkmal} revidiert.%
+%% Die separate
+%% Repräsentation des Subjekts infiniter Verben sagt vorher, daß Subjekte nicht innerhalb
+%% von Projektionen von infiniten Verben vorkommen können, es sei denn man formulierte Spezialregeln,
+%% die entsprechende Kombinationen lizenzieren.%
+%%
+%% Für die Analyse der scheinbar mehrfachen Vorfeldbesetzung würde ebenfalls vorausgesagt, daß
+%% Subjekte nicht zusammen mit anderen Konstituenten im Vorfeld stehen können, was empirisch korrekt
+%% zu sein scheint. Zu einer Analyse von Prädikatskomplexen, die das Subjekt infiniter Verben separat repräsentiert,
+%% siehe \citew{Mueller99a,Mueller2002b}.%
+%Nimmt man die in \citew[Kapitel~3]{Mueller2002b}
+%vorgeschlagene Passivanalyse an, so sind die Beispiele in (\ref{bsp-mehrfach-vf-subjekt}),
+%in denen ein Oberflächensubjekt in Passivkonstruktionen zusammen mit einer anderen Konstruktion
+%vorangestellt wurde, auch mit einem separat repräsentierten Subjekt problemlos analysierbar.%
+}
+\eas
+\label{le-wird}
+\textit{wird\/} (Futur-Hilfsverb):\\
+\ms[cat]{
+ head   & \textit{verb}\\*
+ subcat & \ibox{1} $\oplus$ \sliste{ \textsc{V[\textit{bse\/}, \textsc{lex}+, subcat~\ibox{1}]}} \\
+}
+\zs
+%% Hierbei ist V[\textit{bse\/}, \textsc{lex}+, subcat~\ibox{1}] eine Abkürzung für (\mex{2}):
+%% \ea
+%% \ms{
+%% loc & \ms{ cat & \ms{ head & \ms[verb]{
+%%                              vform & bse\\
+%%                              }\\
+%%                       subcat & \ibox{1}\\
+%%                     }\\
+%%         }\\
+%% lex & +\\
+%% }
+%% \z
+\emph{werden} selegiert ein Verb in der \textit{bse\/}"=Form\istype{bse}\footnote{%
+  \emph{bse} ist die Abkürzung für \emph{base}.%
+}, \dash einen Infinitiv ohne \emph{zu}. Bevor das \lexm erklärt wird, soll der Aufbau der \subcatl
+des Hilfsverbs anhand eines Beispiels erklärt werden:
+Im Satz (\mex{1}) übernimmt \emph{wird} die Teilspezifikationen der Argumente
+\emph{Karl} und \emph{mir} von {\em helfen}. 
+\ea
+daß Karl mir helfen wird
+\z
+Diese Übernahme erfolgt mit Hilfe der durch die Box \iboxt{1} ausgedrückten Strukturteilung.
+Die \textsc{subcat}"=Liste von \emph{helfen wird} hat also die gleiche Form wie die 
+\textsc{subcat}"=Liste für {\em hilft}. Man sagt auch, daß das Hilfsverb die Argumente des
+eingebetteten Verbs anhebt bzw.\ anzieht und spricht von Argumentanziehung\is{Argument!anziehung@-anziehung}, Argumentanhebung\is{Argument!anhebung@-anhebung}
+bzw.\ Argumentkomposition\is{Argument!komposition@-komposition}. Die Kombination von \emph{helfen} und \emph{wird}
+zeigt Abbildung~\vref{abb-helfen-wird}.
+\begin{figure}[htbp]
+\centerline{
+%\nodemargin5pt
+\begin{tabular}{@{}cc@{}}
+\multicolumn{2}{@{}c@{}}{%
+\rnode{1}{\ms{ head   & \ibox{1}\\
+           subcat & \ibox{2}\\
+            }}}\\
+\\[3ex]
+%10pt
+\\[5ex]
+%12pt
+%\multicolumn{2}{@{}l@{}}{\hspace{42mm}CL\hspace{40mm}H}\\[4ex]
+\rnode{2}{
+\iboxt{4}~\onems{ loc \onems{ head  \ms[verb]{ vform & bse \\
+                                             }\\
+                                subcat~\ibox{2} \liste{ NP[\textit{nom\/}], NP[\textit{dat\/}] }\\[2mm]
+                              }\\
+                }} &
+\rnode{3}{
+                 \ms{ head & \ibox{1} \ms[verb]{ vform & fin \\
+                                                    }\\
+                      subcat & \ibox{2} $\oplus$ \sliste{ \ibox{4} }\\
+                    }}\\
+\\[3ex]
+\rnode{4}{helfen} & \rnode{5}{wird}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{2}{4}\ncline{3}{5}%
+}
+\caption{\label{abb-helfen-wird}%
+Analyse von \emph{helfen wird}}
+\end{figure}
+
+\noindent
+Hilfsverben %verhalten sich wie Anhebungsverben: Sie 
+weisen weder einem Subjekt noch Komplementen semantische Rollen\is{semantische Rolle} zu.
+So ist es auch nicht verwunderlich, daß
+\iboxt{1} in (\ref{le-wird}) durch die leere Liste instantiiert werden kann:
+\ea
+Morgen wird getanzt werden.
+\z
+In (\mex{0}) ist eine durch Passiv entstandene subjektlose Konstruktion (\emph{getanzt werden})
+unter das Futur"=Hilfsverb eingebettet worden. Das Passiv wird im Kapitel~\ref{chap-passiv}
+behandelt.
+
+Die Spezifikation des \textsc{lex}"=Wertes\isfeat{lex} des eingebetteten Verbalkomplexes in (\ref{le-wird})
+schließt unechte Mehrdeutigkeiten\is{unechte Mehrdeutigkeit} aus.
+% \footnote{
+%       Note that this is the only purpose \textsc{lex} has in my grammar.
+%       \textsc{lex} has the value $-$ if a head has been combined with a complement and +
+%       otherwise. So if an unsaturated verb is combined with an adjunct its \textsc{lex} value
+%       is still +. This is not the way \textsc{lex} is seen in the standard framework, and
+%       therefore it might be reasonable to choose a different feature name. However, I decided
+%         to stick with the name \textsc{lex} for historical reasons.
+% } 
+Ohne eine solche Spezifikation wären alle drei Strukturen in (\mex{1}) möglich (\citealp[\page303]{Pollard90a};
+\citealp{HN94b}):
+\eal
+\ex er seiner Tochter  ein Märchen [erzählen wird]
+\ex er seiner Tochter [[ein Märchen erzählen] wird]]\label{pvp-ein-maerchen-erzaehlen}
+\ex er [[seiner Tochter ein Märchen erzählen] wird]]
+\zl
+Die Spezifikation des \lexwes von \emph{erzählen} stellt sicher, daß \emph{erzählen} mit \emph{wird} kombiniert wird,
+bevor \emph{erzählen} mit seinen Argumenten kombiniert wird. Da der Mutterknoten in
+Kopf"=Argument"=Strukturen als \textsc{lex}$-$ spezifiziert ist (in anderen Strukturen übrigens auch), 
+%(siehe Schema~\ref{schema-bin} auf Seite~\pageref{schema-bin}), 
+können die Projektionen
+von \emph{erzählen} in (\mex{0}b--c) nicht mit \emph{wird} kombiniert werden.
+% \footnote{
+% Of course, phrases like \emph{ein Märchen erzählen} and \emph{seiner Tochter ein Märchen erzählen} are needed in the analysis
+% of German sentences like those in (i) and (ii):
+% \ea
+% weil er seiner Tochter hätte ein Märchen erzählen sollen.\\
+% \z
+% \eal
+% \ex 
+% Ein Märchen erzählen wird er seiner Tochter.\\
+% \ex 
+% Seiner Tochter ein Märchen erzählen wird er sicher.\\
+% % \zl
+% The example in (i) is an instance of the so"=called \emph{Oberfeldumstellung} (\citealp{Bech55a};
+% \citealp[\page723]{Haftka81a}) and the examples in (ii) are examples of (partial) verb phrase fronting 
+% \citep[\page720--721]{Haftka81a}. For an analysis of Oberfledumstellung see \citep{HN94a} and \cite[Ch.~14]{Mueller99a-unlinked}
+% and for an analysis of the partial verb phrase fronting examples see \citep{Mueller97c} and \citep{Meurers99a-unlinked}.
+% In the HPSG analysis of these phenomena the constraint that all arguments of embedded verbal complexes have to be raised
+% to the higher predicate is relaxed for fronting or in cases like (ii) where no spurious ambiguities can
+% arise.
+% }
+
+Der \textsc{lex}"=Wert der Mutter in Prädikatskomplexstrukturen ist im Unterschied zu Kopf"=Argument"=Strukturen
+nicht restringiert, da Prädikatskomplexe unter andere Verben eingebettet werden können 
+und mit diesen einen Prädikatskomplex bilden können, wie (\ref{ex-er-geholfen-haben-wird}) zeigt.
+\ea
+\label{ex-er-geholfen-haben-wird}
+daß er dem Mann [[geholfen haben] wird].
+\z
+Will man unechte Mehrdeutigkeiten vermeiden, so muß man sicherstellen, daß Sätze wie (\mex{0}) nur auf die
+in (\mex{0}) dargestellte Weise und nicht auch wie in (\mex{1}) analysiert werden können.
+\ea
+\label{bsp-non-complex-forming}
+daß er dem Mann [geholfen [haben wird]].
+\z
+Der Analyse in (\mex{-1}) ist gegenüber der in (\mex{0}) der Vorzug zu geben, da \emph{geholfen
+haben} als Konstituente vorangestellt werden kann, \emph{haben wird} bildet dagegen keine irgendwie
+nachweisbare Einheit.
+In der Analyse in (\mex{0}) wurde das verbale Argument von \emph{haben} zum Argument des Komplexes
+\emph{haben wird} angehoben. Der Komplex \emph{haben wird} wird mit \emph{geholfen} über das Prädikatskomplexschema
+kombiniert. Die Analyse in (\mex{0}) läßt sich ausschließen, wenn man in Lexikoneinträgen für Anhebungsprädikate
+die Art der Elemente, die angehoben werden können, beschränkt. Als zusätzliche Bedingung
+für (\ref{le-wird}) muß gelten, daß \iboxt{1} nur vollständig gesättigte
+% nicht prädikative 
+Elemente mit \textsc{lex}"=Wert $-$\isfeat{lex} enthält. Formal kann das als Beschränkung über \iboxt{1}
+ausgedrückt werden:\footnote{
+        \citet{BvN98a} formulieren in Prosa eine äquivalente Beschränkung. Sie unterscheiden
+        im Satz eine \emph{Inner Zone} und eine \emph{Outer Zone}. Die \emph{Inner Zone}
+        entspricht dem Prädikatskomplex. Elemente, die von dem sie regierenden Kopf
+        als zur \emph{Inner Zone} gehörig markiert werden, dürfen nicht angehoben werden.
+
+Mit der hier angegebenen Beschränkung für angehobene Elemente wird
+        meine Kritik \citep[\page351--352]{Mueller99a} an Kiss' Behandlung der obligatorischen Kohärenz
+        als Unterfall der optionalen Kohärenz \citep[\page183]{Kiss95a} hinfällig: Für optional kohärent konstruierende
+        Verben reicht in der hier vorgestellten Analyse ein Lexikoneintrag aus. Zur Behandlung
+        kohärenter Konstruktionen siehe Kapitel~\ref{sec-anhebung-anal}.%
+%
+}
+\eas
+\label{constr-non-complex-forming}
+list\_of\_non\_c\_forming\_synsems(\eliste).\\\\
+list\_of\_non\_c\_forming\_synsems(\liste{ \onems{ loc$|$cat \onems{ %head$|$prd $-$\\
+                                                          subcat \eliste\\
+                                                        }\\
+                                                lex $-$\\
+                                                } $|$ \textrm{Rest} }) :=\\\\
+\hfill        list\_of\_non\_c\_forming\_synsems(Rest).\\\\
+\zs
+Eine Liste besteht aus Elementen, die keinen Prädikatskomplex bilden, wenn die Liste
+die leere Liste ist (erste Klausel) oder wenn das erste Element gesättigt ist
+und einen \textsc{lex}"=Wert $-$ 
+%und einen \textsc{prd}"=Wert $-$ 
+hat und wenn der Rest der Liste dieselbe Bedingung erfüllt.\footnote{\label{fn-lex-intransitiv}%
+        Auf die Erwähnung des \textsc{lex}"=Wertes kann man in (\ref{constr-non-complex-forming}) nicht verzichten,
+        da intransitive Verben -- wenn das Subjekt separat repräsentiert wird -- eine
+        leere Valenzliste haben. Der \textsc{lex}"=Wert intransitiver Verben wird
+        im Lexikon nicht spezifiziert. Sie können deshalb sowohl an Stellen auf"|treten,
+        an denen nur Phrasen erlaubt sind (in sogenannten inkohärenten Konstruktionen \citep{Bech55a})
+        als auch an Stellen, an denen nur lexikalische Elemente erlaubt sind (in kohärenten Konstruktionen).
+        Das ist auch der Grund dafür, daß der \textsc{lex}"=Wert der Mutter in Prädikatskomplexstrukturen nicht als \textsc{lex}+ spezifiziert
+        ist, wie \zb bei \citet{HN94a,dKM2001a}, da Kombinationen aus Verben, die ein intransitives Verb einbetten,
+        vollständig gesättigt sein können. Solche vollständig gesättigten Verbalkomplexe können dann eine
+        inkohärente Konstruktion mit einem Matrixverb eingehen. Der \textsc{lex}"=Wert eines Verbalkomplexes
+        wird also nur durch das übergeordnete Verb restringiert.%
+}
+%% Das \textsc{prd}"=Merkmal wurde von \citet[\page64--67]{ps} zur Unterscheidung von prädikativen
+%% und nicht"=prädikativen Elementen eingeführt.
+
+Weiter unten wird erklärt, warum diese Beschränkung nicht nur für den Ausschluß
+unechter Mehrdeutigkeiten, sondern auch für den Ausschluß unmöglicher Vorfeldbesetzungen
+eine Rolle spielt.
+
+Wie die Analyse von (\ref{ex-er-geholfen-haben-wird}) im Detail funktioniert, zeigt die Abbildung~\vref{abb-kombin1}.
+\begin{figure}[htb]
+\resizebox{\linewidth}{!}{%
+%\nodemargin5pt
+\begin{tabular}{@{}cc@{}c@{}}
+\multicolumn{3}{c}{%
+\rnode{1}{\ms[cat]{ head   & \ibox{1} \\
+           subcat & \ibox{2}\\
+            }}}\\
+\\[3ex]
+\\[5ex]
+\multicolumn{2}{c}{%
+\rnode{2}{
+\iboxt{4}~\onems{ loc \ms{ head & \ibox{3} \\
+                                   subcat & \ibox{2} \\
+                                 }
+}}} &
+\rnode{3}{
+                 \ms[cat]{ head & \ibox{1} \ms[verb]{ vform & fin \\
+                                                    } \\
+                      subcat & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
+                    }}\\
+\\[3ex]
+\\[4ex]
+\rnode{4}{%
+\iboxt{5}~\onems{ loc \onems{ head  \ms[verb]{ vform & ppp  \\
+                                                }  \\
+                                subcat~\ibox{2} \sliste{ NP[\textit{nom\/}], NP[\textit{dat\/}] } \\
+                              }\\
+                }
+} & \rnode{5}{
+\onems[cat]{ head~\ibox{3} \ms[verb]{ vform & bse \\
+                            } \\
+            subcat ~ \ibox{2} $\oplus$ \sliste{ \ibox{5} } \\
+          }
+}\\
+\\[3ex]
+\rnode{6}{geholfen} & \rnode{7}{haben} & \rnode{8}{wird}\\
+\end{tabular}
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{2}{4}\ncline{2}{5}%
+\ncline{4}{6}\ncline{5}{7}\ncline{3}{8}%
+}
+\caption{Analyse des Verbalkomplexes in:\ \emph{daß Karl dem Mann geholfen haben wird}}\label{abb-kombin1}%
+\end{figure}
+Das Perfekthilfsverb \emph{haben} bettet das Partizip \emph{geholfen} (ein Verb mit \textsc{vform} \textit{ppp\/}\istype{ppp})
+ein. Es übernimmt die Argumente dieses Verbs \iboxb{2}. Der resultierende Verbalkomplex hat dieselbe
+Valenz wie \emph{geholfen}. Dieser Komplex wird unter \emph{wird} eingebettet. \emph{wird} zieht
+ebenfalls die Argumente des eingebetteten Komplexes an, so daß der gesamte Komplex \emph{geholfen haben wird}
+dieselben Argumente wie \emph{geholfen} verlangt.
+
+Mit den bisher vorgestellten Komponenten der Analyse kann man erklären, warum
+(\ref{bsp-das-Buch-lesen-niemand-wird}) -- hier als (\mex{1}) wiederholt --
+ausgeschlossen ist:
+%\NOTE{WS: Vielleicht hab ich schon zu lange draufgesehen, aber \emph{daß das Buch lesen niemand wird}
+%find ich gar nicht so inakzeptabel.}
+\ea[*]{
+\label{bsp-das-Buch-lesen-niemand-wird-zwei}
+daß [das Buch lesen] niemand wird
+}
+\z
+Eine Kombination von \emph{wird} und \emph{das Buch lesen} wird weder durch das Verbalkomplexschema
+noch durch das Kopf"=Argument"=Schema lizenziert, da die Kombination von \emph{das Buch} und \emph{lesen} 
+eine Verbalphrase ergibt, die den \lexw $-$\isfeat{lex} hat, 
+und demzufolge nicht unter \emph{wird} eingebettet werden kann, da \emph{wird} ein Verb mit
+dem \lexw + selegiert.
+
+Diese Beschränkungen schließen aber die folgenden Sätze noch nicht aus:
+\eal
+\ex[*]{
+daß lesen er den Aufsatz wird
+}
+\ex[*]{
+daß er lesen den Aufsatz wird
+}
+\zl
+Auch der Satz (\ref{bsp-das-lesen-niemand-wird}) -- hier als (\mex{1}) wiederholt --
+wird nicht ausgeschlossen.
+\ea[*]{
+\label{bsp-das-lesen-niemand-wird-zwei}
+das Buch, das lesen niemand wird
+}
+\z
+Die Sätze in (\mex{-1}) können mit dem Kopf"=Argument"=Schema analysiert werden,
+da dieses eine Kombination der Elemente in der \subcatl von \emph{wird} in beliebiger
+Reihenfolge zuläßt. Genauso gibt es eine Analyse für (\mex{0}): \emph{lesen} und \emph{niemand}
+werden mit \emph{wird} über das Kopf"=Argument"=Schema kombiniert. Eine Spur nimmt den Platz
+für das Relativpronomen in einer Kopf"=Argument"=Struktur ein, und das Relativsatzschema lizenziert
+dann den gesamten Relativsatz:
+\ea[*]{
+das Buch, [\sub{rc} das$_i$ [\sub{h-arg} \_$_i$ [\sub{h-arg} lesen [\sub{h-arg} niemand wird]]]]
+}
+\z
+Es ist klar, daß einzelne Verben bzw.\ Verbalkomplexe nicht als Argumente in \kasen
+vorkommen sollen. Ein solches Vorkommen kann man dadurch ausschließen, daß man verlangt,
+daß die Argumente immer den \lexw $-$ haben. Schema~\ref{schema-bin} ist
+das entsprechend angepaßte Schema.\is{Schema!Kopf"=Argument"=}
+
+\begin{samepage}
+\begin{schema}[Kopf-Argument-Schema (binär verzweigend, vorläufige Version)]
+\label{schema-bin}
+\type{head"=argument"=phrase}\istype{head"=argument"=phrase} \impl\\
+\onems{
+      synsem$|$loc$|$cat$|$subcat \ibox{1} $\oplus$ \ibox{3}\\
+% das gilt für mehrere Schemata
+%                     lex $-$\\
+%                }\\
+      head-dtr$|$cat$|$subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3} \\
+      non-head-dtrs \sliste{ [ \synsem  \ibox{2} \textrm{[\textsc{lex}  $-$ ]} ] }\\
+}
+\end{schema}\isfeat{lex}
+\end{samepage}
+
+\noindent
+Der aufmerksame Leser wird sich fragen, was die Theorie in bezug auf Sätze wie (\mex{1}) vorhersagt.%
+\NOTE{WS: Die Erklärung, warum (18) nicht geht, verstehe ich nicht. \emph{wird} kann doch keine anderen Argumente als \emph{lachen} haben, die müßte es ja von lachen übernehmen und da kommt es ja nicht ran.}
+\ea[*]{
+daß lachen er wird
+}
+\z
+In Fußnote~\ref{fn-lex-intransitiv} wurde schließlich gesagt, daß der \lexw intransitiver Verben
+im Lexikon nicht spezifiziert wird, so daß diese an Positionen vorkommen können, an denen Phrasen
+verlangt werden, aber auch innerhalb von Verbalkomplexen. Man könnte nun annehmen, daß das intransitive Verb
+\emph{lachen} in (\mex{0}) als phrasales Argument realisiert werden kann, da der \lexw von \emph{lachen}
+mit den Anforderungen des Kopf"=Argument"=Schemas kompatibel ist. Der Satz in (\mex{0}) wird aber dennoch
+nicht von der Theorie zugelassen, da das regierende Verb, also \emph{wird}, von seinem verbalen Argument verlangt,
+daß dessen \lexw + ist. Somit kommt es in \kasen zu konfligierenden \lexwen, 
+weshalb der Satz (\mex{0}) auch ausgeschlossen ist.
+
+
+\section{Voranstellung von Verbalphrasenteilen}
+\label{sec-pvp}
+
+Daß\is{Vorfeldbesetzung|(}\is{Extraktion|(}\is{Partial Verb Phrase Fronting@\emph{Partial Verb Phrase Fronting} (PVP)|(} man Phrasen wie \emph{ein Märchen erzählen} für Sätze braucht, in denen sich diese Wortgruppe im Vorfeld
+befindet, scheint auf den ersten Blick problematisch zu sein: Während man diese Phrase als Komplement
+in \pref{pvp-ein-maerchen-erzaehlen} -- hier als (\mex{1}a) wiederholt -- ausschließen will,
+soll sie in (\mex{1}b) als Binder der Fernabhängigkeit
+für die Vorfeldbesetzung auf"|treten:
+\eal
+\ex er ihr [[ein Märchen erzählen] muß]
+\ex Ein Märchen erzählen wird er ihr müssen.
+\zl
+Sätze wie in (\mex{0}b) sind aber unproblematisch, wenn man \textsc{lex} nicht wie \cite[\page 22]{ps2}
+unter \textsc{cat}, also innerhalb von \textsc{local}, sondern unter \textsc{synsem}, also außerhalb von
+\textsc{local}, repräsentiert \citep{Mueller96a,Mueller99a,Mueller2002b,Meurers99a}.
+Da ein Füller einer Fernabhängigkeit nur die Merkmale mit der Spur teilt, die unter \textsc{local} stehen,
+kann ein Verb von einer eingebetteten Spur verlangen, daß diese den \textsc{lex}-Wert\isfeat{lex} + hat. Der \textsc{lex}-Wert
+der Spur muß nicht mit dem \textsc{lex}-Wert der Konstituente im Vorfeld identisch sein,
+\dash, Wortgruppen mit einem \textsc{lex}-Wert $-$ sind als Füller durchaus
+zulässig.\footnote{
+        Das heißt, daß es für HPSG"=Grammatiken nicht sinnvoll ist, ein Strukturerhaltungsprinzip\is{Prinzip!Strukturerhaltungs-}
+        zu formulieren,
+        das besagt, daß eine bewegte Konstituente mit ihrer Spur identisch sein muß. (Siehe \zb
+        \citew{Emonds76a-u} zur Formulierung eines solchen Prinzips für Transformationen\is{Transformation}). Ein solches Strukturerhaltungsprinzip
+        ist für HPSG"=Grammatiken ohnehin nicht sinnvoll, da overte Realisierungen sich meist von
+        ihren Spuren dadurch unterscheiden, daß die overten Realisierungen Töchter haben, was bei Spuren
+        nicht der Fall ist. In HPSG"=Grammatiken wird für gewöhnlich nur die Information unter \textsc{local}
+        geteilt. Alles andere (\textsc{phon}, \textsc{head-dtr}, \textsc{non-head-dtr}, \textsc{synsem$|$nonlocal},
+        \textsc{synsem$|$lex}, \ldots) kann bei Spur und Füller verschiedene Werte haben. Daß die Theorie nicht übergeneriert,
+        wird über allgemeine Beschränkungen zur Extraktion geregelt, die mit Bezug auf lokale Kontexte
+        spezifiziert werden.%
+}
+Abbildung~\vref{abb-seiner-tochter-erzaehlen} zeigt die Analyse von (\mex{1}).
+\ea
+Seiner Tochter erzählen wird er das Märchen.
+\z
+\begin{figure}[htbp]
+\resizebox{0.935\textwidth}{!}{\begin{sideways}%
+%\nodemargin5pt
+\begin{tabular}[t]{@{}c@{\hspace{8mm}}c@{\hspace{8mm}}c@{\hspace{10mm}}c@{\hspace{8mm}}c@{\hspace{10mm}}c@{\hspace{8mm}}c@{}}%llll}
+\multicolumn{3}{@{}c@{}}{\rnode{12}{V[\begin{tabular}[t]{@{}l@{}}
+  \textit{fin},\\\textsc{subcat} \sliste{ },\\
+  \textsc{slash} \sliste{ }] \\
+  \end{tabular}}
+}\\
+\\*[4ex]
+\multicolumn{2}{@{}l@{}}{\rnode{13}{\hspace{7mm}V[\begin{tabular}[t]{@{}l@{}}
+                                              \rnode{13top}{\textsc{lex}} $-$,\\
+                                              \textsc{loc} \ibox{1} [\begin{tabular}[t]{@{}l@{}}
+                                                                 \textit{bse},\\
+                                                                 \textsc{s\rnode{13bot}{u}bcat} \ibox{2} \sliste{ \ibox{3}, \ibox{4} }\,]]\\
+                                                                \end{tabular}\\
+                                              \end{tabular}}} & \multicolumn{3}{@{}l@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l@{}}
+                                              \rnode{1top}{\textit{fin}},\\\textsc{subcat} \sliste{ },\\
+                                              \textsc{slash} \sliste{ \rnode{1bot}{\ibox{1}} }] \\
+                                              \end{tabular}}
+                                  }\\
+\\*[4ex]
+\rnode{14}{\ibox{5} NP[\textit{dat\/}]}               &   \rnode{15}{V[\begin{tabular}[t]{@{}l@{}}
+                                                                 \rnode{15top}{\textit{bse}},\\ 
+                                                                 \textsc{subcat} \sliste{ \ibox{3}, \ibox{4}, \ibox{5} }\,]\\
+                                                                \end{tabular}}                       & \rnode{wirdv}{V[\begin{tabular}[t]{@{}l@{}}
+                                              \rnode{wirdvtop}{\textit{fin}},\\\textsc{subcat} \sliste{ \ibox{7} }] \\
+                                              \end{tabular}} & \multicolumn{3}{@{}l@{}}{\rnode{emptyv}{\ibox{7} V[\begin{tabular}[t]{@{}l@{}}
+                                              \rnode{emptyvtop}{\textit{fin}},\\\textsc{subcat} \sliste{ },\\
+                                              \textsc{slash} \sliste{ \rnode{emptyvbot}{\ibox{1}} }] \\
+                                              \end{tabular}}}\\
+\\*[4ex]
+&&\rnode{wirdvlast}{V[\begin{tabular}[t]{@{}l@{}}
+    \textsc{subcat} \ibox{2} $\oplus$ \sliste{ \ibox{6} }]\\
+    \end{tabular}} &\rnode{2}{\ibox{3} NP[\textit{nom\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l@{}}
+                                                                    \rnode{3top}{\textit{fin}},\\\textsc{subcat} \sliste{ \ibox{3} },\\
+                                                                    \textsc{slash} \sliste{ \ibox{1} }]
+                                                                    \end{tabular}}
+                                                       }\\
+\\*[4ex]
+&               &                                   &               & \rnode{4}{\ibox{4} NP[\textit{acc\/}]}& \multicolumn{2}{@{}l@{}}{\hspace{5mm}\rnode{5}{V[\begin{tabular}[t]{@{}l@{}}
+                                                                                                       \rnode{5top}{\textit{fin}},\\\textsc{subcat} \ibox{2} \sliste{ \ibox{3}, \ibox{4} }\\
+                                                                                                       \textsc{slash} \sliste{ \ibox{1} }]\\
+                                                                                                       \end{tabular}}
+                                                                                           }\\
+\\*[4ex]
+&               &                                   &               &                                   & \rnode{6}{\ibox{6} V[\begin{tabular}[t]{@{}l@{}}
+                                                                                                        \textsc{lex} +,\\
+                                                                                                        \textsc{loc}~\ibox{1}, \\
+                                                                                                        \textsc{slash} \sliste{ \ibox{1} }]\\
+                                                                                                        \end{tabular}} & \rnode{7}{V[\begin{tabular}[t]{@{}l@{}}
+                                                                                                                                    \rnode{7top}{\textit{fin}},\\
+                                                                                                                                    \textsc{subcat} \ibox{2} \sliste{ \ibox{3}, \ibox{4} } $\oplus$ \sliste{  \ibox{6} }\,] \\
+                                                                                                                                    \end{tabular}}\\
+\\*[5ex]
+S\rnode{16}{einer Tochte}r & \rnode{17}{erzählen} & \rnode{wirdl}{wird} & \rnode{8}{er}                     & \rnode{9}{das Märchen}              & \rnode{10}{\rule{0cm}{1ex}{\textbf{--}}}         & \rnode{11}{\rule{0cm}{1ex}\textbf{--}}\\
+\end{tabular}
+\ncline{emptyv}{2}\ncline{emptyv}{3top}%
+\ncline{1bot}{wirdvtop}\ncline{1bot}{emptyvtop}
+\ncline{3}{4}\ncline{3}{5top}%
+\ncline{5}{6}\ncline{5}{7top}%
+\ncline{2}{8}%
+\ncline{4}{9}%
+\ncline{6}{10}%
+\ncline{7}{11}%
+\ncline{12}{1top}%
+\ncline{12}{13top}%
+\ncline{13bot}{14}\ncline{13bot}{15top}%
+\ncline{14}{16}\ncline{15}{17}%
+\ncline{wirdv}{wirdvlast}%
+\ncline{wirdvlast}{wirdl}%
+\end{sideways}}
+\caption{\label{abb-seiner-tochter-erzaehlen}%
+Analyse von {\em Seiner Tochter erzählen wird er das Märchen.\/}}
+\end{figure}
+Ungrammatische Sätze wie der in (\mex{1}) werden durch die Bedingung
+in (\ref{constr-non-complex-forming}) ausgeschlossen.
+\ea[*]{
+Müssen wird er ihr ein Märchen erzählen.
+}
+\z
+\emph{wird} verlangt einen Infinitiv in der \emph{bse}"=Form, dessen Argumente
+es anzieht. Die angezogenen Elemente müssen aber \textsc{lex}$-$ sein. \emph{erzählen}
+kann deshalb nicht angezogen werden, weshalb eine Struktur wie (\mex{1}) ausgeschlossen ist:
+\ea[*]{
+Müssen$_i$ wird$_j$ er ihr ein Märchen [erzählen [\_$_i$ \_$_j$]].
+}
+\z
+Siehe hierzu auch die Diskussion von (\ref{bsp-non-complex-forming}) auf Seite~\pageref{bsp-non-complex-forming}.
+
+Die Analyse in (\mex{1}) ist durch eine allgemeine Bedingung ausgeschlossen,
+die Extraktionsspuren in Kopfpositionen verbietet.
+\ea[*]{
+Müssen$_i$ wird$_j$ er ihr ein Märchen [[erzählen \_$_i$] \_$_j$].
+}
+\z
+%% Der Kontrast in (\mex{1}) ist dadurch erklärt, daß in (\mex{1}a) eine prädikative PP
+%% angezogen werden müßte, was bei (\mex{1}b) nicht der Fall ist.
+%% \eal
+%% \ex[\#]{
+%% Halten wird er ihn für den Präsidenten.
+%% }
+%% \ex[]{
+%% Interessieren wird er sich für den Präsidenten.
+%% }
+%% \zl
+%% Die hier vorgeschlagene Analyse ist also durchaus mit der in \citew[Kapitel~2]{Mueller2002b} 
+%% vorgeschlagenen Analyse von Konstruktionen wie \emph{halten für} als komplexes Prädikat
+%% kompatibel.
+\is{Vorfeldbesetzung|)}\is{Extraktion|)}\is{Partial Verb Phrase Fronting@\emph{Partial Verb Phrase Fronting} (PVP)|)}
+
+\section{Alternativen}
+\label{sec-alternativen}%
+
+In diesem Abschnitt werden drei alternative Vorschläge zur Analyse der Verbalkomplexe diskutiert:
+In Abschnitt~\ref{sec-vcomp} wird die Verwendung eines speziellen Valenzmerkmals für komplexbildende
+Prädikate verworfen. Abschnitt~\ref{sec-pvp-vdrei} zeigt, daß man erhebliche Probleme bekommt,
+wenn man Voranstellungen ungesättigter Phrasen mit ganz flachen Strukturen erklären will,
+und Abschnitt~\ref{sec-restbewegung} widmet sich Ansätzen, die annehmen, daß im Vorfeld nur maximale
+Projektionen stehen können und daß die im Abschnitt~\ref{sec-pvp} diskutierten Voranstellungen
+Voranstellungen von Maximalprojektionen sind, aus denen vor der Voranstellung ins Vorfeld
+Phrasenteile herausbewegt wurden.
+
+\subsection{Spezielle Valenzmerkmale für komplexbildende Argumente}
+\label{sec-vcomp}
+
+\citet*{Chung93a}\iaf{Chung} hat für das Koreanische\il{Koreanisch}
+und \citet*{Rentier94}\iaf{Rentier} für das Niederländische\il{Niederländisch} vorgeschlagen,
+ein spezielles Valenzmerkmal (\textsc{gov}\isfeat{gov}) für die Selektion von Elementen zu verwenden,
+die mit ihrem Kopf einen Verbalkomplex bilden. Dieser Vorschlag wurde
+von \citet{Kathol98b,Kathol2000a} und mir \citep{Mueller97c,Mueller99a} für das Deutsche übernommen.
+Die Merkmale heißen bei uns \textsc{vcomp}\isfeat{vcomp} bzw.\ \xcomp.\isfeat{xcomp}
+In \citew{Mueller2002b} habe ich die Analysen um Resultativkonstruktionen\is{Resultativkonstruktion} und Subjekts-\is{Subjektsprädikativ} und
+Objektsprädikative\is{Objektsprädikativ} nach dem Muster \emph{jemanden für etwas/jemanden halten} erweitert.
+Die eingebetteten Prädikate werden in der Analyse ebenfalls über ein spezielles Valenzmerkmal selegiert.
+
+Die hier vorgestellte Theorie kommt ohne ein solches zusätzliches Merkmal aus.
+Das hat den Vorteil, daß man optionale Kohärenz als Spezialfall der Kohärenz analysieren
+kann, wie das von \citet{Kiss95a} vorgeschlagen wurde. Für Verben wie \emph{versprechen}
+benötigt man dann nur noch einen Lexikoneintrag statt der zwei verschiedenen, die für
+die kohärente bzw.\ inkohärente Konstruktion benötigt wurden. Zu den Details der Analyse siehe
+Kapitel~\ref{sec-anhebung-anal}.
+
+Durch die Reduktion der Anzahl der Valenzmerkmale ist es außerdem möglich geworden,
+die Analyse der scheinbar mehrfachen Vorfeldbesetzung wesentlich zu vereinfachen.
+Für die Analyse von Sätzen wie (\ref{bsp-smvfb}) auf Seite~\pageref{bsp-smvfb} schlage ich in \citew{Mueller2005d}
+eine Lexikonregel vor, die zur Verbbewegungsregel in (\ref{lr-verb-movement2})
+völlig parallel ist. Bisherige Vorschläge von mir zur Behandlung der 
+scheinbar mehrfachen Vorfeldbesetzung \citep{Mueller2002f,Mueller2002c} haben
+noch ein spezielles Valenzmerkmal verwendet, wodurch die Parallelität der beiden
+Verbbewegungsregeln verdeckt blieb. Mit der hier verwendeten Merkmalsgeometrie kann
+die scheinbar mehrfache Vorfeldbesetzung als optional komplexbildende Variante
+der einfachen Verbbewegung verstanden werden \citep{Mueller2005d}.
+
+
+
+%% Die ganzen Argumente ziehen alle nicht mehr, wenn man Spirits hat.
+%%
+%% \subsection{Domänenvereinigung}
+%% \label{sec-domain-union-fuer-verbalkomplex}
+%% \is{clause union|(}%
+%% \is{Konstituente!diskontinuierliche|(}\is{Linearisierung!-sdomäne}
+%%
+%% \citet{Reape94a} schlägt vor, kohärente Konstruktionen\footnote{
+%%   Zum Begriff der Kohärenz siehe Kapitel~\ref{chap-anhebung}. 
+%%   Die kohärenten Konstruktionen sind die, die hier mit einem Verbalkomplex analysiert wurden.%
+%% }
+%% als Satzvereinigung (\emph{Clause Union})
+%% zu analysieren. Für (\ref{ex-weil-es-ihm-jemand-zu-lesen-versprochen-hat-zwei}) -- hier
+%% als (\mex{1}) wiederholt -- nimmt er an, daß \emph{es zu lesen} eine Phrase
+%% bildet, die unter \emph{ihm versprochen} eingebettet wird. Die entstehende Phrase
+%% bildet mit \emph{jemand} und \emph{hat} eine Konstituente.
+%% \ea
+%% \label{ex-weil-es-ihm-jemand-zu-lesen-versprochen-hat-drei}
+%% weil    es       ihr       jemand   zu lesen versprochen hat.\footnote{
+%% Haider, \citeyear[\page110]{Haider86c}; \citeyear[\page128]{Haider90b}\iadata{Haider}.%
+%% }
+%% \z
+%% Die Phrase \emph{es zu lesen} bildet hierbei eine diskontinuierliche
+%% Maximalprojektion\is{Maximalprojektion}. Die Elemente, die in der Konstituentenstellungsdomäne
+%% dieser Phrase enthalten sind (\emph{es} und \emph{zu lesen}) werden in die übergeordnete
+%% Domäne, \dash in die Domäne des Kopfes \emph{versprochen}, aufgenommen (siehe Kapitel~\ref{sec-Reape-Linearisierung}
+%% zu Linearisierungsdomänen).
+%%
+%% %\subsubsection{Agreement}
+%%
+%% Für Verben wie \word{scheinen} nimmt Reape an, daß das Verb einen 
+%% assumes that the raising verb
+%% embeds a non"=finite clause that contains the subject.
+%% \ea
+%% weil    der Fritz die Maria zu lieben scheint.
+%% \z
+%% This means that \emph{der Fritz die Maria zu lieben} is a clause that is embedded
+%% under \emph{scheint}. \emph{der Fritz} agrees with \emph{scheint} since it
+%% is the subject in (\mex{0}). This fact cannot be accounted for in Reape's approach unless
+%% one assumes that the non"=finite verb \emph{zu lieben} has agreement\is{agreement!subject-verb} features that
+%% can be checked with the subject of \emph{zu lieben} and that are simultaneously present
+%% at \emph{scheint} (\citew[Kapitel~5.1]{Kathol98b}; \citew[Kapitel~21.1]{Mueller99a}). 
+%% As there is no morphological reflex of the agreement features
+%% on non"=finite forms, such a solution would be pretty ad hoc.
+
+%% Furthermore, the so-called remote passive, which will be discussed in Chapter~\ref{sec-remote-passive-phen},
+%% cannot be explained in Reape's framework \citep[Kapitel~5.2]{Kathol98b}.
+%% \is{clause union|)}%
+%% \is{discontinuous constituent|)}
+
+
+
+\subsection{Ganz flache Strukturen für Satz inklusive Vorfeld}
+\label{sec-pvp-vdrei}
+\is{Vorfeldbesetzung|(}
+
+\citet[\page170--171]{Gunkel2003b} schlägt vor, Sätze wie (\mex{1}) als Verbdrittsätze
+mit einer ganz flachen Struktur zu analysieren.
+\eal
+\ex Reparieren müssen wird er die Brille.
+\ex Die Brille reparieren wird er müssen.
+\zl 
+\emph{reparieren} und \emph{müssen} bzw.\ \emph{die Brille} und \emph{reparieren}
+stehen dabei nicht als Konstituente, sondern einzeln im Vorfeld.
+Wie die Linearisierungsbeschränkungen
+für solche Sätze aussehen, läßt er offen. Analysiert man Sätze wie (\mex{1}) mit total
+flachen Strukturen und mit drei Konstituenten im Vorfeld, kann man nicht erklären,
+wieso sich die Konstituenten vor dem finiten Verb genauso verhalten als gäbe es dort
+ein Mittelfeld\is{Feld!Mittel-}, eine rechte Satzklammer\is{Satzklammer} und ein Nachfeld\is{Nachfeld}.
+\ea
+Den Kunden sagen, daß die Ware nicht lieferbar ist, wird er wohl müssen.
+\z
+Nimmt man dagegen an, daß die Konstituenten vor dem finiten Verb eine Verbalprojektion
+bilden, können die Bestandteile der Verbalprojektion wieder topologischen Feldern
+zugeordnet werden, und die Anordnung der Wortgruppen vor dem Finitum muß nicht gesondert
+erklärt werden. Siehe auch \citew[\page82]{Reis80a} und Kapitel~\ref{sec-topo-rekursion}.
+
+Unabhängig davon, ob man den Wörtern vor dem finiten Verb Konstituentenstatus
+zuspricht \citep{Kathol95a} oder nicht \citep{Gunkel2003b}, können Ansätze,
+die Sätze wie (\mex{0}) über lokale Umstellung erklären, Sätze wie (\mex{1})
+nicht erfassen.
+\eal
+\ex Das Buch gelesen glaube ich nicht, dass er hat.\footnote{
+  \citew[\page 82]{Sabel2000a}.
+}
+\ex Angerufen denke ich, daß er den Fritz nicht hat.\footnote{
+  \citew[\page 110]{Fanselow2002a}.
+}
+\zl
+In (\mex{0}) kommen die Wortgruppen vor dem Finitum aus dem eingebetteten Satz,
+können also nicht durch lokale Umstellung nach vorn gelangt sein.
+
+Ein anderes Problem ergibt sich im Zusammenhang mit der Kasusvergabe:
+In \citew[\page93--94]{Mueller2002b} habe ich gezeigt, daß die Tatsache,
+daß \emph{den Wagen} in (\mex{1}) Akkusativ hat, nicht zu erklären wäre, wenn man annehmen würde,
+daß sich in (\mex{1}) zwei unabhängige Konstituenten im Vorfeld befinden.\footnote{
+  Siehe auch \citew{Mueller2005d}.%
+}
+\eal 
+\ex[]{
+Den Wagen zu reparieren wurde versucht.
+}
+\ex[*]{
+Der Wagen     zu reparieren wurde versucht.
+}
+\zl
+In Konstruktionen mit dem sogenannten Fernpassiv (siehe Kapitel~\ref{sec-remote-passive-phen})
+kann das Objekt von \emph{reparieren} durchaus im Nominativ stehen, wie (\mex{1}a) zeigt.
+Betrachtet man (\mex{1}b), stellt man fest, daß die Nominativ-NP allein vorangestellt werden kann.
+\eal
+\ex[]{
+weil der Wagen zu reparieren versucht wurde
+}
+\ex[]{
+Der Wagen wurde zu reparieren versucht.
+}
+\zl
+Auch der \emph{zu}"=Infinitiv kann einzeln vorangestellt werden, wie (\mex{1}) zeigt:\NOTE{JB: ungrammatisch}
+\ea
+Zu reparieren wurde der Wagen versucht.
+\z
+Bei einer solchen Voranstellung ist der Nominativ von \emph{der Wagen} zwingend.
+Läge nun bei (\mex{-2}) eine Voranstellung des Infinitivs und der Nominalphrase 
+als einzelne Konstituente vor, so müßte auch hier ein Nominativ möglich sein, 
+was nicht den beobachtbaren Fakten entspricht.
+\is{Vorfeldbesetzung|)}
+
+
+\subsection{Restbewegung}
+\label{sec-restbewegung}
+
+Im Prinzipien-und-Parameter-Framework\indexgb werden die im Abschnitt~\ref{sec-pvp} diskutierten
+Voranstellungen unvollständiger Projektionen
+oft als Restbewegung\is{Restbewegung} (\emph{Remnant Movement}) analysiert (siehe \zb G. \citealp{GMueller96a,GMueller98a}).
+\citet[\page281]{Haider93a}, \citet[Kapitel~4.2.5]{deKuthy2002a}, \citet[Abschnitt~2]{dKM2001a}\NOTE{Mehr zu den Einwänden} und \citet{Fanselow2002a} haben jedoch gezeigt, 
+daß Restbewegungsansätze mit empirischen Problemen zu kämpfen haben, 
+die Argumentkompositionsansätze wie der hier vorgestellte nicht haben.%
+\is{Verbalkomplex|)}
+
+
+\section*{Kontrollfragen}
+
+
+\begin{enumerate}
+\item Welche Teile des Verbalkomplexes können vorangestellt werden?
+\end{enumerate}
+
+\section*{Übungsaufgaben}
+
+\begin{enumerate}
+\item Zeichnen Sie einen Analysebaum für den Satz (\mex{1}):
+      \ea
+      {}[weil] er singen können muß
+      \z
+      Geben Sie die Lexikoneinträge für die beteiligten Verben an.
+
+\item Laden Sie die zu diesem Kapitel gehörende Grammatik von der Grammix"=CD
+(siehe Übung~\ref{uebung-grammix-kapitel4} auf Seite~\pageref{uebung-grammix-kapitel4}).
+Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluß eine Liste von Beispielen.
+Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem Kapitel besprochenen
+Aspekte.
+
+\end{enumerate}
+
+
+\section*{Literaturhinweise}
+
+Die Analyse der Verbalkomplexe in der HPSG"=Theorie ist wesentlich von \citet{HN89b,HN89a,HN94a} geprägt
+worden. Hinrichs und Nakazawas Arbeiten gehen auf Arbeiten im Rahmen der Kategorialgrammatik\is{Kategorialgrammatik (CG)} zurück \citep{Geach70a}.
