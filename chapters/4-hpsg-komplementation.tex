@@ -45,23 +45,22 @@ In diesem Kapitel beschäftigen wir uns nur mit der Dominanz. Zu Abfolgebeschrä
 wird im Kapitel~\ref{chap-Konstituentenreihenfolge} mehr gesagt.
 (\mex{1}) zeigt die Repräsentation der \phonwe in einer Merkmalbeschreibung, die dem Baum in
 Abbildung~\vref{fig-dem-mann-fs} entspricht.
-\begin{figure}[htbp]
-\hfill\begin{tabular}[t]{@{}c@{\hspace{10mm}}c@{}}
-\multicolumn{2}{c}{\rnode{1}{NP}
-}\\
-\\
-\rnode{2}{Det} & \rnode{3}{N}\\
-\\[2ex]
-\rnode{4}{dem}                     & \rnode{5}{Mann}\\
-\end{tabular}%
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{2}{4}\ncline{3}{5}\hfill\mbox{}
-\caption{\label{fig-dem-mann-fs}\emph{dem Mann}}
+\begin{figure}
+\centerline{%
+\begin{forest}
+sm edges
+[NP
+  [Det,baseline
+    [dem]]
+  [N
+    [Eichhörnchen]]]
+\end{forest}}
+\caption{\label{fig-dem-mann-fs}\emph{dem Eichhörnchen}}
 \end{figure}
 \ea
 \ms{ 
-  phon     & \phonliste{ dem Mann }\\
-  head-dtr & \onems{ phon \phonliste{ Mann }  \\
+  phon     & \phonliste{ dem Eichhörnchen }\\
+  head-dtr & \onems{ phon \phonliste{ Eichhörnchen }  \\
                  }\\
   non-head-dtrs & \liste{ \onems{ phon \phonliste{ dem } \\
                             }}\\
@@ -71,7 +70,7 @@ In (\mex{0}) gibt es genau eine Kopf"|tochter (\textsc{head-dtr}\isfeat{head-dtr
 Die Kopf"|tochter ist immer die Tochter, die den Kopf enthält. In einer Struktur mit den Töchtern 
 {\em das\/} und {\em Bild von Maria\/} wäre {\em Bild von Maria\/} die Kopf"|tochter,
 da {\em Bild\/} der Kopf ist. Es kann im Prinzip mehrere Nicht"=Kopf"|töchter geben. 
-Würde man wie in Abbildung~\vref{er-das-buch-dem-mann-gibt-flat} flache Strukturen
+Würde man wie in Abbildung~\vref{er-die-Nuss-dem-Eichhörnchen-gibt-flat} flache Strukturen
 für einen Satz mit einem ditransitiven finiten Verb annehmen, hätte man \zb drei Nicht"=Kopf"|töchter.\isfeat{non-head-dtrs}
 Auch binär verzweigende Strukturen ohne Kopf sind sinnvoll (siehe Kapitel~\ref{chap-rs} zur Analyse
 von Relativsätzen).
@@ -87,7 +86,7 @@ von Relativsätzen).
 %% \\[2ex]
 %% \rnode{2}{\ibox{1} Det} & \rnode{3}{\ibox{2} N}\\
 %% \\[2ex]
-%% \rnode{4}{dem}                     & \rnode{5}{Mann}\\
+%% \rnode{4}{dem}                     & \rnode{5}{Eichhörnchen}\\
 %% \end{tabular}
 %% \ncline{1}{2} \ncline{1}{3}
 %% \ncline{2}{4} \ncline{3}{5}
@@ -132,32 +131,25 @@ V[SUBCAT \ibox{1}] & $\to$ & V[SUBCAT \ibox{1} $\oplus$ \sliste{ NP } ]~~ NP\\
 \z
 Entsprechend kann man das Schema~\ref{schema-bin-prel} instantiieren und bereits
 mit diesem einen Dominanzschema komplexe Strukturen analysieren, die dem Baum in
-Abbildung~\vref{fig-bin-er-das-buch-dem-mann-gibt} entsprechen.
+Abbildung~\vref{fig-bin-Aicke-die-Nuss-dem-Eichhörnchen-gibt} entsprechen.
 \begin{figure}[htp]
 \centering
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
-\multicolumn{3}{c}{\rnode{1}{V}}\\
-\\
-\rnode{2}{NP} & \multicolumn{4}{c}{\rnode{3}{V}}\\
-\\
-             & \multicolumn{2}{c}{\hspace{-2mm}\rnode{4}{NP}} & \multicolumn{3}{c}{\hspace{2mm}\rnode{5}{V}}\\
-\\
-             & \rnode{14}{D}  & \rnode{15}{N}     & \multicolumn{2}{c}{\hspace{-2mm}\rnode{6}{NP}} & \rnode{7}{V}\\
-\\
-             &               &                  & \rnode{16}{D}   & \rnode{17}{N}\\
-\\*[2ex]
-\rnode{8}{er} & \rnode{9}{das} & \rnode{12}{Buch}  & \rnode{10}{dem} &\rnode{13}{Mann}  & \rnode{11}{gibt}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{7}{11}%
-\ncline{2}{8}%
-\ncline{6}{16}\ncline{6}{17}%
-\ncline{16}{10}\ncline{17}{13}%
-\ncline{4}{14}\ncline{4}{15}%
-\ncline{14}{9}\ncline{15}{12}%
-\caption{\label{fig-bin-er-das-buch-dem-mann-gibt}Binär verzweigende Kopf-Argument-Strukturen}
+\centerline{%
+\begin{forest}
+sm edges
+[{V[\subcat \sliste{} ]}
+  [{\ibox{1} NP[\type{nom}]}
+    [Aicke]]
+  [{V[\subcat \sliste{ \ibox{1} }]}
+    [{\ibox{2} NP[\type{acc}]} 
+      [die Nuss, roof]]
+    [{V[\subcat \sliste{ \ibox{1}, \ibox{2} }]}
+      [{\ibox{3} NP[\type{dat}]}
+        [dem Eichhörnchen,roof]]
+      [{V[\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]}
+        [gibt]]]]]
+\end{forest}}
+\caption{\label{fig-bin-Aicke-die-Nuss-dem-Eichhörnchen-gibt}Binär verzweigende Kopf-Argument-Strukturen}
 \end{figure}
 Man sieht recht deutlich, daß die Struktur in (\mex{1}) eigentlich dem auf die Seite gelegten
 Baum entspricht.\footnote{
@@ -167,16 +159,16 @@ Baum entspricht.\footnote{
 \ea
 %\resizebox{\linewidth}{!}{
 \onems[head-argument-phrase]{
-phon      \phonliste{ er das Buch dem Mann gibt }\\
+phon      \phonliste{ Aicke die Nuss dem Eichhörnchen gibt }\\
 head-dtr \onems{
-phon     \phonliste{ das Buch dem Mann gibt }\\
+phon     \phonliste{ die Nuss dem Eichhörnchen gibt }\\
 head-dtr \onems{
-      phon     \phonliste{ dem Mann gibt }\\
+      phon     \phonliste{ dem Eichhörnchen gibt }\\
       head-dtr \onems{ phon \phonliste{ gibt }\\
                        } \\
       nh-dtrs \liste{ \onems{ 
-                                                  phon     \phonliste{ dem Mann }\\
-                                                  head-dtr \onems{ phon \phonliste{ Mann }  \\
+                                                  phon     \phonliste{ dem Eichhörnchen }\\
+                                                  head-dtr \onems{ phon \phonliste{ Eichhörnchen }  \\
                                                                  }\\
                                                   nh-dtrs \liste{ \onems{ phon \phonliste{ dem } \\
                                                                               }}\\
@@ -184,15 +176,15 @@ head-dtr \onems{
                        }\\
 }\\
 nh-dtrs \liste{ \onems{ 
-                                                  phon     \phonliste{ das Buch }\\
-                                                  head-dtr \onems{ phon \phonliste{ Buch }  \\
+                                                  phon     \phonliste{ die Nuss }\\
+                                                  head-dtr \onems{ phon \phonliste{ Nuss }  \\
                                                                  }\\
-                                                  nh-dtrs \liste{ \onems{ phon \phonliste{ das } \\
+                                                  nh-dtrs \liste{ \onems{ phon \phonliste{ die } \\
                                                                               }}\\
                                                   }
                        }\\
 } \\
-nh-dtrs \liste{ \onems{phon \phonliste{ er }\\
+nh-dtrs \liste{ \onems{phon \phonliste{ Aicke }\\
                        } \\
 }\\
 }
@@ -205,14 +197,14 @@ und Valenz:
 \ea
 \label{ms-dem-mann-gibt}
 \onems[head-argument-phrase~]{
-      phon    \phonliste{ dem Mann gibt }\\
-      subcat \ibox{1} \liste{ NP[\textit{nom\/}], NP[\textit{acc}]} \\
+      phon    \phonliste{ dem Eichhörnchen gibt }\\
+      subcat \ibox{1} \liste{ NP[\nom], NP[\acc]} \\
       head-dtr \onems{ phon \phonliste{ gibt }\\
                                      subcat \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
                        } \\
       non-head-dtrs \liste{ \ibox{2} \onems[head-argument-phrase~]{ 
-                                                  phon  \phonliste{ dem Mann }\\
-                                                  p-o-s \textit{noun\/}\\
+                                                  phon  \phonliste{ dem Eichhörnchen }\\
+                                                  p-o-s \type{noun}\\
                                                   subcat \liste{} \\
                                                   head-dtr \ldots \\
                                                   non-head-dtrs \ldots \\
@@ -220,49 +212,33 @@ und Valenz:
                        }\\
 }
 \z
-Natürlich hat die Repräsentation für \emph{dem Mann} selbst wieder eine interne Struktur,
+Natürlich hat die Repräsentation für \emph{dem Eichhörnchen} selbst wieder eine interne Struktur,
 die aber aus Gründen der Übersichtlichkeit weggelassen wurde.
 Abbildung~\vref{fig-saettigung-valenz} zeigt die Valenzinformation in Baumdarstellung.
-\begin{figure}[htbp]
-\centering
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
-\multicolumn{3}{l}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
-  \textsc{subcat} \liste{ }]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{l}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textsc{subcat} \liste{ \ibox{1} }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{l}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textsc{subcat} \liste{ \ibox{1}, \ibox{2} }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
-                                                                                   \textsc{subcat} \liste{ \ibox{1}, \ibox{2}, \ibox{3} }]\\
-%                                                                                   \textsc{vcomp} \liste{  }, \\
-                                                                                   \end{tabular}}\\
-\\*[6ex]
-\rnode{8}{er} & d\rnode{9}{as Buc}h                     & d\rnode{10}{em Man}n              & \rnode{11}{gibt}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{7}{11}%
-\ncline{2}{8}%
-\ncline{6}{10}%
-\ncline{4}{9}%
+\begin{figure}
+\centerline{%
+\begin{forest}
+sm edges
+[{V[\subcat \sliste{} ]}
+  [{\ibox{1} NP[\type{nom}]}
+    [Aicke]]
+  [{V[\subcat \sliste{ \ibox{1} }]}
+    [{\ibox{2} NP[\type{acc}]} 
+      [die Nuss, roof]]
+    [{V[\subcat \sliste{ \ibox{1}, \ibox{2} }]}
+      [{\ibox{3} NP[\type{dat}]}
+        [dem Eichhörnchen,roof]]
+      [{V[\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]}
+        [gibt]]]]]
+\end{forest}}
 \caption{\label{fig-saettigung-valenz}Abarbeitung der Valenzliste des Verbs}
 \end{figure}
 
 %% \ea
 %% \onems[head-argument-phrase~]{
-%%       phon    \phonliste{ er das Buch dem Mann gibt }\\
+%%       phon    \phonliste{ er die Nuss dem Eichhörnchen gibt }\\
 %%       subcat \ibox{1} \liste{ } \\
-%%       head-dtr \onems[head-argument-phrase]{ phon \phonliste{ das Buch dem Mann gibt }\\
+%%       head-dtr \onems[head-argument-phrase]{ phon \phonliste{ die Nuss dem Eichhörnchen gibt }\\
 %%                                        subcat \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
 %%                        } \\
 %%       non-head-dtrs \liste{ \ibox{2} \onems[word]{ 
@@ -285,43 +261,28 @@ Auf Seite~\pageref{bsp-projektion-v-merkmale} wurde gezeigt, daß
 die Verbform zu den Merkmalen zählt, die für die Distribution von Verbalprojektionen
 wichtig ist. Die Wortart und Information über Finitheit muß also an der Maximalprojektion
 von Verben wie \emph{gibt} repräsentiert sein. Das verdeutlicht Abbildung~\vref{fig-projektion-head-feat}.
-\begin{figure}[htbp]
-\centerline{\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
-\multicolumn{3}{l}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
-  \rnode{1fin}{\textit{fin\/}}, \textsc{subcat} \liste{ }]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{l}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
-                                                                    \rnode{2fin}{\textit{fin\/}}, \textsc{subcat} \liste{ \ibox{1} }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{l}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-                                                                    \rnode{3fin}{\textit{fin\/}}, \textsc{subcat} \liste{ \ibox{1}, \ibox{2} }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
-                                                                                   \rnode{4fin}{\textit{fin\/}}, \textsc{subcat} \liste{ \ibox{1}, \ibox{2}, \ibox{3} }]\\
-%                                                                                   \textsc{vcomp} \liste{  }, \\
-                                                                                   \end{tabular}}\\
-\\*[6ex]
-\rnode{8}{er} & d\rnode{9}{as Buc}h                     & d\rnode{10}{em Man}n              & \rnode{11}{gibt}\\
-\end{tabular}}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{7}{11}%
-\ncline{2}{8}%
-\ncline{6}{10}%
-\ncline{4}{9}%
-% \ncline{<->}{1fin}[l]{2fin}{2cm}
-% \ncline{<->}{2fin}[l]{3fin}{2cm}
-% \ncline{<->}{3fin}[l]{4fin}{2cm}
-\ncline{<->}{1fin}[tl]{2fin}%
-\ncline{<->}{2fin}[tl]{3fin}%
-\ncline{<->}{3fin}[tl]{4fin}%
+\begin{figure}
+\settowidth{\offset}{V[\type{fi}}
+\settowidth{\offsetup}{V[\type{fin}}
+\centerline{
+\begin{forest}
+sm edges, for tree={l+=\baselineskip}
+[V{[\type{fin}, \comps \eliste]}, name=fin1
+	[\ibox{1} NP{[\type{nom}]}
+		[Aicke]]
+	[V{[\type{fin}, \comps \sliste{ \ibox{1} }]}, name=fin2
+		[\ibox{2} NP{[\textit{dat}]}
+			[dem Eichhörnchen,roof]]
+		[V{[\type{fin}, \comps \sliste{ \ibox{1}, \ibox{2} }]}, name=fin3
+			[\ibox{3} NP{[\textit{acc}]}
+				[die Nuss,roof]]
+			[V{[\type{fin}, \comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]}, name=fin4
+				[gibt]]]]]	
+tikz={\draw[<->] ($(fin1.south west)+(\offsetup,0)$) to ($(fin2.north west)+(\offset,0)$);
+      \draw[<->] ($(fin2.south west)+(\offsetup,0)$) to ($(fin3.north west)+(\offset,0)$);
+      \draw[<->] ($(fin3.south west)+(\offsetup,0)$) to ($(fin4.north west)+(\offset,0)$);}
+\end{forest}
+}
 \caption{\label{fig-projektion-head-feat}Projektion der Kopfmerkmale des Verbs}
 \end{figure}
 Die Verbform\isfeat{vform} ist bisher noch gar nicht in Merkmalbeschreibungen enthalten gewesen.
@@ -437,29 +398,19 @@ Der Pfeil\is{\impl} entspricht der Implikation\is{Implikation} aus der Logik.
 Wenn eine Struktur vom Typ \type{headed"=phrase} ist, dann muß gelten, daß
 der Wert von \textsc{head} mit dem Wert von \textsc{head-dtr$|$head} identisch ist.
 Einen Ausschnitt aus der Typhierarchie unter \type{sign} zeigt Abbildung~\vref{fig-type-sign}.
-\begin{figure}[htbp]
-\centerline{\begin{pspicture}(0.6,0)(13.2,6.4)
-%\psgrid
-\rput[B](4,6){\rnode{sign}{\textit{sign}}}
-%
-\rput[B](1,4){\rnode{word}{\textit{word}}}
-\rput[B](7,4){\rnode{phrase}{\textit{phrase}}}
-%
-\rput[B](4,2){\rnode{nhs}{\textit{non-headed-phrase}}}
-\rput[B](10,2){\rnode{hs}{\textit{headed-phrase}}}
-%
-%\rput[B](7,0){\rnode{hos1}{\ldots\rule{0cm}{1ex}}}
-\rput[B](10,0){\rnode{hars}{\textit{head-argument-phrase}}}
-%\rput[B](13,0){\rnode{hos2}{\ldots\rule{0cm}{1ex}}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{hs}{hars}
-%\ncdiag{hs}{hos1}\ncdiag{hs}{hos2}
-\ncdiag{phrase}{hs}\ncdiag{phrase}{nhs}
-\ncdiag{sign}{word}\ncdiag{sign}{phrase}
-%
-\end{pspicture}}
+\begin{figure}
+\centerline{%
+\begin{forest}
+type hierarchy
+[sign
+  [word]
+  [phrase
+    [non-headed-phrase]
+    [headed-phrase
+      [\ldots]
+      [head-argument-phrase]
+      [\ldots]]]]
+\end{forest}}
 \caption{\label{fig-type-sign}Typhierarchie für \type{sign}: alle Untertypen von \type{headed"=phrase} erben Beschränkungen.}
 \end{figure}
 \type{word} und \type{phrase} sind Unterklassen sprachlicher Zeichen.
@@ -490,16 +441,16 @@ das Kopfmerkmalsprinzip die Projektion der Merkmale erzwingt: Der Kopfwert der g
 \iboxb{1} entspricht dem Kopfwert des Verbs \emph{gibt}.
 \ea
 \onems[head-argument-phrase~]{
-      phon  \phonliste{ dem Mann gibt }\\
+      phon  \phonliste{ dem Eichhörnchen gibt }\\
       head  \ibox{1}\\
-      subcat \ibox{2} \sliste{ NP[\textit{nom\/}], NP[\textit{acc}]} \\
+      subcat \ibox{2} \sliste{ NP[\nom], NP[\acc]} \\
       head-dtr \onems[word]{ phon \phonliste{ gibt }\\
                                      head \ibox{1} \ms[verb]{vform & fin \\
                                                             }\\
                                      subcat \ibox{2}  $\oplus$ \sliste{ \ibox{3} } \\
                        } \\
       non-head-dtrs \liste{ \ibox{3} \onems[head-argument-phrase~]{ 
-                                        phon \phonliste{ dem Mann }\\
+                                        phon \phonliste{ dem Eichhörnchen }\\
                                         head \ms[noun]{ cas & dat\\
                                                       } \\
                                         subcat   \eliste \\
@@ -511,7 +462,7 @@ das Kopfmerkmalsprinzip die Projektion der Merkmale erzwingt: Der Kopfwert der g
 \z
 
 \noindent
-Für den gesamten Satz \emph{er das Buch dem Mann gibt} bekommt man -- wie schon in
+Für den gesamten Satz \emph{er die Nuss dem Eichhörnchen gibt} bekommt man -- wie schon in
 Abbildung~\ref{fig-projektion-head-feat} dargestellt -- eine Struktur, die durch (\mex{1})
 beschrieben wird:
 \ea
@@ -534,8 +485,7 @@ semantischen Beitrag von Phrasen kompositionell bestimmen kann.
 
 
 
-\section*{Kontrollfragen}
-
+\questions{
 
 \begin{enumerate}
 \item Wie kann man Konstituentenstrukturen mit Hilfe von Merkmalstrukturen modellieren?
@@ -544,7 +494,9 @@ semantischen Beitrag von Phrasen kompositionell bestimmen kann.
       Niveau verfügbar ist?
 \end{enumerate}
 
-\section*{Übungsaufgaben}
+}
+
+\exercises{
 
 \begin{enumerate}
 \item Zeichnen Sie einen Syntaxbaum für (\mex{1}):
@@ -564,20 +516,20 @@ H für Kopf.
       so daß Sie unabhängig vom auf dem Computer installierten Betriebssystem
       mit der CD arbeiten können. Voraussetzung ist lediglich ein Intel"=kompatibler Prozessor.
 
-      Konfigurieren Sie Ihren Computer so, daß er von einer eingelegten CD bootet und starten
+      Konfigurieren Sie Ihren Computer so, dass er von einer eingelegten CD bootet und starten
       Sie den Computer von der Grammix"=CD. Es sollte ein Startbildschirm im Corporate
       Design der Universität Bremen erscheinen. Wenn der Bootvorgang abgeschlossen ist,
       sehen Sie einen Bildschirm mit einem Begrüßungsfenster in einem Web"=Browser und
       mit verschiedenen Icons, die den einzelnen Grammatiken
       entsprechen. Klicken Sie auf das Icon, unter dem \emph{Grammatik 4} steht. Es werden sich
       zwei Fenster öffnen, und die Grammatik~4 wird im größeren der beiden Fenster geladen.
-      Nach Beendigung des Ladevorgangs erscheint ein Prompt (\verb+>>>+). An dieser Stelle
+      Nach Beendigung des Ladevorgangs erscheint ein Prompt (\texttt{>>>}). An dieser Stelle
       können Sie Sätze eingeben, die dann vom System mittels der jeweils geladenen Grammatik
       analysiert werden. Die Lexika, die zu den Grammatiken gehören, sind sehr klein,
       aber der Leser kann sie bei Bedarf selbst erweitern.
 
       Weitere Details zum Arbeiten mit der Grammix"=CD finden Sie im Begrüßungsfenster,
-      das beim Starten der CD geöffnet wird, oder auf der zur CD gehörenden Web"=Seite \url{http://www.cl.uni-bremen.de/Software/Grammix/}.
+      das beim Starten der CD geöffnet wird, oder auf der zur CD gehörenden Web"=Seite \url{https://hpsg.hu-berlin.de/Software/Grammix/}.
 
       Analysieren Sie die folgenden Sätze:
       \eal
@@ -613,4 +565,4 @@ H für Kopf.
       Inspizieren Sie mit Hilfe des Chart"=Displays die Parse"=Chart! Welche Wörter
       werden zu Wortgruppen zusammengebaut, welche nicht? Warum ist das so?
 \end{enumerate}
-
+}

@@ -224,11 +224,14 @@ frbox/.style={
 \newgray{hell}{.85}
 \newcommand{\highlight}[1]{\psframebox[linecolor=hell,fillcolor=hell,fillstyle=solid]{#1}}
 
-\newcommand{\nom}{\textit{nom}}
-\newcommand{\gen}{\textit{gen}}
-\newcommand{\dat}{\textit{dat}}
-\newcommand{\acc}{\textit{acc}}
+\newcommand{\nom}{{\normalfont\textit{nom}}}
+\newcommand{\gen}{{\normalfont\textit{gen}}}
+\newcommand{\dat}{{\normalfont\textit{dat}}}
+\newcommand{\acc}{{\normalfont\textit{acc}}}
 
 %\newcommand{\mod}{\textsc{mod}\xspace}  % wegen beamer.cls nicht in abbrev.sty
 \newcommand{\rel}{\textsc{rel}\xspace}  % wegen avm.sty nicht in abbrev.sty
 
+% for offsets in trees
+\newlength{\offset}
+\newlength{\offsetup}
