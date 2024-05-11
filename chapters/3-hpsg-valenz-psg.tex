@@ -42,14 +42,20 @@ um eine stabile Verbindung einzugehen. Wörter mit der gleichen Valenz -- also m
 Anzahl und Art von Argumenten\is{Argument} -- werden in Valenzklassen eingeordnet, da sie sich in bezug
 auf die Verbindungen, die sie eingehen, gleich verhalten. Abbildung~\vref{abb-chemie-valenz}
 zeigt Beispiele aus der Chemie und der Linguistik.
-\begin{figure}[htb]
-\centering
-\begin{tabular}{ccc@{\hspace{5em}}ccc}
-  & \rnode{o}{O} &   &       & \rnode{lieben}{liebt} &\\[5ex]
-\rnode{h1}{H} &   & \rnode{h2}{H} & \rnode{peter}{Peter} &        & \rnode{maria}{Maria}\\
-\end{tabular}
-\ncline{o}{h1}\ncline{o}{h2}%
-\ncline{lieben}{peter}\ncline{lieben}{maria}%
+\begin{figure}
+\centerline{
+\begin{forest}
+[O
+  [H] 
+  [H] ]
+\end{forest}
+\hspace{5em}
+\begin{forest}
+[helfen
+ [Aicke]
+ [Conny] ]
+\end{forest}
+}
 \caption{\label{abb-chemie-valenz}Verbindung von Sauerstoff mit Wasserstoff und Verbindung
 eines Verbs mit seinen Argumenten}
 \end{figure}
@@ -146,9 +152,9 @@ Dabei ist `$\oplus$'\is{$\oplus$} (\emph{append}\is{Relation!\emph{append}}) ein
 \z
 Die Anwendung der Regel (\mex{-1}a) soll anhand der Beispiele in (\mex{1}) erklärt werden:
 \eal
-\ex daß Peter schläft
+\ex daß Aicke schläft
 \ex\label{bsp-weil-peter-maria-erwartet}
-daß Peter Maria erwartet
+daß Aicke Conny erwartet
 \zl
 Die \subcatl im Lexikoneintrag von \emph{schläft} enthält genau eine NP. Setzt man
 den Lexikoneintrag für \emph{schläft} in die Regel in (\ref{psg-regeln-append}a) ein,
@@ -159,26 +165,19 @@ V[SUBCAT \ibox{A}] $\to$ \ibox{B} NP, V[SUBCAT \ibox{A} \sliste{} $\oplus$ \slis
 \emph{append} teilt die \subcatl von \emph{schläft} in zwei Teile. 
 Ein Teil ist eine einelementige Liste, die die NP enthält, der zweite Teil ist die leere Liste. 
 Die leere Liste entspricht der Liste der noch zu sättigenden Argumente.
-Abbildung~\vref{fig-Peter-schlaeft} zeigt den durch das Regelschema lizenzierten Baum.
-\begin{figure}[htbp]
-\centerline{\begin{pspicture}(2.6,0)(7.4,4.3)
-%\psgrid
-\rput[B](3,0){\rnode{Peter}{Peter}}
-\rput[B](6,0){\rnode{schlaeft}{schläft}}
+Abbildung~\vref{fig-Aicke-schlaeft} zeigt den durch das Regelschema lizenzierten Baum.
+\begin{figure}
+\centerline{
+\begin{forest}
+sm edges
+[{V[\subcat \sliste{}]}
+  [{\ibox{1} NP[\type{nom}]}
+    [Aicke]]
+  [{V[\subcat \sliste{ \ibox{1} }]}
+    [schläft]]]
+\end{forest}}
 %
-\rput[B](6,2){\rnode{v}{V[\subcat \sliste{ \ibox{1} }]}}
-\rput[B](3,2){\rnode{np1}{\ibox{1} NP}}
-%
-\rput[B](4.5,4){\rnode{vp}{V[\subcat \eliste ]}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{v}{schlaeft}
-\ncdiag{np1}{Peter}
-\ncdiag{vp}{np1}\ncdiag{vp}{v}
-%
-\end{pspicture}}
-\caption{\label{fig-Peter-schlaeft}Analyse für \emph{Peter schläft}}
+\caption{\label{fig-Aicke-schlaeft}Analyse für \emph{Aicke schläft}}
 \end{figure}
 
 Läßt man die Ausdrücke in Klammern in (\mex{0}) weg, bleibt nur (\mex{1}) übrig.
@@ -200,33 +199,23 @@ V[SUBCAT \ibox{A}] $\to$ \ibox{B} NP, V[SUBCAT \ibox{A} \sliste{ NP } $\oplus$ \
 Das Ergebnis der Regelanwendung ist V[SUBCAT \sliste{ NP }]. Das entspricht dem
 Lexikoneintrag von \emph{schläft}. Die Regel kann also wie in (\mex{-1}) noch einmal
 angewendet werden, so daß man dann eine vollständig gesättigte Phrase bekommt. Das zeigt
-Abbildung~\vref{fig-Peter-Maria-erwartet}.
+Abbildung~\vref{fig-Aicke-Conny-erwartet}.
 
 %\psset{xunit=1cm,yunit=5.4mm}
-\begin{figure}[htbp]
-\centerline{\begin{pspicture}(0.6,0)(8,6.2)
-%\psgrid
-\rput[B](1,0){\rnode{Peter}{Peter}}
-\rput[B](3,0){\rnode{Maria}{Maria}}
-\rput[B](6,0){\rnode{erwartet}{erwartet}}
-%
-\rput[B](6,2){\rnode{v}{V[\subcat \sliste{ \ibox{1}, \ibox{2} }]}}
-\rput[B](3,2){\rnode{np1}{\ibox{2} NP}}
-%
-\rput[B](4.5,4){\rnode{vs}{V[\subcat \sliste{ \ibox{1} }]}}
-\rput[B](1,4){\rnode{np2}{\ibox{1} NP}}
-%
-\rput[B](3,6){\rnode{vp}{V[\subcat \eliste ]}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{v}{erwartet}
-\ncdiag{np2}{Peter}\ncdiag{np1}{Maria}
-\ncdiag{vs}{np1}\ncdiag{vs}{v}
-\ncdiag{vp}{np2}\ncdiag{vp}{vs}
-%
-\end{pspicture}}
-\caption{\label{fig-Peter-Maria-erwartet}Analyse für \emph{Peter Maria erwartet}}
+\begin{figure}
+\centerline{%
+\begin{forest}
+sm edges
+[{V[\subcat \sliste{}]}
+  [{\ibox{1} NP[\type{nom}]}
+    [Aicke]]
+  [{V[\subcat \sliste{ \ibox{1} }] }
+    [{\ibox{2} NP[\type{acc}]} 
+      [Conny]]
+    [{V[\subcat \sliste{ \ibox{1}, \ibox{2} }] }
+      [erwartet]]]]
+\end{forest}}
+\caption{\label{fig-Aicke-Conny-erwartet}Analyse für \emph{Aicke Conny erwartet}}
 \end{figure}
 
 Die Regeln in (\ref{psg-regeln-append}) kann man nun auf zweierlei Weise verallgemeinern:
@@ -361,60 +350,28 @@ in der Valenzliste repräsentiert und auch in syntaktischen Strukturen wie die a
 Argumente behandelt. Das wird in anderen Grammatiktheorien anders gesehen.
 
 Für Sätze wie (\ref{bsp-weil-peter-maria-erwartet}) wird in der \gbt oft die Struktur
-in Abbildung~\vref{fig-Peter-Maria-erwartet-ip} angenommen (siehe \zb \citew[\page 49]{Grewendorf88a}).
+in Abbildung~\vref{fig-Aicke-Conny-erwartet-ip} angenommen (siehe \zb \citew[\page 49]{Grewendorf88a}).
 %
-\begin{figure}[htbp]
-\psset{xunit=1cm,yunit=5.4mm}
-% node labels for moving elements will be typeset by the \tmove command
-% here we have to provide invisible boxes to get the line drawing right.
-\hfill\begin{pspicture}(4.6,1.1)(11.2,11.6)
-%\psgrid
-\rput[B](5,1){\rnode{jeder}{Peter}}
-\rput[B](7,1){\rnode{ihnmf}{Maria}}
-\rput[B](9,1){\rnode{kennt}{erwartet}}
-\rput[B](11,1){\rnode{t2}{ \_ }}
-
-\rput[B](7,3){\rnode{np1}{NP}}
-\rput[B](9,3){\rnode{v}{\vnull}}
-
-\rput[B](8,5){\rnode{vs1}{V'}}
-
-\rput[B](8,7){\rnode{vp}{VP}}
-\rput[B](11,7){\rnode{i}{\inull}}
-
-\rput[B](5,9){\rnode{np2}{NP}}
-\rput[B](9.5,9){\rnode{is}{I'}}
-
-
-\rput[B](7.25,11){\rnode{ip}{IP}}
-
-
-
-\psset{angleA=-90,angleB=90,arm=0pt}
-
-\ncdiag{v}{kennt}
-\ncdiag{vs1}{np1}\ncdiag{vs1}{v}
-\ncdiag{vs2}{np2}\ncdiag{vs2}{vs1}
-\ncdiag{vp}{vs2}
-
-\ncdiag{np3}{t1}
-
-\ncdiag{i}{t2}
-\ncdiag{is}{i}\ncdiag{is}{vp}
-\ncdiag{ip}{np2}\ncdiag{ip}{is}
-
-\ncdiag{np3}{speccp}
-\ncdiag{np2}{jeder}
-\ncdiag{np1}{ihnmf}
-\ncdiag{vp}{vs1}
-\end{pspicture}\hfill\mbox{}
-\caption{\label{fig-Peter-Maria-erwartet-ip}Analyse von \emph{Peter Maria erwartet} mit IP/VP"=Unterscheidung}
+\begin{figure}
+\centerline{%
+\begin{forest}
+sm edges
+[IP
+  [NP [Aicke, roof]]
+  [\hphantom{$'$}I$'$ 
+    [VP
+      [\hphantom{$'$}V$'$
+        [NP [Conny,roof]]
+        [\hphantom{$^0$}\vnull [erwartet]]]]
+    [\hphantom{$^0$}\inull [\trace]]]]
+\end{forest}}
+\caption{\label{fig-Aicke-Conny-erwartet-ip}Analyse von \emph{Aicke Conny erwartet} mit IP/VP"=Unterscheidung}
 \end{figure}
 Die Kategorie I ist eine funktionale Kategorie\is{Kategorie!funktionale!I}, die in Grammatiken des Englischen durch
 das Stellungsverhalten von Hilfsverben motiviert werden kann. Im Deutschen verhalten sich
 Hilfsverben in bezug auf ihre Stellung aber wie Vollverben, so daß eine Zuordnung von
 Voll- und Hilfsverben zu verschiedenen Kategorien nicht gerechtfertigt wäre.
-In Analysen, die dem in Abbildung~\ref{fig-Peter-Maria-erwartet-ip}
+In Analysen, die dem in Abbildung~\ref{fig-Aicke-Conny-erwartet-ip}
 skizzierten Ansatz folgen, geht man davon aus, daß das Subjekt\is{Subjekt} einen Sonderstatus hat und
 nicht innerhalb der Projektion des Verbs (der VP) steht. Das Subjekt wird deshalb auch
 \hypertarget{externesArgument}{\emph{externes Argument}}\is{Argument!externes} genannt. Es lassen sich durchaus
@@ -429,7 +386,7 @@ Frey93a,%S.30
 Lenerz94a,%
 Meinunger2000a%S. 30
 }). 
-In Abbildung~\vref{fig-Peter-Maria-erwartet} werden alle Komplemente des Verbs auf die gleiche Weise gesättigt.
+In Abbildung~\vref{fig-Aicke-Conny-erwartet} werden alle Komplemente des Verbs auf die gleiche Weise gesättigt.
 Die maximale Projektion ist eine Projektion des Verbs.
 Es gibt in dieser Analyse für Sätze mit finiten Verben
 also keine besonders lizenzierte Zwischenstufe VP wie \zb in HPSG"=Grammatiken des Englischen 
@@ -722,9 +679,9 @@ Die Behauptung, daß \emph{es} eine semantische Rolle zugewiesen bekommt, wird d
 motiviert, daß man sagt, daß sich das \emph{es} in (\mex{0}) genauso verhält wie eine
 normale Nominalphrase in bestimmten Infinitivkonstruktionen.
 Man sagt, daß in (\mex{1}) das Subjekt von \emph{fährt} mit dem Subjekt von \emph{anzustrengen}
-referenzidentisch ist, sich also auf dasselbe Individuum bezieht (in (\mex{1}) auf \emph{Peter}).
+referenzidentisch ist, sich also auf dasselbe Individuum bezieht (in (\mex{1}) auf \emph{Aicke}).
 \ea
-Peter fährt schnell, ohne sich anzustrengen.
+Aicke fährt schnell, ohne sich anzustrengen.
 \z
 Man kann aber Fälle wie (\mex{-1}) auch erfassen, ohne annehmen
 zu müssen, daß \emph{es} eine semantische Rolle bekommt: Man muß für (\mex{-1}) und (\mex{0})
@@ -806,10 +763,10 @@ Zu leeren Subjekten und Kontrolle\is{Kontrolle} siehe \citew[\page912]{Nerbonne8
 %% an, das dann nicht in die Valenzlisten aufgenommen wird.
 %%
 %% Bei finiten Verben wird das Subjekt gemeinsam mit den Objekten realisiert, bei
-%% infinite Verbphrasen wie \zb \emph{Maria zu lieben} in (\mex{1})
+%% infinite Verbphrasen wie \zb \emph{Conny zu lieben} in (\mex{1})
 %% taucht allerdings kein Subjekt an der Oberfläche auf.
 %% \ea
-%% Karl behauptet, Maria zu lieben.
+%% Karl behauptet, Conny zu lieben.
 %% \z
 %% Bei infiniten Verbphrasen gibt es also strukturelle Unterschiede zwischen Subjekt und Objekten:
 %% Subjekte werden nicht realisiert, andere Argumente müssen dagegen (wenn sie nicht optional sind)
@@ -838,16 +795,17 @@ Zu leeren Subjekten und Kontrolle\is{Kontrolle} siehe \citew[\page912]{Nerbonne8
 
 
 
-\section*{Kontrollfragen}
+%\section*{Kontrollfragen}
 
-
+\questions{
 \begin{enumerate}
 \item Wofür steht `$\oplus$'?
 \item Was ist die Obliqueness"=Hierarchie?
-\end{enumerate}
+\end{enumerate}}
 
-\section*{Übungsaufgaben}
+%\section*{Übungsaufgaben}
 
+\exercises{
 \begin{enumerate}
 \item Geben Sie die Valenzlisten für folgende Wörter an:
       \eal
@@ -858,3 +816,4 @@ Zu leeren Subjekten und Kontrolle\is{Kontrolle} siehe \citew[\page912]{Nerbonne8
       \ex graut
       \zl
 \end{enumerate}
+}

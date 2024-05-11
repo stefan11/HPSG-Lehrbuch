@@ -189,6 +189,7 @@ install:
 #	cp -p ${STYLE-PATH}Ling/forest.sty               .
 #	cp -p ${STYLE-PATH}Ling/forest-lib-edges.sty     .
 #	cp -p ${STYLE-PATH}Ling/forest-lib-linguistics.sty .
+	cp -p ${STYLE-PATH}de-hyp-utf8.sty 	         styles/
 	cp -p ${STYLE-PATH}Ling/cgloss.sty               styles/
 	cp -p ${STYLE-PATH}Ling/jambox.sty               styles/
 	cp -p ${LANGSCI-PATH}langsci-forest-setup.sty    .
@@ -210,7 +211,7 @@ check-clean:
 
 
 cleanmemo:
-	rm -f *.mmz chapters/*.mmz germanic.memo.dir/*
+	rm -f *.mmz chapters/*.mmz hpsg.memo.dir/*
 
 realclean: clean
 	rm -f *.dvi *.ps *.pdf chapters/*.pdf

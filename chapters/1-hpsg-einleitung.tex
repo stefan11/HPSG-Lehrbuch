@@ -668,15 +668,15 @@ genannt. Ein Satz\is{Satz} ist die Maximalprojektion eines finiten Verbs.
 %% in der Tabelle~\vref{tab-merkmale} dargestellt.
 Beispiele für Kategorien und die Merkmale, die auf der phrasalen Ebene relevant sind, sind
 in der Tabelle~\vref{tab-merkmale} dargestellt.
-\begin{table}[htbp]
-\centerline{\begin{tabular}{|l|l|}\hline
-Kategorie    & projizierte Merkmale\\\hline
+\begin{table}
+\oneline{\begin{tabular}{ll}\lsptoprule
+Kategorie    & projizierte Merkmale\\\midrule
 Verb         & Wortart, Verbform\is{Verbform} (\textit{fin}, \textit{bse}, \textit{inf}, \textit{ppp})\\
 Nomen        & Wortart, Kasus\is{Kasus} (\textit{nom\/}, \textit{gen\/}, \textit{dat\/}, \textit{acc\/})\\
              & Person\is{Person} (\emph{1}, \emph{2}, \emph{3}), Numerus (\emph{sg}, \emph{pl})\\
 %Präposition  & Kategorie, (Form der Präposition (\textit{an\/}, \textit{auf\/}, \ldots), Kasus der NP)\\
 Adjektiv     & Wortart, bei flektierten Formen Kasus\is{Kasus|(}, Genus\is{Genus|(} (\emph{mas}, \emph{fem}, \emph{neu}), Numerus\is{Numerus|(}\\
-             & und Flexionsklasse\is{Flexion!-sklasse|(} (\emph{strong}, \emph{weak})\\\hline
+             & und Flexionsklasse\is{Flexion!-sklasse|(} (\emph{strong}, \emph{weak})\\\lspbottomrule
 \end{tabular}}
 \caption{\label{tab-merkmale}Beispiele für Hauptkategorien und projizierte Merkmale}
 \end{table}
@@ -976,7 +976,7 @@ Die folgende Liste ist eine Aufzählung einiger Theorien oder Frameworks mit daz
 Publikationen. Wenn es größere Arbeiten zum Deutschen/""auf Deutsch gibt, sind diese ebenfalls
 aufgeführt.
 \begin{itemize}
-\item Dependenzgrammatik (DG)\is{Dependenzgrammatik (DG)}\\\citep{Tesniere59a-u,Kunze75a-u,Hudson90a-u,Weber92a,Heringer96a-u}\nocite{Tesniere80a-u}
+\item Dependenzgrammatik (DG)\is{Dependenzgrammatik (DG)}\\\citep{Tesniere59a-u,Tesniere2015a-u,Kunze75a-u,Hudson90a-u,Weber92a,Heringer96a-u}\nocite{Tesniere80a-u}
 \item Kategorialgrammatik (CG)\is{Kategorialgrammatik (CG)}\\
 \citep*{Ajdukiewicz35a-u,Montague74b-u,Dowty79a,BFZ97a,Steedman2000a-u}
 \item Phrasenstrukturgrammatik\is{Phrasenstrukturgrammatik} (PSG)\nocite{Bloomfield33a-u}\\
@@ -995,7 +995,7 @@ aufgeführt.
       \citep*{GKPS85a}
 \item Lexikalisch Funktionale Grammatik (LFG)\is{Lexical Functional Grammar@\emph{Lexical Functional Grammar} (LFG)}\\
       \citep{Bresnan82a-ed,Bresnan2001a,BF96a-ed,Berman2003a}
-\item Head-Driven Phrase Structure Grammar (HPSG)\\\citep{ps,ps2,Kiss95b,Mueller99a,Mueller2002b}
+\item Head-Driven Phrase Structure Grammar (HPSG)\\\citep*{ps,ps2,Kiss95b,Sag97a,Mueller99a,Mueller2002b,HPSGHandbook}
 \item Konstruktionsgrammatik (CxG)\is{Konstruktionsgrammatik (CxG)}\\\citep*{FKoC88a,KF99a,Goldberg95a,FS2006a-ed}
 \end{itemize}
 
@@ -1092,23 +1092,21 @@ die Grammatik erzeugt, lizenziert bzw.\ generiert eine Menge von Sätzen.
 Die Ableitung in (\mex{0}) kann auch als Baum dargestellt werden. Das zeigt Abbildung~\vref{er-das-buch-dem-mann-gibt-flat}.
 \begin{figure}[htbp]
 \centerline{
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
-\multicolumn{3}{c}{\rnode{f1}{S}}\\[2ex]
-\\
-\rnode{f2}{NP} & \multicolumn{2}{c}{\hspace{-2ex}\rnode{f4}{NP}}     & \multicolumn{2}{c}{\hspace{-2ex}\rnode{f6}{NP}} & \rnode{f7}{V}\\[2ex]
-\\
-             & \rnode{f14}{D}  &  \rnode{f15}{N}    & \rnode{f16}{D}   & \rnode{f17}{N}\\
-\\*[3ex]
-\rnode{f8}{er} & \rnode{f9}{das} & \rnode{f12}{Buch}  & \rnode{f10}{dem} &\rnode{f13}{Mann}  & \rnode{f11}{gibt}\\
-\end{tabular}%
-\ncline{f1}{f2}\ncline{f1}{f6}%
-\ncline{f1}{f4}\ncline{f1}{f7}%
-\ncline{f7}{f11}%
-\ncline{f2}{f8}%
-\ncline{f6}{f16}\ncline{f6}{f17}%
-\ncline{f16}{f10}\ncline{f17}{f13}%
-\ncline{f4}{f14}\ncline{f4}{f15}%
-\ncline{f14}{f9}\ncline{f15}{f12}%
+\begin{forest}
+sm edges
+[S
+  [NP [er] ]
+  [NP
+    [Det [das] ]
+    [N [Buch] ] 
+  ]
+  [NP
+    [Det [dem] ]
+    [N [Kind] ] 
+  ]
+  [V [gibt] ]
+]
+\end{forest}
 }
 \caption{\label{er-das-buch-dem-mann-gibt-flat}Analyse von \emph{er das Buch dem Mann gibt}}
 \end{figure}
@@ -1118,10 +1116,10 @@ aber nicht unmittelbar dominiert\is{Dominanz!unmittelbare}. Will man über Bezie
 verwendet man Verwandschaftsbezeichnungen. So ist in Abbildung~\ref{er-das-buch-dem-mann-gibt-flat}
 S der Mutterknoten\is{Knoten!Mutter-} der drei NP"=Knoten und des V"=Knotens. 
 Die NP"=Knoten und V sind Schwestern\is{Knoten!Schwester-}, da sie denselben Mutterknoten haben.
-Hat ein Knoten zwei Töchter\is{Knoten!Tochter-} liegt eine binär\is{bin"ar} verzweigende Struktur\is{Verzweigung}\is{Verzweigung!bin"are} vor.
+Hat ein Knoten zwei Töchter\is{Knoten!Tochter-} liegt eine binär\is{binär} verzweigende Struktur\is{Verzweigung}\is{Verzweigung!binäre} vor.
 % stimmt nicht, das ist relativ
 %hat er mehr als zwei Töchter, spricht man auch von \emph{flacher Verzweigung}. 
-Gibt es genau eine Tochter, spricht man von einer unären\is{un"ar}\is{Verzweigung!un"are} Verzweigung. Zwei Konstituenten sind 
+Gibt es genau eine Tochter, spricht man von einer unären\is{unär}\is{Verzweigung!unäre} Verzweigung. Zwei Konstituenten sind 
 \emph{adjazent}\is{Adjazenz}, wenn sie direkt nebeneinander stehen.
 
 In vielen linguistischen Publikationen werden Phrasenstrukturregeln nicht mehr angegeben. Es werden
@@ -1155,32 +1153,23 @@ V  & $\to$ NP, V\\
 Diese Grammatik lizenziert binär verzweigende Strukturen, wie die in Abbildung~\vref{er-das-buch-dem-mann-gibt-bin}.
 
 
-\begin{figure}[htbp]
+\begin{figure}
 \centerline{
-\scalebox{1}{%
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
-\multicolumn{3}{c}{\rnode{1}{V}}\\[2ex]
-\\
-\rnode{2}{NP} & \multicolumn{4}{c}{\rnode{3}{V}}\\[2ex]
-\\
-             & \multicolumn{2}{c}{\hspace{-2ex}\rnode{4}{NP}} & \multicolumn{3}{c}{\hspace{2mm}\rnode{5}{V}}\\[2ex]
-\\
-             & \rnode{14}{D}  & \rnode{15}{N}     & \multicolumn{2}{c}{\hspace{-2ex}\rnode{6}{NP}} & \rnode{7}{V}\\[2ex]
-\\
-             &               &                  & \rnode{16}{D}   & \rnode{17}{N}\\[2ex]
-\\*
-\rnode{8}{er} & \rnode{9}{das} & \rnode{12}{Buch}  & \rnode{10}{dem} &\rnode{13}{Mann}  & \rnode{11}{gibt}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{7}{11}%
-\ncline{2}{8}%
-\ncline{6}{16}\ncline{6}{17}%
-\ncline{16}{10}\ncline{17}{13}%
-\ncline{4}{14}\ncline{4}{15}%
-\ncline{14}{9}\ncline{15}{12}%
-}}
+\begin{forest}
+sm edges
+[V
+  [NP [er] ]
+  [V
+    [NP
+      [Det [das] ]
+      [N [Buch] ] ]
+    [V
+      [NP
+        [Det [dem] ]
+        [N [Kind] ] ]
+      [V [gibt] ] ] ] ]
+\end{forest}
+}
 \caption{\label{er-das-buch-dem-mann-gibt-bin}Analyse von \emph{er das Buch dem Mann gibt} mit binärer Verzweigung}
 \end{figure}
 
@@ -1652,8 +1641,9 @@ es interessiert nur, welche Strukturen prinzipiell wohlgeformt sind.
 
 
 
-\section*{Kontrollfragen}
 
+
+\questions{
 \begin{enumerate}
 \item Wodurch unterscheidet sich ein Kopf in einer Wortgruppe von Nicht"=Köpfen?
 \item Gibt es in (\mex{1}) einen Kopf?
@@ -1668,9 +1658,10 @@ es interessiert nur, welche Strukturen prinzipiell wohlgeformt sind.
   Er hilft den kleinen Kindern in der Schule.
   \z
 \end{enumerate}
+}
 
-\section*{Übungsaufgaben}
 
+\exercises{
 \begin{enumerate}
 \item\label{ua-psg-eins}
       Auf Seite~\pageref{page-unendlich-viele-grammatiken} habe ich behauptet, daß
@@ -1710,7 +1701,7 @@ es interessiert nur, welche Strukturen prinzipiell wohlgeformt sind.
       \zl 
 
 \end{enumerate}
-
+}
 
 %% \section*{Literaturhinweise}
 

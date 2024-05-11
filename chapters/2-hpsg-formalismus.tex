@@ -310,17 +310,34 @@ und für Maus jeweils ein Zeiger auf Säugetier. Die Beschreibung, die bei Säug
 steht, muß somit bei den Einträgen für untergeordnete Konzepte nicht wiederholt werden.
 Genauso könnte man, wenn man verschiedene elektrische Geräte beschreiben will,
 die Hierarchie in Abbildung~\vref{fig-elektr-geraet} verwenden.
-\begin{figure}[htbp]
-\centerline{\begin{tabular}{cccc}
-\multicolumn{4}{c}{\rnode{ed}{\textit{elektrisches Gerät}}}\\[6ex]
-\rnode{p}{\textit{druckendes Gerät}} & & \rnode{sc}{\textit{scannendes Gerät}} & \rnode{other}{\rule[-0.5ex]{0cm}{2.5ex}\ldots}\\[6ex]
-\rnode{printer}{\textit{Drucker}}   & \rnode{copy}{\textit{Kopierer}}  & \rnode{scanner}{\textit{Scanner}}\\[6ex]
-\rnode{l-p}{\textit{Laserdrucker}}  & \rnode{other-p}{\rule[-0.5ex]{0cm}{2.5ex}\ldots}  & \rnode{negscan}{\textit{Negativscanner}} & \rnode{other-sc}{\rule[-0.5ex]{0cm}{2.5ex}\ldots}\\
-\end{tabular}}
-\ncline{ed}{p}\ncline{ed}{sc}\ncline{ed}{other}%
-\ncline{p}{copy}\ncline{p}{printer}\ncline{printer}{l-p}\ncline{printer}{other-p}%
-\ncline{sc}{copy}%
-\ncline{sc}{scanner}\ncline{scanner}{negscan}\ncline{scanner}{other-sc}%
+\begin{figure}
+% \centerline{\begin{tabular}{cccc}
+% \multicolumn{4}{c}{\rnode{ed}{\textit{elektrisches Gerät}}}\\[6ex]
+% \rnode{p}{\textit{druckendes Gerät}} & & \rnode{sc}{\textit{scannendes Gerät}} & \rnode{other}{\rule[-0.5ex]{0cm}{2.5ex}\ldots}\\[6ex]
+% \rnode{printer}{\textit{Drucker}}   & \rnode{copy}{\textit{Kopierer}}  & \rnode{scanner}{\textit{Scanner}}\\[6ex]
+% \rnode{l-p}{\textit{Laserdrucker}}  & \rnode{other-p}{\rule[-0.5ex]{0cm}{2.5ex}\ldots}  & \rnode{negscan}{\textit{Negativscanner}} & \rnode{other-sc}{\rule[-0.5ex]{0cm}{2.5ex}\ldots}\\
+% \end{tabular}}
+% \ncline{ed}{p}\ncline{ed}{sc}\ncline{ed}{other}%
+% \ncline{p}{copy}\ncline{p}{printer}\ncline{printer}{l-p}\ncline{printer}{other-p}%
+% \ncline{sc}{copy}%
+% \ncline{sc}{scanner}\ncline{scanner}{negscan}\ncline{scanner}{other-sc}%
+\centerline{%
+\begin{forest} 
+type hierarchy
+[elektrisches Gerät, calign=midpoint, calign children={1}{2},
+  [durckendes Gerät,calign=first
+    [Drucker,calign=first
+      [Laser-Drucke]
+      [\ldots]]
+    [Kopierer]]
+  [scannendes Gerät,calign=last
+    [,identify=!r12]
+    [Scanner,calign=first
+      [Negativ-Scanner]
+      [\ldots]]]
+  [\ldots]]
+\end{forest}}
+
 \caption{\label{fig-elektr-geraet}Nicht"=linguistisches Beispiel für Mehrfachvererbung}
 \end{figure}
 Der allgemeinste Typ \textit{elektrisches Gerät} steht in Abbildung~\ref{fig-elektr-geraet} ganz oben.
@@ -653,159 +670,165 @@ ein Kasus"=Merkmal haben. Der Wert des Kasus"=Merkmals ist vom Typ \type{Kasus}.
 maximal spezifischen Typen als Kasus"=Wert. Die zu (\mex{0}) gehörenden Merkmalstrukturen zeigen die
 Abbildungen~\ref{abb-avm-frau} und~\ref{abb-avm-mann}.%\NOTE{Punkt ist hier falsch}
 %die Abbildungen~\ref{abb-avm-frau} und~\ref{abb-avm-mann}.
-\begin{figure}[htbp]
+\begin{figure}
+% scaling does not work with pstricks, so I first create the pdf and then scale, 24.10.2015 for GT book
 \oneline{%
-\begin{pspicture}(-0.5,0.4)(2.8,4.1)
-%\psgrid
+\includegraphics{Figures/frau-model-theoretic-cropped}
+}
+% \oneline{%
+% \begin{pspicture}(-0.5,0.4)(2.8,4.1)
+% %\psgrid
 
 
-     \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
-     \pnode(-0.4,2){start1}
-     \Cnode(0,2){noun1}
-     \Cnode(2,4){fem1}
-     \Cnode(2,1){nom1}
+%      \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
+%      \pnode(-0.4,2){start1}
+%      \Cnode(0,2){noun1}
+%      \Cnode(2,4){fem1}
+%      \Cnode(2,1){nom1}
 
 
-     \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
+%      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
 
-     \nccurve{start1}{noun1}
-     \nccurve{noun1}{fem1}\naput{\textsc{genus}}
-     \nccurve{noun1}{nom1}\naput{\textsc{kasus}}
+%      \nccurve{start1}{noun1}
+%      \nccurve{noun1}{fem1}\naput{\textsc{genus}}
+%      \nccurve{noun1}{nom1}\naput{\textsc{kasus}}
 
-     \nput{270}{noun1}{\type{noun}}
-     \nput{270}{fem1}{\type{fem}}
-     \nput{270}{nom1}{\type{Nominativ}}
-\end{pspicture}
-\begin{pspicture}(-0.5,0.4)(2.8,4.1)
-%\psgrid
-
-
-     \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
-     \pnode(-0.4,2){start2}
-     \Cnode(0,2){noun2}
-     \Cnode(2,4){fem2}
-     \Cnode(2,1){nom2}
+%      \nput{270}{noun1}{\type{noun}}
+%      \nput{270}{fem1}{\type{fem}}
+%      \nput{270}{nom1}{\type{Nominativ}}
+% \end{pspicture}
+% \begin{pspicture}(-0.5,0.4)(2.8,4.1)
+% %\psgrid
 
 
-     \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
-
-     \nccurve{start2}{noun2}
-     \nccurve{noun2}{fem2}\naput{\textsc{genus}}
-     \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
-
-     \nput{270}{noun2}{\type{noun}}
-     \nput{270}{fem2}{\type{fem}}
-     \nput{270}{nom2}{\type{Genitiv}}
-\end{pspicture}
-\begin{pspicture}(-0.5,0.4)(2.8,4.1)
-%\psgrid
+%      \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
+%      \pnode(-0.4,2){start2}
+%      \Cnode(0,2){noun2}
+%      \Cnode(2,4){fem2}
+%      \Cnode(2,1){nom2}
 
 
-     \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
-     \pnode(-0.4,2){start2}
-     \Cnode(0,2){noun2}
-     \Cnode(2,4){fem2}
-     \Cnode(2,1){nom2}
+%      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
+
+%      \nccurve{start2}{noun2}
+%      \nccurve{noun2}{fem2}\naput{\textsc{genus}}
+%      \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
+
+%      \nput{270}{noun2}{\type{noun}}
+%      \nput{270}{fem2}{\type{fem}}
+%      \nput{270}{nom2}{\type{Genitiv}}
+% \end{pspicture}
+% \begin{pspicture}(-0.5,0.4)(2.8,4.1)
+% %\psgrid
 
 
-     \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
-
-     \nccurve{start2}{noun2}
-     \nccurve{noun2}{fem2}\naput{\textsc{genus}}
-     \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
-
-     \nput{270}{noun2}{\type{noun}}
-     \nput{270}{fem2}{\type{fem}}
-     \nput{270}{nom2}{\type{Dativ}}
-\end{pspicture}
-\begin{pspicture}(-0.5,0.4)(2.8,4.1)
-%\psgrid
+%      \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
+%      \pnode(-0.4,2){start2}
+%      \Cnode(0,2){noun2}
+%      \Cnode(2,4){fem2}
+%      \Cnode(2,1){nom2}
 
 
-     \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
-     \pnode(-0.4,2){start2}
-     \Cnode(0,2){noun2}
-     \Cnode(2,4){fem2}
-     \Cnode(2,1){nom2}
+%      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
+
+%      \nccurve{start2}{noun2}
+%      \nccurve{noun2}{fem2}\naput{\textsc{genus}}
+%      \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
+
+%      \nput{270}{noun2}{\type{noun}}
+%      \nput{270}{fem2}{\type{fem}}
+%      \nput{270}{nom2}{\type{Dativ}}
+% \end{pspicture}
+% \begin{pspicture}(-0.5,0.4)(2.8,4.1)
+% %\psgrid
 
 
-     \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
+%      \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
+%      \pnode(-0.4,2){start2}
+%      \Cnode(0,2){noun2}
+%      \Cnode(2,4){fem2}
+%      \Cnode(2,1){nom2}
 
-     \nccurve{start2}{noun2}
-     \nccurve{noun2}{fem2}\naput{\textsc{genus}}
-     \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
 
-     \nput{270}{noun2}{\type{noun}}
-     \nput{270}{fem2}{\type{fem}}
-     \nput{270}{nom2}{\type{Akkusativ}}
-\end{pspicture}}
+%      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
+
+%      \nccurve{start2}{noun2}
+%      \nccurve{noun2}{fem2}\naput{\textsc{genus}}
+%      \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
+
+%      \nput{270}{noun2}{\type{noun}}
+%      \nput{270}{fem2}{\type{fem}}
+%      \nput{270}{nom2}{\type{Akkusativ}}
+% \end{pspicture}}
 \caption{\label{abb-avm-frau}Merkmalstrukturen zur Beschreibung von \emph{Frau} in (\ref{avm-frau})}
 \end{figure}
 %-----------------------------------------------------------------------------
-\begin{figure}[htbp]
+\begin{figure}
 %\oneline{%
 \centerline{%
-\begin{pspicture}(-0.5,0.4)(2.8,4.1)
-%\psgrid
-%
-%
-     \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
-     \pnode(-0.4,2){start1}
-     \Cnode(0,2){noun1}
-     \Cnode(2,4){mas1}
-     \Cnode(2,1){nom1}
-%
-%
-     \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
-%
-     \nccurve{start1}{noun1}
-     \nccurve{noun1}{mas1}\naput{\textsc{genus}}
-     \nccurve{noun1}{nom1}\naput{\textsc{kasus}}
-%
-     \nput{270}{noun1}{\type{noun}}
-     \nput{270}{mas1}{\type{mas}}
-     \nput{270}{nom1}{\type{Nominativ}}
-\end{pspicture}
-\begin{pspicture}(-0.5,0.4)(2.8,4.1)
-%\psgrid
-%
-     \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
-     \pnode(-0.4,2){start2}
-     \Cnode(0,2){noun2}
-     \Cnode(2,4){mas2}
-     \Cnode(2,1){nom2}
-%
-%
-     \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
-%
-     \nccurve{start2}{noun2}
-     \nccurve{noun2}{mas2}\naput{\textsc{genus}}
-     \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
-%
-     \nput{270}{noun2}{\type{noun}}
-     \nput{270}{mas2}{\type{mas}}
-     \nput{270}{nom2}{\type{Dativ}}
-\end{pspicture}
-\begin{pspicture}(-0.5,0.4)(2.8,4.1)
-%\psgrid
-%
-     \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
-     \pnode(-0.4,2){start2}
-     \Cnode(0,2){noun2}
-     \Cnode(2,4){mas2}
-     \Cnode(2,1){nom2}
-%
-%
-     \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
-%
-     \nccurve{start2}{noun2}
-     \nccurve{noun2}{mas2}\naput{\textsc{genus}}
-     \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
-%
-     \nput{270}{noun2}{\type{noun}}
-     \nput{270}{mas2}{\type{mas}}
-     \nput{270}{nom2}{\type{Akkusativ}}
-\end{pspicture}}
+\includegraphics{Figures/mann-model-theoretic-cropped}
+}
+% \begin{pspicture}(-0.5,0.4)(2.8,4.1)
+% %\psgrid
+% %
+% %
+%      \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
+%      \pnode(-0.4,2){start1}
+%      \Cnode(0,2){noun1}
+%      \Cnode(2,4){mas1}
+%      \Cnode(2,1){nom1}
+% %
+% %
+%      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
+% %
+%      \nccurve{start1}{noun1}
+%      \nccurve{noun1}{mas1}\naput{\textsc{genus}}
+%      \nccurve{noun1}{nom1}\naput{\textsc{kasus}}
+% %
+%      \nput{270}{noun1}{\type{noun}}
+%      \nput{270}{mas1}{\type{mas}}
+%      \nput{270}{nom1}{\type{Nominativ}}
+% \end{pspicture}
+% \begin{pspicture}(-0.5,0.4)(2.8,4.1)
+% %\psgrid
+% %
+%      \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
+%      \pnode(-0.4,2){start2}
+%      \Cnode(0,2){noun2}
+%      \Cnode(2,4){mas2}
+%      \Cnode(2,1){nom2}
+% %
+% %
+%      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
+% %
+%      \nccurve{start2}{noun2}
+%      \nccurve{noun2}{mas2}\naput{\textsc{genus}}
+%      \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
+% %
+%      \nput{270}{noun2}{\type{noun}}
+%      \nput{270}{mas2}{\type{mas}}
+%      \nput{270}{nom2}{\type{Dativ}}
+% \end{pspicture}
+% \begin{pspicture}(-0.5,0.4)(2.8,4.1)
+% %\psgrid
+% %
+%      \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
+%      \pnode(-0.4,2){start2}
+%      \Cnode(0,2){noun2}
+%      \Cnode(2,4){mas2}
+%      \Cnode(2,1){nom2}
+% %
+% %
+%      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
+% %
+%      \nccurve{start2}{noun2}
+%      \nccurve{noun2}{mas2}\naput{\textsc{genus}}
+%      \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
+% %
+%      \nput{270}{noun2}{\type{noun}}
+%      \nput{270}{mas2}{\type{mas}}
+%      \nput{270}{nom2}{\type{Akkusativ}}
+% \end{pspicture}}
 \caption{\label{abb-avm-mann}Merkmalstrukturen zur Beschreibung von \emph{Mann} in  (\ref{avm-mann})}
 \end{figure}
 In diesen Darstellungen gehört zu jedem Knoten ein Typ (\type{noun}, \type{fem}, \type{Nominativ},
@@ -826,38 +849,69 @@ Den Zusammenhang zwischen (linguistischen) Phänomenen, dem Modell
 und der formalen Theorie verdeutlicht Abbildung~\vref{abb-modell}.
 \begin{figure}[htbp]
 \centerline{%
-%{
-\begin{pspicture}(0,0)(10.4,5)
-%\psgrid
-\rput[Bl](0,0){%
-\begin{tabular}[b]{@{}ccc@{}}
-Phänomen && Modell\\
-\rnode{phen}{\fbox{\begin{tabular}{c}
-Linguistische\\
-Objekte\\
-\end{tabular}}}&&\rnode{modell}{\fbox{\begin{tabular}{c}
-Merkmal-\\
-strukturen\\
-\end{tabular}}}\\[10ex]
-&\rnode{theorie}{\fbox{\begin{tabular}{c}
-Merkmal-\\
-beschreibungen\\
-\end{tabular}}}\\
-&Formale Theorie\\
-\end{tabular}}
-%\ncline{->}[l]{modell}[r]{phen}%
-\ncline{->}{modell}{phen}\nbput{modelliert}
-%\ncdiag[angleA=180,angleB=45]{->}{modell}{theorie}
-\psline{<-}(6.0,1.6)(6.6,2.6)
-\rput[Bl](6.6,2){wird von Theorie lizenziert} % früher Erfüllung, jetzt FR Änderung
-\psline{->}(5.175,1.7)(6.1,3.15)
-\rput[Bl](4.2,2.4){legt fest}
-%\nccurve{<-}{modell}{theorie}\nbput{legt fest}
-\ncline{->}{theorie}{phen}\naput{sagt vorher}%
-%\ncline{<->}[b]{modell}[tr]{theorie}%
-%\ncline{->}[tl]{theorie}[b]{phen}%
-\end{pspicture}
+\includegraphics{Figures/model-theory-phenomenon-crop}
 }
+% %{
+% \begin{pspicture}(0,0)(10.4,5)
+% %\psgrid
+% \rput[Bl](0,0){%
+% \begin{tabular}[b]{@{}ccc@{}}
+% Phänomen && Modell\\
+% \rnode{phen}{\fbox{\begin{tabular}{c}
+% Linguistische\\
+% Objekte\\
+% \end{tabular}}}&&\rnode{modell}{\fbox{\begin{tabular}{c}
+% Merkmal-\\
+% strukturen\\
+% \end{tabular}}}\\[10ex]
+% &\rnode{theorie}{\fbox{\begin{tabular}{c}
+% Merkmal-\\
+% beschreibungen\\
+% \end{tabular}}}\\
+% &Formale Theorie\\
+% \end{tabular}}
+% %\ncline{->}[l]{modell}[r]{phen}%
+% \ncline{->}{modell}{phen}\nbput{modelliert}
+% %\ncdiag[angleA=180,angleB=45]{->}{modell}{theorie}
+% \psline{<-}(6.0,1.6)(6.6,2.6)
+% \rput[Bl](6.6,2){wird von Theorie lizenziert} % früher Erfüllung, jetzt FR Änderung
+% \psline{->}(5.175,1.7)(6.1,3.15)
+% \rput[Bl](4.2,2.4){legt fest}
+% %\nccurve{<-}{modell}{theorie}\nbput{legt fest}
+% \ncline{->}{theorie}{phen}\naput{sagt vorher}%
+% %\ncline{<->}[b]{modell}[tr]{theorie}%
+% %\ncline{->}[tl]{theorie}[b]{phen}%
+% \end{pspicture}
+%\begin{pspicture}(0,0)(10.4,5)
+%\psgrid
+% \rput[Bl](0,0){%
+% \begin{tabular}[b]{@{}ccc@{}}
+% Phänomen && Modell\\
+% \rnode{phen}{\fbox{\begin{tabular}{c}
+% Linguistische\\
+% Objekte\\
+% \end{tabular}}}&&\rnode{modell}{\fbox{\begin{tabular}{c}
+% Merkmal-\\
+% strukturen\\
+% \end{tabular}}}\\[10ex]
+% &\rnode{theorie}{\fbox{\begin{tabular}{c}
+% Merkmal-\\
+% beschreibungen\\
+% \end{tabular}}}\\
+% &Formale Theorie\\
+% \end{tabular}}
+% %\anodeconnect[l]{modell}[r]{phen}%
+% \ncline{->}{modell}{phen}\nbput{modelliert}
+% %\ncdiag[angleA=180,angleB=45]{->}{modell}{theorie}
+% \psline{<-}(6.0,1.6)(6.6,2.4)
+% \rput[Bl](6.6,2){wird von Theorie lizenziert} % früher Erfüllung, jetzt FR Änderung
+% \psline{->}(5.6,1.6)(6.2,2.4)
+% \rput[Bl](4.5,2.4){legt fest}
+% %\nccurve{<-}{modell}{theorie}\nbput{legt fest}
+% \ncline{->}{theorie}{phen}\naput{sagt vorher}%
+% %\aanodeconnect[b]{modell}[tr]{theorie}%
+% %\anodeconnect[tl]{theorie}[b]{phen}%
+% \end{pspicture}
 \caption{\label{abb-modell}Phänomen, Modell und formale Theorie}
 \end{figure}\nocite{Netter98a}%S. 26
 %\NOTE{WS: zwischen Modell und Theorie sollten zwei Pfeile sein.}
@@ -884,7 +938,7 @@ bestimmter Werte bzw.\ die Gleichheit von Werten.
 %}{}
 
 
-\section*{Kontrollfragen}
+\questions{
 
 \begin{enumerate}
 \item Weshalb verwendet man in der HPSG Typen?
@@ -925,11 +979,11 @@ mutter      \ms[person]{
 }
 \z
 
-
 \end{enumerate}
+}
 
-\section*{Übungsaufgaben}
 
+\exercises{
 
 \begin{enumerate}
 \item Überlegen Sie, wie man Musikinstrumente mittels Merkmalstrukturen beschreiben könnte.
@@ -950,9 +1004,10 @@ mutter      \ms[person]{
       relationale Beschränkungen. Finden Sie diese. Geben Sie Ihre Quellen an und dokumentieren Sie,
       wie Sie bei der Suche nach der Lösung vorgegangen sind.
 \end{enumerate}
+}
 
 
-\section*{Literaturhinweise}
+\furtherreading{
 
 Dieses Kapitel sollte den Leser auf leicht verständliche Weise an getypte Merkmalstrukturen heranführen.
 Mathematische Eigenschaften der Strukturen, der Typhierarchien und der Verknüpfungsmöglichkeiten
@@ -971,6 +1026,8 @@ beschreibt den Formalismus ungetypter Merkmalstrukturen mathematisch exakt.
 \citet{Carpenter92a} setzt sich sehr mathematisch mit getypten Merkmalstrukturen auseinander.  Der
 Formalismus, den \citet{King99a-u} für HPSG"=Grammatiken entwickelt hat, bildet die Grundlage für
 den von \citet{Richter2004a-u} entwickelten Formalismus, der derzeit als Standard gilt.
+
+}
 
 % FR: auch Pollard99 strong generative capacity. ist Variante auf Kings Modelltheorie
 
