@@ -402,7 +402,11 @@ Einen Ausschnitt aus der Typhierarchie unter \type{sign} zeigt Abbildung~\vref{f
 \centerline{%
 \begin{forest}
 type hierarchy
-[sign
+[sign,
+ for tree={
+   calign=fixed angles,
+   calign angle=60
+ } 
   [word]
   [phrase
     [non-headed-phrase]

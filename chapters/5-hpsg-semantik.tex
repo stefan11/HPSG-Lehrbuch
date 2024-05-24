@@ -421,47 +421,30 @@ werden kann. Wie sich der semantische Beitrag von Phrasen ergibt, ist noch nicht
 Es ist klar, daß der semantische Beitrag einer Phrase wesentlich von deren Kopf bestimmt
 wird. In Kopf"=Argument"=Strukturen ist der semantische Hauptbeitrag der Phrase mit dem
 Beitrag des Kopfes identisch. Das verdeutlicht Abbildung~\vref{abb-sem-proj}.
-\begin{figure}[htp]
+\begin{figure}
 \centering%
 \oneline{%
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
-\multicolumn{3}{l}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
-  \textit{fin\/}, \textsc{subcat} \sliste{ }]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{l}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1} }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{l}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\
-&                                   &                      & & \hspace{6mm} \relation{geben}($e,b,m$)\\*[3ex]
-&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
-                                                                                   \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]\\
-%                                                                                   \textsc{vcomp} \liste{  }, \\
-                                                                                   \end{tabular}}\\
-\\*[6ex]
-\rnode{8}{er} & d\rnode{9}{as Buc}h                     & d\rnode{10}{em Man}n              & \rnode{11}{gibt}\\
-\end{tabular}%
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{7}{11}%
-\ncline{2}{8}%
-\ncline{6}{10}%
-\ncline{4}{9}%
-\ncline{<->}[r]{7}[r]{5}{2cm}%
-\ncline{<->}[r]{5}[r]{3}{2cm}%
-\ncline{<->}[r]{3}[r]{1}{2cm}%
-}
+\begin{forest}
+sm edges, for tree={l sep+=\baselineskip}
+[{V[\type{fin}, \subcat \sliste{ } ]}, name=1
+  [ {\ibox{1} NP[\type{nom}]}
+    [Aicke]]
+  [{V[\type{fin}, \subcat \sliste{ \ibox{1} } ]}, name=2
+    [ {\ibox{2} NP[\type{dat}]}
+      [dem Eichhörnchen, roof]]
+    [{V[\type{fin}, \subcat \sliste{ \ibox{1}, \ibox{2} } ]}, name=3
+      [ {\ibox{3} NP[\type{acc}]}
+        [die Nuss, roof]]
+      [{V[\type{fin}, \subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} } ]}, name=4
+        [gibt]]]]]
+\draw[<->] (4) to[out=east,in=east] (3);
+\draw[<->] (3) to[out=east,in=east] (2);
+\draw[<->] (2) to[out=east,in=east] (1);
+\node()[above right of=4,xshift=6em,yshift=\baselineskip]{$geben(a,e,n)$};
+\end{forest}}
 \caption{\label{abb-sem-proj}Projektion des semantischen Beitrags des Kopfes}
 \end{figure}
-$e$, $b$ und $m$ stehen dabei verkürzend für \emph{er}, \emph{das Buch} und \emph{dem Mann}.
+$a$, $e$ und $n$ stehen dabei verkürzend für \emph{Aicke}, \emph{dem Eichhörnchen} und \emph{die Nuss}.
 
 Diese Identifikation des semantischen Beitrags von Kopf"|tochter und Mutterknoten
 stellt das Semantikprinzip sicher:
@@ -488,28 +471,24 @@ head-dtr$|$cont & \ibox{1} \\
 \noindent
 Abbildung~\vref{abb-sign-non-ha-struc} zeigt, wie der Typ \type{head"=non"=adjunct"=phrase}
 in die in Abbildung~\ref{fig-type-sign} entwickelte Hierarchie unter \textit{sign} integriert werden muß.
-\begin{figure}[htbp]
-\centerline{\begin{pspicture}(0.6,-2)(13.2,6.4)
-%\psgrid
-\rput[B](4,6){\rnode{sign}{\textit{sign}}}
-%
-\rput[B](1,4){\rnode{word}{\textit{word}}}
-\rput[B](7,4){\rnode{phrase}{\textit{phrase}}}
-%
-\rput[B](4,2){\rnode{nhs}{\textit{non-headed-phrase}}}
-\rput[B](10,2){\rnode{hs}{\textit{headed-phrase}}}
-%
-\rput[B](10,0){\rnode{hnas}{\textit{head-non-adjunct-phrase}}}
-\rput[B](10,-2){\rnode{hars}{\textit{head-argument-phrase}}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{sign}{word}\ncdiag{sign}{phrase}
-\ncdiag{phrase}{hs}\ncdiag{phrase}{nhs}
-\ncdiag{hs}{hnas}
-\ncdiag{hnas}{hars}
-%
-\end{pspicture}}
+\begin{figure}
+\centerline{
+\begin{forest}
+type hierarchy
+[sign,
+ for tree={
+   calign=fixed angles,
+   calign angle=60
+ } 
+  [word]
+  [phrase
+    [non-headed-phrase]
+    [headed-phrase, l sep+=\baselineskip
+      [\ldots]
+      [head-non-adjunct-phrase, calign with current
+        [head-argument-phrase]]
+      [\ldots]]]]
+\end{forest}}
 \caption{\label{abb-sign-non-ha-struc}Typhierarchie für \textit{sign}}
 \end{figure}
 
@@ -669,17 +648,19 @@ non-head-dtrs \liste{ \ibox{7} \onems{
 \end{figure}
 \end{comment}
 
-\section*{Kontrollfragen}
+%\section*{Kontrollfragen}
 
-
+\questions{
 \begin{enumerate}
 \item Was versteht man unter Linking?
 \item Wie wird in der HPSG eine Verbindung zwischen Form und Bedeutung eines (komplexen)
       sprachlichen Zeichens hergestellt?
 \end{enumerate}
+}
 
-\section*{Übungsaufgaben}
+%\section*{Übungsaufgaben}
 
+\exercises{
 \begin{enumerate}
 \item Wie kann man den semantischen Beitrag von \emph{lacht} repräsentieren? Geben Sie den
   Lexikoneintrag für \emph{lacht} an und berücksichtigen Sie das Linking.
@@ -696,4 +677,4 @@ Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluß eine Liste 
 Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem Kapitel besprochenen
 Aspekte.
 \end{enumerate}
-
+}

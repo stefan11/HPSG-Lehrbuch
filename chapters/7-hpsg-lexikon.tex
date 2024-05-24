@@ -299,7 +299,7 @@ Die Lexikonregel nimmt als Eingabe einen Verbstamm\footnote{
 nicht die leere Liste ist) verlangt, und lizenziert einen Lexikoneintrag, der ein Nominativargument 
 und eventuell in \ibox{2} enthaltene Argumente verlangt. Die Ausgabe der Lexikonregel spezifiziert
 den \vformw des Ausgabewortes. Das ist wichtig, da das Hilfsverb zur Verbform passen muß. Es darf \zb
-nicht das Partizip Perfekt statt des Partizips Passiv verwendet werden:\enlargethispage{1.5\baselineskip}
+nicht das Partizip Perfekt statt des Partizips Passiv verwendet werden:
 \eal
 \ex[]{
 Der Mann hat den Hund geschlagen.
@@ -849,29 +849,45 @@ die \subcatl übernehmen. Wie das im Detail aussieht, soll im folgenden erklärt
 
 Koenig diskutiert ein Beispiel, das eine Hierarchie verwendet, die der in Abbildung~\vref{bsp-partitionen}
 ähnelt.
-\begin{figure}[htb]
-\centerline{\begin{pspicture}(0.4,0.8)(9.2,5.4)
-%\psgrid
-\rput[B](5,5){\rnode{lexeme}{\textit{lexeme}}}
-\rput[B](2,3){\rnode{valence}{\fbox{\textit{valence}}}}
-%\rput[B](5,3){\rnode{inflection}{\fbox\textit{inflection}}}
-\rput[B](8,3){\rnode{root}{\fbox{\textit{root}}}}
-%
-\rput[B](1,1){\rnode{passive}{\textit{passive}}}
-\rput[B](3,1){\rnode{active}{\textit{active}}}
-%
-%\rput[B](4,1){\rnode{3sg}{\textit{3sg}}}
-%\rput[B](6,1){\rnode{past}{\textit{past}}}
-\rput[B](7,1){\rnode{lesen}{\textit{lesen}}}
-\rput[B](9,1){\rnode{essen}{\textit{essen}}}
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{lexeme}{valence}\ncdiag{lexeme}{inflection}\ncdiag{lexeme}{root}
-\ncdiag{valence}{passive}\ncdiag{valence}{active}
-\ncdiag{inflection}{3sg}\ncdiag{inflection}{past}
-\ncdiag{root}{lesen}\ncdiag{root}{essen}
-%
-\end{pspicture}}
+\begin{figure}
+% \centerline{\begin{pspicture}(0.4,0.8)(9.2,5.4)
+% %\psgrid
+% \rput[B](5,5){\rnode{lexeme}{\textit{lexeme}}}
+% \rput[B](2,3){\rnode{valence}{\fbox{\textit{valence}}}}
+% %\rput[B](5,3){\rnode{inflection}{\fbox\textit{inflection}}}
+% \rput[B](8,3){\rnode{root}{\fbox{\textit{root}}}}
+% %
+% \rput[B](1,1){\rnode{passive}{\textit{passive}}}
+% \rput[B](3,1){\rnode{active}{\textit{active}}}
+% %
+% %\rput[B](4,1){\rnode{3sg}{\textit{3sg}}}
+% %\rput[B](6,1){\rnode{past}{\textit{past}}}
+% \rput[B](7,1){\rnode{lesen}{\textit{lesen}}}
+% \rput[B](9,1){\rnode{essen}{\textit{essen}}}
+% \psset{angleA=-90,angleB=90,arm=0pt}
+% %
+% \ncdiag{lexeme}{valence}\ncdiag{lexeme}{inflection}\ncdiag{lexeme}{root}
+% \ncdiag{valence}{passive}\ncdiag{valence}{active}
+% \ncdiag{inflection}{3sg}\ncdiag{inflection}{past}
+% \ncdiag{root}{lesen}\ncdiag{root}{essen}
+% %
+% \end{pspicture}}
+\begin{forest}
+  type hierarchy,
+  for level=3{
+    instance, % Apply "instance" style to nodes on (absolute) level 3.
+    l*=1.5, % increases the distance to the second level by a factor of 1.5
+  },
+  [lexeme
+    [valence,partition,
+      [passive]
+      [active]]
+    [root,partition,
+      [lesen]
+      [essen]
+    ]
+  ]
+\end{forest}
 \caption{\label{bsp-partitionen}Typhierarchie mit Partitionen}
 \end{figure}
 Die eingekästelten Elemente entsprechen sogenannten Partitionen\is{Partition}. Für beschriebene Objekte
@@ -883,34 +899,23 @@ läßt Koenig automatisch berechnen. Ist die für die entsprechenden Typen defin
 kompatibel, wird ein entsprechender Subtyp in die Hierarchie eingefügt.
 Für die Hierarchie in Abbildung~\ref{bsp-partitionen} ergibt sich die Hierarchie
 mit den zusätzlichen Typen in Abbildung~\vref{bsp-partitionen-ausgerechnet}.
-\begin{figure}[htb]
-\centerline{\begin{pspicture}(-0.8,0.8)(10.4,5.4)
-%\psgrid
-\rput[B](5,5){\rnode{lexeme}{\textit{lexeme}}}
-%
-\rput[B](0.5,3){\rnode{passive}{\textit{passive}}}
-\rput[B](3.5,3){\rnode{active}{\textit{active}}}
-%
-%\rput[B](4,3){\rnode{3sg}{\textit{3sg}}}
-%\rput[B](6,3){\rnode{past}{\textit{past}}}
-\rput[B](6.5,3){\rnode{lesen}{\textit{lesen}}}
-\rput[B](9.5,3){\rnode{essen}{\textit{essen}}}
-\rput[B](0.5,1){\rnode{1}{\type{passive} $\wedge$ \type{lesen}}}
-\rput[B](3.5,1){\rnode{2}{\type{active} $\wedge$ \type{lesen}}}
-\rput[B](6.5,1){\rnode{3}{\type{passive} $\wedge$ \type{essen}}}
-\rput[B](9.5,1){\rnode{4}{\type{active} $\wedge$ \type{essen}}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{lexeme}{passive}\ncdiag{lexeme}{active}
-\ncdiag{lexeme}{3sg}\ncdiag{lexeme}{past}
-\ncdiag{lexeme}{lesen}\ncdiag{lexeme}{essen}
-\ncdiag{passive}{1}\ncdiag{lesen}{1}
-\ncdiag{active}{2}\ncdiag{lesen}{2}
-\ncdiag{passive}{3}\ncdiag{essen}{3}
-\ncdiag{active}{4}\ncdiag{essen}{4}
-%
-\end{pspicture}}
+\begin{figure}
+\begin{forest}
+  type hierarchy,
+  for level=2{
+%    instance, % Apply "instance" style to nodes on (absolute) level 3.
+    l*=1.5, % increases the distance to the second level by a factor of 1.5
+  },
+  [lexeme 
+    [passive, name=passive
+      [passive $\wedge$ lesen, edge to=lesen]]
+    [active, name=active
+      [active $\wedge$ lesen, edge to=lesen]]
+    [lesen, name=lesen
+      [passive $\wedge$ essen, edge to=essen, edge to=passive, no edge]]
+    [essen, name=essen
+      [active $\wedge$ essen, edge to=active]]]
+\end{forest}
 \caption{\label{bsp-partitionen-ausgerechnet}Typhierarchie mit automatisch hinzugefügten Typen}
 \end{figure}
 Der Vorteil einer solchen automatischen Typberechnung ist, daß man nicht
@@ -1426,29 +1431,17 @@ führen.\footnote{
   auf Seite~72 angibt, hat ebenfalls eine komplexe Struktur (siehe auch (\ref{le-vendre})\vpageref{le-vendre}
   in diesem Buch). Ich verzichte deshalb in den folgenden Abbildungen auf diese Unterscheidung.%
 }
-\begin{figure}[htb]
-\centerline{\begin{pspicture}(0.4,0.8)(9.2,5.4)
-%\psgrid
-\rput[B](5,5){\rnode{lexeme}{\textit{lexeme}}}
-\rput[B](2,3){\rnode{valence}{\fbox{\textit{number}}}}
-%\rput[B](5,3){\rnode{inflection}{\fbox\textit{inflection}}}
-\rput[B](8,3){\rnode{root}{\fbox{\textit{root}}}}
-%
-\rput[B](1,1){\rnode{passive}{\textit{sg}}}
-\rput[B](3,1){\rnode{active}{\textit{pl}}}
-%
-%\rput[B](4,1){\rnode{3sg}{\textit{3sg}}}
-%\rput[B](6,1){\rnode{past}{\textit{past}}}
-\rput[B](7,1){\rnode{lesen}{\textit{cat}}}
-\rput[B](9,1){\rnode{essen}{\textit{dog}}}
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{lexeme}{valence}\ncdiag{lexeme}{inflection}\ncdiag{lexeme}{root}
-\ncdiag{valence}{passive}\ncdiag{valence}{active}
-\ncdiag{inflection}{3sg}\ncdiag{inflection}{past}
-\ncdiag{root}{lesen}\ncdiag{root}{essen}
-%
-\end{pspicture}}
+\begin{figure}
+\begin{forest}
+type hierarchy
+[lexeme
+  [number,partition,
+    [sg]
+    [pl]]
+  [root,partition,
+    [cat]
+    [dog]]]
+\end{forest}
 \caption{\label{bsp-partitionen-numerus}Typhierarchie für Flexion}
 \end{figure}
 Auf Seite~72 gibt Koenig Einträge für das französische \emph{vendre} und Passiv- bzw.\
@@ -1482,29 +1475,17 @@ Das ist aber nicht die Lösung des Problems. Das System, das Koenig entwickelt, 
 nicht umsetzen, wenn die Typhierarchie Derivationstypen und Wurzeln in Partitionen enthält.
 Mit einer Hierarchie wie der in Abbildung~\vref{bsp-derivation-wurzeln-partitionen} können
 wir \emph{lesbar} und \emph{traurigkeit} ableiten, nicht aber \emph{Lesbarkeit}.
-\begin{figure}[htb]
-\centerline{\begin{pspicture}(0.4,0.8)(9.2,5.4)
-%\psgrid
-\rput[B](5,5){\rnode{lexeme}{\textit{lexeme}}}
-\rput[B](2,3){\rnode{valence}{\fbox{\textit{root}}}}
-%\rput[B](5,3){\rnode{inflection}{\fbox\textit{inflection}}}
-\rput[B](8,3){\rnode{root}{\fbox{\textit{affix}}}}
-%
-\rput[B](1,1){\rnode{passive}{\textit{les}}}
-\rput[B](3,1){\rnode{active}{\textit{traurig}}}
-%
-%\rput[B](4,1){\rnode{3sg}{\textit{3sg}}}
-%\rput[B](6,1){\rnode{past}{\textit{past}}}
-\rput[B](7,1){\rnode{lesen}{\textit{bar}}}
-\rput[B](9,1){\rnode{essen}{\textit{keit}}}
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{lexeme}{valence}\ncdiag{lexeme}{inflection}\ncdiag{lexeme}{root}
-\ncdiag{valence}{passive}\ncdiag{valence}{active}
-\ncdiag{inflection}{3sg}\ncdiag{inflection}{past}
-\ncdiag{root}{lesen}\ncdiag{root}{essen}
-%
-\end{pspicture}}
+\begin{figure}
+\begin{forest}
+type hierarchy
+[lexeme
+  [root,partition,
+    [les]
+    [traurig]]
+  [affix,partition,
+    [bar]
+    [keit]]]
+\end{forest}
 \caption{\label{bsp-derivation-wurzeln-partitionen}Derivation mit Wurzeln in Partitionen}
 \end{figure}
 Das liegt daran, daß das Ergebnis der Typberechnung \type{les} $\wedge$ \type{bar}
@@ -1626,42 +1607,28 @@ ist die Subhierarchie für das Konzept \emph{Vogel}: Vögel haben normalerweise
 Flügel und können fliegen. Diese Eigenschaften erbt der Subtyp \type{Spatz},
 beim Subtyp \type{Pinguin} wird aber die Eigenschaft des Fliegen"=Könnens überschrieben.
 Die entsprechende Hierarchie mit Eigenschaften zeigt Abbildung~\vref{pinguin}.
-\begin{figure}[htb]
-\centerline{\begin{pspicture}(-0.6,0.8)(5.4,5.4)
-%\psgrid
-\rput[B](3,5){\rnode{Lebewesen}{\textit{Lebewesen}}}
-\rput[B](3,3){\rnode{sign}{\textit{Vogel}: hat Flügel, fliegt}}
-%
-\rput[B](1,1){\rnode{word}{\textit{Pinguin}: fliegt nicht}}
-%
-\rput[B](5,1){\rnode{phrase}{\textit{Spatz}}}
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{Lebewesen}{sign}
-\ncdiag{sign}{word}\ncdiag{sign}{phrase}
-%
-\end{pspicture}}
+\begin{figure}
+\begin{forest}
+type hierarchy
+[Lebewesen
+   [Vogel: \textnormal{hat Flügel, fliegt}
+     [Pinguin: \textnormal{fliegt nicht}]
+     [Spatz]]]
+\end{forest}
 \caption{\label{pinguin}Typhierarchie für \textit{Vogel} mit Default-Vererbung}
 \end{figure}
 Wenn ein solches Überschreiben von Information möglich ist, spricht man von 
 nicht"=monotoner\is{Monotonie} Vererbung. Die Information in der Typhierarchie in Abbildung~\ref{pinguin}
 läßt sich auch ohne Defaults darstellen, wie Abbildung~\vref{mon-pinguin} zeigt.
-\begin{figure}[htb]
-\centerline{\begin{pspicture}(-0.6,0.8)(7.2,5.4)
-%\psgrid
-\rput[B](3,5){\rnode{Lebewesen}{\textit{Lebewesen}}}
-\rput[B](1,3){\rnode{sign}{\textit{Vogel}: hat Flügel}}
-\rput[B](5,3){\rnode{fliegt}{\textit{fliegendes Lebewesen}: fliegt}}
-%
-\rput[B](1,1){\rnode{word}{\textit{Pinguin}: fliegt nicht}}
-%
-\rput[B](5,1){\rnode{phrase}{\textit{Spatz}}}
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{Lebewesen}{sign}\ncdiag{Lebewesen}{fliegt}
-\ncdiag{sign}{word}\ncdiag{sign}{phrase}\ncdiag{fliegt}{phrase}
-%
-\end{pspicture}}
+\begin{figure}
+\begin{forest}
+type hierarchy
+[Lebewesen
+   [Vogel: \textnormal{hat Flügel}, name=Vogel
+     [Pinguin: \textnormal{fliegt nicht}]]
+   [fliegendes Lebewesen: \textnormal{fliegt}
+     [Spatz, edge to=Vogel]]]
+\end{forest}
 \caption{\label{mon-pinguin}Typhierarchie für \textit{Vogel} ohne Default-Vererbung}
 \end{figure}
 Man sagt eben nicht, daß alle Vögel fliegen können, was ja faktisch auch falsch ist.
@@ -1678,21 +1645,14 @@ ergibt sich, wenn man Typhierarchien mit Mehrfachvererbung\is{Vererbung!Mehrfach
 die Information, die von Obertypen ererbt wird, inkompatibel ist. Das klassische
 Beispiel für diese Situation ist der sogenannte Nixon"=Diamant\is{Nixon"=Diamant} in Abbildung~\vref{abb-nixon}.
 \NOTE{geht auf \citep{Touretzky86a} zurück}
-\begin{figure}[htbp]
-\centerline{\begin{pspicture}(-0.6,-1.2)(5.4,3.4)
-%\psgrid
-\rput[B](3,3){\rnode{sign}{\textit{Mensch}}}
-%
-\rput[B](1,1){\rnode{word}{\textit{Quaker}: Pazifist}}
-%
-\rput[B](5,1){\rnode{phrase}{\textit{Republikaner}: kein Pazifist}}
-\rput[B](3,-1){\rnode{nixon}{\textit{Nixon}: ?}}
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{sign}{word}\ncdiag{sign}{phrase}
-\ncdiag{word}{nixon}\ncdiag{phrase}{nixon}
-%
-\end{pspicture}}
+\begin{figure}
+\begin{forest}
+type hierarchy
+[Mensch
+   [Quaker: \textnormal{Pazifist}, name=Vogel
+     [Nixon: \textnormal{?}, edge to=!un, before drawing tree={x/.option=!r.x}]]
+   [Republikaner: \textnormal{kein Pazifist}]]
+\end{forest}
 \caption{\label{abb-nixon}Der Nixon-Diamant: Das Problem bei nicht-monotoner Mehr\-fach\-ver\-er\-bung}
 \end{figure}
 Man kann die Eigenschaften des Typs \type{Nixon} nicht automatisch bestimmen. Deshalb muß
@@ -1796,40 +1756,26 @@ Nach dem \emph{Best Fit Principle} wird nur dann etwas als Vogel klassifiziert, 
 Eigenschaften mit Vögeln teilt als mit allen anderen Objekten. Das Problem am \emph{Best Fit Principle}
 ist, daß es im vorliegenden Fall nicht hilft, denn bei einer Klassifikation von Valenzmustern
 ist zwischen den beiden Möglichkeiten in Abbildung~\vref{abb-valenz-defaults} zu wählen.
-\begin{figure}[htbp]
-\centerline{\begin{pspicture}(-1.2,1.9)(10.8,6.4)
-%\psgrid
-\rput[B](1,6){\rnode{verb}{\textit{verb}: \type{list} }}
-%
-\rput[B](1,4){\rnode{intrans}{\textit{intrans-verb}: \sliste{ NP } }}
-%
-\rput[B](1,2){\rnode{trans}{\textit{trans-verb: \sliste{ NP, NP, \ldots }}}}
-%\rput[B](1,0){\rnode{ditrans}{\textit{ditrans-verb}:  \sliste{ NP, NP, NP }}}
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{verb}{intrans}\ncdiag{intrans}{trans}\ncdiag{trans}{ditrans}%
-%
-\rput[B](8,5){\rnode{verb2}{\textit{verb}: \type{list} }}
-%
-\rput[B](6,3){\rnode{intrans2}{\begin{tabular}[t]{@{}c@{}}
-                               \textit{intrans-verb}:\\
-                               \sliste{ NP } 
-                               \end{tabular}}}
-%
-\rput[B](10,3){\rnode{trans2}{\begin{tabular}[t]{@{}c@{}}
-                             \textit{trans-verb}:\\
-                             \sliste{ NP, NP, \ldots }
-                             \end{tabular}}}
-%% \rput[B](11,2){\rnode{ditrans2}{\begin{tabular}[t]{@{}c@{}}
-%%                                 \textit{ditrans-verb}:\\
-%%                                 \sliste{ NP, NP, NP }
-%%                                 \end{tabular}}}
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{verb}{intrans}\ncdiag{intrans}{trans}\ncdiag{trans}{ditrans}%
-\ncdiag{verb2}{intrans2}\ncdiag{verb2}{trans2}\ncdiag{verb2}{ditrans2}%
-%
-\end{pspicture}}
+\begin{figure}
+\hfill
+\begin{forest}
+type hierarchy
+[verb: \type{list}
+  [intrans-verb\textnormal{:} \sliste{ NP } 
+     [trans-verb\textnormal{:} \sliste{ NP, NP, \ldots } ] ] ]
+\end{forest}
+\hfill
+\begin{forest}
+type hierarchy
+[verb: \type{list}
+  [\begin{tabular}{c}
+   intrans-verb\textnormal{:}\\ \sliste{ NP }
+   \end{tabular} ] 
+  [\begin{tabular}{c}
+   trans-verb\textnormal{:}\\ \sliste{ NP, NP, \ldots }
+   \end{tabular} ] ]
+\end{forest}
+\hfill\mbox{}
 \caption{\label{abb-valenz-defaults}\emph{Best Fit Principle} und Valenzklassen}
 \end{figure}
 Geht man bei der Integration der transitiven Verben in eine Typhierarchie danach,
@@ -1883,22 +1829,15 @@ das Wort \emph{Lesbarkeit} in einer Vererbungshierarchie wie in Abbildung~\vref{
   von listenwertigen Valenzmerkmalen nicht so modelliert werden, daß das
   morphologische System automatisch Wörter erzeugen kann.%
 }
-\begin{figure}[htbp]
-\centerline{\begin{pspicture}(0.8,1)(5.4,5.4)
-%\psgrid
-\rput[B](1,5){\rnode{les}{\textit{les}}}
-%
-\rput[B](3,5){\rnode{bar}{\textit{bar}}}
-\rput[B](5,5){\rnode{keit}{\textit{keit}}}
-\rput[B](2,3){\rnode{lesbar}{\textit{lesbar}}}
-\rput[B](3,1){\rnode{lesbarkeit}{\textit{lesbarkeit}}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{les}{lesbar}\ncdiag{bar}{lesbar}
-\ncdiag{lesbar}{lesbarkeit}\ncdiag{keit}{lesbarkeit}
-%
-\end{pspicture}}
+\begin{figure}
+\begin{forest}
+    for tree={grow=north,parent anchor=north,child anchor=south,where n children=0{tier=word}{},l sep+=\baselineskip}
+    [lesbarkeit
+      [keit]
+      [lesbar
+        [bar]
+        [les]]]
+    \end{forest}
 \caption{\label{abb-lesbarkeit}\emph{Lesbarkeit} über Defaultvererbung}
 \end{figure}
 Das Override Principle würde man dann so interpretieren, daß bei Konflikten in bezug
@@ -2039,16 +1978,14 @@ NP$_{[3,sg,fem]}$     & \onems[sign]{ synsem \onems[synsem]{ cat \ms{ head & \ty
 \is{Makro|)}
 \end{comment}
 
-\section*{Kontrollfragen}
-
-
+\questions{
 \begin{enumerate}
 \item Welche Möglichkeiten gibt es in HPSG"=Theorien, Generalisierungen in bezug
       auf das Lexikon zu erfassen?
 \end{enumerate}
+}
 
-\section*{Übungsaufgaben}
-
+\exercises{
 \begin{enumerate}
 \item\label{ue-result}
 Schreiben Sie eine Lexikonregel, die für Adjektivstämme wie den
@@ -2103,24 +2040,25 @@ Sollte das nicht der Fall sein, formulieren Sie Ihre Regel um.
 \item Laden Sie die zu diesem Kapitel gehörende Grammatik von der Grammix"=CD
 (siehe Übung~\ref{uebung-grammix-kapitel4} auf Seite~\pageref{uebung-grammix-kapitel4}).
 
-Oben in der Menüleiste des Fensters, in dem die Grammatik geladen wird, gibt es einen Menüpunkt \verb+Trale+.
-Gehen Sie zum  Unterpunkt \verb+Draw|Hierarchy+. 
+Oben in der Menüleiste des Fensters, in dem die Grammatik geladen wird, gibt es einen Menüpunkt \texttt{Trale}.
+Gehen Sie zum  Unterpunkt \texttt{Draw|""Hierarchy}. 
 In der Statusleiste unten im Fenster erscheint der Text: \emph{Enter type to display [bot]:}.
 Geben Sie dort \emph{word} bzw.\ \emph{phrase} ein, um sich die Typhierarchie unter
 \type{word} bzw.\ \type{phrase} anzusehen. Die Beschränkungen, die zu den Typen gehören, finden
-Sie in der Datei \verb+le_macros.pl+, die Sie über das Menü \verb+File|Open File+ öffnen können.
+Sie in der Datei \texttt{le\_macros.pl}, die Sie über das Menü \texttt{File|Open File} öffnen können.
 Die genaue Syntax der Typbeschränkungen ist im Trale"= bzw.\ ALE"=Manual beschrieben.\footnote{
-\url{http://www.ale.cs.toronto.edu/docs/}. 28.12.2006.%
+\url{http://www.ale.cs.toronto.edu/docs/}. 24.05.2024.%
+}
+\end{enumerate}
 }
 
-\end{enumerate}
 
+%\section*{Literaturhinweise}
 
-\section*{Literaturhinweise}
-
+\furtherreading{
 Zu Lexikonregeln in den verschiedenen Grammatikframeworks siehe \citew{Jackendoff75a},
 \citew{Williams81a}, \citew{Bresnan82a}, \citew*{SURT83a}, \citew*{FPW85a}, \citew{Flickinger87},
 \citew{CB92a} und \citew{Meurers2000b}. Einen guten Überblick über das Lexikon in der HPSG bietet
 \citew{Meurers2001a}. Meurers geht auch auf den formalen Hintergrund der Lexikonregeln ein.
-
+}
 

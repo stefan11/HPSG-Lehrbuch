@@ -54,7 +54,6 @@ NP zu bilden. Ausschnitte des Lexikoneintrags für \emph{interessantes} zeigt (\
             } \\
 }
 \z
-\enlargethispage{\baselineskip}
 \emph{interessantes} ist ein Adjektiv, das selbst keine Argumente mehr zu sich nimmt,
 und das deshalb eine leere \subcatl hat. Adjektive wie \emph{treu} in (\mex{1}) würden entsprechend
 eine Dativ"=NP in ihrer \subcatl haben.
@@ -75,7 +74,6 @@ Den Lexikoneintrag zeigt (\mex{1}):
 }
 \z
 \emph{dem König treues} bildet dann eine Adjektivphrase, die \emph{Mädchen} modifiziert.
-\pagebreak
 
 Im Gegensatz zum Selektionsmerkmal \subcat, das zu den Merkmalen unter \textsc{cat}  gehört,
 ist \textsc{mod} ein Kopfmerkmal.
@@ -116,17 +114,17 @@ beschreibbar ist.\footnote{
 
 
 Abbildung~\vref{fig-ha-selektion} zeigt ein Beispiel für die Selektion in Kopf"=Adjunkt"=Strukturen.
-\begin{figure}[htbp]
-\centerline{\begin{tabular}[t]{@{}c@{\hspace{10mm}}c@{}}%llll}
-\multicolumn{2}{c}{\rnode{1}{\nbar}
-}\\
-\\*[4ex]
-\rnode{2}{AP[\textsc{head$|$mod} \ibox{1}]} & \rnode{3}{\ibox{1} \nbar}\\
-\\[4ex]
-\rnode{4}{interessantes}                     & \rnode{5}{Buch}\\
-\end{tabular}}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{2}{4}\ncline{3}{5}%
+\begin{figure}
+\centerline{%
+\begin{forest}
+sm edges
+[\nbar
+  [{AP[\textsc{head$|$mod} \ibox{1}]}
+    [interessantes]]
+  [\ibox{1} \nbar
+    [Buch]]]
+\end{forest}
+}
 \caption{\label{fig-ha-selektion}Kopf"=Adjunkt"=Struktur (Selektion)}
 \end{figure}
 Kopf"=Adjunkt"=Strukturen sind durch das folgende Schema\is{Schema!Kopf"=Adjunkt"=} lizenziert:\istype{head"=adjunct"=phrase}
@@ -223,26 +221,19 @@ steht, wie der Bedeutungsbeitrag der Mutter aussehen wird.
 Die Bedeutung des modifizierten Kopfes wird im Lexikoneintrag des Modifikators 
 in die Bedeutung des Modifikators integriert. Für das Beispiel \emph{interessantes Buch} ist das
 in Abbildung~\vref{fig-ha-synsem} dargestellt.
-\begin{figure}[htbp]
+\begin{figure}
 \oneline{%
-~~~~\begin{tabular}[t]{@{}c@{\hspace{10mm}}c@{}}
-\\[6ex]
-\multicolumn{2}{@{}c@{}}{\rnode{1}{\nbar[\begin{tabular}[t]{@{}l@{}}
-  \textsc{cont}   \rnode{cont1}{\ibox{1}}]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{AP[\begin{tabular}[t]{@{}l@{}}
-  \textsc{head$|$mod} \ibox{2},\\
-  \rnode{cont2}{\textsc{cont}}   \ibox{1} [\textsc{restr} \semliste{ \relation{interessant}\iboxb{3} } $\oplus$ \ibox{4}]]\\
-  \end{tabular}} & \rnode{3}{\ibox{2} \nbar[\textsc{cont$|$restr} \ibox{4} \semliste{ \relation{buch}\iboxb{3} }]}\\
-\\[4ex]
-\rnode{4}{interessantes}                     & \rnode{5}{Buch}\\
-\end{tabular}%
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{2}{4}\ncline{3}{5}%
-\ncline{<->}[t]{cont1}[l]{cont2}{3.5cm}%
+\begin{forest}
+sm edges
+[{\nbar[\cont \rnode{cont1}{\ibox{1}}]}
+  [AP\feattab{\textsc{head$|$mod} \ibox{2},\\
+              {\rnode{cont2}{\cont} \ibox{1} [\textsc{restr} \nliste{ interessant(\ibox{3}) } $\oplus$ \ibox{4}}]} [interessantes]]
+  [{\ibox{2}} \nbar{[\textsc{cont$|$restr} \ibox{4} \nliste{ buch(\ibox{3}) }]}
+    [Buch]]]
+\end{forest}
+\nccurve[angleA=90,angleB=175,ncurvB=1]{<->}{cont1}{cont2}
 }
+\itdopt{remove the pstricks code}
 \caption{\label{fig-ha-synsem}Kopf"=Adjunkt"=Struktur (Selektion und Bedeutungsbeitrag)}
 \end{figure}
 Das Kopf"=Adjunkt"=Schema identifiziert den Kopf mit dem \textsc{mod}"=Wert der Adjunkttochter \iboxb{2}.
@@ -439,29 +430,27 @@ non-head"=dtrs  \sliste{ \ibox{2} } \\
 Strukturen mit Kopf (\type{headed"=phrase}) sind entweder Untertypen von
 \emph{head"=argument"=phrase} oder von \emph{head"=non"=argument"=phrase}.
 Einen Überblick über die Untertypen des Typs \type{sign} zeigt Abbildung~\vref{abb-sign-non-ha-non-har-struc}.
-\begin{figure}[htbp]
-\centerline{\begin{pspicture}(2.4,-2)(15.2,4.4)
-%\psgrid
-\rput[B](7,4){\rnode{phrase}{\textit{phrase}}}
-%
-\rput[B](4,2){\rnode{nhs}{\textit{non-headed"=phrase}}}
-\rput[B](10,2){\rnode{hs}{\textit{headed"=phrase}}}
-%
-\rput[B](7,0){\rnode{hnas}{\type{head"=non-adjunct"=phrase}}}
-\rput[B](13,0){\rnode{hnars}{\type{head"=non"=argument"=phrase}}}
-\rput[B](7,-2){\rnode{hars}{\textit{head"=argument"=phrase}}}
-\rput[B](10,-2){\rnode{hfs}{\ldots\rule{0cm}{1ex}}}
-\rput[B](13,-2){\rnode{has}{\textit{head"=adjunct"=phrase}}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{sign}{word}\ncdiag{sign}{phrase}
-\ncdiag{phrase}{hs}\ncdiag{phrase}{nhs}
-\ncdiag{hs}{hnas}\ncdiag{hnas}{hars}
-\ncdiag{hs}{hnars}\ncdiag{hnars}{has}
-\ncdiag{hnars}{hfs}\ncdiag{hnas}{hfs}
-%
-\end{pspicture}}
+\begin{figure}
+\centerline{
+\begin{forest}
+type hierarchy,
+ for tree={
+   calign=fixed angles,
+   calign angle=60
+ } 
+[sign %,s sep+=4em
+  [word]
+  [phrase
+    [non-headed-phrase]
+    [headed-phrase, for tree={l sep+=\baselineskip}
+      [head-non-adjunct-phrase, calign=first
+        [head-argument-phrase]
+        [\ldots]]
+      [head-non-argument-phrase, calign=last
+       [,identify=!r2212]
+       [head-adjunct-phrase]]]]]
+\end{forest}}
+\itdopt{Linien treffen sich nicht}
 \caption{\label{abb-sign-non-ha-non-har-struc}Typhierarchie für \type{phrase}}
 \end{figure}
 \type{head"=non-adjunct"=phrase} und \type{head"=non"=argument"=phrase} haben
@@ -477,32 +466,22 @@ Eigenschaften der Gesamtstruktur determinieren.
 \begin{figure}[htbp]
 %\centerline{
 \hspace{2em}\resizebox{0.96\textwidth}{!}{%
-\begin{tabular}[t]{@{}c@{\hspace{10mm}}c@{}}%llll}
-\multicolumn{2}{c}{\rnode{1}{\nbar[\begin{tabular}[t]{@{}l}
-  \textsc{head}   \rnode{h1}{\ibox{1}},\\
-  \textsc{subcat} \rnode{sc1}{\ibox{2}},\\
-  \rnode{cont1}{\textsc{cont}}   \ibox{3}]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{AP[\begin{tabular}[t]{@{}l}
-  \textsc{head$|$mod} \ibox{4},\\
-  \rnode{cont2}{\textsc{cont}}   \ibox{3} [\textsc{restr} \sliste{ \textrm{\relation{interessant}\iboxb{5}} } $\oplus$ \ibox{6}]]\\
-  \end{tabular}} & \rnode{3}{\ibox{4} \nbar[\begin{tabular}[t]{@{}l}
-                                      \textsc{head}   \rnode{h2}{\ibox{1}},\\
-                                      \textsc{subcat} \rnode{sc2}{\ibox{2}} \sliste{ Det },\\
-                                      \textsc{cont$|$restr} \ibox{6} \sliste{ \textrm{\relation{buch}\iboxb{5}} }]
-                                                         \end{tabular}
-                                                       }\\
-\\[4ex]
-\rnode{4}{interessantes}                     & \rnode{5}{Buch}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{2}{4}\ncline{3}{5}%
-\ncline{<->}[r]{h1}[tr]{h2}{1.5cm}%
-\ncline{<->}[r]{sc1}[tr]{sc2}{1.5cm}%
-\ncline{<->}[l]{cont1}[l]{cont2}{3.5cm}%
-}
+\begin{forest}
+sm edges
+[\nbar\feattab{\head   \rnode{h1}{\ibox{1}},\\
+               \subcat \rnode{sc1}{\ibox{2}},\\
+               \rnode{cont1}{\cont} \ibox{3}}
+  [AP\feattab{\textsc{head$|$mod} \ibox{4},\\
+              \rnode{cont2}{\cont} \ibox{3} [\textsc{restr} \nliste{ interessant(\ibox{5}) } $\oplus$ \ibox{6}]}
+    [interessantes]]
+  [\ibox{4} \nbar\feattab{\head   \rnode{h2}{\ibox{1}},\\
+                          \subcat \rnode{sc2}{\ibox{2}} \sliste{ det },\\
+                          \textsc{cont$|$restr} \ibox{6} \nliste{ buch(\ibox{5}) }}
+    [Buch]]]
+\end{forest}
+\nccurve[angleA=0,angleB=45]{<->}{h1}{h2}
+\nccurve[angleA=0,angleB=45]{<->}{sc1}{sc2}
+\nccurve[angleA=170,angleB=175,ncurvB=1.2]{<->}{cont1}{cont2}}
 \caption{\label{fig-ha-val-sem-hfp}Kopf"=Adjunkt"=Struktur (HFP, Valenz, Semantik, \ldots)}
 \end{figure}
 \is{Prinzip!Valenz-|)}
@@ -1065,44 +1044,34 @@ leer\is{leere Kategorie} sein, was in (\mex{1}) der Fall ist.
 Als Alternative zu einem leeren Element bietet sich eine
 Spezialregel an, die einen Kopf, der einen Determinator selegiert, zu einem vollständigen Kopf
 projiziert und den semantischen Beitrag leistet, den der leere Determinator leisten
-würde \citep{Wunderlich87d}. Abbildung~\vref{Abb-NP-Analysen} zeigt die Analysemöglichkeiten.
+würde (siehe \citealt{Wunderlich87d} zur Vermeidung leerer Elemente). Abbildung~\vref{Abb-NP-Analysen} zeigt die Analysemöglichkeiten.
 \begin{figure}
 \hfill
-\begin{tabular}[t]{@{}ccc@{}}
-\multicolumn{2}{c}{\rnode{NP1}{NP}}\\[3ex]
-\rnode{Det1}{Det} & \multicolumn{2}{c}{\rnode{nbar1}{\nbar}} \\[3ex]
-                 & \rnode{Adj1}{Adj}    & \rnode{N1}{\nbar}\\[3ex]
-\rnode{e1}{\_}    & \rnode{guter1}{guter} & \rnode{Wein1}{Wein}\\
-\end{tabular}
-\ncline{NP1}{Det1}\ncline{NP1}{nbar1}%
-\ncline{nbar1}{Adj1}\ncline{nbar1}{N1}%
-\ncline{Det1}{e1}\ncline{Adj1}{guter1}\ncline{N1}{Wein1}%
+\begin{forest}
+sm edges
+[NP
+  [Det [\trace]]
+  [\nbar
+    [Adj [guter]]
+    [\nbar [Wein]]]]
+\end{forest}
 %
 \hfill
-%
-%
-\begin{tabular}[t]{@{}ccc@{}}
-\multicolumn{2}{c}{\rnode{NP2}{NP}}\\[3ex]
-\multicolumn{2}{c}{\rnode{nbar2}{\nbar}} \\[3ex]
-\rnode{Adj2}{Adj}    & \rnode{N2}{\nbar}\\[3ex]
-\rnode{guter2}{guter} & \rnode{Wein2}{Wein}\\
-\end{tabular}
-\ncline{NP2}{nbar2}%
-\ncline{nbar2}{Adj2}\ncline{nbar2}{N2}%
-\ncline{Adj2}{guter2}\ncline{N2}{Wein2}%
-%
+\begin{forest}
+sm edges
+[NP
+  [\nbar
+    [Adj [guter]]
+    [\nbar [Wein]]]]
+\end{forest}
 \hfill
-%
-%
-\begin{tabular}[t]{@{}ccc@{}}
-\multicolumn{2}{c}{\rnode{NP13}{NP}}\\[3ex]
-\rnode{Adj3}{Adj}     & \rnode{NP23}{NP}\\[3ex]
-                     & \rnode{nbar3}{\nbar} \\[3ex]
-\rnode{guter3}{guter} & \rnode{Wein3}{Wein}\\
-\end{tabular}
-\ncline{NP13}{Adj3}\ncline{NP13}{NP23}%
-\ncline{NP23}{nbar3}%
-\ncline{Adj3}{guter3}\ncline{nbar3}{Wein3}%
+\begin{forest}
+sm edges
+[NP
+  [Adj [guter]]
+  [NP
+    [\nbar [Wein]]]]
+\end{forest}
 \hfill\mbox{}
 
 \caption{\label{Abb-NP-Analysen}Analysemöglichkeiten für determinatorlose Nominalphrasen: leerer
@@ -1160,15 +1129,17 @@ Analyse mit dem leeren Determinator ist also vorzuziehen.\footnote{
 %% \is{Skopus|)}
 \is{Konstruktionsgrammatik (CxG)|)}
 
-\section*{Kontrollfragen}
+%\section*{Kontrollfragen}
 
-
+\questions{
 \begin{enumerate}
 \item Wozu braucht man das \textsc{mod}- und das \textsc{spec}"=Merkmal?
 \end{enumerate}
+}
 
-\section*{Übungsaufgaben}
+%\section*{Übungsaufgaben}
 
+\exercises{
 \begin{enumerate}
 \item Wie sieht der Lexikoneintrag für das Adjektiv \emph{großem}, wie es in (\mex{1})
 vorkommt, aus?
@@ -1184,3 +1155,4 @@ Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem 
 Aspekte.
 
 \end{enumerate}
+}
