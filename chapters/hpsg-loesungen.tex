@@ -1,0 +1,702 @@
+%% -*- coding:utf-8 -*-
+
+\chapter{Lösungen zu den Übungsaufgaben}
+
+\section{Einleitung}
+
+\begin{enumerate}
+% Auf Seite~\pageref{page-unendlich-viele-grammatiken} habe ich behauptet, daß
+%      es unendlich viele Grammatiken gibt, die (\ref{bsp-weil-er-das-buch-dem-mann-gibt})
+%      analysieren können.
+%      Überlegen Sie sich, wieso diese Behauptung richtig ist.
+\item Man kann zu jeder Grammatik zusätzliche Symbole und Regeln annehmen, die unnötige Struktur
+  erzeugen oder einfach nie angewendet werden, weil es keine Wörter oder Phrasen gibt, die in der
+  rechten Regelseite verwendet werden können. Wenn wir unserer Grammatik zum Beispiel die folgende
+  Regel hinzufügen, haben wir eine komplexere Grammatik, die allerdings denselben Sprachausschnitt
+  analysieren kann.
+\ea
+Trallala $\to$ Trulla Trollolo
+\z
+% \item Stellen Sie Überlegungen dazu an, wie man ermitteln kann, welche der unendlich vielen Grammatiken
+%       die beste ist bzw.\ welche der Grammatiken die besten sind.
+\item Allgemein geht man davon aus, dass die Grammatik mit den wenigsten Regeln die beste ist. Somit
+  kann man Grammatiken, die unnötige Regeln wie (\mex{0}) enthalten, ablehnen.
+
+Allerdings muss man im Auge behalten, was das Ziel der Grammatiktheorie ist. Setzt man sich zum Ziel
+unser menschliches Sprachvermögen zu beschreiben, so kann eine Grammatik mit mehr Regeln die bessere
+sein. Das liegt daran, dass psycholinguistische Forschungen gezeigt haben, dass hochfrequente
+Einheiten einfach als ganze in unseren Köpfen abgespeichert sind und nicht jedes mal neu aus
+Einzelteilen aufgebaut werden, obwohl wir natürlich prinzipiell in der Lage dazu wären.\NOTE{Quelle
+  und Beispiel}
+
+Damit die letzten beiden Sätze ausgeschlossen sind, muss die Grammatik Kasusinformation
+enthalten. Die folgende Grammatik leistet das Gewünschte:
+\eal
+\ex s $\to$ np(nom), v(nom\_dat), np(dat)
+\ex s $\to$ np(nom), v(nom\_dat\_akk), np(dat), np(akk)
+\ex s $\to$ np(nom), v(nom\_pp\_auf), pp(auf,akk)
+%
+\ex pp(Pform,Kas) $\to$ p(Pform,Kas), np(Kas)
+\ex np(Kas) $\to$ d(Kas), n(Kas)
+%
+\ex v(nom\_dat) $\to$ hilft
+\ex v(nom\_dat\_akk) $\to$ gibt
+\ex v(nom\_pp\_auf) $\to$ wartet
+%
+\ex np(nom) $\to$ er
+\ex np(dat) $\to$ ihr
+%
+\ex d(nom) $\to$ der
+\ex d(dat) $\to$ der
+\ex d(akk) $\to$ das
+\ex d(akk) $\to$ ein
+%
+\ex n(nom) $\to$ Mann
+\ex n(dat) $\to$ Frau
+\ex n(akk) $\to$ Buch
+\ex n(akk) $\to$ Wunder
+%
+\ex p(auf,akk) $\to$ auf
+\zl
+
+
+
+\end{enumerate}
+
+
+\section{Der Formalismus}
+
+\begin{enumerate}
+\item Listen\is{Liste} kann man mittels rekursiver Strukturen beschreiben, die jeweils aus einem Listenanfang
+  und einem Rest bestehen. Der Rest kann entweder eine nicht leere Liste (\type{ne\_list}) oder die
+  leere Liste (\type{e\_list}) sein. Die Liste \relliste{ \type{a}, \type{b}, \type{c} } kann man wie folgt darstellen:
+\ea
+\ms[ne\_list]{
+first & a\\
+rest  & \ms[ne\_list]{
+        first & b\\
+        rest  & \ms[ne\_list]{
+                first & c\\
+                rest & e\_list\\
+                }\\
+        }\\
+}
+\z
+\item Erweitert man die Datenstruktur in (\mex{0}) um zwei weitere Merkmale, kann man auf
+  \emph{append} verzichten. Das Stichwort heißt \emph{Differenzliste}\is{Liste!Differenz-}. Eine Differenzliste besteht
+  aus einer Liste und einem Zeiger auf das letzte Element der Liste. 
+\ea
+\ms[diff-list]{
+list & \ms[ne\_list]{
+       first & a\\
+       rest  & \ms[ne\_list]{
+               first & b\\
+               rest  & \ibox{1} list\\
+               }\\
+       } \\
+last & \ibox{1}\\
+}
+\z
+
+Im Gegensatz zur
+  Listenrepräsentation in (\mex{-1}) ist jedoch der \textsc{rest}"=Wert des Listenendes nicht \type{e\_list}
+  sondern einfach \type{list}. Es ist damit möglich, eine Liste zu verlängern, indem man an die
+  Stelle, an der sie endet, eine andere Liste anfügt. Die Verkettung von (\mex{0}) und (\mex{1}a) ist (\mex{1}b).
+\eal
+\ex 
+\ms[diff-list]{
+list & \ms[ne\_list]{
+       first & c\\
+       rest  & \ibox{2} list\\
+       } \\
+last & \ibox{2}\\
+}
+\ex
+\ms[diff-list]{
+list & \ms[ne\_list]{
+       first & a\\
+       rest  & \ms[ne\_list]{
+               first & b\\
+               rest  & \ms[ne\_list]{
+                       first & c\\
+                       rest  & \ibox{2} list\\
+                       }\\
+               }\\
+       } \\
+last & \ibox{2}\\
+}
+\zl
+Für die Verkettung der Listen muss lediglich der \textsc{list}"=Wert der zweiten Liste mit dem \textsc{last}"=Wert der ersten Liste identifiziert werden. Der \textsc{last}"=Wert der Ergebnisliste
+entspricht dem \textsc{last}"=Wert der zweiten Liste (im Beispiel \ibox{2}).
+
+Information zur Differenzlistenkodierung lässt sich \zb mit einer Suchanfrage mit den Stichwörtern \emph{list} \emph{append} und
+\emph{feature structure} finden. Bei dieser Suchanfrage bekommt man Grammatikentwicklungsseiten, die
+Differenzlisten erklären.
+\end{enumerate}
+
+
+
+\section{Valenz und Grammatikregeln}
+
+      \eal
+      \ex er: \sliste{}
+      \ex seine (in \emph{seine Ankündigung}): \sliste{}
+      \ex schnarcht: \sliste{ NP[\type{nom}] } 
+      \ex denkt: \sliste{ NP[\type{nom}], (PP[\type{an},\type{akk}]) } $\vee$ \sliste{
+        NP[\type{nom}], (CP[\type{dass}]) }
+% wenn das semantisch zwei verschiedene denken sind, dann sollten beide Objekte optional sein.
+      \ex graut: \sliste{ (NP[\type{es}]), NP[\type{dat}], (PP[\type{vor}, \type{dat}]) }
+      \zl
+
+
+\section{Kopf-Argument-Strukturen}
+
+\begin{enumerate}
+\item Zeichnen Sie einen Syntaxbaum für (\mex{1}):
+\ea
+daß der Mann das spannende Buch liest
+\z
+Markieren Sie die Kanten im Baum mit Ad für Adjunkt, Ar für Argument und
+H für Kopf.
+
+Die Struktur von (\mex{1}) ist in Abbildung~\ref{fig-dass-der-mann} zu sehen. Dabei steht \nbar für
+ein Nomen, das einen Determinator verlangt (siehe Seite~\pageref{ex-abkuerzung-nbar}), V steht für ein lexikalisches
+Verb, \vbar für eine ungesättigte und VP für eine gesättigte Verbalprojektion.
+\begin{figure}[htbp]
+\centerline{%
+\begin{tabular}{ccccccc}
+\multicolumn{4}{c}{\node{cp}{CP}}\\
+\\
+\multicolumn{6}{l}{\hspace{0.4cm}H\hspace{2.2cm}Ar}\\[2ex]
+\node{c}{C}   & \multicolumn{4}{c}{\node{vp}{VP}}\\ 
+\\
+\multicolumn{6}{l}{\hspace{1.7cm}Ar\hspace{3cm}H}\\[2ex]
+%
+              & \multicolumn{2}{c}{\node{np1}{NP}}  & \multicolumn{4}{c}{\node{v1}{\vbar}}\\
+\\
+\multicolumn{7}{l}{\hspace{0.8cm}Ar\hspace{1.1cm}H \hspace{1.6cm}Ar\hspace{2.5cm}H}\\[2ex]
+%
+              & \node{det1}{Det} & \node{n1}{\nbar} & \multicolumn{2}{c}{\node{np2}{NP}}                        & & \node{v2}{V}\\
+\\
+\multicolumn{7}{l}{\hspace{3cm}Ar\hspace{1.9cm}H}\\[2ex]
+%
+              &                  &                  & \node{det2}{Det} & \multicolumn{2}{c}{\node{ns2}{\nbar}}\\
+\\
+\multicolumn{7}{l}{\hspace{4.3cm}Ad\hspace{1.6cm}H}\\[2ex]
+%
+              &                  &                  &                  & \node{adj}{Adj}       & \node{n2}{\nbar} \\
+\\[3ex]
+ \node{dass}{daß} & \node{der}{der} & \node{mann}{Mann} & \node{das}{das} & \node{sp}{spannende} & \node{buch}{Buch} & \node{liest}{liest}\\
+\end{tabular}
+\nodeconnect{cp}{c}\nodeconnect{cp}{vp}%
+\nodeconnect{c}{dass}%
+\nodeconnect{vp}{np1}\nodeconnect{vp}{v1}%
+\nodeconnect{np1}{det1}\nodeconnect{np1}{n1}%
+\nodeconnect{v1}{np2}\nodeconnect{v1}{v2}%
+\nodeconnect{np2}{det2}\nodeconnect{np2}{ns2}%
+\nodeconnect{ns2}{adj}\nodeconnect{ns2}{n2}%
+\nodeconnect{det1}{der}\nodeconnect{n1}{mann}%
+\nodeconnect{det2}{das}\nodeconnect{adj}{sp}%
+\nodeconnect{n2}{buch}\nodeconnect{v2}{liest}%
+}
+\caption{\label{fig-dass-der-mann}Syntaxstruktur von \emph{daß der Mann das spannende Buch liest}}
+\end{figure}
+\item 
+
+\eanoraggedright
+\onems[head-argument-phrase~]{
+      phon  \phonliste{ das Kind schläft }\\
+      head  \ibox{1}\\
+      subcat \ibox{2} \sliste{ } \\
+      head-dtr \onems[word]{ phon \phonliste{ schläft }\\
+                                     head \ibox{1} \ms[verb]{vform & fin \\
+                                                            }\\
+                                     subcat \ibox{2}  $\oplus$ \sliste{ \ibox{3} } \\
+                       } \\
+      non-head-dtrs \liste{ \ibox{3} \onems[head-argument-phrase~]{ 
+                                        phon \phonliste{ das Kind }\\
+                                        head \ibox{4} \ms[noun]{ cas & \ibox{5} nom\\
+                                                      } \\
+                                        subcat   \eliste \\
+                                        head-dtr \onems[word]{ 
+                                                  phon \phonliste{ Kind }\\
+                                                  head \ibox{4} \\
+                                                  subcat   \sliste{ \ibox{6} } \\
+                                                  }\\
+                                        non-head-dtrs \liste{ \ibox{6} \onems[word]{ 
+                                                                phon \phonliste{ das }\\
+                                                                head \ms[det]{
+                                                                      cas & \ibox{5} \\ 
+                                                                      }\\
+                                                                subcat \eliste{ } \\
+                                                  } }\\
+                                     }
+                       }\\
+}
+\z
+\end{enumerate}
+
+
+\section{Semantik}
+
+\begin{enumerate}
+
+\item 
+%% Wie kann man den semantischen Beitrag von \emph{lacht} repräsentieren? Geben Sie den
+%%   Lexikoneintrag für \emph{lacht} an und berücksichtigen Sie das Linking.
+
+
+
+\ea
+\onems[head-argument-phrase~]{
+      phon  \phonliste{ er lacht }\\
+      cat \ms{ head  \ibox{1}\\
+               subcat \ibox{2} \sliste{ } \\
+             }\\
+      cont \ibox{3}\\
+      head-dtr \ms[word]{ phon & \phonliste{ lacht }\\
+                          cat & \ms{ head \ibox{1} \ms[verb]{vform & fin \\
+                                                            }\\
+                                     subcat \ibox{2}  $\oplus$ \sliste{ \ibox{4} } \\
+                                   }\\
+                          cont & \ibox{3} \ms[lachen]{ agens & \ibox{5}\\
+                                          }\\
+                       } \\
+      non-head-dtrs \liste{ \ibox{4} \ms[word~]{ 
+                                        phon & \phonliste{ er }\\
+                                        cat & \ms{ head & \ms[noun]{ cas & nom\\
+                                                                   } \\
+                                                   subcat &  \eliste \\
+                                                 }\\
+                                        cont & \ms{ ind & \ibox{5} \ms{ per & 3\\
+                                                                      num & sg\\
+                                                                      gen & mas\\
+                                                                    }\\
+                                                  restr & \eliste\\
+                                                }\\
+                                     }
+                       }\\
+}
+\z
+
+ 
+
+\end{enumerate}
+
+
+\section{Spezifikation und Adjunktion}
+
+
+\begin{enumerate}
+\item
+
+\ea
+\ms
+ { phon & \phonliste{ großem }\\
+   cat & \ms{ head & \ms[adj]
+                      { %prd & $-$ \\
+                        mod &  \textrm{$\overline{\mbox{\textrm{N}}}$:} \ms{ ind   & \ibox{1} \\
+                                                                     restr & \ibox{2} \\
+                                                                    } \\
+                      } \\
+               subcat & \liste{} \\
+             } \\
+   cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
+                                   num & sg \\
+                                   gen & mas $\vee$ neu \\
+                               } \\
+                     restr & \liste{ \ms[groß]{ 
+                                theme & \ibox{1} \\ 
+                               }} $\oplus$ \ibox{2}  \\
+              } \\
+}
+
+\z
+
+\end{enumerate}
+
+
+
+\section{Das Lexikon}
+
+\begin{enumerate}
+\item
+\ea 
+\ms{
+cat & \ms{ head   & \ms[adj]{
+                    mod & none\\
+                    }\\
+           subcat & \sliste{ NP[\nom]\ind{1} } $\oplus$ \ibox{2}\\
+         }\\
+cont & \ibox{3}\\
+} $\mapsto$\\
+\ms{
+cat & \ms{ head   & \ms[adj]{
+                    mod & \textrm{$\overline{\mbox{\textrm{N}}}$:} \ms{ ind   & \ibox{1} \\
+                                                                restr & \ibox{4} \\
+                                                              } \\
+                    }\\
+           subcat & \ibox{2}\\
+         }\\
+cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
+%                                num & sg\\
+%                                gen & neu\\
+                              } \\
+            restr & \sliste{ \ibox{3} } $\oplus$ \ibox{4}  \\
+              } \\
+}
+\z
+Der Kasus der NP im Eingabezeichen muss spezifiziert werden, da die Lexikonregel sonst auch auf
+subjektlose Adjektive anwendbar wäre:
+\eal
+\ex[]{
+Dem Mann ist schwindelig/schlecht.
+}
+\ex[*]{
+der schwindelige/schlechte Mann
+}
+\zl
+\emph{der schlechte Mann} ist zwar grammatisch, jedoch mit einer anderen Bedeutung als in (\mex{0}a).
+
+Kasus, Numerus und Genus sind im Ausgabezeichen hier nicht spezifiziert. Welche Werte im
+Ausgabezeichen dann stehen müssen, hängt von der gewählten Endung ab.
+
+\end{enumerate}
+
+\section{Ein topologisches Modell des deutschen Satzes}
+
+\begin{enumerate}
+\item \eal
+\ex \field{Karl}{VF} \field{isst}{LS}.
+\ex \field{Der Mann}{VF} \field{liebt}{LS} \field{eine Frau}{MF}, \field{\field{den}{VF} \field{Peter}{MF} \field{kennt}{RS}}{NF}.
+\ex \field{Der Mann}{VF} \field{liebt}{LS} \field{eine Frau, \field{die}{VF} \field{Peter}{MF} \field{kennt}{RS}}{MF}.
+%\ex \field{Die Studenten}{VF} \field{behaupten}{LS}, \field{\field{nur wegen der Hitze}{MF} \field{einzuschlafen}{RS}}{MF}.
+\ex \field{Die Studenten}{VF} \field{haben}{LS} \field{behauptet}{RS}, \field{\field{nur wegen der Hitze}{MF} \field{einzuschlafen}{RS}}{NF}.
+\ex \field{\field{Dass}{LS} \field{Peter nicht}{MF} \field{kommt}{RS}}{VF}, \field{ärgert}{LS} \field{Klaus}{MF}.
+\ex \field{\field{Einen Mann}{MF} \field{küssen}{RS}, \field{\field{der}{VF} \field{ihr nicht}{MF} \field{gefällt}{RS}}{NF}}{VF}, \field{würde}{LS} \field{sie nie}{MF}.
+\zl
+
+Zu (\mex{0}c): Theoretisch könnte hier auch eine Extraposition des Relativsatzes ins Nachfeld
+vorliegen. Da \emph{eine Frau, die Peter kennt} aber eine Konstituente ist, geht man davon aus, dass
+keine Umstellung des Relativsatzes stattgefunden hat, sondern dass die einfachere Struktur mit
+\emph{eine Frau, die Peter kennt} als kompletter NP im Mittelfeld vorliegt.
+
+\end{enumerate}
+
+\section{Konstituentenreihenfolge}
+
+%% \begin{enumerate}
+%% \item Skizzieren Sie die Analysebäume für folgende Sätze und erläutern Sie,
+%%       wie die Unterschiede zwischen den Sätzen von der in diesem Kapitel
+%%       vorgestellten Analyse erfaßt werden:
+%% \eal
+%% \ex daß Kurt-Martin drei Mark dem Clown gibt
+%% \ex daß dem Clown Kurt-Martin drei Mark gibt 
+%% \ex Gibt Kurt-Martin dem Clown drei Mark?
+%% \zl
+
+\begin{figure}[H]
+\begin{tikzpicture}
+\tikzset{level 1+/.style={level distance=3\baselineskip}}
+\tikzset{frontier/.style={distance from root=15\baselineskip}}
+\Tree[.{C[\subcat \eliste ] }
+       [.{C[\subcat \sliste{ \ibox{1} }]} daß ]
+       [.{\ibox{1} V[\subcat \eliste ] }
+          [.{\ibox{2} NP[\type{nom}]} Kurt-Martin ]
+          [.{V[\subcat \sliste{ \ibox{2} } ] } 
+            [.{\ibox{3} NP[\type{acc}]} \edge[roof]; {drei Mark} ]
+            [.{V[\subcat \sliste{ \ibox{2}, \ibox{3} } ] }
+              [.{\ibox{4} NP[\type{dat}]} \edge[roof]; {dem Clown} ]
+              [.{V[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } gibt ] ] ] ]
+]
+\end{tikzpicture}
+\end{figure}
+
+
+\begin{figure}[H]
+\begin{tikzpicture}
+\tikzset{level 1+/.style={level distance=3\baselineskip}}
+\tikzset{frontier/.style={distance from root=15\baselineskip}}
+\Tree[.{C[\subcat \eliste ] }
+       [.{C[\subcat \sliste{ \ibox{1} } ] } daß ]
+       [.{\ibox{1} V[\subcat \eliste ] }
+          [.{\ibox{4} NP[\type{dat}]} \edge[roof]; {dem Clown} ]
+          [.{V[\subcat \sliste{ \ibox{4} } ] } 
+            [.{\ibox{3} NP[\type{acc}]} \edge[roof]; {drei Mark} ]
+            [.{V[\subcat \sliste{ \ibox{3}, \ibox{4} } ] }
+              [.{\ibox{2} NP[\type{nom}]} Kurt-Martin ]
+              [.{V[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } gibt ] ] ] ]
+]
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+\oneline{%
+\begin{tikzpicture}
+\tikzset{level 1+/.style={level distance=3\baselineskip}}
+\tikzset{level 2+/.style={level distance=4\baselineskip}}
+\tikzset{frontier/.style={distance from root=19\baselineskip}}
+\Tree[.{V[\subcat \eliste ] }
+       [.{V[\subcat \sliste{ \ibox{1} } ] }  \edge node[auto=left]{V1-LR};
+         [.{V\ibox{5}[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } gibt ] ]
+       [.{\ibox{1} V\feattab{\dsl \ibox{5},\\
+                             \subcat \eliste} }
+          [.{\ibox{2} NP[\type{nom}]} Kurt-Martin ]
+          [.{V\feattab{\dsl \ibox{5},\\
+                       \subcat \sliste{ \ibox{2} } } } 
+            [.{\ibox{4} NP[\type{dat}]} \edge[roof]; {dem Clown} ]
+            [.{V\feattab{\dsl \ibox{5},\\
+                         \subcat \sliste{ \ibox{2}, \ibox{4} } } }
+              [.{\ibox{3} NP[\type{acc}]} \edge[roof]; {drei Mark} ]
+              [.{V\ibox{5}\feattab{\dsl \ibox{5},\\
+                           \subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } } } \trace{} ] ] ] ]
+]
+\end{tikzpicture}}
+\end{figure}
+
+
+\section{Nichtlokale Abhängigkeiten}
+
+\begin{figure}[H]
+\oneline{%
+\begin{tikzpicture}
+\tikzset{level 1+/.style={level distance=4\baselineskip}}
+\tikzset{level 3+/.style={level distance=5\baselineskip}}
+\tikzset{frontier/.style={distance from root=23\baselineskip}}
+\Tree[.{V\feattab{\subcat \eliste,\\
+                  \slasch \eliste } }
+       [.{NP\ibox{1}[\type{acc}]} \edge[roof]; {diese Wohnung} ]
+       [.{V\feattab{ \subcat \eliste,\\
+                     \slasch \sliste{ \ibox{1} } } } 
+         [.{V[\subcat \sliste{ \ibox{2} } ] }  \edge node[auto=left]{V1-LR};
+           [.{V\ibox{3}[\subcat \sliste{ \ibox{4}, \ibox{5} } ] } mietet ] ]
+         [.{\ibox{2} V\feattab{ \dsl \ibox{3},\\
+                                \subcat \eliste,\\
+                                \slasch \sliste{ \ibox{1} } } } 
+           [.{ \ibox{5} NP\ibox{1}\feattab{ \slasch \sliste{ \ibox{1} } } } \trace{} ]
+           [.{V\feattab{\dsl \ibox{3},\\
+                        \subcat \sliste{ \ibox{4}, \ibox{5} },\\
+                                \slasch \eliste } }
+              [.{\ibox{4} NP[\type{nom}]} er ]
+              [.{V\ibox{3}\feattab{\dsl \ibox{3},\\
+                                   \subcat \sliste{ \ibox{4}, \ibox{5} },\\
+                                   \slasch \eliste } }  \trace{} ] ] ]
+] 
+]
+\end{tikzpicture}
+}
+\end{figure}
+
+
+
+\section{Relativsätze}
+
+%% \item Skizzieren Sie die Analyse für die folgende Phrase:
+%% \ea
+%% die Blume, die allen gefällt
+%% \z
+%% Gehen Sie auf die \slashwe und die \relwe ein.
+\begin{figure}[H]
+\oneline{%
+\begin{tikzpicture}
+\tikzset{level 1+/.style={level distance=3\baselineskip}}
+\tikzset{level 3+/.style={level distance=5\baselineskip}}
+\tikzset{level 4+/.style={level distance=4\baselineskip}}
+\tikzset{frontier/.style={distance from root=23\baselineskip}}
+\Tree[.{NP}
+       [.{\ibox{1} Det} die ]
+       [.{N$'$[\spr \sliste{ \ibox{1} }] } 
+          [.{\ibox{2} N$'$[\spr \sliste{ \ibox{1} }]\ind{3} } Blume ] 
+          [.{RC\feattab{\mod \ibox{2},\\
+                        \rel \eliste,\\
+                        \slasch \eliste }} 
+            [.{NP~\ibox{4}\feattab{\type{acc},\\
+                                   \textsc{rel} \sliste{ \ibox{3} }}} die ]
+            [.V\feattab{ \subcat \eliste,\\
+                         \slasch \sliste{ \ibox{4} }} 
+              [.{\ibox{5} NP\feattab{\HPSGloc \ibox{4},\\
+                                     \slasch \sliste{ \ibox{4} }}} \trace{} ]
+              [.V\feattab{ \subcat \sliste{ \ibox{5} },\\
+                           \slasch \eliste }
+                [.\ibox{6}~NP[\type{nom}] alle ]
+                [.V\feattab{ \subcat \sliste{ \ibox{6}, \ibox{5} },\\
+                             \slasch \eliste }  lieben ] ] ] ] ]
+]
+\end{tikzpicture}
+}
+\end{figure}
+
+
+\section{Kasus}
+
+\eal
+\ex Der Junge (str) lacht.  
+\ex Mich (lex) friert.    
+\ex Er (str) zerstört das Auto (str).
+\ex Das (str) dauert ein ganzes Jahr (lex = semantischer Kasus).
+\ex Er (str) hat nur einen Tag (str) dafür gebraucht.
+\ex Er (str) denkt an den morgigen Tag (lex).
+\zl
+
+\section{Der Verbalkomplex}
+
+\resizebox{\linewidth}{!}{%
+\nodemargin5pt
+\begin{tabular}{@{}ccc@{}c@{}}
+\multicolumn{3}{c}{%
+\node{s}{\ms[cat]{ head   & \ibox{1} \\
+           subcat & \eliste\\
+            }}}\\
+\\[3ex]
+\\[5ex]
+\node{np}{\ibox{2} NP[\type{nom}]} & \multicolumn{3}{c}{%
+\node{1}{\ms[cat]{ head   & \ibox{1} \\
+           subcat & \ibox{3}\\
+            }}}\\
+\\[3ex]
+\\[5ex]
+& \multicolumn{2}{c}{%
+\node{2}{
+\iboxt{5}~\onems{ loc \ms{ head & \ibox{4} \\
+                                   subcat & \ibox{3} \\
+                                 }
+}}} &
+\node{3}{
+                 \ms[cat]{ head & \ibox{1} \ms[verb]{ vform & fin \\
+                                                    } \\
+                      subcat & \ibox{3} $\oplus$ \sliste{ \ibox{5} } \\
+                    }}\\
+\\[3ex]
+\\[4ex]
+& \node{4}{%
+\iboxt{6}~\onems{ loc \onems{ head  \ms[verb]{ vform & bse  \\
+                                                }  \\
+                                subcat~\ibox{3} \sliste{ \ibox{2} NP[\textit{nom\/}] } \\
+                              }\\
+                }
+} & \node{5}{
+\onems[cat]{ head~\ibox{4} \ms[verb]{ vform & bse \\
+                            } \\
+            subcat ~ \ibox{3} $\oplus$ \sliste{ \ibox{6} } \\
+          }
+}\\
+\\[3ex]
+\node{er}{er} & \node{6}{singen} & \node{7}{können} & \node{8}{muss}\\
+\end{tabular}
+\nodeconnect{s}{np}\nodeconnect{s}{1}%
+\nodeconnect{np}{er}%
+\nodeconnect{1}{2}\nodeconnect{1}{3}%
+\nodeconnect{2}{4}\nodeconnect{2}{5}%
+\nodeconnect{4}{6}\nodeconnect{5}{7}\nodeconnect{3}{8}%
+}
+
+
+\section{Kohärenz, Inkohärenz, Anhebung und Kontrolle}
+
+
+\eanoraggedright
+\oneline{%
+\ms{
+cat & \ms{% head   & verb \\ 
+           subcat & \ibox{1} $\oplus$ \sliste{ NP[\type{ldat}]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \sliste{ \textrm{V[\textit{inf}, \textsc{lex}+, \textsc{subj}~\ibox{1}, \textsc{subcat}~\ibox{3} ]:\ibox{4}}}\\
+         }\\
+cont & \ms[scheinen]{
+        experiencer & \ibox{2} \\
+        soa & \ibox{4}\\
+       }\\
+}}\iw{scheinen|uu}
+\z
+
+\section{Passiv}
+
+\begin{enumerate}
+\item Weil \emph{zwei Wochen} kein Akkusativobjekt sondern ein Akkusativ der Zeit ist. Die NP hat
+  semantischen Kasus, der sich nicht in Abhängigkeit von der syntaktischen Umgebung ändert.
+
+\end{enumerate}
+
+
+\section{Partikelverben}
+
+\begin{enumerate}
+\item \emph{vor} verhält sich ähnlich wie \emph{los}, kann aber mit zweistelligen Verben kombiniert
+  werden. Das Verb, das im Partikelverb \emph{vorkochen} vorkommt, wird durch die Lexikonregel in
+  (\ref{lr-pv}) auf Seite~\pageref{lr-pv} lizenziert. Es wird keine zusätzliche Lexikonregel benötigt.
+
+\eas
+\label{le-vor}
+\mbox{\emph{vor}:}\\
+\ms{
+cat & \ms{ head & \ms[particle]{ mod  & \textrm{V} \\
+                                 subj & \eliste \\
+                               } \\
+           subcat & \eliste \\
+         }
+}
+\zs\iw{los|uu}
+
+Das \emph{vor} beschränkt anders als \emph{los} die Valenz des Verbs, mit dem es zusammengeht
+nicht. Somit kann es mit einstelligen (\emph{vorarbeiten}), zweistelligen (\emph{vorkochen}) und
+auch sogar mit dreistelligen Verben (\emph{vorschenken}) kombiniert werden:
+\ea
+vater würde ihn mir zu xmas vorschenken\footnote{
+  \url{http://www.elitepvpers.com/forum/crossfire-trading/2138728-b-lt-colonel-gg-lm-mg3-gold-etc-6.html}. 20.02.2013.
+}
+\z
+
+\eas
+\label{le-kochen}
+\mbox{\stem{koch}:}\\
+\ms{ head   & verb \\
+     subcat & \liste{NP[\str], NP[\str]} \\[2mm]
+}
+\iw{kochen|uu}
+\zs
+
+\end{enumerate}
+
+
+\section{Morphologie}
+
+
+
+\begin{enumerate}
+\item
+
+\eas
+Lexikonregel für \emph{ung}"=Nominalisierung:\\
+\label{lr-ung-nom}%
+\ms[ung-derived-noun-stem]{
+phon & \ibox{1} $\oplus$ \phonliste{ ung }\\
+synsem & \onems{ loc  \ms{ cat  & \ms{ head   & noun\\
+                                       spr & \sliste{ Det }\\
+%                                       subcat & \eliste\\
+                                      } \\
+                            cont & \ms{ ind & \ibox{2} \ms{ per & 3\\
+                                                            %num & sg\\    nicht für den Stamm
+                                                            gen & fem\\
+                                                           }\\
+                                         restr & \liste{%
+                                                \ms[\ldots]{
+                                                        inst & \ibox{2}\\
+                                                        soa & \ibox{3}\\
+                                                }}\\   
+                                      }\\                                 
+                         }\\
+               }\\
+lex-dtr & \onems[stem]{
+           phon   \ibox{1} \\
+           synsem$|$loc \onems{ cat$|$head \textit{verb}\\
+                                cont    \ibox{3} \\
+                        }\\
+           }\\
+}\is{Lexikonregel!ung Nominalisierung@{\em ung}-Nominalisierung}
+\zs
+
+Zur Semantik der \emph{ung}-Nominalisierung siehe \citew{ER2000a-u}.
+
+\item Die \suffix{ung}-Nominalisierungsregel wird auf den Stamm des Partikelverbs angewendet. Dieser
+  enthält bereits die Partikel in der \subcatl. Es muss also nicht erst aus dem Simplex"=Verb
+  \emph{treten} \noword{Tretung} gebildet werden, um dann \emph{Abtretung} bilden zu können.
+
+\end{enumerate}
