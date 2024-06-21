@@ -124,98 +124,52 @@ Mit diesem Schema kann man alle Abfolgen in (\ref{bsp-perm-mf}) analysieren. Das
 anhand der einfacheren Sätze in (\mex{1}) verdeutlicht werden.
 %\enlargethispage{\baselineskip} Dann kommt es weiter hinten zum Umbruch in (8).
 \eal
-\ex weil jeder das Buch kennt
-\ex weil das Buch jeder kennt
+\ex weil niemand den Roman kennt
+\ex weil den Roman niemand kennt
 \zl
-Die Analyse von (\mex{0}a) zeigt Abbildung~\vref{abb-jeder-das-buch-kennt}
+Die Analyse von (\mex{0}a) zeigt Abbildung~\vref{abb-niemand-den-Roman-kennt}
 und die von (\mex{0}b) 
-Abbildung~\ref{abb-das-buch-jeder-kennt}.%
-\begin{figure}[htb]
-\psset{xunit=1cm,yunit=8mm}%
-\centerline{%
-\begin{pspicture}(4.3,1)(12.4,7.6)
-\rput[B](5,1){\rnode{jeder}{jeder}}
-\rput[B](7,1){\rnode{ihnmf}{das Buch}}
-\rput[B](9,1){\rnode{kennt}{kennt}}
-%
-\rput[B](7,3){\rnode{np1}{\ibox{2} NP[\textit{acc}]}}
-\rput[B](9,3){\rnode{v}{V[\subcat}}\nput[labelsep=2pt]{0}{v}{ \nliste{\ibox{1}, \ibox{2}}]}
-%
-\rput[B](5,5){\rnode{np2}{\ibox{1} NP[\textit{nom}]}}
-\rput[B](8,5){\rnode{vs1}{V[\subcat \nliste{\ibox{1}}]}}
-%
-\rput[B](6.5,7){\rnode{vp}{V[\subcat \nliste{ }]}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{v}{kennt}
-\ncdiag{vs1}{np1}\ncdiag{vs1}{v}
-\ncdiag{vs2}{np2}\ncdiag{vs2}{vs1}
-\ncdiag{vp}{vs2}
-%
-%
-\ncdiag{i}{t2}
-\ncdiag{is}{i}\ncdiag{is}{vp}
-\ncdiag{vp}{np2}\ncdiag{ip}{is}
-%
-\ncdiag{np2}{jeder}
-%\ncdiag{np1}{ihnmf}
-\ncdiag{vp}{vs1}
-%
-\pstriangle(7,1.5)(1.4,1.2)
-%\psgrid
-\end{pspicture}}%
-\caption{\label{abb-jeder-das-buch-kennt}Analyse für \emph{jeder das Buch kennt}}
+Abbildung~\ref{abb-den-Roman-niemand-kennt}.%
+\begin{figure}
+\begin{forest}
+sm edges
+[{V[\subcat \eliste]}
+  [{\ibox{1} NP[\textit{nom}]}
+    [niemand]]
+  [{V[\subcat \nliste{ \ibox{1} }]}
+    [{\ibox{2} NP[\type{acc}]}
+       [den Roman,roof]]
+    [{V[\subcat \nliste{ \ibox{1}, \ibox{2} } ]}
+      [kennt]]]]
+\end{forest}
+\caption{\label{abb-niemand-den-Roman-kennt}Analyse für \emph{jeder das Buch kennt}}
 \end{figure}%
-\begin{figure}[htb]
-\psset{xunit=1cm,yunit=8mm}%
-\centerline{%
-\begin{pspicture}(4.3,1)(12.4,7.6)
-\rput[B](7,1){\rnode{jeder}{jeder}}
-\rput[B](5,1){\rnode{ihnmf}{das Buch}}
-\rput[B](9,1){\rnode{kennt}{kennt}}
-%
-\rput[B](7,3){\rnode{np1}{\ibox{1} NP[\textit{nom}]}}
-\rput[B](9,3){\rnode{v}{V[\subcat}}\nput[labelsep=2pt]{0}{v}{ \nliste{\ibox{1}, \ibox{2}}]}
-%
-\rput[B](5,5){\rnode{np2}{\ibox{2} NP[\textit{acc}]}}
-\rput[B](8,5){\rnode{vs1}{V[\subcat \nliste{\ibox{2}}]}}
-%
-\rput[B](6.5,7){\rnode{vp}{V[\subcat \nliste{ }]}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{v}{kennt}
-\ncdiag{vs1}{np1}\ncdiag{vs1}{v}
-\ncdiag{vs2}{np2}\ncdiag{vs2}{vs1}
-\ncdiag{vp}{vs2}
-%
-%
-\ncdiag{i}{t2}
-\ncdiag{is}{i}\ncdiag{is}{vp}
-\ncdiag{vp}{np2}\ncdiag{ip}{is}
-%
-\ncdiag{np1}{jeder}
-%\ncdiag{np1}{ihnmf}
-\ncdiag{vp}{vs1}
-%
-\pstriangle(5,1.5)(1.4,3.2)
-%\psgrid
-\end{pspicture}}%
-\caption{\label{abb-das-buch-jeder-kennt}Analyse für \emph{das Buch jeder kennt}}
+\begin{figure}
+\begin{forest}
+sm edges
+[{V[\subcat \eliste]}
+  [{\ibox{2} NP[\type{acc}]}
+     [den Roman,roof]]
+  [{V[\subcat \nliste{ \ibox{2} }]}
+    [{\ibox{1} NP[\textit{nom}]}
+      [niemand]]
+    [{V[\subcat \nliste{ \ibox{1}, \ibox{2} } ]}
+      [kennt]]]]
+\end{forest}
+\caption{\label{abb-den-Roman-niemand-kennt}Analyse für \emph{den Roman niemand kennt}}
 \end{figure}
 Die beiden Analysen unterscheiden sich einzig und allein darin, welches Element der \subcatl
-zuerst abgebunden wird: In Abbildung~\ref{abb-jeder-das-buch-kennt} wird zuerst das Akkusativobjekt
-mit dem Verb kombiniert und in Abbildung~\ref{abb-das-buch-jeder-kennt} zuerst das Subjekt. In der
-Analyse in Abbildung~\ref{abb-jeder-das-buch-kennt} ist bei der Kombination von \emph{das Buch} und
+zuerst abgebunden wird: In Abbildung~\ref{abb-niemand-den-Roman-kennt} wird zuerst das Akkusativobjekt
+mit dem Verb kombiniert und in Abbildung~\ref{abb-den-Roman-niemand-kennt} zuerst das Subjekt. In der
+Analyse in Abbildung~\ref{abb-niemand-den-Roman-kennt} ist bei der Kombination von \emph{das Buch} und
 \emph{kennt} die \ibox{3} aus Schema~\ref{schema-bin-prel2} die leere Liste und \ibox{1} die Liste
 \sliste{ NP[\type{nom}] }. Die Verkettung von \ibox{1} und \ibox{3} ist demzufolge ebenfalls
 \sliste{ NP[\type{nom}] }, weshalb der \subcatw der Verknüpfung aus \emph{das Buch} und \emph{kennt}
 die Liste \sliste{ NP[\type{nom}] } ist (\sliste{ \ibox{1} } in
-Abbildung~\ref{abb-jeder-das-buch-kennt}).  Das Nominativargument wird im zweiten Schritt gesättigt:
+Abbildung~\ref{abb-niemand-den-Roman-kennt}).  Das Nominativargument wird im zweiten Schritt gesättigt:
 Bei der Verbindung von \emph{jeder} mit \emph{das Buch kennt} sind sowohl \ibox{1} als auch \ibox{3}
 aus Schema~\ref{schema-bin-prel2} die leere Liste. Das Ergebnis der Kombination ist eine vollständig
-gesättigte Phrase. In der Analyse in Abbildung~\ref{abb-das-buch-jeder-kennt} ist die \ibox{3}
+gesättigte Phrase. In der Analyse in Abbildung~\ref{abb-den-Roman-niemand-kennt} ist die \ibox{3}
 die Liste \sliste{ NP[\type{acc}] } und \ibox{1} die leere Liste. Die Verkettung von \ibox{1} und
 \ibox{3} ist \sliste{ NP[\type{acc}] }. Die Kombination von \emph{jeder kennt} mit NP[\type{acc}]
 erfolgt im zweiten Schritt.
@@ -506,36 +460,24 @@ durch eine eigene Grammatikregel Rechnung getragen \citep[\page 38,\page 362]{ps
 Ich nehme also an, daß es für Determinatoren (allgemeiner Spezifikatoren) ein eigenes
 Valenzmerkmal (\textsc{spr}\isfeat{spr}) gibt. Die entsprechende Analyse von
 \pref{ex-die-zerstoerung-der-stadt-dds} zeigt Abbildung~\vref{Abbildung-die-Zerstorung}.
-\begin{figure}[htbp]
-\centering
-\begin{tabular}{cccc}
-\mc{2}{@{}c@{}}{\rnode{n4}{N[\begin{tabular}[t]{@{}l@{}}
-        \spr \sliste{  },\\
-        \subcat \sliste{  } ]\\
-      \end{tabular}}}\\
-\\[3ex]
-\rnode{det}{\ibox{1} Det} & \mc{3}{@{}c@{}}{\rnode{n3}{N[\begin{tabular}[t]{@{}l@{}}
-        \spr \sliste{ \ibox{1} },\\
-        \subcat \sliste{  } ]\\
-      \end{tabular}}}\\
-\\[3ex]
-    & \mc{2}{@{}c@{}}{\rnode{n2}{N[\begin{tabular}[t]{@{}l@{}}
-        \spr \sliste{ \ibox{1} },\\
-        \subcat \sliste{ \ibox{2} } ]\\
-      \end{tabular}}}                             & \rnode{pp}{\ibox{2} PP[durch]}\\
-\\[3ex]
-    & \rnode{n1}{N[\begin{tabular}[t]{@{}l@{}}
-        \spr \sliste{ \ibox{1} },\\
-        \subcat \sliste{ \ibox{2}, \ibox{3} } ]\\
-      \end{tabular}} & \rnode{np}{\ibox{3} NP[\type{gen}]}  \\
-\\[3ex]
-\rnode{die}{die} & \rnode{zerstoerung}{Zerstörung} & d\rnode{ds}{er Stad}t & d\rnode{dds}{urch die Soldate}n\\
-\end{tabular}
-\ncline{n4}{det}\ncline{n4}{n3}%
-\ncline{n3}{n2}\ncline{n3}{pp}%
-\ncline{n2}{n1}\ncline{n2}{np}%
-\ncline{det}{die}\ncline{n1}{zerstoerung}%
-\ncline{np}{ds}\ncline{pp}{dds}%
+\begin{figure}
+\begin{forest}
+sm edges
+[N\feattab{\spr \eliste,\\
+           \subcat \eliste}
+  [\ibox{1} Det [die]]
+  [N\feattab{\spr \sliste{ \ibox{1} },\\
+           \subcat \eliste}
+    [N\feattab{\spr \sliste{ \ibox{1} },\\
+           \subcat \sliste{ \ibox{2} }}
+      [N\feattab{\spr \sliste{ \ibox{1} },\\
+           \subcat \sliste{ \ibox{2}, \ibox{3} }}
+         [Zerstörung]]
+      [\ibox{3} {NP[\type{gen}]}
+        [der Stadt,roof]]]
+    [\ibox{2} {PP[\type{durch}]}
+      [durch die Soldaten,roof]]]]
+\end{forest}
 \caption{NP-Analyse mit Valenzmerkmal \spr}\label{Abbildung-die-Zerstorung} 
 \end{figure}
 Die Kombination einer \nbar mit dem Determinator wird dann durch das folgende Schema lizenziert, das analog zum Kopf"=Argument"=Schema
@@ -599,39 +541,27 @@ Dieser Typ ist Bestandteil des Valenzprinzips\is{Prinzip!Valenz-} und sorgt daf�
 daß Information über nicht abgebundene Spezifikatoren im Baum nach oben gereicht wird.
 
 Die aktuelle Hierarchie unter dem Typ \type{phrase} zeigt Abbildung~\vref{abb-phrase-hs-struc}.
-\begin{figure}[htbp]
-\resizebox{\linewidth}{!}{\begin{pspicture}(0.6,-2)(17.2,4.4)
-%\psgrid
-%\rput[B](4,6){\rnode{sign}{\textit{sign}}}
-%
-%\rput[B](1,4){\rnode{word}{\textit{word}}}
-\rput[B](7,4){\rnode{phrase}{\textit{phrase}}}
-%
-\rput[B](4,2){\rnode{nhs}{\textit{non-headed-phrase}}}
-\rput[B](10,2){\rnode{hs}{\textit{headed-phrase}}}
-%
-\rput[B](3,0){\rnode{hnas}{\type{head"=non-adjunct"=phrase}}}
-\rput[B](9,0){\rnode{hnars}{\type{head"=non"=argument"=phrase}}}
-%\rput[B](15,0){\rnode{hnfs}{\type{head"=non"=filler"=phrase}}}
-\rput[B](15,0){\rnode{hnss}{\type{head"=non"=specifier"=phrase}}}
-\rput[B](3,-2){\rnode{has}{\textit{head"=adjunct"=phrase}}}
-\rput[B](9,-2){\rnode{hars}{\textit{head"=argument"=phrase}}}
-%\rput[B](15,-2){\rnode{hfs}{\textit{head-filler"=phrase}}}
-\rput[B](15,-2){\rnode{hss}{\textit{head"=specifier"=phrase}}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{sign}{word}\ncdiag{sign}{phrase}
-\ncdiag{phrase}{hs}\ncdiag{phrase}{nhs}
-\ncdiag{hs}{hnas}
-\ncdiag{hs}{hnars}
-%\ncdiag{hs}{hnfs}
-\ncdiag{hs}{hnss}
-\ncdiag{hnars}{has}\ncdiag{hnars}{hss}
-\ncdiag{hnas}{hars}\ncdiag{hnas}{hss}
-\ncdiag{hnss}{hars}\ncdiag{hnss}{has}
-%
-\end{pspicture}}
+\begin{figure}
+\oneline{%
+\begin{forest}
+type hierarchy,
+% for tree={
+%   calign=fixed angles,
+%   calign angle=60,
+% }, 
+ for tree={l+=\baselineskip},
+ for level={3}{l+=\baselineskip},
+[phrase
+    [non-headed-phrase]
+    [headed-phrase
+      [head-non-adjunct-phrase
+        [head-adjunct-phrase,edge to=!uu2,edge to=!uu3,no edge]]
+      [head-non-argument-phrase
+       [head-argument-phrase,edge to=!uu1,edge to=!uu3, no edge]]
+      [head-non-specifier-phrase
+       [head-specifier-phrase,edge to=!uu1,edge to=!uu2, no edge]]]]
+\end{forest}
+}
 \caption{\label{abb-phrase-hs-struc}Typhierarchie für \textit{phrase}}
 \end{figure}
 Man sieht, daß sowohl \type{head"=argument"=phrase} als auch \type{head"=adjunct"=phrase}
@@ -772,10 +702,10 @@ Index gekennzeichnet.
 %\item Verum-Fokus
 \nocite{Hoehle88a,Hoehle97a}
 \end{enumerate}\is{Verbletztsprache|)}
-Zur Verdeutlichung soll die Analyse des Satzes in (\ref{bsp-kennt-er-das-buch}) erklärt werden:
+Zur Verdeutlichung soll die Analyse des Satzes in (\ref{bsp-kennt-jemand-den-Roman}) erklärt werden:
 \eal
-\ex daß er das Buch kennt\label{bsp-dass-er-das-buch-kennt}
-\ex Kennt$_i$ er das Buch \_$_i$?\label{bsp-kennt-er-das-buch}
+\ex daß jemand den Roman kennt\label{bsp-dass-jemand-den-Roman-kennt}
+\ex Kennt$_i$ jemand den Roman \_$_i$?\label{bsp-kennt-jemand-den-Roman}
 \zl
 Für die Spur in (\mex{0}b) könnte man den folgenden Lexikoneintrag annehmen:
 \ea
@@ -794,34 +724,25 @@ cont & \ms[kennen]{
 \z
 Dieser Lexikoneintrag unterscheidet sich vom normalen Verb \emph{kennt} nur in seinem \phonw.
 
-Die syntaktischen Aspekte der Analyse von (\ref{bsp-kennt-er-das-buch}) sind in Abbildung~\vref{verb-movement-syn-simple}
+Die syntaktischen Aspekte der Analyse von (\ref{bsp-kennt-jemand-den-Roman}) sind in Abbildung~\vref{verb-movement-syn-simple}
 dargestellt. 
 \begin{figure}[htbp]
-%\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
-\centerline{%\resizebox{0.9\textwidth}{!}{%
-%\nodemargin5pt
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
-\multicolumn{2}{@{}c@{}}{\rnode{1}{V[\subcat \eliste]}}\\
-\\*[3ex]
-\rnode{2}{V} & \multicolumn{2}{@{}c@{}}{\rnode{3}{V[\subcat \eliste]}}\\
-\\*[4ex]
-                                     & \rnode{4}{\ibox{3} NP[\textit{nom\/}]}& \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\subcat \sliste{ \ibox{3} }]}}\\
-\\*[4ex]
-                                   &                                   & \rnode{6}{\ibox{4} NP[\textit{acc}]} & \rnode{7}{V[\subcat \sliste{ \ibox{3}, \ibox{4} }]} \\
-\\*[3ex]
-\rnode{8}{kennt}                     & \rnode{9}{er}                  & d\rnode{10}{as Buc}h & \rnode{11}{$-$}\\
-\end{tabular}%
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{2}{8}%
-\ncline{4}{9}%
-\ncline{6}{10}%
-\ncline{7}{11}%
-}%}
-\caption{\label{verb-movement-syn-simple}Analyse von \emph{Kennt er das Buch?}}
+\begin{forest}
+sm edges
+[{V[\subcat \eliste]}
+  [V [kennt]]
+  [{V[\subcat \eliste]}
+    [{\ibox{1} NP[\type{nom}]}
+      [jemand]]
+    [{V[\subcat \sliste{ \ibox{1} } ]}
+      [{\ibox{2} NP[\type{acc}]}
+        [den Roman, roof]]
+      [{V[\subcat \sliste{ \ibox{1}, \ibox{2} } ]}
+        [\trace]]]]]
+\end{forest}
+\caption{\label{verb-movement-syn-simple}Analyse von \emph{Kennt jemand den Roman?}}
 \end{figure}
-Die Kombination der Spur mit \emph{das Buch} und \emph{er} folgt den Regeln und Prinzipien, die
+Die Kombination der Spur mit \emph{den Roman} und \emph{jemand} folgt den Regeln und Prinzipien, die
 wir bisher kennengelernt haben. Es stellt sich aber sofort die Frage, wodurch das Verb \emph{kennt}
 in Abbildung~\ref{verb-movement-syn-simple} lizenziert wird und welchen Status es hat.
 
@@ -977,46 +898,24 @@ Verbalprojektion erreicht. Eingabe für die Regel können nur finite Verben in E
 %Linearisierungsregeln nehmen auf das \textsc{initial}"=Merkmal Bezug und sorgen für
 %die korrekte Anordnung der Köpfe in lokalen Bäumen.
 %
-Die Analyse von (\ref{bsp-kennt-er-das-buch}) zeigt Abbildung~\vref{verb-movement-syn}.
-\begin{figure}[htb]
-%\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
-\centerline{%\resizebox{0.9\textwidth}{!}{%
-%\nodemargin5pt
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
-\multicolumn{3}{@{}c@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l@{}}
-  \textsc{subcat} \sliste{ }]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{V[\textsc{subcat} \sliste{ \ibox{1} }]} & \multicolumn{3}{@{}l@{}}{\rnode{3}{\ibox{1} V[\begin{tabular}[t]{@{}l}
-                                                                    \textsc{dsl$|$cat$|$subcat} \ibox{2},\\
-                                                                    \textsc{subcat} \sliste{ }]
-                                                                    \end{tabular}}
-                                                       }\\
-\\
-\hspace{8ex}V1-LR\\*[3ex]
-\rnode{2b}{V[\textsc{subcat} \ibox{2} ]} & \rnode{4}{\ibox{3} NP[\textit{nom\/}]}& \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-                                                                                                       \textsc{dsl$|$cat$|$subcat} \ibox{2},\\
-                                                                                                       \textsc{subcat} \sliste{ \ibox{3} }]\\
-                                                                                                       \end{tabular}}
-                                                                                           }\\
-\\*[4ex]
-                                   &                                   & \rnode{6}{\ibox{4} NP[\textit{acc}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l}
-                                                                                                 \textsc{dsl$|$cat$|$subcat} \ibox{2},\\
-                                                                                                 \textsc{subcat} \ibox{2} \sliste{ \ibox{3}, \ibox{4} }] \\
-                                                                                                 \end{tabular}}\\
-\\*[3ex]
-\rnode{8}{kennt}                     & \rnode{9}{er}                  & d\rnode{10}{as Buc}h & \rnode{11}{$-$}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{2}{2b}\ncline{2b}{8}%
-\ncline{4}{9}%
-\ncline{6}{10}%
-\ncline{7}{11}%
-}%}
-\caption{\label{verb-movement-syn}Veranschaulichung der Analyse von \emph{Kennt er das Buch?}}
+Die Analyse von (\ref{bsp-kennt-jemand-den-Roman}) zeigt Abbildung~\vref{verb-movement-syn}.
+\begin{figure}
+\begin{forest}
+sm edges
+[S
+  [{V[\subcat \sliste{ \ibox{1} }]} 
+    [{V[\subcat \ibox{2} ]},tier=np,edge label={node[midway,right]{V1-LR}} 
+       [kennt$_j$] ] ]
+    [{\ibox{1} V\feattab{\textsc{dsl|subcat} \ibox{2},\\
+                 \subcat \eliste}}
+         [{\ibox{3} NP[\type{nom}]},tier=np [jemand] ]
+         [{V\feattab{\textsc{dsl|subcat} \ibox{2},\\
+                 \subcat \sliste{ \ibox{3} }}}
+           [{\ibox{4} NP[\type{acc}]} [den Roman, roof] ]
+           [{V\feattab{\textsc{dsl|subcat} \ibox{2},\\
+                 \subcat \ibox{2} \sliste{ \ibox{3}, \ibox{4} }}} [\_$_j$] ] ] ] ] ]
+\end{forest}
+\caption{\label{verb-movement-syn}Veranschaulichung der Analyse von \emph{Kennt jemand den Roman?}}
 \end{figure}
 V1-LR steht für die Verberst"=Lexikonregel.
 
@@ -1080,96 +979,26 @@ Beitrag von der Verbspurprojektion übernommen und wegen des Semantikprinzips
 zum Beitrag der gesamten Konstruktion. Abbildung~\vref{verb-movement-sem} zeigt die semantischen
 Aspekte der Verbbewegungsanalyse mit der Spur in (\ref{le-verbspur-kennt}) und der Lexikonregel
 in (\ref{lr-verb-movement2}).
-% \begin{figure}[htbp]
-% %\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
-% \centerline{%\resizebox{0.9\textwidth}{!}{%
-% \nodemargin5pt
-% \begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
-% \multicolumn{3}{@{}c@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l@{}}
-%   \textsc{subcat} \sliste{ },\\
-%   \cont \ibox{1}]\\
-%   \end{tabular}}
-% }\\
-% \\
-% \hspace{10mm}H                     & \hspace{19mm}C\\*[3ex]
-% \rnode{2}{V[\begin{tabular}[t]{@{}l@{}}
-% \textsc{subcat} \sliste{ \ibox{2} },\\
-% \cont \ibox{1}]
-% \end{tabular}} & \multicolumn{3}{@{}l@{}}{\rnode{3}{\ibox{2} V[\begin{tabular}[t]{@{}l@{}}
-%                                                                     \textsc{dsl$|$cat$|$subcat} \ibox{3},\\
-%                                                                     \textsc{subcat} \sliste{ }\\
-% \cont \ibox{1}]
-%                                                                     \end{tabular}}
-%                                                        }\\
-% \\
-%                                    & \hspace{0mm}C                   & \hspace{15mm}H\\*[3ex]
-%                                    & \rnode{4}{\ibox{4} NP[\textit{nom\/}]}& \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-%                                                                                                        \textsc{dsl$|$cat$|$subcat} \ibox{3},\\
-%                                                                                                        \textsc{subcat} \sliste{ \ibox{4} }\\
-% \cont \ibox{1}]\\
-%                                                                                                        \end{tabular}}
-%                                                                                            }\\
-% \\
-%                                    &                                   & C                                & \hspace{-5mm}H\\*[3ex]
-%                                    &                                   & \rnode{6}{\ibox{5} NP[\textit{acc}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l}
-%                                                                                                  \textsc{dsl$|$cat$|$subcat} \ibox{3},\\
-%                                                                                                  \textsc{subcat} \ibox{4} \sliste{ \ibox{5}, \ibox{4} }\\
-% \cont \ibox{1}] \\
-%                                                                                                  \end{tabular}}\\
-% \\*[3ex]
-% \rnode{8}{kennt}                     & \rnode{9}{er}                  & d\rnode{10}{as Buc}h & \rnode{11}{$-$}\\
-% \end{tabular}
-% \ncline{1}{2}\ncline{1}{3}%
-% \ncline{3}{4}\ncline{3}{5}%
-% \ncline{5}{6}\ncline{5}{7}%
-% \ncline{2}{8}%
-% \ncline{4}{9}%
-% \ncline{6}{10}%
-% \ncline{7}{11}%
-% }%}
-% \caption{\label{verb-movement-syn}Analyse von \emph{Kennt er das Buch?}}
-% \end{figure}
-\begin{figure}[htb]
-%\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
-\centerline{%\resizebox{0.9\textwidth}{!}{%
-%\nodemargin5pt
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
-\multicolumn{3}{@{}c@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l@{}}
-  \cont \ibox{2}]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{V[\begin{tabular}[t]{@{}l@{}}
-\cont \ibox{2}]
-\end{tabular}} & \multicolumn{3}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l@{}}
-                                                                    \textsc{dsl$|$cont} \ibox{1},\\
-                                                                    \cont \ibox{2}]
-                                                                    \end{tabular}}
-                                                       }\\
-\\
-\hspace{8ex}V1-LR\\*[3ex]
-\rnode{2b}{V[\cont \ibox{1}  kennen'(er,buch)]} & \rnode{4}{NP[\textit{nom\/}]}& \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-                                                                                                       \textsc{dsl$|$cont} \ibox{1},\\
-                                                                                                       \cont \ibox{2}]\\
-                                                                                                       \end{tabular}}
-                                                                                           }\\
-\\*[4ex]
-                                   &                                   & \rnode{6}{NP[\textit{acc}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l}
-                                                                                                 \textsc{dsl$|$cont} \ibox{1},\\
-                                                                                                  \cont \ibox{2} = \ibox{1}] \\
-                                                                                                 \end{tabular}}\\
-\\*[3ex]
-\rnode{8}{kennt}                     & \rnode{9}{er}                  & d\rnode{10}{as Buc}h & \rnode{11}{$-$}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{2}{2b}\ncline{2b}{8}%
-\ncline{4}{9}%
-\ncline{6}{10}%
-\ncline{7}{11}%
-}%}
-\caption{\label{verb-movement-sem}Veranschaulichung der Analyse von \emph{Kennt er das Buch?}}
+\begin{figure}
+\begin{forest}
+sm edges
+[V{[\textsc{cont} \rnode{c1}{\ibox{2}}\,]}, baseline
+	[V{[\textsc{cont} \rnode{c2}{\ibox{2}}\,]}
+		[V{[\textsc{cont} \rnode{c3}{\ibox{1}} kennen(j, roman)]}, tier=np,edge label={node[midway,right]{V1-LR}}
+			[kennt$_j$]]]
+	[V\feattab{\textsc{dsl}|\textsc{cont} \rnode{c4}{\ibox{1}},\\
+                   \textsc{cont} \rnode{c5}{\ibox{2}}\,}
+		[NP{[\textit{nom}]}, tier=np
+			[jemand]]
+		[V\feattab{\textsc{dsl}|\textsc{cont} \rnode{c6}{\ibox{1}},\\
+                           \textsc{cont} \rnode{c7}{\ibox{2}}\,}
+			[NP{[\textit{acc}]}
+				[den Roman, roof]]
+			[V\feattab{\textsc{dsl}|\textsc{cont} \rnode{c8}{\ibox{1}},\\
+                                   \textsc{cont} \rnode{c9}{\ibox{2}} $=$ \ibox{1}\,}
+				[\trace$_j$]]]]]
+\end{forest}
+\caption{\label{verb-movement-sem}Veranschaulichung der Analyse von \emph{Kennt jemand den Roman?}}
 \end{figure}
 Rein technisch sind \iboxt{1} und \iboxt{2} in Abbildung~\ref{verb-movement-sem} identisch. Ich habe
 aus Darstellungsgründen dennoch zwei verschiedene Ziffern verwendet. Die Identifikation von \ibox{1}
@@ -1182,65 +1011,39 @@ der Verbspur zum Verb in Erststellung weitergereicht wird. Anhand eines Beispiel
 wird aber klar, daß diese kompliziert erscheinende Behandlung gerechtfertigt ist. Die Analyse des
 Satzes (\mex{1}) zeigt Abbildung~\vref{verb-movement-adjunkt-sem}.
 \ea
-Kennt er das Buch nicht?
+Kennt jemand den Roman nicht?
 \z
-\begin{figure}[htb]
-%\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
-%\centerline{%
-\resizebox{\textwidth}{!}{%
-%\nodemargin5pt
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
-\multicolumn{3}{@{}c@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l@{}}
-  \cont \ibox{2}]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{V[\begin{tabular}[t]{@{}l@{}}
-\cont \ibox{2}]
-\end{tabular}} & \multicolumn{3}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l@{}}
-                                                                    \textsc{dsl$|$cont} \ibox{1},\\
-                                                                    \cont \ibox{2}]
-                                                                    \end{tabular}}
-                                                       }\\
-\\
-\hspace{8ex}V1-LR\\*[3ex]
-\rnode{2b}{V[\cont \ibox{1} kennen'(er,buch)]} & \rnode{4}{NP[\textit{nom\/}]}& \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l@{}}
-                                                                                                       \textsc{dsl$|$cont} \ibox{1},\\
-                                                                                                       \cont \ibox{2}]\\
-                                                                                                       \end{tabular}}
-                                                                                           }\\
-\\*[4ex]
-                                   &                                   & \rnode{6}{NP[\textit{acc}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l@{}}
-                                                                                                 \textsc{dsl$|$cont} \ibox{1},\\
-                                                                                                 \cont \ibox{2}] \\
-                                                                                                 \end{tabular}}\\
-\\*[4ex]
-                                   &                                  &                          & \rnode{8}{Adv[\begin{tabular}[t]{@{}l@{}}
-                                                                             \textsc{mod} \ibox{3} [\textsc{loc}$|$\cont \ibox{1}],\\
-                                                                             \cont \ibox{2} $\neg$ \ibox{1}]
-                                                                             \end{tabular}}                 & \rnode{9}{\ibox{3} V[\begin{tabular}[t]{@{}l@{}}
-                                                                                                    \textsc{dsl$|$cont} \ibox{1},\\
-                                                                                                    \cont \ibox{1}]
-                                                                                                    \end{tabular}}\\
-\\*[3ex]
-\rnode{10}{kennt}                     & \rnode{11}{er}                  & d\rnode{12}{as Buc}h & \rnode{13}{nicht} & \rnode{14}{$-$}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{7}{8}\ncline{7}{9}%
-\ncline{2}{2b}\ncline{2b}{10}%
-\ncline{4}{11}%
-\ncline{6}{12}%
-\ncline{8}{13}%
-\ncline{9}{14}%
-}%}
-\caption{\label{verb-movement-adjunkt-sem}Veranschaulichung der Analyse von \emph{Kennt er das Buch nicht?}}
+\begin{figure}
+\oneline{%
+\begin{forest}
+sm edges
+[V{[\textsc{cont} \ibox{1}\,]}
+	[V{[\textsc{cont} \ibox{1}\,]}
+		[V{[\textsc{cont} \ibox{2} kennen(j, roman)]}, tier=np,edge label={node[midway,right]{V1-LR}}
+			[kennt$_j$]]]
+	[V\feattab{\textsc{dsl}|\textsc{cont} \ibox{2},\\
+                   \textsc{cont} \ibox{1}\,}
+		[NP{[\textit{nom}]}, tier=np
+			[jemand]]
+		[V\feattab{\textsc{dsl}|\textsc{cont} \ibox{2},\\ 
+                           \textsc{cont} \ibox{1}\,}
+			[NP{[\textit{acc}]}, fit=band
+				[den Roman, roof]]
+			[V\feattab{\textsc{dsl}|\textsc{cont} \ibox{2},\\
+                                   \textsc{cont} \ibox{1}\,}
+				[Adv\feattab{\textsc{mod} \ibox{3} {[\textsc{loc}|\textsc{cont} \ibox{2}\,]},\\
+                                             \textsc{cont} \ibox{1} $\neg$ \ibox{2}}
+					[nicht]]
+				[\ibox{3} V\feattab{\textsc{dsl}|\textsc{cont} \ibox{2},\\
+                                                    \textsc{cont} \ibox{2}\,}
+					[\trace$_j$]]]]]]
+\end{forest}}
+\caption{\label{verb-movement-adjunkt-sem}Veranschaulichung der Analyse von \emph{Kennt jemand den Roman nicht?}}
 \end{figure}
 Das durch die Lexikonregel lizenzierte Verberstverb \emph{kennt} verlangt als Komplement eine
 verbale Projektion mit dem \textsc{dsl$|$cont}"=Wert $kennen'(x, y)$, wobei $x$ und $y$ in den
 Lexikoneinträgen für \emph{kennt} bereits mit den Argumenten verbunden sind, die später durch
-\emph{er} und \emph{das Buch} gesättigt werden. Der \textsc{dsl$|$cont}"=Wert der verbalen Projektion
+\emph{er} und \emph{den Roman} gesättigt werden. Der \textsc{dsl$|$cont}"=Wert der verbalen Projektion
 ist -- da \dsl ein Kopfmerkmal ist -- auch in der Spur entsprechend beschränkt. In der Spur wird
 durch die Identifikation von \dsl und \local dafür gesorgt, daß der \contw der Spur mit dem \contw
 unter \dsl identisch ist, so daß die Spur den semantischen Beitrag des Verbs \emph{kennt} hat, das
@@ -1260,7 +1063,7 @@ Verberstverbs, also \iboxt{2} in Abbildung~\ref{verb-movement-adjunkt-sem}.
 
 Zum Schluß müssen noch Sätze wie (\mex{1}) ausgeschlossen werden:
 \ea[*]{
-Kennt er das Buch kennt.
+Kennt er den Roman kennt.
 }
 \z
 (\mex{0}) könnte analysiert werden, wenn das erste Vorkommen von \emph{kennt} als Ausgabe der Verbbewegungsregel
@@ -1279,7 +1082,7 @@ Verlangte:
 \ms{ head-dtr & \ms[word]{ phon & non-empty-list \\
                          }
 } \impl\\
-\onems{ loc$|$cat$|$head$|$dsl \textit{none}\\
+\onems{ loc$|$cat$|$head$|$dsl \type{none}\\
             }
 \z
 Diese Beschränkung unterscheidet sich von der von \citet[\page207]{Meurers2000b} angegebenen \ua
@@ -1305,7 +1108,7 @@ man erkennen, daß der \dslw der Verbprojektion und somit der \localw der Verbsp
 \localw des Eingabeverbs bestimmt ist. In Abbildung~\ref{verb-movement-syn} und~\ref{verb-movement-sem}
 ist \emph{kennt} die Eingabe zur Verbbewegungsregel. Der \localw der Verbspur entspricht
 also dem \localw von \emph{kennt}. Durch die entsprechenden Strukturteilungen wird  sichergestellt,
-daß bei einer Analyse des Satzes (\ref{bsp-kennt-er-das-buch}) der \localw der Verbspur genau dem entspricht, was in
+daß bei einer Analyse des Satzes (\ref{bsp-kennt-jemand-den-Roman}) der \localw der Verbspur genau dem entspricht, was in
 (\ref{le-verbspur-kennt}) angegeben ist.
 
 Diese Analyse der Verbstellung ist die komplexeste Analyse im vorliegenden Buch. Wenn man sie verstanden
@@ -1339,6 +1142,8 @@ Programms auseinander.
 Alternative HPSG"=Ansätze werden ausführlich in \citew{Mueller2004b} und in \citew{Mueller2005c,Mueller2005d} diskutiert.
 Hier seien nur einige Punkte kurz erwähnt.
 
+\itdopt{Anpassung der Grundreihenfolge nom, dat, acc}
+
 \subsubsection{Flache Strukturen mit freier Linearisierung des Verbs}
 \label{sec-flache-strukturen}
 
@@ -1350,23 +1155,19 @@ nicht verletzt werden. \citet{Pollard90a} hat Uszkoreits Ansatz für eine Beschr
 des Deutschen in seine HPSG"=Analyse übernommen. Die Analyse des Satzes (\ref{bsp-perm-mf}) zeigt
 Abbildung~\vref{abb-uszkoreit-pollard}.
 \begin{figure}
-\centerline{\begin{tabular}[t]{@{}c@{\hspace{6mm}}c@{\hspace{6mm}}c@{\hspace{8mm}}c@{}}%llll}
-\multicolumn{4}{c}{\rnode{1}{V[\textit{fin\/}, \textsc{subcat} \sliste{ }]}}\\
-\\[3ex]
-%\hspace{23mm}C & \hspace{12mm}C & \hspace{-5mm}C &\hspace{-14mm}H\\
-\\[3ex]
-\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \rnode{4}{\ibox{3} NP[\textit{dat\/}]}     & \rnode{6}{\ibox{2} NP[\textit{acc\/}]} & \rnode{7}{V[\textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] }\\
-\\
-\\*[5ex]
-d\rnode{8}{er Man}n & d\rnode{9}{er Fra}u  & d\rnode{10}{as Buc}h  & \rnode{11}{gibt}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{6}%
-\ncline{1}{4}\ncline{1}{7}%
-\ncline{7}{11}%
-\ncline{2}{8}%
-\ncline{4}{9}%
-\ncline{6}{10}}%
-\caption{\label{abb-uszkoreit-pollard}Analyse von \emph{der Mann der Frau das Buch gibt} mit flachen Strukturen}
+\begin{forest}
+sm edges, for tree={l sep=+2\baselineskip}
+[{V[\type{fin}, \subcat \eliste{}]}
+  [{\ibox{1} NP[\type{nom}]} 
+    [Aicke,roof]]
+  [{\ibox{3} NP[\type{acc}]} 
+    [den Stock, roof]]
+  [{\ibox{2} NP[\type{dat}]}
+    [dem Affen, roof]]
+  [{V[\type{fin}, \subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] }
+    [gibt]]]
+\end{forest}
+\caption{\label{abb-uszkoreit-pollard}Analyse von \emph{Aicke den Stock dem Affen gibt} mit flachen Strukturen}
 \end{figure}
 
 %% Mitunter wird mit Lernbarkeitsargumenten\is{Lernbarkeit} gegen flache Strukturen argumentiert \citep[Kapitel~2.5]{Haegeman94a-u}.
@@ -1418,8 +1219,8 @@ In diesen Beispielen befinden sich zwei Konstituenten vor dem finiten Verb, obwo
 zu den Verbzweitsprachen gerechnet wird, weil in Aussagesätzen
 normalerweise eben nur genau eine Konstituente vor dem Finitum steht (zu den Details siehe Kapitel~\ref{chap-nla}).
 Weitere Beispiele und eine ausführliche Diskussion findet man in \citew{Mueller2003b}
-bzw.\ in der \href{http://www.cl.uni-bremen.de/~stefan/Pub/mehr-vf-ds.html}{im WWW zugänglichen Datensammlung}\footnote{
-  \url{http://www.cl.uni-bremen.de/~stefan/Pub/mehr-vf-ds.html}.%
+bzw.\ in der \href{http://hpsg.hu-berlin.de/~stefan/Pub/mehr-vf-ds.html}{im WWW zugänglichen Datensammlung}\footnote{
+  \url{http://hpsg.hu-berlin.de/~stefan/Pub/mehr-vf-ds.html}.%
 }.
 
 Bei einem Ansatz, der Verbspuren annimmt, kann man davon ausgehen, daß sich in (\mex{0}) eine Projektion
@@ -1459,41 +1260,21 @@ kombiniert werden, die nicht nebeneinander stehen. Im folgenden soll kurz die fo
 einer Linearisierungsgrammatik vorgestellt werden: Reape führt ein listenwertiges Merkmal
 \dom für die Linearisierungsdomäne ein. Alle eingekreisten Elemente in Abbildung~\vref{abb-lin-domains}
 werden in diese Liste eingesetzt.
-\begin{figure}[htb]
-%\centerline{%
-\resizebox{\linewidth}{!}{%
-%\nodemargin9pt
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
-\multicolumn{3}{@{}l@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
-  \textit{fin\/}, \textsc{subcat} \sliste{ }]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\psovalbox{\rnode{2}{\ibox{1} NP[\textit{nom\/}]}} & \multicolumn{2}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1} }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-& \psovalbox{\rnode{4}{\ibox{2} NP[\textit{acc\/}]}} & \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-&                                   & \psovalbox{\rnode{6}{\ibox{3} NP[\textit{dat\/}]}}& \psovalbox{\rnode{7}{V[\begin{tabular}[t]{@{}l}
-                                                                                   \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]\\
-%                                                                                   \textsc{vcomp} \sliste{  }, \\
-                                                                                   \end{tabular}}}\\
-\\*[6ex]
-d\rnode{8}{er Man}n & d\rnode{9}{as Buc}h                     & d\rnode{10}{er Fra}u              & \rnode{11}{gibt}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{7}{11}%
-\ncline{2}{8}%
-\ncline{6}{10}%
-\ncline{4}{9}%
-}
+\begin{figure}
+\begin{forest}
+sm edges
+[{V[\subcat \sliste{} ]}
+  [{\ibox{1} NP[\type{nom}]},ellipse,draw
+    [Aicke]]
+  [{V[\subcat \sliste{ \ibox{1} }]}
+    [{\ibox{2} NP[\type{dat}]},ellipse,draw 
+      [dem Affen, roof]]
+    [{V[\subcat \sliste{ \ibox{1}, \ibox{2} }]}
+      [{\ibox{3} NP[\type{dat}]},ellipse,draw
+        [den Stock,roof]]
+      [{V[\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]},ellipse,draw
+        [gibt]]]]]
+\end{forest}
 \caption{\label{abb-lin-domains}Eingekreiste Knoten werden in eine Linearisierungsdomäne eingesetzt.}
 \end{figure}
 
@@ -1580,43 +1361,25 @@ gleicht also der, die wir mit den in Kapitel~\ref{chap-komplementation} beschrie
 bekommen würden. Neu ist lediglich die \doml. Bei der Kombination von \emph{gibt} mit seinen Argumenten
 werden diese in die \doml eingesetzt. Die Anordnung der Konstituenten entspricht der Abfolge
 der Domänenelemente am obersten Knoten in Abbildung~\ref{abb-linearisierung-kont}.
-\begin{figure}[htb]
-\centerline{%
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
-\multicolumn{3}{@{}l@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
-  \textit{fin\/}, \textsc{subcat} \sliste{ },\\
-                                                                                   \textsc{dom} \phonliste{ der Mann, das Buch, der Frau, gibt }]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1} },\\
-                                                                                   \textsc{dom} \phonliste{ das Buch, der Frau, gibt }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} },\\
-                                                                                   \textsc{dom} \phonliste{ der Frau, gibt }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
-                                                                                   \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
-                                                                                   \textsc{dom} \phonliste{ gibt }]\\
-%                                                                                   \textsc{vcomp} \sliste{  }, \\
-                                                                                   \end{tabular}}\\
-\\*[6ex]
-d\rnode{8}{er Man}n & d\rnode{9}{as Buc}h                     & d\rnode{10}{er Fra}u              & \rnode{11}{gibt}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{7}{11}%
-\ncline{2}{8}%
-\ncline{6}{10}%
-\ncline{4}{9}%
-}
+\begin{figure}
+\begin{forest}
+sm edges
+[V\feattab{\subcat \sliste{},\\
+           \textsc{dom} \phonliste{ Aicke, dem Affen, den Stock, gibt }}
+  [{\ibox{1} NP[\type{nom}]}
+    [Aicke,roof]]
+  [V\feattab{\subcat \sliste{ \ibox{1} },\\
+             \textsc{dom} \phonliste{ dem Affen, den Stock, gibt }}
+    [{\ibox{2} NP[\type{dat}]} 
+      [dem Affen, roof]]
+    [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2} },\\
+               \textsc{dom} \phonliste{ den Stock, gibt }}
+      [{\ibox{3} NP[\type{acc}]}
+        [den Stock,roof]]
+      [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+        \textsc{dom} \phonliste{ gibt }}
+        [gibt]]]]]
+\end{forest}
 \caption{\label{abb-linearisierung-kont}Linearisierungsanalyse mit einem Beispiel für kontinuierliche Konstituenten}
 \end{figure}
 
@@ -1626,43 +1389,26 @@ Die Analyse von (\mex{0}a) zeigt Abbildung~\vref{abb-linearisierung-diskont}. Im
 \emph{gibt} eine diskontinuierliche Konstituente. Zwischen den beiden Elementen ist noch Platz, was man daran sehen
 kann, daß \emph{das Buch} am nächsthöheren Knoten zwischen den beiden Elementen zu stehen kommt.
 %
-\begin{figure}[htb]
-\centerline{%
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
-\multicolumn{3}{@{}l@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
-  \textit{fin\/}, \textsc{subcat} \sliste{ },\\
-                                                                                   \textsc{dom} \phonliste{ der Mann, der Frau, das Buch, gibt }]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1} },\\
-                                                                                   \textsc{dom} \phonliste{ der Frau, das Buch, gibt }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} },\\
-                                                                                   \textsc{dom} \phonliste{ der Frau, gibt }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
-                                                                                   \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
-                                                                                   \textsc{dom} \phonliste{ gibt }]\\
-%                                                                                   \textsc{vcomp} \sliste{  }, \\
-                                                                                   \end{tabular}}\\
-\\*[6ex]
-d\rnode{8}{er Man}n & d\rnode{9}{as Buc}h                     & d\rnode{10}{er Fra}u              & \rnode{11}{gibt}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{7}{11}%
-\ncline{2}{8}%
-\ncline{6}{10}%
-\ncline{4}{9}%
-}
+\begin{figure}
+\begin{forest}
+sm edges
+[V\feattab{\subcat \sliste{},\\
+           \textsc{dom} \phonliste{ Aicke, \blau{den Stock}, dem Affen, \blau{gibt} }}
+  [{\ibox{1} NP[\type{nom}]}
+    [Aicke,roof]]
+  [V\feattab{\subcat \sliste{ \ibox{1} },\\
+             \textsc{dom} \phonliste{ \blau{den Stock}, dem Affen, \blau{gibt} }}
+    [{\ibox{2} NP[\type{dat}]} 
+      [dem Affen, roof]]
+    [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2} },\\
+               \textsc{dom} \phonliste{ den Stock, gibt }}
+      [{\ibox{3} NP[\type{acc}]}
+        [den Stock,roof]]
+      [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+        \textsc{dom} \phonliste{ gibt }}
+        [gibt]]]]]
+\end{forest}
+
 \caption{\label{abb-linearisierung-diskont}Linearisierungsanalyse mit einem Beispiel für diskontinuierliche Konstituenten}
 \end{figure}
 
@@ -1670,43 +1416,26 @@ d\rnode{8}{er Man}n & d\rnode{9}{as Buc}h                     & d\rnode{10}{er F
 Abbildung~\vref{abb-linearisierung-diskont-verb} zeigt schließlich die Analyse eines Satzes mit Verberststellung. Hier
 wird das Verb als erstes Element der Linearisierungsdomäne angeordnet. Die entstehenden Konstituenten sind zum Teil wieder
 diskontinuierlich.
-\begin{figure}[htb]
-\centerline{%
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
-\multicolumn{3}{@{}l@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
-  \textit{fin\/}, \textsc{subcat} \sliste{ },\\
-                                                                                   \textsc{dom} \phonliste{ gibt, der Mann, das Buch, der Frau }]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1} },\\
-                                                                                   \textsc{dom} \phonliste{ gibt, das Buch, der Frau }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-& \rnode{4}{\ibox{2} NP[\textit{acc\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} },\\
-                                                                                   \textsc{dom} \phonliste{ gibt, der Frau }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-&                                   & \rnode{6}{\ibox{3} NP[\textit{dat\/}]}& \rnode{7}{V[\begin{tabular}[t]{@{}l}
-                                                                                   \textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
-                                                                                   \textsc{dom} \phonliste{ gibt }]\\
-%                                                                                   \textsc{vcomp} \sliste{  }, \\
-                                                                                   \end{tabular}}\\
-\\*[6ex]
-d\rnode{8}{er Man}n & d\rnode{9}{as Buc}h                     & d\rnode{10}{er Fra}u              & \rnode{11}{gibt}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{7}{11}%
-\ncline{2}{8}%
-\ncline{6}{10}%
-\ncline{4}{9}%
-}
+\begin{figure}
+\begin{forest}
+sm edges
+[V\feattab{\subcat \sliste{},\\
+           \textsc{dom} \phonliste{ \blau{gibt}, Aicke, dem Affen, \blau{den Stock} }}
+  [{\ibox{1} NP[\type{nom}]}
+    [Aicke,roof]]
+  [V\feattab{\subcat \sliste{ \ibox{1} },\\
+             \textsc{dom} \phonliste{ \blau{gibt}, dem Affen, \blau{den Stock} }}
+    [{\ibox{2} NP[\type{dat}]} 
+      [dem Affen, roof]]
+    [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2} },\\
+               \textsc{dom} \phonliste{ gibt, den Stock }}
+      [{\ibox{3} NP[\type{acc}]}
+        [den Stock,roof]]
+      [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+        \textsc{dom} \phonliste{ gibt }}
+        [gibt]]]]]
+\end{forest}
+
 \caption{\label{abb-linearisierung-diskont-verb}Linearisierungsanalyse mit einem Beispiel für diskontinuierliche Konstituenten und Verbstellung}
 \end{figure}
 
@@ -1716,45 +1445,68 @@ Die Analysen unterscheiden sich lediglich hinsichtlich der Anordnung der Element
 Abbildung~\vref{abb-linear-surface} stellt die Analyse von (\mex{0}c) noch einmal anders dar. Die Konstituenten sind hier entsprechend
 der Oberflächenreihenfolge angeordnet. Man sieht in dieser Abbildung recht deutlich, daß diskontinuierliche Konstituenten vorliegen.
 %
-\begin{figure}[htb]
-\centerline{%
-\begin{tabular}[t]{@{}l@{~}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
-\multicolumn{2}{@{}l}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
-  \textit{fin}, \textsc{subcat} \liste{ },\\
-  \textsc{dom} \phonliste{ \rnode{1bot}{gibt}, der Mann, das Buch, der Frau }]\\
-  \end{tabular}}}\\
-\\*[4ex]
-\rnode{3}{V[\begin{tabular}[t]{@{}l}
-         \textit{fin}, \textsc{subc\rnode{3top}{\rule{0cm}{1.5ex}}at} \liste{ \ibox{1} },\\
-         \textsc{dom} \phonliste{ \rnode{3bot}{gibt}, das Buch, der Frau }]\\
-         \end{tabular}}                                     & \rnode{2aux}{} \\
-\\*[4ex]
-\rnode{5}{V[\begin{tabular}[t]{@{}l}
-         \textit{fin}, \textsc{subc\rnode{5top}{\rule{0cm}{1.5ex}}at} \liste{ \ibox{1}, \ibox{2} },\\
-         \textsc{dom} \phonliste{ \rnode{5bot}{gibt}, der Frau }]\\
-         \end{tabular}} & & \rnode{4aux}{}\\
-\\*[4ex]
-\rnode{7}{V[\begin{tabular}[t]{@{}l}
-            \textit{fin}, \textsc{subc\rnode{7top}{\rule{0cm}{1.5ex}}at} \liste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
-            \textsc{dom} \phonliste{ \rnode{7bot}{gibt} }]\\
-%            \textsc{vcomp} \liste{  }, \\
-            \end{tabular}} & &                                   & \rnode{6aux}{}\\
-\\[2ex]
-&  \rnode{2}{\ibox{1} NP[\textit{nom}]} &  \rnode{4}{\ibox{2} NP[\textit{acc}]}           & \rnode{6}{\ibox{3} NP[\textit{dat}]}\\
-\\*[8ex]
-\hspace{9ex}\rnode{11}{gibt} & d\rnode{8}{er Man}n & d\rnode{9}{as Buc}h                   & d\rnode{10}{er Fra}u\\
-\end{tabular}
-\ncline{1bot}{2aux}\ncline{1bot}{3top}%
-\ncline{3bot}{4aux}\ncline{3bot}{5top}%
-\ncline{5bot}{6aux}\ncline{5bot}{7top}%
-\ncline{7bot}{11}%
-\ncline{2}{8}%
-\ncline{6}{10}% 
-\ncline{4}{9}%
-\ncline{2aux}{2}%
-\ncline{4aux}{4}%
-\ncline{6aux}{6}%
+\begin{figure}
+
+\forestset{
+%  default preamble'={}, % The default preamble makes a mess in this situation.
+  % 
+  % This style visually relates a complement to some subcat node. The argument
+  % should be the intended SISTER.
+  funky complement/.style={
+    %tier=NP, % Horizontally align NPs ... not needed because they are all of the same height.
+    for children={tier=word}, % Align the NP content with "gibt".
+    for nodewalk/.process=Ow{#1.id}{id=##1}{% This monstrosity converts a relative node name (e.g. "!r1") to the id of that node.
+      edge label={node[pos=0.5,left]{H}}, % Put "H" on the edge from the sister subcat.
+    },
+    % Draw the funky edge from a complement to its visual parent. The line is
+    % broken at the north of the sister subcat, and also marked with "C" there.
+    edge path'={(#1u.south) -- (.north |- {#1.north}) node[above]{C} -- (.north)},
+  },
 }
+\begin{forest}
+  % sn edges,   % note the s*n*, not s*m* // Can live without, as we draw the funky edges manually.
+  for tree={l sep*=2}, % Let this tree be taller.
+delay={where tier={word}{inner xsep=0}{}}, % unclear why it has to happen here with delay.
+  [V\feattab{\subcat \sliste{},\\
+      \textsc{dom} \phonliste{ gibt, Aicke, dem Affen, den Stock }}, s sep+=7ex
+    [V\feattab{\subcat \sliste{ \ibox{1} },\\
+        \textsc{dom} \phonliste{ gibt, dem Affen, den Stock }},
+      [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2} },\\
+          \textsc{dom} \phonliste{ gibt, den Stock }}
+        [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+            \textsc{dom} \phonliste{ gibt }},
+          [gibt]]]]
+    [,% This empty node holds all the complements. The idea is to put it next
+      % to the subcat node that should determine the x (s) position of the
+      % complements (so I put it next to the second subcat node). How does this
+      % work? On its own, Forest squashes the complements close to "gibt", but
+      % then the funky edge from NP [1] overlaps the second subcat node. But
+      % then we adjust the "s" of this empty complement holder (in "before
+      %   computing xy") to avoid that.
+      no edge, % Phantom does not work here, because we need the empty
+               % complement holder to be physically present.
+      calign=first, % Put this empty node directly above the leftmost NP ...
+      before computing xy={% ... and set its position manually:
+        %s/.option={!s.max x}, % to the (right) width of its sibling (the second subcat)
+        %s+/.option=!u.s sep,  % plus a bit more
+      },
+      tier=lowest subcat, % Vertically align it to the lowest subcat node (gibt).
+      for parent={calign=first}, % The sister subcat (Buch, Frau) should be
+                                 % directly below its parent.
+      for sibling={where n children=0{% This finds "gibt".
+          for parent={tier=lowest subcat}, % Mark the lowest subcat for alignment with the empty complement holder.
+          tier=word, % Align "gibt" with the content of NPs.
+          %inner xsep=0, % Remove space otherwise the triangles get too big.
+          % Does not work here, has to be done with delay at the top. St. Mü. 21.06.2024
+        }{}},
+      [{\ibox{1} NP[\type{nom}]}, funky complement=!r1 % the first child of the root
+        [Aicke,roof]]
+      [{\ibox{2} NP[\type{dat}]}, funky complement=!r11  % the first child of the first child of the root
+        [dem Affen,roof]]
+      [{\ibox{3} NP[\type{acc}]}, funky complement=!r111
+        [den Stock,roof]]]
+  ]
+\end{forest}
 \caption{\label{abb-linear-surface}Linearisierungsanalyse mit Konstituenten in Oberflächenreihenfolge}
 \end{figure}
 
@@ -1998,88 +1750,36 @@ mit Informationsstrukturbezug verwenden.
 Als Beispiel sei in Abbildung~\vref{fig-konstituentenstellung-meinunger} eine Struktur von \citet{Meinunger2000a} angegeben.\footnote{
   Siehe auch \citew{Haftka96a}.%
 }
-\begin{figure}[htbp]
-%\centerline{
+
+\begin{figure}
 \oneline{%
-\begin{pspicture}(1.6,0)(17.4,16.3)
-%\psgrid
-\rput[B](3,0){\rnode{die Firma}{die Firma Müller}}
-\rput[B](6,0){\rnode{meinem Onkel}{meinem Onkel}}
-\rput[B](9,0){\rnode{diese Moebel}{diese Möbel}}
-\rput[B](12,0){\rnode{erst gestern}{erst gestern}}
-\rput[B](15,0){\rnode{zugestellt}{zugestellt}}
-\rput[B](17,0){\rnode{hat}{hat}}
-%
-\rput[B](14,2){\rnode{tdo}{t\sub{DO}}}
-\rput[B](15,2){\rnode{v}{V}}
-\rput[B](14.5,3){\rnode{vp1}{VP}}
-%
-\rput[B](13.5,3){\rnode{tio}{t\sub{IO}}}
-\rput[B](14,4){\rnode{vs}{V$'$}}
-%
-\rput[B](13,4){\rnode{tsu}{t\sub{SU}}}
-\rput[B](13.5,5){\rnode{vp2}{VP}}
-%
-\rput[B](12,5){\rnode{adv}{Adv}}
-\rput[B](13,6){\rnode{vp3}{VP}}
-%
-\rput[B](15,6){\rnode{agro0}{AgrO$^0$}}
-\rput[B](14,7){\rnode{agros}{AgrO$'$}}
-%
-\rput[B](9,7){\rnode{do}{DO}}
-\rput[B](11.5,9){\rnode{agrop}{AgrOP}}
-%
-\rput[B](13.5,9){\rnode{agrio0}{AgrIO$^0$}}
-\rput[B](12.5,10){\rnode{agrios}{AgrIO$'$}}
-%
-\rput[B](6,10){\rnode{io}{IO}}
-\rput[B](9.25,12){\rnode{agriop}{AgrIOP}}
-%
-\rput[B](17,12){\rnode{agrs0}{AgrS$^0$}}
-\rput[B](13.125,14){\rnode{agrss}{AgrS$'$}}
-%
-\rput[B](3,14){\rnode{su}{SU}}
-\rput[B](8.06125,16){\rnode{agrsp}{AgrSP}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{vp1}{v}
-\ncdiag{vp1}{tdo}
-%
-\ncdiag{vs}{tio}
-\ncdiag{vs}{vp1}
-%
-\ncdiag{vp2}{vs}
-\ncdiag{vp2}{tsu}
-%
-\ncdiag{vp3}{vp2}
-\ncdiag{vp3}{adv}
-%
-\ncdiag{agros}{vp3}
-\ncdiag{agros}{agro0}
-%
-\ncdiag{agrop}{agros}
-\ncdiag{agrop}{do}
-%
-\ncdiag{agrios}{agrop}
-\ncdiag{agrios}{agrio0}
-%
-\ncdiag{agriop}{agrios}
-\ncdiag{agriop}{io}
-%
-\ncdiag{agrss}{agriop}
-\ncdiag{agrss}{agrs0}
-%
-\ncdiag{agrsp}{agrss}
-\ncdiag{agrsp}{su}
-%
-\pstriangle(3,0.4)(2.6,13.5)
-\pstriangle(6,0.4)(2.3,9.5)
-\pstriangle(9,0.4)(1.9,6.5)
-\pstriangle(12,0.4)(1.7,4.5)
-\ncdiag{v}{zugestellt}
-\ncdiag{agrs0}{hat}
-\end{pspicture}}
+\begin{forest}
+% if we are on the word tier, set the inner xsep to 0. This gets the size of the roof right.
+% without this the roof would overlap. St. Mü. 21.06.2024
+delay={where tier={word}{inner xsep=0}{}}
+[AgrSP
+  [SU [die Firma Müller,roof,tier=word]]
+  [AgrS$'$ 
+    [AgrIOP
+      [IO [meinem Onkel, roof,tier=word]]
+      [AgrIO$'$
+        [AgrOP
+          [DO [diese Möbel, roof,tier=word]]
+          [AgrO$'$ 
+            [VP, s sep+=7pt
+              [Adv [erst gestern, roof,tier=word]]
+              [VP
+                [t\sub{SU}]
+                [V$'$
+                  [t\sub{IO}]
+                  [VP
+                    [t\sub{DO}]
+                    [V [zugestellt,tier=word]]]]]]
+             [AgrO$^0$]]]
+         [AgrIO$^0$]]]
+       [AgrS$^0$ [hat,tier=word]]]]
+\end{forest}}
+% bei ihm ist noch ein daß im Bild
 \caption{\label{fig-konstituentenstellung-meinunger}Analyse für \emph{daß die Firma Müller meinem Onkel diese Möbel erst gestern zugestellt hat} 
 nach \citew[\page101]{Meinunger2000a}}
 \end{figure}

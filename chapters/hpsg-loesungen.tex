@@ -165,39 +165,39 @@ Verb, \vbar für eine ungesättigte und VP für eine gesättigte Verbalprojektio
 \begin{figure}[htbp]
 \centerline{%
 \begin{tabular}{ccccccc}
-\multicolumn{4}{c}{\node{cp}{CP}}\\
+\multicolumn{4}{c}{\rnode{cp}{CP}}\\
 \\
 \multicolumn{6}{l}{\hspace{0.4cm}H\hspace{2.2cm}Ar}\\[2ex]
-\node{c}{C}   & \multicolumn{4}{c}{\node{vp}{VP}}\\ 
+\rnode{c}{C}   & \multicolumn{4}{c}{\rnode{vp}{VP}}\\ 
 \\
 \multicolumn{6}{l}{\hspace{1.7cm}Ar\hspace{3cm}H}\\[2ex]
 %
-              & \multicolumn{2}{c}{\node{np1}{NP}}  & \multicolumn{4}{c}{\node{v1}{\vbar}}\\
+              & \multicolumn{2}{c}{\rnode{np1}{NP}}  & \multicolumn{4}{c}{\rnode{v1}{\vbar}}\\
 \\
 \multicolumn{7}{l}{\hspace{0.8cm}Ar\hspace{1.1cm}H \hspace{1.6cm}Ar\hspace{2.5cm}H}\\[2ex]
 %
-              & \node{det1}{Det} & \node{n1}{\nbar} & \multicolumn{2}{c}{\node{np2}{NP}}                        & & \node{v2}{V}\\
+              & \rnode{det1}{Det} & \rnode{n1}{\nbar} & \multicolumn{2}{c}{\rnode{np2}{NP}}                        & & \rnode{v2}{V}\\
 \\
 \multicolumn{7}{l}{\hspace{3cm}Ar\hspace{1.9cm}H}\\[2ex]
 %
-              &                  &                  & \node{det2}{Det} & \multicolumn{2}{c}{\node{ns2}{\nbar}}\\
+              &                  &                  & \rnode{det2}{Det} & \multicolumn{2}{c}{\rnode{ns2}{\nbar}}\\
 \\
 \multicolumn{7}{l}{\hspace{4.3cm}Ad\hspace{1.6cm}H}\\[2ex]
 %
-              &                  &                  &                  & \node{adj}{Adj}       & \node{n2}{\nbar} \\
+              &                  &                  &                  & \rnode{adj}{Adj}       & \rnode{n2}{\nbar} \\
 \\[3ex]
- \node{dass}{daß} & \node{der}{der} & \node{mann}{Mann} & \node{das}{das} & \node{sp}{spannende} & \node{buch}{Buch} & \node{liest}{liest}\\
+ \rnode{dass}{daß} & \rnode{der}{der} & \rnode{mann}{Mann} & \rnode{das}{das} & \rnode{sp}{spannende} & \rnode{buch}{Buch} & \rnode{liest}{liest}\\
 \end{tabular}
-\nodeconnect{cp}{c}\nodeconnect{cp}{vp}%
-\nodeconnect{c}{dass}%
-\nodeconnect{vp}{np1}\nodeconnect{vp}{v1}%
-\nodeconnect{np1}{det1}\nodeconnect{np1}{n1}%
-\nodeconnect{v1}{np2}\nodeconnect{v1}{v2}%
-\nodeconnect{np2}{det2}\nodeconnect{np2}{ns2}%
-\nodeconnect{ns2}{adj}\nodeconnect{ns2}{n2}%
-\nodeconnect{det1}{der}\nodeconnect{n1}{mann}%
-\nodeconnect{det2}{das}\nodeconnect{adj}{sp}%
-\nodeconnect{n2}{buch}\nodeconnect{v2}{liest}%
+\ncline{cp}{c}\ncline{cp}{vp}%
+\ncline{c}{dass}%
+\ncline{vp}{np1}\ncline{vp}{v1}%
+\ncline{np1}{det1}\ncline{np1}{n1}%
+\ncline{v1}{np2}\ncline{v1}{v2}%
+\ncline{np2}{det2}\ncline{np2}{ns2}%
+\ncline{ns2}{adj}\ncline{ns2}{n2}%
+\ncline{det1}{der}\ncline{n1}{mann}%
+\ncline{det2}{das}\ncline{adj}{sp}%
+\ncline{n2}{buch}\ncline{v2}{liest}%
 }
 \caption{\label{fig-dass-der-mann}Syntaxstruktur von \emph{daß der Mann das spannende Buch liest}}
 \end{figure}
@@ -497,33 +497,27 @@ keine Umstellung des Relativsatzes stattgefunden hat, sondern dass die einfacher
 %% \z
 %% Gehen Sie auf die \slashwe und die \relwe ein.
 \begin{figure}[H]
-\oneline{%
-\begin{tikzpicture}
-\tikzset{level 1+/.style={level distance=3\baselineskip}}
-\tikzset{level 3+/.style={level distance=5\baselineskip}}
-\tikzset{level 4+/.style={level distance=4\baselineskip}}
-\tikzset{frontier/.style={distance from root=23\baselineskip}}
-\Tree[.{NP}
-       [.{\ibox{1} Det} die ]
-       [.{N$'$[\spr \sliste{ \ibox{1} }] } 
-          [.{\ibox{2} N$'$[\spr \sliste{ \ibox{1} }]\ind{3} } Blume ] 
-          [.{RC\feattab{\mod \ibox{2},\\
-                        \rel \eliste,\\
-                        \slasch \eliste }} 
-            [.{NP~\ibox{4}\feattab{\type{acc},\\
-                                   \textsc{rel} \sliste{ \ibox{3} }}} die ]
-            [.V\feattab{ \subcat \eliste,\\
-                         \slasch \sliste{ \ibox{4} }} 
-              [.{\ibox{5} NP\feattab{\HPSGloc \ibox{4},\\
-                                     \slasch \sliste{ \ibox{4} }}} \trace{} ]
-              [.V\feattab{ \subcat \sliste{ \ibox{5} },\\
-                           \slasch \eliste }
-                [.\ibox{6}~NP[\type{nom}] alle ]
-                [.V\feattab{ \subcat \sliste{ \ibox{6}, \ibox{5} },\\
-                             \slasch \eliste }  lieben ] ] ] ] ]
-]
-\end{tikzpicture}
-}
+\begin{forest}
+sm edges
+[NP
+  [\ibox{1} Det [die] ]
+  [{N$'$[\spr \sliste{ \ibox{1} }] } 
+    [{\ibox{2} N$'$[\spr \sliste{ \ibox{1} }]\ind{3} } [Blume] ] 
+    [RC\feattab{\textsc{mod} \ibox{2},\\
+                \rel \eliste,\\
+                \slasch \eliste }
+      [NP~\ibox{4}\feattab{\type{acc},\\
+                           \textsc{rel} \sliste{ \ibox{3} }} [die] ]
+      [V\feattab{ \subcat \eliste,\\
+                  \slasch \sliste{ \ibox{4} }}
+         [\ibox{5} NP\feattab{\HPSGloc \ibox{4},\\
+                              \slasch \sliste{ \ibox{4} }} [\trace{}] ]
+         [V\feattab{ \subcat \sliste{ \ibox{5} },\\
+                     \slasch \eliste }
+           [{\ibox{6}~NP[\type{nom}]} [alle] ]
+           [V\feattab{ \subcat \sliste{ \ibox{6}, \ibox{5} },\\
+                       \slasch \eliste }  [lieben] ] ] ] ] ] ]
+\end{forest}
 \end{figure}
 
 
@@ -541,53 +535,52 @@ keine Umstellung des Relativsatzes stattgefunden hat, sondern dass die einfacher
 \section{Der Verbalkomplex}
 
 \resizebox{\linewidth}{!}{%
-\nodemargin5pt
 \begin{tabular}{@{}ccc@{}c@{}}
 \multicolumn{3}{c}{%
-\node{s}{\ms[cat]{ head   & \ibox{1} \\
+\rnode{s}{\ms[cat]{ head   & \ibox{1} \\
            subcat & \eliste\\
             }}}\\
 \\[3ex]
 \\[5ex]
-\node{np}{\ibox{2} NP[\type{nom}]} & \multicolumn{3}{c}{%
-\node{1}{\ms[cat]{ head   & \ibox{1} \\
+\rnode{np}{\ibox{2} NP[\type{nom}]} & \multicolumn{3}{c}{%
+\rnode{1}{\ms[cat]{ head   & \ibox{1} \\
            subcat & \ibox{3}\\
             }}}\\
 \\[3ex]
 \\[5ex]
 & \multicolumn{2}{c}{%
-\node{2}{
+\rnode{2}{
 \iboxt{5}~\onems{ loc \ms{ head & \ibox{4} \\
                                    subcat & \ibox{3} \\
                                  }
 }}} &
-\node{3}{
+\rnode{3}{
                  \ms[cat]{ head & \ibox{1} \ms[verb]{ vform & fin \\
                                                     } \\
                       subcat & \ibox{3} $\oplus$ \sliste{ \ibox{5} } \\
                     }}\\
 \\[3ex]
 \\[4ex]
-& \node{4}{%
+& \rnode{4}{%
 \iboxt{6}~\onems{ loc \onems{ head  \ms[verb]{ vform & bse  \\
                                                 }  \\
                                 subcat~\ibox{3} \sliste{ \ibox{2} NP[\textit{nom\/}] } \\
                               }\\
                 }
-} & \node{5}{
+} & \rnode{5}{
 \onems[cat]{ head~\ibox{4} \ms[verb]{ vform & bse \\
                             } \\
             subcat ~ \ibox{3} $\oplus$ \sliste{ \ibox{6} } \\
           }
 }\\
 \\[3ex]
-\node{er}{er} & \node{6}{singen} & \node{7}{können} & \node{8}{muss}\\
+\rnode{er}{er} & \rnode{6}{singen} & \rnode{7}{können} & \rnode{8}{muss}\\
 \end{tabular}
-\nodeconnect{s}{np}\nodeconnect{s}{1}%
-\nodeconnect{np}{er}%
-\nodeconnect{1}{2}\nodeconnect{1}{3}%
-\nodeconnect{2}{4}\nodeconnect{2}{5}%
-\nodeconnect{4}{6}\nodeconnect{5}{7}\nodeconnect{3}{8}%
+\ncline{s}{np}\ncline{s}{1}%
+\ncline{np}{er}%
+\ncline{1}{2}\ncline{1}{3}%
+\ncline{2}{4}\ncline{2}{5}%
+\ncline{4}{6}\ncline{5}{7}\ncline{3}{8}%
 }
 
 
