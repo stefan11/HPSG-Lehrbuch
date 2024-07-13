@@ -236,7 +236,7 @@ Der \nonlocw ist selbst noch weiter strukturiert:
 Dabei ist \textsc{que} für die Analyse von Interrogativsätzen wichtig. Da diese in diesem Buch nicht behandelt
 werden, wird es im folgenden weggelassen. \textsc{rel} ist eine Liste referentieller Indizes von Relativpronomina. Auf
 \textsc{rel} wird im Kapitel~\ref{chap-rs} über Relativsätze noch genauer eingegangen.
-\textsc{slash} ist eine Liste von \textit{local\/}"=Objekten. Diese Liste wird zur Analyse
+\textsc{slash} ist eine Liste von \type{local}"=Objekten. Diese Liste wird zur Analyse
 der Vorfeldbesetzung benötigt. Für die Analyse von Relativsätzen und Interrogativnebensätzen
 ist sie ebenfalls von Bedeutung.
 
@@ -274,7 +274,7 @@ Merkmalstruktur, die dem \localw des geforderten Arguments entspricht, in ihrer
 
 \eas
 \label{le-spur-acc-o-kennen}
-Spur für das Akkusativkomplement von {\em kennen\/} (vorläufig):\\
+Spur für das Akkusativkomplement von \emph{kennen} (vorläufig):\\
 \ms[word]{
  phon & \phonliste{} \\
 loc   & \ibox{1} \ms{ cat \ms{ head & \ms[noun]{
@@ -394,7 +394,7 @@ type hierarchy,
 \draw (non-specifier.south) to (argument.north);
 \draw (non-specifier.south) to (filler.north);
 \end{forest}}
-\caption{\label{abb-sign-hf-struc}Typhierarchie für \textit{phrase}}
+\caption{\label{abb-sign-hf-struc}Typhierarchie für \type{phrase}}
 \end{figure}
 Dadurch wird der \subcatw der Kopf"|tochter automatisch mit dem der Mutter identifiziert (siehe Abschnitt~\ref{sec-valp} zum Valenzprinzip\is{Prinzip!Valenz-}).
 Der semantische Beitrag kommt vom Verb (der Kopf"|tochter). Das folgt aus dem Semantikprinzip, denn der
@@ -471,7 +471,7 @@ hier als (\mex{1}) mit Markierungen für die Verbspur wiederholt:
 %                                  \end{tabular}}
 %                                           }\\
 % \\*[4ex]
-% \rnode{npbuch}{NP[\textsc{loc} \ibox{1} \textit{acc\/}]} & \multicolumn{2}{c}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
+% \rnode{npbuch}{NP[\textsc{loc} \ibox{1} \type{acc}]} & \multicolumn{2}{c}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
 %                                           \textsc{subcat} \sliste{},\\
 %                                           \textsc{slash} \sliste{ \ibox{1} }]\\
 %                                           \end{tabular}}
@@ -492,7 +492,7 @@ hier als (\mex{1}) mit Markierungen für die Verbspur wiederholt:
 %                                                                                                        \end{tabular}}
 %                                                                                            }\\
 % \\*[4ex]
-% &                                   &                                   & \rnode{6}{\ibox{3} NP[\textit{nom\/}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l@{}}
+% &                                   &                                   & \rnode{6}{\ibox{3} NP[\type{nom}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l@{}}
 %                                                                                                  \textsc{subcat} \sliste{ \ibox{3}, \ibox{4} }] \\
 %                                                                                                  \end{tabular}}\\
 % \\*[3ex]
@@ -892,22 +892,22 @@ Er nimmt an, daß alle Satztypen Untertypen der folgenden drei Typen sind:
 \eal
 \label{clause-types}
 \ex\label{v1-clause-type} \type{V1-clause} \impl \onems{
-                                                  S[\textit{fin}]\\
+                                                  S[\type{fin}]\\
                                                   dom  \liste{ \onems[2]{
-                                                               V[\textit{fin\/}]\\
+                                                               V[\type{fin}]\\
                                                                }, \ldots }
                                                   }
 
 \ex\label{v2-clause-type} \type{V2-clause} \impl \onems{
-                                                  S[\textit{fin}]\\
-                                                  dom \liste{ [ \textit{1} ], \onems[2]{
-                                                                              V[\textit{fin\/}]\\
+                                                  S[\type{fin}]\\
+                                                  dom \liste{ [ \type{1} ], \onems[2]{
+                                                                              V[\type{fin}]\\
                                                                               }, \ldots }
                                                   }
 \ex\label{subord-clause-types} \type{subord-clause} \impl \onems{
-                                                           S[\textit{fin}]\\
+                                                           S[\type{fin}]\\
                                                            dom  \liste{ \ldots, \onems[2]{
-                                                                                \textsc{head} $\neg$ V[\textit{fin\/}]\\
+                                                                                \textsc{head} $\neg$ V[\type{fin}]\\
                                                                                 }, \ldots } 
                                                            }
 \zl
@@ -921,9 +921,9 @@ finite Verb aber nur in einer der beiden Satzklammern stehen kann, bleibt nur di
 
 Kathol kreuzklassifiziert die Typen in (\mex{0}) mit den Typen \type{declarative}, \type{wh-interrogative} und
 \type{polar}. Die entsprechende Typhierarchie zeigt Abbildung~\vref{fig-clausal-types}.
-% For this paper it is sufficient to know that \textit{v2-clause} and \textit{declarative} have a common
-% subtype and that \textit{v1-clause\/} and \textit{polar\/} have a common subtype. \textit{v2-clause} and \textit{polar\/}
-% and \textit{v1-clause\/} and \textit{declarative} are incompatible, respectively.
+% For this paper it is sufficient to know that \type{v2-clause} and \type{declarative} have a common
+% subtype and that \type{v1-clause} and \type{polar} have a common subtype. \type{v2-clause} and \type{polar}
+% and \type{v1-clause} and \type{declarative} are incompatible, respectively.
 %
 \begin{figure}
 \begin{forest}
@@ -981,7 +981,7 @@ Beispiele).
         Flüstern \& Schweigen, taz, 12.07.1999, S.\,14. %war das englisch? 07.12.1999, p.\,14
 }
 \zl
-In den Äußerungen in (\mex{0}) wurde die Kopula\is{Kopula|(} {\em sein\/} weggelassen.
+In den Äußerungen in (\mex{0}) wurde die Kopula\is{Kopula|(} \emph{sein} weggelassen.
 Diese Äußerungen entsprechen den Sätzen in (\mex{1}):
 \eal
 \ex Doch was noch passiert, ist egal, \ldots
@@ -1037,9 +1037,9 @@ Will man keine leeren Elemente verwenden, bleibt nur, weitere Muster aufzuschrei
 müßte man dann \zb folgende Beschränkung formulieren:
 \ea
 \type{V1-topic-drop-clause} \impl \onems{
-                                                  S[\textit{fin}]\\
+                                                  S[\type{fin}]\\
                                                   dom  \liste{ \onems[2]{
-                                                               V[\textit{fin\/}]\\
+                                                               V[\type{fin}]\\
                                                                }, \ldots }
                                                   }
 \z
@@ -1055,7 +1055,7 @@ diskutiert wurden, sieht man, daß ein rein linearisierungsbasierter Ansatz ohne
 erhebliche Probleme bekommt.
 \eal
 \ex {}[Nichts] [mit  derartigen     Entstehungstheorien] hat es natürlich zu tun, wenn \ldots\footnote{
-        K. Fleischmann, {\em Verbstellung und Relieftheorie\/}, München, 1973, S.\,72.
+        K. Fleischmann, \emph{Verbstellung und Relieftheorie}, München, 1973, S.\,72.
         zitiert nach \citew[\page 135]{vdVelde78a}.}
 \label{bsp-nichts-mit-derartigen-udc}
 \ex {}[Trocken] [durch   die Stadt] kommt man am     Wochenende auch mit  der BVG.\footnote{
@@ -1071,9 +1071,9 @@ handelt. Eine Möglichkeit, das zu erfassen, wäre, die Typbeschränkung in (\re
 daß beliebig viele Elemente vor dem Verb in der linken Satzklammer stehen können:
 \ea
  \type{Vn-clause} \impl \onems{
-                                                  S[\textit{fin}]\\
-                                                  dom \liste{ [ \textit{1} ], \ldots, \onems[2]{
-                                                                              V[\textit{fin\/}]\\
+                                                  S[\type{fin}]\\
+                                                  dom \liste{ [ \type{1} ], \ldots, \onems[2]{
+                                                                              V[\type{fin}]\\
                                                                               }, \ldots }
                                                   }
 \z
@@ -1209,10 +1209,10 @@ deps   & \ibox{1}\\
 Für ein ditransitives Verb wie \emph{geben} bekommt man in einem solchen Ansatz
 unter anderem die drei \subcatlen in (\mex{1}b--d):
 \eal
-\ex \liste{ NP[\textit{nom}], NP[\textit{acc}], NP[\textit{dat}] }
-\ex \liste{ \hphantom{NP[\textit{nom}],~}NP[\textit{acc}], NP[\textit{dat}] }
-\ex \liste{ NP[\textit{nom}],\hphantom{~NP[\textit{acc}],~}NP[\textit{dat}] }
-\ex \liste{ NP[\textit{nom}], NP[\textit{acc}]\hphantom{,~NP[\textit{dat}]} }
+\ex \liste{ NP[\type{nom}], NP[\type{acc}], NP[\type{dat}] }
+\ex \liste{ \hphantom{NP[\type{nom}],~}NP[\type{acc}], NP[\type{dat}] }
+\ex \liste{ NP[\type{nom}],\hphantom{~NP[\type{acc}],~}NP[\type{dat}] }
+\ex \liste{ NP[\type{nom}], NP[\type{acc}]\hphantom{,~NP[\type{dat}]} }
 \zl
 Das Subjekt, das Akkusativ"=Objekt bzw.\ das Dativ"=Objekt ist in (\mex{0}b--d) extrahiert, wird
 also nicht von \textsc{deps} auf die \subcatl übernommen.
@@ -1229,9 +1229,9 @@ Spur am weitesten links im Mittelfeld steht, und durch die Interaktion mit Linea
 läßt sich die informationsstrukturelle Funktion der extrahierten Konstituente bestimmen.
 Im lexikonbasierten Ansatz läßt sich hingegen nicht feststellen, ob die Argumente
 des Verbs definit oder indefinit sind, ob es unbetonbare Pronomina sind oder nicht usw.
-Diese Information ist in den Beschreibungen NP[\textit{nom}] nicht enthalten, da man nicht im
+Diese Information ist in den Beschreibungen NP[\type{nom}] nicht enthalten, da man nicht im
 Lexikon festlegen muß, daß \emph{geben} mit einer definiten Nominalphrase vorkommt. Die Beschreibung
-NP[\textit{nom}] sagt nichts über die Definitheit/""Indefinitheit des Subjekts von \emph{geben} aus
+NP[\type{nom}] sagt nichts über die Definitheit/""Indefinitheit des Subjekts von \emph{geben} aus
 und läßt damit sowohl Definitheit als auch Indefinitheit zu.
 Da die extrahierten Elemente in bezug auf ihre informationsstrukturellen Eigenschaften nicht
 bestimmt sind, sind also auch die informationsstrukturellen Eigenschaften, die der zum extrahierten
@@ -1249,14 +1249,14 @@ und verlangen, daß die Elemente der Valenzliste von rechts nach links abgebunde
 benutzt wird, müßte man also eine \subcatl wie in (\mex{1}b) annehmen:
 \eal
 \ex weil dem Mann eine Frau ein Buch gibt
-\ex \liste{ NP[\textit{dat}, \textsc{def}+], NP[\textit{nom}, \textsc{def}$-$], NP[\textit{acc}, \textsc{def}$-$] }
+\ex \liste{ NP[\type{dat}, \textsc{def}+], NP[\type{nom}, \textsc{def}$-$], NP[\type{acc}, \textsc{def}$-$] }
 \zl
 \citet{Uszkoreit86b} hat eine solche Analyse vorgeschlagen.
 Da \citet*{BMS2001a} Adjunkte genau wie Argumente in den \textsc{deps}"=Listen verwalten, würde die Liste
 für (\mex{1}a) auch ein Adjunkt enthalten:
 \eal
 \ex weil dem Mann hoffentlich eine Frau ein Buch gibt
-\ex \liste{ NP[\textit{dat}, \textsc{def}+], Adjunct, NP[\textit{nom}, \textsc{def}$-$], NP[\textit{acc}, \textsc{def}$-$] }
+\ex \liste{ NP[\type{dat}, \textsc{def}+], Adjunct, NP[\type{nom}, \textsc{def}$-$], NP[\type{acc}, \textsc{def}$-$] }
 \zl
 Die beiden folgenden Beispiele von \citet{Frey2004a}\NOTE{Seitenzahl} zeigen, daß
 Frame"=Adverbiale (\mex{1}a) im Gegensatz zu Instrumental"=Präpositionalphrasen (\mex{1}b) ins
