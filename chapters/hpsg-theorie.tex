@@ -1,0 +1,337 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: hpsg-morphologie.tex,v $
+%%  $Revision: 1.5 $
+%%      $Date: 2006/10/11 13:45:38 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Argumentation für eine Theorie bzw.\ gegen andere Theorien}
+\label{chap-argumentation}
+
+
+In diesem Kapitel soll erörtert werden, was eine gute Theorie ausmacht
+und wie man für oder gegen Theorien argumentieren kann. Der Leser mag
+es merkwürdig finden, daß diese Diskussion zum Schluß des Buches stattfindet.
+Der Grund hierfür ist, daß erst zu diesem Zeitpunkt das nötige Wissen
+über Phänomene und Beschreibungsmittel vorhanden ist, um über diese Dinge reden
+zu können.
+
+
+\section{Kriterien für eine gute Theorie}
+\label{sec-kriterien}
+
+Für eine bestimmte Sprache oder einen Sprachausschnitt lassen sich unendlich viele
+Grammatiken angeben. Das kann man sich an der Grammatik in (\mex{2}) klar machen,
+die den folgenden Satz beschreibt:
+\ea
+Kim sleeps.
+\z
+\ea\label{gram-kim-sleeps-v}
+\begin{tabular}[t]{@{}l@{ }l}       
+{S}  & {$\to$ NP, V}
+\end{tabular}\hspace{2cm}%
+\begin{tabular}[t]{@{}l@{ }l}
+{NP} & {$\to$ kim}\\
+{V} & {$\to$ sleeps}\\
+\end{tabular}
+\z
+Die Grammatik in (\mex{1}) beschreibt genau dieselben Sätze wie die in (\mex{0}),
+enthält aber eine zusätzliche Regel:
+\ea
+\begin{tabular}[t]{@{}l@{ }l}       
+{S}  & {$\to$ NP, V}\\
+PP   & {$\to$ P, Det}\\
+\end{tabular}\hspace{2cm}%
+\begin{tabular}[t]{@{}l@{ }l}
+{NP} & {$\to$ kim}\\
+{V} & {$\to$ sleeps}\\
+\end{tabular}
+\z
+Die zweite Grammatikregel ist völlig unsinnig, schadet aber im konkreten Fall nicht,
+da die Grammatik weder Regeln für P noch für Det enthält. Auf diese Weise können wir aus
+der Grammatik in (\mex{-1}) unendlich viele andere Grammatiken durch Hinzunahme unsinniger
+Regeln erzeugen. Vergleicht man die Grammatiken in (\mex{-1}) und (\mex{0}) miteinander,
+ist klar, daß die Grammatik in (\mex{-1}) die am besten für ihren Zweck, nämlich die Beschreibung
+von (\mex{-2}), geeignete ist. Die Anzahl der verwendeten Regeln ist also ein Kriterium für die
+Güte von Grammatiken. Wie sieht es nun mit der folgenden Grammatik aus?
+
+\ea
+\begin{tabular}[t]{@{}l@{ }l}       
+{S}  & {$\to$ NP, VP}\\
+\end{tabular}\hspace{2cm}%
+\begin{tabular}[t]{@{}l@{ }l}
+{NP} & {$\to$ kim}\\
+{VP} & {$\to$ sleeps}\\
+\end{tabular}
+\z
+Die beiden Grammatiken in (\ref{gram-kim-sleeps-v}) und (\mex{0}) sind -- betrachtet man die Sprache, die sie beschreiben -- identisch,
+als Linguisten wissen wir aber, was passiert, wenn man die Grammatiken erweitern will: Zur Grammatik
+in (\mex{0}) können wir einfach eine Regel für die Ableitung von VPen mit transitiven Verben und
+einen Lexikoneintrag für ein transitives Verb hinzufügen und können dann sofort einen entsprechenden
+Satz analysieren:
+\ea
+\begin{tabular}[t]{@{}l@{ }l}       
+{S}  & {$\to$ NP, VP}\\
+VP   & $\to$ V, NP\\
+\end{tabular}\hspace{2cm}%
+\begin{tabular}[t]{@{}l@{ }l}
+{NP} & {$\to$ kim}\\
+{VP} & {$\to$ sleeps}\\
+V    & $\to$ likes\\
+\end{tabular}
+\z
+Da wir die Kategorie VP haben, können wir die Grammatik auch so erweitern, daß Adjunkte
+mit der VP kombiniert werden können. Die Grammatik in (\ref{gram-kim-sleeps-v}) können wir 
+nicht so einfach erweitern. Wir müßten die Kategorien umbenennen oder komplizierte Regeln
+schreiben. Man kann also auch von zwei Grammatiken, die eigentlich denselben Sprachausschnitt
+beschreiben, sagen, welche die bessere ist, wenn man sich überlegt, wie die betreffenden
+Grammatiken erweitert werden können.
+
+Hier ist noch eine einschränkende Anmerkung nötig: Nicht immer ist die Theorie, die mit weniger
+Einheiten eine bestimmte Sprache beschreibt, die bessere, denn man muß auch berücksichtigen,
+was modelliert werden soll. Zum Beispiel konnte experimentell nachgewiesen werden, daß
+Menschen bei der Verarbeitung von komplexen Wörtern oder Phrasen mitunter direkt auf in ihrem
+Kopf abgespeicherte Muster zurückgreifen können, obwohl die komplexen Wörter bzw.\ Phrasen
+regulär nach den Gesetzmäßigkeiten der jeweiligen Sprache gebildet sind.\NOTE{Quellen? Lüdeling?} Ob solche Einheiten
+als Ganzes gespeichert werden oder nicht, hängt mit der Häufigkeit der Verwendung dieser
+Einheiten zusammen. Will man also direkt modellieren, welche Elemente im mentalen Lexikon eines
+Menschen enthalten sind, so muß man für bestimmte Wörter neben der allgemeinen Wortbildungsregel
+auch noch die Ergebnisse der Regelanwendung auf"|führen. Nach den oben beschriebenen Kriterien
+wäre eine solche Grammatik schlechter als eine, die nur die Wortbildungsregeln auf"|führt
+und auf die Listung der Ergebnisse verzichtet. Berücksichtigt man aber die experimentell gewonnenen
+Einsichten, so ist eine Grammatik, die hochfrequente Wörter, deren Existenz im mentalen Lexikon
+nachgewiesen werden kann, redundant repräsentiert, bei entsprechendem Modellierungsziel besser geeignet.
+
+Genauso wie man zu jeder Phrasenstrukturgrammatik unendlich viele Grammatiken angeben kann,
+die dieselbe Sprache beschreiben,
+kann man zu jeder Repräsentation in Merkmalbeschreibungen noch weitere Merkmale hinzufügen. Zu der
+in diesem Buch entwickelten Theorie könnte man für jedes Wort noch ein binäres
+Merkmal \textsc{ist-länger-als-siebzehn} annehmen, das den Wert + hat, wenn das Wort mehr als 17 Buchstaben
+hat, und $-$ sonst. \emph{Straßenbahnhaltestelle} hätte dann den Wert + und \emph{ja} den Wert $-$.
+Die so erweiterte Grammatik würde aber dann nichts anderes tun als die in den vorigen Kapiteln
+beschriebene. Es ist klar, daß wir ein solches Merkmal nicht brauchen und daß die Grammatik
+ohne dieses Merkmal besser ist.
+
+Wir haben also bisher Sparsamkeit und Erweiterbarkeit als Kriterien für gute Theorien
+kennengelernt. Ein weiteres Kriterium ist die Stärke der Vorhersagen, die eine Grammatik macht,
+und die Konsequenzen, die daraus zu ziehen sind, wenn die Vorhersagen falsch sind.
+In einer Theorie, die ganz allgemeine Regel"=Schemata und Prinzipien verwendet, werden im allgemeinen
+viel stärkere Vorhersagen gemacht als in Theorien, die einfach vorhandene Daten klassifizieren.
+Stellt sich eine Vorhersage der Theorie als falsch heraus, so müssen die allgemeinen Prinzipien
+geändert werden, was mitunter einen erheblichen Eingriff in das System bedeutet,
+bei klassifizierenden Theorien muß man einfach bisher unbekannte Daten neu klassifizieren.
+
+Das folgende Beispiel aus der Grammatikentwicklung soll das zuletzt Gesagte etwas verdeutlichen:
+Ich habe Analysen für die sogenannte \emph{dritte Konstruktion}\is{dritte Konstruktion} und für die Voranstellung von Teilphrasen
+(siehe Kapitel~\ref{sec-pvp}) implementiert und 
+danach in einem Aufsatz von Klaus Netter \citeyearpar{Netter91} die folgenden Sätze gefunden:
+\eal
+\ex {}[Versucht, zu lesen], hat er das Buch nicht.
+\ex {}[Versucht, einen Freund vorzustellen], hat er ihr noch nie.
+\zl
+Mir war völlig schleierhaft, wie diese Sätze zu analysieren sind. Ich habe den Computer eingeschaltet,
+die Sätze eingegeben, mir die Analyse angesehen und verstanden, wie die bereits einzeln beschriebenen
+Phänomene interagieren. Das heißt, die implementierte Grammatik machte Vorhersagen in bezug auf
+Sätze, über die ich noch nie nachgedacht hatte.
+
+Wir können also folgendes festhalten:
+Muß man zwischen zwei Analysen/""Theorien entscheiden, so sollte man die nehmen, die sich durch folgendes
+auszeichnet:
+\begin{itemize}
+\item ein möglichst kleines Inventar an Beschreibungsmitteln (Merkmale, Typen, Regeln, 
+      automatische Typ- oder Regelberechnung, relationale Beschränkungen),
+\item eine möglichst geringe Anzahl/geringe Mächtigkeit von verwendeten Elementen 
+      aus dem Inventar der Beschreibungsmittel,
+\item Erweiterbarkeit und
+\item möglichst starke Vorhersagen.
+\end{itemize}
+
+
+\section{Argumentation gegen Theorien unter Bezugnahme auf Daten}
+
+Leider ist es so, daß in vielen Bereichen der Linguistik sehr schlampig mit Daten
+umgegangen wird. Dies ist wahrscheinlich das Resultat einer Gegenbewegung
+von Wissenschaftlern, die sich von allein an Korpusbelegen orientierter Forschung
+absetzen wollten. Diskutierte Daten sind oft nur durch Introspektion der jeweiligen
+Autoren abgesichert. In den Anfangszeiten bestimmter Richtungen
+in der theoretischen Linguistik im vergangenen Jahrhundert war ein solches Vorgehen 
+auch unproblematisch, denn die theoretischen Modelle behandelten unkontroverse Fälle.
+Mit zunehmender Komplexität der Theorien wurden auch komplexere Daten diskutiert 
+und mitunter auch Daten zur Motivation von Theorien verwendet, deren
+Akzeptabilitätsstatus unklar ist \citep{Fanselow2004b}.
+Man findet dann Aussagen wie \emph{in meinem Dialekt
+ist folgender Satz grammatisch} oder \emph{Es gibt Sprecher, die den Satz akzeptieren,
+aber man kann keine regionale Verteilung oder sonstige Abhängigkeit vom Register, sozialem
+Status oder ähnlichem feststellen}. Insbesondere Aussagen der letzten Art sind mit Vorsicht
+zu genießen, da sie schlecht verifizierbar sind. Nicht verifizierbare Aussagen haben
+in wissenschaftlichen Arbeiten aber nichts zu suchen:\footnote{
+  Siehe hierzu auch die DFG"=Richtlinien zur Sicherung guter wissenschaftlicher Praxis (Kommission, 1998)\nocite{DFG98a}.%
+}
+Im besten Fall verschwenden sie
+nur Zeit und Ressourcen derjenigen, die die Publikationen lesen, im schlechtesten Fall werden die
+Daten von anderen Wissenschaftlern aufgegriffen und zur Motivation von Analysen in
+anderen Sprachen verwendet. Es entsteht somit ein riesiges Kartenhaus, dessen
+Grundlage wacklige Datenbeurteilungen sind. Nach einiger Zeit ist nicht mehr nachzuvollziehen,
+welche Theorieteile wirklich motiviert sind.
+
+Es ist einfach, auf der Grundlage von Daten gegen Analysen zu argumentieren, wenn Autoren
+explizit auf Konsequenzen ihrer Analyse hinweisen. Wenn Autoren \zb schreiben, daß ihre
+Theorie die Unmöglichkeit der NP"=Extraposition im Deutschen dadurch erklärt, daß Kasus vom Verb
+nur nach links zugewiesen werden kann, dann reicht es zu zeigen, daß NP"=Extraposition im Deutschen
+möglich ist, um die Theorie zu widerlegen.\footnote{
+  Siehe \citew[Kapitel~13.1]{Mueller99a} und \citew[ix--xii]{Mueller2002b} zur Extraposition von Nominalphrasen.%
+}
+Die Widerlegung von aussagekräftigen Theorien ist ein fruchtbarer Prozeß: Die Theorie war gut,
+da sie bestimmte Vorhersagen gemacht hat. Die Vorhersagen wurden durch die Daten nicht bestätigt,
+weshalb die Theorie revidiert werden muß und man hinterher eine bessere Theorie bekommt.
+
+Wird nicht explizit auf bestimmte Daten eingegangen, dann ist es nicht ohne weiteres möglich,
+eine Theorie zu widerlegen. Man kann \zb nicht sagen, daß eine bestimmte Theorie %der \emph{be}"=Derivation\is{Derivation}
+falsch ist, wenn sie nicht alle im Korpus belegten Muster %von \emph{be}"=Verben 
+beschreibt. Die Theorie ist dann nicht falsch, sondern unvollständig. Man kann dann argumentieren,
+daß der Aufwand, den man für die Erklärung der restlichen Fälle treiben müßte, sehr groß (oder größer als bei einer
+anderen diskutierten Analyse) wäre oder daß bestimmte bereits getroffene Entscheidungen eine Analyse der verbleibenden Fälle ausschließt,
+eine solche Argumentation ist aber oft schwierig. 
+%% Im konkreten Fall ging es um eine morphembasierte
+%% Analyse der \emph{be}"=Derivation, die einer konstruktionsbasierten\is{Konstruktionsgrammatik (CxG)}
+%% Analyse unterlegen sein sollte \citep{MR2001a}. Es wurden verschiedene Konstruktionen 
+%% für die verschiedenen belegten Muster vorgeschlagen. Natürlich
+%% kann man ganz parallel verschiedene \emph{be}"=Präfixe\is{Pr"afix} vorschlagen, die Kosten sind dieselben.
+
+Jetzt wird auch klar, warum Theorien, die Daten nur mittels Typhierarchien klassifizieren,
+wenig interessant sind: Wirft man Vertretern solcher Ansätze vor, daß ein bestimmtes Phänomen
+nicht erfaßt wird, so ist die Antwort: Doch, dafür gibt es einen bestimmten Typ, der von allgemeineren
+Typen erbt. Wie aus der Diskussion im Abschnitt~\ref{sec-kriterien} aber klar geworden sein sollte,
+hat die Stipulation eines Typs seinen Preis. Eine Theorie, die mit weniger Typen und mit wenigen
+konstruktionsspezifischen Typen und ohne automatische Berechnung von zusätzlichen Typen
+auskommt, ist die bessere Theorie und macht stärkere Vorhersagen.
+
+
+
+
+%\section{Argumentation für Theorien unter Bezugnahme auf Daten}
+
+
+\section{Argumentation gegen Theorien wegen Übergenerierung}
+
+Im Abschnitt~\ref{sec-kriterien} haben wir gesagt, daß eine Theorie möglichst starke Vorhersagen
+machen sollte. Das schließt ein, daß die Theorie nur grammatischen Sätzen eine Struktur zuweisen
+darf. Man sagt, daß eine Theorie, die auch ungrammatische Sätze zuläßt, übergeneriert.\is{"Ubergenerierung} Im folgenden
+will ich kurz zeigen, daß es auch legitim sein kann, übergenerierende Theorien zu entwickeln bzw.\
+daß mitunter Argumentation in bezug auf Übergenerierung nicht gerechtfertigt ist.
+
+In der Einleitung wurden im Rahmen der Diskussion der Konstituententests die Beispiele
+in (\ref{bsp-mehr-vf}) -- hier als (\mex{1}) wiederholt -- angeführt:
+\eal
+\ex {}[Trocken] [durch die Stadt] kommt man am Wochenende auch mit der BVG.\footnote{
+        taz berlin, 10.07.1998, S.\,22.
+      }
+\ex {}[Wenig] [mit Sprachgeschichte] hat der dritte Beitrag in dieser Rubrik zu tun, [\ldots]\footnote{
+  ZS für Dialektologie und Linguistik, LXIX, 3/2002, S.\,339.
+}
+\zl
+In \citew{Mueller2005d}\is{Vorfeldbesetzung} habe ich eine Analyse für solche Sätze vorgestellt, die -- so wie sie jetzt ist --
+übergeneriert. Sie läßt Sätze mit beliebig vielen von einem leeren verbalen Kopf abhängenden
+Konstituenten im Vorfeld zu. Man kann mir nun vorwerfen, eine Analyse entwickelt zu haben,
+die nicht restriktiv genug ist, die Analyse ist jedoch wegen der mangelnden Restriktivität 
+nicht falsch: Die Beispiele zeigen, daß vor dem finiten Verb mehrere Konstituenten stehen können,
+die in keiner direkten Beziehung zueinander stehen. Will man solche Beispiele nicht völlig aus grammatischen
+Beschreibungen ausklammern (und das sollte man nicht, denn es gibt massenhaft Belege für dieses Muster,
+siehe \citew{Mueller2003b}), dann muß es für diese Beispiele syntaktische Strukturen geben. Einen
+Vorschlag dafür, wie diese aussehen können, habe ich in dem zitierten Aufsatz gemacht. Die pragmatischen
+Beschränkungen, die für diese Muster gelten, sind noch nicht bekannt, was darauf zurückzuführen ist, daß
+diese Art Daten bisher in der Literatur bis auf wenige Ausnahmen nicht diskutiert wurden. Man muß
+also entsprechende Teiltheorien für Prosodie\is{Prosodie} und Informationsstruktur\is{Informationsstruktur} und die Interaktion mit
+der Vorfeldbesetzung entwickeln, um dann Aussagen darüber treffen zu können, warum eben doch nicht
+beliebige Kombinationen von Konstituenten im Vorfeld stehen können.
+Es ist also legitim, Teilaspekte von Phänomenen zu analysieren, wenn es möglich ist, Übergenerierung
+durch die Formalisierung weiterer Beschränkungen aus anderen linguistischen Teilbereichen einzuschränken bzw.\
+ganz zu eliminieren.
+
+Ich möchte noch ein weiteres Beispiel diskutieren, bei dem Übergenerierung unterstellt wurde, aber
+in Wirklichkeit einfach nur keine Aussage über einen bestimmten Phänomenbereich gemacht wurde:
+\citet[\page73]{Gunkel2003b} schreibt folgendes:
+\begin{quote}
+Dass nicht alle nichtergativen Verben passivierbar sind wird in Teilen der HPSG-Literatur immer
+noch ignoriert. So schlägt Pollard (1994: 282 et passim) eine Analyse des \emph{werden}"=Passivs vor, derzufolge
+alle nichtergativen Verben mit referentiellem Subjekt passivierbar sind. In analoger Weise -- wenn auch in technisch
+anderer Durchführung -- ist die Passivanalyse von Heinz/Matiasek (1994: 216, 224f.) konzipiert, die wesentlich auf
+Haider (1986a) aufbaut und nach der alle Verben mit designiertem Argument passivierbar sind. Angesichts von nichtpassivierbaren
+Verben wie in (2-26) aufgeführt, sind solche Vorschläge hinfällig.
+\exewidth{(2-26)}
+\begin{exe}
+\exi{(2-26)}\begin{xlist}[iv.]
+\ex blühen, brennen, funktionieren, glühen, ruhen
+\ex entsprechen, fehlen, gefallen, gehören
+\ex ärgern, faszinieren, freuen, schmerzen, stören, wundern
+\ex haben, bekommen, besitzen, erhalten, kriegen
+\ex beinhalten, enthalten, fassen
+\zl
+\citep[\page73]{Gunkel2003b}
+\end{quote}
+
+\noindent
+Gunkel merkt in einer Fußnote an: \emph{Müller folgt Pollards Ansatz, obwohl er an anderer Stelle selbst bemerkt, dass
+Nichtergativität keineswegs Passivfähigkeit impliziert.}
+
+Gunkels Argumentation ist nicht korrekt. Man kann eine Analyse nur dann verwerfen, wenn man zeigen kann,
+daß es nicht möglich ist, weitere Beschränkungen zu formulieren, die bestimmte Strukturen/""Sätze ausschließen.
+Auf dieselbe Weise, wie er gegen die Pollardsche/""Haidersche Passivanalyse argumentiert, könnte Gunkel gegen
+jede Syntaxtheorie argumentieren, die Strukturen für (\mex{1}) vorschlägt:
+\eal
+\ex[]{
+Karl wäscht den Schlafanzug.
+}
+\ex[*]{
+Der Schlafanzug wäscht Karl.
+}
+\zl
+Der Unterschied in (\mex{0}) kann über Selektionsrestriktionen\is{Selektionsrestriktion} bzw.\ unter
+Bezug auf Weltwissen\is{Weltwissen} erklärt werden, das muß aber nicht unbedingt Gegenstand
+syntaktischer Abhandlungen sein. 
+
+Genauso ist es nicht unmöglich, Beschränkungen für Thema"=Verben zu finden, die entsprechende Passivierungen
+von Thema"=Verben ausschließen, aber mit der restlichen Analyse kompatibel sind. Gunkel kann also Autoren nur
+vorwerfen, daß sie die Thema"=Verben nicht behandelt haben, aber er kann nicht behaupten, daß die Theorien
+allgemein unbrauchbar seien.
+
+Gunkel fährt fort: \emph{Einer der Gründe für die stillschweigende Gleichsetzung von Ergativität und
+  Nichtpassivierbarkeit} [\ldots].
+Aus dieser Passage wird klar, daß niemand explizit die von Gunkel unterstellte Gleichsetzung gemacht hat.
+Die Analysen von Haider, Heinz und Matiasek, Kathol, Pollard und von mir haben erklärt, warum
+unakkusative Verben normalerweise nicht 
+%bzw.\ nur unter bestimmten pragmatischen Bedingungen (\citealp[\page350]{Ruzicka89}; 
+%\citealp[\page205]{Wunderlich85}; \citealp[\page290]{Mueller99a}) 
+passivierbar sind, sie haben auch erklärt, 
+was beim Passiv passiert, wenn es möglich ist, sie haben aber nicht gesagt,
+daß das Passiv für alle unergativischen Verben möglich ist. Es ist notwendigerweise so, daß Theorien, die nur den
+syntaktischen Aspekt eines Phänomens betrachten, semantische Aspekte nicht berücksichtigen. Sie sind
+deshalb nicht falsch, sondern höchstens unvollständig. 
+%% Im Übrigen wäre es ein Leichtes gewesen, so wie
+%% Gunkel es auf Seite~100 vorschlägt, dem Lexikoneintrag für das Passivhilfsverb \emph{werden} eine Restriktion
+%% hinzuzufügen, die besagt, daß das Partizip eine Agens"=Rolle haben muß (Das wurde übrigens auch von
+%% \citet[\page17]{Haider86} explizit vorgeschlagen.). Man braucht dann allerdings einen sehr weiten Agens"=Begriff.
+%% Normalerweise wird \zb angenommen, daß der Sehende in (\mex{1}) ein Experiencer ist:
+%% \eal
+%% \ex Er sah den Einbrecher.
+%% \ex Der Einbrecher wurde gesehen.
+%% \zl
+
+
+%% \section*{Kontrollfragen}
+
+
+%% \begin{enumerate}
+%% \item
+%% \end{enumerate}
+
+%% \section*{Übungsaufgaben}
+%% \begin{enumerate}
+%% \item Suchen Sie in der Fachliteratur ein Beispiel für fehlerhafte Argumentation.
+%% \end{enumerate}
+
+
+\label{lastpage}
