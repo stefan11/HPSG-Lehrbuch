@@ -368,9 +368,7 @@ type hierarchy,
  %   calign=fixed angles,
  %   calign angle=50
  % } 
-[sign
-  [word]
-  [phrase
+[phrase
     [non-headed-phrase]
     [headed-phrase, l sep*=2, for children={l sep*=4}
       [head-non-adjunct-phrase, name=non-adjunct, 
@@ -380,7 +378,7 @@ type hierarchy,
       [head-non-filler-phrase, name= non-filler
         [head-filler-phrase, no edge, name=filler]]
       [head-non-specifier-phrase, name=non-specifier
-        [head-specifier-phrase, no edge, name=specifier]]]]]
+        [head-specifier-phrase, no edge, name=specifier]]]]
 \draw (non-adjunct.south) to (argument.north);
 \draw (non-adjunct.south) to (filler.north);
 \draw (non-adjunct.south) to (specifier.north);
