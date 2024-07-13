@@ -672,9 +672,9 @@ in der Tabelle~\vref{tab-merkmale} dargestellt.
 \oneline{\begin{tabular}{ll}\lsptoprule
 Kategorie    & projizierte Merkmale\\\midrule
 Verb         & Wortart, Verbform\is{Verbform} (\textit{fin}, \textit{bse}, \textit{inf}, \textit{ppp})\\
-Nomen        & Wortart, Kasus\is{Kasus} (\textit{nom\/}, \textit{gen\/}, \textit{dat\/}, \textit{acc\/})\\
+Nomen        & Wortart, Kasus\is{Kasus} (\textit{nom}, \textit{gen}, \textit{dat}, \textit{acc})\\
              & Person\is{Person} (\emph{1}, \emph{2}, \emph{3}), Numerus (\emph{sg}, \emph{pl})\\
-%Präposition  & Kategorie, (Form der Präposition (\textit{an\/}, \textit{auf\/}, \ldots), Kasus der NP)\\
+%Präposition  & Kategorie, (Form der Präposition (\textit{an}, \textit{auf}, \ldots), Kasus der NP)\\
 Adjektiv     & Wortart, bei flektierten Formen Kasus\is{Kasus|(}, Genus\is{Genus|(} (\emph{mas}, \emph{fem}, \emph{neu}), Numerus\is{Numerus|(}\\
              & und Flexionsklasse\is{Flexion!-sklasse|(} (\emph{strong}, \emph{weak})\\\lspbottomrule
 \end{tabular}}
@@ -799,8 +799,8 @@ Es sagt etwas über die Intensität der durch das Verb beschriebenen Relation au
 Weitere Beispiele für Adjunkte sind Adjektive (\mex{1}a) und Relativsätze (\mex{1}b):
 \eal
 \ex\label{bsp-eine-schoene-frau}
-eine {\em schöne\/} Frau
-\ex der Mann, {\em den Maria liebt\/}
+eine \emph{schöne} Frau
+\ex der Mann, \emph{den Maria liebt}
 \zl
 Adjunkte haben folgende syntaktische bzw.\ semantische Eigenschaften:
 \eal
@@ -984,7 +984,7 @@ aufgeführt.
 \item Transformationsgrammatik\is{Transformation} und deren Nachfolger
       \begin{itemize}
       \item Transformationsgrammatik\\\citep{Chomsky57a,Bierwisch63a}
-      \item Government \& Binding\is{Government and Binding (GB)@\textit{Government and Binding\/} (GB)}\\\citep{Chomsky81a,SS88a,Grewendorf88a}
+      \item Government \& Binding\is{Government and Binding (GB)@\textit{Government and Binding} (GB)}\\\citep{Chomsky81a,SS88a,Grewendorf88a}
       \item Minimalismus\is{Minimalistisches Programm}\\\citep{Chomsky95a-u,Grewendorf2002a}
       \end{itemize}
 \item Relational Grammar (RG)\\
@@ -1016,17 +1016,17 @@ nächsten Abschnitts.
 \is{Phrasenstrukturgrammatik|(}
 
 Wörter können anhand ihrer Flexionseigenschaften und ihrer Distribution einer Wortart zugeordnet werden.
-So ist \emph{weil} in (\mex{1}) eine Konjunktion, \emph{das} und \emph {dem}
-sind Artikel und werden zu den Determinierern gezählt. \emph{Buch} und \emph{Mann} sind Nomina und \emph{gibt}
+So ist \emph{weil} in (\mex{1}) eine Konjunktion, \emph{dem} und \emph {den}
+sind Artikel und werden zu den Determinierern gezählt. \emph{Affen} und \emph{Stock} sind Nomina und \emph{gibt}
 ist ein Verb.
 \ea
-\label{bsp-weil-er-das-buch-dem-mann-gibt}
-weil er das Buch dem Mann gibt
+\label{bsp-weil-Aicke-dem-Affen-den-Stock-gibt}
+weil Aicke dem Affen den Stock gibt
 \z
 Mit den in Abschnitt~\ref{konstituententests} eingeführten Tests kann man nun feststellen, daß
-die einzelnen Wörter sowie die Wortgruppen \emph{das Buch} und \emph{dem Mann} Konstituenten bilden.
+die einzelnen Wörter sowie die Wortgruppen \emph{dem Affen} und \emph{den Stock} Konstituenten bilden.
 Diesen sollen Symbole zugewiesen werden. Da das Nomen ein wesentlicher Bestandteil der Wortgruppen
-\emph{das Buch} und \emph{dem Mann} ist, nennt man diese Wortgruppen Nominalphrasen, was mit NP abgekürzt wird. Das Pronomen \emph{er}
+\emph{dem Affen} und \emph{den Stock} ist, nennt man diese Wortgruppen Nominalphrasen, was mit NP abgekürzt wird. Das Pronomen \emph{er}
 kann an denselben Stellen stehen wie volle Nominalphrasen, weshalb man das Pronomen auch der
 Kategorie NP zuordnen kann.
 
@@ -1044,13 +1044,13 @@ mit der man (\mex{0}) analysieren kann, ist in (\mex{1}) zu sehen:\footnote{
 {S}  & {$\to$ NP, NP, NP, V}
 \end{tabular}\hspace{2cm}%
 \begin{tabular}[t]{@{}l@{ }l}
-{NP} & {$\to$ er}\\
-{D}  & {$\to$ das}\\
+{NP} & {$\to$ Aicke}\\
+{D}  & {$\to$ den}\\
 {D}  & {$\to$ dem}\\
 \end{tabular}\hspace{8mm}
 \begin{tabular}[t]{@{}l@{ }l}
-{N} & {$\to$ Buch}\\
-{N} & {$\to$ Mann}\\
+{N} & {$\to$ Affen}\\
+{N} & {$\to$ Stock}\\
 {V} & {$\to$ gibt}\\
 \end{tabular}
 \z
@@ -1069,13 +1069,13 @@ den Zeilen 5, 8 und 10.
 \label{bsp-anwendung-grammatik}
 \begin{tabular}[t]{@{}r|llllll@{\hspace{1.8cm}}l}
  & \multicolumn{6}{l}{Wörter und Symbole} & angewendete Regeln\\\hline
- 1 & er            & das          & Buch          & dem          & Mann & gibt                \\
- 2 & {NP}          & das          & Buch          & dem          & Mann & gibt & {NP $\to$ er}  \\
- 3 & NP            & {D}          & Buch          & dem          & Mann & gibt & {D $\to$ das}  \\
- 4 & NP            & D            & {N}           & dem          & Mann & gibt & {N $\to$ Buch} \\
- 5 & NP            &              & {NP}          & dem          & Mann & gibt & {NP $\to$ D, N}\\
- 6 & NP            &              & NP            & {D}          & Mann & gibt & {D $\to$ dem}  \\
- 7 & NP            &              & NP            & D            & {N}  & gibt & {N $\to$ Mann} \\
+ 1 & Aicke         & dem          & Affen          & den          & Stock & gibt                \\
+ 2 & {NP}          & dem          & Affen          & den          & Stock & gibt & {NP $\to$ er}  \\
+ 3 & NP            & {D}          & Affen          & den          & Stock & gibt & {D $\to$ dem}  \\
+ 4 & NP            & D            & {N}           & den          & Stock & gibt & {N $\to$ Affen} \\
+ 5 & NP            &              & {NP}          & den          & Stock & gibt & {NP $\to$ D, N}\\
+ 6 & NP            &              & NP            & {D}          & Stock & gibt & {D $\to$ den}  \\
+ 7 & NP            &              & NP            & D            & {N}  & gibt & {N $\to$ Stock} \\
  8 & NP            &              & NP            &              & {NP} & gibt & {NP $\to$ D, N}\\
  9 & NP            &              & NP            &              & NP   & {V} & {V $\to$ gibt}  \\
 10 &               &              &               &              &      & {S} & {S $\to$ NP, NP, NP, V}\\
@@ -1086,34 +1086,34 @@ In (\mex{0}) sind wir von einer Folge von Wörtern ausgegangen und haben gezeigt
 der Phrasenstrukturgrammatik so anwenden können, daß wir ein Satzsymbol ableiten können. Genausogut
 hätten wir die Schritte in umgekehrter Reihenfolge durchführen können, dann hätten wir aus dem
 Satzsymbol mit den Schritten~9--1 eine Wortfolge abgeleitet. Durch andere Wahl von Ersetzungsregeln
-kann man von S ausgehend \ua auch die Wortfolge \emph{er dem Mann das Buch gibt} ableiten. Man sagt,
+kann man von S ausgehend \ua auch die Wortfolge \emph{Aicke dem Affen den Stock gibt} ableiten. Man sagt,
 die Grammatik erzeugt, lizenziert bzw.\ generiert eine Menge von Sätzen.
 
-Die Ableitung in (\mex{0}) kann auch als Baum dargestellt werden. Das zeigt Abbildung~\vref{er-das-buch-dem-mann-gibt-flat}.
+Die Ableitung in (\mex{0}) kann auch als Baum dargestellt werden. Das zeigt Abbildung~\vref{fig-Aicke-dem-Affen-den-Stock-gibt-flat}.
 \begin{figure}[htbp]
 \centerline{
 \begin{forest}
 sm edges
 [S
-  [NP [er] ]
-  [NP
-    [Det [das] ]
-    [N [Buch] ] 
-  ]
+  [NP [Aicke] ]
   [NP
     [Det [dem] ]
-    [N [Kind] ] 
+    [N [Affen] ] 
+  ]
+  [NP
+    [Det [den] ]
+    [N [Stock] ] 
   ]
   [V [gibt] ]
 ]
 \end{forest}
 }
-\caption{\label{er-das-buch-dem-mann-gibt-flat}Analyse von \emph{er das Buch dem Mann gibt}}
+\caption{\label{fig-Aicke-dem-Affen-den-Stock-gibt-flat}Analyse von \emph{Aicke dem Affen den Stock gibt}}
 \end{figure}
 Die Symbole im Baum werden \emph{Knoten}\is{Knoten} genannt. Man sagt, daß S die NP"=Knoten
 und den V"=Knoten unmittelbar dominiert\is{Dominanz}. Die anderen Knoten im Baum werden von S ebenfalls dominiert,
 aber nicht unmittelbar dominiert\is{Dominanz!unmittelbare}. Will man über Beziehungen von Knoten zueinander reden,
-verwendet man Verwandschaftsbezeichnungen. So ist in Abbildung~\ref{er-das-buch-dem-mann-gibt-flat}
+verwendet man Verwandschaftsbezeichnungen. So ist in Abbildung~\ref{fig-Aicke-dem-Affen-den-Stock-gibt-flat}
 S der Mutterknoten\is{Knoten!Mutter-} der drei NP"=Knoten und des V"=Knotens. 
 Die NP"=Knoten und V sind Schwestern\is{Knoten!Schwester-}, da sie denselben Mutterknoten haben.
 Hat ein Knoten zwei Töchter\is{Knoten!Tochter-} liegt eine binär\is{binär} verzweigende Struktur\is{Verzweigung}\is{Verzweigung!binäre} vor.
@@ -1125,12 +1125,12 @@ Gibt es genau eine Tochter, spricht man von einer unären\is{unär}\is{Verzweigu
 In vielen linguistischen Publikationen werden Phrasenstrukturregeln nicht mehr angegeben. Es werden
 nur Baumrepräsentationen oder äquivalente, kompakter darstellbare Klammerausdrücke wie \zb (\mex{1}) verwendet.
 \ea
-{}[\sub{S} [\sub{NP} er] [\sub{NP} [\sub{D} das] [\sub{N} Buch]]  [\sub{NP} [\sub{D} dem] [\sub{N} Mann]] [\sub{V} gibt]]
+{}[\sub{S} [\sub{NP} Aicke] [\sub{NP} [\sub{D} dem] [\sub{N} Affen]]  [\sub{NP} [\sub{D} den] [\sub{N} Stock]] [\sub{V} gibt]]
 \z
 
 \noindent
 Hier muß darauf hingewiesen werden, daß die Grammatik in (\ref{bsp-grammatik-psg}) nicht die einzig mögliche Grammatik
-für den Beispielsatz in (\ref{bsp-weil-er-das-buch-dem-mann-gibt}) ist. 
+für den Beispielsatz in (\ref{bsp-weil-Aicke-dem-Affen-den-Stock-gibt}) ist. 
 Es gibt unendlich\label{page-unendlich-viele-grammatiken} viele Grammatiken, 
 die zur Analyse solcher Sätze verwendet werden können (siehe Übung \ref{ua-psg-eins}).
 Eine ist zum Beispiel die in (\mex{1}):
@@ -1141,16 +1141,16 @@ V  & $\to$ NP, V\\
 \end{tabular}\hspace{2cm}%
 \begin{tabular}[t]{@{}l@{ }l}
 {NP} & {$\to$ er}\\
-{D}  & {$\to$ das}\\
+{D}  & {$\to$ den}\\
 {D}  & {$\to$ dem}\\
 \end{tabular}\hspace{8mm}
 \begin{tabular}[t]{@{}l@{ }l}
-{N} & {$\to$ Buch}\\
-{N} & {$\to$ Mann}\\
+{N} & {$\to$ Affen}\\
+{N} & {$\to$ Stock}\\
 {V} & {$\to$ gibt}\\
 \end{tabular}
 \z
-Diese Grammatik lizenziert binär verzweigende Strukturen, wie die in Abbildung~\vref{er-das-buch-dem-mann-gibt-bin}.
+Diese Grammatik lizenziert binär verzweigende Strukturen, wie die in Abbildung~\vref{fig-Aicke-dem-Affen-den-Stock-gibt-bin}.
 
 
 \begin{figure}
@@ -1158,19 +1158,19 @@ Diese Grammatik lizenziert binär verzweigende Strukturen, wie die in Abbildung~
 \begin{forest}
 sm edges
 [V
-  [NP [er] ]
+  [NP [Aicke] ]
   [V
     [NP
-      [Det [das] ]
-      [N [Buch] ] ]
+      [Det [dem] ]
+      [N [Affen] ] ]
     [V
       [NP
-        [Det [dem] ]
-        [N [Kind] ] ]
+        [Det [den] ]
+        [N [Stock] ] ]
       [V [gibt] ] ] ] ]
 \end{forest}
 }
-\caption{\label{er-das-buch-dem-mann-gibt-bin}Analyse von \emph{er das Buch dem Mann gibt} mit binärer Verzweigung}
+\caption{\label{fig-Aicke-dem-Affen-den-Stock-gibt-bin}Analyse von \emph{Aicke dem Affen den Stock gibt} mit binärer Verzweigung}
 \end{figure}
 
 \noindent
@@ -1181,26 +1181,26 @@ Sowohl die Grammatik in (\mex{0}) als auch die in (\mex{-3}) ist zu ungenau.\foo
   des Verbs. Siehe hierzu Kapitel~\ref{chap-valenz}. Die Strukturen, die wir in den folgenden
   Kapiteln motivieren werden, ähneln eher denen in (\ref{psg-binaer}) als denen in (\ref{bsp-grammatik-psg}).%
 }
-Nimmt man noch Lexikoneinträge für \emph{ich} und \emph{den} in die Grammatik auf, so werden
+Nimmt man noch Lexikoneinträge für \emph{ich} und \emph{das} in die Grammatik auf, so werden
 fälschlicherweise die Sätze in (\mex{1}b--d) lizenziert:
 \eal
 \ex[]{
-er das Buch dem Mann gibt
+Aicke dem Affen den Stock gibt
 }
 \ex[*]{
-ich das Buch dem Mann gibt
+ich dem Affen den Stock gibt
 }
 \ex[*]{
-er das Buch den Mann gibt
+Aicke den Affen den Stock gibt
 }
 \ex[*]{
-er den Buch dem Mann gibt
+Aicke dem Affen das Stock gibt
 }
 \zl
-In (\mex{0}b) ist die Subjekt"=Verb"=Kongruenz verletzt, {\em ich\/} und {\em gibt\/} passen
+In (\mex{0}b) ist die Subjekt"=Verb"=Kongruenz verletzt, \emph{ich} und \emph{gibt} passen
 nicht zueinander. In (\mex{0}c) sind die Kasusanforderungen des Verbs nicht erfüllt.
-{\em gibt\/} verlangt ein Dativ"=Objekt. In (\mex{0}d) ist die Determinator"=Nomen"=Kongruenz
-verletzt. {\em den\/} und {\em Buch\/} passen nicht zueinander, da die Genus"=Eigenschaften der
+\emph{gibt} verlangt ein Dativ"=Objekt. In (\mex{0}d) ist die Determinator"=Nomen"=Kongruenz
+verletzt. \emph{das} und \emph{Stock} passen nicht zueinander, da die Genus"=Eigenschaften der
 beiden Wörter verschieden sind.
 
 Im folgenden soll überlegt werden, wie man die Grammatik verändern muß, damit die Sätze in (\mex{0})
@@ -1665,7 +1665,7 @@ es interessiert nur, welche Strukturen prinzipiell wohlgeformt sind.
 \begin{enumerate}
 \item\label{ua-psg-eins}
       Auf Seite~\pageref{page-unendlich-viele-grammatiken} habe ich behauptet, daß
-      es unendlich viele Grammatiken gibt, die (\ref{bsp-weil-er-das-buch-dem-mann-gibt})
+      es unendlich viele Grammatiken gibt, die (\ref{bsp-weil-Aicke-dem-Affen-den-Stock-gibt})
       analysieren können.
       Überlegen Sie sich, wieso diese Behauptung richtig ist.
 %%       Beweisen Sie, daß das richtig ist.

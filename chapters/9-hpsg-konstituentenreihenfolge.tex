@@ -726,7 +726,7 @@ Dieser Lexikoneintrag unterscheidet sich vom normalen Verb \emph{kennt} nur in s
 
 Die syntaktischen Aspekte der Analyse von (\ref{bsp-kennt-jemand-den-Roman}) sind in Abbildung~\vref{verb-movement-syn-simple}
 dargestellt. 
-\begin{figure}[htbp]
+\begin{figure}
 \begin{forest}
 sm edges
 [{V[\subcat \eliste]}
@@ -1401,7 +1401,7 @@ sm edges
     [{\ibox{2} NP[\type{dat}]} 
       [dem Affen, roof]]
     [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2} },\\
-               \textsc{dom} \phonliste{ den Stock, gibt }}
+               \textsc{dom} \phonliste{ \blau{den Stock, gibt} }}
       [{\ibox{3} NP[\type{acc}]}
         [den Stock,roof]]
       [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
@@ -1428,7 +1428,7 @@ sm edges
     [{\ibox{2} NP[\type{dat}]} 
       [dem Affen, roof]]
     [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2} },\\
-               \textsc{dom} \phonliste{ gibt, den Stock }}
+               \textsc{dom} \phonliste{ \blau{gibt, den Stock} }}
       [{\ibox{3} NP[\type{acc}]}
         [den Stock,roof]]
       [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
@@ -1897,15 +1897,18 @@ das folgende Beispiel aus \citew[\page101]{Mueller99a} zeigt, ist die Behauptung
 Siehe auch \citew[\page187--192]{Fanselow91a} und \citew[Abschnitt~2.3]{Fanselow2001a}.%
 \is{Freezing@\emph{Freezing}|)}
 
-\section*{Kontrollfragen}
+%\section*{Kontrollfragen}
 
+\questions{
 \begin{enumerate}
 \item Welche Konstituentenstellungsphänomene kennen Sie?
 \item Warum wurden Kopf"=Spezifikator"=Strukturen eingeführt?
 \end{enumerate}
+}
 
-\section*{Übungsaufgaben}
+%\section*{Übungsaufgaben}
 
+\exercises{
 \begin{enumerate}
 \item Skizzieren Sie die Analysebäume für folgende Sätze und erläutern Sie,
       wie die Unterschiede zwischen den Sätzen von der in diesem Kapitel
@@ -1923,7 +1926,7 @@ Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem 
 Aspekte.
 
 \item (Zusatzaufgabe) Laden Sie das Babel"=System, das ebenfalls auf der Grammix"=CD enthalten ist. 
-Nach Beendigung des Ladevorgangs erscheint ein Prompt (\verb+>>>+). Geben Sie den folgenden Satz
+Nach Beendigung des Ladevorgangs erscheint ein Prompt (\texttt{>>>}). Geben Sie den folgenden Satz
 ein:
 \ea
 Er glaubt, dass der Mann der Frau das Buch gibt.
@@ -1936,9 +1939,11 @@ Buch gibt} überspannen. Die untere der beiden ist diskontinuierlich, was man se
 die Kante anklickt und den Menüpunkt "`Zeige Kinder"' auswählt. Experimentieren Sie mit anderen Sätzen
 aus dem Abschnitt~\ref{sec-Linearisierung}.
 \end{enumerate}
+}
 
-\section*{Literaturhinweise}
+%\section*{Literaturhinweise}
 
+\furtherreading{
 \citew{Mueller2004b} diskutiert die Möglichkeiten, die es im Rahmen der HPSG für die Analyse der
 relativ freien Konstituentenstellung gibt. Teile dieser Diskussion sind auch hier im
 Alternativenabschnitt enthalten.
@@ -1954,3 +1959,4 @@ mit dem Verb in Letztposition die Grundstellung ist. Die Linearisierungsanalysen
 \citew{Reape94a}, \citew{Kathol2001a} und \citew{Mueller99a,Mueller2002b,Mueller2004b} vertreten wurden, sind mit
 diesen Beobachtungen aber auch kompatibel. Einzig und allein das Phänomen der scheinbar mehrfachen
 Vorfeldbesetzung \citep{Mueller2005d} stellt wirklich harte Evidenz gegen linearisierungsbasierte Analysen dar.
+}

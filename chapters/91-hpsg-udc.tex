@@ -57,54 +57,36 @@ Argumenten kombiniert, wobei diese links oder rechts des Verbs angeordnet werden
 dürfen. Abbildung~\vref{abb-kathol-flach-vf} zeigt, wie eine solche Analyse für (\mex{1}) bei der
 Annahme flacher Strukturen aussehen würde.
 \ea
-Dem Mann gibt die Frau das Buch.
+Dem Affen gibt Aicke den Stock.
 \z
 \begin{figure}
-\centerline{\begin{tabular}[t]{@{}c@{\hspace{6mm}}c@{\hspace{6mm}}c@{\hspace{8mm}}c@{}}%llll}
-\multicolumn{4}{c}{\rnode{1}{V[\textit{fin\/}, \textsc{subcat} \sliste{ }]}}\\
-\\[3ex]
-%\hspace{23mm}C & \hspace{12mm}C & \hspace{-5mm}C &\hspace{-14mm}H\\
-\\[3ex]
-\rnode{2}{\ibox{3} NP[\textit{dat\/}]} & \rnode{7}{V[\textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] } & \rnode{4}{\ibox{1} NP[\textit{nom\/}]}     & \rnode{6}{\ibox{2} NP[\textit{acc\/}]}\\
-\\
-\\*[5ex]
-D\rnode{8}{em Man}n & \rnode{11}{gibt} & d\rnode{9}{ie Fra}u  & d\rnode{10}{as Buc}h  \\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{6}%
-\ncline{1}{4}\ncline{1}{7}%
-\ncline{7}{11}%
-\ncline{2}{8}%
-\ncline{4}{9}%
-\ncline{6}{10}}%
-\caption{\label{abb-kathol-flach-vf}Analyse von \emph{Dem Mann gibt die Frau das Buch.} mit
+\centerline{%
+\begin{forest}
+sm edges
+[{V[\type{fin}, \comps \eliste]},l sep+=.5\baselineskip
+  [\ibox{2} {NP[\type{dat}]} [dem Affen, roof]]
+  [{V[\type{fin}, \comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} } ]} [gibt]]
+  [\ibox{1} {NP[\type{nom}]} [Aicke]]
+  [\ibox{3} {NP[\type{acc}]} [den Stock, roof]]]
+\end{forest}}
+\caption{\label{abb-kathol-flach-vf}Analyse von \emph{Dem Affen gibt Aicke den Stock.} mit
   einer flachen Struktur, die das Vorfeld enthält}
 \end{figure}
 Bei der Annahme binär verzweigender Strukturen bekäme man die Analyse in
 Abbildung~\ref{abb-kathol-binaer-vf}.
 \begin{figure}
-\centerline{\begin{tabular}[t]{@{}c@{\hspace{6mm}}c@{\hspace{6mm}}c@{\hspace{8mm}}c@{}}%llll}
-\multicolumn{3}{@{}c@{}}{\rnode{1}{V[\textit{fin\/}, \textsc{subcat} \sliste{ }]}}\\
-\\[3ex]
-\\[3ex]
-\rnode{2}{\ibox{3} NP[\textit{dat\/}]} & \multicolumn{3}{@{}c@{}}{\rnode{7c}{V[\textit{fin\/}, \textsc{subcat} \sliste{ \ibox{3} }] }} \\
-\\
-\\*[5ex]
-                                   & \multicolumn{2}{@{}c@{}}{\rnode{7b}{V[\textit{fin\/}, \textsc{subcat} \sliste{ \ibox{2}, \ibox{3} }] }}   & \rnode{6}{\ibox{2} NP[\textit{acc\/}]}\\
-\\
-\\*[5ex]
-                                   & \rnode{7}{V[\textit{fin\/}, \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] } & \rnode{4}{\ibox{1} NP[\textit{nom\/}]}\\
-\\
-\\*[5ex]
-D\rnode{8}{em Man}n & \rnode{11}{gibt} & d\rnode{9}{ie Fra}u  & d\rnode{10}{as Buc}h  \\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{7c}%
-\ncline{7}{11}%
-\ncline{7b}{4}\ncline{7b}{7}%
-\ncline{7c}{6}\ncline{7c}{7b}%
-\ncline{2}{8}%
-\ncline{4}{9}%
-\ncline{6}{10}}%
-\caption{\label{abb-kathol-binaer-vf}Analyse von \emph{Dem Mann gibt die Frau das Buch.} mit
+\centerline{%
+\begin{forest}
+sm edges
+[{V[\type{fin}, \comps \eliste]}, s sep+=1.5em 
+  [\ibox{2} {NP[\type{dat}]} [dem Affen, roof]]
+  [{V[\type{fin}, \comps \sliste{ \ibox{2} } ]}, s sep+=1em 
+    [{V[\type{fin}, \comps \sliste{ \ibox{2}, \ibox{3} } ]} 
+      [{V[\type{fin}, \comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} } ]} [gibt]]
+      [\ibox{1} {NP[\type{nom}]} [Aicke]]]
+    [\ibox{3} {NP[\type{acc}]} [den Stock, roof]]]]
+\end{forest}}%
+\caption{\label{abb-kathol-binaer-vf}Analyse von \emph{Dem Affen gibt Aicke den Stock.} mit
   binär verzweigenden Strukturen}
 \end{figure}
 
@@ -314,44 +296,28 @@ an der Stelle der Spur fehlt, ist durch den entsprechenden Wert in \slasch ausge
 %
 Abbildung~\vref{abb-das-buch-kennt-er-variable-verzweigung} zeigt das Weiterreichen
 der Information.
-\begin{figure}[htbp]
+\begin{figure}
 \centerline{%
-\begin{tabular}[t]{@{}cccccccc@{}}%llll}
-\multicolumn{3}{l}{\rnode{3all}{V[\begin{tabular}[t]{@{}l}
-                                 \textsc{subcat} \rnode{3}{\sliste{}},\\%,\\
-                                 \textsc{slash} \eliste]\\
-                                 \end{tabular}}
-                                          }\\
-\\*[4ex]
-\rnode{4}{NP[\textsc{loc} \ibox{1} \textit{acc\/}]} & \multicolumn{3}{c}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-                                          \textsc{subcat} \sliste{},\\
-                                          \textsc{slash} \sliste{ \ibox{1} }]\\
-                                          \end{tabular}}
-                                          }\\
-\\*[4ex]
-& \multicolumn{2}{c}{\rnode{6}{V[\begin{tabular}[t]{@{}l}
-                                        \textsc{subcat} \sliste{ \ibox{2} },\\
-                                        \textsc{slash} \sliste{ \ibox{1} }]\\
-                                        \end{tabular}}
-                                                       } & \rnode{7}{\ibox{2} NP[\textit{nom\/}]}\\
-\\*[4ex]
-                              & \rnode{8}{V[\begin{tabular}[t]{@{}l}
-                                           \textsc{subcat} \sliste{ \ibox{2}, \ibox{3} },\\
-                                           \textsc{slash} \sliste{}]\\
-                                           \end{tabular}} & \rnode{11}{\ibox{3} NP[\begin{tabular}[t]{@{}l}
-                                                                       \textsc{loc} \ibox{1} \type{acc},\\
-                                                                       \textsc{slash} \sliste{ \ibox{1} }] \\
-                                                                       \end{tabular}}\\
-\\*[3ex]
-d\rnode{13}{as Buc}h            & \rnode{14}{kennt}  & \rnode{16}{\_} & \rnode{17}{jeder}\\
-\end{tabular}
-\ncline{3all}{4}\ncline{3all}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{6}{8}\ncline{6}{11}%
-\ncline{8}{14}%
-\ncline{4}{13}%
-\ncline{11}{16}%
-\ncline{7}{17}}%
+\begin{forest}
+sm edges
+[V\feattab{\subcat \eliste,\\
+           \slasch \eliste}, s sep+=3ex 
+  [{NP\ibox{1}[\type{acc}]} [das Buch,roof]]
+  [V\feattab{
+      \subcat \sliste{ },\\
+      \slasch \sliste{ \ibox{1} }}, s sep+=1ex
+    [V\feattab{
+      \subcat \sliste{ \ibox{2} },\\
+      \slasch \sliste{ \ibox{1} }}
+      [V\feattab{
+        \subcat \sliste{ \ibox{2}, \ibox{3} },\\
+        \slasch \sliste{ }} [kennt]]
+      [\ibox{3} NP\feattab{\textsc{loc} \ibox{1} \type{acc},\\
+                           \slasch \sliste{ \ibox{1} }}
+        [\trace]]]
+    [{\ibox{2} NP[\type{nom}]}
+      [jeder]]]]
+\end{forest}}
 \caption{\label{abb-das-buch-kennt-er-variable-verzweigung}Perkolation von nichtlokaler Information in einer Struktur mit variabler Verzweigung}
 \end{figure}
 Für das Weiterleiten der \textsc{nonloc}"=Information ist das folgende Prinzip der nichtlokalen Merkmale verantwortlich.
@@ -392,40 +358,42 @@ Dieses Schema kombiniert einen finiten Satz mit Verb in Verberststellung (\texts
 mit einer Nicht-Kopf"|tochter, deren \textsc{local}"=Wert identisch mit diesem \textsc{slash}"=Element ist.
 In der Struktur werden keine Argumente gesättigt. \type{head-filler-phrase} ist Untertyp von \type{head-non-argument-phrase}
 (siehe Abbildung~\vref{abb-sign-hf-struc}).
-\begin{figure}[htbp]
-\resizebox{\linewidth}{!}{\begin{pspicture}(0.6,-4)(20.2,4.4)
-%\psgrid
-%\rput[B](4,6){\rnode{sign}{\textit{sign}}}
-%
-%\rput[B](1,4){\rnode{word}{\textit{word}}}
-\rput[B](7,4){\rnode{phrase}{\textit{phrase}}}
-%
-\rput[B](4,2){\rnode{nhs}{\textit{non-headed-phrase}}}
-\rput[B](10,2){\rnode{hs}{\textit{headed-phrase}}}
-%
-\rput[B](3,0){\rnode{hnas}{\type{head"=non-adjunct-phrase}}}
-\rput[B](8,0){\rnode{hnars}{\type{head"=non"=argument"=phrase}}}
-\rput[B](13,0){\rnode{hnfs}{\type{head"=non"=filler"=phrase}}}
-\rput[B](18,0){\rnode{hnss}{\type{head"=non"=specifier"=phrase}}}
-\rput[B](3,-4){\rnode{has}{\textit{head"=adjunct"=phrase}}}
-\rput[B](8,-4){\rnode{hars}{\textit{head"=argument"=phrase}}}
-\rput[B](13,-4){\rnode{hfs}{\textit{head-filler-phrase}}}
-\rput[B](18,-4){\rnode{hss}{\textit{head"=specifier-phrase}}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{sign}{word}\ncdiag{sign}{phrase}
-\ncdiag{phrase}{hs}\ncdiag{phrase}{nhs}
-\ncdiag{hs}{hnas}
-\ncdiag{hs}{hnars}
-\ncdiag{hs}{hnfs}
-\ncdiag{hs}{hnss}
-\ncdiag{hnars}{has}\ncdiag{hnars}{hfs}\ncdiag{hnars}{hss}
-\ncdiag{hnas}{hars}\ncdiag{hnas}{hfs}\ncdiag{hnas}{hss}
-\ncdiag{hnss}{hars}\ncdiag{hnss}{has}\ncdiag{hnss}{hfs}
-\ncdiag{hnfs}{hars}\ncdiag{hnfs}{has}\ncdiag{hnfs}{hss}
-%
-\end{pspicture}}
+\begin{figure}
+\oneline{
+% Das tut so, als wäre head-argument-phrase eine Tochter von head-non-argument-phrase, zeichnet aber
+% keine Kante. Die Kanten werden dann alle mit draw per Hand gezeichnet.
+\begin{forest}
+type hierarchy,
+ % for tree={
+ %   calign=fixed angles,
+ %   calign angle=50
+ % } 
+[sign
+  [word]
+  [phrase
+    [non-headed-phrase]
+    [headed-phrase, l sep*=2, for children={l sep*=4}
+      [head-non-adjunct-phrase, name=non-adjunct, 
+        [head-adjunct-phrase,no edge, name=adjunct]]
+      [head-non-argument-phrase, name=non-arg
+        [head-argument-phrase,no edge, name=argument]]
+      [head-non-filler-phrase, name= non-filler
+        [head-filler-phrase, no edge, name=filler]]
+      [head-non-specifier-phrase, name=non-specifier
+        [head-specifier-phrase, no edge, name=specifier]]]]]
+\draw (non-adjunct.south) to (argument.north);
+\draw (non-adjunct.south) to (filler.north);
+\draw (non-adjunct.south) to (specifier.north);
+\draw (non-arg.south) to (adjunct.north);
+\draw (non-arg.south) to (filler.north);
+\draw (non-arg.south) to (specifier.north);
+\draw (non-filler.south) to (adjunct.north);
+\draw (non-filler.south) to (argument.north);
+\draw (non-filler.south) to (specifier.north);
+\draw (non-specifier.south) to (adjunct.north);
+\draw (non-specifier.south) to (argument.north);
+\draw (non-specifier.south) to (filler.north);
+\end{forest}}
 \caption{\label{abb-sign-hf-struc}Typhierarchie für \textit{phrase}}
 \end{figure}
 Dadurch wird der \subcatw der Kopf"|tochter automatisch mit dem der Mutter identifiziert (siehe Abschnitt~\ref{sec-valp} zum Valenzprinzip\is{Prinzip!Valenz-}).
@@ -491,7 +459,7 @@ hier als (\mex{1}) mit Markierungen für die Verbspur wiederholt:
 \ea
 {}[Das Buch]$_i$ kennt$_j$  \_$_i$ jeder \_$_j$.
 \z
-\begin{figure}[htb]
+\begin{figure}
 % %\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
 % %\centerline{%
 % \resizebox{\textwidth}{!}{%
@@ -705,7 +673,7 @@ loc$|$cont \type{conditional\_or\_imperative\_or\_interrogative}\\
 \zs
 
 \eas
-\label{impl-v2}
+\label{impl-v2}%
 Verbzweitsätze:\istype{verb-initial-lr}\\
 \onems[verb-initial-lr]{
 loc$|$cat$|$subcat \sliste{ [ nonloc$|$slash \sliste{ [ ] } ] }\\
@@ -957,27 +925,35 @@ Kathol kreuzklassifiziert die Typen in (\mex{0}) mit den Typen \type{declarative
 % subtype and that \textit{v1-clause\/} and \textit{polar\/} have a common subtype. \textit{v2-clause} and \textit{polar\/}
 % and \textit{v1-clause\/} and \textit{declarative} are incompatible, respectively.
 %
-\begin{figure}[htbp]
-\centering{%
-\begin{tabular}{cccccc}
-    & & \rnode{fc}{\textit{finite-clause\/}}\\[4ex]
-\multicolumn{2}{c}{\rnode{is}{\framebox{\textit{internal-syntax\/}}}} &  & &\rnode{cl}{\framebox{\textit{clausality\/}}}\\[3ex]
-\rnode{root}{\textit{root\/}} & \rnode{subord}{\textit{subord\/}} &     & \multicolumn{2}{c}{\rnode{inter}{\textit{inter\/}}}\\[2ex]
-\rnode{v2}{\textit{v2\/}}   & \rnode{v1}{\textit{v1\/}}     &     & \rnode{wh}{\textit{wh\/}} & \rnode{polar}{\textit{polar\/}} & \rnode{decl}{\textit{decl\/}}\\[6ex]
-\rnode{r-wh-int}{\textit{r-wh-int\/}} & \rnode{r-decl}{\textit{r-decl\/}} & \rnode{r-pol-int}{\textit{r-pol-int\/}} & \rnode{s-wh-int}{\textit{s-wh-int\/}} & \rnode{s-pol-int}{\textit{s-pol-int\/}} & \rnode{s-decl}{\textit{s-decl\/}}\\
-\end{tabular}%
-\ncline{fc}{is}\ncline{fc}{cl}%
-\ncline{is}{root}\ncline{is}{subord}%
-\ncline{root}{v1}\ncline{root}{v2}%
-\ncline{v2}{r-wh-int}\ncline{v2}{r-decl}%
-\ncline{v1}{r-pol-int}%
-\ncline{cl}{inter}\ncline{cl}{decl}%
-\ncline{inter}{wh}\ncline{inter}{polar}%
-\ncline{wh}{r-wh-int}\ncline{wh}{s-wh-int}%%
-\ncline{decl}{r-decl}\ncline{decl}{s-decl}%
-\ncline{polar}{r-pol-int}\ncline{polar}{s-pol-int}%
-\ncline{subord}{s-wh-int}\ncline{subord}{s-pol-int}\ncline{subord}{s-decl}%
-}
+\begin{figure}
+\begin{forest}
+type hierarchy, 
+%for tree={where n children=0{tier=max}{}} % put all maximal types at one line, except subord
+%for level=3{l*=1.5}, % increases the distance to the third level (the maximal types) by a factor of 1.5
+for tree={where tier={max}{l*=1.5}{}},
+[finite-clause
+  [internal-syntax, partition
+    [root
+      [v2 
+        [r-wh-int, name=r-wh-int]
+        [r-decl, name=r-decl]]
+      [v1 [r-pol-int, name=r-pol-int]]]
+    [subord, name=subord]]
+  [clausality, partition
+    [inter
+      [wh, name=wh, tier=wh-polar-decl
+        [s-wh-int, name=s-wh-int]]
+      [polar, name=polar, tier=wh-polar-decl
+        [s-pol-int, name=s-pol-int]]]
+    [decl, name=decl, tier=wh-polar-decl
+        [s-decl, name=s-decl]]]]
+\draw (wh.south) -- (r-wh-int.north);
+\draw (subord.south) -- (s-wh-int.north);
+\draw (subord.south) -- (s-pol-int.north);
+\draw (subord.south) -- (s-decl.north);
+\draw (polar.south) -- (r-pol-int.north);
+\draw (decl.south) -- (r-decl.north);
+\end{forest}
 \caption{\label{fig-clausal-types}Satztypen nach \citew{Kathol2001a}}
 \end{figure}
 Die Boxen stehen hier für sogenannte Partitionen\is{Partition}, \dash, linguistische Objekte müssen
@@ -1347,7 +1323,7 @@ c"=Struktur gibt es eine Abbildung auf die f"=Struktur. Die Diskussion der Analy
 \ea
 {}daß der Mann dem Jungen hilft
 \z
-\begin{figure}[htbp]
+\begin{figure}
 \centerline{%
 \begin{tabular}{@{}ccc}
 \multicolumn{3}{c}{\rnode{vp}{VP}}\\[2ex]
@@ -1515,7 +1491,7 @@ einer disjunktiven Regel wie der in (\ref{LFG-ZP-Regel}).
 
 Für die Vorfeldbesetzung nimmt \citet[\page]{Berman2003a} Strukturen wie die in
 Abbildung~\vref{Abb-LFG-Vorfeld} an.
-\begin{figure}[htbp]
+\begin{figure}
 
 \centerline{%
 \begin{tabular}{@{}ccc@{}}
@@ -1638,17 +1614,19 @@ prädikative Nominalphrasen.
 \is{Extraktion|)}\is{nichtlokale Abhängigkeit|)}
 
 
-\section*{Kontrollfragen}
+%\section*{Kontrollfragen}
 
-
+\questions{
 \begin{enumerate}
 \item Nennen Sie Beispiele für Fernabhängigkeiten.
 \item Warum kann man Fernabhängigkeiten nicht wie Umstellungen im Mittelfeld behandeln?
 \item Was unterscheidet die HPSG"=Analysen von transformationsgrammatischen Analysen?
 \end{enumerate}
+}
 
-\section*{Übungsaufgaben}
+%\section*{Übungsaufgaben}
 
+\exercises{
 \begin{enumerate}
 %% \item Suchen Sie einen Beleg für eine idiomatische Redewendung, bei der sich ein Idiombestandteil im \vf
 %%       befindet.
@@ -1663,14 +1641,13 @@ Geben Sie die \slashwe und die \dslwe an.
 Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluß eine Liste von Beispielen.
 Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem Kapitel besprochenen
 Aspekte.
-
 \end{enumerate}
+}
 
 
+%\section*{Literaturhinweise}
 
-\section*{Literaturhinweise}
-
-
+\furtherreading{
 Die Analyse der Fernabhängigkeiten in der HPSG geht auf Arbeiten von \citet{Gazdar81} im Rahmen der
 \gpsg zurück. Einen guten Überblick über Extraktionsphänomene im Englischen, die Geschichte der
 Extraktionsanalysen und einen Vergleich mit transformationellen Analysen geben
@@ -1679,6 +1656,10 @@ im Deutschen vorgelegt, die der hier vorgestellten entspricht. \citet{Uszkoreit8
 der Vorfeldbesetzung im Rahmen der GPSG entwickelt, die ebenfalls die von Gazdar entwickelten
 Mechanismen zur Analyse von Fernabhängigkeiten verwendet.
 
+Die Analyse der Fernabhängigkeiten in der HPSG wird von \citet{BC2021a} besprochen. Ihr Artikel
+diskutiert verschiedene Arten der Einführung von Fernabhängigkeiten, Resumptivpronomina, Paradoxa,
+bei denen die Füller nicht zur Lücke passen, und auch Voranstellung vs. Extraposition.
+}
 
 
 % Jong Bok: Which man and which woman did [[Tom hug t] and [Mary kiss t]] respectively?
