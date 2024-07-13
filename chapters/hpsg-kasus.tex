@@ -953,49 +953,29 @@ nicht ein. Integriert man den Genitiv in die Typhierarchie, bekommt man etwas
 wie Abbildung~\vref{abb-case}. Statt Gunkels \type{scase1} und \type{scase2} habe ich
 die etwas aussagekräftigeren Bezeichnungen \type{structural\_nga} und \type{structural\_nd}
 gewählt.\istype{snom}\istype{sgen}\istype{sdat}\istype{sacc}\istype{lnom}\istype{lgen}\istype{ldat}\istype{lacc}
-\begin{figure}[htbp]
-\centerline{\begin{pspicture}(-0.2,1)(10.4,7.2)
-%\psgrid
-\rput[B](5,7){\rnode{case}{\textit{case}}}
-%
-\rput[B](2.5,5){\rnode{structural}{\textit{structural}}}
-%
-\rput[B](1,3){\rnode{structuralnga}{\textit{structural\_nga}}}
-\rput[B](4,3){\rnode{structuralnd}{\textit{structural\_nd}}}
-\rput[B](6,3){\rnode{nom}{\textit{nom}}}
-\rput[B](7,3){\rnode{gen}{\textit{gen}}}
-\rput[B](8,3){\rnode{dat}{\textit{dat}}}
-\rput[B](9,3){\rnode{acc}{\textit{acc}}}
-%\rput[B](11,3){\rnode{lexical}{\textit{lexical}}}
-%
-\rput[B](2,1){\rnode{snom}{\textit{snom}}}
-\rput[B](3,1){\rnode{sgen}{\textit{sgen}}}
-\rput[B](4,1){\rnode{sdat}{\textit{sdat}}}
-\rput[B](5,1){\rnode{sacc}{\textit{sacc}}}
-%
-\rput[B](7,1){\rnode{lnom}{\textit{lnom}}}
-\rput[B](8,1){\rnode{lgen}{\textit{lgen}}}
-\rput[B](9,1){\rnode{ldat}{\textit{ldat}}}
-\rput[B](10,1){\rnode{lacc}{\textit{lacc}}}
-%
-\psset{angleA=-90,angleB=90,arm=0pt}
-%
-\ncdiag{case}{structural}\ncdiag{case}{lexical}
-\ncdiag{structural}{structuralnga}\ncdiag{structural}{structuralnd}
-\ncdiag{case}{nom}\ncdiag{case}{acc}\ncdiag{case}{gen}\ncdiag{case}{dat}
-\ncdiag{structuralnga}{snom}\ncdiag{structuralnga}{sacc}\ncdiag{structuralnga}{sgen}
-\ncdiag{structuralnd}{snom}\ncdiag{structuralnd}{sdat}
-\ncdiag{nom}{snom}
-\ncdiag{gen}{sgen}
-\ncdiag{dat}{sdat}
-\ncdiag{acc}{sacc}
-%\ncdiag{lexical}{lnom}\ncdiag{lexical}{lgen}\ncdiag{lexical}{ldat}\ncdiag{lexical}{lacc}
-\ncdiag{nom}{lnom}
-\ncdiag{gen}{lgen}
-\ncdiag{dat}{ldat}
-\ncdiag{acc}{lacc}
-%
-\end{pspicture}}
+\begin{figure}
+\centerline{%
+\begin{forest}
+type hierarchy,
+[case
+  [structural
+    [structural\_nga 
+      [snom, name=snom, tier=max]
+      [sgen, name=sgen, tier=max]
+      [sdat, name=sdat, tier=max]
+      [sacc, name=sacc, tier=max]]
+    [structural\_nd, name=structural-nd, tier=structural-nd]]
+  [nom, name=nom, tier=structural-nd [lnom, tier=max, l+=2\baselineskip]]
+  [gen, name=gen, tier=structural-nd [lgen, tier=max]]
+  [dat, name=dat, tier=structural-nd [ldat, tier=max]]
+  [acc, name=acc, tier=structural-nd [lacc, tier=max]]]
+\draw (structural-nd.south) to (snom.north);
+\draw (structural-nd.south) to (sdat.north);
+\draw (nom.south) to (snom.north);
+\draw (gen.south) to (sgen.north);
+\draw (dat.south) to (sdat.north);
+\draw (acc.south) to (sacc.north);
+\end{forest}}
 \caption{\label{abb-case}Typhierarchie für die Subtypen von \type{case} nach \citew{Gunkel2003b} erweitert um \type{sgen}}
 \end{figure}
 Wie das Nominalisierungsbeispiel in (\ref{sein-helfen-der-Kinder}) -- hier als (\mex{1}) wiederholt -- zeigt,
@@ -1495,4 +1475,12 @@ wurden, insbesondere auch das komplizierte Kasussystem des Isländischen\il{Isl�
 Ein wesentlicher Unterschied zwischen dem hier angegebenen Kasusprinzip und dem von
 Yip, Maling und Jackendoff ist, daß das Prinzip~\ref{case-p} wegen der Anhebungseinschränkung
 monoton\is{Monotonie} ist, \dash, Kasus, die einmal zugewiesen wurden, werden nicht von einem übergeordneten Prädikat überschrieben.
+
+\citet{Przepiorkowski:2021a} gibt einen Überblick über die Behandlung von Kasus in Rahmen der
+HPSG. Im Kapitel werden Kasussynchretismen behandelt. Dabei geht es um den Zusammenfall von Formen
+wie zum Beispiel bei \emph{die Frau}, die gleichzeitig Nominativ oder Akkusativ sein kann. In
+Extraktionen im Englischen, in freien Relativsätzen im Deutschen und in Koordinationen kommt es vor,
+dass Nominalgruppen gleichzeitig in Positionen stehen, in denen sie verschiedene Kasus haben
+müssten. \citeauthor{Przepiorkowski:2021a} bespricht, wie dieses Phänomen mit elaborierten
+Typhierarchien erfasst werden kann.
 }

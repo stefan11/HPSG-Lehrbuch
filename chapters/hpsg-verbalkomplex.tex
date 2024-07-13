@@ -180,13 +180,13 @@ wird im Kapitel~\ref{sec-subj-merkmal} revidiert.%
 }
 \eas
 \label{le-wird}
-\textit{wird\/} (Futur-Hilfsverb):\\
+\emph{wird} (Futur-Hilfsverb):\\
 \ms[cat]{
- head   & \textit{verb}\\*
- subcat & \ibox{1} $\oplus$ \sliste{ \textsc{V[\textit{bse\/}, \textsc{lex}+, subcat~\ibox{1}]}} \\
+ head   & \type{verb}\\*
+ subcat & \ibox{1} $\oplus$ \sliste{ \textsc{V[\type{bse}, \textsc{lex}+, subcat~\ibox{1}]}} \\
 }
 \zs
-%% Hierbei ist V[\textit{bse\/}, \textsc{lex}+, subcat~\ibox{1}] eine Abkürzung für (\mex{2}):
+%% Hierbei ist V[\type{bse}, \textsc{lex}+, subcat~\ibox{1}] eine Abkürzung für (\mex{2}):
 %% \ea
 %% \ms{
 %% loc & \ms{ cat & \ms{ head & \ms[verb]{
@@ -198,50 +198,37 @@ wird im Kapitel~\ref{sec-subj-merkmal} revidiert.%
 %% lex & +\\
 %% }
 %% \z
-\emph{werden} selegiert ein Verb in der \textit{bse\/}"=Form\istype{bse}\footnote{%
+\emph{werden} selegiert ein Verb in der \type{bse}"=Form\istype{bse}\footnote{%
   \emph{bse} ist die Abkürzung für \emph{base}.%
 }, \dash einen Infinitiv ohne \emph{zu}. Bevor das \lexm erklärt wird, soll der Aufbau der \subcatl
 des Hilfsverbs anhand eines Beispiels erklärt werden:
 Im Satz (\mex{1}) übernimmt \emph{wird} die Teilspezifikationen der Argumente
-\emph{Karl} und \emph{mir} von {\em helfen}. 
+\emph{Karl} und \emph{mir} von \emph{helfen}. 
 \ea
 daß Karl mir helfen wird
 \z
 Diese Übernahme erfolgt mit Hilfe der durch die Box \iboxt{1} ausgedrückten Strukturteilung.
 Die \textsc{subcat}"=Liste von \emph{helfen wird} hat also die gleiche Form wie die 
-\textsc{subcat}"=Liste für {\em hilft}. Man sagt auch, daß das Hilfsverb die Argumente des
+\textsc{subcat}"=Liste für \emph{hilft}. Man sagt auch, daß das Hilfsverb die Argumente des
 eingebetteten Verbs anhebt bzw.\ anzieht und spricht von Argumentanziehung\is{Argument!anziehung@-anziehung}, Argumentanhebung\is{Argument!anhebung@-anhebung}
 bzw.\ Argumentkomposition\is{Argument!komposition@-komposition}. Die Kombination von \emph{helfen} und \emph{wird}
 zeigt Abbildung~\vref{abb-helfen-wird}.
-\begin{figure}[htbp]
+\begin{figure}
 \centerline{
-%\nodemargin5pt
-\begin{tabular}{@{}cc@{}}
-\multicolumn{2}{@{}c@{}}{%
-\rnode{1}{\ms{ head   & \ibox{1}\\
-           subcat & \ibox{2}\\
-            }}}\\
-\\[3ex]
-%10pt
-\\[5ex]
-%12pt
-%\multicolumn{2}{@{}l@{}}{\hspace{42mm}CL\hspace{40mm}H}\\[4ex]
-\rnode{2}{
-\iboxt{4}~\onems{ loc \onems{ head  \ms[verb]{ vform & bse \\
+\begin{forest}
+[\ms{ head  & \ibox{1}\\
+      comps & \ibox{2}\\
+            }
+  [\iboxt{4}~\onems{ loc \onems{ head  \ms[verb]{ vform & bse \\
                                              }\\
-                                subcat~\ibox{2} \liste{ NP[\textit{nom\/}], NP[\textit{dat\/}] }\\[2mm]
+                                 comps~\ibox{2} \liste{ NP[\type{nom}], NP[\type{dat}] }\\[2mm]
                               }\\
-                }} &
-\rnode{3}{
-                 \ms{ head & \ibox{1} \ms[verb]{ vform & fin \\
+                } [helfen]]
+  [\ms{ head & \ibox{1} \ms[verb]{ vform & fin \\
                                                     }\\
-                      subcat & \ibox{2} $\oplus$ \sliste{ \ibox{4} }\\
-                    }}\\
-\\[3ex]
-\rnode{4}{helfen} & \rnode{5}{wird}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{2}{4}\ncline{3}{5}%
+                      comps & \ibox{2} $\oplus$ \sliste{ \ibox{4} }\\
+                    } [wird]]]
+\end{forest}
 }
 \caption{\label{abb-helfen-wird}%
 Analyse von \emph{helfen wird}}
@@ -374,51 +361,34 @@ unechter Mehrdeutigkeiten, sondern auch für den Ausschluß unmöglicher Vorfeld
 eine Rolle spielt.
 
 Wie die Analyse von (\ref{ex-er-geholfen-haben-wird}) im Detail funktioniert, zeigt die Abbildung~\vref{abb-kombin1}.
-\begin{figure}[htb]
-\resizebox{\linewidth}{!}{%
-%\nodemargin5pt
-\begin{tabular}{@{}cc@{}c@{}}
-\multicolumn{3}{c}{%
-\rnode{1}{\ms[cat]{ head   & \ibox{1} \\
-           subcat & \ibox{2}\\
-            }}}\\
-\\[3ex]
-\\[5ex]
-\multicolumn{2}{c}{%
-\rnode{2}{
-\iboxt{4}~\onems{ loc \ms{ head & \ibox{3} \\
-                                   subcat & \ibox{2} \\
-                                 }
-}}} &
-\rnode{3}{
-                 \ms[cat]{ head & \ibox{1} \ms[verb]{ vform & fin \\
-                                                    } \\
-                      subcat & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
-                    }}\\
-\\[3ex]
-\\[4ex]
-\rnode{4}{%
-\iboxt{5}~\onems{ loc \onems{ head  \ms[verb]{ vform & ppp  \\
-                                                }  \\
-                                subcat~\ibox{2} \sliste{ NP[\textit{nom\/}], NP[\textit{dat\/}] } \\
-                              }\\
-                }
-} & \rnode{5}{
-\onems[cat]{ head~\ibox{3} \ms[verb]{ vform & bse \\
+\begin{figure}
+\oneline{
+\begin{forest}
+sm edges
+[{\ms[cat]{ head   & \ibox{1} \\
+           comps & \ibox{2}\\
+            }}
+   [\iboxt{4}~\onems{ loc \ms{ head & \ibox{3} \\
+                               comps & \ibox{2} \\
+                             }} 
+     [\iboxt{5}~\onems{ loc \onems{ head  \ms[verb]{ vform & ppp  \\
+                                                   }  \\
+                                    comps~\ibox{2} \sliste{ NP[\type{nom}], NP[\type{dat}] } \\
+                                  }\\
+                      } [geholfen]]
+     [{\onems[cat]{ head~\ibox{3} \ms[verb]{ vform & bse \\
                             } \\
-            subcat ~ \ibox{2} $\oplus$ \sliste{ \ibox{5} } \\
-          }
-}\\
-\\[3ex]
-\rnode{6}{geholfen} & \rnode{7}{haben} & \rnode{8}{wird}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{2}{4}\ncline{2}{5}%
-\ncline{4}{6}\ncline{5}{7}\ncline{3}{8}%
+            comps ~ \ibox{2} $\oplus$ \sliste{ \ibox{5} } \\
+          }} [haben]]]
+   [{\ms[cat]{ head & \ibox{1} \ms[verb]{ vform & fin \\
+                                          } \\
+                 comps & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
+               }} [wird]]]
+\end{forest}
 }
-\caption{Analyse des Verbalkomplexes in:\ \emph{daß Karl dem Mann geholfen haben wird}}\label{abb-kombin1}%
+\caption{Analyse des Verbalkomplexes in:\ \emph{daß Aicke dem Kind geholfen haben wird}}\label{abb-kombin1}%
 \end{figure}
-Das Perfekthilfsverb \emph{haben} bettet das Partizip \emph{geholfen} (ein Verb mit \textsc{vform} \textit{ppp\/}\istype{ppp})
+Das Perfekthilfsverb \emph{haben} bettet das Partizip \emph{geholfen} (ein Verb mit \textsc{vform} \type{ppp}\istype{ppp})
 ein. Es übernimmt die Argumente dieses Verbs \iboxb{2}. Der resultierende Verbalkomplex hat dieselbe
 Valenz wie \emph{geholfen}. Dieser Komplex wird unter \emph{wird} eingebettet. \emph{wird} zieht
 ebenfalls die Argumente des eingebetteten Komplexes an, so daß der gesamte Komplex \emph{geholfen haben wird}
@@ -539,80 +509,50 @@ Abbildung~\vref{abb-seiner-tochter-erzaehlen} zeigt die Analyse von (\mex{1}).
 \ea
 Seiner Tochter erzählen wird er das Märchen.
 \z
-\begin{figure}[htbp]
+\begin{figure}
 \resizebox{0.935\textwidth}{!}{\begin{sideways}%
-%\nodemargin5pt
-\begin{tabular}[t]{@{}c@{\hspace{8mm}}c@{\hspace{8mm}}c@{\hspace{10mm}}c@{\hspace{8mm}}c@{\hspace{10mm}}c@{\hspace{8mm}}c@{}}%llll}
-\multicolumn{3}{@{}c@{}}{\rnode{12}{V[\begin{tabular}[t]{@{}l@{}}
-  \textit{fin},\\\textsc{subcat} \sliste{ },\\
-  \textsc{slash} \sliste{ }] \\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\multicolumn{2}{@{}l@{}}{\rnode{13}{\hspace{7mm}V[\begin{tabular}[t]{@{}l@{}}
-                                              \rnode{13top}{\textsc{lex}} $-$,\\
-                                              \textsc{loc} \ibox{1} [\begin{tabular}[t]{@{}l@{}}
-                                                                 \textit{bse},\\
-                                                                 \textsc{s\rnode{13bot}{u}bcat} \ibox{2} \sliste{ \ibox{3}, \ibox{4} }\,]]\\
-                                                                \end{tabular}\\
-                                              \end{tabular}}} & \multicolumn{3}{@{}l@{}}{\rnode{1}{V[\begin{tabular}[t]{@{}l@{}}
-                                              \rnode{1top}{\textit{fin}},\\\textsc{subcat} \sliste{ },\\
-                                              \textsc{slash} \sliste{ \rnode{1bot}{\ibox{1}} }] \\
-                                              \end{tabular}}
-                                  }\\
-\\*[4ex]
-\rnode{14}{\ibox{5} NP[\textit{dat\/}]}               &   \rnode{15}{V[\begin{tabular}[t]{@{}l@{}}
-                                                                 \rnode{15top}{\textit{bse}},\\ 
-                                                                 \textsc{subcat} \sliste{ \ibox{3}, \ibox{4}, \ibox{5} }\,]\\
-                                                                \end{tabular}}                       & \rnode{wirdv}{V[\begin{tabular}[t]{@{}l@{}}
-                                              \rnode{wirdvtop}{\textit{fin}},\\\textsc{subcat} \sliste{ \ibox{7} }] \\
-                                              \end{tabular}} & \multicolumn{3}{@{}l@{}}{\rnode{emptyv}{\ibox{7} V[\begin{tabular}[t]{@{}l@{}}
-                                              \rnode{emptyvtop}{\textit{fin}},\\\textsc{subcat} \sliste{ },\\
-                                              \textsc{slash} \sliste{ \rnode{emptyvbot}{\ibox{1}} }] \\
-                                              \end{tabular}}}\\
-\\*[4ex]
-&&\rnode{wirdvlast}{V[\begin{tabular}[t]{@{}l@{}}
-    \textsc{subcat} \ibox{2} $\oplus$ \sliste{ \ibox{6} }]\\
-    \end{tabular}} &\rnode{2}{\ibox{3} NP[\textit{nom\/}]} & \multicolumn{2}{@{}l@{}}{\rnode{3}{V[\begin{tabular}[t]{@{}l@{}}
-                                                                    \rnode{3top}{\textit{fin}},\\\textsc{subcat} \sliste{ \ibox{3} },\\
-                                                                    \textsc{slash} \sliste{ \ibox{1} }]
-                                                                    \end{tabular}}
-                                                       }\\
-\\*[4ex]
-&               &                                   &               & \rnode{4}{\ibox{4} NP[\textit{acc\/}]}& \multicolumn{2}{@{}l@{}}{\hspace{5mm}\rnode{5}{V[\begin{tabular}[t]{@{}l@{}}
-                                                                                                       \rnode{5top}{\textit{fin}},\\\textsc{subcat} \ibox{2} \sliste{ \ibox{3}, \ibox{4} }\\
-                                                                                                       \textsc{slash} \sliste{ \ibox{1} }]\\
-                                                                                                       \end{tabular}}
-                                                                                           }\\
-\\*[4ex]
-&               &                                   &               &                                   & \rnode{6}{\ibox{6} V[\begin{tabular}[t]{@{}l@{}}
-                                                                                                        \textsc{lex} +,\\
-                                                                                                        \textsc{loc}~\ibox{1}, \\
-                                                                                                        \textsc{slash} \sliste{ \ibox{1} }]\\
-                                                                                                        \end{tabular}} & \rnode{7}{V[\begin{tabular}[t]{@{}l@{}}
-                                                                                                                                    \rnode{7top}{\textit{fin}},\\
-                                                                                                                                    \textsc{subcat} \ibox{2} \sliste{ \ibox{3}, \ibox{4} } $\oplus$ \sliste{  \ibox{6} }\,] \\
-                                                                                                                                    \end{tabular}}\\
-\\*[5ex]
-S\rnode{16}{einer Tochte}r & \rnode{17}{erzählen} & \rnode{wirdl}{wird} & \rnode{8}{er}                     & \rnode{9}{das Märchen}              & \rnode{10}{\rule{0cm}{1ex}{\textbf{--}}}         & \rnode{11}{\rule{0cm}{1ex}\textbf{--}}\\
-\end{tabular}
-\ncline{emptyv}{2}\ncline{emptyv}{3top}%
-\ncline{1bot}{wirdvtop}\ncline{1bot}{emptyvtop}
-\ncline{3}{4}\ncline{3}{5top}%
-\ncline{5}{6}\ncline{5}{7top}%
-\ncline{2}{8}%
-\ncline{4}{9}%
-\ncline{6}{10}%
-\ncline{7}{11}%
-\ncline{12}{1top}%
-\ncline{12}{13top}%
-\ncline{13bot}{14}\ncline{13bot}{15top}%
-\ncline{14}{16}\ncline{15}{17}%
-\ncline{wirdv}{wirdvlast}%
-\ncline{wirdvlast}{wirdl}%
+\begin{forest}
+sm edges
+[V\feattab{\type{fin},\\
+           \comps \sliste{ },\\
+           \textsc{slash} \sliste{ } }
+  [{V[\begin{tabular}[t]{@{}l@{}}
+             \lex $-$,\\
+             \textsc{loc} \ibox{1} [\begin{tabular}[t]{@{}l@{}}
+                                    \type{bse},\\
+                                    \comps \ibox{2} \sliste{ \ibox{3}, \ibox{4} } ]]\\
+                                    \end{tabular}\end{tabular}}
+     [{\ibox{5} NP[\type{dat}]} [seiner Tochter, roof]]
+     [V\feattab{
+       \type{bse},\\ 
+       \comps \sliste{ \ibox{3}, \ibox{4}, \ibox{5} } } [erzählen]]]
+  [V\feattab{\type{fin},\\
+              \comps \sliste{ },\\
+              \textsc{slash} \sliste{ \ibox{1} } }
+     [V\feattab{\type{fin},\\
+                \comps \sliste{ \ibox{7} } }
+       [{V[\comps \ibox{2} $\oplus$ \sliste{ \ibox{6} } ]} [wird]]]
+     [\ibox{7} V\feattab{\type{fin},\\
+                         \comps \sliste{ },\\
+                         \textsc{slash} \sliste{ \ibox{1} } }
+       [{\ibox{3} NP[\type{nom}]} [er]]
+       [V\feattab{\type{fin},\\
+                  \comps \sliste{ \ibox{3} },\\
+                  \textsc{slash} \sliste{ \ibox{1} } }, s sep+=3ex
+         [{\ibox{4} NP[\type{acc}]} [das Märchen, roof]]
+         [V\feattab{\type{fin},\\
+                    \comps \ibox{2} \sliste{ \ibox{3}, \ibox{4} }\\
+                    \textsc{slash} \sliste{ \ibox{1} } }
+           [\ibox{6} V\feattab{\lex +,\\
+                               \textsc{loc}~\ibox{1}, \\
+                               \textsc{slash} \sliste{ \ibox{1} } } [\trace]]
+           [V\feattab{\type{fin},\\
+                      \comps \ibox{2} \sliste{ \ibox{3}, \ibox{4} } $\oplus$ \sliste{
+                        \ibox{6} } } [\trace]]]]]]]
+\end{forest}
 \end{sideways}}
 \caption{\label{abb-seiner-tochter-erzaehlen}%
-Analyse von {\em Seiner Tochter erzählen wird er das Märchen.\/}}
+Analyse von \emph{Seiner Tochter erzählen wird er das Märchen.}}
 \end{figure}
 Ungrammatische Sätze wie der in (\mex{1}) werden durch die Bedingung
 in (\ref{constr-non-complex-forming}) ausgeschlossen.
