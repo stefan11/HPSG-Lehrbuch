@@ -259,16 +259,16 @@ Weitere Beispiele hierfür sind:
 }
 \ex
 \label{bsp-vor-hat-er-das}
-\emph{Vor\/} \emph{hat\/} er das jedenfalls.\footnote{
+\emph{Vor} \emph{hat} er das jedenfalls.\footnote{
 taz, 15.07.1999, S.\,19.
 }
-\ex \emph{Entgegen\/} \emph{kam\/} der EuGH den Streitkräften, indem er \ldots{}\footnote{
+\ex \emph{Entgegen} \emph{kam} der EuGH den Streitkräften, indem er \ldots{}\footnote{
 taz, 12.01.2000, S.\,1.}
-\ex Es klopfte, \emph{eintrat\/} der Studienrat.\footnote{
+\ex Es klopfte, \emph{eintrat} der Studienrat.\footnote{
 Walser, \emph{Ohne einander}, S.\,51, zitiert nach \citew*[\page1621]{Hoberg97a}.
 }
 \ex\label{bsp-auf-faellt}
-\emph{Auf\/}  \emph{fällt\/}, da"s \ldots{}\footnote{
+\emph{Auf}  \emph{fällt}, da"s \ldots{}\footnote{
   \citew[\page62]{Duden-rs-91}.
 }
 \ex\label{bsp-auf-wachte}
@@ -346,7 +346,7 @@ Müssen wird er ihr ein Märchen erzählen.
 Die Generalisierung in bezug auf diese Daten ist, daß Teile des Prädikatskomplexes
 nur vorangestellt werden können, wenn alle Prädikatskomplexteile, die vom vorangestellten
 Material regiert werden, ebenfalls vorangestellt werden.
-So regiert \zb \emph{müssen} in (\mex{0}) {\em erzählen}.
+So regiert \zb \emph{müssen} in (\mex{0}) \emph{erzählen}.
 Wenn \emph{müssen} vorangestellt wird, muß \emph{erzählen} ebenfalls vorangestellt werden.
 
 Überträgt man diese Analyse auf Partikelverben, ist erklärt, warum \zb \emph{ankommen}
@@ -381,12 +381,12 @@ Die Struktur in (\mex{1}) zeigt den \locw des Lexikoneintrags für das
 nicht"=transparente Partikelverb \emph{vorhaben}.\NOTE{Rollen von \emph{vorhaben}???}
 %
 \eas
-({\em vor}) {\em hab-\/} (nicht-transparentes Partikelverb):\label{le-vorhaben}
+(\emph{vor}) \emph{hab-} (nicht-transparentes Partikelverb):\label{le-vorhaben}
 \\
 \ms{
 cat & \ms{
 %       head   & verb\\
-       subcat & \liste{ NP[\textit{str\/}]\ind{1}, NP[\textit{str\/}]\ind{2}, Part[\textit{vor\/}, lex+] } \\
+       subcat & \liste{ NP[\type{str}]\ind{1}, NP[\type{str}]\ind{2}, Part[\type{vor}, lex+] } \\
                                      } \\
 cont & \ms[vorhaben]{
                                         arg1 & \ibox{1} \\
@@ -406,48 +406,23 @@ die mit einer flektierten Form des Stammes kombiniert werden muß, wird in der
 %% \citet[\page 44]{McIntyre2001a}\ia{MacIntyre@McIntyre} in assuming that
 %% particles like \emph{vor} are not prepositions, but are related to prepositions by
 %% lexical redundancy rules. Hence, the element in \xcomp is not of category P or PP, but \textsc{Part}.
-Abbildung~\vref{fig-er-das-vor-hat} zeigt die Analyse für das Beispiel (\mex{1}), in dem
+Abbildung~\vref{fig-Aicke-das-vor-hat} zeigt die Analyse für das Beispiel (\mex{1}), in dem
 das Verb in Letztstellung steht.
 \ea
-weil    er das  vorhat
+weil    Aicke das  vorhat
 \z
-\begin{figure}[htbp]
-\centerline{%
-%\resizebox{0.6\textwidth}{!}{%
-%{\small%
-%\nodemargin5pt%
-\begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
-\multicolumn{3}{l}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
-  \textsc{subcat} \eliste]\\
-  \end{tabular}}
-}\\
-\\[4ex]
-\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{3}{l}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
-                                                                    \textsc{subcat} \sliste{ \ibox{1} }]\\
-                                                                    \end{tabular}}
-                                                       }\\
-\\[4ex]
-                                   & \rnode{4}{\ibox{2} NP[\textit{acc\/}]}& \multicolumn{2}{l}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-                                                                                                       \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} }]\\
-                                                                                                       \end{tabular}}
-                                                                                           }\\
-\\
-                                   &                                   & CL                    & \hspace{-5mm}H\\*[3ex]
-                                   &                                   & \rnode{6}{\ibox{3} Part} & \rnode{7}{V[\begin{tabular}[t]{@{}l}
-                                                                                                 \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] \\
-                                                                                                 \end{tabular}}\\
-\\*[2ex]
-\rnode{8}{er}                     & \rnode{9}{das}              & \rnode{10}{vor}         & \rnode{11}{hat}\\
-\end{tabular}
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{3}{4}\ncline{3}{5}%
-\ncline{5}{6}\ncline{5}{7}%
-\ncline{2}{8}%
-\ncline{4}{9}%
-\ncline{6}{10}%
-\ncline{7}{11}%
-}%}
-\caption{\label{fig-er-das-vor-hat}Analyse von \emph{weil er das vorhat}}
+\begin{figure}
+\begin{forest}
+sm edges
+[{V[\textsc{subcat} \eliste]}
+   [{\ibox{1} NP[\type{nom}]} [Aicke]] 
+   [{V[\textsc{subcat} \sliste{ \ibox{1} }]}
+     [{\ibox{2} NP[\type{acc}]} [das]] 
+   [{V[\textsc{subcat} \sliste{ \ibox{1}, \ibox{2} }]}
+     [\ibox{3} Part [vor]]
+     [{V[\textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]} [hat]]]]]
+\end{forest}
+\caption{\label{fig-Aicke-das-vor-hat}Analyse von \emph{weil Aicke das vorhat}}
 \end{figure}
 Dabei wird \emph{vor} mit \emph{hat} mit dem Prädikatskomplexschema (siehe Seite~\pageref{schema-vk}) kombiniert.
 
@@ -469,50 +444,23 @@ daß diese Strukturen anders als normale Umstellungen im Mittelfeld zu analysier
 Für den Satz in (\mex{1}), in dem das Verb in Initialstellung steht, nehme ich die Analyse in 
 Abbildung~\vref{fig-hat-er-das-vor} an.
 \ea
-Hat er das vor?
+Hat Aicke das vor?
 \z
-\begin{figure}[htb]
-%\centerline{%
-%\resizebox{0.6\textwidth}{!}{%
-%{\small%
-%\nodemargin5pt%
-% \begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c}%llll}
-% \multicolumn{2}{@{}c@{}}{\rnode{-3}{V[\textsc{subcat} \sliste{ }]}} \\
-% \\[4ex]
-% \rnode{-2}{V[\textsc{subcat} \sliste{ \ibox{4} }]} &\multicolumn{3}{l}{\rnode{1}{\ibox{4} V[\begin{tabular}[t]{@{}l}
-%   \textsc{subcat} \eliste]\\
-%   \end{tabular}}
-% }\\
-% \\*[4ex]
-% \rnode{-1}{V[\textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]} &\rnode{2}{\ibox{1} NP[\textit{nom\/}]} & \multicolumn{3}{l}{\rnode{3}{V[\begin{tabular}[t]{@{}l}
-%                                                                     \textsc{subcat} \sliste{ \ibox{1} }]\\
-%                                                                     \end{tabular}}
-%                                                        }\\
-% \\*[4ex]
-% &                                   & \rnode{4}{\ibox{2} NP[\textit{acc\/}]}& \multicolumn{2}{l}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-%                                                                                                        \textsc{subcat} \sliste{ \ibox{1}, \ibox{2} }]\\
-%                                                                                                        \end{tabular}}
-%                                                                                            }\\
-% \\
-% &                                   &                                   & CL                    & \hspace{-5mm}H\\*[3ex]
-% &                                   &                                   & \rnode{6}{\ibox{3} Part} & \rnode{7}{V[\begin{tabular}[t]{@{}l}
-%                                                                                                  \textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] \\
-%                                                                                                  \end{tabular}}\\
-% \\*[2ex]
-% \rnode{0}{hat} & \rnode{8}{er}                     & \rnode{9}{das}              & \rnode{10}{vor}         & \rnode{11}{\_}\\
-% \end{tabular}
-% \ncline{-3}{-2}\ncline{-3}{1}%
-% \ncline{-2}{-1}\ncline{-1}{0}%
-% \ncline{1}{2}\ncline{1}{3}%
-% \ncline{3}{4}\ncline{3}{5}%
-% \ncline{5}{6}\ncline{5}{7}%
-% \ncline{2}{8}%
-% \ncline{4}{9}%
-% \ncline{6}{10}%
-% \ncline{7}{11}%
-% }%}
-\itdopt{Abbildung machen}
-\caption{\label{fig-hat-er-das-vor}Analyse von {\em Hat er das vor?\/}}
+\begin{figure}
+\begin{forest}
+sm edges
+[{V[\textsc{subcat} \sliste{ }]}
+   [{V[\textsc{subcat} \sliste{ \ibox{4} }]}
+     [{V[\textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]} [hat]]]
+     [{\ibox{4} V[\textsc{subcat} \eliste]}
+       [{\ibox{1} NP[\type{nom}]} [Aicke]]
+       [{V[\textsc{subcat} \sliste{ \ibox{1} }]}
+          [{\ibox{2} NP[\type{acc}]} [das]]
+          [{V[\textsc{subcat} \sliste{ \ibox{1}, \ibox{2} }]}
+            [\ibox{3} Part [vor]]
+            [{V[\textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]} [\trace]]]]]]
+\end{forest}
+\caption{\label{fig-hat-er-das-vor}Analyse von \emph{Hat er das vor?}}
 \end{figure}
 Diese Analyse ist die ganz normale Verbbewegungsanalyse, die in Kapitel~\ref{sec-v1}
 vorgestellt wurde: Die Lexikonregel für die Verberststellung wird auf einen Eintrag angewendet,
@@ -629,8 +577,8 @@ Einen entsprechenden Lexikoneintrag lizenziert die folgende Lexikonregel:
 %\begin{tabular}[t]{@{}l@{}}
 \mbox{Lexikonregel für produktive Partikelverbkombinationen (vorläufig):}\\*[2mm]
 \onems[stem]{
-           synsem \ibox{1} \onems{ loc$|$cat \ms{ head & \textit{verb\/} \\ 
-%head & \ms{ subj & \liste{ NP[\textit{str\/}] } \\
+           synsem \ibox{1} \onems{ loc$|$cat \ms{ head & \type{verb} \\ 
+%head & \ms{ subj & \liste{ NP[\type{str}] } \\
 %                                                                  } \\
                                                   subcat & \ibox{2}\\
 }
@@ -675,28 +623,20 @@ Partikel \iboxb{3} übernommen. Man muß sich das so vorstellen, daß die Modifi
 die in Kopf"=Adjunkt"=Strukturen in der Syntax geschieht, hier ins Lexikon verlagert wurde.
 In Abbildung~\vref{fig-ha-synsem} -- \vpageref[hier]{fig-ha-synsem-zwei} als Abbildung~\ref{fig-ha-synsem-zwei} wiederholt --
 wird der \modw des Adjektivs mit dem \synsemw des modifizierten Nomens identifiziert. 
-\begin{figure}[htbp]
-~~~~\begin{tabular}[t]{@{}c@{\hspace{3mm}}c@{}}
-\\[4ex]
-\multicolumn{2}{c}{\rnode{1}{\nbar[\begin{tabular}[t]{@{}l@{}}
-  \textsc{cont}   \rnode{cont1}{\ibox{1}}]\\
-  \end{tabular}}
-}\\
-\\*[4ex]
-\rnode{2}{AP[\begin{tabular}[t]{@{}l@{}}
-  \textsc{head$|$mod} \ibox{2},\\
-  \rnode{cont2}{\textsc{cont}   \ibox{1} [\textsc{restr} \semliste{ \relation{interessant}\iboxb{3} } $\oplus$ \ibox{4}}]]\\
-  \end{tabular}} & \rnode{3}{\ibox{2} \nbar[\begin{tabular}[t]{@{}l@{}}
-                                      \textsc{cont$|$restr} \ibox{4} \semliste{ \relation{buch}\iboxb{3} }]
-                                                         \end{tabular}
-                                                       }\\
-\\[4ex]
-\rnode{4}{interessantes}                     & \rnode{5}{Buch}\\
-\end{tabular}
-\ncline{1}{2} \ncline{1}{3}
-\ncline{2}{4} \ncline{3}{5}
-\ncline{<->}[t]{cont1}[l]{cont2}{3.5cm}
+\begin{figure}
+\oneline{%
+\begin{forest}
+sm edges
+[{\nbar[\cont \rnode{cont1}{\ibox{1}}]}
+  [AP\feattab{\textsc{head$|$mod} \ibox{2},\\
+              {\rnode{cont2}{\cont} \ibox{1} [\textsc{restr} \nliste{ interessant(\ibox{3}) } $\oplus$ \ibox{4}}]} [interessantes]]
+  [{\ibox{2}} \nbar{[\textsc{cont$|$restr} \ibox{4} \nliste{ buch(\ibox{3}) }]}
+    [Buch]]]
+\end{forest}
+\nccurve[angleA=90,angleB=175,ncurvB=1]{<->}{cont1}{cont2}
+}
 \caption{\label{fig-ha-synsem-zwei}Kopf"=Adjunkt"=Struktur (Selektion und Bedeutungsbeitrag)}
+\itdopt{Pfeile fehlen}
 \end{figure}
 In der Lexikonregel in (\ref{lr-pv-prel}) wird der \modw der Partikel mit dem
 \synsemw des Verbs identifiziert. Dieser Aspekt der Analyse ist völlig parallel. Verschieden
@@ -733,37 +673,16 @@ Die Partikel \emph{los} wird mit einem Lexikoneintrag kombiniert, der durch die
 Partikelverblexikonregel lizenziert ist. Eingabe für die Lexikonregel
 war in diesem Fall der Stamm \stem{lach} in (\mex{0}).
 
-\begin{figure}[htbp]
-%\resizebox{\linewidth}{!}{%
-\begin{center}
-% {\small%
-% \begin{tabular}[t]{@{}cc@{}}
-% \multicolumn{2}{c}{
-% \rnode{loslachen}{V[\subcat \ibox{1}]}}\\
-% \\[1ex]
-% \hspace{7ex}CL & H\\
-% \\[2ex]
-% \rnode{an}{
-% \ibox{2} Part[\begin{tabular}[t]{@{}l@{}}
-%               \textsc{mod} \ibox{3}]\\
-%                \end{tabular}}
-%  & \rnode{p-lach2}{V[\begin{tabular}[t]{@{}l@{}}
-%                 \subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} Part }]\\
-%                \end{tabular}}\\
-% \\[2ex]
-% &\hspace{8ex}PV LR\\[4ex]
-% &\rnode{lach2}{\ibox{3} V[\subcat \ibox{1} \sliste{ NP[\str] }]}\\
-% \\[2ex] 
-% \rnode{string-an}{los} &\rnode{stringlach2}{lach}\\
-% \end{tabular}
-% \ncline{loslachen}{an}\ncline{loslachen}{p-lach2}%
-% \ncline{p-lach2}{lach2}%
-% \ncline{lach2}{stringlach2}%
-% \ncline{an}{string-an}%
-% }
-\itdopt{Abbildung}
-\end{center}
-\caption{Kombination von {\em los} und {\em lachen} (Valenzinformation)}\label{fig-loslachen-val}
+\begin{figure}
+\begin{forest}
+sm edges
+[{V[\subcat \ibox{1}]}
+  [{\ibox{2} Part[\textsc{mod} \ibox{3}]} [los]]
+  [{V[\subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} Part }]}, l sep+=\baselineskip
+    [{\ibox{3} V[\subcat \ibox{1} \sliste{ NP[\str] }]},edge label={node[midway,right]{PV-LR}}
+      [lach-]]]]
+\end{forest}
+\caption{Kombination von \emph{los} und \emph{lachen} (Valenzinformation)}\label{fig-loslachen-val}
 \end{figure}
 
 \noindent
@@ -794,38 +713,18 @@ in der \subcatl haben.
 
 Wenden wir uns nun den semantischen Aspekten der Analyse von \emph{loslachen} zu.
 Abbildung~\vref{fig-loslachen-sem} zeigt einen Baum mit semantischer Information.
-\begin{figure}[htbp]
-\begin{center}
-%\resizebox{\linewidth}{!}{%
-% {\small%
-% \begin{tabular}[t]{@{}cc@{}}
-% \multicolumn{2}{c}{
-% \rnode{loslachen}{V[\cont \ibox{1}]}}\\
-% \\[1ex]
-% \hspace{7ex}CL & H\\
-% \\[2ex]
-% \rnode{los}{
-% \ibox{2} Part[\begin{tabular}[t]{@{}l@{}}
-%               \textsc{mod} \ibox{3} [\cont \ibox{4} ]\\
-%               \cont \ibox{1} \relation{beginnen}\iboxb{4}]\\
-%               \end{tabular}}
-%  & \rnode{p-lach2-sem}{V[\begin{tabular}[t]{@{}l@{}}
-%                 \subcat \sliste{ \ldots{} \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{1}] },\\
-%                 \cont  \ibox{1}]\\
-%                \end{tabular}}\\
-% \\[2ex]
-% &\hspace{8ex}PV LR\\[4ex]
-% &\rnode{lach2-sem}{\ibox{3} V[\cont \ibox{4} \textit{lachen}(x)]}\\[3ex] 
-% \rnode{string-los}{los} &\rnode{string-lach2-sem}{lach}\\
-% \end{tabular}
-% \ncline{loslachen}{los}\ncline{loslachen}{p-lach2-sem}%
-% \ncline{p-lach2-sem}{lach2-sem}%
-% \ncline{lach2-sem}{string-lach2-sem}%
-% \ncline{los}{string-los}%
-% }
-\itdopt{Abbildung}
-\end{center}
-\caption{Kombination von {\em los} und {\em lachen} (semantische Information)}\label{fig-loslachen-sem}
+\begin{figure}
+\begin{forest}
+sm edges
+[{V[\cont \ibox{1}]}
+  [\ibox{2} Part\feattab{\textsc{mod} \ibox{3} [\cont \ibox{4} ]\\
+                         \cont \ibox{1} \relation{beginnen}\iboxb{4} } [los]]
+  [V\feattab{ \subcat \sliste{ \ldots{} \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{1}] },\\
+               \cont  \ibox{1} }, l sep+=\baselineskip
+    [{\ibox{3} V[\cont \ibox{4} \textit{lachen}(x)]},edge label={node[midway,right]{PV-LR}}
+      [lach-]]]]
+\end{forest}
+\caption{Kombination von \emph{los} und \emph{lachen} (semantische Information)}\label{fig-loslachen-sem}
 \end{figure}
 Die Partikelverblexikonregel wird auf \stem{lach} angewendet und
 lizenziert einen Lexikoneintrag, der eine Partikel selegiert,
@@ -864,11 +763,11 @@ und semantischen Bestandteilen im Detail vor: Das Ergebnis der Anwendung der Par
 auf den Lexikoneintrag für \stem{lach} in \pref{le-lachen} zeigt (\mex{1}), wobei einige
 Merkmalsnamen aus Platzgründen abgekürzt sind.
 %
-%\begin{figure}[htbp]
+%\begin{figure}
 \newsavebox{\boxxcomp}
 \savebox{\boxxcomp}{
 \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \ms{
-                                                                  cat & \onems{ head   \textit{verb} \\
+                                                                  cat & \onems{ head   \type{verb} \\
                                                                             subcat \ibox{1}  \\
                                                                           }\\
                                                                   cont & \ms[lachen]{ agens & \ibox{2} \\
@@ -886,7 +785,7 @@ Merkmalsnamen aus Platzgründen abgekürzt sind.
 \mbox{\stem{lach} (Selektion der Partikel, vorläufig):}\\
 %\resizebox{\linewidth}{!}{%
 \onems{%
-cat \ms{ %head  & \textit{verb\/} \\
+cat \ms{ %head  & \type{verb} \\
        subcat & \textrm{(}\,\ibox{1} \liste{NP[\str]\ind{2}} \textrm{)}  $\oplus$\\
               & \liste{\usebox{\boxxcomp} } \\
      }\\
@@ -912,7 +811,7 @@ wird das Element in der \subcatl des Verbs wie folgt instantiiert:
 \newsavebox{\boxxcompzwei}
 \savebox{\boxxcompzwei}{
 \onems{ l  \onems{ c \onems{ h \onems[particle]{ mod$|$l \onems{
-                                                                                            cat \ms{ head   & \textit{verb}\\ 
+                                                                                            cat \ms{ head   & \type{verb}\\ 
                                                                                                    subcat & \ibox{1} \\
                                                                                                  }\\
                                                                                             cont \ibox{4} \ms[lachen]{ agens & \ibox{2} \\
@@ -926,7 +825,7 @@ wird das Element in der \subcatl des Verbs wie folgt instantiiert:
                                  }
 }
 \eas
-\emph{lacht} (bei Kombination mit {\em los}, Ergebnis der Instantiierung in der \subcatl):\\
+\emph{lacht} (bei Kombination mit \emph{los}, Ergebnis der Instantiierung in der \subcatl):\\
 %\resizebox{\linewidth}{!}{
 \onems{%
 cat \ms{ % head \ms[verb]{ vform & fin\\
@@ -971,7 +870,7 @@ analysieren. Das zusätzliche Argument des Partikelverbs \emph{anlachen} wird du
 die Partikel lizenziert. Den Eintrag für die Partikel zeigt (\mex{1}):
 \eas
 \label{le-an5}
-\mbox{{\em an$_5$\/} (Richtung):}\\
+\mbox{\emph{an$_5$} (Richtung):}\\
 \ms{
 cat & \ms{ head & \ms[particle]{ mod  & \textrm{V[\textsc{subcat} \sliste{ NP[\str] }, \textsc{cont} \ibox{1}]} \\[2mm]
                                  subj & \sliste{ NP[\str]\ind{2} } \\
@@ -986,7 +885,7 @@ cont & \ms[gerichtet-auf~]{ arg1 & \ibox{1} \\
 
 \noindent
 Das zusätzliche Argument -- eine NP mit strukturellem Kasus -- ist als Element der \subjl repräsentiert.
-Es ist an das Argument der Relation {\em gerichtet-auf\/} gelinkt \iboxb{2}. Das andere Argument dieser
+Es ist an das Argument der Relation \emph{gerichtet-auf} gelinkt \iboxb{2}. Das andere Argument dieser
 Relation ist mit dem semantischen Beitrag des Basisverbs identifiziert \iboxb{1}.
 
 Die Argumentanziehung muß in der Partikelverblexikonregel vorangelegt sein.
@@ -996,8 +895,8 @@ Die Argumentanziehung muß in der Partikelverblexikonregel vorangelegt sein.
 %\begin{tabular}[t]{@{}l@{}}
 \mbox{Lexikonregel für produktive Partikelverbkombinationen:}\\*[2mm]
 \onems[stem]{
-           synsem \ibox{1} \onems{ loc$|$cat \ms{ head & \textit{verb\/} \\ 
-%head & \ms{ subj & \liste{ NP[\textit{str\/}] } \\
+           synsem \ibox{1} \onems{ loc$|$cat \ms{ head & \type{verb} \\ 
+%head & \ms{ subj & \liste{ NP[\type{str}] } \\
 %                                                                  } \\
                                                   subcat & \ibox{2}\\
 }
@@ -1035,7 +934,7 @@ folgenden Lexikoneintrag:
 \newsavebox{\boxxcompargat}
 \savebox{\boxxcompargat}{
 \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \ms{
-                                                                  cat & \onems{ head   \textit{verb} \\
+                                                                  cat & \onems{ head   \type{verb} \\
                                                                             subcat \ibox{1}  \\
                                                                           }\\
                                                                   cont & \ms[lachen]{ agens & \ibox{2} \\
@@ -1055,7 +954,7 @@ folgenden Lexikoneintrag:
 \mbox{\stem{lach} (Selektion der Partikel):}\\
 %\resizebox{\linewidth}{!}{%
 \onems{%
-cat \ms{ %head  & \textit{verb\/} \\
+cat \ms{ %head  & \type{verb} \\
        subcat & \textrm{(}\,\ibox{1} \liste{NP[\str]\ind{2}} \textrm{)} $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$ \\[3mm]
               & \liste{\usebox{\boxxcompargat} } \\
      }\\
@@ -1085,38 +984,19 @@ Regeln wie die in (\ref{lr-pv}) abgeleitet, sondern wie \emph{vorhaben} einfach 
 
 Abbildung~\vref{fig-anlachen-val} zeigt die Valenzrepräsentationen in der Analyse
 der Kombination der Partikel \emph{an} mit einer finiten Form von \emph{lachen}.
-\begin{figure}[htbp]
-\begin{center}
-%\resizebox{\linewidth}{!}{%
-% {\small
-% \begin{tabular}[t]{@{}cc@{}}
-% \multicolumn{2}{c}{
-% \rnode{loslachen}{V[\subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3}]}}\\
-% \\[1ex]
-% \hspace{7ex}CL & H\\
-% \\[2ex]
-% \rnode{an}{
-% \ibox{4} Part[\begin{tabular}[t]{@{}l@{}}
-%               \textsc{mod} \ibox{5}\\
-%               \subj \ibox{2} \sliste{ NP[\str] },\\
-%               \subcat \ibox{3} \eliste ]\\
-%                \end{tabular}}
-%  & \rnode{p-lach2}{V[\begin{tabular}[t]{@{}l@{}}
-%                 \subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \sliste{ \ibox{4} Part[\subj \ibox{2}, \subcat \ibox{3}] }]\\
-%                \end{tabular}}\\
-% \\[2ex]
-% &\hspace{8ex}PV LR\\[4ex]
-% &\rnode{lach2}{\ibox{5} V[\subcat \ibox{1} \sliste{ NP[\str] }]}\\
-% \\[2ex] 
-% \rnode{string-an}{an} &\rnode{string-lach2}{lach}\\
-% \end{tabular}
-% \ncline{loslachen}{an}\ncline{loslachen}{p-lach2}%
-% \ncline{p-lach2}{lach2}%
-% \ncline{lach2}{string-lach2}%
-% \ncline{an}{string-an}%
-% }
-\itdopt{Abbildung}
-\end{center}
+\begin{figure}
+\begin{forest}
+sm edges
+[{V[\subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3}]}
+  [\ibox{4} Part\feattab{\textsc{mod} \ibox{5}\\
+                         \subj \ibox{2} \sliste{ NP[\str] },\\
+                         \subcat \ibox{3} \eliste } [an]]
+  [{V[\subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \nliste{ \ibox{4} Part[\subj
+      \ibox{2}, \subcat \ibox{3}] }]}, l sep+=\baselineskip
+     [{\ibox{5} V[\subcat \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}}
+       [lach-]]]] 
+\end{forest}
+
 \caption{Kombination von \emph{an} und \emph{lachen} (Valenzinformation)}\label{fig-anlachen-val}
 \end{figure}
 \emph{an} enthält ein Element in \subj \iboxb{2}, und der Wert von \subcat ist die leere Liste \iboxb{3}.
@@ -1134,7 +1014,7 @@ von \emph{lacht} in (\ref{le-lach-+particle}) durch \emph{an}$_5$ bei einer Komb
 \newsavebox{\boxxcompdrei}
 \savebox{\boxxcompdrei}{
 \onems{ l  \onems{ c \onems{ h \onems[particle]{ mod$|$l \onems{
-                                                                                            cat \ms{ head   & \textit{verb} \\
+                                                                                            cat \ms{ head   & \type{verb} \\
                                                                                                    subcat & \ibox{1}\\
                                                                                                  }\\
                                                                                             cont \ibox{5} \ms[lachen]{ agens & \ibox{2} \\
@@ -1165,10 +1045,10 @@ cont \ibox{7} \\
 %}
 \end{minipage}
 \z
-Das Ergebnis der Kombination von \emph{lachen} und {\em an$_5$\/} zeigt (\mex{1}).
+Das Ergebnis der Kombination von \emph{lachen} und \emph{an$_5$} zeigt (\mex{1}).
 
 \eas
-\emph{anlacht} (Kombination mit {\em an$_5$\/}):\\
+\emph{anlacht} (Kombination mit \emph{an$_5$}):\\
 \ms{
 cat & \onems{ % head \ms[verb]{ vform & fin\\
 %                         } \\
@@ -1266,9 +1146,8 @@ vor:
 \eas
 \label{le-aufwachen-kathol}
 \mbox{\emph{aufwachen} (nach \citet[\page246]{Kathol95a}):}\\
-\resizebox{\linewidth}{!}{%
 \onems{
-\ldots|head   \ibox{1} \textit{verb}\\
+\ldots|head   \ibox{1} \type{verb}\\
 \ldots|vcomp  \eliste\\
 dom \liste{ \onems{ \phonliste{ wachen }\\
                       \ldots|head  \ibox{1}\\
@@ -1280,7 +1159,6 @@ dom \liste{ \onems{ \phonliste{ wachen }\\
                                          }\\
                     }
             }\\
-}
 }
 \zs
 
@@ -1319,7 +1197,7 @@ Vorfeld stehen, wie die Beispiele in (\ref{bsp-auf-faellt}) und (\ref{bsp-auf-wa
 wiederholt -- zeigen:
 \eal
 \ex\iw{auf"|fallen}
-\emph{Auf} {\em fällt}, daß \ldots\footnote{
+\emph{Auf} \emph{fällt}, daß \ldots\footnote{
         \citew*[\page62]{Duden-rs-91}.%
 }
 \ex Nach einigen Zügen, "`die irgendwie komisch schmeckten"', fielen dem Interviewten die Augen zu. 
@@ -1615,7 +1493,7 @@ In dem hier vorgestellten Ansatz läßt sich ein Beispiel wie (\ref{bsp-vor-hat-
 -- hier als (\mex{1}a) wiederholt -- problemlos analysieren: Es bekommt die Struktur in (\mex{1}b):
 \eal
 \ex \label{bsp-vor-hat-er-das-zwei}
-\emph{Vor\/} \emph{hat\/} er das jedenfalls.\footnote{
+\emph{Vor} \emph{hat} er das jedenfalls.\footnote{
 taz, 15.07.1999, S.\,19.
 }
 \ex Vor$_i$ hat$_j$ er das \_$_i$ \_$_j$.
@@ -1626,7 +1504,7 @@ in der linken Satzklammer. Obwohl die beiden Elemente nebeneinander stehen, bild
 sie keine Konstituente. Man könnte sich vielleicht Analysen ausdenken, bei denen
 das gesamte Verb vorangestellt wurde, aber diese würden dann an (\mex{1}) scheitern:
 \ea 
-\emph{Fest}$_i$ scheint auf jeden Fall \_$_i$ \emph{zu} {\em stehen}, daß \ldots\footnote{
+\emph{Fest}$_i$ scheint auf jeden Fall \_$_i$ \emph{zu} \emph{stehen}, daß \ldots\footnote{
         \citew*[\page68]{Reis76c}.
        }
 \z
@@ -1783,7 +1661,7 @@ Bloms Annahmen -- gar nicht in der Syntax auf"|tauchen, da es nicht flektiert is
 \ea
 {}[op [[X]\sub{A} ]\sub{V} ]\sub{V$'$}
 \z
-In Frameworks wie GB\is{Government and Binding (GB)@\textit{Government and Binding\/} (GB)}
+In Frameworks wie GB\is{Government and Binding (GB)@\emph{Government and Binding} (GB)}
 wird für gewöhnlich angenommen, daß Flexionsaffixe mit Phrasen kombiniert werden.
 Wenn Booij diesen Annahmen folgt, kann das Flexionsaffix mit einer VP kombiniert werden. Das V
 würde in (i) dann für einen Verbstamm stehen.%
@@ -1877,7 +1755,7 @@ Die Gemeinsamkeiten dieser Konstruktion
 mit der Futurkonstruktion und der Komplexes"=Prädikat"=Konstruktion werden durch eine
 entsprechende Vererbungshierarchie mit Defaultvererbung erfaßt, die in Abbildung~\vref{goldberg-persisch-vererbung}
 dargestellt ist.
-\begin{figure}[htbp]
+\begin{figure}
 \centering{
 \begin{tabular}[t]{cc}
 Futur & CPV0\\
@@ -1927,7 +1805,7 @@ eine Konstruktion, die vom nicht"=transparenten komplexen Prädikat und von der 
 denn dieser Fall ist in Abbildung~\ref{goldberg-persisch-vererbung} noch nicht erfaßt. Das heißt,
 daß es sowohl eine \emph{roSan kardan}"=Konstruktion als auch eine \emph{roSan x{\^a}stan kardan}"=Konstruktion
 geben muß. Eine entsprechend modifizierte Hierarchie zeigt Abbildung~\vref{goldberg-persisch-vererbung-korrekt}.
-\begin{figure}[htbp]
+\begin{figure}
 \centering{
 \begin{tabular}[t]{cc}
 Futur & CPV0\\

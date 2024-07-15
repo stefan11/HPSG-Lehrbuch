@@ -925,26 +925,27 @@ Kathol kreuzklassifiziert die Typen in (\mex{0}) mit den Typen \type{declarative
 %
 \begin{figure}
 \begin{forest}
-type hierarchy, 
-%for tree={where n children=0{tier=max}{}} % put all maximal types at one line, except subord
-%for level=3{l*=1.5}, % increases the distance to the third level (the maximal types) by a factor of 1.5
-for tree={where tier={max}{l*=1.5}{}},
+type hierarchy, auto name,
+before typesetting nodes={
+where={> O_={tier}{max}}{l*=1.5}{},
+%for tree={alias/.option=content},
+},
 [finite-clause
   [internal-syntax, partition
     [root
       [v2 
-        [r-wh-int, name=r-wh-int]
-        [r-decl, name=r-decl]]
-      [v1 [r-pol-int, name=r-pol-int]]]
-    [subord, name=subord]]
+        [r-wh-int, tier=max]
+        [r-decl, tier=max]]
+      [v1 [r-pol-int, tier=max]]]
+    [subord,]]
   [clausality, partition
     [inter
-      [wh, name=wh, tier=wh-polar-decl
-        [s-wh-int, name=s-wh-int]]
-      [polar, name=polar, tier=wh-polar-decl
-        [s-pol-int, name=s-pol-int]]]
-    [decl, name=decl, tier=wh-polar-decl
-        [s-decl, name=s-decl]]]]
+      [wh, tier=wh-polar-decl
+        [s-wh-int, tier=max]]
+      [polar, tier=wh-polar-decl
+        [s-pol-int, tier=max]]]
+    [decl, tier=wh-polar-decl
+        [s-decl, tier=max]]]]
 \draw (wh.south) -- (r-wh-int.north);
 \draw (subord.south) -- (s-wh-int.north);
 \draw (subord.south) -- (s-pol-int.north);
@@ -954,6 +955,7 @@ for tree={where tier={max}{l*=1.5}{}},
 \end{forest}
 \caption{\label{fig-clausal-types}Satztypen nach \citew{Kathol2001a}}
 \end{figure}
+\itdopt{Überschneidungen vermeiden.}
 Die Boxen stehen hier für sogenannte Partitionen\is{Partition}, \dash, linguistische Objekte müssen
 jeweils einen der Typen haben, die direkt von einer Box dominiert werden.
 

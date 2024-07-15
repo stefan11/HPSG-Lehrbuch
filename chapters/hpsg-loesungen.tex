@@ -162,45 +162,26 @@ H für Kopf.
 Die Struktur von (\mex{1}) ist in Abbildung~\ref{fig-dass-der-mann} zu sehen. Dabei steht \nbar für
 ein Nomen, das einen Determinator verlangt (siehe Seite~\pageref{ex-abkuerzung-nbar}), V steht für ein lexikalisches
 Verb, \vbar für eine ungesättigte und VP für eine gesättigte Verbalprojektion.
-\begin{figure}[htbp]
-\centerline{%
-\begin{tabular}{ccccccc}
-\multicolumn{4}{c}{\rnode{cp}{CP}}\\
-\\
-\multicolumn{6}{l}{\hspace{0.4cm}H\hspace{2.2cm}Ar}\\[2ex]
-\rnode{c}{C}   & \multicolumn{4}{c}{\rnode{vp}{VP}}\\ 
-\\
-\multicolumn{6}{l}{\hspace{1.7cm}Ar\hspace{3cm}H}\\[2ex]
-%
-              & \multicolumn{2}{c}{\rnode{np1}{NP}}  & \multicolumn{4}{c}{\rnode{v1}{\vbar}}\\
-\\
-\multicolumn{7}{l}{\hspace{0.8cm}Ar\hspace{1.1cm}H \hspace{1.6cm}Ar\hspace{2.5cm}H}\\[2ex]
-%
-              & \rnode{det1}{Det} & \rnode{n1}{\nbar} & \multicolumn{2}{c}{\rnode{np2}{NP}}                        & & \rnode{v2}{V}\\
-\\
-\multicolumn{7}{l}{\hspace{3cm}Ar\hspace{1.9cm}H}\\[2ex]
-%
-              &                  &                  & \rnode{det2}{Det} & \multicolumn{2}{c}{\rnode{ns2}{\nbar}}\\
-\\
-\multicolumn{7}{l}{\hspace{4.3cm}Ad\hspace{1.6cm}H}\\[2ex]
-%
-              &                  &                  &                  & \rnode{adj}{Adj}       & \rnode{n2}{\nbar} \\
-\\[3ex]
- \rnode{dass}{daß} & \rnode{der}{der} & \rnode{mann}{Mann} & \rnode{das}{das} & \rnode{sp}{spannende} & \rnode{buch}{Buch} & \rnode{liest}{liest}\\
-\end{tabular}
-\ncline{cp}{c}\ncline{cp}{vp}%
-\ncline{c}{dass}%
-\ncline{vp}{np1}\ncline{vp}{v1}%
-\ncline{np1}{det1}\ncline{np1}{n1}%
-\ncline{v1}{np2}\ncline{v1}{v2}%
-\ncline{np2}{det2}\ncline{np2}{ns2}%
-\ncline{ns2}{adj}\ncline{ns2}{n2}%
-\ncline{det1}{der}\ncline{n1}{mann}%
-\ncline{det2}{das}\ncline{adj}{sp}%
-\ncline{n2}{buch}\ncline{v2}{liest}%
-}
+\begin{figure}
+\begin{forest}
+sm edges
+[CP
+  [C [dass]]
+  [VP 
+    [NP 
+      [Det [der]]
+      [\nbar [Mann]]]
+    [\vbar
+      [NP
+        [Det [das]]
+        [\nbar 
+          [Adj [spannende]]
+          [\nbar [Buch]]]]
+      [V [liest]]]]] 
+\end{forest}
 \caption{\label{fig-dass-der-mann}Syntaxstruktur von \emph{daß der Mann das spannende Buch liest}}
 \end{figure}
+\itdopt{Label H Arg Adj fehlen noch}
 \item 
 
 \eanoraggedright
@@ -396,62 +377,59 @@ keine Umstellung des Relativsatzes stattgefunden hat, sondern dass die einfacher
 %% \zl
 
 \begin{figure}[H]
-\begin{tikzpicture}
-\tikzset{level 1+/.style={level distance=3\baselineskip}}
-\tikzset{frontier/.style={distance from root=15\baselineskip}}
-\Tree[.{C[\subcat \eliste ] }
-       [.{C[\subcat \sliste{ \ibox{1} }]} daß ]
-       [.{\ibox{1} V[\subcat \eliste ] }
-          [.{\ibox{2} NP[\type{nom}]} Kurt-Martin ]
-          [.{V[\subcat \sliste{ \ibox{2} } ] } 
-            [.{\ibox{3} NP[\type{acc}]} \edge[roof]; {drei Mark} ]
-            [.{V[\subcat \sliste{ \ibox{2}, \ibox{3} } ] }
-              [.{\ibox{4} NP[\type{dat}]} \edge[roof]; {dem Clown} ]
-              [.{V[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } gibt ] ] ] ]
+\begin{forest}
+sm edges
+[{C[\subcat \eliste ] }
+   [{C[\subcat \sliste{ \ibox{1} }]} [dass] ]
+      [{\ibox{1} V[\subcat \eliste ] }
+        [{\ibox{2} NP[\type{nom}]} [Kurt-Martin] ]
+          [{V[\subcat \sliste{ \ibox{2} } ] } 
+            [{\ibox{3} NP[\type{dat}]} [dem Clown, roof] ]
+            [{V[\subcat \sliste{ \ibox{2}, \ibox{3} } ] }
+               [{\ibox{4} NP[\type{acc}]} [drei Mark, roof] ]
+                      [{V[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } [gibt] ] ] ] ]
 ]
-\end{tikzpicture}
+\end{forest}
 \end{figure}
+\itdopt{add labels to lines: H Cl and so on}
 
 
 \begin{figure}[H]
-\begin{tikzpicture}
-\tikzset{level 1+/.style={level distance=3\baselineskip}}
-\tikzset{frontier/.style={distance from root=15\baselineskip}}
-\Tree[.{C[\subcat \eliste ] }
-       [.{C[\subcat \sliste{ \ibox{1} } ] } daß ]
-       [.{\ibox{1} V[\subcat \eliste ] }
-          [.{\ibox{4} NP[\type{dat}]} \edge[roof]; {dem Clown} ]
-          [.{V[\subcat \sliste{ \ibox{4} } ] } 
-            [.{\ibox{3} NP[\type{acc}]} \edge[roof]; {drei Mark} ]
-            [.{V[\subcat \sliste{ \ibox{3}, \ibox{4} } ] }
-              [.{\ibox{2} NP[\type{nom}]} Kurt-Martin ]
-              [.{V[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } gibt ] ] ] ]
-]
-\end{tikzpicture}
+\begin{forest}
+sm edges
+[{C[\subcat \eliste ] }
+  [{C[\subcat \sliste{ \ibox{1} } ] } [dass] ]
+  [{\ibox{1} V[\subcat \eliste ] }
+    [{\ibox{4} NP[\type{dat}]} [dem Clown, roof] ]
+    [{V[\subcat \sliste{ \ibox{4} } ] } 
+       [{\ibox{3} NP[\type{acc}]} [drei Mark,roof] ]
+       [{V[\subcat \sliste{ \ibox{3}, \ibox{4} } ] }
+          [{\ibox{2} NP[\type{nom}]} [Kurt-Martin] ]
+          [{V[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } [gibt] ] ] ] ] ]
+\end{forest}
 \end{figure}
 
 \begin{figure}[H]
 \oneline{%
-\begin{tikzpicture}
-\tikzset{level 1+/.style={level distance=3\baselineskip}}
-\tikzset{level 2+/.style={level distance=4\baselineskip}}
-\tikzset{frontier/.style={distance from root=19\baselineskip}}
-\Tree[.{V[\subcat \eliste ] }
-       [.{V[\subcat \sliste{ \ibox{1} } ] }  \edge node[auto=left]{V1-LR};
-         [.{V\ibox{5}[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } gibt ] ]
-       [.{\ibox{1} V\feattab{\dsl \ibox{5},\\
+\begin{forest}
+sm edges
+[{V[\subcat \eliste ] }
+       [{V[\subcat \sliste{ \ibox{1} } ] }, l sep+=\baselineskip 
+         [{V\ibox{5}[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] }, tier=np, edge
+         label={node[midway,right]{V1-LR}}
+            [gibt] ] ]
+       [{\ibox{1} V\feattab{\dsl \ibox{5},\\
                              \subcat \eliste} }
-          [.{\ibox{2} NP[\type{nom}]} Kurt-Martin ]
-          [.{V\feattab{\dsl \ibox{5},\\
+          [{\ibox{2} NP[\type{nom}]}, tier=np [Kurt-Martin] ]
+          [{V\feattab{\dsl \ibox{5},\\
                        \subcat \sliste{ \ibox{2} } } } 
-            [.{\ibox{4} NP[\type{dat}]} \edge[roof]; {dem Clown} ]
-            [.{V\feattab{\dsl \ibox{5},\\
+            [{\ibox{4} NP[\type{acc}]} [drei Mark,roof] ]
+            [{V\feattab{\dsl \ibox{5},\\
                          \subcat \sliste{ \ibox{2}, \ibox{4} } } }
-              [.{\ibox{3} NP[\type{acc}]} \edge[roof]; {drei Mark} ]
-              [.{V\ibox{5}\feattab{\dsl \ibox{5},\\
-                           \subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } } } \trace{} ] ] ] ]
-]
-\end{tikzpicture}}
+              [{\ibox{3} NP[\type{dat}]} [dem Clown,roof] ]
+              [{V\ibox{5}\feattab{\dsl \ibox{5},\\
+                           \subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } } } [\trace{}] ] ] ] ] ]
+\end{forest}}
 \end{figure}
 
 
@@ -459,31 +437,27 @@ keine Umstellung des Relativsatzes stattgefunden hat, sondern dass die einfacher
 
 \begin{figure}[H]
 \oneline{%
-\begin{tikzpicture}
-\tikzset{level 1+/.style={level distance=4\baselineskip}}
-\tikzset{level 3+/.style={level distance=5\baselineskip}}
-\tikzset{frontier/.style={distance from root=23\baselineskip}}
-\Tree[.{V\feattab{\subcat \eliste,\\
-                  \slasch \eliste } }
-       [.{NP\ibox{1}[\type{acc}]} \edge[roof]; {diese Wohnung} ]
-       [.{V\feattab{ \subcat \eliste,\\
-                     \slasch \sliste{ \ibox{1} } } } 
-         [.{V[\subcat \sliste{ \ibox{2} } ] }  \edge node[auto=left]{V1-LR};
-           [.{V\ibox{3}[\subcat \sliste{ \ibox{4}, \ibox{5} } ] } mietet ] ]
-         [.{\ibox{2} V\feattab{ \dsl \ibox{3},\\
+\begin{forest}
+sm edges
+[{V\feattab{\subcat \eliste,\\
+                  \slasch \eliste } }, s sep+=2em
+       [{NP\ibox{1}[\type{acc}]} [diese Wohnung,roof] ]
+       [V\feattab{ \subcat \eliste,\\
+                   \slasch \sliste{ \ibox{1} } }  
+         [{V[\subcat \sliste{ \ibox{2} } ] }, l sep+=\baselineskip
+           [{V\ibox{3}[\subcat \sliste{ \ibox{4}, \ibox{5} } ] }, tier=np, edge label={node[midway,right]{V1-LR}} [mietet] ] ]
+         [{\ibox{2} V\feattab{ \dsl \ibox{3},\\
                                 \subcat \eliste,\\
                                 \slasch \sliste{ \ibox{1} } } } 
-           [.{ \ibox{5} NP\ibox{1}\feattab{ \slasch \sliste{ \ibox{1} } } } \trace{} ]
-           [.{V\feattab{\dsl \ibox{3},\\
-                        \subcat \sliste{ \ibox{4}, \ibox{5} },\\
-                                \slasch \eliste } }
-              [.{\ibox{4} NP[\type{nom}]} er ]
-              [.{V\ibox{3}\feattab{\dsl \ibox{3},\\
-                                   \subcat \sliste{ \ibox{4}, \ibox{5} },\\
-                                   \slasch \eliste } }  \trace{} ] ] ]
-] 
-]
-\end{tikzpicture}
+           [\ibox{5} NP\ibox{1}\feattab{ \slasch \sliste{ \ibox{1} } }, tier=np [\trace] ]
+           [V\feattab{\dsl \ibox{3},\\
+                      \subcat \sliste{ \ibox{4}, \ibox{5} },\\
+                              \slasch \eliste }
+              [{\ibox{4} NP[\type{nom}]} [er] ]
+              [V\ibox{3}\feattab{\dsl \ibox{3},\\
+                                 \subcat \sliste{ \ibox{4}, \ibox{5} },\\
+                                 \slasch \eliste }  [\trace] ] ] ] ] ]
+\end{forest}
 }
 \end{figure}
 
@@ -534,54 +508,35 @@ sm edges
 
 \section{Der Verbalkomplex}
 
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{@{}ccc@{}c@{}}
-\multicolumn{3}{c}{%
-\rnode{s}{\ms[cat]{ head   & \ibox{1} \\
+\begin{figure}[H]
+\oneline{
+\begin{forest}
+sm edges
+[{\ms[cat]{ head   & \ibox{1} \\
            subcat & \eliste\\
-            }}}\\
-\\[3ex]
-\\[5ex]
-\rnode{np}{\ibox{2} NP[\type{nom}]} & \multicolumn{3}{c}{%
-\rnode{1}{\ms[cat]{ head   & \ibox{1} \\
-           subcat & \ibox{3}\\
-            }}}\\
-\\[3ex]
-\\[5ex]
-& \multicolumn{2}{c}{%
-\rnode{2}{
-\iboxt{5}~\onems{ loc \ms{ head & \ibox{4} \\
-                                   subcat & \ibox{3} \\
-                                 }
-}}} &
-\rnode{3}{
-                 \ms[cat]{ head & \ibox{1} \ms[verb]{ vform & fin \\
-                                                    } \\
-                      subcat & \ibox{3} $\oplus$ \sliste{ \ibox{5} } \\
-                    }}\\
-\\[3ex]
-\\[4ex]
-& \rnode{4}{%
-\iboxt{6}~\onems{ loc \onems{ head  \ms[verb]{ vform & bse  \\
+            }}
+ [{\ibox{2} NP[\type{nom}]} [Aicke]]
+ [{\ms[cat]{ head   & \ibox{1} \\
+             subcat & \ibox{3}\\
+            }}
+   [\iboxt{5}~\onems{ loc \ms{ head & \ibox{4} \\
+                               subcat & \ibox{3} \\
+                                 }}
+     [\iboxt{6}~\onems{ loc \onems{ head  \ms[verb]{ vform & bse  \\
                                                 }  \\
                                 subcat~\ibox{3} \sliste{ \ibox{2} NP[\textit{nom\/}] } \\
                               }\\
-                }
-} & \rnode{5}{
-\onems[cat]{ head~\ibox{4} \ms[verb]{ vform & bse \\
+                } [singen]]
+     [{\onems[cat]{ head~\ibox{4} \ms[verb]{ vform & bse \\
                             } \\
             subcat ~ \ibox{3} $\oplus$ \sliste{ \ibox{6} } \\
-          }
-}\\
-\\[3ex]
-\rnode{er}{er} & \rnode{6}{singen} & \rnode{7}{können} & \rnode{8}{muss}\\
-\end{tabular}
-\ncline{s}{np}\ncline{s}{1}%
-\ncline{np}{er}%
-\ncline{1}{2}\ncline{1}{3}%
-\ncline{2}{4}\ncline{2}{5}%
-\ncline{4}{6}\ncline{5}{7}\ncline{3}{8}%
-}
+          }} [können]]]
+    [{\ms[cat]{ head & \ibox{1} \ms[verb]{ vform & fin \\
+                                                    } \\
+                      subcat & \ibox{3} $\oplus$ \sliste{ \ibox{5} } \\
+                    }} [muss]]]]
+\end{forest}}
+\end{figure}
 
 
 \section{Kohärenz, Inkohärenz, Anhebung und Kontrolle}

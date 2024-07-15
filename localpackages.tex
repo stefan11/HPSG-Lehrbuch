@@ -73,7 +73,8 @@
 
 
 \usepackage{langsci-branding}
-\usepackage[danger]{langsci-lgr}
+%\usepackage[danger]{langsci-lgr}
+\usepackage{langsci-lgr}
 
 \usepackage{graphicx}
 
@@ -245,26 +246,6 @@ Figure~\ref{#1}\vpageref[]{#1} and Figure~\ref{#2} \vpageref{#2}}}%
 \fi
 
 \usepackage{appendix}
-
-
-% adds lines to both the odd and even page.
-% bloddy hell! This is really an alpha package! Do not use the draft option! 07.03.2016
-\usepackage{addlines}
-
-%% \let\addlinesold=\addlines
-%% % there is one optional argument. Second element in brackets is the default 
-%% \renewcommand{\addlines}[1][1]{
-%% \todosatz{addlines}
-%% \addlinesold[#1]
-%% }
-
-
-% do nothing now
-%\let\addlinesold=\addlines
-\renewcommand{\addlines}[1][1]{}
-
-% for addlines to work
-\strictpagecheck
 
 
 

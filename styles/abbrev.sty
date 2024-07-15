@@ -3,6 +3,8 @@
 
 % \, -> kurz \ -> '.' kein Satzende
 
+\RequirePackage{hyphenat}
+
 \newcommand{\ua}{u.\,a.\ }
 \newcommand{\eg}{e.g.,\xspace}
 \newcommand{\Eg}{E.g.,\xspace}
@@ -157,6 +159,7 @@
 \newcommand{\compsl}{\textsc{comps}\hyp Liste\xspace}}{%
 \newcommand{\compsl}{\textsc{comps} list\xspace}%
 }
+\newcommand{\compsln}{\textsc{comps}\hyp Listen\xspace}%
 \newcommand{\compsv}{\textsc{comps} value\xspace}%
 \newcommand{\compsvs}{\textsc{comps} values\xspace}%
 \newcommand{\compsw}{\textsc{comps}\hyp Wert\xspace}%
@@ -479,47 +482,47 @@
 \newcommand{\habenp}{\emph{haben}\iw{sein!Perfekt}\xspace}
 
 
-\newcommand{\er}{"~\emph{er}\xspace}
+\newcommand{\er}{\mbox{-\emph{er}}\xspace}
 \newcommand{\ern}{\iflanguage{german}{%
-"~\emph{er}\hyp Nominalisierung\xspace}{%
-"~\emph{er}\hyp nominalization\xspace}%
+\mbox{-\emph{er}}\hyp Nominalisierung\xspace}{%
+\mbox{-\emph{er}}\hyp nominalization\xspace}%
 }
 \newcommand{\erns}{"~\emph{er}\hyp nominalizations\xspace}
-\newcommand{\gee}{\emph{Ge}- "~\emph{e}\xspace}
+\newcommand{\gee}{\emph{Ge}- \mbox{-\emph{e}}\xspace}
 \newcommand{\geen}{\iflanguage{german}{%
-\emph{Ge}- "~\emph{e}\hyp Nominalisierung\xspace}{%
-\emph{Ge}- "~\emph{e}\hyp nominalization\xspace}%
+\emph{Ge}- \mbox{-\emph{e}}\hyp Nominalisierung\xspace}{%
+\emph{Ge}- \mbox{-\emph{e}}\hyp nominalization\xspace}%
 }
-\newcommand{\geens}{\emph{Ge}- "~\emph{e}\hyp nominalizations\xspace}
-\newcommand{\geenen}{\emph{Ge}- "~\emph{e}\hyp Nominalisierungen\xspace}
-\newcommand{\geed}{\emph{Ge}- "~\emph{e}\hyp \iflanguage{german}{% 
+\newcommand{\geens}{\emph{Ge}- \mbox{-\emph{e}}\hyp nominalizations\xspace}
+\newcommand{\geenen}{\emph{Ge}- \mbox{-\emph{e}}\hyp Nominalisierungen\xspace}
+\newcommand{\geed}{\emph{Ge}- \mbox{-\emph{e}}\hyp \iflanguage{german}{% 
 Derivation}{derivation}\xspace}
-\newcommand{\geeds}{\emph{Ge}- "~\emph{e}\hyp derivations\xspace}
-\newcommand{\ung}{"~\emph{ung}\xspace}
-\newcommand{\ungd}{"~\emph{ung}\hyp derivation\xspace}
-\newcommand{\ungds}{"~\emph{ung}\hyp derivations\xspace}
+\newcommand{\geeds}{\emph{Ge}- \mbox{-\emph{e}}\hyp derivations\xspace}
+\newcommand{\ung}{\mbox{-\emph{ung}}\xspace}
+\newcommand{\ungd}{\mbox{-\emph{ung}}\hyp derivation\xspace}
+\newcommand{\ungds}{\mbox{-\emph{ung}}\hyp derivations\xspace}
 \newcommand{\ungn}{\iflanguage{german}{%
-"~\emph{ung}\hyp Nominalisierung\xspace}{%
-"~\emph{ung}\hyp nominalization\xspace}%
+\mbox{-\emph{ung}}\hyp Nominalisierung\xspace}{%
+\mbox{-\emph{ung}}\hyp nominalization\xspace}%
 }
-\newcommand{\ungs}{"~\emph{ung}\hyp nominalizations\xspace}
+\newcommand{\ungs}{-\mbox{\emph{ung}}\hyp nominalizations\xspace}
 
 
 \newcommand{\bars}{"~\emph{bar}\xspace}
 \newcommand{\baradj}{\iflanguage{german}{%
-"~\emph{bar}\hyp Adjektiv\xspace}{%
-"~\emph{bar}\hyp adjective\xspace}%
+\mbox{-\emph{bar}}\hyp Adjektiv\xspace}{%
+\mbox{-\emph{bar}}\hyp adjective\xspace}%
 }
 \newcommand{\baradjs}{\iflanguage{german}{%
-"~\emph{bar}\hyp Adjektivs\xspace}{%
-"~\emph{bar}\hyp adjectives\xspace}%
+\mbox{-\emph{bar}}\hyp Adjektivs\xspace}{%
+\mbox{-\emph{bar}}\hyp adjectives\xspace}%
 }
 \newcommand{\bard}{\iflanguage{german}{%
-"~\emph{bar}\hyp Derivation\xspace}%
-{"~\emph{bar} `able' derivation\xspace}%
+\mbox{-\emph{bar}}\hyp Derivation\xspace}%
+{\mbox{-\emph{bar}} `able' derivation\xspace}%
 }
-\newcommand{\bards}{"~\emph{bar}\hyp derivations\xspace}
-\newcommand{\barden}{"~\emph{bar}\hyp Derivationen\xspace}
+\newcommand{\bards}{\mbox{-\emph{bar}}\hyp derivations\xspace}
+\newcommand{\barden}{\mbox{-\emph{bar}}\hyp Derivationen\xspace}
 
 \newcommand{\itsdb}{\mbox{\textsf{\lbrack incr tsdb()\rbrack}}\indexitsdb}
 \newcommand{\indexitsdb}{\is{incr tsdb()@\mbox{\textsf{\lbrack incr tsdb()\rbrack}}}\xspace}

@@ -273,7 +273,7 @@ synsem$|$loc \onems{ cat   \ibox{2} \onems{ head$|$vform  \type{fin} \\
                        }\\
 lex-dtr  \onems[stem]{
            phon   \ibox{1} \\
-           synsem$|$loc \ms{ cat  & \ibox{2} \ms{ head  & \textit{verb\/}\\
+           synsem$|$loc \ms{ cat  & \ibox{2} \ms{ head  & verb\\
                                                 }\\
                              cont & \ibox{4} \\
                          }\\
@@ -360,7 +360,7 @@ eingebettet.\footnote{
 %%                 per  & \ibox{4}\\
 %%                 num  & \ibox{5}\\
 %%                 }\\
-%%            synsem$|$loc$|$cat  \ms{ head  & \textit{verb\/}\\
+%%            synsem$|$loc$|$cat  \ms{ head  & \type{verb}\\
 %%                                         subcat & \ibox{3}\\
 %%                                       }\\
 %% %                             cont & \ibox{4} \\
@@ -415,7 +415,7 @@ eingebettet.\footnote{
 %%                 per  & \ibox{4}\\
 %%                 num  & \ibox{5}\\
 %%                 }\\
-%%            synsem$|$loc \ms{ cat  & \ms{ head  & \textit{verb\/}\\
+%%            synsem$|$loc \ms{ cat  & \ms{ head  & \type{verb}\\
 %%                                         subcat & \ibox{3}\\
 %%                                       }\\
 %%                              cont & \ibox{4} \\
@@ -505,7 +505,7 @@ die deutsche Sprache aufgenommen worden und sind also relativ neue Wörter.
 
 Die produktive Lexikonregel zur Bildung von \emph{bar}"=Adjektiven zeigt (\mex{1}) (siehe auch \citew{Riehemann98a}
 zu einer ähnlichen Regel).
-\begin{figure}[htbp]
+\begin{figure}
 \eas
 \label{lr-bar-adj}
 Lexikonregel für die Derivation von Adjektiven mit \bars:\\
@@ -532,7 +532,7 @@ lex-dtr & \onems[stem]{
                              cont & \ibox{4} \\
                           }\\
            }\\
-}\is{Lexikonregel!bar-Derivation@{\em -bar}-Derivation}%
+}\is{Lexikonregel!bar-Derivation@\emph{-bar}-Derivation}%
 }
 \zs
 \vspace{-\baselineskip}\end{figure}
@@ -560,10 +560,10 @@ cont & \ms[lösen]{ agens & \ibox{2} \\
 
 \noindent
 \eas
-\stem{lösbar}:\\
 \label{le-fahrbar}
+\stem{lösbar}:\\
 \ms{
-cat & \ms{ head & \ms[adj]{ subj & \sliste{ NP[\textit{str\/}]\ind{3}} \\
+cat & \ms{ head & \ms[adj]{ subj & \sliste{ NP[\type{str}]\ind{3}} \\
                            } \\
            subcat & \eliste \\
          }\\
@@ -609,52 +609,45 @@ Flexion, die Fälle zwei und drei stammen aus dem Bereich der Derivation.
 
 \citet[\page163]{Bierwisch87a} diskutiert die beiden Analysen für \emph{aufhören}
 in Abbildung~\vref{structures-pv}.\footnote{
-  Bierwisch nimmt eine morphembasierte Analyse an, wir haben dagegen im vorigen
+  Bierwisch nimmt eine morphembasierte Analyse an, ich habe dagegen im vorigen
   Abschnitt eine lexikonregelbasierte Analyse angenommen. Die Analysen sind bis zu einem
   gewissen Grad ineinander übertragbar (siehe Abschnitt~\ref{morphem-vs-lr}).
   Das Bild~\ref{structures-pv}a entspricht der folgenden Struktur:
+\vspace{-\baselineskip}
 \begin{figure}[H]
-\centerline{
-\begin{tabular}[t]{cccccccc}
-&\rnode{v1f}{V}\\[2ex]
-\rnode{pf}{P}   &                  & \rnode{v2f}{V en}\\[2ex]
-\rnode{anf}{auf} & & \rnode{v3f}{V}\\[2ex]
-              & &\rnode{hoerf}{hör}\\
-\end{tabular}
-\ncline{v1f}{pf}\ncline{v1f}{v2f}%
-\ncline{v2f}{v3f}%
-\ncline{pf}{anf}\ncline{v3f}{hoerf}%
-}
+\begin{forest}
+for tree={font=\footnotesize}
+[V
+  [P [auf]]
+  [V en
+    [hör]]]
+\end{forest}
 %\caption{Struktur mit unärer Regel für Affigierung}
 \end{figure}
+\vspace{-\baselineskip}
+\noindent
 Statt einer binären Regel, die ein Affix\is{Affix} mit dem Verbstamm verbindet, wird
 im lexikonregelbasierten Ansatz die phonologische Information des Affix innerhalb
 der Regel mit der phonologischen Information des Stammes kombiniert.%
 }
 %
-\begin{figure}[htbp]
-%\nodemargin5pt
-\centerline{%
-a. \begin{tabular}[t]{cccccccc}
-&\rnode{v1}{V}\\[2ex]
-\rnode{p}{P}   &                  & \rnode{v2}{V}\\[2ex]
-\rnode{an}{auf} & \rnode{v3}{V}     &                     & \rnode{en}{en}\\[2ex]
-              & \rnode{hoer}{hör}\\
-\end{tabular}
-\ncline{v1}{p}\ncline{v1}{v2}
-\ncline{v2}{v3}\ncline{v2}{en}
-\ncline{p}{an}\ncline{v3}{hoer}
-\hspace{2.5cm}b. \begin{tabular}[t]{cccccccc}
-              &              & \rnode{v1r}{V}\\[2ex]
-              & \rnode{v2r}{V} &                      & \rnode{enr}{en}\\[2ex]
-\rnode{pr}{P}   &              & \rnode{v3r}{V}\\[2ex]
-\rnode{anr}{auf} &              & \rnode{hoerr}{hör}\\
-\end{tabular}
-\ncline{v1r}{v2r}\ncline{v1r}{enr}%
-\ncline{v2r}{pr}\ncline{v2r}{v3r}%
-\ncline{pr}{anr}\ncline{v3r}{hoerr}%
-}
-\caption{Alternative Strukturen für \textit{aufhören\/}}
+\begin{figure}
+a. \begin{forest}
+   baseline
+   [V
+     [P [auf]]
+     [V
+       [V [hör]]
+       [en]]]
+\end{forest}
+\hspace{2.5cm}b. \begin{forest}
+   baseline
+   [V
+     [V [P [auf]]
+        [V [hör]]]
+     [en]]
+\end{forest}
+\caption{Alternative Strukturen für \emph{aufhören}}
 \label{structures-pv}
 \end{figure}
 %
@@ -711,33 +704,23 @@ Sein Gepfeife ging ihm auf die Nerven.
 Die \geen ist auch bei Partikelverben möglich, und in der Literatur
 wurden die beiden Strukturen in Abbildung~\vref{structures-herumgerenne}
 vorgeschlagen. 
-\begin{figure}[htbp]
-%\nodemargin5pt
-\centerline{%
-a. %\resizebox{0.43\linewidth}{!}{
-\begin{tabular}[t]{@{}ccccc@{}}
-&\rnode{n1}{N}\\[2ex]
-\rnode{p}{P}   &                  & \rnode{n2}{N}\\[2ex]
-\rnode{herum}{herum} & \rnode{v3}{V}     &                     & \rnode{gee}{\gee}\\[2ex]
-              & \rnode{renn}{renn}\\
-\end{tabular}
-\ncline{n1}{p}\ncline{n1}{n2}%
-\ncline{n2}{v3}\ncline{n2}{gee}%
-\ncline{p}{herum}\ncline{v3}{renn}%
-%}
-\hspace{0.15\linewidth}b. %\resizebox{0.43\linewidth}{!}{
-\begin{tabular}[t]{@{}ccccc@{}}
-              &              & \rnode{n1r}{N}\\[2ex]
-              & \rnode{v2r}{V} &                      & \rnode{geer}{\gee}\\[2ex]
-\rnode{pr}{P}   &              & \rnode{v3r}{V}\\[2ex]
-\rnode{herumr}{herum} &              & \rnode{rennr}{renn}\\
-\end{tabular}
-\ncline{n1r}{v2r}\ncline{n1r}{geer}%
-\ncline{v2r}{pr}\ncline{v2r}{v3r}%
-\ncline{pr}{herumr}\ncline{v3r}{rennr}%
-%}
-}
-\caption{Alternative Strukturen für \textit{Herumgerenne\/}}
+\begin{figure}
+a. \begin{forest}
+   baseline
+   [N
+     [P [herum]]
+     [N
+       [V [renn]]
+       [\gee]]]
+\end{forest}
+\hspace{2.5cm}b. \begin{forest}
+   baseline
+   [N
+     [V [P [herum]]
+        [V [renn]]]
+     [\gee]]
+\end{forest}
+\caption{Alternative Strukturen für \textit{Herumgerenne}}
 \label{structures-herumgerenne}
 \end{figure}
 Die erste Struktur kann ohne weiteres erklären, warum Präfix
@@ -762,28 +745,22 @@ Partikel lizenziert.
 taz, 05.06.1997, S.\,22.% %TAZ-HAMBURG Nr. 5244 Seite 22 vom 05.06.1997
 }
 \z
-\begin{figure}[htbp]
-%\nodemargin5pt
-\centerline{%
-a. \begin{tabular}[t]{cccccccc}
-&\rnode{a1}{A}\\[2ex]
-\rnode{p}{P}   &                  & \rnode{a2}{A}\\[2ex]
-\rnode{an}{an} & \rnode{v3}{V}     &                     & \rnode{bar}{bar}\\[2ex]
-              & \rnode{fahr}{fahr}\\
-\end{tabular}
-\ncline{a1}{p}\ncline{a1}{a2}
-\ncline{a2}{v3}\ncline{a2}{bar}
-\ncline{p}{an}\ncline{v3}{fahr}
-\hspace{2cm}b. \begin{tabular}[t]{cccccccc}
-              &              & \rnode{a1r}{A}\\[2ex]
-              & \rnode{v2r}{V} &                      & \rnode{barr}{bar}\\[2ex]
-\rnode{pr}{P}   &              & \rnode{v3r}{V}\\[2ex]
-\rnode{anr}{an} &              & \rnode{fahrr}{fahr}\\
-\end{tabular}
-\ncline{a1r}{v2r}\ncline{a1r}{barr}%
-\ncline{v2r}{pr}\ncline{v2r}{v3r}%
-\ncline{pr}{anr}\ncline{v3r}{fahrr}%
-}
+\begin{figure}
+a. \begin{forest}
+   baseline
+   [A
+     [P [an]]
+     [A
+       [V [fahr]]
+       [bar]]]
+\end{forest}
+\hspace{2.5cm}b. \begin{forest}
+   baseline
+   [A
+     [V [P [an]]
+        [V [fahr]]]
+     [bar]]
+\end{forest}
 \caption{Alternative Strukturen für \emph{anfahrbar}}
 \label{structures-anfahrbar}
 \end{figure}
@@ -813,7 +790,7 @@ ein Objekt mit dem \synsemw in (\mex{1}).
 cat & \ms{ head & \ms[verb]{ vform & fin\\
 %                             subj  & \eliste \\
                            } \\
-           subcat & \liste{NP[\textit{str\/}]$_{\ibox{1}~2, sg}$} \\
+           subcat & \liste{NP[\type{str}]$_{\ibox{1}~2, sg}$} \\
          }\\
 cont & \ms[present]{
         soa & \ms[lachen]{ agens & \ibox{1} \\
@@ -828,39 +805,22 @@ Flexionslexikonregel auf die Ausgabe der Partikelverblexikonregel (S.\,\pageref{
 anwendet. Diese Abbildung ähnelt der Abbildung~\vref{fig-loslachen-sem}, 
 die zur Erklärung der semantischen Kombination von Partikel und Verb benutzt wurde.
 Sie enthält zusätzlich jedoch noch Flexionsinformation.
-\begin{figure}[htbp]
-\centerline{%
-%\resizebox{\linewidth}{!}{%
-{\small%
-%\nodemargin5pt%
-\begin{tabular}[t]{@{}cc@{}}
-\multicolumn{2}{c}{
-\rnode{anfaehrst}{V[\cont \ibox{1}]}}\\
-\\[1ex]
-\hspace{7ex}CL & H\\
-\\[2ex]
-\rnode{an}{
-\ibox{2} Part[\begin{tabular}[t]{@{}l@{}}
+\begin{figure}
+\begin{forest}
+sm edges
+[{V[\cont \ibox{1}]}
+   [\ibox{2} Part\feattab{
               \textsc{mod} \ibox{3} [\cont \ibox{4} ]\\
-              \cont \ibox{5} \relation{beginnen}\iboxb{4}]\\
-              \end{tabular}}
-& \rnode{prfaehrst}{V[\subcat \sliste{ \ldots{} \ibox{2} }, \cont \ibox{1} \emph{present}\iboxb{5}]}\\[3ex]
-& \hspace{14ex}Flexions-LR\\[4ex]
-\rnode{stringran}{los} & \rnode{prlach2}{V[\begin{tabular}[t]{@{}l@{}}
-                \subcat \liste{ \ldots{} \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
-                \cont  \ibox{5}]\\
-               \end{tabular}}\\
-\\[2ex]
-&\hspace{8ex}PV LR\\[4ex]
-&\rnode{lach2}{\ibox{3} V[\cont \ibox{4} \emph{lachen}\iboxb{6}]}\\[3ex] 
-&\rnode{stringrlach2}{lach}\\
-\end{tabular}
-\ncline{anfaehrst}{an}\ncline{anfaehrst}{prfaehrst}%
-\ncline{prfaehrst}{prlach2}%
-\ncline{prlach2}{lach2}%
-\ncline{lach2}{stringrlach2}%
-\ncline{an}{stringran}%
-}}
+              \cont \ibox{5} \relation{beginnen}\iboxb{4} } [los]]
+   [{V[\subcat \sliste{ \ldots, \ibox{2} }, \cont \ibox{1} \emph{present}\iboxb{5}]}, l sep+=\baselineskip
+%Flexions-LR
+      [V\feattab{
+          \subcat \nliste{ \ldots, \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
+          \cont  \ibox{5} }, l sep+=\baselineskip,edge label={node[midway,right]{Flexions-LR}}
+% PV LR
+         [{\ibox{3} V[\cont \ibox{4} \emph{lachen}\iboxb{6}]},edge label={node[midway,right]{PV-LR}}
+            [lach]]]]] 
+\end{forest}
 \caption{Flexion von \stem{lach} und Kombination mit \emph{los}}\label{fig-losfaehrst-sem}
 \end{figure}
 In der Ausgabe der Partikelverblexikonregel wird der \contw mit dem \contw der Partikel
@@ -892,7 +852,7 @@ analysis for the distribution of \prefix{ge}, including the distribution in part
 He tries to capture the data on a purely phonological\is{phonology} basis. In order to achieve this, he has to stipulate 
 four constraints, one specific to \prefix{ge} and one specific to particle verbs. 
 Such stipulations are not necessary in the approach suggested in this book:
-{\em ge-\/} and {\em -t\/} are attached to the stem by an inflectional lexical rule
+\emph{ge-} and \emph{-t} are attached to the stem by an inflectional lexical rule
 and the particle is added in a later step as part of the predicate complex.
 \end{comment}
 
@@ -903,7 +863,7 @@ für das Partikelverb mit dem Stamm \stem{lach}
 in (\ref{le-lach-+particle}) auf Seite~\pageref{le-lach-+particle} ist in (\mex{1}) zu sehen:
 %\vpageref{le-lachst-+particle}.
 %
-%\begin{figure}[htbp]
+%\begin{figure}
 \newsavebox{\boxxcompvier}
 \savebox{\boxxcompvier}{
 \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \onems{
@@ -928,7 +888,7 @@ in (\ref{le-lach-+particle}) auf Seite~\pageref{le-lach-+particle} ist in (\mex{
 \ms{
 cat & \onems{% head \ms[verb]{ vform & fin\\ } \\
            subcat \begin{tabular}[t]{@{}l@{}}
-                  (\ibox{1} \liste{NP[\textit{str\/}]$_{\ibox{2}~2, sg}$}) $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$ \\[2mm]
+                  (\ibox{1} \liste{NP[\type{str}]$_{\ibox{2}~2, sg}$}) $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$ \\[2mm]
              \liste{ \usebox{\boxxcompvier} } \\
              \end{tabular}\\
          }\\
@@ -952,7 +912,7 @@ mit dem lexikalischen Zeichen in (\mex{0}) kombiniert wird, ergibt sich die Stru
 \ms{
 cat & \onems{ 
 %           head \ms[verb]{ vform & fin\\ } \\           
-           subcat \liste{NP[\textit{str\/}]$_{\ibox{1}~2, sg}$} \\
+           subcat \liste{NP[\type{str}]$_{\ibox{1}~2, sg}$} \\
          }\\
 cont & \ms[present]{
          soa & \ms[beginnen]{ soa & \ms[lachen]{ agens & \ibox{1} \\
@@ -1061,11 +1021,11 @@ synsem & \onems{ loc  \ms{ cat  & \ms{ head   & noun\\
                }\\
 lex-dtr & \onems[stem]{
            phon   \ibox{1} \\
-           synsem$|$loc \onems{ cat$|$head \textit{verb}\\
+           synsem$|$loc \onems{ cat$|$head \type{verb}\\
                                 cont    \ibox{3} \\
                         }\\
            }\\
-}\is{Lexikonregel!ge- -e Nominalisierung@{\em Ge- -e}-Nominalisierung}
+}\is{Lexikonregel!ge- -e Nominalisierung@\emph{Ge- -e}-Nominalisierung}
 \zs
 
 \noindent
@@ -1117,7 +1077,7 @@ zu dem bereits diskutierten für \stem{lach}.
 \eas
 \stem{renn}:\\
 \ms{
-cat & \ms{ head & \textit{verb} \\
+cat & \ms{ head & verb \\
            subcat & \liste{NP[\str]\ind{1}} \\
          }\\
 cont & \ms[rennen]{ agens & \ibox{1} \\
@@ -1199,38 +1159,23 @@ cont & \ms[ziellos]{ soa & \ibox{1} \\
 %
 \noindent
 Die Analyse von \emph{Herumgerenne} zeigt Abbildung~\vref{fig-herumgerenne}.
-\begin{figure}[htb]
-%\resizebox{\linewidth}{!}{%
-\centerline{\small%
-%\nodemargin5pt%
-\begin{tabular}[t]{@{}cc@{}}
-\multicolumn{2}{c}{
-\rnode{anfaehrst}{N[\cont \ibox{1}]}}\\
-\\[1ex]
-\hspace{7ex}CL & H\\
-\\[2ex]
-\rnode{an}{
-\ibox{2} Part[\begin{tabular}[t]{@{}l@{}}
+\begin{figure}
+\begin{forest}
+sm edges
+[{N[\cont \ibox{1}]}
+  [\ibox{2} Part\feattab{
               \textsc{mod} \ibox{3} [\cont \ibox{4} ]\\
-              \cont \ibox{5} \relation{ziellos}\iboxb{4}]\\
-              \end{tabular}}
-& \rnode{prfaehrst}{N[\subcat \sliste{ \ldots{} \ibox{2} }, \cont \ibox{1} \ldots{} \relation{wiederholtesrereignis}\iboxb{5}]}\\[3ex]
-& \hspace{27ex}\gee-Nominalisierungs-LR\\[4ex]
-\rnode{stringran}{herum} & \rnode{prfahr2}{V[\begin{tabular}[t]{@{}l@{}}
-                \subcat \sliste{ \ldots{} \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
-                \cont  \ibox{5}]\\
-               \end{tabular}}\\
-\\[2ex]
-&\hspace{8ex}PV LR\\[4ex]
-&\rnode{fahr2}{\ibox{3} V[\cont \ibox{4} \relation{rennen}\iboxb{6}]}\\[3ex] 
-&\rnode{stringrfahr2}{renn}\\
-\end{tabular}
-\ncline{anfaehrst}{an}\ncline{anfaehrst}{prfaehrst}%
-\ncline{prfaehrst}{prfahr2}%
-\ncline{prfahr2}{fahr2}%
-\ncline{fahr2}{stringrfahr2}%
-\ncline{an}{stringran}%
-}
+              \cont \ibox{5} \relation{ziellos}\iboxb{4} } [herum]]
+  [{N[\subcat \sliste{ \ldots, \ibox{2} }, \cont \ibox{1} \ldots{}
+    \relation{wiederholtes-ereignis}\iboxb{5}]}, l sep+=\baselineskip
+%& \hspace{27ex}\gee-Nominalisierungs-LR\\[4ex]
+    [V\feattab{
+       \subcat \nliste{ \ldots, \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
+       \cont  \ibox{5} }, l sep+=\baselineskip, edge label={node[midway,right]{\gee-Nominalisierungs-LR}}
+%&\hspace{8ex}PV LR\\[4ex]
+     [{\ibox{3} V[\cont \ibox{4} \relation{rennen}\iboxb{6}]}, edge label={node[midway,right]{PV-LR}}
+       [renn]]]]]
+\end{forest}
 \caption{Analyse von \emph{Herumgerenne}}\label{fig-herumgerenne}
 \end{figure}
 %
@@ -1282,7 +1227,7 @@ da er vom Basisverb (\stem{lach} vs.\ \stem{renn}) kommt.
 }
 \eas
 \label{le-renn-+particle}
-\mbox{{\em renn-\/} (mit Selektion einer Partikel):}\\
+\mbox{\emph{renn-} (mit Selektion einer Partikel):}\\
 %\resizebox{\linewidth}{!}{%
 %\scalebox{0.9}{%
 \onems{
@@ -1320,10 +1265,9 @@ Das Ergebnis zeigt (\mex{1}).
 }
 \eas
 \label{le-gerenne+particle}
-\mbox{{\em gerenne-\/} (mit Selektion einer Partikel):}\\
-\resizebox{\linewidth}{!}{%
+\mbox{\emph{gerenne-} (mit Selektion einer Partikel):}\\
 \onems{
-cat \onems{ head \textit{noun} \\
+cat \onems{ head \type{noun} \\
             spr \sliste{ Det }\\
            subcat \sliste{ \usebox{\boxxcompsechs}} \\
          }\\
@@ -1337,7 +1281,6 @@ cont \ms{ ind & \ibox{3} \ms{ per & 3\\
                                                         soa & \ibox{2}\\
                                                 }}\\   
                                       }\\       
-}
 }
 \zs
 
@@ -1396,7 +1339,7 @@ Klammerparadoxon vorliegt.
 The derivation with object predicatives and resultatives is completely analogous:
 The rule in (\ref{lr-gee-nom}) is applied to the lexical entry for the object predicative
 \emph{find}- (`find') producing \stem{gefinde}, which is then combined with 
-{\em schön\/} (`beautiful') to yield \emph{Schöngefinde}\iw{Schöngefinde} (`beautiful.finding').
+\emph{schön} (`beautiful') to yield \emph{Schöngefinde}\iw{Schöngefinde} (`beautiful.finding').
 In the case of resultative constructions, the listed entry for \emph{schlag}- (`to hit')
 is fed into the lexical rule (\ref{lr-result}) for resultative constructions.
 The output of this rule is the input to (\ref{lr-gee-nom}), yielding
@@ -1434,19 +1377,13 @@ daß die bisher formulierten Regeln die Bedeutung von \barden mit Partikelverben
 erfassen.
 
 Abbildung~\vref{fig-p-fahrbar-pv-lr} zeigt die Anwendung der Partikelverbregel.
-\begin{figure}[htbp]
-\centerline%
-{\small%
-%\nodemargin5pt%
-\begin{tabular}[t]{@{}c@{}}
-\rnode{prfahr}{V[\subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \sliste{ Part[\subj \ibox{2}, \subcat \ibox{3}] }]}\\[3ex]
-\hspace{8ex}PV LR\\[3ex]
-\rnode{fahr}{V[\subcat \ibox{1} \sliste{ NP[\str] }]}\\[3ex] 
-\rnode{stringrfahr}{fahr}\\
-\end{tabular}
-\ncline{prfahr}{fahr}%
-\ncline{fahr}{stringrfahr}%
-}%
+\begin{figure}
+\begin{forest}
+sm edges
+[{V[\subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \nliste{ Part[\subj \ibox{2}, \subcat \ibox{3}] }]}, l sep+=\baselineskip
+  [{V[\subcat \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}} 
+    [fahr]]]
+\end{forest}
 \caption{Anwendung der Partikelverbregel auf \stem{fahr}}\label{fig-p-fahrbar-pv-lr}
 \end{figure}
 Das Ergebnis der Anwendung ist ein Lexikoneintrag mit einem unterspezifizierten
@@ -1457,27 +1394,22 @@ Die Lexikonregel für die \bard verlangt als Eingabe ein Verb mit einem Objekt m
 Kasus. Da die Ausgabe der Partikelverbregel kompatibel mit dieser Anforderung ist, kann
 die Lexikonregel für die \bard auf das Partikelverb angewendet werden. Das wird in Abbildung~\vref{fig-p-fahrbar-val}
 gezeigt.
-\begin{figure}[htbp]
-\centerline%
-{\small%
-%\nodemargin5pt%
-\begin{tabular}[t]{@{}c@{}}
-\rnode{prfahrbar}{Adj[\subj \sliste{ \ibox{4} }, \subcat \ibox{5} $\oplus$ \sliste{ Part[\subj \ibox{2}, \subcat \ibox{3}] }]}\\[3ex]
-\hspace{19ex}\bard LR\\[4ex]
-\rnode{prfahr2}{V[\begin{tabular}[t]{@{}l@{}}
-                \subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$
-                \sliste{ Part[\subj \ibox{2}, \subcat \ibox{3}] }]\\
-                $\wedge$ \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} = \sliste{ NP[\str], \ibox{4} NP[\str] } $\oplus$ \ibox{5}
-               \end{tabular}}\\
-\\[2ex]
-\hspace{8ex}PV LR\\[4ex]
-\rnode{fahr2}{V[\subcat \ibox{1} \sliste{ NP[\str] }]}\\[3ex] 
-\rnode{stringrfahr2}{fahr}\\
-\end{tabular}
-\ncline{prfahrbar}{prfahr2}%
-\ncline{prfahr2}{fahr2}%
-\ncline{fahr2}{stringrfahr2}%
-}%
+\begin{figure}
+\begin{forest}
+sm edges
+[{Adj[\subj \sliste{ \ibox{4} }, \subcat \ibox{5} $\oplus$ \nliste{ Part[\subj \ibox{2}, \subcat \ibox{3}] }]}, l sep+=\baselineskip
+%\hspace{19ex}\bard LR\\[4ex]
+  [{V[\begin{tabular}[t]{@{}l@{}}
+      \subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \nliste{ Part[\subj \ibox{2},
+        \subcat \ibox{3}] }]\\
+                $\wedge$ \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} = \sliste{ NP[\str], \ibox{4}
+                  NP[\str] } $\oplus$ \ibox{5} 
+      \end{tabular}}, l sep+=\baselineskip, edge label={node[midway,right]{\bard-LR}}
+%
+%\hspace{8ex}PV LR\\[4ex]
+     [{V[\subcat \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}}
+        [fahr]]]]
+\end{forest}
 \caption{Anwendung der Lexikonregel für die \bard auf \stem{fahr} mit selegierter Partikel}\label{fig-p-fahrbar-val}
 \end{figure}
 Der \subcatw des Eingabezeichens muß eine Liste sein, die mit zwei Nominalphrasen mit strukturellem Kasus
@@ -1486,43 +1418,28 @@ Da der \subcatw des Eingabezeichens für die \bard in Abbildung~\ref{fig-p-fahrb
 Verknüpfung der \subcatl des Basisverbs mit dem \subjw und dem \subcatw der selegierten Partikel ist, können nur Partikeln, die eine
 NP[\str] in ihrer \subjl oder in ihrer \subcatl haben, mit dem Ergebnis der \bard kombiniert werden.
 
-Abbildung~\vref{fig-anfahrbar-val} zeigt die Kombination von {\em an}$_5$ und \emph{fahrbar}.\footnote{
+Abbildung~\vref{fig-anfahrbar-val} zeigt die Kombination von \emph{an}$_5$ und \emph{fahrbar}.\footnote{
   Zu den verschiedenen Formen der Partikel \emph{an} siehe Seite~\pageref{verschiedene-ans}.%
 }
-\begin{figure}[htbp]
-%\resizebox{\linewidth}{!}{%
-{\small%
-%\nodemargin5pt%
-\begin{tabular}[t]{@{}cc@{}}
-\multicolumn{2}{@{}c@{}}{
-\rnode{anfahrbar}{Adj[\subj \sliste{ \ibox{4} }, \subcat \ibox{5} \eliste]}}\\
-\\[1ex]
-\hspace{7ex}CL & H\\
-\\[2ex]
-\rnode{an}{
-\ibox{6} Part[\begin{tabular}[t]{@{}l@{}}
-              \subj \ibox{2} \sliste{ NP[\str] },\\
-              \subcat \ibox{3} \eliste ]\\
-               \end{tabular}}
-& \rnode{prfahrbar}{Adj[\subj \sliste{ \ibox{4} }, \subcat \ibox{5} $\oplus$ \sliste{ \ibox{6} }]}\\[3ex]
-& \hspace{19ex}\bard LR\\[4ex]
-\rnode{stringran}{an} & \rnode{prfahr2}{V[\begin{tabular}[t]{@{}l@{}}
+\begin{figure}
+\begin{forest}
+sm edges
+[{Adj[\subj \sliste{ \ibox{4} }, \subcat \ibox{5} \eliste]}
+   [\ibox{6} Part\feattab{
+                 \subj \ibox{2} \sliste{ NP[\str] },\\
+                 \subcat \ibox{3} \eliste } [an]]
+   [{Adj[\subj \sliste{ \ibox{4} }, \subcat \ibox{5} $\oplus$ \sliste{ \ibox{6} }]}, l sep+=\baselineskip
+%& \hspace{19ex}\bard LR\\[4ex]
+      [{V[\begin{tabular}[t]{@{}l@{}}
                 \subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$
-                \sliste{ Part[\subj \ibox{2}, \subcat \ibox{3}] }]\\
+                \nliste{ Part[\subj \ibox{2}, \subcat \ibox{3}] }]\\
                 $\wedge$ \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} = \sliste{ NP[\str], \ibox{4} NP[\str] } $\oplus$ \ibox{5}\\
-               \end{tabular}}\\
-\\[2ex]
-&\hspace{8ex}PV LR\\[4ex]
-&\rnode{fahr2}{V[\subcat \ibox{1} \sliste{ NP[\str] }]}\\[3ex] 
-&\rnode{stringrfahr2}{fahr}\\
-\end{tabular}
-\ncline{anfahrbar}{an}\ncline{anfahrbar}{prfahrbar}%
-\ncline{prfahrbar}{prfahr2}%
-\ncline{prfahr2}{fahr2}%
-\ncline{fahr2}{stringrfahr2}%
-\ncline{an}{stringran}%
-}%
-\caption{Kombination von {\em an}$_5$ und {\em fahrbar} (Valenz)}\label{fig-anfahrbar-val}
+               \end{tabular}}, l sep+=\baselineskip, edge label={node[midway,right]{\bard-LR}}
+%&\hspace{8ex}PV LR\\[4ex]
+         [{V[\subcat \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}}
+           [fahr]]]]] 
+\end{forest}
+\caption{Kombination von \emph{an}$_5$ und \emph{fahrbar} (Valenz)}\label{fig-anfahrbar-val}
 \end{figure}
 Die Partikel hat eine NP[\str] in ihrer \subjl \iboxb{2}. Der \subcatw der Partikel \iboxb{3} ist die leere Liste.
 Die Verknüpfung von \ibox{2} and \ibox{3} ist deshalb eine Liste, die genau eine NP[\str] enthält. 
@@ -1558,39 +1475,23 @@ nämlich das Subjekt von \stem{fahr}.
 
 Wenden wir uns nun der Bedeutungsrepräsentation in der Analyse von \emph{anfahrbar} zu,
 die in Abbildung~\vref{fig-anfahrbar-sem} gezeigt wird.
-\begin{figure}[htbp]
-%\resizebox{\linewidth}{!}{%
-\centerline{{\small%
-%\nodemargin5pt%
-\begin{tabular}[t]{@{}cc@{}}
-\multicolumn{2}{c}{
-\rnode{anfahrbar}{Adj[\cont \ibox{1}]}}\\
-\\[1ex]
-\hspace{7ex}CL & H\\
-\\[2ex]
-\rnode{an}{
-\ibox{2} Part[\begin{tabular}[t]{@{}l@{}}
-              \textsc{mod} \ibox{3} [\cont \ibox{4} ]\\
-              \cont \ibox{5} \relation{gerichtetrauf}(\,\ibox{4}, \ibox{6}\,)]\\
-              \end{tabular}}
-& \rnode{prfahrbar}{Adj[\subcat \sliste{ \ibox{2} }, \cont \ibox{1} \emph{modal-op}(\,\ibox{5}\,)]}\\[3ex]
-& \hspace{19ex}\bard LR\\[4ex]
-\rnode{stringran}{an} & \rnode{prfahr2}{V[\begin{tabular}[t]{@{}l@{}}
-                \subcat \sliste{ \ldots{} \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
-                \cont  \ibox{5}]\\
-               \end{tabular}}\\
-\\[2ex]
-&\hspace{8ex}PV LR\\[4ex]
-&\rnode{fahr2}{\ibox{3} V[\cont \ibox{4} \emph{fahren}\iboxb{7}]}\\[3ex] 
-&\rnode{stringrfahr2}{fahr}\\
-\end{tabular}
-\ncline{anfahrbar}{an}\ncline{anfahrbar}{prfahrbar}%
-\ncline{prfahrbar}{prfahr2}%
-\ncline{prfahr2}{fahr2}%
-\ncline{fahr2}{stringrfahr2}%
-\ncline{an}{stringran}%
-}}
-\caption{Kombination von {\em an}$_5$ und {\em fahrbar} (Semantik)}\label{fig-anfahrbar-sem}
+\begin{figure}
+\begin{forest}
+sm edges
+[{Adj[\cont \ibox{1}]}
+   [\ibox{2} Part\feattab{
+                 \textsc{mod} \ibox{3} [\cont \ibox{4} ]\\
+                 \cont \ibox{5} \relation{gerichtet-auf}(\,\ibox{4}, \ibox{6}\,) } [an]]
+   [{Adj[\subcat \sliste{ \ibox{2} }, \cont \ibox{1} \emph{modal-op}(\,\ibox{5}\,)]}, l sep+=\baselineskip
+%& \hspace{19ex}\bard LR\\[4ex]
+      [V\feattab{
+        \subcat \nliste{ \ldots, \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
+        \cont  \ibox{5} }, l sep+=\baselineskip, edge label={node[midway,right]{\bard-LR}}
+%&\hspace{8ex}PV LR\\[4ex]
+          [{\ibox{3} V[\cont \ibox{4} \emph{fahren}\iboxb{7}]}, edge label={node[midway,right]{PV-LR}}
+            [fahr]]]]]
+\end{forest}
+\caption{Kombination von \emph{an}$_5$ und \emph{fahrbar} (Semantik)}\label{fig-anfahrbar-sem}
 \end{figure}
 Die Partikelverblexikonregel führt eine Partikel in die \subcatl ein,
 die die Eingaberepräsentation über \textsc{mod} selegiert \iboxb{3}. In der Ausgabe der
@@ -1607,7 +1508,7 @@ Das Ergebnis ist \relation{gerichtet-auf}(\,\ibox{4}, \ibox{6}\,),
 wobei \iboxt{4} für \emph{fahren}\iboxb{7} steht, \dash, wir bekommen \relation{gerichtet-auf}(\relation{fahren}(\,\iboxt{7}, \ibox{6}\,).
 \iboxt{6} und \iboxt{7} sind an das Objekt bzw.\ Subjekt von \emph{anfahren} gelinkt.
 %
-Erst nach der Kombination von \emph{an} und {\em fahrbar} ist klar, wie der Wert von \iboxt{5}
+Erst nach der Kombination von \emph{an} und \emph{fahrbar} ist klar, wie der Wert von \iboxt{5}
 aussieht. Dieser Wert ist das Argument des Modaloperators \emph{modal-op}, der von der \bard beigesteuert wird.
 Da \emph{fahrbar} in Abbildung~\ref{fig-anfahrbar-sem} der Kopf von \emph{anfahrbar} ist, ist die Bedeutung von \emph{anfahrbar} identisch
 mit der von \emph{fahrbar} \iboxb{1}.
@@ -1760,12 +1661,12 @@ Der Bedeutungsbeitrag, der unter \emph{modal-op} eingebettet wird, ist nicht
 der von \emph{fahren}, sondern der von \stem{fahr} + selegierter Partikel. Das, was
 die Partikel beisteuert, wird dann unter \emph{modal-op} eingebettet.
 
-Wenn die Struktur in (\mex{0}) mit der Partikel {\em an$_5$\/} in (\ref{le-an5}) auf Seite~\pageref{le-an5}
+Wenn die Struktur in (\mex{0}) mit der Partikel \emph{an$_5$} in (\ref{le-an5}) auf Seite~\pageref{le-an5}
 kombiniert wird, bekommt man (\mex{1})\vpageref{le-anfahrbar}.
-%\begin{figure}[htb]
+%\begin{figure}
 \eas
 \label{le-anfahrbar}
-\mbox{{\em an+fahrbar\/} (mit {\em an$_5$\/}):}\\
+\mbox{\emph{an+fahrbar} (mit \emph{an$_5$}):}\\
 \ms{ cat  & \ms{ head   & \ms[adj]{ 
                            subj & \liste{ NP[\str]\ind{2''} }\\
                           }\\
@@ -1895,13 +1796,12 @@ sich in bezug auf weitere Eigenschaften in Teilmengen auf"|teilen läßt. So kan
 sprechen, auch wenn syntaktische Köpfe sich von morphologischen Köpfen unterscheiden. Daß das so ist,
 kann man sich auch anhand der Grafik~\vref{abb-syn-morph-kopf} verdeutlichen, die dem entspricht, was wir auch über
 Vererbungshierarchien gelernt haben.
-\begin{figure}[htb]
-\centering
-\begin{tabular}{ccc}
-  & \rnode{o}{Kopf} &   \\[5ex]
-\rnode{h1}{syntaktischer Kopf} &   & \rnode{h2}{morphologischer Kopf}\\
-\end{tabular}
-\ncline{o}{h1}\ncline{o}{h2}%
+\begin{figure}
+\begin{forest}
+[Kopf
+  [syntaktischer Kopf]
+  [morphologischer Kopf]]
+\end{forest}
 \caption{\label{abb-syn-morph-kopf}Syntaktische und morphologische Köpfe}
 \end{figure}
 Es gibt gewisse Eigenschaften, die für alle Köpfe zutreffen, und außerdem auch noch Eigenschaften,
@@ -1934,7 +1834,7 @@ synsem$|$loc  \ms{ cat  & \ms{ head   & \ms[adj]{
                                     soa & \ibox{4}\\
                                    }\\
                          }\\
-}}\is{Morphem!-{\em bar}-Derivation}%
+}}\is{Morphem!-\emph{bar}-Derivation}%
 \zs
 Das \bars ist in der Struktur für den Stamm \emph{lesbar} der Kopf. Es verlangt als Argument ein transitives
 Verb, dessen Objekt \iboxb{2} es zu seinem Subjekt macht. Das logische Subjekt des transitiven Verbs wird unterdrückt.
@@ -2004,13 +1904,13 @@ verwendet werden können.
 %%                }\\
 %% lex-dtr & \onems[trans-verb]{
 %%            phon   \ibox{1} \\
-%%            synsem$|$loc \ms{ cat  & \ms{ head   & \textit{verb}\\
+%%            synsem$|$loc \ms{ cat  & \ms{ head   & verb\\
 %%                                          subcat & \sliste{ NP[\str], \ibox{2} NP[\str] } $\oplus$ \ibox{3}\\
 %%                                        } \\
 %%                              cont & \ibox{4} \\
 %%                           }\\
 %%            }\\
-%% }\is{Lexikonregel!bar-Derivation@{\em bar-}-Derivation}%
+%% }\is{Lexikonregel!bar-Derivation@\emph{bar-}-Derivation}%
 %% }
 %% \zs
 
