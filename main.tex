@@ -1,5 +1,6 @@
 %% -*- coding:utf-8 -*-
 \documentclass[output=book
+               ,smallfont
 %                ,series=tbls,
 %		,modfonts
 %		,nonflat
@@ -24,8 +25,8 @@
 \provideboolean{draft}
 \setboolean{draft}{false}
 
-\newtoggle{draft}\togglefalse{draft}
-%\newtoggle{draft}\toggletrue{draft}
+%\newtoggle{draft}\togglefalse{draft}
+\newtoggle{draft}\toggletrue{draft}
 %\newtoggle{finished}\togglefalse{finished}
 
 
@@ -54,6 +55,8 @@
 \vrefwarning
 
 \usepackage{pstricks,pst-node}
+\psset{linewidth=.3}
+\psset{nodesep=5pt}
 
 \usepackage{tikz-qtree}
 % has strange side effects
@@ -61,8 +64,8 @@
 \tikzset{every roof node/.append style={inner sep=0.1pt,text height=2ex,text depth=0.3ex}}
 
 
-\newcommand{\NOTE}[1]{}
-%\newcommand{\NOTE}[1]{\marginpar{#1}}
+%\newcommand{\NOTE}[1]{}
+\newcommand{\NOTE}[1]{\marginpar{#1}}
 
 \memoizeset{
   memo filename prefix={hpsg.memo.dir/},
