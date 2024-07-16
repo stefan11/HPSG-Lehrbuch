@@ -17,7 +17,7 @@ im Formalismus der HPSG eingegangen. Es wird gezeigt, wie Bäume mittels Merkmal
 repräsentiert werden können. Typhierarchien werden zur Klassifikation verschiedener
 Grammatikregeln benutzt, und es wird gezeigt, wie Generalisierungen in bezug
 auf Grammatikregeln erfaßt werden können. Die Lexikoneinträge, die bisher verwendet wurden,
-werden stärker strukturiert, so daß es möglich wird, die Projektion
+werden stärker strukturiert, so dass es möglich wird, die Projektion
 %% \NOTE{Sollte das noch irgendwo rein?
 %%   Unter Projektion\is{Projektion} versteht man in der Linguistik das Übertragen von Merkmalen von einer Kategorie
 %%   auf eine diese unmittelbar dominierende Kategorie. Bei einer Übertragung von Information in die
@@ -111,14 +111,14 @@ Das zeigt das folgende Schema\is{Schema!Kopf"=Argument"=}:
       }
 \end{schema}
 Schema~\ref{schema-bin-prel} gibt an,
-welche Eigenschaften ein linguistisches Objekt vom Typ \type{head"=argument"=phrase} haben muß.
+welche Eigenschaften ein linguistisches Objekt vom Typ \type{head"=argument"=phrase} haben muss.
 Der Pfeil\is{\impl} steht in Schema~\ref{schema-bin-prel} für eine Implikation\is{Implikation},
 nicht für den Ersetzungspfeil, wie er in Phrasenstrukturregeln vorkommt. Man kann das Schema also
-wie folgt lesen: Wenn ein Objekt vom Typ \type{head"=argument"=phrase} ist, muß es die Eigenschaften
+wie folgt lesen: Wenn ein Objekt vom Typ \type{head"=argument"=phrase} ist, muss es die Eigenschaften
 haben, die auf der rechten Seite der Implikation angegeben sind. Konkret heißt das,
-daß solche Objekte immer eine Valenzliste besitzen, die \iboxt{1} entspricht, daß sie eine Kopf"|tochter haben,
+dass solche Objekte immer eine Valenzliste besitzen, die \iboxt{1} entspricht, dass sie eine Kopf"|tochter haben,
 die eine Valenzliste hat, die sich in die zwei Teillisten \ibox{1} und \sliste{ \ibox{2} }
-unterteilen läßt, und daß sie eine Nicht"=Kopf"|tochter haben, die mit dem letzten Element
+unterteilen läßt, und dass sie eine Nicht"=Kopf"|tochter haben, die mit dem letzten Element
 in der \subcatl der Kopf"|tochter \iboxb{2} kompatibel ist. 
 
 Wie ebenfalls im vorigen Kapitel angemerkt, sind Artikel"=Nomen"=Kombinationen
@@ -151,7 +151,7 @@ sm edges
 \end{forest}}
 \caption{\label{fig-bin-Aicke-die-Nuss-dem-Eichhörnchen-gibt}Binär verzweigende Kopf-Argument-Strukturen}
 \end{figure}
-Man sieht recht deutlich, daß die Struktur in (\mex{1}) eigentlich dem auf die Seite gelegten
+Man sieht recht deutlich, dass die Struktur in (\mex{1}) eigentlich dem auf die Seite gelegten
 Baum entspricht.\footnote{
   \textsc{non-head-dtrs} habe ich mit \textsc{nh-dtrs} abgekürzt.%
 }
@@ -257,9 +257,9 @@ sm edges
 \section{Projektion von Kopfeigenschaften}
 \label{sec-kopfeigenschaften}
 
-Auf Seite~\pageref{bsp-projektion-v-merkmale} wurde gezeigt, daß
+Auf Seite~\pageref{bsp-projektion-v-merkmale} wurde gezeigt, dass
 die Verbform zu den Merkmalen zählt, die für die Distribution von Verbalprojektionen
-wichtig ist. Die Wortart und Information über Finitheit muß also an der Maximalprojektion
+wichtig ist. Die Wortart und Information über Finitheit muss also an der Maximalprojektion
 von Verben wie \emph{gibt} repräsentiert sein. Das verdeutlicht Abbildung~\vref{fig-projektion-head-feat}.
 \begin{figure}
 \settowidth{\offset}{V[\type{fi}}
@@ -311,13 +311,13 @@ Erklärung der Distributionseigenschaften\label{page-kopf-merkmal} der Gesamtpro
            subcat & list~of~signs\\
          }
 \z
-Nun ist es aber so, daß Köpfe je nach ihrer Wortart ganz verschiedene Eigenschaften
+Nun ist es aber so, dass Köpfe je nach ihrer Wortart ganz verschiedene Eigenschaften
 besitzen und somit auch unterschiedliche Merkmale projiziert werden müssen.
 Das Merkmal \textsc{vform} ist nur für Verben sinnvoll. Pränominale Adjektive und 
 Nomina projizieren dagegen Kasus. Verben selegieren zwar Argumente, die einen
 bestimmten Kasus haben müssen, sie haben aber selbst keine Kasusmarkierung.
 Man könnte alle Merkmale, die projiziert werden können, in einer Struktur wie
-(\mex{1}) zusammenfassen und dann sagen, daß \textsc{case} bei Verben und \vform
+(\mex{1}) zusammenfassen und dann sagen, dass \textsc{case} bei Verben und \vform
 bei Nomina keine Werte (bzw.\ einen Wert wie \emph{none}) haben.
 \ea
       \ms{
@@ -326,7 +326,7 @@ bei Nomina keine Werte (bzw.\ einen Wert wie \emph{none}) haben.
                   case  & case\\
          }
 \z
-Besser ist es jedoch, davon auszugehen, daß die Merkmalstrukturen für
+Besser ist es jedoch, davon auszugehen, dass die Merkmalstrukturen für
 Verben und Nomina Objekte verschiedenen Typs sind: Merkmalstrukturen,
 die Verben modellieren, sind vom Typ \type{verb}\istype{verb} und haben deshalb
 ein Merkmal \textsc{vform}. Merkmalstrukturen, die Nomina modellieren,
@@ -359,7 +359,7 @@ Ein Lexikoneintrag enthält also phonologische Information, Informationen über 
 und Valenzinformation (eine Liste von Merkmalbeschreibungen).
 
 Bis jetzt gibt es in der hier dargestellten Theorie noch nichts, was sicherstellen
-würde, daß die Information, die in Lexikoneinträgen unter \textsc{head} repräsentiert
+würde, dass die Information, die in Lexikoneinträgen unter \textsc{head} repräsentiert
 ist, auch zum Mutterknoten kommt. Dies wird durch das Kopfmerkmalsprinzip (\emph{Head Feature Principle})
 sichergestellt.
 \begin{prinzip-break}[Kopf"|merkmalprinzip~(\textit{Head~Feature~Principle})]\is{Prinzip!Kopfmerkmals-}
@@ -370,7 +370,7 @@ mit den Kopfmerkmalen der Kopf"|tochter.
 Bisher wurde erst ein Dominanzschema behandelt, aber in den kommenden Kapiteln werden
 noch weitere Schemata dazukommen, \zb Schemata für Kopf"=Adjunkt"=Strukturen und
 für die Abbindung von Fernabhängigkeiten. Das Kopfmerkmalsprinzip ist ein allgemeines Prinzip,
-das für alle durch diese Schemata lizenzierten Strukturen erfüllt sein muß. Es muß --
+das für alle durch diese Schemata lizenzierten Strukturen erfüllt sein muss. Es muss --
 wie oben verbal ausgedrückt -- für alle Strukturen mit Kopf gelten. Formal kann man
 das erfassen, indem man Strukturen einteilt in solche mit Kopf und solche ohne
 und denen, die einen Kopf haben, den Typ \type{headed"=phrase} zuweist.
@@ -384,7 +384,7 @@ noch weitere, spezifischere Eigenschaften, die andere Untertypen von \type{perso
 nicht teilen.
 
 Man kann also formal eine Beschränkung für einen Obertyp festlegen und erreicht damit
-automatisch, daß alle Untertypen genauso beschränkt sind. Das Kopfmerkmalsprinzip
+automatisch, dass alle Untertypen genauso beschränkt sind. Das Kopfmerkmalsprinzip
 läßt sich wie folgt formalisieren:
 \ea
 \type{headed"=phrase}\istype{headed"=phrase} \impl
@@ -395,7 +395,7 @@ head-dtr$|$head \ibox{1}\\
 \z
 Der Pfeil\is{\impl} entspricht der Implikation\is{Implikation} aus der Logik.
 (\mex{0}) kann man wie folgt lesen:
-Wenn eine Struktur vom Typ \type{headed"=phrase} ist, dann muß gelten, daß
+Wenn eine Struktur vom Typ \type{headed"=phrase} ist, dann muss gelten, dass
 der Wert von \textsc{head} mit dem Wert von \textsc{head-dtr$|$head} identisch ist.
 Einen Ausschnitt aus der Typhierarchie unter \type{sign} zeigt Abbildung~\vref{fig-type-sign}.
 \begin{figure}
@@ -494,7 +494,7 @@ semantischen Beitrag von Phrasen kompositionell bestimmen kann.
 \begin{enumerate}
 \item Wie kann man Konstituentenstrukturen mit Hilfe von Merkmalstrukturen modellieren?
 \item Wodurch zeichnen sich Köpfe gegenüber Nichtköpfen aus?
-\item Wie wird erreicht, daß in bezug auf den Kopf relevante Information auch auf phrasalem
+\item Wie wird erreicht, dass in bezug auf den Kopf relevante Information auch auf phrasalem
       Niveau verfügbar ist?
 \end{enumerate}
 
@@ -505,19 +505,19 @@ semantischen Beitrag von Phrasen kompositionell bestimmen kann.
 \begin{enumerate}
 \item Zeichnen Sie einen Syntaxbaum für (\mex{1}):
 \ea
-daß der Mann das spannende Buch liest
+dass der Mann das spannende Buch liest
 \z
 Markieren Sie die Kanten im Baum mit Ad für Adjunkt, Ar für Argument und
 H für Kopf.
 \item Geben Sie die vollständige Merkmalbeschreibung für die Wortfolge in (\mex{1}), wie sie in
-  \emph{daß das Kind schläft} vorkommt,  an:
+  \emph{dass das Kind schläft} vorkommt,  an:
       \ea
       das Kind schläft
       \z
 \item\label{uebung-grammix-kapitel4}
       Dem Buch liegt eine CD mit Implementationen von Grammatiken bei, die
       den jeweiligen Kapiteln entsprechen. Die CD enthält ein eigenes Betriebssystem,
-      so daß Sie unabhängig vom auf dem Computer installierten Betriebssystem
+      so dass Sie unabhängig vom auf dem Computer installierten Betriebssystem
       mit der CD arbeiten können. Voraussetzung ist lediglich ein Intel"=kompatibler Prozessor.
 
       Konfigurieren Sie Ihren Computer so, dass er von einer eingelegten CD bootet und starten
