@@ -261,7 +261,7 @@ Lexikonregel für die zweite Person Singular Präsens (vorläufig):\\
 phon   \textit{f\textrm{(\,\ibox{1}, \phonliste{ st })}}\\
 synsem$|$loc \onems{ cat   \ibox{2} \onems{ head$|$vform  \type{fin} \\
 %                                                        subj  & \eliste \\
-                                                  subcat  \type{list\_of\_not\_np\_str} $\oplus$ \liste{ NP[\str]$_{2,sg}$ } $\oplus$ \etag\\
+                                                  comps  \type{list\_of\_not\_np\_str} $\oplus$ \liste{ NP[\str]$_{2,sg}$ } $\oplus$ \etag\\
                                                 } \\
                              cont  \ms[present]{
                                       soa & \ibox{4}\\
@@ -289,11 +289,11 @@ Verknüpfung des Eingabestamms mit einem -\emph{e}- und dem \suffix{st} (\emph{r
 
 Eine finite Form kongruiert mit dem Subjekt, wenn es eins gibt. Im Kapitel~\ref{chap-kongruenz}
 wurde eine Analyse der Kongruenz vorgestellt, die auf die Index"=Merkmale des Subjekts Bezug nimmt.
-In der Lexikonregel in (\mex{0}) wird verlangt, dass das erste Element in der \subcatl des Verbs mit
+In der Lexikonregel in (\mex{0}) wird verlangt, dass das erste Element in der \compsl des Verbs mit
 strukturellem Kasus einen Index mit der Person \emph{2} und dem Numerus \emph{sg} haben muss.
 Somit ist die Kongruenz zwischen Subjekt und einem Verb wie \emph{lachst} gewährleistet. Die Regel
 ist auch so formuliert, dass sie nicht auf das subjektlose Verb \emph{grauen} angewendet werden kann,
-denn \emph{grauen} hat kein Argument mit strukturellem Kasus. Die Unterteilung der \subcatl in einen
+denn \emph{grauen} hat kein Argument mit strukturellem Kasus. Die Unterteilung der \compsl in einen
 Anfang, der Elemente enthalten kann, die keine Nominalphrasen mit strukturellem Kasus sind, ist
 notwendig, um die im Kapitel~\ref{sec-remote-passive-hpsg} diskutierten Beispiele des Fernpassivs\is{Passiv!Fern-} mit
 Objektkontrollverben\is{Verb!Objektkontroll-} erfassen zu können.%
@@ -343,7 +343,7 @@ eingebettet.\footnote{
 %% synsem & \onems{ loc$|$cat   \ms{ head & \ms[verb]{ vform & fin \\
 %% %                                                     subj  & \eliste \\
 %%                                                        } \\ 
-%%                                        subcat & \textrm{\ibox{3} (\liste{ NP[\str]$_{\ibox{4},\ibox{5}}$ } $\oplus$ \etag)}\\
+%%                                        comps & \textrm{\ibox{3} (\liste{ NP[\str]$_{\ibox{4},\ibox{5}}$ } $\oplus$ \etag)}\\
 %%                                      } \\
 %% %%                              cont & \ms[present]{
 %% %%                                       soa & \ibox{4}\\
@@ -361,7 +361,7 @@ eingebettet.\footnote{
 %%                 num  & \ibox{5}\\
 %%                 }\\
 %%            synsem$|$loc$|$cat  \ms{ head  & \type{verb}\\
-%%                                         subcat & \ibox{3}\\
+%%                                         comps & \ibox{3}\\
 %%                                       }\\
 %% %                             cont & \ibox{4} \\
 %%            }\\
@@ -397,7 +397,7 @@ eingebettet.\footnote{
 %% synsem & \onems{ loc \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin \\
 %% %                                                     subj  & \eliste \\
 %%                                                        } \\ 
-%%                                       subcat & \ibox{3} \\
+%%                                       comps & \ibox{3} \\
 %%                                      } \\
 %%                           cont & \ms[present]{
 %%                                       soa & \ibox{4}\\
@@ -416,7 +416,7 @@ eingebettet.\footnote{
 %%                 num  & \ibox{5}\\
 %%                 }\\
 %%            synsem$|$loc \ms{ cat  & \ms{ head  & \type{verb}\\
-%%                                         subcat & \ibox{3}\\
+%%                                         comps & \ibox{3}\\
 %%                                       }\\
 %%                              cont & \ibox{4} \\
 %%                            }\\
@@ -515,7 +515,7 @@ phon   & \ibox{1} $\oplus$ \phonliste{ bar }\\
 synsem & \onems{ loc  \ms{ cat  & \ms{ head   & \ms[adj]{ 
                                                  subj & \sliste{ \ibox{2} }\\
                                                  }\\
-                                        subcat & \ibox{3}\\
+                                        comps & \ibox{3}\\
                                       } \\
                             cont & \ms[modal-op]{
                                     soa & \ibox{4}\\
@@ -527,7 +527,7 @@ lex-dtr & \onems[stem]{
            synsem$|$loc \ms{ cat  & \ms{ head   & \ms[verb]{
                                                   da & \sliste{ \ibox{5} }\\
                                                   }\\
-                                         subcat & \sliste{ \ibox{5} NP[\str], \ibox{2} NP[\str] } $\oplus$ \ibox{3}\\
+                                         comps & \sliste{ \ibox{5} NP[\str], \ibox{2} NP[\str] } $\oplus$ \ibox{3}\\
                                        } \\
                              cont & \ibox{4} \\
                           }\\
@@ -550,7 +550,7 @@ angewendet. Das Ergebnis der Regelanwendung zeigt (\mex{2}):
 cat & \ms{ head   & \ms[verb]{
                     da & \sliste{ \ibox{1} }\\
                     }\\
-           subcat & \liste{ \ibox{1} NP[\str]\ind{2}, NP[\str]\ind{3}} \\
+           comps & \liste{ \ibox{1} NP[\str]\ind{2}, NP[\str]\ind{3}} \\
          }\\
 cont & \ms[lösen]{ agens & \ibox{2} \\
                    thema & \ibox{3} \\
@@ -565,7 +565,7 @@ cont & \ms[lösen]{ agens & \ibox{2} \\
 \ms{
 cat & \ms{ head & \ms[adj]{ subj & \sliste{ NP[\type{str}]\ind{3}} \\
                            } \\
-           subcat & \eliste \\
+           comps & \eliste \\
          }\\
 cont & \ms[modal-op]{
        soa & \ms[lösen]{ agens & \etag \\
@@ -790,7 +790,7 @@ ein Objekt mit dem \synsemw in (\mex{1}).
 cat & \ms{ head & \ms[verb]{ vform & fin\\
 %                             subj  & \eliste \\
                            } \\
-           subcat & \liste{NP[\type{str}]$_{\ibox{1}~2, sg}$} \\
+           comps & \liste{NP[\type{str}]$_{\ibox{1}~2, sg}$} \\
          }\\
 cont & \ms[present]{
         soa & \ms[lachen]{ agens & \ibox{1} \\
@@ -812,10 +812,10 @@ sm edges
    [\ibox{2} Part\feattab{
               \textsc{mod} \ibox{3} [\cont \ibox{4} ]\\
               \cont \ibox{5} \relation{beginnen}\iboxb{4} } [los]]
-   [{V[\subcat \sliste{ \ldots, \ibox{2} }, \cont \ibox{1} \emph{present}\iboxb{5}]}, l sep+=\baselineskip
+   [{V[\comps \sliste{ \ldots, \ibox{2} }, \cont \ibox{1} \emph{present}\iboxb{5}]}, l sep+=\baselineskip
 %Flexions-LR
       [V\feattab{
-          \subcat \nliste{ \ldots, \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
+          \comps \nliste{ \ldots, \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
           \cont  \ibox{5} }, l sep+=\baselineskip,edge label={node[midway,right]{Flexions-LR}}
 % PV LR
          [{\ibox{3} V[\cont \ibox{4} \emph{lachen}\iboxb{6}]},edge label={node[midway,right]{PV-LR}}
@@ -868,14 +868,14 @@ in (\ref{le-lach-+particle}) auf Seite~\pageref{le-lach-+particle} ist in (\mex{
 \savebox{\boxxcompvier}{
 \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \onems{
                                                                                             c \ms{ head & verb\\
-                                                                                                       subcat & \ibox{1}\\
+                                                                                                       comps & \ibox{1}\\
                                                                                                      }\\
                                                                                             cont \ms[lachen]{ agens & \ibox{2} \\
                                                                                                             } \\
                                                                                             }\\
                                                                                    subj \ibox{3} \\
                                                                                  } \\
-                                                         subcat \ibox{4} \\
+                                                         comps \ibox{4} \\
                                                        } \\
                                                 cont \ibox{5} \\
                                               } \\
@@ -887,7 +887,7 @@ in (\ref{le-lach-+particle}) auf Seite~\pageref{le-lach-+particle} ist in (\mex{
 %\resizebox{\linewidth}{!}{%
 \ms{
 cat & \onems{% head \ms[verb]{ vform & fin\\ } \\
-           subcat \begin{tabular}[t]{@{}l@{}}
+           comps \begin{tabular}[t]{@{}l@{}}
                   (\ibox{1} \liste{NP[\type{str}]$_{\ibox{2}~2, sg}$}) $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$ \\[2mm]
              \liste{ \usebox{\boxxcompvier} } \\
              \end{tabular}\\
@@ -912,7 +912,7 @@ mit dem lexikalischen Zeichen in (\mex{0}) kombiniert wird, ergibt sich die Stru
 \ms{
 cat & \onems{ 
 %           head \ms[verb]{ vform & fin\\ } \\           
-           subcat \liste{NP[\type{str}]$_{\ibox{1}~2, sg}$} \\
+           comps \liste{NP[\type{str}]$_{\ibox{1}~2, sg}$} \\
          }\\
 cont & \ms[present]{
          soa & \ms[beginnen]{ soa & \ms[lachen]{ agens & \ibox{1} \\
@@ -1005,7 +1005,7 @@ Lexikonregel für \geenen:\\
 phon & f\textrm{(\,\phonliste{ ge }, \ibox{1}, \phonliste{ e }\,)}\\
 synsem & \onems{ loc  \ms{ cat  & \ms{ head   & noun\\
                                        spr & \sliste{ Det }\\
-%                                       subcat & \eliste\\
+%                                       comps & \eliste\\
                                       } \\
                             cont & \ms{ ind & \ibox{2} \ms{ per & 3\\
                                                             num & sg\\
@@ -1078,7 +1078,7 @@ zu dem bereits diskutierten für \stem{lach}.
 \stem{renn}:\\
 \ms{
 cat & \ms{ head & verb \\
-           subcat & \liste{NP[\str]\ind{1}} \\
+           comps & \liste{NP[\str]\ind{1}} \\
          }\\
 cont & \ms[rennen]{ agens & \ibox{1} \\
                   } \\
@@ -1095,7 +1095,7 @@ ist (\mex{1}).
 %\resizebox{\linewidth}{!}{%
 \ms{ cat  & \ms{ head   & noun\\
                               spr & \sliste{ Det }\\
-                              subcat & \eliste\\
+                              comps & \eliste\\
                             } \\
                   cont & \ms{ ind & \ibox{2} \ms{ per & 3\\
                                                   num & sg\\
@@ -1146,10 +1146,10 @@ angegeben wurde.
 \label{le-herum-part}
 \mbox{\emph{herum}:}\\
 \ms{
-cat & \ms{ head & \ms[particle]{ mod  & \textrm{V[\textsc{subcat} \sliste{ NP[\str] }, \textsc{cont} \ibox{1}]} \\
+cat & \ms{ head & \ms[particle]{ mod  & \textrm{V[\textsc{comps} \sliste{ NP[\str] }, \textsc{cont} \ibox{1}]} \\
                                 subj & \eliste \\
                               } \\
-           subcat & \eliste \\
+           comps & \eliste \\
          }\\
 cont & \ms[ziellos]{ soa & \ibox{1} \\
                    } \\
@@ -1166,11 +1166,11 @@ sm edges
   [\ibox{2} Part\feattab{
               \textsc{mod} \ibox{3} [\cont \ibox{4} ]\\
               \cont \ibox{5} \relation{ziellos}\iboxb{4} } [herum]]
-  [{N[\subcat \sliste{ \ldots, \ibox{2} }, \cont \ibox{1} \ldots{}
+  [{N[\comps \sliste{ \ldots, \ibox{2} }, \cont \ibox{1} \ldots{}
     \relation{wiederholtes-ereignis}\iboxb{5}]}, l sep+=\baselineskip
 %& \hspace{27ex}\gee-Nominalisierungs-LR\\[4ex]
     [V\feattab{
-       \subcat \nliste{ \ldots, \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
+       \comps \nliste{ \ldots, \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
        \cont  \ibox{5} }, l sep+=\baselineskip, edge label={node[midway,right]{\gee-Nominalisierungs-LR}}
 %&\hspace{8ex}PV LR\\[4ex]
      [{\ibox{3} V[\cont \ibox{4} \relation{rennen}\iboxb{6}]}, edge label={node[midway,right]{PV-LR}}
@@ -1212,14 +1212,14 @@ da er vom Basisverb (\stem{lach} vs.\ \stem{renn}) kommt.
 \savebox{\boxxcompfuenf}{
 \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \onems{
                                                                                             cat \ms{ head & verb\\
-                                                                                                   subcat & \ibox{1} \\
+                                                                                                   comps & \ibox{1} \\
                                                                                                  }\\
                                                                                             cont \ms[rennen]{ agens & \ibox{2} \\
                                                                                                             } \\
                                                                                             }\\
                                                                                    subj \ibox{3} \\
                                                                                  } \\
-                                                         subcat \ibox{4} \\
+                                                         comps \ibox{4} \\
                                                        } \\
                                                 cont \ibox{5} \\
                                               } \\
@@ -1232,7 +1232,7 @@ da er vom Basisverb (\stem{lach} vs.\ \stem{renn}) kommt.
 %\scalebox{0.9}{%
 \onems{
 cat \ms{ %head & verb \\
-       subcat & \begin{tabular}[t]{@{}l@{}}
+       comps & \begin{tabular}[t]{@{}l@{}}
                 \textrm{(}\,\ibox{1} \liste{NP[\str]\ind{2}} \textrm{)} $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$ \\[3mm]
                 \liste{\usebox{\boxxcompfuenf} } \\
                 \end{tabular}
@@ -1250,14 +1250,14 @@ Das Ergebnis zeigt (\mex{1}).
 \savebox{\boxxcompsechs}{
 \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \onems{
                                                                                             c \ms{ head & verb \\
-                                                                                                   subcat & \liste{NP[\str]\ind{1}} \\[1mm]
+                                                                                                   comps & \liste{NP[\str]\ind{1}} \\[1mm]
                                                                                                  }\\
                                                                                             cont \ms[rennen]{ agens & \ibox{1} \\
                                                                                                             } \\
                                                                                             }\\
 %                                                                                   subj \ibox{2} \\
                                                                                  } \\
-%                                                         subcat \ibox{3} \\
+%                                                         comps \ibox{3} \\
                                                        } \\
                                                 cont \ibox{2} \\
                                               } \\
@@ -1269,7 +1269,7 @@ Das Ergebnis zeigt (\mex{1}).
 \onems{
 cat \onems{ head \type{noun} \\
             spr \sliste{ Det }\\
-           subcat \sliste{ \usebox{\boxxcompsechs}} \\
+           comps \sliste{ \usebox{\boxxcompsechs}} \\
          }\\
 cont \ms{ ind & \ibox{3} \ms{ per & 3\\
                                                             num & sg\\
@@ -1307,7 +1307,7 @@ mit (\ref{le-gerenne+particle}) zeigt (\mex{1}).
 \ms{
 cat & \ms{ head & noun \\
            spr & \sliste{ Det } \\
-           subcat & \eliste\\
+           comps & \eliste\\
          }\\
 cont & \ms{ ind & \ibox{2} \ms{ per & 3\\
                                                             num & sg\\
@@ -1380,14 +1380,14 @@ Abbildung~\vref{fig-p-fahrbar-pv-lr} zeigt die Anwendung der Partikelverbregel.
 \begin{figure}
 \begin{forest}
 sm edges
-[{V[\subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \nliste{ Part[\subj \ibox{2}, \subcat \ibox{3}] }]}, l sep+=\baselineskip
-  [{V[\subcat \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}} 
+[{V[\comps \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \nliste{ Part[\subj \ibox{2}, \comps \ibox{3}] }]}, l sep+=\baselineskip
+  [{V[\comps \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}} 
     [fahr]]]
 \end{forest}
 \caption{Anwendung der Partikelverbregel auf \stem{fahr}}\label{fig-p-fahrbar-pv-lr}
 \end{figure}
 Das Ergebnis der Anwendung ist ein Lexikoneintrag mit einem unterspezifizierten
-\subcatw. Der letztendliche Wert wird durch die Partikel bestimmt, sobald die Partikel
+\compsw. Der letztendliche Wert wird durch die Partikel bestimmt, sobald die Partikel
 mit dem Kopf"=Verb kombiniert wird.
 
 Die Lexikonregel für die \bard verlangt als Eingabe ein Verb mit einem Objekt mit strukturellem
@@ -1397,26 +1397,26 @@ gezeigt.
 \begin{figure}
 \begin{forest}
 sm edges
-[{Adj[\subj \sliste{ \ibox{4} }, \subcat \ibox{5} $\oplus$ \nliste{ Part[\subj \ibox{2}, \subcat \ibox{3}] }]}, l sep+=\baselineskip
+[{Adj[\subj \sliste{ \ibox{4} }, \comps \ibox{5} $\oplus$ \nliste{ Part[\subj \ibox{2}, \comps \ibox{3}] }]}, l sep+=\baselineskip
 %\hspace{19ex}\bard LR\\[4ex]
   [{V[\begin{tabular}[t]{@{}l@{}}
-      \subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \nliste{ Part[\subj \ibox{2},
-        \subcat \ibox{3}] }]\\
+      \comps \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \nliste{ Part[\subj \ibox{2},
+        \comps \ibox{3}] }]\\
                 $\wedge$ \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} = \sliste{ NP[\str], \ibox{4}
                   NP[\str] } $\oplus$ \ibox{5} 
       \end{tabular}}, l sep+=\baselineskip, edge label={node[midway,right]{\bard-LR}}
 %
 %\hspace{8ex}PV LR\\[4ex]
-     [{V[\subcat \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}}
+     [{V[\comps \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}}
         [fahr]]]]
 \end{forest}
 \caption{Anwendung der Lexikonregel für die \bard auf \stem{fahr} mit selegierter Partikel}\label{fig-p-fahrbar-val}
 \end{figure}
-Der \subcatw des Eingabezeichens muss eine Liste sein, die mit zwei Nominalphrasen mit strukturellem Kasus
+Der \compsw des Eingabezeichens muss eine Liste sein, die mit zwei Nominalphrasen mit strukturellem Kasus
 beginnt (\sliste{ NP[\str], \ibox{4} NP[\str] } $\oplus$ \ibox{5}\,).
-Da der \subcatw des Eingabezeichens für die \bard in Abbildung~\ref{fig-p-fahrbar-val} die
-Verknüpfung der \subcatl des Basisverbs mit dem \subjw und dem \subcatw der selegierten Partikel ist, können nur Partikeln, die eine
-NP[\str] in ihrer \subjl oder in ihrer \subcatl haben, mit dem Ergebnis der \bard kombiniert werden.
+Da der \compsw des Eingabezeichens für die \bard in Abbildung~\ref{fig-p-fahrbar-val} die
+Verknüpfung der \compsl des Basisverbs mit dem \subjw und dem \compsw der selegierten Partikel ist, können nur Partikeln, die eine
+NP[\str] in ihrer \subjl oder in ihrer \compsl haben, mit dem Ergebnis der \bard kombiniert werden.
 
 Abbildung~\vref{fig-anfahrbar-val} zeigt die Kombination von \emph{an}$_5$ und \emph{fahrbar}.\footnote{
   Zu den verschiedenen Formen der Partikel \emph{an} siehe Seite~\pageref{verschiedene-ans}.%
@@ -1424,28 +1424,28 @@ Abbildung~\vref{fig-anfahrbar-val} zeigt die Kombination von \emph{an}$_5$ und \
 \begin{figure}
 \begin{forest}
 sm edges
-[{Adj[\subj \sliste{ \ibox{4} }, \subcat \ibox{5} \eliste]}
+[{Adj[\subj \sliste{ \ibox{4} }, \comps \ibox{5} \eliste]}
    [\ibox{6} Part\feattab{
                  \subj \ibox{2} \sliste{ NP[\str] },\\
-                 \subcat \ibox{3} \eliste } [an]]
-   [{Adj[\subj \sliste{ \ibox{4} }, \subcat \ibox{5} $\oplus$ \sliste{ \ibox{6} }]}, l sep+=\baselineskip
+                 \comps \ibox{3} \eliste } [an]]
+   [{Adj[\subj \sliste{ \ibox{4} }, \comps \ibox{5} $\oplus$ \sliste{ \ibox{6} }]}, l sep+=\baselineskip
 %& \hspace{19ex}\bard LR\\[4ex]
       [{V[\begin{tabular}[t]{@{}l@{}}
-                \subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$
-                \nliste{ Part[\subj \ibox{2}, \subcat \ibox{3}] }]\\
+                \comps \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$
+                \nliste{ Part[\subj \ibox{2}, \comps \ibox{3}] }]\\
                 $\wedge$ \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} = \sliste{ NP[\str], \ibox{4} NP[\str] } $\oplus$ \ibox{5}\\
                \end{tabular}}, l sep+=\baselineskip, edge label={node[midway,right]{\bard-LR}}
 %&\hspace{8ex}PV LR\\[4ex]
-         [{V[\subcat \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}}
+         [{V[\comps \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}}
            [fahr]]]]] 
 \end{forest}
 \caption{Kombination von \emph{an}$_5$ und \emph{fahrbar} (Valenz)}\label{fig-anfahrbar-val}
 \end{figure}
-Die Partikel hat eine NP[\str] in ihrer \subjl \iboxb{2}. Der \subcatw der Partikel \iboxb{3} ist die leere Liste.
+Die Partikel hat eine NP[\str] in ihrer \subjl \iboxb{2}. Der \compsw der Partikel \iboxb{3} ist die leere Liste.
 Die Verknüpfung von \ibox{2} and \ibox{3} ist deshalb eine Liste, die genau eine NP[\str] enthält. 
 Dieses Element wird mit dem Element \iboxt{4} identifiziert, das von der Lexikonregel für die \bard zum Subjekt angehoben
 wird. Deshalb hat das Adjektiv \emph{anfahrbar} als Subjekt das Element, das durch die Partikel eingeführt
-wurde, und die \subcatl von \emph{anfahrbar} ist leer. Weil es außer den beiden NPen kein anderes
+wurde, und die \compsl von \emph{anfahrbar} ist leer. Weil es außer den beiden NPen kein anderes
 Element in der Verknüpfung von \ibox{2} and \ibox{3} gibt, ist \iboxt{5} die leere Liste.
 
 Interessanterweise ermöglichen die Regeln nicht nur die Analyse von \emph{anfahrbar}, sondern
@@ -1482,10 +1482,10 @@ sm edges
    [\ibox{2} Part\feattab{
                  \textsc{mod} \ibox{3} [\cont \ibox{4} ]\\
                  \cont \ibox{5} \relation{gerichtet-auf}(\,\ibox{4}, \ibox{6}\,) } [an]]
-   [{Adj[\subcat \sliste{ \ibox{2} }, \cont \ibox{1} \emph{modal-op}(\,\ibox{5}\,)]}, l sep+=\baselineskip
+   [{Adj[\comps \sliste{ \ibox{2} }, \cont \ibox{1} \emph{modal-op}(\,\ibox{5}\,)]}, l sep+=\baselineskip
 %& \hspace{19ex}\bard LR\\[4ex]
       [V\feattab{
-        \subcat \nliste{ \ldots, \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
+        \comps \nliste{ \ldots, \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{5}] },\\
         \cont  \ibox{5} }, l sep+=\baselineskip, edge label={node[midway,right]{\bard-LR}}
 %&\hspace{8ex}PV LR\\[4ex]
           [{\ibox{3} V[\cont \ibox{4} \emph{fahren}\iboxb{7}]}, edge label={node[midway,right]{PV-LR}}
@@ -1493,14 +1493,14 @@ sm edges
 \end{forest}
 \caption{Kombination von \emph{an}$_5$ und \emph{fahrbar} (Semantik)}\label{fig-anfahrbar-sem}
 \end{figure}
-Die Partikelverblexikonregel führt eine Partikel in die \subcatl ein,
+Die Partikelverblexikonregel führt eine Partikel in die \compsl ein,
 die die Eingaberepräsentation über \textsc{mod} selegiert \iboxb{3}. In der Ausgabe der
-Lexikonregel wird der \contw \iboxb{5} mit dem \contw der Partikel in der \subcatl identifiziert.
+Lexikonregel wird der \contw \iboxb{5} mit dem \contw der Partikel in der \compsl identifiziert.
 Die Lexikonregel für die  \bard bettet diesen \contw unter einen Modaloperator \emph{modal-op} ein.
 Zu diesem Zeitpunkt ist keine Partikel vorhanden, und der Wert von \iboxt{5}
 ist nicht beschränkt. Im nächsten Schritt wird die Partikel mit \emph{fahrbar} kombiniert.
 Die Partikel hat die Form eines Adjunkts, ihr \modw wird mit dem \synsemw
-des Stammes \stem{fahr} identifiziert, da das in der \subcatl des abgeleiteten
+des Stammes \stem{fahr} identifiziert, da das in der \compsl des abgeleiteten
 Eintrags für  \stem{fahr} so spezifiziert ist (innerhalb von \iboxt{2}\,).
 Dadurch kann die Partikel \emph{an} auf den semantischen Beitrag des Basisverbs \stem{fahr} zugreifen
 und ihn unter den semantischen Beitrag der Partikel einbetten.
@@ -1523,14 +1523,14 @@ wird. Er ist parallel zu \stem{lach} mit selegierter Partikel in (\ref{le-lach-+
 \savebox{\boxxcompfuenfa}{
 \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \onems{
                                                                                             cat \ms{ head & verb \\
-                                                                                                       subcat & \ibox{1} \\
+                                                                                                       comps & \ibox{1} \\
                                                                                                      }\\
                                                                                             cont \ms[fahren]{ agens & \ibox{2} \\
                                                                                                             } \\
                                                                                             }\\
                                                                                    subj \ibox{3} \\
                                                                                  } \\
-                                                         subcat \ibox{4} \\
+                                                         comps \ibox{4} \\
                                                        } \\
                                                 cont \ibox{5} \\
                                               } \\
@@ -1543,7 +1543,7 @@ wird. Er ist parallel zu \stem{lach} mit selegierter Partikel in (\ref{le-lach-+
 %\resizebox{\linewidth}{!}{%
 \onems{
 cat \ms{ %head & verb \\
-           subcat & \textrm{(\,\ibox{1} \liste{NP[\str]\ind{2}})} $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$\\[3mm]
+           comps & \textrm{(\,\ibox{1} \liste{NP[\str]\ind{2}})} $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$\\[3mm]
                   & \liste{\usebox{\boxxcompfuenfa} } \\
          }\\
 cont \ibox{5} \\
@@ -1558,14 +1558,14 @@ mit der \textsc{lex-dtr} der \bard"=Lexikonregel in (\ref{lr-bar-adj}).
 \savebox{\boxxcompvierb}{
 \liste{ \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \onems{
                                                                                             c \ms{ head & verb \\
-                                                                                                       subcat & \ibox{1'} \liste{ NP[\str]\ind{2'}} \\
+                                                                                                       comps & \ibox{1'} \liste{ NP[\str]\ind{2'}} \\
                                                                                                      }\\
                                                                                             cont \ms[fahren]{ agens & \ibox{2'} \\
                                                                                                             } \\
                                                                                             }\\
                                                                                    subj \ibox{3'} \\
                                                                                  } \\
-                                                         subcat \ibox{4'} \\
+                                                         comps \ibox{4'} \\
                                                        } \\
                                                 cont \ibox{5'} \\
                                               } \\
@@ -1581,7 +1581,7 @@ phon   \ibox{1} $\oplus$ \phonliste{ bar }\\
 synsem \onems{ loc  \ms{ cat  & \ms{ head   & \ms[adj]{ 
                                                  subj & \liste{ \ibox{2} NP[\str] }\\
                                                  }\\
-                                     subcat & \ibox{3} $\oplus$ \ibox{5} \\
+                                     comps & \ibox{3} $\oplus$ \ibox{5} \\
                                    } \\
                             cont & \ms[modal-op]{
                                     soa & \ibox{4}\\
@@ -1593,7 +1593,7 @@ l-dtr
         synsem$|$loc\\ 
 \onems{
 c \ms{  head  & verb \\
-           subcat & $\ibox{1'} \oplus \ibox{3'} \oplus \ibox{4'}~\oplus$  \\
+           comps & $\ibox{1'} \oplus \ibox{3'} \oplus \ibox{4'}~\oplus$  \\
                   & \ibox{5} \usebox{\boxxcompvierb} \\
          }\\
 cont \ibox{4} = \ibox{5'} \\
@@ -1617,14 +1617,14 @@ Betrachtet man nur den Mutterknoten von (\mex{0}), bekommt man (\mex{1}).
 \savebox{\boxxcompsieben}{
 \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \onems{
                                                                                             c \ms{ head & verb\\
-                                                                                                       subcat & \ibox{1'} \liste{NP[\str]\ind{2'}} \\
+                                                                                                       comps & \ibox{1'} \liste{NP[\str]\ind{2'}} \\
                                                                                                      }\\
                                                                                             cont \ms[fahren]{ agens & \ibox{2'} \\
                                                                                                             } \\
                                                                                             }\\
                                                                                    subj \ibox{3'} \\
                                                                                  } \\
-                                                         subcat \ibox{4'} \\
+                                                         comps \ibox{4'} \\
                                                        } \\
                                                 cont \ibox{5'} \\
                                               } \\
@@ -1638,7 +1638,7 @@ Betrachtet man nur den Mutterknoten von (\mex{0}), bekommt man (\mex{1}).
 \onems{ c \ms{ head   & \ms[adj]{ 
                                                  subj & \liste{ \ibox{2} NP[\str] }\\
                                                  }\\
-                                     subcat & \ibox{3} $\oplus$
+                                     comps & \ibox{3} $\oplus$
                                              \liste{\usebox{\boxxcompsieben} }
                                    } \\
                             cont  \ms[modal-op]{
@@ -1653,7 +1653,7 @@ Betrachtet man nur den Mutterknoten von (\mex{0}), bekommt man (\mex{1}).
 Die Beschränkung, die zusätzlich zu den Beschränkungen innerhalb der Struktur erfüllt werden muss,
 besagt, dass die Valenzliste des Partikelverbs (\,\ibox{1'} $\oplus$ \ibox{3'} $\oplus$ \ibox{4'}\,) 
 in zwei Listen auf"|teilbar sein muss: eine Liste mit zwei NPen mit strukturellem Kasus und eine
-Restliste \iboxb{3}. Die Restliste ergibt zusammen mit der Partikel die \subcatl des Mutterknotens.
+Restliste \iboxb{3}. Die Restliste ergibt zusammen mit der Partikel die \compsl des Mutterknotens.
 %With the assumption that the \subj list of the particle has zero
 %or one element, this relational constraint can be reformulated into a disjunction\is{disjunction}.
 
@@ -1670,7 +1670,7 @@ kombiniert wird, bekommt man (\mex{1})\vpageref{le-anfahrbar}.
 \ms{ cat  & \ms{ head   & \ms[adj]{ 
                            subj & \liste{ NP[\str]\ind{2''} }\\
                           }\\
-                 subcat & \eliste \\
+                 comps & \eliste \\
                } \\
       cont & \ms[modal-op]{
                  soa & \ms[gerichtet-auf~]{ 
@@ -1688,7 +1688,7 @@ kombiniert wird, bekommt man (\mex{1})\vpageref{le-anfahrbar}.
 In dieser Struktur sind die Nummern, die durch die Partikel instantiiert werden, mit zwei Apostrophen markiert.
 Die Partikel steuert ein NP"=Argument bei und instantiiert \iboxt{3'} mit 
 $\left\langle\right.$\,NP[\str]\raisebox{-0.8ex}{\ibox{2''}}\,$\left.\right\rangle$.
-Da die \subcatl der Partikel leer ist, wird \iboxt{4'} durch die leere Liste instantiiert. 
+Da die \compsl der Partikel leer ist, wird \iboxt{4'} durch die leere Liste instantiiert. 
 Die Subtraktion von $\left\langle\right.$\,NP[\str], \iboxt{2}~NP[\str]\,$\left.\right\rangle$ von
 \iboxt{1'} $\oplus$ \iboxt{3'} $\oplus$ \iboxt{4'} ergibt die leere Liste, und deshalb ist
 \iboxt{3} ebenfalls die leere Liste. Das Subjekt des \baradjs in (\mex{0}) ist identisch
@@ -1828,7 +1828,7 @@ phon   \phonliste{ bar }\\
 synsem$|$loc  \ms{ cat  & \ms{ head   & \ms[adj]{ 
                                                  subj & \sliste{ \ibox{2} NP[\str] }\\
                                                  }\\
-                                        subcat & \ibox{3} $\oplus$ \sliste{ V[\subcat \liste{ NP[\str], \ibox{2} NP[\str] } $\oplus$ \ibox{3}]:\ibox{4}} \\
+                                        comps & \ibox{3} $\oplus$ \sliste{ V[\comps \liste{ NP[\str], \ibox{2} NP[\str] } $\oplus$ \ibox{3}]:\ibox{4}} \\
                                       } \\
                             cont & \ms[modal-op]{
                                     soa & \ibox{4}\\
@@ -1895,7 +1895,7 @@ verwendet werden können.
 %% synsem & \onems{ loc  \ms{ cat  & \ms{ head   & \ms[adj]{ 
 %%                                                  subj & \sliste{ \ibox{2} NP[\str] }\\
 %%                                                  }\\
-%%                                         subcat & \ibox{3}\\
+%%                                         comps & \ibox{3}\\
 %%                                       } \\
 %%                             cont & \ms[modal-op]{
 %%                                     soa & \ibox{4}\\
@@ -1905,7 +1905,7 @@ verwendet werden können.
 %% lex-dtr & \onems[trans-verb]{
 %%            phon   \ibox{1} \\
 %%            synsem$|$loc \ms{ cat  & \ms{ head   & verb\\
-%%                                          subcat & \sliste{ NP[\str], \ibox{2} NP[\str] } $\oplus$ \ibox{3}\\
+%%                                          comps & \sliste{ NP[\str], \ibox{2} NP[\str] } $\oplus$ \ibox{3}\\
 %%                                        } \\
 %%                              cont & \ibox{4} \\
 %%                           }\\

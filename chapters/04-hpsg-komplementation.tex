@@ -92,10 +92,10 @@ von Relativsätzen).
 %% \ncline{2}{4} \ncline{3}{5}
 
 
-Das Regelschema (\ref{regelschema-psg-subcat}) aus dem vorigen Kapitel -- hier der Übersichtlichkeit
+Das Regelschema (\ref{regelschema-psg-comps}) aus dem vorigen Kapitel -- hier der Übersichtlichkeit
 halber als (\mex{1}) wiederholt -- kann man analog in Merkmalbeschreibungen ausdrücken.
 \ea
-\label{regelschema-psg-subcat-zwei}
+\label{regelschema-psg-comps-zwei}
 \begin{tabular}[t]{@{}lll}
 H[SUBCAT \ibox{1}] & $\to$ & H[SUBCAT \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
 \end{tabular}
@@ -105,8 +105,8 @@ Das zeigt das folgende Schema\is{Schema!Kopf"=Argument"=}:
 \label{schema-bin-prel}
 \type{head-argument-phrase}\istype{head"=argument"=phrase} \impl\\
 \onems{
-      subcat \ibox{1} \\
-      head-dtr$|$subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} } \\
+      comps \ibox{1} \\
+      head-dtr$|$comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } \\
       non-head-dtrs \sliste{ \ibox{2} }\\
       }
 \end{schema}
@@ -119,7 +119,7 @@ haben, die auf der rechten Seite der Implikation angegeben sind. Konkret heißt 
 dass solche Objekte immer eine Valenzliste besitzen, die \iboxt{1} entspricht, dass sie eine Kopf"|tochter haben,
 die eine Valenzliste hat, die sich in die zwei Teillisten \ibox{1} und \sliste{ \ibox{2} }
 unterteilen läßt, und dass sie eine Nicht"=Kopf"|tochter haben, die mit dem letzten Element
-in der \subcatl der Kopf"|tochter \iboxb{2} kompatibel ist. 
+in der \compsl der Kopf"|tochter \iboxb{2} kompatibel ist. 
 
 Wie ebenfalls im vorigen Kapitel angemerkt, sind Artikel"=Nomen"=Kombinationen
 und Verb"=NP"=Kombinationen zwei mögliche Instantiierungen für (\mex{0}):
@@ -137,16 +137,16 @@ Abbildung~\vref{fig-bin-Aicke-die-Nuss-dem-Eichhörnchen-gibt} entsprechen.
 \centerline{%
 \begin{forest}
 sm edges
-[{V[\subcat \sliste{} ]}
+[{V[\comps \sliste{} ]}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke]]
-  [{V[\subcat \sliste{ \ibox{1} }]}
+  [{V[\comps \sliste{ \ibox{1} }]}
     [{\ibox{2} NP[\type{acc}]} 
       [die Nuss, roof]]
-    [{V[\subcat \sliste{ \ibox{1}, \ibox{2} }]}
+    [{V[\comps \sliste{ \ibox{1}, \ibox{2} }]}
       [{\ibox{3} NP[\type{dat}]}
         [dem Eichhörnchen,roof]]
-      [{V[\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]}
+      [{V[\comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]}
         [gibt]]]]]
 \end{forest}}
 \caption{\label{fig-bin-Aicke-die-Nuss-dem-Eichhörnchen-gibt}Binär verzweigende Kopf-Argument-Strukturen}
@@ -198,14 +198,14 @@ und Valenz:
 \label{ms-dem-mann-gibt}
 \onems[head-argument-phrase~]{
       phon    \phonliste{ dem Eichhörnchen gibt }\\
-      subcat \ibox{1} \liste{ NP[\nom], NP[\acc]} \\
+      comps \ibox{1} \liste{ NP[\nom], NP[\acc]} \\
       head-dtr \onems{ phon \phonliste{ gibt }\\
-                                     subcat \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
+                                     comps \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
                        } \\
       non-head-dtrs \liste{ \ibox{2} \onems[head-argument-phrase~]{ 
                                                   phon  \phonliste{ dem Eichhörnchen }\\
                                                   p-o-s \type{noun}\\
-                                                  subcat \liste{} \\
+                                                  comps \liste{} \\
                                                   head-dtr \ldots \\
                                                   non-head-dtrs \ldots \\
                                                   }
@@ -219,16 +219,16 @@ Abbildung~\vref{fig-saettigung-valenz} zeigt die Valenzinformation in Baumdarste
 \centerline{%
 \begin{forest}
 sm edges
-[{V[\subcat \sliste{} ]}
+[{V[\comps \sliste{} ]}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke]]
-  [{V[\subcat \sliste{ \ibox{1} }]}
+  [{V[\comps \sliste{ \ibox{1} }]}
     [{\ibox{2} NP[\type{acc}]} 
       [die Nuss, roof]]
-    [{V[\subcat \sliste{ \ibox{1}, \ibox{2} }]}
+    [{V[\comps \sliste{ \ibox{1}, \ibox{2} }]}
       [{\ibox{3} NP[\type{dat}]}
         [dem Eichhörnchen,roof]]
-      [{V[\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]}
+      [{V[\comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]}
         [gibt]]]]]
 \end{forest}}
 \caption{\label{fig-saettigung-valenz}Abarbeitung der Valenzliste des Verbs}
@@ -237,14 +237,14 @@ sm edges
 %% \ea
 %% \onems[head-argument-phrase~]{
 %%       phon    \phonliste{ er die Nuss dem Eichhörnchen gibt }\\
-%%       subcat \ibox{1} \liste{ } \\
+%%       comps \ibox{1} \liste{ } \\
 %%       head-dtr \onems[head-argument-phrase]{ phon \phonliste{ die Nuss dem Eichhörnchen gibt }\\
-%%                                        subcat \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
+%%                                        comps \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
 %%                        } \\
 %%       non-head-dtrs \liste{ \ibox{2} \onems[word]{ 
 %%                                        phon \phonliste{ er }\\
 %%                                        p-o-s \textit{noun}\\
-%%                                        subcat  \liste{} \\
+%%                                        comps  \liste{} \\
 %%                                       }
 %%                        }\\
 %% }
@@ -291,7 +291,7 @@ Eine mögliche Merkmalsgeometrie zeigt (\mex{1}).
       \ms{ phon   & list~of~phoneme strings\\
            p-o-s  & p-o-s \\
            vform  & vform \\ 
-           subcat & list~of~signs\\
+           comps & list~of~signs\\
          }\\
 \z
 Diese Struktur ist für das, was erreicht werden soll, aber wenig geeignet.
@@ -308,7 +308,7 @@ Erklärung der Distributionseigenschaften\label{page-kopf-merkmal} der Gesamtpro
                   p-o-s & p-o-s\\
                   vform & vform\\
                   } \\
-           subcat & list~of~signs\\
+           comps & list~of~signs\\
          }
 \z
 Nun ist es aber so, dass Köpfe je nach ihrer Wortart ganz verschiedene Eigenschaften
@@ -352,7 +352,7 @@ angegeben wurde, kann jetzt wie folgt präzisiert werden:
 \ms[word]{ 
      phon   & \phonliste{ gibt }\\
      head   & \ms[verb]{ vform & fin \\} \\
-     subcat & \liste{ NP[\textit{nom\/}], NP[\textit{acc}], NP[\textit{dat}] } \\
+     comps & \liste{ NP[\textit{nom\/}], NP[\textit{acc}], NP[\textit{dat}] } \\
 }
 \z
 Ein Lexikoneintrag enthält also phonologische Information, Informationen über die Kopfeigenschaften (\emph{part of speech}, Verbform, \ldots)
@@ -431,9 +431,9 @@ Beschränkungen, die der Typ \type{head"=argument"=phrase} von \type{headed"=phr
 Kopf-Argument-Schema + Kopfmerkmalsprinzip:\\
 \ms[head-argument-phrase~]{
 head   & \ibox{1} \\
-subcat & \ibox{2} \\[2mm]
+comps & \ibox{2} \\[2mm]
 head-dtr  & \ms{ head   & \ibox{1} \\
-                 subcat & \ibox{2} $\oplus$ \sliste{ \ibox{3} } \\
+                 comps & \ibox{2} $\oplus$ \sliste{ \ibox{3} } \\
                } \\
 non-head-dtrs  & \sliste{ \ibox{3} } \\
 }
@@ -447,17 +447,17 @@ das Kopfmerkmalsprinzip die Projektion der Merkmale erzwingt: Der Kopfwert der g
 \onems[head-argument-phrase~]{
       phon  \phonliste{ dem Eichhörnchen gibt }\\
       head  \ibox{1}\\
-      subcat \ibox{2} \sliste{ NP[\nom], NP[\acc]} \\
+      comps \ibox{2} \sliste{ NP[\nom], NP[\acc]} \\
       head-dtr \onems[word]{ phon \phonliste{ gibt }\\
                                      head \ibox{1} \ms[verb]{vform & fin \\
                                                             }\\
-                                     subcat \ibox{2}  $\oplus$ \sliste{ \ibox{3} } \\
+                                     comps \ibox{2}  $\oplus$ \sliste{ \ibox{3} } \\
                        } \\
       non-head-dtrs \liste{ \ibox{3} \onems[head-argument-phrase~]{ 
                                         phon \phonliste{ dem Eichhörnchen }\\
                                         head \ms[noun]{ cas & dat\\
                                                       } \\
-                                        subcat   \eliste \\
+                                        comps   \eliste \\
                                         head-dtr \ldots\\
                                         non-head-dtrs \ldots\\
                                      }
@@ -473,7 +473,7 @@ beschrieben wird:
 \ms{
 head \ms[verb]{vform & fin \\
               }\\
-subcat \eliste\\
+comps \eliste\\
 }
 \z
 Diese Beschreibung entspricht dem Satzsymbol S in der Grammatik auf

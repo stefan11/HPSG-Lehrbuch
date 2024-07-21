@@ -42,7 +42,7 @@ Den \localw des Lexikoneintrags für das finite Verb \emph{lachst} zeigt (\mex{1
 \ms{ cat & \ms{ head & \ms[verb]{ vform & fin\\
                                 }\\
                 spr & \eliste\\
-                subcat & \liste{ NP[\nom]\ind{1} }\\
+                comps & \liste{ NP[\nom]\ind{1} }\\
                }\\
      cont & \ms[lachen]{
             agens & \ibox{1} \ms{
@@ -93,7 +93,7 @@ Für \emph{gab} hat man also:
                      { vform & fin \\
                      } \\
              spr    & \eliste\\
-             subcat & \liste{ NP[\textit{nom\/}]\ind{1}, NP[\textit{acc}]\ind{2}, NP[\textit{dat}]\ind{3}   } \\
+             comps & \liste{ NP[\textit{nom\/}]\ind{1}, NP[\textit{acc}]\ind{2}, NP[\textit{dat}]\ind{3}   } \\
            } \\
   cont &  \ms[geben]{ agens & \ibox{1} \ms{
                                        per & 1 $\vee$ 3\\
@@ -181,10 +181,10 @@ dass die Argumente des eingebetteten Verbs zu Argumenten\is{Argument!-anziehung|
 werden. In den obigen Beispielen bilden dann \emph{zu grauen} und \emph{scheinen}
 bzw.\ \emph{zu schlafen} und \emph{scheinst} einen Komplex. Selbiges gilt auch für
 das Passivhilfsverb und das eingebettete Partizip.
-Für die Beispiele in (\mex{-1}) und (\mex{0}) ergeben sich die folgenden \subcatlen:
+Für die Beispiele in (\mex{-1}) und (\mex{0}) ergeben sich die folgenden \compslen:
 \ea
 \begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{}}
-  &                          &      \textsc{subcat}\\[2mm]
+  &                          &      \textsc{comps}\\[2mm]
 a.&zu schlafen scheinst:     & \sliste{NP[\nom]}\\[2mm]
 b.&zu grauen scheint:        & \sliste{NP[\dat]}\\[2mm]
 c.&geschlagen werden:        & \sliste{NP[\nom]}\\[2mm]
@@ -195,7 +195,7 @@ Diese Valenzlisten enthalten jeweils nur ein Argument, und bei Nominativ-NPen mu
 Kongruenz geben, bei Nicht"=Nominativ"=NPen muss das Verb in der dritten Person stehen.
 
 Die Verhältnisse sind bei Verben mit mehr Argumenten genauso. (\mex{2}) zeigt
-die \subcatlen für die Verbalkomplexe in (\mex{1}):
+die \compslen für die Verbalkomplexe in (\mex{1}):
 \eal
 \ex weil den Studenten vor der Prüfung zu grauen scheint
 \ex weil die Frauen ihn zu lieben scheinen
@@ -203,7 +203,7 @@ die \subcatlen für die Verbalkomplexe in (\mex{1}):
 \zl
  \ea
 \begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{}}
-  &                          &      \textsc{subcat}\\[2mm]
+  &                          &      \textsc{comps}\\[2mm]
 a.&zu grauen scheint:        & \sliste{NP[\dat], PP[\textit{vor}]}\\[2mm]
 b.&zu lieben scheinen:       & \sliste{NP[\nom], NP[\acc]}\\[2mm]
 c.&überreicht werden:        & \sliste{NP[\nom], NP[\dat]}\\[2mm]
@@ -212,7 +212,7 @@ c.&überreicht werden:        & \sliste{NP[\nom], NP[\dat]}\\[2mm]
 Gibt es ein Nominativelement, so muss das Verb mit ihm übereinstimmen,
 ist das wie in (\mex{-1}a) nicht der Fall, so muss das Verb in der dritten Person Singular stehen.
 
-Bisher stand das Nominativ"=Element immer an der ersten Stelle in der \subcatl. Das ist aber nicht
+Bisher stand das Nominativ"=Element immer an der ersten Stelle in der \compsl. Das ist aber nicht
 immer so. Im Kapitel~\ref{sec-remote-passive-phen} wird das sogenannte Fernpassiv\is{Passiv!Fern-}
 diskutiert, das sich dadurch auszeichnet, dass Objekte des eingebetteten Verbs zum Subjekt werden
 können. Die hier interessierenden Beispiele sind die mit dem Objektkontrollverb \emph{erlauben}
@@ -227,7 +227,7 @@ Ich habe ihm die Aufsätze zu lesen erlaubt.
 \z
  \ea
 \begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{}}
-  &                          & \textsc{subcat}\\[2mm]
+  &                          & \textsc{comps}\\[2mm]
 a.&zu lesen erlaubt habe:    & \sliste{NP[\nom], NP[\dat], NP[\acc]}\\[2mm]
 b.&zu lesen erlaubt wurde:   & \sliste{NP[\dat], NP[\nom]}\\
 \end{tabular}
@@ -346,7 +346,7 @@ mit ihm übereinstimmt:
                      { case & \ibox{1} $nom \vee dat \vee acc$\\
                      } \\
              spr    & \sliste{ Det[\textsc{case} \ibox{1}, \textsc{num} \ibox{2}, \textsc{gen} \ibox{3}] }\\
-             subcat & \eliste\\
+             comps & \eliste\\
            } \\
   cont &  \ms{
           ind &  \ibox{4} \ms{
@@ -370,7 +370,7 @@ könnte man den Satz (\mex{2}) analysieren.
                      { case & $nom \vee dat \vee acc$\\
                      } \\
      spr    & \sliste{ Det[\textsc{case} $nom \vee dat \vee acc$, \textsc{num} \type{sg}, \textsc{gen} \type{mas}] }\\
-     subcat & \eliste\\
+     comps & \eliste\\
 }
 \z
 \ea[*]{
@@ -401,7 +401,7 @@ spezifiziert. (\mex{1}) zeigt ein Beispiel:
                      { case & \ibox{1} $nom \vee dat \vee acc$\\
                      } \\
              spr    & \sliste{ Det[\textsc{case} \ibox{1}, \textsc{num} \ibox{2}, \textsc{gen} \ibox{3}, \textsc{dtype} \type{weak}] }\\
-             subcat & \eliste\\
+             comps & \eliste\\
            } \\
   cont &  \ms{
           ind &  \ibox{4} \ms{
@@ -445,7 +445,7 @@ Adjektiveintrag mit Kongruenzinformation (\localw für \emph{interessantes}):\\
                                      }\\
                       } \\
                spr    & \eliste\\
-               subcat & \eliste \\
+               comps & \eliste \\
              } \\
    cont & \ms{ ind & \ibox{1} \\
                      restr & \liste{ \ms[interessant]{ 
@@ -515,7 +515,7 @@ cat & \ms{ head & \ms[det]{
                        spec & \textrm{N:[\textsc{ind} \ibox{1}, \textsc{restr} \ibox{2}]} \\
                       } \\
             spr & \liste{}\\
-            subcat & \liste{} \\
+            comps & \liste{} \\
            } \\
 cont & \ms{ ind & \ibox{3} \ms{ 
                             per & 3 \\

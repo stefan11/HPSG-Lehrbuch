@@ -36,7 +36,7 @@ ein interessantes Buch
 Peter schläft interessantes.
 }
 \zl
-Analog zur Selektion von Argumenten durch Köpfe über \subcat kann
+Analog zur Selektion von Argumenten durch Köpfe über \comps kann
 man Adjunkte ihren Kopf über ein Merkmal (\textsc{modified})\isfeat{mod} selegieren lassen.
 Adjektive, Nomina modifizierende Präpositionalphrasen und Relativsätze
 selegieren eine fast vollständige Nominalprojektion, \dash ein Nomen, das
@@ -50,13 +50,13 @@ NP zu bilden. Ausschnitte des Lexikoneintrags für \emph{interessantes} zeigt (\
    cat & \ms{ head & \ms[adj]{ %prd & $-$ \\
                         mod &  \textrm{$\overline{\mbox{\textrm{N}}}$}\\
                       } \\
-              subcat & \liste{} \\
+              comps & \liste{} \\
             } \\
 }
 \z
 \emph{interessantes} ist ein Adjektiv, das selbst keine Argumente mehr zu sich nimmt,
-und das deshalb eine leere \subcatl hat. Adjektive wie \emph{treu} in (\mex{1}) würden entsprechend
-eine Dativ"=NP in ihrer \subcatl haben.
+und das deshalb eine leere \compsl hat. Adjektive wie \emph{treu} in (\mex{1}) würden entsprechend
+eine Dativ"=NP in ihrer \compsl haben.
 \ea
 ein dem König treues Mädchen
 \z
@@ -69,13 +69,13 @@ Den Lexikoneintrag zeigt (\mex{1}):
    cat & \ms{ head & \ms[adj]{ %prd & $-$ \\
                         mod &  \textrm{$\overline{\mbox{\textrm{N}}}$}\\
                       } \\
-              subcat & \liste{ NP[\type{dat}] } \\
+              comps & \liste{ NP[\type{dat}] } \\
             } \\
 }
 \z
 \emph{dem König treues} bildet dann eine Adjektivphrase, die \emph{Mädchen} modifiziert.
 
-Im Gegensatz zum Selektionsmerkmal \subcat, das zu den Merkmalen unter \textsc{cat}  gehört,
+Im Gegensatz zum Selektionsmerkmal \comps, das zu den Merkmalen unter \textsc{cat}  gehört,
 ist \textsc{mod} ein Kopfmerkmal.
 Der Grund dafür ist, dass das Merkmal, das den zu modifizierenden Kopf selegiert, an der
 Maximalprojektion des Adjunkts vorhanden sein muss. Die Eigenschaft der Adjektivphrase \emph{dem
@@ -87,11 +87,11 @@ Adjektiv \emph{interessantes}:
 \label{avm-dem-koenig-treues}
 \emph{dem König treues}:\\
 \ms{ 
-   phon & \phonliste{ dem, König, treues }\\
+   phon & \phonliste{ dem König treues }\\
    cat & \ms{ head & \ms[adj]{ %prd & $-$ \\
                         mod &  \textrm{$\overline{\mbox{\textrm{N}}}$}\\
                       } \\
-              subcat & \eliste{ } \\
+              comps & \eliste{ } \\
             } \\
 }
 \z
@@ -125,17 +125,18 @@ sm edges
 \end{forest}
 \caption{\label{fig-ha-selektion}Kopf"=Adjunkt"=Struktur (Selektion)}
 \end{figure}
-Kopf"=Adjunkt"=Strukturen sind durch das folgende Schema\is{Schema!Kopf"=Adjunkt"=} lizenziert:\istype{head"=adjunct"=phrase}
+Kopf"=Adjunkt"=Strukturen sind durch das folgende Schema lizenziert:\istype{head"=adjunct"=phrase}
 %\begin{figure}[htbp]
 \begin{samepage}
 \begin{schema}[Kopf-Adjunkt-Schema (vorläufige Version)]
 \label{ha-schema-prel}
 ~\\
 \textit{head"=adjunct"=phrase} \impl\\
+\is{Schema!Kopf"=Adjunkt"=}
 \ms{ 
 head"=dtr      & \ibox{1} \\[2mm]
 non-head"=dtrs & \liste{ \ms{ cat & \ms{ head$|$mod & \ibox{1} \\
-                                         subcat   & \liste{} \\
+                                         comps   & \liste{} \\
                                        } \\
                            }}\\
 }
@@ -143,7 +144,7 @@ non-head"=dtrs & \liste{ \ms{ cat & \ms{ head$|$mod & \ibox{1} \\
 \end{samepage}
 %\vspace{-\baselineskip}\end{figure}
 Der \modw des Adjunkts \iboxb{1} wird mit dem \synsemw der Kopf"|tochter identifiziert, wodurch
-sichergestellt wird, dass die Kopf"|tochter die vom Adjunkt spezifizierten Eigenschaften hat. Die \subcatl
+sichergestellt wird, dass die Kopf"|tochter die vom Adjunkt spezifizierten Eigenschaften hat. Die \compsl
 der Nicht"=Kopf"|tochter ist die leere Liste, weshalb nur vollständig gesättigte Adjunkte 
 in Kopf"=Adjunkt"=Strukturen zugelassen sind. Phrasen wie (\mex{1}b) werden somit korrekt ausgeschlossen:
 \eal
@@ -164,7 +165,7 @@ phon & \phonliste{ in } \\
 cat & \ms{ head & \ms[prep]{
                    mod &   \textrm{$\overline{\mbox{\textrm{N}}}$}\\
                    } \\
-           subcat & \sliste{ NP[\type{dat}] } \\
+           comps & \sliste{ NP[\type{dat}] } \\
          } \\
 }
 \z
@@ -176,7 +177,7 @@ phon & \phonliste{ in der Speisekammer } \\
 cat & \ms{ head & \ms[prep]{
                    mod &   \textrm{$\overline{\mbox{\textrm{N}}}$}\\
                    } \\
-           subcat & \liste{ } \\
+           comps & \liste{ } \\
          } \\
 }
 \z
@@ -262,7 +263,7 @@ Adjektiveintrag mit Bedeutungsrepräsentation:\\
                                                                      restr & \ibox{2} \\
                                                                     } \\
                       } \\
-               subcat & \liste{} \\
+               comps & \liste{} \\
              } \\
    cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
                                    num & sg \\
@@ -286,7 +287,7 @@ Die Gesamtstruktur, die dem Mutterknoten in Abbildung~\ref{fig-ha-synsem} entspr
 \samepage
 \ms
 { cat & \ms{ head & \type{noun} \\
-             subcat & \sliste{ Det } \\
+             comps & \sliste{ Det } \\
            } \\
   cont &  \ms
            { ind & \ibox{1} \ms{ per & 3 \\
@@ -304,32 +305,31 @@ Die Projektion des semantischen Beitrags erfolgt also nicht wie \zb in Kopf"=Arg
 entlang des Kopfpfades, sondern von der Adjunkttochter zur Mutter:
 \ea
 \type{head"=adjunct"=phrase} \impl\\
-\ms{ 
-cont & \ibox{1}\\[2mm]
-non-head"=dtrs & \sliste{ [ \cont  \ibox{1} ]}\\
+\onems{ 
+cont \ibox{1}\\
+non-head"=dtrs \sliste{ [ \cont  \ibox{1} ] }\\
 }
 \z
 Integriert man diese Strukturteilung in die vorläufige Version des Kopf"=Adjunkt"=Schemas
-auf Seite~\pageref{ha-schema-prel}, erhält man das Schema~\ref{ha-schema}\vpageref{ha-schema}.
+auf Seite~\pageref{ha-schema-prel}, erhält man das Schema~\ref{ha-schema}.
 %
-\begin{figure}[htbp]
-\begin{schema}[Kopf-Adjunkt-Schema]
+%\begin{figure}[htbp]
+\begin{schema}[Kopf-Adjunkt-Schema (vorläufige Version)]
 \label{ha-schema}
 \begin{tabular}[t]{@{}l@{}}
-~\\
 \type{head"=adjunct"=phrase}\istype{head"=adjunct"=phrase} \impl\\
 \ms{ 
 cont & \ibox{1} \\
 head"=dtr      & \ibox{2} \\[2mm]
 non-head"=dtrs & \liste{ \ms{ cat & \ms{ head$|$mod & \ibox{2} \\
-                                        subcat   & \liste{} \\
+                                        comps   & \liste{} \\
                                       } \\
                              cont & \ibox{1} \\
                            }}\\
 }
 \end{tabular}
 \end{schema}
-\vspace{-\baselineskip}\end{figure}%
+%\vspace{-\baselineskip}\end{figure}%
 \is{Adjunkt|)}\is{Modifikator|)}
 
 \section{Prinzipien}
@@ -390,23 +390,23 @@ zugeordnet. Bisher wurden nur Kopf"=Adjunkt"=Strukturen diskutiert, aber es gibt
 noch Kopf"=Füller"=Strukturen (siehe Kapitel~\ref{chap-nla}), in denen wie in Kopf"=Adjunkt"=Strukturen
 keine Argumente gesättigt werden. Solche Strukturen sind allesamt Untertypen des Typs \type{head"=non"=argument"=phrase}.
 
-Formal sieht die Beschränkung der \subcatwe in Strukturen vom Typ \type{head"=non"=argument"=phrase}\istype{head"=non"=argument"=phrase}
+Formal sieht die Beschränkung der \compswe in Strukturen vom Typ \type{head"=non"=argument"=phrase}\istype{head"=non"=argument"=phrase}
 wie folgt aus:
 \ea
 \label{def-head-non-arg-phrase}
 \type{head"=non"=argument"=phrase}\istype{head"=non"=argument"=phrase} \impl
 \onems{
-      cat$|$subcat \ibox{1} \\
-      head"=dtr$|$cat$|$subcat \ibox{1}\\
+      cat$|$comps \ibox{1} \\
+      head"=dtr$|$cat$|$comps \ibox{1}\\
       }
 \z
 Da in Strukturen vom Typ \type{head"=non"=argument"=phrase}
-keine Argumente gesättigt werden, ist der \subcatw der Mutter mit dem der Kopf"|tochter identisch.
+keine Argumente gesättigt werden, ist der \compsw der Mutter mit dem der Kopf"|tochter identisch.
 
 In der HPSG"=Literatur wird das Valenzprinzip immer in Prosa formuliert:
 
 \begin{prinzip-break}[Valenzprinzip]
-In Strukturen mit Kopf entspricht die \subcatl des Mutterknotens der \subcatl der Kopf"|tochter
+In Strukturen mit Kopf entspricht die \compsl des Mutterknotens der \compsl der Kopf"|tochter
 minus den als Nicht"=Kopf"|tochter realisierten Argumenten.
 \end{prinzip-break}
 
@@ -418,8 +418,8 @@ Schema~\ref{schema-bin-prel} auf Seite~\pageref{schema-bin-prel} formuliert wurd
 \ea
 \type{head"=argument"=phrase}\istype{head"=argument"=phrase} \impl\\
 \onems{
-cat$|$subcat \ibox{1} \\
-head"=dtr$|$cat$|$subcat  \ibox{1} $\oplus$ \sliste{ \ibox{2} } \\
+cat$|$comps \ibox{1} \\
+head"=dtr$|$cat$|$comps  \ibox{1} $\oplus$ \sliste{ \ibox{2} } \\
 non-head"=dtrs  \sliste{ \ibox{2} } \\
 } 
 \z
@@ -467,13 +467,13 @@ Eigenschaften der Gesamtstruktur determinieren.
 \begin{forest}
 sm edges
 [\nbar\feattab{\head   \rnode{h1}{\ibox{1}},\\
-               \subcat \rnode{sc1}{\ibox{2}},\\
+               \comps \rnode{sc1}{\ibox{2}},\\
                \rnode{cont1}{\cont} \ibox{3}}
   [AP\feattab{\textsc{head$|$mod} \ibox{4},\\
               \rnode{cont2}{\cont} \ibox{3} [\textsc{restr} \nliste{ interessant(\ibox{5}) } $\oplus$ \ibox{6}]}
     [interessantes]]
   [\ibox{4} \nbar\feattab{\head   \rnode{h2}{\ibox{1}},\\
-                          \subcat \rnode{sc2}{\ibox{2}} \sliste{ det },\\
+                          \comps \rnode{sc2}{\ibox{2}} \sliste{ det },\\
                           \textsc{cont$|$restr} \ibox{6} \nliste{ buch(\ibox{5}) }}
     [Buch]]]
 \end{forest}
@@ -545,7 +545,7 @@ Nomens (\iboxt{2} in (\mex{1})) als Argument der Adjektiv"=Relation eingebettet:
                                                                           restr & \ibox{2} \\
                                                                         } \\
                      } \\
-             subcat & \liste{ } \\
+             comps & \liste{ } \\
            } \\
   cont & \ms{ ind & \ibox{1} \\
                     restr & \liste{ \ms[mutmaßlich]{ 
@@ -569,7 +569,7 @@ dass X ein Mörder ist, sondern dass X ein potentieller bzw.\ mutmaßlicher Mör
 \samepage
 \ms{
   cat & \ms{ head   & noun \\
-             subcat & \sliste{ Det } \\
+             comps & \sliste{ Det } \\
            } \\
   cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
                                  num & sg \\
@@ -658,7 +658,7 @@ zeigt den Lexikoneintrag für \emph{alle}:
 cat & \ms{ head   & \ms[det]{
                     spec$|$cont & \ibox{1}\\ 
                     }\\
-           subcat & \eliste\\
+           comps & \eliste\\
          }\\
 cont & \ibox{2} \ms[all]{
                restind & \ibox{1}\\ 
@@ -685,7 +685,7 @@ einen von \type{none} verschiedenen \textsc{spec}-Wert besitzt, so ist dieser to
 der Kopf"|tochter.
 \end{prinzip-break}
 In Nominalstrukturen gibt es somit eine gegenseitige Selektion: Zum einen selegiert das
-Nomen den Determinator über \subcat und zum anderen selegiert der Determinator das Nomen
+Nomen den Determinator über \comps und zum anderen selegiert der Determinator das Nomen
 über \textsc{spec}.
 
 Ähnlich liegen die Verhältnisse in Nominalstrukturen mit Possessivpronomen.
@@ -716,7 +716,7 @@ auf \emph{Karl}, obwohl \emph{Max} der Besitzer ist.
 
 Wenn also das Kopfnomen eine Rolle in der \relation{besitzen}"=Relation füllt, muss der
 referentielle Index des Kopfnomens für das Possessivum zugänglich sein. Da der Determinator
-aber nicht der Kopf ist, hat er das Nomen nicht in seiner \subcatl. Auch hier hilft
+aber nicht der Kopf ist, hat er das Nomen nicht in seiner \compsl. Auch hier hilft
 wieder das Selektionsmerkmal \textsc{spec}. In Determinator"=Nomen"=Strukturen
 ist der Wert von \textsc{spec} identisch mit dem Nomen. (\mex{1}) zeigt den Lexikoneintrag
 für die feminine Form im Nominativ/""Akkusativ von \emph{sein}:\NOTE{FB: location erklären}
@@ -731,7 +731,7 @@ cat & \ms{ head & \ms[det]{
 %                       dtype & 3 \\
                        spec & \textrm{N:[\textsc{ind} \ibox{1}, \textsc{restr} \ibox{2}]} \\
                       } \\
-            subcat & \liste{} \\
+            comps & \liste{} \\
            } \\
 cont & \ms{ ind & \ibox{3} \ms{ 
                             per & 3 \\
@@ -797,7 +797,7 @@ einfacher zu sein. Für den Quantor \emph{alle} könnte man die Struktur in (\me
 \emph{alle} in der DP-Analyse:\\
 \ms{
 cat    & \ms{ head   & det\\
-           subcat & \sliste{ NP:\ibox{1} }\\
+           comps & \sliste{ NP:\ibox{1} }\\
          }\\
 cont   & \ibox{1}\\
 qstore & \sliste{  \ms[all]{
@@ -816,7 +816,7 @@ hier folgenden Lexikoneintrag vorstellen:
 \textit{seine} (falsch):\\
 \ms{
 cat & \ms{ head    & det\\
-           subcat & \sliste{ NP:[\textsc{ind} \ibox{1}, \textsc{restr} \ibox{2}] } \\
+           comps & \sliste{ NP:[\textsc{ind} \ibox{1}, \textsc{restr} \ibox{2}] } \\
          } \\
 cont & \ms{ ind & \ibox{3} \ms{ 
                             per & 3 \\
@@ -842,7 +842,7 @@ würde also eine Struktur bekommen, die durch (\mex{1}) beschrieben wird:
 \textit{seine Mutter} (falsch):\\
 \ms{
 cat & \ms{ head    & det\\
-           subcat & \sliste{ } \\
+           comps & \sliste{ } \\
          } \\
 cont & \ms{ ind & \ibox{3} \ms{ 
                             per & 3 \\
@@ -886,7 +886,7 @@ repräsentiert:
 \oneline{%
 \ms{
 cat & \ms{ head    & det\\
-           subcat & \sliste{ NP:[\textsc{ind} \ibox{1}, \textsc{restr} \ibox{2}] } \\
+           comps & \sliste{ NP:[\textsc{ind} \ibox{1}, \textsc{restr} \ibox{2}] } \\
          } \\
 cont & \ms{ ind & \ibox{1} \\
           } \\

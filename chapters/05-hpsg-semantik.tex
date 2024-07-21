@@ -161,19 +161,19 @@ Erweitert man die bisherige Beschreibung einfach um dieses Merkmal, so erhält m
 \ea
       \ms{ phon   & list~of~phoneme strings\\
            head   & head \\
-           subcat & list~of~signs\\
+           comps & list~of~signs\\
            cont   & cont\\
          }\\
 \z
 Es ist aber sinnvoll, noch eine stärkere Gliederung vorzunehmen und zwischen syntaktischer und semantischer
 Information zu trennen. Dazu führt man das Merkmal \textsc{category}\isfeat{cat} (Abkürzung \textsc{cat}) ein. Der Wert
-von \textsc{cat} ist eine Merkmalstruktur mit den Merkmalen \textsc{head} und \textsc{subcat}. (\mex{1})
+von \textsc{cat} ist eine Merkmalstruktur mit den Merkmalen \textsc{head} und \textsc{comps}. (\mex{1})
 zeigt eine entsprechende Beschreibung:
 \ea
 \label{geom-cat-cont}
       \ms{ phon & list~of~phoneme strings\\
            cat  & \ms{ head   & head\\
-                            subcat & list~of~signs\\
+                            comps & list~of~signs\\
                           } \\
            cont & cont\\
          }
@@ -219,7 +219,7 @@ Der Wert von \textsc{restrictions} ist eine Liste der jeweiligen Restriktionen.\
 Lexikoneintrag für \textit{Buch\/}:\\
 \ms{ 
   cat & \ms{ head & noun\\
-             subcat & \sliste{ Det } \\
+             comps & \sliste{ Det } \\
            } \\
   cont &  \ms
            { ind & \ibox{1} \ms{ per & 3 \\
@@ -264,7 +264,7 @@ verwendet zu werden.
 Lexikoneintrag für \emph{er}:\\
 \ms{ 
   cat & \ms{ head   & noun\\
-             subcat & \sliste{ } \\
+             comps & \sliste{ } \\
            } \\
   cont &  \ms
            { ind & \ms{ per & 3   \\
@@ -289,7 +289,7 @@ Im folgenden werden die Abkürzungen in (\mex{1}) verwendet:
 \label{abkuerzungen-sem}
 \begin{tabular}[t]{@{}lp{4.8cm}@{\hspace{0mm}}lp{4.2cm}@{}}
 NP$_{[3,sg,fem]}$     & \onems{ cat \ms{ head & \type{noun} \\
-                                         subcat & \liste{} \\
+                                         comps & \liste{} \\
                                        } \\
                                 cont$|$ind \ms{ per & 3 \\
                                                 num & sg \\
@@ -297,13 +297,13 @@ NP$_{[3,sg,fem]}$     & \onems{ cat \ms{ head & \type{noun} \\
                                               } \\
                               }  &
 NP$_{\ibox{1}}$ & \onems{ cat  \ms{ head & \type{noun} \\
-		                  subcat & \liste{} \\
+		                  comps & \liste{} \\
                                 } \\
                        cont$|$ind \ibox{1}\\
                      }\\\\
 \is{:}%
 \baro{N}:\label{ex-abkuerzung-nbar} \ibox{1} & \ms{ cat & \ms{ head   & noun \\
-                                     subcat & \sliste{ Det } \\
+                                     comps & \sliste{ Det } \\
                                    } \\
                           cont & \ibox{1} \\
                         } \\
@@ -377,7 +377,7 @@ Die referentiellen Indizes der Nominalphrasen sind mit den semantischen Rollen i
 \ms
 { cat & \ms{ head & \ms[verb]
                      { vform & fin \\} \\
-             subcat & \liste{ NP[\textit{nom\/}]\ind{1}, NP[\textit{acc}]\ind{2}, NP[\textit{dat}]\ind{3}   } \\
+             comps & \liste{ NP[\textit{nom\/}]\ind{1}, NP[\textit{acc}]\ind{2}, NP[\textit{dat}]\ind{3}   } \\
            } \\
   cont &  \ms[geben]{ agens & \ibox{1} \\
                       thema & \ibox{2} \\
@@ -394,7 +394,7 @@ in Typhierarchien spezifizieren und die spezifischen Lexikoneinträge diesen Mus
 Verben mit Agens, Thema und Goal hat die Form in (\mex{1}):
 \ea
 \onems
-{ cat$|$subcat \liste{ []\ind{1}, []\ind{2}, []\ind{3}  } \\[1mm]
+{ cat$|$comps \liste{ []\ind{1}, []\ind{2}, []\ind{3}  } \\[1mm]
   cont  \ms[agens-thema-goal-rel~]{ agens & \ibox{1} \\
                       thema & \ibox{2} \\
                       goal  & \ibox{3} \\
@@ -405,7 +405,7 @@ Verben mit Agens, Thema und Goal hat die Form in (\mex{1}):
 \iboxt{1}. 
 %% \etag steht für einen unspezifizierten Wert. In (\mex{0}) kann \etag die leere Liste
 %% sein oder aber auch eine Liste mit einem oder mehreren Elementen. Wichtig ist nur, dass
-%% die \subcatl mit drei Elementen beginnt, deren Index mit Werten von Argumentrollen innerhalb von \cont
+%% die \compsl mit drei Elementen beginnt, deren Index mit Werten von Argumentrollen innerhalb von \cont
 %% identisch ist.
 Der Typ für die Relation \textit{geben\/} ist Untertyp von \textit{agens-thema-goal-rel\/}.
 Der Lexikoneintrag für das Wort \emph{geben} bzw.\ den Stamm \stem{geb} hat das Linking"=Muster in (\mex{0}).
@@ -426,16 +426,16 @@ Beitrag des Kopfes identisch. Das verdeutlicht Abbildung~\vref{abb-sem-proj}.
 \oneline{%
 \begin{forest}
 sm edges, for tree={l sep+=\baselineskip}
-[{V[\type{fin}, \subcat \sliste{ } ]}, name=1
+[{V[\type{fin}, \comps \sliste{ } ]}, name=1
   [ {\ibox{1} NP[\type{nom}]}
     [Aicke]]
-  [{V[\type{fin}, \subcat \sliste{ \ibox{1} } ]}, name=2
+  [{V[\type{fin}, \comps \sliste{ \ibox{1} } ]}, name=2
     [ {\ibox{2} NP[\type{dat}]}
       [dem Eichhörnchen, roof]]
-    [{V[\type{fin}, \subcat \sliste{ \ibox{1}, \ibox{2} } ]}, name=3
+    [{V[\type{fin}, \comps \sliste{ \ibox{1}, \ibox{2} } ]}, name=3
       [ {\ibox{3} NP[\type{acc}]}
         [die Nuss, roof]]
-      [{V[\type{fin}, \subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} } ]}, name=4
+      [{V[\type{fin}, \comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} } ]}, name=4
         [gibt]]]]]
 \draw[<->] (4) to[out=east,in=east] (3);
 \draw[<->] (3) to[out=east,in=east] (2);
@@ -501,11 +501,11 @@ Head-Argument-Schema + Kopfmerkmalsprinzip + Semantikprinzip:\\
 \onems[head-argument-phrase~]{
 \label{ha-struc-mit-constraints}
 cat  \ms{ head   & \ibox{1} \\
-           subcat & \ibox{2} \\ 
+           comps & \ibox{2} \\ 
          }\\
 cont  \ibox{3}\\[2mm]
 head-dtr   \ms{ cat & \ms{ head   & \ibox{1} \\
-                            subcat & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
+                            comps & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
                           } \\
                  cont & \ibox{3} \\
                }\\
@@ -590,7 +590,7 @@ Repräsentation für \emph{er den Hund schlägt}:\\
 phon \phonliste{ er den Hund schlägt }\\
 cat  \ms{ head  & \ibox{1} \ms[verb]{ vform & fin\\
                            }\\
-          subcat & \sliste{ }\\
+          comps & \sliste{ }\\
         }\\
 cont \ibox{2} \ms[schlagen]{
        agens & \ibox{3}\\
@@ -613,13 +613,13 @@ context$|$inds \liste{ \ibox{5} \ms{
                        }}\\
 head-dtr \onems{ phon \phonliste{ den Hund schlägt }\\
                  cat  \ms{ head & \ibox{1} \\
-                           subcat & \sliste{ \ibox{7} }\\
+                           comps & \sliste{ \ibox{7} }\\
                          }\\
                  cont \ibox{2}\\
                  context$|$inds \liste{ \ibox{6} }\\
                  head-dtr \ms{ phon \phonliste{ schlägt }\\
                                cat  \ms{ head  & \ibox{1} \\
-                                         subcat & \sliste{ \ibox{7}, \ibox{8} }\\
+                                         comps & \sliste{ \ibox{7}, \ibox{8} }\\
                                        }\\
                                cont \ibox{2} \\
                                context$|$inds \liste{}\\
@@ -628,7 +628,7 @@ head-dtr \onems{ phon \phonliste{ den Hund schlägt }\\
                                         phon \phonliste{ den Hund }\\
                                         cat  \ms{ head  & \ms[noun]{ case & acc\\
                                                                    }\\
-                                                  subcat & \sliste{ }\\
+                                                  comps & \sliste{ }\\
                                                 }\\
                                         cont \ibox{6} \\
                                         context$|$inds \liste{ \ibox{6} }\\
@@ -638,7 +638,7 @@ non-head-dtrs \liste{ \ibox{7} \onems{
                 phon \phonliste{ er }\\
                 cat  \ms{ head  & \ms[noun]{ case & nom\\
                                            }\\
-                          subcat & \sliste{ }\\
+                          comps & \sliste{ }\\
                         }\\
                 cont \ibox{5} \\
                 context$|$inds \liste{ \ibox{5} }\\

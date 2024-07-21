@@ -140,9 +140,9 @@ Hinrichs und Nakazawa vorgeschlagenen ist, lizenziert die Prädikatskomplexe\is{
 \label{schema-vk}
 \type{head"=cluster"=phrase}\istype{head"=cluster"=phrase} \impl\\
 \ms{
- synsem & \onems{ loc$|$cat$|$subcat \ibox{1} \\ 
+ synsem & \onems{ loc$|$cat$|$comps \ibox{1} \\ 
                 } \\
- head-dtr & \onems{ synsem$|$loc$|$cat$|$subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} }\\ } \\
+ head-dtr & \onems{ synsem$|$loc$|$cat$|$comps \ibox{1} $\oplus$ \sliste{ \ibox{2} }\\ } \\
  nonhead-dtrs & \sliste{ [ \synsem  \ibox{2} ]                     } \\
 }
 \end{schema}
@@ -160,9 +160,9 @@ Verben interagiert.
 
 Für das Hilfsverb\is{Verb!Hilfs-} \emph{werden} nehme ich die Repräsentation in (\mex{1}) an:\footnote{\label{subj-fn}%
         \citet{Pollard90a} und \citet*{Kiss92} haben vorgeschlagen, das Subjekt infiniter
-Verben nicht in der \textsc{subcat}"=Liste des Verbs, sondern als Element einer gesonderten Liste (\subj)
+Verben nicht in der \textsc{comps}"=Liste des Verbs, sondern als Element einer gesonderten Liste (\subj)
 zu repräsentieren. Aus Gründen der Übersichtlichkeit habe ich im folgenden die Subjekte finiter
-und infiniter Verben gleichermaßen auf der \textsc{subcat}"=Liste repräsentiert. Diese Annahme
+und infiniter Verben gleichermaßen auf der \textsc{comps}"=Liste repräsentiert. Diese Annahme
 wird im Kapitel~\ref{sec-subj-merkmal} revidiert.%
 %% Die separate
 %% Repräsentation des Subjekts infiniter Verben sagt vorher, dass Subjekte nicht innerhalb
@@ -183,16 +183,16 @@ wird im Kapitel~\ref{sec-subj-merkmal} revidiert.%
 \emph{wird} (Futur-Hilfsverb):\\
 \ms[cat]{
  head   & \type{verb}\\*
- subcat & \ibox{1} $\oplus$ \sliste{ \textsc{V[\type{bse}, \textsc{lex}+, subcat~\ibox{1}]}} \\
+ comps & \ibox{1} $\oplus$ \sliste{ \textsc{V[\type{bse}, \textsc{lex}+, comps~\ibox{1}]}} \\
 }
 \zs
-%% Hierbei ist V[\type{bse}, \textsc{lex}+, subcat~\ibox{1}] eine Abkürzung für (\mex{2}):
+%% Hierbei ist V[\type{bse}, \textsc{lex}+, comps~\ibox{1}] eine Abkürzung für (\mex{2}):
 %% \ea
 %% \ms{
 %% loc & \ms{ cat & \ms{ head & \ms[verb]{
 %%                              vform & bse\\
 %%                              }\\
-%%                       subcat & \ibox{1}\\
+%%                       comps & \ibox{1}\\
 %%                     }\\
 %%         }\\
 %% lex & +\\
@@ -200,7 +200,7 @@ wird im Kapitel~\ref{sec-subj-merkmal} revidiert.%
 %% \z
 \emph{werden} selegiert ein Verb in der \type{bse}"=Form\istype{bse}\footnote{%
   \emph{bse} ist die Abkürzung für \emph{base}.%
-}, \dash einen Infinitiv ohne \emph{zu}. Bevor das \lexm erklärt wird, soll der Aufbau der \subcatl
+}, \dash einen Infinitiv ohne \emph{zu}. Bevor das \lexm erklärt wird, soll der Aufbau der \compsl
 des Hilfsverbs anhand eines Beispiels erklärt werden:
 Im Satz (\mex{1}) übernimmt \emph{wird} die Teilspezifikationen der Argumente
 \emph{Karl} und \emph{mir} von \emph{helfen}. 
@@ -208,8 +208,8 @@ Im Satz (\mex{1}) übernimmt \emph{wird} die Teilspezifikationen der Argumente
 dass Karl mir helfen wird
 \z
 Diese Übernahme erfolgt mit Hilfe der durch die Box \iboxt{1} ausgedrückten Strukturteilung.
-Die \textsc{subcat}"=Liste von \emph{helfen wird} hat also die gleiche Form wie die 
-\textsc{subcat}"=Liste für \emph{hilft}. Man sagt auch, dass das Hilfsverb die Argumente des
+Die \textsc{comps}"=Liste von \emph{helfen wird} hat also die gleiche Form wie die 
+\textsc{comps}"=Liste für \emph{hilft}. Man sagt auch, dass das Hilfsverb die Argumente des
 eingebetteten Verbs anhebt bzw.\ anzieht und spricht von Argumentanziehung\is{Argument!anziehung@-anziehung}, Argumentanhebung\is{Argument!anhebung@-anhebung}
 bzw.\ Argumentkomposition\is{Argument!komposition@-komposition}. Die Kombination von \emph{helfen} und \emph{wird}
 zeigt Abbildung~\vref{abb-helfen-wird}.
@@ -330,7 +330,7 @@ Mit der hier angegebenen Beschränkung für angehobene Elemente wird
 \label{constr-non-complex-forming}
 list\_of\_non\_c\_forming\_synsems(\eliste).\\\\
 list\_of\_non\_c\_forming\_synsems(\liste{ \onems{ loc$|$cat \onems{ %head$|$prd $-$\\
-                                                          subcat \eliste\\
+                                                          comps \eliste\\
                                                         }\\
                                                 lex $-$\\
                                                 } $|$ \textrm{Rest} }) :=\\\\
@@ -427,7 +427,7 @@ das Buch, das lesen niemand wird
 }
 \z
 Die Sätze in (\mex{-1}) können mit dem Kopf"=Argument"=Schema analysiert werden,
-da dieses eine Kombination der Elemente in der \subcatl von \emph{wird} in beliebiger
+da dieses eine Kombination der Elemente in der \compsl von \emph{wird} in beliebiger
 Reihenfolge zuläßt. Genauso gibt es eine Analyse für (\mex{0}): \emph{lesen} und \emph{niemand}
 werden mit \emph{wird} über das Kopf"=Argument"=Schema kombiniert. Eine Spur nimmt den Platz
 für das Relativpronomen in einer Kopf"=Argument"=Struktur ein, und das Relativsatzschema lizenziert
@@ -446,11 +446,11 @@ das entsprechend angepaßte Schema.\is{Schema!Kopf"=Argument"=}
 \label{schema-bin}
 \type{head"=argument"=phrase}\istype{head"=argument"=phrase} \impl\\
 \onems{
-      synsem$|$loc$|$cat$|$subcat \ibox{1} $\oplus$ \ibox{3}\\
+      synsem$|$loc$|$cat$|$comps \ibox{1} $\oplus$ \ibox{3}\\
 % das gilt für mehrere Schemata
 %                     lex $-$\\
 %                }\\
-      head-dtr$|$cat$|$subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3} \\
+      head-dtr$|$cat$|$comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3} \\
       non-head-dtrs \sliste{ [ \synsem  \ibox{2} \textrm{[\textsc{lex}  $-$ ]} ] }\\
 }
 \end{schema}\isfeat{lex}

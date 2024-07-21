@@ -83,7 +83,7 @@ Bisher wurden binär verzweigende Strukturen angenommen (Schema~\ref{schema-bin-
 Seite~\pageref{schema-bin-prel} und Schema~\ref{ha-schema} auf Seite~\pageref{ha-schema}).
 Mit den entsprechenden Schemata können wir (\mex{-2}b), (\mex{-1}) und auch (\mex{0})
 ohne Probleme analysieren: Bei der Analyse von (\mex{-2}b) wird das Verb mit dem jeweils
-letzten Element der \subcatl kombiniert. Bei der Analyse der Sätze in (\mex{-1})
+letzten Element der \compsl kombiniert. Bei der Analyse der Sätze in (\mex{-1})
 wird eine bestimmte Verbalprojektion mit einem Adjunkt kombiniert, und die verbleibenden
 Argumente werden danach gesättigt. Die unterschiedliche Bedeutung der Sätze in (\mex{0})
 ergibt sich daraus, dass in (\mex{0}a) \emph{absichtlich} mit der Projektion \emph{nicht lacht} verbunden
@@ -92,21 +92,21 @@ wird, wohingegen in (\mex{0}b) \emph{nicht} mit \emph{absichtlich lacht} kombini
 Es bleibt zu klären, wodurch die Abfolgen in (\mex{-2}a,c--f) lizenziert sind. Diese
 Sätze lassen sich nach einer leichten Änderung des Kopf"=Argument"=Schemas ebenfalls
 analysieren: Das Schema muß so abgeändert werden, dass es die Sättigung von Argumenten
-in beliebiger Reihenfolge erlaubt. Das wird dadurch erreicht, dass die \subcatl nicht
+in beliebiger Reihenfolge erlaubt. Das wird dadurch erreicht, dass die \compsl nicht
 in einen Listenanfang und einen einelementigen Rest sondern in drei Teile geteilt wird: Der erste
 Teil ist eine Liste beliebiger Länge (\,\ibox{1} im Schema~\ref{schema-bin-prel2}), der zweite eine einelementige Liste (\sliste{
   \ibox{2} }) und der dritte wieder eine
 Liste beliebiger Länge \iboxb{3}.\footnote{
   \citet{Gunji86a} hat in seiner Analyse des Japanischen\il{Japanisch} die Verwendung eines
-  mengenwertigen \textsc{subcat}"=Merkmals vorgeschlagen, wodurch ebenfalls eine variable Sättigungsreihenfolge
+  mengenwertigen \textsc{comps}"=Merkmals vorgeschlagen, wodurch ebenfalls eine variable Sättigungsreihenfolge
   entsteht. \citet{HN89a}, \citet{Pollard90a} und \citet*{EEU92a} nehmen für das Deutsche
-  ein mengenwertiges \subcatm an. Die Verwendung eines listenwertigen Merkmals hat den
+  ein mengenwertiges \compsm an. Die Verwendung eines listenwertigen Merkmals hat den
   Vorteil, dass die Elemente geordnet sind und man somit Beschränkungen, die sich auf
   Hierarchien beziehen, formulieren kann. Siehe Seite~\pageref{page-obliquen-h} zur Obliqueness"=Hierarchie. % Nee, steht da nicht drin. \citep[\page ]{Mueller2004b}.
 % wohl wegen ARG-ST
 
-  \citet[\page185]{FR92} und \citet[\page218--223]{Kiss95b} nehmen ebenfalls eine \subcatl und ein Valenzprinzip an, das es erlaubt,
-  einen Kopf mit einem beliebigen Element aus der \subcatl zu kombinieren.%
+  \citet[\page185]{FR92} und \citet[\page218--223]{Kiss95b} nehmen ebenfalls eine \compsl und ein Valenzprinzip an, das es erlaubt,
+  einen Kopf mit einem beliebigen Element aus der \compsl zu kombinieren.%
 }
 Das Kopf"=Argument"=Schema hat also folgende Form:
 \begin{samepage}
@@ -114,8 +114,8 @@ Das Kopf"=Argument"=Schema hat also folgende Form:
 \label{schema-bin-prel2}\is{Schema!Kopf"=Argument"=}
 \type{head"=argument"=phrase}\istype{head"=argument"=phrase} \impl\\
 \onems{
-      cat$|$subcat \ibox{1} $\oplus$ \ibox{3}\\
-      head-dtr$|$cat$|$subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3} \\
+      cat$|$comps \ibox{1} $\oplus$ \ibox{3}\\
+      head-dtr$|$cat$|$comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3} \\
       non-head-dtrs \sliste{ \ibox{2} }\\
 }
 \end{schema}
@@ -133,13 +133,13 @@ Abbildung~\ref{abb-den-Roman-niemand-kennt}.%
 \begin{figure}
 \begin{forest}
 sm edges
-[{V[\subcat \eliste]}
+[{V[\comps \eliste]}
   [{\ibox{1} NP[\textit{nom}]}
     [niemand]]
-  [{V[\subcat \nliste{ \ibox{1} }]}
+  [{V[\comps \nliste{ \ibox{1} }]}
     [{\ibox{2} NP[\type{acc}]}
        [den Roman,roof]]
-    [{V[\subcat \nliste{ \ibox{1}, \ibox{2} } ]}
+    [{V[\comps \nliste{ \ibox{1}, \ibox{2} } ]}
       [kennt]]]]
 \end{forest}
 \caption{\label{abb-niemand-den-Roman-kennt}Analyse für \emph{jeder das Buch kennt}}
@@ -147,24 +147,24 @@ sm edges
 \begin{figure}
 \begin{forest}
 sm edges
-[{V[\subcat \eliste]}
+[{V[\comps \eliste]}
   [{\ibox{2} NP[\type{acc}]}
      [den Roman,roof]]
-  [{V[\subcat \nliste{ \ibox{2} }]}
+  [{V[\comps \nliste{ \ibox{2} }]}
     [{\ibox{1} NP[\textit{nom}]}
       [niemand]]
-    [{V[\subcat \nliste{ \ibox{1}, \ibox{2} } ]}
+    [{V[\comps \nliste{ \ibox{1}, \ibox{2} } ]}
       [kennt]]]]
 \end{forest}
 \caption{\label{abb-den-Roman-niemand-kennt}Analyse für \emph{den Roman niemand kennt}}
 \end{figure}
-Die beiden Analysen unterscheiden sich einzig und allein darin, welches Element der \subcatl
+Die beiden Analysen unterscheiden sich einzig und allein darin, welches Element der \compsl
 zuerst abgebunden wird: In Abbildung~\ref{abb-niemand-den-Roman-kennt} wird zuerst das Akkusativobjekt
 mit dem Verb kombiniert und in Abbildung~\ref{abb-den-Roman-niemand-kennt} zuerst das Subjekt. In der
 Analyse in Abbildung~\ref{abb-niemand-den-Roman-kennt} ist bei der Kombination von \emph{das Buch} und
 \emph{kennt} die \ibox{3} aus Schema~\ref{schema-bin-prel2} die leere Liste und \ibox{1} die Liste
 \sliste{ NP[\type{nom}] }. Die Verkettung von \ibox{1} und \ibox{3} ist demzufolge ebenfalls
-\sliste{ NP[\type{nom}] }, weshalb der \subcatw der Verknüpfung aus \emph{das Buch} und \emph{kennt}
+\sliste{ NP[\type{nom}] }, weshalb der \compsw der Verknüpfung aus \emph{das Buch} und \emph{kennt}
 die Liste \sliste{ NP[\type{nom}] } ist (\sliste{ \ibox{1} } in
 Abbildung~\ref{abb-niemand-den-Roman-kennt}).  Das Nominativargument wird im zweiten Schritt gesättigt:
 Bei der Verbindung von \emph{jeder} mit \emph{das Buch kennt} sind sowohl \ibox{1} als auch \ibox{3}
@@ -205,7 +205,7 @@ theoretischen Annahmen Auswirkungen auf die Bindungstheorie\is{Bindungstheorie} 
 Beschränkungen bzgl.\ möglicher Bezüge referentieller Ausdrücke. Für HPSG"=Analysen
 ist die Verzweigungsrichtung jedoch irrelevant, denn die Bindungsprinzipien sind mit Hilfe von
 o"=Kommando\is{o"=Kommando} definiert \citep[Kapitel~6]{ps2} und o"=Kommando nimmt Bezug auf die
-Obliqueness"=Hierarchie\is{Obliqueness}, \dash auf die Reihenfolge der Elemente in der \subcatl und nicht auf die
+Obliqueness"=Hierarchie\is{Obliqueness}, \dash auf die Reihenfolge der Elemente in der \compsl und nicht auf die
 Richtung, in der diese Elemente mit ihrem Kopf kombiniert werden. 
 }
 
@@ -322,7 +322,7 @@ die ihren Argumenten vorangehen, den \initialw `+' geben und Köpfen, die ihren 
 den Wert `--'. Die Linearisierungsregeln in (\mex{1}) sorgen dann dafür, dass ungrammatische
 Abfolgen wie die in (\mex{-1}a,b) ausgeschlossen sind.\footnote{
   Nominalphrasen sind in bezug auf (\mex{1}) ein Problem: Der Determinierer wurde bisher wie
-  ein Argument behandelt und in der \subcatl des Kopfnomens aufgeführt. Determinierer stehen allerdings
+  ein Argument behandelt und in der \compsl des Kopfnomens aufgeführt. Determinierer stehen allerdings
   links des Nomens, wohingegen alle anderen Argumente des Nomens rechts stehen. Man kann dieses Problem
   entweder dadurch lösen, dass man die Linearisierungsregeln entsprechend verfeinert oder dadurch,
   dass man ein spezielles Valenzmerkmal für Determinatoren einführt. \citet[Abschnitt~9.4]{ps2} verwenden
@@ -358,20 +358,20 @@ Kopf"=Argument"=Strukturen durch die Grammatik lizenziert werden, die durch (\me
 \eal
 \ex \onems{
 phon \ibox{1} $\oplus$ \ibox{2}\\ 
-cat$|$subcat \ibox{3} $\oplus$ \ibox{4}\\
+cat$|$comps \ibox{3} $\oplus$ \ibox{4}\\
 head-dtr \ms{ phon & \ibox{1}\\
               cat  & \ms{ head$|$initial +\\
-                          subcat \ibox{3} $\oplus$ \ibox{5} $\oplus$ \ibox{4} \\
+                          comps \ibox{3} $\oplus$ \ibox{5} $\oplus$ \ibox{4} \\
                         }\\
             }\\
 non-head-dtrs \sliste{ \ibox{5} [ \phon \ibox{2} ] }\\
 }
 \ex \onems{
 phon \ibox{2} $\oplus$ \ibox{1}\\ 
-cat$|$subcat \ibox{3} $\oplus$ \ibox{4}\\
+cat$|$comps \ibox{3} $\oplus$ \ibox{4}\\
 head-dtr \ms{ phon & \ibox{1}\\
               cat  & \ms{ head$|$initial $-$\\
-                          subcat \ibox{3} $\oplus$ \ibox{5} $\oplus$ \ibox{4} \\
+                          comps \ibox{3} $\oplus$ \ibox{5} $\oplus$ \ibox{4} \\
                         }\\
             }\\
 non-head-dtrs \sliste{ \ibox{5} [ \phon \ibox{2} ] }\\
@@ -463,14 +463,14 @@ Valenzmerkmal (\textsc{spr}\isfeat{spr}) gibt. Die entsprechende Analyse von
 \begin{forest}
 sm edges
 [N\feattab{\spr \eliste,\\
-           \subcat \eliste}
+           \comps \eliste}
   [\ibox{1} Det [die]]
   [N\feattab{\spr \sliste{ \ibox{1} },\\
-           \subcat \eliste}
+           \comps \eliste}
     [N\feattab{\spr \sliste{ \ibox{1} },\\
-           \subcat \sliste{ \ibox{2} }}
+           \comps \sliste{ \ibox{2} }}
       [N\feattab{\spr \sliste{ \ibox{1} },\\
-           \subcat \sliste{ \ibox{2}, \ibox{3} }}
+           \comps \sliste{ \ibox{2}, \ibox{3} }}
          [Zerstörung]]
       [\ibox{3} {NP[\type{gen}]}
         [der Stadt,roof]]]
@@ -487,7 +487,7 @@ auf Seite~\pageref{schema-bin-prel} ist.
 \onems{
       cat$|$spr \ibox{1} \\
       head-dtr$|$cat  \ms{ spr    & \ibox{1} $\oplus$ \sliste{ \ibox{2} } \\
-                           subcat & \eliste \\
+                           comps & \eliste \\
                          }\\
       non-head-dtrs \sliste{ \ibox{2} }\\
       }
@@ -499,20 +499,20 @@ Für das Nomen \emph{Zerstörung} wird der folgende \catw angenommen:
 \ms{ head & \ms[noun]{ initial & +\\
                      }\\
      spr & \sliste{ Det }\\
-           subcat & \sliste{ NP[\gen], PP[\type{durch}] }\\[2mm]
+           comps & \sliste{ NP[\gen], PP[\type{durch}] }\\[2mm]
          }
 \z
 Das Kopf"=Argument"=Schema lizenziert die Phrasen  \emph{Zerstörung der Stadt}
 und  \emph{Zerstörung der Stadt durch die Soldaten}. Die Phrase  \emph{Zerstörung der Stadt durch
-  die Soldaten} hat eine leere \subcatl und einen Determinator in \textsc{spr}. Damit kann sie als
+  die Soldaten} hat eine leere \compsl und einen Determinator in \textsc{spr}. Damit kann sie als
 Kopf"|tochter in das Schema~\ref{schema-spr-h} eingesetzt werden und dann mit einem Determinator zur
-Nominalphrasen in (\ref{ex-die-zerstoerung-der-stadt-dds}) kombiniert werden. Die Spezifikation der \subcatl der Kopf"|tochter
+Nominalphrasen in (\ref{ex-die-zerstoerung-der-stadt-dds}) kombiniert werden. Die Spezifikation der \compsl der Kopf"|tochter
 im Schema~\ref{schema-spr-h} ist wichtig, da man sonst für (\ref{ex-die-zerstoerung-der-stadt-dds})
 eine ungewollte Analyse bekäme, in der das Nomen zuerst mit dem Spezifikator und erst danach
 mit den anderen Argumenten kombiniert würde. Man hätte dann zwei Analysen für
 (\ref{ex-die-zerstoerung-der-stadt-dds}) mit derselben Bedeutung. Da den beiden Strukturen keine
 Mehrdeutigkeit der Phrase zugrunde liegt, nennt man solche Zuweisung mehrerer Strukturen
-\emph{unechte Mehrdeutigkeit}\is{Mehrdeutigkeit!unechte}. Durch die Spezifikation des \subcatwes wird
+\emph{unechte Mehrdeutigkeit}\is{Mehrdeutigkeit!unechte}. Durch die Spezifikation des \compswes wird
 solch eine unechte Mehrdeutigkeit verhindert.
 
 Die Anordnung der Elemente in der NP wird dann durch die Linearisierungsregel in (\ref{lp-ini-arg})
@@ -522,7 +522,7 @@ jeweiligen Köpfen stehen:
 Specifier $<$ Head
 \z
 Die Regel in (\ref{lp-ini-arg}) sorgt dafür, dass \emph{Zerstörung} vor allen Elementen steht, die in seiner
-\subcatl enthalten sind, \dash vor \emph{der Stadt} und \emph{durch die Soldaten}, und die Regel in
+\compsl enthalten sind, \dash vor \emph{der Stadt} und \emph{durch die Soldaten}, und die Regel in
 (\mex{0}) sorgt dafür, dass der Determinator \emph{die} vor \emph{Zerstörung der Stadt durch die
 Soldaten} angeordnet wird.\is{Determinator!Stellung|)}
 
@@ -713,7 +713,7 @@ Verbspur für \emph{kennt}:\\\samepage
 phon & \phonliste{}\\
 cat  & \ms{ head & \ms[verb]{ vform & fin\\
                             }\\
-            subcat & \sliste{ \npnom\ind{1}, \npacc\ind{2} }\\
+            comps & \sliste{ \npnom\ind{1}, \npacc\ind{2} }\\
           }\\
 cont & \ms[kennen]{
        experiencer & \ibox{1}\\
@@ -728,15 +728,15 @@ dargestellt.
 \begin{figure}
 \begin{forest}
 sm edges
-[{V[\subcat \eliste]}
+[{V[\comps \eliste]}
   [V [kennt]]
-  [{V[\subcat \eliste]}
+  [{V[\comps \eliste]}
     [{\ibox{1} NP[\type{nom}]}
       [jemand]]
-    [{V[\subcat \sliste{ \ibox{1} } ]}
+    [{V[\comps \sliste{ \ibox{1} } ]}
       [{\ibox{2} NP[\type{acc}]}
         [den Roman, roof]]
-      [{V[\subcat \sliste{ \ibox{1}, \ibox{2} } ]}
+      [{V[\comps \sliste{ \ibox{1}, \ibox{2} } ]}
         [\trace]]]]]
 \end{forest}
 \caption{\label{verb-movement-syn-simple}Analyse von \emph{Kennt jemand den Roman?}}
@@ -784,7 +784,7 @@ wird also zu (\mex{1}) erweitert:
 \ms{ phon & list~of~phoneme strings\\
      loc & \ms{
            cat  & \ms{ head   & head\\
-                            subcat & list~of~signs\\
+                            comps & list~of~signs\\
                           } \\
            cont & cont\\
          }\\
@@ -801,7 +801,7 @@ Verbspur für \emph{kennt}:\\\samepage
 phon & \phonliste{}\\
 loc  & \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin\\
                                         }\\
-                        subcat & \sliste{ \npnom\ind{1}, \npacc\ind{2} }\\
+                        comps & \sliste{ \npnom\ind{1}, \npacc\ind{2} }\\
                       }\\
             cont & \ms[kennen]{
                     experiencer & \ibox{1}\\
@@ -815,7 +815,7 @@ loc  & \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin\\
 Unter \textsc{local} steht nun alle Information, die in lokalen Kontexten eine Rolle spielt.
 Diese Information wird zwischen Spur und Verb geteilt. Bisher ist es jedoch noch nicht möglich,
 eine entsprechende Strukturteilung vorzunehmen, denn das Verb \emph{kennt} kann ja nur
-die Eigenschaften der Projektion der Spur selegieren und die \subcatl der selegierten
+die Eigenschaften der Projektion der Spur selegieren und die \compsl der selegierten
 Projektion ist die leere Liste, was uns wieder zu dem Problem mit (\ref{bsp-kennt-gibt}) bringt. Man
 muß also sicherstellen, dass die gesamte Information über die Verbspur am obersten Knoten
 ihrer Projektion verfügbar ist. Das kann man erreichen, indem man ein entsprechendes Kopfmerkmal
@@ -846,7 +846,7 @@ phon & \phonliste{}\\
 loc  & \ibox{1} \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin\\
                                                    dsl   & \ibox{1}\\
                                         }\\
-                        subcat & \sliste{ \npnom\ind{2}, \npacc\ind{3} }\\
+                        comps & \sliste{ \npnom\ind{2}, \npacc\ind{3} }\\
                       }\\
             cont & \ms[kennen]{
                     experiencer & \ibox{2}\\
@@ -877,10 +877,10 @@ loc$|$cat & \ms{ head & \ms[verb]{vform & fin\\
                                           initial & $+$\\
                                           dsl     & none\\
                                  }\\
-                           subcat & \sliste{ \onems{ loc$|$cat \onems{ head  \ms[verb]{
+                           comps & \sliste{ \onems{ loc$|$cat \onems{ head  \ms[verb]{
                                                                dsl & \ibox{1}\\
                                                                }\\
-                                                         subcat \eliste\\
+                                                         comps \eliste\\
                                                        }\\
                                               }}\\
                          }\\
@@ -902,17 +902,17 @@ Die Analyse von (\ref{bsp-kennt-jemand-den-Roman}) zeigt Abbildung~\vref{verb-mo
 \begin{forest}
 sm edges
 [S
-  [{V[\subcat \sliste{ \ibox{1} }]} 
-    [{V[\subcat \ibox{2} ]},tier=np,edge label={node[midway,right]{V1-LR}} 
+  [{V[\comps \sliste{ \ibox{1} }]} 
+    [{V[\comps \ibox{2} ]},tier=np,edge label={node[midway,right]{V1-LR}} 
        [kennt$_j$] ] ]
-    [{\ibox{1} V\feattab{\textsc{dsl|subcat} \ibox{2},\\
-                 \subcat \eliste}}
+    [{\ibox{1} V\feattab{\textsc{dsl|comps} \ibox{2},\\
+                 \comps \eliste}}
          [{\ibox{3} NP[\type{nom}]},tier=np [jemand] ]
-         [{V\feattab{\textsc{dsl|subcat} \ibox{2},\\
-                 \subcat \sliste{ \ibox{3} }}}
+         [{V\feattab{\textsc{dsl|comps} \ibox{2},\\
+                 \comps \sliste{ \ibox{3} }}}
            [{\ibox{4} NP[\type{acc}]} [den Roman, roof] ]
-           [{V\feattab{\textsc{dsl|subcat} \ibox{2},\\
-                 \subcat \ibox{2} \sliste{ \ibox{3}, \ibox{4} }}} [\_$_j$] ] ] ] ] ]
+           [{V\feattab{\textsc{dsl|comps} \ibox{2},\\
+                 \comps \ibox{2} \sliste{ \ibox{3}, \ibox{4} }}} [\_$_j$] ] ] ] ] ]
 \end{forest}
 \caption{\label{verb-movement-syn}Veranschaulichung der Analyse von \emph{Kennt jemand den Roman?}}
 \end{figure}
@@ -924,7 +924,7 @@ Abbildung~\ref{verb-movement-syn}) selegiert. Der \dslw dieser VP entspricht dem
 Eingabeverbs für die Lexikonregel. Teil des \dslwes ist auch die Valenzinformation, die in
 Abbildung~\ref{verb-movement-syn} dargestellt ist \iboxb{2}. Da \dsl ein Kopfmerkmal ist, ist der
 \dslw der VP mit dem der Verbspur identisch, und da der \locw der Verbspur mit dem \dslw
-identifiziert ist, ist auch die \subcat"=Information des Verbs \emph{kennen} in der Spur
+identifiziert ist, ist auch die \comps"=Information des Verbs \emph{kennen} in der Spur
 verfügbar. Die Kombination der Spur mit ihren Argumenten erfolgt genau so, wie das bei normalen
 Verben der Fall wäre.
 
@@ -957,10 +957,10 @@ loc \onems{ cat  \ms{ head & \ms[verb]{ vform & fin\\
                                         initial & $+$\\
                                         dsl     & none\\
                                              }\\
-                           subcat & \sliste{ \onems{ loc \onems{ cat \onems{ head \ms[verb]{
+                           comps & \sliste{ \onems{ loc \onems{ cat \onems{ head \ms[verb]{
                                                                              dsl & \ibox{1}\\
                                                                              }\\
-                                                                      subcat \eliste\\
+                                                                      comps \eliste\\
                                                                     }\\
                                                            cont \ibox{2}\\
                                                          }\\
@@ -1156,14 +1156,14 @@ Abbildung~\vref{abb-uszkoreit-pollard}.
 \begin{figure}
 \begin{forest}
 sm edges, for tree={l sep=+2\baselineskip}
-[{V[\type{fin}, \subcat \eliste{}]}
+[{V[\type{fin}, \comps \eliste{}]}
   [{\ibox{1} NP[\type{nom}]} 
     [Aicke,roof]]
   [{\ibox{3} NP[\type{acc}]} 
     [den Stock, roof]]
   [{\ibox{2} NP[\type{dat}]}
     [dem Affen, roof]]
-  [{V[\type{fin}, \subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] }
+  [{V[\type{fin}, \comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] }
     [gibt]]]
 \end{forest}
 \caption{\label{abb-uszkoreit-pollard}Analyse von \emph{Aicke den Stock dem Affen gibt} mit flachen Strukturen}
@@ -1262,16 +1262,16 @@ werden in diese Liste eingesetzt.
 \begin{figure}
 \begin{forest}
 sm edges
-[{V[\subcat \sliste{} ]}
+[{V[\comps \sliste{} ]}
   [{\ibox{1} NP[\type{nom}]},ellipse,draw
     [Aicke]]
-  [{V[\subcat \sliste{ \ibox{1} }]}
+  [{V[\comps \sliste{ \ibox{1} }]}
     [{\ibox{2} NP[\type{dat}]},ellipse,draw 
       [dem Affen, roof]]
-    [{V[\subcat \sliste{ \ibox{1}, \ibox{2} }]}
+    [{V[\comps \sliste{ \ibox{1}, \ibox{2} }]}
       [{\ibox{3} NP[\type{dat}]},ellipse,draw
         [den Stock,roof]]
-      [{V[\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]},ellipse,draw
+      [{V[\comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]},ellipse,draw
         [gibt]]]]]
 \end{forest}
 \caption{\label{abb-lin-domains}Eingekreiste Knoten werden in eine Linearisierungsdomäne eingesetzt.}
@@ -1352,7 +1352,7 @@ Die folgenden Abbildungen zeigen die Analysen für die wichtigsten Fälle:
 \ex Gibt der Mann das Buch der Frau?
 \zl
 Die Variabilität in der Stellung wird in diesem Ansatz nicht dadurch erreicht, dass ein beliebiges
-Element aus der \subcatl mit dem Kopf verbunden werden kann, sondern dadurch, dass das Element, das
+Element aus der \compsl mit dem Kopf verbunden werden kann, sondern dadurch, dass das Element, das
 mit dem Kopf kombiniert wird, nicht unbedingt neben dem Kopf stehen muß.
 Abbildung~\vref{abb-linearisierung-kont} zeigt die Analyse von (\mex{0}b). Die Elemente,
 die in Abbildung~\ref{abb-linearisierung-kont} kombiniert werden, grenzen aneinander. Die Analyse
@@ -1363,19 +1363,19 @@ der Domänenelemente am obersten Knoten in Abbildung~\ref{abb-linearisierung-kon
 \begin{figure}
 \begin{forest}
 sm edges
-[V\feattab{\subcat \sliste{},\\
+[V\feattab{\comps \sliste{},\\
            \textsc{dom} \phonliste{ Aicke, dem Affen, den Stock, gibt }}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke,roof]]
-  [V\feattab{\subcat \sliste{ \ibox{1} },\\
+  [V\feattab{\comps \sliste{ \ibox{1} },\\
              \textsc{dom} \phonliste{ dem Affen, den Stock, gibt }}
     [{\ibox{2} NP[\type{dat}]} 
       [dem Affen, roof]]
-    [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2} },\\
+    [V\feattab{\comps \sliste{ \ibox{1}, \ibox{2} },\\
                \textsc{dom} \phonliste{ den Stock, gibt }}
       [{\ibox{3} NP[\type{acc}]}
         [den Stock,roof]]
-      [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+      [V\feattab{\comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
         \textsc{dom} \phonliste{ gibt }}
         [gibt]]]]]
 \end{forest}
@@ -1391,19 +1391,19 @@ kann, dass \emph{das Buch} am nächsthöheren Knoten zwischen den beiden Element
 \begin{figure}
 \begin{forest}
 sm edges
-[V\feattab{\subcat \sliste{},\\
+[V\feattab{\comps \sliste{},\\
            \textsc{dom} \phonliste{ Aicke, \blau{den Stock}, dem Affen, \blau{gibt} }}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke,roof]]
-  [V\feattab{\subcat \sliste{ \ibox{1} },\\
+  [V\feattab{\comps \sliste{ \ibox{1} },\\
              \textsc{dom} \phonliste{ \blau{den Stock}, dem Affen, \blau{gibt} }}
     [{\ibox{2} NP[\type{dat}]} 
       [dem Affen, roof]]
-    [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2} },\\
+    [V\feattab{\comps \sliste{ \ibox{1}, \ibox{2} },\\
                \textsc{dom} \phonliste{ \blau{den Stock, gibt} }}
       [{\ibox{3} NP[\type{acc}]}
         [den Stock,roof]]
-      [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+      [V\feattab{\comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
         \textsc{dom} \phonliste{ gibt }}
         [gibt]]]]]
 \end{forest}
@@ -1418,19 +1418,19 @@ diskontinuierlich.
 \begin{figure}
 \begin{forest}
 sm edges
-[V\feattab{\subcat \sliste{},\\
+[V\feattab{\comps \sliste{},\\
            \textsc{dom} \phonliste{ \blau{gibt}, Aicke, dem Affen, \blau{den Stock} }}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke,roof]]
-  [V\feattab{\subcat \sliste{ \ibox{1} },\\
+  [V\feattab{\comps \sliste{ \ibox{1} },\\
              \textsc{dom} \phonliste{ \blau{gibt}, dem Affen, \blau{den Stock} }}
     [{\ibox{2} NP[\type{dat}]} 
       [dem Affen, roof]]
-    [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2} },\\
+    [V\feattab{\comps \sliste{ \ibox{1}, \ibox{2} },\\
                \textsc{dom} \phonliste{ \blau{gibt, den Stock} }}
       [{\ibox{3} NP[\type{acc}]}
         [den Stock,roof]]
-      [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+      [V\feattab{\comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
         \textsc{dom} \phonliste{ gibt }}
         [gibt]]]]]
 \end{forest}
@@ -1449,16 +1449,16 @@ der Oberflächenreihenfolge angeordnet. Man sieht in dieser Abbildung recht deut
 \forestset{
 %  default preamble'={}, % The default preamble makes a mess in this situation.
   % 
-  % This style visually relates a complement to some subcat node. The argument
+  % This style visually relates a complement to some comps node. The argument
   % should be the intended SISTER.
   funky complement/.style={
     %tier=NP, % Horizontally align NPs ... not needed because they are all of the same height.
     for children={tier=word}, % Align the NP content with "gibt".
     for nodewalk/.process=Ow{#1.id}{id=##1}{% This monstrosity converts a relative node name (e.g. "!r1") to the id of that node.
-      edge label={node[pos=0.5,left]{H}}, % Put "H" on the edge from the sister subcat.
+      edge label={node[pos=0.5,left]{H}}, % Put "H" on the edge from the sister comps.
     },
     % Draw the funky edge from a complement to its visual parent. The line is
-    % broken at the north of the sister subcat, and also marked with "C" there.
+    % broken at the north of the sister comps, and also marked with "C" there.
     edge path'={(#1u.south) -- (.north |- {#1.north}) node[above]{C} -- (.north)},
   },
 }
@@ -1466,34 +1466,34 @@ der Oberflächenreihenfolge angeordnet. Man sieht in dieser Abbildung recht deut
   % sn edges,   % note the s*n*, not s*m* // Can live without, as we draw the funky edges manually.
   for tree={l sep*=2}, % Let this tree be taller.
 delay={where tier={word}{inner xsep=0}{}}, % unclear why it has to happen here with delay.
-  [V\feattab{\subcat \sliste{},\\
+  [V\feattab{\comps \sliste{},\\
       \textsc{dom} \phonliste{ gibt, Aicke, dem Affen, den Stock }}, s sep+=7ex
-    [V\feattab{\subcat \sliste{ \ibox{1} },\\
+    [V\feattab{\comps \sliste{ \ibox{1} },\\
         \textsc{dom} \phonliste{ gibt, dem Affen, den Stock }},
-      [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2} },\\
+      [V\feattab{\comps \sliste{ \ibox{1}, \ibox{2} },\\
           \textsc{dom} \phonliste{ gibt, den Stock }}
-        [V\feattab{\subcat \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
+        [V\feattab{\comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} },\\
             \textsc{dom} \phonliste{ gibt }},
           [gibt]]]]
     [,% This empty node holds all the complements. The idea is to put it next
-      % to the subcat node that should determine the x (s) position of the
-      % complements (so I put it next to the second subcat node). How does this
+      % to the comps node that should determine the x (s) position of the
+      % complements (so I put it next to the second comps node). How does this
       % work? On its own, Forest squashes the complements close to "gibt", but
-      % then the funky edge from NP [1] overlaps the second subcat node. But
+      % then the funky edge from NP [1] overlaps the second comps node. But
       % then we adjust the "s" of this empty complement holder (in "before
       %   computing xy") to avoid that.
       no edge, % Phantom does not work here, because we need the empty
                % complement holder to be physically present.
       calign=first, % Put this empty node directly above the leftmost NP ...
       before computing xy={% ... and set its position manually:
-        %s/.option={!s.max x}, % to the (right) width of its sibling (the second subcat)
+        %s/.option={!s.max x}, % to the (right) width of its sibling (the second comps)
         %s+/.option=!u.s sep,  % plus a bit more
       },
-      tier=lowest subcat, % Vertically align it to the lowest subcat node (gibt).
-      for parent={calign=first}, % The sister subcat (Buch, Frau) should be
+      tier=lowest comps, % Vertically align it to the lowest comps node (gibt).
+      for parent={calign=first}, % The sister comps (Buch, Frau) should be
                                  % directly below its parent.
       for sibling={where n children=0{% This finds "gibt".
-          for parent={tier=lowest subcat}, % Mark the lowest subcat for alignment with the empty complement holder.
+          for parent={tier=lowest comps}, % Mark the lowest comps for alignment with the empty complement holder.
           tier=word, % Align "gibt" with the content of NPs.
           %inner xsep=0, % Remove space otherwise the triangles get too big.
           % Does not work here, has to be done with delay at the top. St. Mü. 21.06.2024
@@ -1531,21 +1531,21 @@ je nach dem wie man die Argumentstellen belegt:
 siehe Abschnitt~\ref{sec-pvp}). In Linearisierungsgrammatiken muß man die Argumente eines Kopfes
 in einer festen Reihenfolge sättigen, da die Sättigungsreihenfolge von der Oberflächenreihenfolge unabhängig ist. Ließe
 man beliebige Sättigungsreihenfolgen zu, bekäme man unechte Mehrdeutigkeiten\is{Mehrdeutigkeit!unechte}.
-Nimmt man für \emph{erzählen} eine \subcatl der Form $\langle$ NP[\textit{nom}], NP[\textit{acc}],
+Nimmt man für \emph{erzählen} eine \compsl der Form $\langle$ NP[\textit{nom}], NP[\textit{acc}],
 NP[\textit{dat}]~$\rangle$ an, dann kann man nur (\mex{0}a) analysieren, (\mex{0}b) bleibt unanalysierbar,
 da \emph{Märchen} erst mit \emph{erzählen} kombiniert werden kann, wenn die Kombination
 mit dem Dativobjekt erfolgt ist.
 
 \citet[\page242]{Kathol2000a} schlägt zur Lösung dieses Problems vor,
-für die Objekte keine Reihenfolge in der \subcatl festzulegen. Damit sind
+für die Objekte keine Reihenfolge in der \compsl festzulegen. Damit sind
 die Sätze in (\mex{0}) zwar analysierbar, aber ein Satz wie (\mex{1}) hätte
 dann zwei Analysen:
 \ea
 dass er den Wählern Märchen erzählt
 \z
 Da die Reihenfolge der Konstituenten im Satz in Linearisierungsgrammatiken
-von der Reihenfolge der Elemente in der \subcatl unabhängig ist, kann man
-für jede Abfolge in der \subcatl jede Oberflächenreihenfolge ableiten und bekommt
+von der Reihenfolge der Elemente in der \compsl unabhängig ist, kann man
+für jede Abfolge in der \compsl jede Oberflächenreihenfolge ableiten und bekommt
 somit für (\mex{0}) unerwünschte unechte Mehrdeutigkeiten.
 
 Für den hier vorgestellten Ansatz sind die Sätze in (\ref{bsp-acc-dat-pvp-zwei}) unproblematisch,

@@ -2071,12 +2071,12 @@ des Verbs speziell zu markieren.
 Bei unergativischen und transitiven Verben entspricht das Subjekt dem designierten Argument, bei unakkusativischen Verben
 gibt es kein designiertes Argument. Ich folge \citet{HM94a} und \citet{Lebeth94}, die ein listenwertiges
 Merkmal \textsc{da}\isfeat{da} zur Repräsentation des designierten Arguments verwenden. Wenn es ein designiertes Argument gibt,
-ist dieses sowohl Element der \subcatl als auch der \textsc{da}"=Liste.
+ist dieses sowohl Element der \compsl als auch der \textsc{da}"=Liste.
 Die folgende Aufzählung gibt einige prototypische Beispiele:
 \ea
 \label{da-representation-inf}
 \begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{\hspace{5ex}}l@{}}
-  &                               & \textsc{da}                          & \textsc{subcat}\\[2mm]
+  &                               & \textsc{da}                          & \textsc{comps}\\[2mm]
 a.&ankommen (unakkusativisch):    & \sliste{}                         & \sliste{ NP[\type{str}] }\\[2mm]
 b.&tanzen   (unergativisch):      & \sliste{ \ibox{1} } & \sliste{ \ibox{1} NP[\type{str}] }\\[2mm]
 c.&auf"|fallen (unakkusativisch): & \sliste{}           & \sliste{ NP[\type{str}], NP[\type{ldat}] }\\[2mm]
@@ -2122,7 +2122,7 @@ nehme ich an, dass der \daw immer die leere Liste ist.
 
 %% geht nicht, wegen oben
 %% Der Wert des \textsc{da}"=Merkmals sollte aus semantischen Eigenschaften des Verbs folgen. 
-%% Wenn das erste Element der \subcatl ein Agens ist, \dash, wenn die zugehörige Relation
+%% Wenn das erste Element der \compsl ein Agens ist, \dash, wenn die zugehörige Relation
 %% in der semantischen Repräsentation des Verbs eine Relation ist, die ein Agensargument hat,
 %% dann wird dieses Element zum \textsc{da}"=Element. Leitet man den \daw auf diese Weise
 %% aus semantischen Eigenschaften des Verbs ab, folgt, dass Verben wie \emph{grauen}
@@ -2173,7 +2173,7 @@ synsem$|$loc$|$cat & \ms{
 head   & \ms[verb]{
          da   & \ibox{1}\\
          }\\
-subcat & \ibox{1} $\oplus$ \ibox{2}\\
+comps & \ibox{1} $\oplus$ \ibox{2}\\
 }\\
 } $\mapsto$\\
 \ms[word]{
@@ -2182,19 +2182,19 @@ head & \ms[verb]{
         vform & ppp\\
         subj & \ibox{1}\\
        }\\
-subcat & \ibox{2}\\
+comps & \ibox{2}\\
 }\\
 }\is{Lexikonregel!Argumentblockierung}
 \end{tabular}
 \zs
 
 \noindent
-Diese Lexikonregel teilt die \subcatl des Eingabezeichens in zwei Teile: Den Teil,
+Diese Lexikonregel teilt die \compsl des Eingabezeichens in zwei Teile: Den Teil,
 der der \textsc{da}"=Liste entspricht \iboxb{1}, und einen Rest \iboxb{2}.
-Nur der Rest wird zur \subcatl des Ausgabezeichens. 
-Da ein eventuelles Element der \dalist nicht in der \subcatl des Ausgabezeichens enthalten ist,
+Nur der Rest wird zur \compsl des Ausgabezeichens. 
+Da ein eventuelles Element der \dalist nicht in der \compsl des Ausgabezeichens enthalten ist,
 kann es in Projektionen des Partizips auch nicht realisiert werden, denn die Dominanzschemata
-kombinieren nur Köpfe mit Elementen aus der \subcat- bzw.\ \sprl des jeweiligen Kopfes (siehe
+kombinieren nur Köpfe mit Elementen aus der \comps- bzw.\ \sprl des jeweiligen Kopfes (siehe
 Kapitel~\ref{sec-subj-merkmal} zum Status des \subjms).
 (\mex{1}) zeigt die Ausgabe der Regel für die Verben in \pref{da-representation-inf}.
 Die \textsc{da}"=Liste wird mit der {\subj}"=Liste des Ausgabeverbs
@@ -2203,7 +2203,7 @@ identifiziert.
 %\begin{figure}
 \ea
 \begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{\hspace{5ex}}l@{}}
-  &                               & \textsc{subj}                & \textsc{subcat}\\[2mm]
+  &                               & \textsc{subj}                & \textsc{comps}\\[2mm]
 a.&angekommen  (unakkusativisch): & \sliste{}                 & \sliste{NP[\type{str}]}\\[2mm]
 b.&getanzt     (unergativisch):   & \sliste{NP[\type{str}]}  & \sliste{}\\[2mm]
 c.&aufgefallen (unakkusativisch): & \sliste{}                 & \sliste{NP[\type{str}], NP[\type{ldat}]}\\[2mm]
@@ -2231,7 +2231,7 @@ Der Lexikoneintrag in (\mex{1}) zeigt das Passivhilfsverb:\footnote{
 \mbox{\emph{werden} (Passivhilfsverb):}\\
 \ms{
 head$|$da & \liste{}\\
-subcat    & \ibox{1} $\oplus$ \sliste{ V[\type{ppp}, \textsc{lex}+, \textsc{da} \sliste{ NP$_{ref}$}, \textsc{subcat} \ibox{1}] }\\
+comps    & \ibox{1} $\oplus$ \sliste{ V[\type{ppp}, \textsc{lex}+, \textsc{da} \sliste{ NP$_{ref}$}, \textsc{comps} \ibox{1}] }\\
 }
 \zs
 
@@ -2278,21 +2278,21 @@ das Passivhilfsverb \emph{wurde} in (\mex{0}c) eingebettet werden.
 
 Im Gegensatz zum Passivhilfsverb in \pref{le-werden-passive-da}
 deblockiert das Perfekthilfsverb in (\mex{1}) das designierte Argument.
-Es macht die Verknüpfung des \subjwes und der \subcatl des eingebetteten Partizips
-zu seinem eigenen \subcatw.
+Es macht die Verknüpfung des \subjwes und der \compsl des eingebetteten Partizips
+zu seinem eigenen \compsw.
 
 \eas
 \mbox{\haben (Perfekthilfsverb):}\\
 \label{le-haben-perfekt}
 \ms{
 head$|$da & \eliste\\
-subcat    & \ibox{1} $\oplus$ \ibox{2} $\oplus$ \sliste{ V[\type{ppp}, \textsc{lex}+, \textsc{subj} \ibox{1}, \textsc{subcat} \ibox{2}] }\\[2mm]
+comps    & \ibox{1} $\oplus$ \ibox{2} $\oplus$ \sliste{ V[\type{ppp}, \textsc{lex}+, \textsc{subj} \ibox{1}, \textsc{comps} \ibox{2}] }\\[2mm]
 }
 \zs
 
 \noindent
 Das blockierte designierte Argument -- das ja wegen der Lexikonregel (\ref{lr-da-reduction}) in der \subjl der Partizipform
-repräsentiert ist -- wird also vom Hilfsverb wieder in die \subcatl aufgenommen.\footnote{
+repräsentiert ist -- wird also vom Hilfsverb wieder in die \compsl aufgenommen.\footnote{
   Es mag hier verwunderlich erscheinen, dass auf den \subjw des eingebetteten Verbs und nicht
   auf den \daw Bezug genommen wird. Der Grund hierfür ist, dass man bei der Bezugnahme
   auf den \subjw über das Perfekthilfsverb \haben und das \haben in Konstruktionen mit modalem
@@ -2301,7 +2301,7 @@ repräsentiert ist -- wird also vom Hilfsverb wieder in die \subcatl aufgenommen
   die Form des infiniten Verbs gebildet wird.%
 }
 Wenn der \subjw des eingebetteten Verbs die leere Liste ist, \dash, wenn ein subjektloses Verb unter \haben 
-eingebettet wird, dann wird zur \subcatl des eingebetteten Verbs nichts hinzugefügt (\,\iboxt{1} = \sliste{}).
+eingebettet wird, dann wird zur \compsl des eingebetteten Verbs nichts hinzugefügt (\,\iboxt{1} = \sliste{}).
 Da auch nichts blockiert wurde, ist das genau das, was erwünscht ist:
 Im Perfekt werden alle Argumente realisiert. Das Hilfsverb ist
 ein Anhebungsverb, \dash, im Lexikoneintrag sind keinerlei Restriktionen in bezug auf ein anzuhebendes
@@ -2343,14 +2343,14 @@ zuweisen, syntaktische Fakten unzulässigerweise in die Semantik verschieben.
 
 Das Perfekthilfsverb \sein ähnelt \haben. Es unterscheidet sich lediglich 
 in der Deblo"ckierung des designierten Arguments des eingebetteten Partizips: Der \subjw
-des eingebetteten Verbs wird nicht mit dem \subcatw verknüpft, nur die in \subcat repräsentierten
+des eingebetteten Verbs wird nicht mit dem \compsw verknüpft, nur die in \comps repräsentierten
 Argumente \iboxb{1} werden zu Argumenten des Hilfsverbs angehoben:
 \eas
 \mbox{\sein (Perfekthilfsverb):}\\
 \label{le-sein-perfekt}
 \ms{
 head$|$da & \sliste{} \\
-subcat    & \ibox{1} $\oplus$ \sliste{ V[\type{ppp}, \textsc{lex}+, \textsc{subcat} \ibox{1}] }\\[2mm]
+comps    & \ibox{1} $\oplus$ \sliste{ V[\type{ppp}, \textsc{lex}+, \textsc{comps} \ibox{1}] }\\[2mm]
 }
 \zs
 Da bei der Partizipbildung mit unakkusativischen Verben wie \emph{angekommen} und \emph{aufgefallen}
@@ -2442,7 +2442,7 @@ Zwei Männer erschossen wurden    während des Wochenendes.\footnote{
 \zl
 Das Subjekt von \emph{gebrochen} bzw.\ \emph{erschossen} %und \emph{zurückgewonnen}
 wird durch die Argumentblockierungsregel blockiert. Das Objekt ist damit das erste
-Element in der \subcatl der entsprechenden Verben. Das Passivhilfsverb deblockiert kein
+Element in der \compsl der entsprechenden Verben. Das Passivhilfsverb deblockiert kein
 Element, es verlangt lediglich, dass das eingebettete Verb ein referentielles designiertes Argument
 hat, wo die anderen Argumente realisiert werden, wird vom Passivauxiliar nicht vorgeschrieben.
 Das zugrundeliegende Objekt kann also mit dem Partizip im Vorfeld oder wie in (\mex{1})
@@ -2461,8 +2461,8 @@ c't, 9/2005, S.\,93.
 }
 \z
 Da das Verb \emph{gewachsen} kein designiertes Argument hat, wird das Subjekt \emph{kein Kraut} nicht blockiert.
-Es ist also das erste Element der \subcatl und kann als solches zusammen mit dem Partizip im Vorfeld stehen.
-Das Perfekthilfsverb \emph{sein} deblockiert kein Argument, in (\mex{0}) werden lediglich die Argumente aus der \subcatl
+Es ist also das erste Element der \compsl und kann als solches zusammen mit dem Partizip im Vorfeld stehen.
+Das Perfekthilfsverb \emph{sein} deblockiert kein Argument, in (\mex{0}) werden lediglich die Argumente aus der \compsl
 des eingebetteten Verbs angezogen, die noch nicht im Vorfeld realisiert wurden.
 % This approach has the advantage that participles always have passive valence properties.
 % They may therefore be input to adjective formation lexical rules that produce adjectives
@@ -2488,7 +2488,7 @@ des eingebetteten Verbs angezogen, die noch nicht im Vorfeld realisiert wurden.
 %% \label{le-sein-stative}
 %% \ms{
 %% da & \liste{}\\
-%% subcat    & \ibox{1} $\oplus$ \liste{ V[\type{ppp}, \textsc{lex}+, \textsc{da} \sliste{ NP$_{ref}$}, \textsc{subcat} \ibox{1}] }\\[2mm]
+%% comps    & \ibox{1} $\oplus$ \liste{ V[\type{ppp}, \textsc{lex}+, \textsc{da} \sliste{ NP$_{ref}$}, \textsc{comps} \ibox{1}] }\\[2mm]
 %% }
 %% \zs
 %% Vom Perfekthilfsverb \sein unterscheidet sich der Lexikoneintrag darin, dass
@@ -2543,22 +2543,22 @@ werden Dativ"=Passive von unakkusativischen Verben von der Grammatik nicht zugel
 \mbox{\emph{bekomm-} (Dativpassivhilfsverb):} \\
 \ms{
  head$|$da & \sliste{ } \\[2mm]
- subcat    & \sliste{ NP[\str]\ind{1}} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \liste{ \begin{tabular}{@{}l@{}l@{}}
+ comps    & \sliste{ NP[\str]\ind{1}} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \liste{ \begin{tabular}{@{}l@{}l@{}}
                   \textrm{V[}&\textrm{\type{ppp}, \textsc{lex}+, \textsc{da}~\sliste{ NP$_{\type{ref}}$ },}\\[3mm]
-                          &\textrm{\textsc{subcat}~\ibox{2} $\oplus$ \sliste{ NP[\type{ldat}]\ind{1}} $\oplus$ \ibox{3}]} \\
+                          &\textrm{\textsc{comps}~\ibox{2} $\oplus$ \sliste{ NP[\type{ldat}]\ind{1}} $\oplus$ \ibox{3}]} \\
                   \end{tabular}}\\
 }\iw{bekommen!passive|uu}
 \zs
 
 \noindent
 Das Subjekt des Dativ"=Passiv"=Hilfsverbs ist mit dem Dativargument des eingebetteten Verbs
-koindiziert. Alle Elemente der \subcatl des eingebetteten Verbs mit Ausnahme des Dativobjekts, das
-zum Subjekt wird, werden in die \subcatl von \emph{bekommen} angehoben (\,\iboxt{2} $\oplus$
+koindiziert. Alle Elemente der \compsl des eingebetteten Verbs mit Ausnahme des Dativobjekts, das
+zum Subjekt wird, werden in die \compsl von \emph{bekommen} angehoben (\,\iboxt{2} $\oplus$
 \iboxt{3}\,). Das Dativobjekt kann nicht direkt angehoben werden, da der Dativ ein lexikalischer Kasus
 ist und somit mit dem Kasuswert, den das Subjekt im Dativpassiv haben muss, unverträglich ist.
 
 Der Lexikoneintrag in (\mex{0}) weicht von dem von \citet[\page228]{HM94a} vorgeschlagenen ab:
-In (\mex{0}) wird nicht verlangt, dass die \subcatl des eingebetteten Verbs mit einer NP mit strukturellem Kasus
+In (\mex{0}) wird nicht verlangt, dass die \compsl des eingebetteten Verbs mit einer NP mit strukturellem Kasus
 anfängt. Wie im Abschnitt~\ref{sec:dat-pass} gezeigt wurde, ist das Dativpassiv nicht auf Verben
 beschränkt, die neben dem Dativ auch noch einen Akkusativ regieren. Da der Wert, den \iboxt{2} 
 haben kann, nicht vorgeschrieben ist, können Sätze wie (\mex{1}) ebenfalls analysiert werden:
@@ -2662,12 +2662,12 @@ Haider hat dafür argumentiert, modale Infinitive mit \sein nicht völlig parall
 zum Passiv zu behandeln. Anstatt ebenfalls das designierte Argument zu blockieren,
 läßt er das Infinitiv"=\emph{zu} das syntaktische Subjekt, \dash das Element, das 
 in Aktivsätzen Nominativ bekommt, blockieren. Unsere Beispielverben
-haben die folgenden \da-, \subj- und \subcatwe:
+haben die folgenden \da-, \subj- und \compswe:
 {
 \exewidth{(100)}
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~~}l@{~~~}l@{~~~}l@{}}
-  &                               & \textsc{da}            & \textsc{subj}                           & \textsc{subcat}                                \\[2mm]
+  &                               & \textsc{da}            & \textsc{subj}                           & \textsc{comps}                                \\[2mm]
 a.&anzukommen  (unakkusativisch): & \sliste{}           & \sliste{ NP[\type{str}] }             & \sliste{}                                   \\[2mm]
 b.&zu tanzen   (unergativisch):   & \sliste{ \ibox{1} } & \sliste{ \ibox{1} NP[\type{str}] }    & \sliste{}                                   \\[2mm]
 c.&aufzufallen (unakkusativisch): & \sliste{}           & \sliste{ NP[\type{str}] }             & \sliste{ NP[\type{ldat}] }                  \\[2mm]
@@ -2690,13 +2690,13 @@ beläßt es im blockierten Zustand.
 %% Das Subjekt der \emph{zu}"=Infinitive wird beim ihm blockiert, das Subjekt der Infinitive
 %% ohne \emph{zu} dagegen nicht.
 %% In der HPSG"=Umsetzung würde das der Repräsentation des Subjekts auf verschieden Listen entsprechen.
-%% Infinitive ohne \emph{zu} hätten ihr Subjekt auf der \subcatl, bei Infinitiven
+%% Infinitive ohne \emph{zu} hätten ihr Subjekt auf der \compsl, bei Infinitiven
 %% mit \emph{zu} wäre das Subjekt dagegen in der \subjl repräsentiert.\isfeat{subj}
 %% Der Nachteil dieser Repräsentation wäre, dass die Klasse der Subjektanhebungsverben.
 %% The drawback of such an encoding is that one cannot describe
 %% the class of subject raising verbs in a uniform way, as was possible in Chapter~\ref{subj-rais-anal}.
 %% Modal verbs which select bare infinitives would raise the subject of their verbal complements from the
-%% \subcatl while verbs like \emph{scheinen} (`seem') or \emph{anfangen} (`begin') which select an infinitive with \emph{zu}
+%% \compsl while verbs like \emph{scheinen} (`seem') or \emph{anfangen} (`begin') which select an infinitive with \emph{zu}
 %% would raise the subject of the embedded verb from its \subjl.
 %% %
 %% In order to be able to capture the generalization about raising verbs, I suggest representing both
@@ -2719,7 +2719,7 @@ beläßt es im blockierten Zustand.
 
 
 % In case of an embedded \emph{zu}"=infinitive the \subj value corresponds
-% to the syntactic subject. This subject is inserted into the \subcat list
+% to the syntactic subject. This subject is inserted into the \comps list
 % of \haben.
 
 
@@ -2743,7 +2743,7 @@ Argumentblockierungslexikonregel für Infinitive mit und ohne \emph{zu}:\\
 \ms[stem]{
 synsem$|$loc$|$cat & \ms{
 head   & verb\\
-subcat & \ibox{1}\\
+comps & \ibox{1}\\
 }\\
 } $\mapsto$\\
 \ms[word]{
@@ -2752,7 +2752,7 @@ head & \ms[verb]{
         vform & inf-or-bse\\
         subj & \ibox{2}\\
        }\\
-subcat & \ibox{3}\\
+comps & \ibox{3}\\
 }\\
 }\\$\wedge$ \textit{first-np-str}(\,\ibox{1}, \ibox{2}, \ibox{3}\,)\\
 \end{tabular}\is{Lexikonregel!Argumentblockierung}
@@ -2916,8 +2916,8 @@ Für \emph{versuchen} nehme ich den folgenden Lexikoneintrag an:\footnote{
 \stem{versuch}:\\
 \ms{
 head$|$da & \rule{0cm}{3ex}\sliste{ \ibox{1} }\\[2mm]
-subcat & \sliste{ \ibox{1} NP[\str]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \sliste{ \textrm{V[}%
-\type{inf}, \textsc{subj} \sliste{ NP[\str]\ind{2}}, \subcat \ibox{3}]}\\[2mm]
+comps & \sliste{ \ibox{1} NP[\str]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \sliste{ \textrm{V[}%
+\type{inf}, \textsc{subj} \sliste{ NP[\str]\ind{2}}, \comps \ibox{3}]}\\[2mm]
 }
 \zs
 
@@ -2928,7 +2928,7 @@ Die Argumentblockierungsregel in (\ref{lr-da-reduction}) lizenziert den Lexikone
 \emph{versucht} (Partizip):\\
 \ms{
 head$|$da & \rule{0cm}{3ex}\sliste{ NP[\str]\ind{2} }\\[2mm]
-subcat & \ibox{3} $\oplus$ \sliste{ V[\type{inf}, \textsc{subj} \sliste{ NP[\str]\ind{2}}, \subcat \ibox{3}] }\\[2mm]
+comps & \ibox{3} $\oplus$ \sliste{ V[\type{inf}, \textsc{subj} \sliste{ NP[\str]\ind{2}}, \comps \ibox{3}] }\\[2mm]
 }
 \zs
 
@@ -2939,7 +2939,7 @@ Das Ergebnis der Kombination des Partizips in (\mex{0}) mit dem \emph{zu}"=Infin
 \emph{zu reparieren}:\\
 \ms{
 head$|$subj & \rule{0cm}{3ex}\sliste{ NP[\str] }\\[2mm]
-subcat      & \sliste{ NP[\str] }\\[2mm]
+comps      & \sliste{ NP[\str] }\\[2mm]
 }
 \zs
 
@@ -2948,14 +2948,14 @@ subcat      & \sliste{ NP[\str] }\\[2mm]
 \emph{zu reparieren versucht}:\\
 \ms{
 head$|$da   & \rule{0cm}{3ex}\sliste{ NP[\str]}\\[2mm]
-subcat & \sliste{ NP[\str]}\\[2mm]
+comps & \sliste{ NP[\str]}\\[2mm]
 }
 \zs
 
 \noindent
-Das Objekt von \emph{zu reparieren} ist in der \subcatl von \emph{zu reparieren versucht} enthalten,
+Das Objekt von \emph{zu reparieren} ist in der \compsl von \emph{zu reparieren versucht} enthalten,
 und das Subjekt von \emph{versucht}, das mit dem Subjekt von \emph{zu reparieren} koindiziert ist, ist blockiert.
-Da das Passivhilfsverb keine Argumente deblockiert, enthält die \subcatl von \emph{zu reparieren versucht werden}
+Da das Passivhilfsverb keine Argumente deblockiert, enthält die \compsl von \emph{zu reparieren versucht werden}
 als einziges Element das Objekt von \emph{zu reparieren}.
 Abbildung~\vref{abb-remote-pass-da-hm} zeigt das im Detail.
 \begin{figure}
@@ -2963,25 +2963,25 @@ Abbildung~\vref{abb-remote-pass-da-hm} zeigt das im Detail.
 \begin{forest}
 sm edges
 [\ms{ head   & \ibox{1} \\
-      subcat & \ibox{2}\\
+      comps & \ibox{2}\\
     }
   [\iboxt{4}~\ms{ head & \ibox{3} \\
-                  subcat & \ibox{2} \\
+                  comps & \ibox{2} \\
                 }
      [\iboxt{6}~\onems{ head  \onems[verb]{ vform \type{inf} \\
                                       subj \sliste{ NP[\type{str}]\ind{5} } \\
                                     }  \\
-                                subcat~\ibox{2} \sliste{ NP[\str] } \\
+                                comps~\ibox{2} \sliste{ NP[\str] } \\
                               } [zu reparieren]]
      [\onems{ head~\ibox{3} \onems[verb]{ vform \type{ppp} \\
                                          da \sliste{ NP[\type{str}]\ind{5} } \\
                             } \\
-            subcat ~ \ibox{2} $\oplus$ \sliste{ \ibox{6} } \\
+            comps ~ \ibox{2} $\oplus$ \sliste{ \ibox{6} } \\
           } [versucht]]]
   [\ms{ head & \ibox{1} \ms[verb]{ vform & fin \\
                                    subj & \sliste{} \\
                                  } \\
-        subcat & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
+        comps & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
       } [wurde]]]
 \end{forest}
 }
@@ -2991,18 +2991,18 @@ Wegen der Kontrollbeziehung ist das Subjekt von \emph{versucht} mit dem Subjekt 
 in \pref{le-versuchen-da} und \iboxt{5} in Abbildung~\ref{abb-remote-pass-da-hm}).
 Da \emph{versucht} das Ergebnis der Anwendung der Lexikonregel zur Blockierung des designierten Arguments
 ist, ist das Subjekt von \emph{versucht} blockiert. 
-Es ist in der \dalist von \emph{versucht} repräsentiert. Die \subcatl des Komplexes \emph{zu reparieren versucht}
+Es ist in der \dalist von \emph{versucht} repräsentiert. Die \compsl des Komplexes \emph{zu reparieren versucht}
 ist wegen der Argumentanhebung (\,\iboxt{3} im Lexikoneintrag \pref{le-versucht-hm} und \iboxt{2}
-in Abbildung~\ref{abb-remote-pass-da-hm}) mit der \subcatl von \emph{zu reparieren} identisch.
-%Die \subcatl von \emph{zu reparieren versucht} ist also identisch mit der von  identical
-%to the \subcat list of \emph{versucht} (\,\iboxt{2} in Figure~\ref{abb-remote-pass-da-hm}). 
+in Abbildung~\ref{abb-remote-pass-da-hm}) mit der \compsl von \emph{zu reparieren} identisch.
+%Die \compsl von \emph{zu reparieren versucht} ist also identisch mit der von  identical
+%to the \comps list of \emph{versucht} (\,\iboxt{2} in Figure~\ref{abb-remote-pass-da-hm}). 
 Das Passivhilfsverb \emph{werden} deblockiert keine Argumente, es hebt nur die
-Elemente von der \subcatl des eingebetteten Verbalkomplexes an (\,\iboxt{2} in
+Elemente von der \compsl des eingebetteten Verbalkomplexes an (\,\iboxt{2} in
 Abbildung~\ref{abb-remote-pass-da-hm}). Außerdem verlangt \emph{wurde}, dass der eingebettete
 Verbalkomplex eine referentielle NP in der \dalist hat, was bei \emph{zu reparieren versucht} der Fall ist.
 Da \emph{wurde} finit ist, ist das Subjekt von \emph{wurde} nicht unter \subj, sondern
-als Element der \subcatl repräsentiert. Die NP, die sich auf das Objekt von
-\emph{reparieren} bezieht, ist das erste Element der \subcatl von \emph{zu reparieren versucht wurde}
+als Element der \compsl repräsentiert. Die NP, die sich auf das Objekt von
+\emph{reparieren} bezieht, ist das erste Element der \compsl von \emph{zu reparieren versucht wurde}
 und bekommt demzufolge Nominativ.
 
 
@@ -3011,9 +3011,9 @@ Interessanterweise funktioniert das auch für die Beispiele mit dem Objektkontro
 \emph{erlaub-}:\\
 \ms{
 head$|$da     & \rule{0cm}{3ex}\sliste{ \ibox{1} }\\[2mm]
-subcat & \sliste{ \ibox{1} NP[\str], NP[\ldat]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \liste{ V[\begin{tabular}[t]{@{}l@{}}
+comps & \sliste{ \ibox{1} NP[\str], NP[\ldat]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \liste{ V[\begin{tabular}[t]{@{}l@{}}
                                                                                             \type{inf}, \textsc{subj} \sliste{ NP[\str]\ind{2}},\\
-                                                                                            \subcat \ibox{3}]\\
+                                                                                            \comps \ibox{3}]\\
                                                                                             \end{tabular}}\\[2mm]
 }
 \zs
@@ -3024,7 +3024,7 @@ Die Argumentblockierungsregel lizenziert den Eintrag in (\mex{1}):
 \emph{erlaubt}:\\
 \ms{
 head$|$da     & \rule{0cm}{3ex}\sliste{ NP[\str] }\\[2mm]
-subcat & \sliste{ NP[\ldat]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \sliste{ V[\type{inf}, \textsc{subj} \sliste{ NP[\str]\ind{2}}, \subcat \ibox{3}] }\\[2mm]
+comps & \sliste{ NP[\ldat]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \sliste{ V[\type{inf}, \textsc{subj} \sliste{ NP[\str]\ind{2}}, \comps \ibox{3}] }\\[2mm]
 }
 \zs
 
@@ -3034,14 +3034,14 @@ Kombiniert man (\mex{0}) mit dem Eintrag für \emph{auszukosten}, bekommt man (\
 \emph{auszukosten erlaubt}:\\
 \ms{
 head$|$da     & \sliste{ NP[\str] }\\[2mm]
-subcat & \sliste{ NP[\ldat], NP[\str] }\\[2mm]
+comps & \sliste{ NP[\ldat], NP[\str] }\\[2mm]
 }
 \zs
 
 \noindent
 Wenn man diesen Verbalkomplex mit \emph{wurde} kombiniert, bleibt das designierte Argument
-blo"ckiert, und man bekommt einen Verbalkomplex, der dieselbe \subcatl hat wie \emph{auszukosten erlaubt}.
-Da das Objekt von \emph{auszukosten} das erste Element mit strukturellem Kasus in der \subcatl von
+blo"ckiert, und man bekommt einen Verbalkomplex, der dieselbe \compsl hat wie \emph{auszukosten erlaubt}.
+Da das Objekt von \emph{auszukosten} das erste Element mit strukturellem Kasus in der \compsl von
 {\em auszukosten erlaubt wurde} ist, muss es im Nominativ stehen.
 %
 Abbildung~\vref{abb-remote-pass-da-hm-erlauben} zeigt die Details.
@@ -3050,25 +3050,25 @@ Abbildung~\vref{abb-remote-pass-da-hm-erlauben} zeigt die Details.
 \begin{forest}
 sm edges
 [\ms{ head   & \ibox{1} \\
-           subcat & \ibox{2}\\
+           comps & \ibox{2}\\
             }
   [\iboxt{4}~\ms{ head & \ibox{3} \\
-                  subcat & \ibox{2} \\
+                  comps & \ibox{2} \\
                 }
      [\iboxt{6}~\onems{ head  \onems[verb]{ vform \type{inf} \\
                                             subj \sliste{ NP[\type{str}]\ind{5} } \\
                                           }  \\
-                                    subcat~\ibox{7} \sliste{ NP[\str] } \\
+                                    comps~\ibox{7} \sliste{ NP[\str] } \\
                                } [auszukosten]]
      [\onems{ head~\ibox{3} \onems[verb]{ vform \type{ppp} \\
                                          da \sliste{ NP[\type{str}]\ind{5} } \\
                             } \\
-            subcat ~ \ibox{2} (\sliste{ NP[\type{ldat}] } $\oplus$ \ibox{7}\,) $\oplus$ \sliste{ \ibox{6} } \\
+            comps ~ \ibox{2} (\sliste{ NP[\type{ldat}] } $\oplus$ \ibox{7}\,) $\oplus$ \sliste{ \ibox{6} } \\
           } [erlaubt]]]
   [\ms{ head & \ibox{1} \ms[verb]{ vform & fin \\
                                    subj & \sliste{} \\
                                  } \\
-        subcat & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
+        comps & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
       } [wurde]]]
 \end{forest}}
 \itdopt{avm für wurde weiter nach links}
@@ -3076,20 +3076,20 @@ sm edges
 \end{figure}
 Die Kontrollbeziehung zwischen dem Dativobjekt von \emph{erlaubt} und dem Subjekt von \emph{auszukosten} 
 wird über Koindizierung hergestellt (\,\iboxt{5} in Abbildung~\ref{abb-remote-pass-da-hm-erlauben}). 
-Die Komplemente von \emph{auszukosten} \iboxb{7} werden von \emph{erlaubt} angehoben. Die \subcatl
+Die Komplemente von \emph{auszukosten} \iboxb{7} werden von \emph{erlaubt} angehoben. Die \compsl
 von \emph{auszukosten erlaubt} enthält deshalb ein Dativelement und das Objekt von \emph{auszukosten}.
-Die \subcatl von \emph{auszukosten erlaubt} ist identisch mit der \subcatl von \emph{erlaubt} \iboxb{2} abzüglich des
+Die \compsl von \emph{auszukosten erlaubt} ist identisch mit der \compsl von \emph{erlaubt} \iboxb{2} abzüglich des
 eingebetteten Verbs.
 Das Subjekt von \emph{erlaubt} ist blockiert und das Passivhilfsverb deblockiert es nicht.
-Somit ist die \subcatl von \emph{auszukosten erlaubt wurde} identisch mit der von \emph{auszukosten erlaubt}. 
+Somit ist die \compsl von \emph{auszukosten erlaubt wurde} identisch mit der von \emph{auszukosten erlaubt}. 
 Die einzige NP mit strukturellem Kasus auf dieser Liste ist das Objekt von \emph{auszukosten}.
 Diese NP muss also im Nominativ realisiert werden.
 \is{Passiv!Fern-|)}\is{Anhebung|)}
 %
 % This approach to the long distance passive differs in an interesting way from the \textsc{acc}"=based approach 
-% that was discussed in Section~\ref{sec-remote-passive-hpsg}: The order of elements in the \textsc{subcat} list
+% that was discussed in Section~\ref{sec-remote-passive-hpsg}: The order of elements in the \textsc{comps} list
 % in the structure (\ref{struc-auszukosten-erlaubt-wurde-erg}) is the reverse of the order in (\mex{0}).
-% Since the HPSG Binding Theory refers to the order of elements in the \textsc{subcat} list in order
+% Since the HPSG Binding Theory refers to the order of elements in the \textsc{comps} list in order
 % to account for binding facts, this difference in order 
 % should make different predictions as far as binding properties are concerned. 
 % I leave this for further studies.
@@ -3115,10 +3115,10 @@ das gleichzeitig auch das designierte Argument von \emph{lassen} ist:
 \mbox{\emph{lass-} (Passiv-Version):} \\
 \ms{
  head$|$da     & \sliste{ \ibox{1} }\\[2mm]
- subcat & \sliste{ \ibox{1} NP[\type{str}] } $\oplus$ \ibox{2} $\oplus$ \liste{ V[\type{bse}, \textsc{lex}+, \textsc{da}~\sliste{ NP$_{\type{ref}}$}, \textsc{subcat}~\ibox{2}]}\\[2mm]
+ comps & \sliste{ \ibox{1} NP[\type{str}] } $\oplus$ \ibox{2} $\oplus$ \liste{ V[\type{bse}, \textsc{lex}+, \textsc{da}~\sliste{ NP$_{\type{ref}}$}, \textsc{comps}~\ibox{2}]}\\[2mm]
 % \begin{tabular}{@{}l@{}l@{}}
 %                   \textrm{V[}&\textrm{\type{bse}, \textsc{lex}+, \textsc{da}~\sliste{ NP$_{\type{ref}}$},}\\
-%                           &\textrm{\textsc{subcat}~\ibox{2}]} \\
+%                           &\textrm{\textsc{comps}~\ibox{2}]} \\
 %                   \end{tabular}}\\
 }\iw{lassen!passive|uu}
 \zs
@@ -3187,24 +3187,24 @@ Adjektivableitungsregel für Partizipien:\\
 \onems[word]{
   synsem$|$loc$|$cat \ms{ head   & \onems[verb]{ vform \type{ppp} \\ 
                                                } \\
-                          subcat & \sliste{ \ibox{1} NP[\type{str}]$_{ref}$ } $\oplus$ \ibox{2} \\ 
+                          comps & \sliste{ \ibox{1} NP[\type{str}]$_{ref}$ } $\oplus$ \ibox{2} \\ 
                         }\\
 } $\mapsto$\\
 \onems[stem]{
  synsem$|$loc$|$cat \ms{ head & \ms[adj]{ subj  & \sliste{ \ibox{1} } \\
                                                }\\
-                         subcat & \ibox{2}\\
+                         comps & \ibox{2}\\
                        }\\
 }\is{Lexikonregel!Adjektivderivation}
 \zs
 
 \noindent
 Diese Regel nimmt ein Partizip als Eingabe, das eine referentielle NP mit strukturellem
-Kasus als erstes Element der \subcatl hat. Da unakkusativische Verben kein designiertes
+Kasus als erstes Element der \compsl hat. Da unakkusativische Verben kein designiertes
 Argument haben, gibt es kein blockiertes Element. Deshalb ist das erste
-Element der \subcatl unakkusativischer Verben das Subjekt (das Element, von dem
+Element der \compsl unakkusativischer Verben das Subjekt (das Element, von dem
 man sagt, es habe Objekteigenschaften). Bei transitiven Verben ist das
-erste Element der \subcatl mit strukturellem Kasus das direkte Objekt, da das Subjekt
+erste Element der \compsl mit strukturellem Kasus das direkte Objekt, da das Subjekt
 blockiert ist. Dieses Element wird zum Subjekt des adjektivischen Partizips.
 Subjekte von Infinitiven mit und ohne \emph{zu} und von Adjektiven werden
 einheitlich als Elemente von \subj repräsentiert.\isfeat{subj} 
@@ -3266,7 +3266,7 @@ das Ergebnis der Anwendung der Regel in (\ref{lr-da-reduction}) auf Seite~\pager
 cat & \ms{ head    & \ms[verb]{
                      da & \rule{0cm}{3ex}\sliste{NP[\str]\ind{1}}\\
                      }\\
-           subcat  & \sliste{NP[\str]\ind{2}}\\[2mm]
+           comps  & \sliste{NP[\str]\ind{2}}\\[2mm]
          }\\
 cont & \ms[reparieren]{
         agens & \ibox{1}\\
@@ -3284,7 +3284,7 @@ den folgenden Stamm:
 cat & \ms{ head    & \ms[adj]{
                      subj & \rule{0cm}{3ex}\sliste{NP[\str]\ind{2}}\\
                      }\\
-           subcat  & \sliste{}\\
+           comps  & \sliste{}\\
          }\\
 cont & \ms[reparieren]{
         agens & \etag\\
@@ -3308,7 +3308,7 @@ cat & \ms{ head    & \ms[adj]{
                                                                   restr & \ibox{2} \\
                                                                 } \\
                      }\\
-           subcat  & \sliste{}\\
+           comps  & \sliste{}\\
          }\\
 cont & \ms{ ind   & \ibox{1} \\
             restr & \liste{ \ms[reparieren]{
@@ -3334,7 +3334,7 @@ mit folgendem \localw:
 cat & \ms{ head    & \ms[verb]{
                      da & \sliste{}\\
                      }\\
-           subcat  & \sliste{NP[\str]\ind{1}}\\[2mm]
+           comps  & \sliste{NP[\str]\ind{1}}\\[2mm]
          }\\
 cont & \ms[ankommen]{
         thema & \ibox{1}\\
@@ -3344,9 +3344,9 @@ cont & \ms[ankommen]{
 
 \noindent
 Da \emph{ankommen} kein designiertes Argument hat, wird nichts blockiert und somit ist das Subjekt des
-Verbs in der \subcatl des Partizips II repräsentiert.
+Verbs in der \compsl des Partizips II repräsentiert.
 
-Da das erste Element der \subcatl von \emph{angekommen} eine NP mit strukturellem Kasus ist,
+Da das erste Element der \compsl von \emph{angekommen} eine NP mit strukturellem Kasus ist,
 kann die Adjektivbildungsregel in (\ref{lr-adjective-formation-da-approach}) angewendet werden
 und lizenziert also folgenden Stamm:
 \eas
@@ -3355,7 +3355,7 @@ und lizenziert also folgenden Stamm:
 cat & \ms{ head    & \ms[adj]{
                      subj & \rule{0cm}{3ex}\sliste{NP[\str]\ind{1}}\\
                      }\\
-           subcat  & \sliste{}\\
+           comps  & \sliste{}\\
          }\\
 cont & \ms[ankommen]{
         thema & \ibox{1}\\
@@ -3375,7 +3375,7 @@ cat & \ms{ head    & \ms[adj]{
                                                                   restr & \ibox{2} \\
                                                                 } \\
                      }\\
-           subcat  & \sliste{}\\
+           comps  & \sliste{}\\
          }\\
 cont & \ms{ ind   & \ibox{1} \\
             restr & \liste{ \ms[ankommen]{
@@ -3394,7 +3394,7 @@ die ihnen zugestoßenen Ereignisse\footnote{
 }
 \z
 Das Subjekt von \emph{zustoßen} ist nicht blockiert.
-Es ist das erste Element der \subcatl des Partizips II.
+Es ist das erste Element der \compsl des Partizips II.
 Deshalb wird es im durch (\ref{lr-adjective-formation-da-approach}) lizenzierten
 Lexikoneintrag für das Adjektiv unter \subj repräsentiert.
 Das Dativargument von \emph{zugestoßene} wird innerhalb der pränominalen AP realisiert.
@@ -3405,7 +3405,7 @@ Nachdem ich gezeigt habe, wie adjektivische Partizipien transitiver
 und unakkusativischer Verben lizenziert sind, bleibt noch zu erklären,
 weshalb Phrasen wie (\mex{1}) ausgeschlossen sind:
 Da die Eingabe für die Lexikonregel in (\ref{lr-adjective-formation-da-approach})
-verlangt, dass die \subcatl des Partizips eine NP mit strukturellem Kasus
+verlangt, dass die \compsl des Partizips eine NP mit strukturellem Kasus
 enthält, kann die Regel nicht auf subjektlose Verben oder auf Verben angewendet
 werden, die nicht unakkusativisch sind und kein Akkusativobjekt verlangen.
 \eal
@@ -3420,11 +3420,11 @@ der (ihm) geholfene Mann
 }
 \zl
 Da der Lexikoneintrag des Partizips II eines unergativischen intransitiven Verbs
-wie \emph{tanzen} eine leere \subcatl hat, kann die Regel in (\ref{lr-adjective-formation-da-approach}) nicht angewendet
+wie \emph{tanzen} eine leere \compsl hat, kann die Regel in (\ref{lr-adjective-formation-da-approach}) nicht angewendet
 werden. Die Unakzeptabilität von (\mex{0}b), die der Wohlgeformtheit von (\ref{ex-angekommene}) mit dem unakkusativischen
 intransitiven Verb \emph{ankommen} gegenübersteht, ist also erklärt.
 Genauso kann kein adjektivisches Partizip \noword{geholfene} gebildet werden, da das Partizip \emph{geholfen}
-eine \subcatl hat, die mit einem Dativ beginnt, \dash mit einem lexikalischen Kasus.
+eine \compsl hat, die mit einem Dativ beginnt, \dash mit einem lexikalischen Kasus.
 
 
 
@@ -3509,7 +3509,7 @@ Präposition \emph{von} für Agensausdrücke:\\
 da & \sliste{ [ \textsc{loc$|$cont$|$ind} \ibox{1} ] } \\
 %                                                         }\\
                      }\\
-     subcat & \sliste{ NP[\ldat]\ind{1} }\\
+     comps & \sliste{ NP[\ldat]\ind{1} }\\
 }
 \zs
 
@@ -3517,7 +3517,7 @@ da & \sliste{ [ \textsc{loc$|$cont$|$ind} \ibox{1} ] } \\
 Dieser Lexikoneintrag für die Präposition interagiert auch mit der Analyse der adjektivischen Partizipien.
 In der Analyse von (\mex{1}) wird das designierte Argument von \stem{ablehn} blockiert. Das blockierte
 Element ist als \subjw und als Element in der \dalist des Partizips repräsentiert. Bei der Adjektivbildungsregel
-wird das erste Element der \subcatl von \emph{abgelehnt} (das Objekt von \stem{ablehn}) zum Subjekt
+wird das erste Element der \compsl von \emph{abgelehnt} (das Objekt von \stem{ablehn}) zum Subjekt
 des Adjektivs. Der \daw wird vom Partizip unverändert übernommen und bleibt auch bei der Anwendung
 der Lexikonregel, die pränominale Adjektive lizenziert, erhalten.
 \ea
@@ -3659,9 +3659,9 @@ Eintrag für das Passivhilfsverb annimmt:
 \label{le-passiv-gunkel}
 Hypothetischer Eintrag für das Passivhilfsverb:\\
 \ms{
-cat$|$subcat \ibox{1} $\oplus$ \sliste{ \ms{ loc \ms{ cat  & \ms{ head & \ms[verb]{ vform & ppp\\
+cat$|$comps \ibox{1} $\oplus$ \sliste{ \ms{ loc \ms{ cat  & \ms{ head & \ms[verb]{ vform & ppp\\
                                                                                  }\\
-                                                                 subcat & \sliste{ NP\ind{2} } $\oplus$ \ibox{1}\\
+                                                                 comps & \sliste{ NP\ind{2} } $\oplus$ \ibox{1}\\
                                                                }\\
                                                      cont & \ms[agens-rel]{
                                                             agens & \ibox{2}\\
@@ -3683,7 +3683,7 @@ Somit entspricht der Komplex \emph{gewählt wird} der Struktur in (\mex{1}):
 \eas
 \emph{gewählt wird} bei reflexivem Agensausdruck:\\
 \ms{ cat  & \ms{ head & verb\\
-                 subcat & \sliste{ NP\ind{2} }\\
+                 comps & \sliste{ NP\ind{2} }\\
                }\\
      cont & \ms[wählen]{
              agens & \ibox{2}\\
@@ -3694,8 +3694,8 @@ Somit entspricht der Komplex \emph{gewählt wird} der Struktur in (\mex{1}):
 
 \noindent
 Das Subjekt von \emph{wählen} ist unterdrückt, und das Objekt befindet sich an der ersten
-Position in der \subcatl. Wegen der Koindizierung der beiden Argumentrollen ist die
-Agensrolle identisch mit dem Index der Nominalphrase in der \subcatl und die Beschränkung
+Position in der \compsl. Wegen der Koindizierung der beiden Argumentrollen ist die
+Agensrolle identisch mit dem Index der Nominalphrase in der \compsl und die Beschränkung
 in (\ref{le-passiv-gunkel}) somit erfüllt. Eine Mehrfachpassivierung kann also auf diese Weise
 nicht ausgeschlossen werden.
 
@@ -3738,10 +3738,10 @@ Gebrauch gemacht.
 %% In the previous subsections, I have demonstrated how \hm's approach works for the agentive passive, the
 %% stative passive, and the dative passive. However, the extension of their approach
 %% to modal infinitives turned out to be problematic:
-%% \hm assume that the subject of infinitives with \emph{zu} are represented on the \subcat list.
+%% \hm assume that the subject of infinitives with \emph{zu} are represented on the \comps list.
 %% This has two disadvantages: First, incoherently constructing verbs select for a verbal projection
 %% that is not fully saturated. This makes impossible a uniform characterization of maximal projections\is{maximal projection}
-%% as something with an empty \subcat list. Furthermore, such a representation is incompatible with
+%% as something with an empty \comps list. Furthermore, such a representation is incompatible with
 %% Haider's approach to modal infinitives: According to Haider, the subject (external argument) of
 %% infinitives is blocked. It is deblocked by \haben in the modal infinitive construction and
 %% it remains blocked if the \emph{zu}"=infinitive is combined with \sein.
@@ -3762,7 +3762,7 @@ Gebrauch gemacht.
 %% \textsc{da}"=Wert des designierten Arguments ist +, wohingegen alle anderen Elemente den \daw
 %% $-$ haben. Der hier vorgestellte Ansatz verwendet dagegen ein eigenes listenwertiges Merkmal
 %% zur Kennzeichnung des designierten Arguments: Wenn es ein designiertes Argument gibt,
-%% dann wird eine Strukturteilung zwischen dem entsprechenden Element in der \subcatl und
+%% dann wird eine Strukturteilung zwischen dem entsprechenden Element in der \compsl und
 %% dem Element in der \textsc{da}"=Liste hergestellt. Der Vorteil dieser Analyse ist, dass das
 %% Fernpassiv mit Bezug auf die Komplexbildung und Argumentanziehung erklärt werden kann.
 %% Das ist bei dem Ansatz, der ein binäres Merkmal zur Kennzeichnung verwendet, nicht möglich:
@@ -3793,13 +3793,13 @@ Analysen, die auf Koindizierung basieren.
   Lichte:  - 17.3.2 und 17.3.4 haben denselben Titel, nämlich "Kathol:1994". Werden da zwei unterschiedliche Ansätze vorgestellt, die so eine Trennung rechtfertigen? In jedem Fall ist das eine Erklärung wert.
 }
 (\mex{1}) und für die Hilfsverben die in (\mex{2}) vor.\footnote{
-        Kathol benutzt statt \subcat das Merkmal \comps. Ich habe seine Einträge an die Merkmalsgeometrie,
+        Kathol benutzt statt \comps das Merkmal \comps. Ich habe seine Einträge an die Merkmalsgeometrie,
         die im vorliegenden Buch verwendet wird, angepaßt.%
 }
 
 \ea
 \begin{tabular}[t]{@{}l@{ }l@{ }l@{ }l@{ }l@{}}
-  &                               & \textsc{ext}                           & \textsc{subj}                  & \textsc{subcat}\\[2mm]
+  &                               & \textsc{ext}                           & \textsc{subj}                  & \textsc{comps}\\[2mm]
 a.&angekommen  (unakkusativisch): & \sliste{ \ibox{1} NP[\type{nom}] } & \sliste{ \ibox{1} }         & \sliste{}    \\[2mm]
 b.&geschlafen  (unergativisch):   & \sliste{          NP[\type{nom}] } & \sliste{}                   & \sliste{}    \\[2mm]
 c.&geliebt     (transitiv):       & \sliste{          NP[\type{nom}] } & \sliste{ NP[\type{acc}] }  & \sliste{}    \\[2mm]
@@ -3809,17 +3809,17 @@ c.&geliebt     (transitiv):       & \sliste{          NP[\type{nom}] } & \sliste
 \ex \haben (Perfekthilfsverb)\\
 \ms{
 subj   & \ibox{3}\\
-subcat & \ibox{2} $\oplus$ \ibox{1} $\oplus$ \sliste{ V[\textsc{subj} \ibox{2}, \textsc{ext} \ibox{3}, \textsc{subcat} \ibox{1}] }\\
+comps & \ibox{2} $\oplus$ \ibox{1} $\oplus$ \sliste{ V[\textsc{subj} \ibox{2}, \textsc{ext} \ibox{3}, \textsc{comps} \ibox{1}] }\\
 } $\wedge$ \ibox{2} $\neq$ \ibox{3}
 \ex \sein (Perfekthilfsverb)\\
 \ms{
 subj   & \ibox{2}\\
-subcat & \ibox{1} $\oplus$ \sliste{ V[\textsc{subj} \ibox{2}, \textsc{ext} \ibox{2}, \textsc{subcat} \ibox{1}] }\\
+comps & \ibox{1} $\oplus$ \sliste{ V[\textsc{subj} \ibox{2}, \textsc{ext} \ibox{2}, \textsc{comps} \ibox{1}] }\\
 }
 \ex\label{le-werden-kathol} \emph{werden} (Passivhilfsverb)\\
 \ms{
 subj   & \sliste{ NP[\type{nom}]\ind{2} }\\
-subcat & \ibox{1} $\oplus$ \sliste{ V[\textsc{subj} \sliste{ NP[\type{acc}]\ind{2} }, \textsc{subcat} \ibox{1}] }\\
+comps & \ibox{1} $\oplus$ \sliste{ V[\textsc{subj} \sliste{ NP[\type{acc}]\ind{2} }, \textsc{comps} \ibox{1}] }\\
 }
 \zl
 Das Merkmal \textsc{ext} wird zur Kennzeichnung des externen Arguments benutzt. Das \subjm ist bei
@@ -3832,7 +3832,7 @@ muss das Hilfsverb \sein in (\mex{0}b) verwendet werden, das das externe Argumen
 
 Der Vorteil von Kathols Ansatz ist, dass das logische Subjekt
 aller Partizipien einheitlich als Element von \textsc{ext} repräsentiert ist,
-der Nachteil ist aber, dass \emph{geliebt} kein Element in der \subcatl hat,
+der Nachteil ist aber, dass \emph{geliebt} kein Element in der \compsl hat,
 was fälschlicherweise vorhersagt, dass das Partizip nicht mit Argumenten kombiniert
 werden kann. Da in Kathols Ansatz das Hilfsverb \emph{hat} das externe Argument und das
 Element in \subj deblockiert, kann \emph{seine Frau} in (\mex{1}) nur als Argument des Hilfsverbs
@@ -3920,20 +3920,20 @@ verweist, sondern verweist statt dessen auf das Element mit Akkusativobjekteigen
         außerdem auch das Fernpassiv.%
 }
 Pollard nimmt an, dass das Subjekt infiniter Verben nicht auf
-der \subcatl repräsentiert wird, sondern wie im hier vorliegenden Buch auch als Wert von \subj.
+der \compsl repräsentiert wird, sondern wie im hier vorliegenden Buch auch als Wert von \subj.
 Zur Auszeichnung eines Arguments benutzt Pollard das Merkmal \HPSGerg.\isfeat{erg}
 Bei transitiven Verben ist der Wert von \HPSGerg mit dem Akkusativobjekt identisch. 
 Bei unakkusativischen Verben entspricht \HPSGerg dem Subjekt.
 Intransitive unergativische Verben haben als \ergw die leere Liste.
 (\mex{1}) %\vpageref{kp-erg-values} 
-zeigt die \subj"=, \HPSGerg"= und \subcatwe der Verben \word{ankommen},
+zeigt die \subj"=, \HPSGerg"= und \compswe der Verben \word{ankommen},
 \word{tanzen}, \word{auf"|fallen}, \word{lieben}
 %, \word{schenken} (`to give as a present'), 
 und \word{helfen}.
 %\begin{figure}[htbp]
 \ea\label{kp-erg-values}
 \begin{tabular}[t]{@{}l@{ }l@{ }l@{ }l@{~~ }l@{ }}
-  &                               & \textsc{subj}                          &  \textsc{erg}          & \textsc{subcat}\\[2mm]
+  &                               & \textsc{subj}                          &  \textsc{erg}          & \textsc{comps}\\[2mm]
 a.&ankommen (unakkusativisch):    & \sliste{ \ibox{1} NP[\type{str}] } & \sliste{ \ibox{1} } & \sliste{}\\[2mm]
 b.&tanzen   (unergativisch):      & \sliste{ NP[\type{str}] }          & \sliste{}           & \sliste{}\\[2mm]
 c.&auf"|fallen (unakkusativisch): & \sliste{ \ibox{1} NP[\type{str}] } & \sliste{ \ibox{1} } & \sliste{ NP[\type{ldat}] }\\[2mm]
@@ -3953,7 +3953,7 @@ Das Kernstück von Pollards Passivanalyse ist der Lexikoneintrag für das Passiv
         Pollard repräsentiert das \ergm und das \subjm nicht als Kopfmerkmal.%
 }
 Das Passivhilfsverb bettet ein Verb mit der \vform{} \type{ppp}\istype{ppp}, \dash ein Partizip II, ein.
-Das Hilfsverb zieht den Wert von \HPSGerg \iboxb{1} von der \subcatl des eingebetteten Verbs ab.
+Das Hilfsverb zieht den Wert von \HPSGerg \iboxb{1} von der \compsl des eingebetteten Verbs ab.
 
 \eas
 \label{le-passiv-prelim-Pollard}
@@ -3962,23 +3962,23 @@ Das Hilfsverb zieht den Wert von \HPSGerg \iboxb{1} von der \subcatl des eingebe
  head   & \ms[verb]{ subj & \ibox{1} \\
                      erg  & \ibox{1} \\ 
                    } \\
- subcat & \ibox{2} $\oplus$ \liste{ \begin{tabular}{@{}l@{}l@{}}
+ comps & \ibox{2} $\oplus$ \liste{ \begin{tabular}{@{}l@{}l@{}}
                   \textrm{V[}&\textrm{\type{ppp}, %\textsc{flip}$-$, 
                                 \textsc{lex}+, \textsc{subj}~\liste{ NP[\type{str}]$_{\type{ref}}$}, \textsc{erg}~\ibox{1},}
-                          \textrm{\textsc{subcat}~\ibox{1} $\oplus$ \ibox{2}]}\\
+                          \textrm{\textsc{comps}~\ibox{1} $\oplus$ \ibox{2}]}\\
                  \end{tabular}}\\[4mm]
 }\iw{werden!passive|uu}
 \zs
 
 \noindent
-Die restlichen Elemente \iboxb{2} werden auf die \subcatl des Hilfsverbs angezogen.
+Die restlichen Elemente \iboxb{2} werden auf die \compsl des Hilfsverbs angezogen.
 
 Der Lexikoneintrag in (\mex{0}) kann sowohl das persönliche als auch das unpersönliche
 Passiv erklären und schließt das Passiv unakkusativischer Verben aus:
 Das Passiv unakkusativischer Verben wird dadurch verhindert, dass das \HPSGerg"=Element
 unakkusativischer Verben mit deren \subj"=Element identifiziert und nicht in der
-\subcatl des eingebetteten Verbs enthalten ist. Deshalb ist \HPSGerg kein Präfix
-der \subcatl des eingebetteten Verbs und unakkusativische Verben sind somit als
+\compsl des eingebetteten Verbs enthalten ist. Deshalb ist \HPSGerg kein Präfix
+der \compsl des eingebetteten Verbs und unakkusativische Verben sind somit als
 Argument des Passivhilfsverbs ausgeschlossen.
 
 Bei \emph{tanzen} ist der \ergw des unter das Hilfsverb eingebetteten Verbs
@@ -3993,19 +3993,19 @@ Abbildung~\vref{abb-unpers-pass} zeigt das im Detail.
 \begin{figure}
 \begin{forest}
 [\ms{ head & \ibox{1} \\
-      subcat & \ibox{2} \\
+      comps & \ibox{2} \\
     }
   [\iboxt{4}~\onems{ loc$|$cat \onems{ head  \ms[verb]{ vform & ppp \\
                                                   subj & \sliste{ NP[\type{str}] }\\
                                                   erg  & \ibox{3} \liste{}\\
                                                 }  \\
-                                subcat~\ibox{3} $\oplus$ \ibox{2} \sliste{ NP[\type{ldat}] } \\
+                                comps~\ibox{3} $\oplus$ \ibox{2} \sliste{ NP[\type{ldat}] } \\
                               }} [geholfen]]
   [\onems{ head~\ibox{1} \ms[verb]{ vform & bse \\
                               subj & \ibox{3} \\
                               erg  & \ibox{3} \\
                             } \\
-            subcat ~ \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\[2mm]
+            comps ~ \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\[2mm]
           } [werden]]]
 \end{forest}
 \caption{\label{abb-unpers-pass}Pollards Analyse des Verbalkomplexes \emph{geholfen werden} in:\ \emph{dass dem Mann geholfen werden wird}}%
@@ -4018,8 +4018,8 @@ Da dieser \subjw zu den Kopfmerkmalen von \emph{werden} gehört \iboxb{1}, wird
 er durch das Kopfmerkmalsprinzip\is{Prinzip!Kopfmerkmals-} projiziert. 
 Deshalb hat der Verbalkomplex \emph{geholfen werden} die leere Liste als \subjw.
 Innerhalb der Verbalkomplexstruktur wird das verbale Argument des Hilfsverbs
-abgebunden, die verbleibenden Element der \subcatl werden hochgereicht \iboxb{2}.
-Deshalb hat der gesamte Verbalkomplex \emph{geholfen werden} eine \subcatl, die
+abgebunden, die verbleibenden Element der \compsl werden hochgereicht \iboxb{2}.
+Deshalb hat der gesamte Verbalkomplex \emph{geholfen werden} eine \compsl, die
 nur das Dativobjekt enthält.
 
 Abbildung~\vref{abb-pers-pass} zeigt eine Beispielanalyse für das persönliche Passiv
@@ -4028,28 +4028,28 @@ mit dem transitiven Verb \emph{lieben}.
 \begin{forest}
 sm edges
 [\ms{ head & \ibox{1} \\
-      subcat & \ibox{2} \\
+      comps & \ibox{2} \\
     }
   [\iboxt{4}~\onems{ loc$|$cat \onems{ head  \ms[verb]{ vform & ppp \\
                                                   subj & \rule{0cm}{3ex}\liste{ NP[\type{str}] }\\[2mm]
                                                   erg  & \ibox{3} \sliste{ \ibox{5} NP[\type{str}] }\\
                                                 }  \\
-                                subcat~\ibox{3} \sliste{ \ibox{5} NP[\type{str}] } $\oplus$ \ibox{2} \liste{}\\
+                                comps~\ibox{3} \sliste{ \ibox{5} NP[\type{str}] } $\oplus$ \ibox{2} \liste{}\\
                               }} [geliebt]]
   [\onems{ head~\ibox{1} \ms[verb]{ vform & bse \\
                               subj & \ibox{3} \\
                               erg  & \ibox{3} \\
                             } \\
-            subcat ~ \ibox{2} $\oplus$ \sliste{ \ibox{4} }\\[2mm]
+            comps ~ \ibox{2} $\oplus$ \sliste{ \ibox{4} }\\[2mm]
           } [werden]]]
 \end{forest}
 \caption{\label{abb-pers-pass}Pollards Analyse des Verbalkomplexes \emph{geliebt werden} in:\ \emph{dass der Mann geliebt werden wird}}
 \end{figure}
 Der \ergw von Verben wie \emph{lieben} ist eine Liste mit einem Element \iboxb{3}. 
-Diese Liste wird von der \subcatl des Partizips \emph{geliebt} abgezogen.
+Diese Liste wird von der \compsl des Partizips \emph{geliebt} abgezogen.
 Das Ergebnis ist die leere Liste \iboxb{2}. Diese leere Liste wird
 von  \emph{werden} angezogen, \dash, bei bivalenten transitiven Verben wie \emph{lieben}
-enthält die \subcatl von \emph{werden} nur das selegierte Partizip. 
+enthält die \compsl von \emph{werden} nur das selegierte Partizip. 
 Der \ergw des Partizips \emph{geliebt} ist mit dem \subjw des Hilfsverbs \emph{werden} identisch.
 Das Kopfmerkmalsprinzip sorgt dafür, dass die Kopfmerkmale von \emph{werden} projiziert werden,
 und da das \subjm zu den Kopfmerkmalen gehört, hat der Verbalkomplex
@@ -4094,13 +4094,13 @@ Zwei Männer erschossen wurden    während des Wochenendes.\footnote{
 %% %     }
 \zl
 Das Objekt von \emph{erschießen} in (\mex{0}a) kann mit dem Partizip die Phrase
-\emph{zwei Männer erschossen} bilden, aber dann ist es nicht mehr in der \subcatl von
+\emph{zwei Männer erschossen} bilden, aber dann ist es nicht mehr in der \compsl von
 \emph{zwei Männer erschossen} enthalten. Das Passivhilfsverb \emph{wurden} verlangt,
-dass der \ergw des eingebetteten Partizips ein Präfix der \subcatl des Partizips ist,
+dass der \ergw des eingebetteten Partizips ein Präfix der \compsl des Partizips ist,
 was dann für die Projektion \emph{zwei Männer erschossen} nicht der Fall wäre.
 Für Haiders\aimention{Hubert Haider} Ansatz besteht dieses Problem nicht: Die Argumentblockierung
 findet gleichzeitig mit der Ableitung der Partizipform statt, \dash, nicht das Passivhilfsverb
-blockiert das Subjekt. Da das Akkusativobjekt in der \subcatl des Partizips enthalten
+blockiert das Subjekt. Da das Akkusativobjekt in der \compsl des Partizips enthalten
 ist, können Sätze wie (\mex{0}) in Haiders Analyse erklärt werden.
 
 
@@ -4115,9 +4115,9 @@ das Passivhilfsverb \emph{werden} vor, der dem folgenden entspricht:
 \emph{werden} (Passivhilfsverb):\\
 \ms{
 subj & \ibox{3}\\
-subcat & \ibox{1} $\oplus$ \liste{ V \ms{ vform & part ii\\
+comps & \ibox{1} $\oplus$ \liste{ V \ms{ vform & part ii\\
                                   subj  & \sliste{ np }\\[2mm]
-                                  subcat & \ibox{2} $\oplus$ \ibox{1}\\
+                                  comps & \ibox{2} $\oplus$ \ibox{1}\\
                                 }}\\
 }\\
 constraint: (\,\ibox{2} = \liste{ NP[\type{acc}]\ind{4}} $\wedge$ \ibox{3} = \liste{ NP[\type{nom}]\ind{4}})\\[2mm]
@@ -4134,8 +4134,8 @@ hat kein Element in \subj (\iboxt{3} = \eliste{}), und es liegt somit eine unper
 
 Wie Pollards Ansatz versagt auch dieser Ansatz bei der Analyse von Sätzen
 wie \pref{bsp-subjekt-im-vf-passiv-letzt-drei}: Die Projektion \emph{zwei Männer
-erschossen} ist eine komplette VP, die nichts in der \subcatl enthält.
-Der Lexikoneintrag in (\mex{0}) ist mit einem Partizip, das eine leere \subcatl hat, kompatibel,
+erschossen} ist eine komplette VP, die nichts in der \compsl enthält.
+Der Lexikoneintrag in (\mex{0}) ist mit einem Partizip, das eine leere \compsl hat, kompatibel,
 aber das Ergebnis der Kombination ist ein subjektloser Verbalkomplex.
 Subjektlose Verbalkomplexe stehen immer in der dritten Person Singular\is{Kongruenz!Subjekt"=Verb"=}, 
 \dash, man würde \emph{wurde} statt \emph{wurden} als finites Verb erwarten.
@@ -4189,8 +4189,8 @@ Er nimmt die folgenden Lexikoneinträge für das Passivhilfsverb \emph{werden} a
 \resizebox{\linewidth}{!}{%
 \onems{
 head$|$subj \rule{0cm}{3ex}\liste{ NP[\emph{nom}]\ind{2}}\\
-subcat \liste{ PP[\type{von}]\ind{1}} $\oplus$ \ibox{4}  $\oplus$ \liste{ \ms{ head   & \ms[verb]{ vform & psp\\}\\
-                                                                          subcat & \liste{ NP[\emph{acc}]\ind{2}} $\oplus$ \ibox{4}\\[2mm]
+comps \liste{ PP[\type{von}]\ind{1}} $\oplus$ \ibox{4}  $\oplus$ \liste{ \ms{ head   & \ms[verb]{ vform & psp\\}\\
+                                                                          comps & \liste{ NP[\emph{acc}]\ind{2}} $\oplus$ \ibox{4}\\[2mm]
                                                                           argstr  & \ms{
 extarg & \sliste{ \ibox{1} }\\
 intarg & \sliste{ \ibox{2} }\\
@@ -4206,8 +4206,8 @@ args   & \sliste{ \ibox{1} } $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3}\\
 %\resizebox{\linewidth}{!}{%
 \onems{
 head$|$subj \rule{0cm}{3ex}\liste{ }\\
-subcat \liste{ PP[\type{von}]\ind{1}} $\oplus$ \ibox{4}  $\oplus$ \liste{ \ms{ head   & \ms[verb]{ vform & psp\\}\\
-                                                                          subcat & \ibox{4}\\[1mm]
+comps \liste{ PP[\type{von}]\ind{1}} $\oplus$ \ibox{4}  $\oplus$ \liste{ \ms{ head   & \ms[verb]{ vform & psp\\}\\
+                                                                          comps & \ibox{4}\\[1mm]
                                                                           argstr  & \ms{
 extarg & \sliste{ \ibox{1} }\\
 intarg & \sliste{ }\\
@@ -4266,14 +4266,14 @@ könnte, bei der Projektion \emph{dem Mann aufgefallen} nicht vorhanden ist.
 
 %% \ea
 %% \begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{\hspace{5ex}}l@{}}
-%%   &                           & \textsc{da}                            & \textsc{subcat}\\[2mm]
+%%   &                           & \textsc{da}                            & \textsc{comps}\\[2mm]
 %% a.&ankommen (unakkusativisch):    & \sliste{}                           & \sliste{NP[\type{str}]}\\[2mm]
 %% b.&lieben      (transitiv):   & \sliste{ \ibox{1} NP[\type{str}] } & \sliste{ \ibox{1}, NP[\type{str}] }\\
 %% \end{tabular}
 %% \z
 %% \ea
 %% \begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{}}
-%%   &                           & \textsc{subcat}\\[2mm]
+%%   &                           & \textsc{comps}\\[2mm]
 %% a.&ankommen (unakkusativisch):    & \sliste{NP[\type{str}, \da $-$]}\\[2mm]
 %% b.&lieben      (unergativisch):   & \sliste{NP[\str, \da +], NP[\str, \da $-$]}\\
 %% \end{tabular}
@@ -4284,7 +4284,7 @@ könnte, bei der Projektion \emph{dem Mann aufgefallen} nicht vorhanden ist.
 
 %% Die Repräsentation in (\mex{0}) sagt folgendes aus: Für das Verb \emph{lieben} gibt es
 %% zwei Argumente. Das erste der beiden Argumente hat die Eigenschaft, designiert zu sein.
-%% Wir können designierte Argumente finden, indem wir die \dawe der Elemente in der \subcatl
+%% Wir können designierte Argumente finden, indem wir die \dawe der Elemente in der \compsl
 %% angucken.
 
 %% Auf den ersten Blick scheinen beide Repräsentationen gleichermaßen geeignet zu sein, betrachtet
@@ -4545,12 +4545,12 @@ den Sätzen in (\mex{1}) unterscheiden.\footnote{
 \ex {}[Den Aufsatz gelesen] hat er am Wochenende.
 \zl
 Die realisierungsunabhängige Repräsentation wird dadurch erreicht, dass
-Argumente, die mit ihrem Kopf verbunden werden, nicht mehr aus der \subcatl entfernt,
-sondern in der \subcatl nur als realisiert markiert werden (siehe auch \citew[\page 560]{Higginbotham85a} 
+Argumente, die mit ihrem Kopf verbunden werden, nicht mehr aus der \compsl entfernt,
+sondern in der \compsl nur als realisiert markiert werden (siehe auch \citew[\page 560]{Higginbotham85a} 
 %und \citew{Speas90a} 
 für einen ähnlichen Vorschlag in einem anderen theoretischen Rahmen). 
 Eine Phrase ist dann eine Maximalprojektion eines Kopfes, wenn alle Argumente des Kopfes als realisiert markiert sind.
-Elemente in der \subcatl, die bereits als realisiert markiert sind, nennt Meurers \emph{spirits}
+Elemente in der \compsl, die bereits als realisiert markiert sind, nennt Meurers \emph{spirits}
 (Geister\is{Geist}).\isfeat{realized}
 
 Das entsprechend angepaßte Schema sieht folgendermaßen aus:
@@ -4559,13 +4559,13 @@ Das entsprechend angepaßte Schema sieht folgendermaßen aus:
 \label{schema-bin-mark}
 \type{head"=argument"=phrase}\istype{head"=argument"=phrase} \impl\\
 \onems{
-      synsem$|$loc$|$cat$|$subcat            \ibox{1} $\oplus$ \liste{ \ms{ argument & \ibox{2}\\
+      synsem$|$loc$|$cat$|$comps            \ibox{1} $\oplus$ \liste{ \ms{ argument & \ibox{2}\\
                                                               realized & \textrm{+}\\
                                                             } } $\oplus$ \ibox{3}\\
-      head-dtr$|$synsem$|$loc$|$cat$|$subcat \ibox{1} $\oplus$ \liste{ \ms{ argument & \ibox{2}\\
+      head-dtr$|$synsem$|$loc$|$cat$|$comps \ibox{1} $\oplus$ \liste{ \ms{ argument & \ibox{2}\\
                                                               realized & $-$\\
                                                             } } $\oplus$ \ibox{3} \\
-      non-head-dtrs \sliste{ \onems{ synsem \ibox{2} \onems{ loc$|$cat$|$subcat \type{list of spirits}\\
+      non-head-dtrs \sliste{ \onems{ synsem \ibox{2} \onems{ loc$|$cat$|$comps \type{list of spirits}\\
                                                              lex  $-$\\ } \\ 
                                    } }\\
 }
@@ -4577,29 +4577,29 @@ Die Merkmale \textsc{argument}\isfeat{argument} und \textsc{realized}\isfeat{rea
 und bereits auf Seite~\pageref{page-realized} diskutiert. Bisher wurde im Kopf"=Argument"=Schema
 immer die Relation \emph{delete} verwendet. In Schema~\ref{schema-bin-mark} tauchen nun
 diverse $\oplus$"=Relationen (\emph{append}) auf. Die beiden \emph{append}"=Relationen
-werden gebraucht, um die \subcatl der Kopftochter in drei Teile zu zerteilen. Im zweiten
+werden gebraucht, um die \compsl der Kopftochter in drei Teile zu zerteilen. Im zweiten
 Teil befindet sich das Element, das realisiert werden soll. Dieses wird aber nicht einfach
 aus der Liste der noch zu sättigenden Argumente entfernt, sondern es wird nur der 
-\textsc{realized}"=Wert verändert. Die Reihenfolge der Elemente in der \subcatl der Mutter
-muss der Reihenfolge in der \subcatl der Kopftochter entsprechen. Deshalb muss
-die \subcatl der Mutter mittels \emph{append}
-aus den Bestandteilen zusammengesetzt werden, aus denen auch die \subcatl der Kopftochter
-besteht. Die \subcatl der Mutter ist also bis auf den \textsc{realized}"=Wert eines Arguments
-identisch mit der \subcatl der Kopftochter. Von der Nichtkopftochter wird verlangt, dass sie
-vollständig ist, \dash, dass alle Elemente der \subcatl der Nichtkopftochter \textsc{realized}+
+\textsc{realized}"=Wert verändert. Die Reihenfolge der Elemente in der \compsl der Mutter
+muss der Reihenfolge in der \compsl der Kopftochter entsprechen. Deshalb muss
+die \compsl der Mutter mittels \emph{append}
+aus den Bestandteilen zusammengesetzt werden, aus denen auch die \compsl der Kopftochter
+besteht. Die \compsl der Mutter ist also bis auf den \textsc{realized}"=Wert eines Arguments
+identisch mit der \compsl der Kopftochter. Von der Nichtkopftochter wird verlangt, dass sie
+vollständig ist, \dash, dass alle Elemente der \compsl der Nichtkopftochter \textsc{realized}+
 sind. Das wird durch die Beschränkung \type{list of spirits} ausgedrückt. 
 
-Dadurch dass Elemente nicht von der \subcatl entfernt, sondern nur markiert werden,
+Dadurch dass Elemente nicht von der \compsl entfernt, sondern nur markiert werden,
 erreicht man, dass auch in den für \citet{Prze99} problematischen Fällen in
 (\ref{bsp-der-aufsatz-gelesen-zwei}) alle Argumente des eingebetteten Verbs angehoben
 werden, obwohl sie bereits in einer anderen Umgebung realisiert wurden. (\mex{2})
 zeigt die Valenzlisten für die Sätze (\ref{bsp-der-aufsatz-gelesen-zwei}).
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l}
-a. & \emph{der Aufsatz gelesen}:        & \subj + \subcat \sliste{ NP[\str]$_j$, \st{NP[\str]}$_k$ }\\
-b. & \emph{den Aufsatz gelesen}:        & \subj + \subcat \sliste{ NP[\str]$_j$, \st{NP[\str]}$_k$ }\\
-c. & \emph{der Aufsatz gelesen wurde}:  & \subj + \subcat \sliste{ \st{NP[\str]}$_k$ }\\
-d. & \emph{den Aufsatz gelesen hat er}: & \subj + \subcat \sliste{ \st{NP[\str]}$_j$, \st{NP[\str]}$_k$ }\\
+a. & \emph{der Aufsatz gelesen}:        & \subj + \comps \sliste{ NP[\str]$_j$, \st{NP[\str]}$_k$ }\\
+b. & \emph{den Aufsatz gelesen}:        & \subj + \comps \sliste{ NP[\str]$_j$, \st{NP[\str]}$_k$ }\\
+c. & \emph{der Aufsatz gelesen wurde}:  & \subj + \comps \sliste{ \st{NP[\str]}$_k$ }\\
+d. & \emph{den Aufsatz gelesen hat er}: & \subj + \comps \sliste{ \st{NP[\str]}$_j$, \st{NP[\str]}$_k$ }\\
 \end{tabular}
 \z
 Innerhalb der Projektion \emph{der/den Aufsatz gelesen} wird das Objekt von \emph{gelesen} realisiert,
@@ -4635,7 +4635,7 @@ attract(\liste{ \ms{ argument & \ibox{1}\\
 \mbox{\haben (Perfekthilfsverb):}\\
 \ms{
 da     & \ibox{1}\\
-subcat & \textrm{attract(\ibox{1} $\oplus$ \ibox{2})} $\oplus$ \sliste{ V[\type{ppp}, \textsc{lex}+, \textsc{subj} \ibox{1}, \textsc{subcat} \ibox{2}] }\\[2mm]
+comps & \textrm{attract(\ibox{1} $\oplus$ \ibox{2})} $\oplus$ \sliste{ V[\type{ppp}, \textsc{lex}+, \textsc{subj} \ibox{1}, \textsc{comps} \ibox{2}] }\\[2mm]
 }
 \zs
 
@@ -4644,7 +4644,7 @@ subcat & \textrm{attract(\ibox{1} $\oplus$ \ibox{2})} $\oplus$ \sliste{ V[\type{
 \mbox{\emph{werden} (Passivhilfsverb):}\\
 \ms{
 da     & \liste{}\\
-subcat & \textrm{attract\iboxb{1}} $\oplus$ \sliste{ V[\type{ppp}, \textsc{lex}+, \textsc{da} \sliste{ NP$_{ref}$}, \textsc{subcat} \ibox{1}] }\\
+comps & \textrm{attract\iboxb{1}} $\oplus$ \sliste{ V[\type{ppp}, \textsc{lex}+, \textsc{da} \sliste{ NP$_{ref}$}, \textsc{comps} \ibox{1}] }\\
 }
 \zs
 Die Argumente der Hilfsverben in (\mex{-1}) und (\mex{0}) sind in bezug auf ihren \textsc{raised}"=Wert
@@ -4656,7 +4656,7 @@ Verben nicht angehoben werden können:
 \ms{
 synsem$|$loc$|$cat$|$head & \ms[verb]{ vform & fin\\ }\\
 } \impl \\\\
-\mbox{}\hspace{6em}\ms{ synsem$|$loc$|$cat$|$subcat & list\_of\_non\_raised\_arguments\\}
+\mbox{}\hspace{6em}\ms{ synsem$|$loc$|$cat$|$comps & list\_of\_non\_raised\_arguments\\}
 \zs
 Der Grund dafür, dass Argumente finiter Verben nicht angehoben werden können,
 ist, dass es keine Verben gibt, die finite Verben einbetten und mit ihnen einen Komplex bilden.
@@ -4696,15 +4696,15 @@ der \textsc{raised}"=Werte in Kopf"=Argument"=Strukturen\is{Schema!Kopf"=Argumen
 \label{schema-bin-mark-final}
 \type{head"=argument"=phrase}\istype{head"=argument"=phrase} \impl\\
 \onems{
-      synsem$|$loc$|$cat$|$subcat            \ibox{1} $\oplus$ \liste{ \ms{ argument & \ibox{2}\\
+      synsem$|$loc$|$cat$|$comps            \ibox{1} $\oplus$ \liste{ \ms{ argument & \ibox{2}\\
                                                               raised   & \ibox{3}\\ 
                                                               realized & $+$\\
                                                             } } $\oplus$ \ibox{4}\\
-      head-dtr$|$synsem$|$loc$|$cat$|$subcat \ibox{1} $\oplus$ \liste{ \ms{ argument & \ibox{2}\\
+      head-dtr$|$synsem$|$loc$|$cat$|$comps \ibox{1} $\oplus$ \liste{ \ms{ argument & \ibox{2}\\
                                                               raised   & \ibox{3}\\ 
                                                               realized & $-$\\
                                                             } } $\oplus$ \ibox{4} \\
-      non-head-dtrs \sliste{ \onems{ synsem \ibox{2} \onems{ loc$|$cat$|$subcat \eliste\\
+      non-head-dtrs \sliste{ \onems{ synsem \ibox{2} \onems{ loc$|$cat$|$comps \eliste\\
                                                              lex  $-$\\ } \\ 
                                    } }\\
 }
@@ -4725,7 +4725,7 @@ Nach diesen Vorarbeiten kann nun das Kasusprinzip formalisiert werden:
 \onems{
 synsem$|$loc$|$cat \ms{ head   & \ms[verb]{ subj & \ibox{1}\\
                                           }\\
-                        subcat & \ibox{2}\\
+                        comps & \ibox{2}\\
                       }\\
 } $\wedge$\\
 \ibox{1} $\oplus$ \ibox{2} = \type{list\_of\_not\_np\_str} $\oplus$ \sliste{ \ibox{3} NP[\str, \textsc{raised}$-$] } $\oplus$ \etag
@@ -4744,7 +4744,7 @@ synsem$|$loc$|$cat \ms{ head   & \ms[verb]{ subj & \ibox{1}\\
 \onems{
 synsem$|$loc$|$cat \ms{ head   & \ms[verb]{ subj & \ibox{1}\\
                                           }\\
-                        subcat & \ibox{2}\\
+                        comps & \ibox{2}\\
                       }\\
 } $\wedge$\\
 \ibox{1} $\oplus$ \ibox{2} =\\
@@ -4755,14 +4755,14 @@ synsem$|$loc$|$cat \ms{ head   & \ms[verb]{ subj & \ibox{1}\\
 
 \noindent
 Der Ausdruck in a bedeutet folgendes: Wenn sich die Liste, die aus der Verknüpfung des \subjwes
-mit dem \subcatw besteht, so unterteilen läßt, dass es einen Listenanfang gibt, der aus Elementen besteht,
+mit dem \compsw besteht, so unterteilen läßt, dass es einen Listenanfang gibt, der aus Elementen besteht,
 die keine NP mit strukturellem Kasus sind, und einen Listenrest, der mit einer Nominalphrase mit strukturellem
 Kasus beginnt, die nicht angehoben ist \iboxb{3}, dann muss diese Nominalphrase strukturellen
 Nominativ (\type{snom}) haben. \etag steht für einen beliebigen Wert, im konkreten Fall also für eine beliebige Liste.
 Die Unterteilung der Liste \ibox{1} $\oplus$ \ibox{2} in den Listenanfang vom Typ \type{list\_of\_not\_np\_str}
 ist wichtig, da sonst die bereits in Kapitel~\ref{kasus-adamp} angesprochenen Fälle des Fernpassivs mit Objektkontrollverben
 nicht analysierbar wären (siehe auch Seite~\pageref{page-remote-passive-erlauben}). Bei solchen
-Fernpassiven kann an der ersten Stelle der \subcatl ein Dativ stehen und erst an zweiter Stelle eine
+Fernpassiven kann an der ersten Stelle der \compsl ein Dativ stehen und erst an zweiter Stelle eine
 NP mit strukturellem Kasus.
 
 Die Implikation in b regelt die Akkusativzuweisung in analoger Weise: Zusätzlich
@@ -4770,7 +4770,7 @@ zur Spezifikation des Listenanfangs muss es noch eine weitere nicht angehobene
 Nominalphrase mit strukturellem Kasus geben (diejenige, die Nominativ bekommt). Alle weiteren
 nicht angehobenen Nominalphrasen mit strukturellem Kasus \iboxb{3} müssen dann im Akkusativ stehen.
 Durch die beiden \etag in (\mex{0}b) kann die Liste nach der ersten NP[\str] beliebig zerlegt werden,
-so dass \zb in der Liste \sliste{ NP[\str], NP[\str], NP[\str] }, wie sie in (\mex{1}) als \subcatl
+so dass \zb in der Liste \sliste{ NP[\str], NP[\str], NP[\str] }, wie sie in (\mex{1}) als \compsl
 von \emph{ließ} vorkommt, die zweite und dritte NP Akkusativ bekommt.
 \ea
 Er ließ den Jungen den Aufsatz holen.

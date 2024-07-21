@@ -386,7 +386,7 @@ nicht"=transparente Partikelverb \emph{vorhaben}.\NOTE{Rollen von \emph{vorhaben
 \ms{
 cat & \ms{
 %       head   & verb\\
-       subcat & \liste{ NP[\type{str}]\ind{1}, NP[\type{str}]\ind{2}, Part[\type{vor}, lex+] } \\
+       comps & \liste{ NP[\type{str}]\ind{1}, NP[\type{str}]\ind{2}, Part[\type{vor}, lex+] } \\
                                      } \\
 cont & \ms[vorhaben]{
                                         arg1 & \ibox{1} \\
@@ -400,7 +400,7 @@ Der semantische Beitrag des Partikelverbs wird nicht kompositional aus der Bedeu
 des Verbs und der Partikel ermittelt, wenn diese im Satz kombiniert werden, sondern
 ist bereits im \contw des Stammeintrags repräsentiert. Die Form der Partikel,
 die mit einer flektierten Form des Stammes kombiniert werden muss, wird in der
-\subcatl genau angegeben.
+\compsl genau angegeben.
 
 %% I follow \citet[\page 238]{Olsen99c} and 
 %% \citet[\page 44]{McIntyre2001a} in assuming that
@@ -414,19 +414,19 @@ weil    Aicke das  vorhat
 \begin{figure}
 \begin{forest}
 sm edges
-[{V[\textsc{subcat} \eliste]}
+[{V[\textsc{comps} \eliste]}
    [{\ibox{1} NP[\type{nom}]} [Aicke]] 
-   [{V[\textsc{subcat} \sliste{ \ibox{1} }]}
+   [{V[\textsc{comps} \sliste{ \ibox{1} }]}
      [{\ibox{2} NP[\type{acc}]} [das]] 
-   [{V[\textsc{subcat} \sliste{ \ibox{1}, \ibox{2} }]}
+   [{V[\textsc{comps} \sliste{ \ibox{1}, \ibox{2} }]}
      [\ibox{3} Part [vor]]
-     [{V[\textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]} [hat]]]]]
+     [{V[\textsc{comps} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]} [hat]]]]]
 \end{forest}
 \caption{\label{fig-Aicke-das-vor-hat}Analyse von \emph{weil Aicke das vorhat}}
 \end{figure}
 Dabei wird \emph{vor} mit \emph{hat} mit dem Prädikatskomplexschema (siehe Seite~\pageref{schema-vk}) kombiniert.
 
-Da \emph{vorhat} finit ist, wird das Subjekt als Element der \subcatl repräsentiert.
+Da \emph{vorhat} finit ist, wird das Subjekt als Element der \compsl repräsentiert.
 Partikel und Verb werden in einer Struktur vom Typ \type{head-cluster-phrase} kombiniert.
 Das Akkusativobjekt und das Subjekt werden durch das Kopf"=Argument"=Schema lizenziert.
 Da das Kopf"=Argument"=Schema die Sättigung von Argumenten in beliebiger Reihenfolge zuläßt,
@@ -449,16 +449,16 @@ Hat Aicke das vor?
 \begin{figure}
 \begin{forest}
 sm edges
-[{V[\textsc{subcat} \sliste{ }]}
-   [{V[\textsc{subcat} \sliste{ \ibox{4} }]}
-     [{V[\textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]} [hat]]]
-     [{\ibox{4} V[\textsc{subcat} \eliste]}
+[{V[\textsc{comps} \sliste{ }]}
+   [{V[\textsc{comps} \sliste{ \ibox{4} }]}
+     [{V[\textsc{comps} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]} [hat]]]
+     [{\ibox{4} V[\textsc{comps} \eliste]}
        [{\ibox{1} NP[\type{nom}]} [Aicke]]
-       [{V[\textsc{subcat} \sliste{ \ibox{1} }]}
+       [{V[\textsc{comps} \sliste{ \ibox{1} }]}
           [{\ibox{2} NP[\type{acc}]} [das]]
-          [{V[\textsc{subcat} \sliste{ \ibox{1}, \ibox{2} }]}
+          [{V[\textsc{comps} \sliste{ \ibox{1}, \ibox{2} }]}
             [\ibox{3} Part [vor]]
-            [{V[\textsc{subcat} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]} [\trace]]]]]]
+            [{V[\textsc{comps} \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]} [\trace]]]]]]
 \end{forest}
 \caption{\label{fig-hat-er-das-vor}Analyse von \emph{Hat er das vor?}}
 \end{figure}
@@ -544,10 +544,10 @@ für \emph{los} zeigt (\mex{1}):
 \label{le-los-asp}
 \mbox{\emph{los} (Aspektmarker):}\\
 \ms{
-cat & \ms{ head & \ms[particle]{ mod  & \textrm{V[\textsc{subcat} \sliste{ NP[\str] }, \textsc{cont} \ibox{1}]} \\
+cat & \ms{ head & \ms[particle]{ mod  & \textrm{V[\textsc{comps} \sliste{ NP[\str] }, \textsc{cont} \ibox{1}]} \\
                                  subj & \eliste \\
                                } \\
-           subcat & \eliste \\
+           comps & \eliste \\
          }\\
 cont & \ms[beginnen]{ soa & \ibox{1} \\
                  } \\
@@ -567,7 +567,7 @@ In der Datendiskussion in diesem Kapitel wurde jedoch dafür argumentiert,
 die Partikel als Bestandteil des Verbalkomplexes zu analysieren, also nicht innerhalb einer
 Kopf"=Adjunkt"=Struktur. Die Lösung für diesen scheinbaren Widerspruch besteht darin, beide Analysen zu kombinieren: Zwischen Partikel
 und Verb gibt es eine gegenseitige Selektion. Die Partikel selegiert das Verb wie normale
-Adjunkte über \textsc{mod}, wird selbst aber in der \subcatl des Verbs repräsentiert und mit dem
+Adjunkte über \textsc{mod}, wird selbst aber in der \compsl des Verbs repräsentiert und mit dem
 Verb in einer Kopf"=Cluster"=Struktur kombiniert. Ein intransitives Verb wie \emph{lachen} selegiert
 jedoch keine Partikel. Man braucht also einen weiteren Lexikoneintrag für das Partikelverb.
 Einen entsprechenden Lexikoneintrag lizenziert die folgende Lexikonregel:
@@ -580,7 +580,7 @@ Einen entsprechenden Lexikoneintrag lizenziert die folgende Lexikonregel:
            synsem \ibox{1} \onems{ loc$|$cat \ms{ head & \type{verb} \\ 
 %head & \ms{ subj & \liste{ NP[\type{str}] } \\
 %                                                                  } \\
-                                                  subcat & \ibox{2}\\
+                                                  comps & \ibox{2}\\
 }
 %                                                      } \\
 %                                           } \\
@@ -588,7 +588,7 @@ Einen entsprechenden Lexikoneintrag lizenziert die folgende Lexikonregel:
          }  $\mapsto$ \\
 \onems[stem]{
   synsem$|$loc
-  \onems { cat$|$subcat \ibox{2} $\oplus$ \liste{ \ms{ loc & \onems{ cat$|$head    \ms[particle]{ mod  & \ibox{1} \\
+  \onems { cat$|$comps \ibox{2} $\oplus$ \liste{ \ms{ loc & \onems{ cat$|$head    \ms[particle]{ mod  & \ibox{1} \\
                                                                                    } \\
                                                       cont \ibox{3} \\
                                                     } \\
@@ -660,7 +660,7 @@ für den Stamm des intransitiven Verbs \emph{lachen}.
 \mbox{\stem{lach} (intransitives Verb):}\\
 \ms{
 cat & \ms{ %head   & verb \\
-           subcat & \liste{NP[\str]\ind{1}} \\[2mm]
+           comps & \liste{NP[\str]\ind{1}} \\[2mm]
          }\\
 cont & \ms[lachen]{ agens & \ibox{1} \\
                   } \\
@@ -676,10 +676,10 @@ war in diesem Fall der Stamm \stem{lach} in (\mex{0}).
 \begin{figure}
 \begin{forest}
 sm edges
-[{V[\subcat \ibox{1}]}
+[{V[\comps \ibox{1}]}
   [{\ibox{2} Part[\textsc{mod} \ibox{3}]} [los]]
-  [{V[\subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} Part }]}, l sep+=\baselineskip
-    [{\ibox{3} V[\subcat \ibox{1} \sliste{ NP[\str] }]},edge label={node[midway,right]{PV-LR}}
+  [{V[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} Part }]}, l sep+=\baselineskip
+    [{\ibox{3} V[\comps \ibox{1} \sliste{ NP[\str] }]},edge label={node[midway,right]{PV-LR}}
       [lach-]]]]
 \end{forest}
 \caption{Kombination von \emph{los} und \emph{lachen} (Valenzinformation)}\label{fig-loslachen-val}
@@ -687,7 +687,7 @@ sm edges
 
 \noindent
 Die Partikelverblexikonregel wird auf den Stammeintrag  \stem{lach} angewendet
-und lizenziert einen Lexikoneintrag, der eine Partikel in der \subcatl enthält.
+und lizenziert einen Lexikoneintrag, der eine Partikel in der \compsl enthält.
 Der lizenzierte Eintrag ist ein Stamm, der flektiert werden muss, bevor
 er mit der Partikel kombiniert werden kann. Da Flexion noch nicht behandelt
 wurde, ist die entsprechende Information nicht in Abbildung~\ref{fig-loslachen-val}
@@ -700,16 +700,16 @@ kann die Partikel \emph{los} auf die Eigenschaften des Basisverbs zugreifen
 und demzufolge können auch Beschränkungen für die Art der Basisverben formuliert
 werden, die mit der jeweiligen Partikel kombiniert werden.
 Somit kann die Partikel auch Beschränkungen in bezug auf die Länge
-der \subcatl des Basisverbs formulieren. Man kann also sicherstellen, dass
+der \compsl des Basisverbs formulieren. Man kann also sicherstellen, dass
 \emph{los} nur mit intransitiven Verben kombiniert werden kann.
 
 Der aufmerksame Leser wird sich eventuell fragen, was mit infiniten Formen wie
 \emph{losgelacht} und \emph{loszulachen} passiert, denn diese haben ja das Subjekt unter
-\subj und nicht in \subcat repräsentiert. Die Partikel \emph{los} in (\ref{le-los-asp})
+\subj und nicht in \comps repräsentiert. Die Partikel \emph{los} in (\ref{le-los-asp})
 scheint also gar nicht zu diesen Formen zu passen. Im Vorgriff auf das folgende Kapitel
 kann man sagen, dass die entsprechenden Flexionsregeln nach den Partikelverblexikonregeln angewendet werden, weshalb
 die Partikelverblexikonregeln immer auf Stämme angewendet werden, die noch alle Argumente
-in der \subcatl haben.
+in der \compsl haben.
 
 Wenden wir uns nun den semantischen Aspekten der Analyse von \emph{loslachen} zu.
 Abbildung~\vref{fig-loslachen-sem} zeigt einen Baum mit semantischer Information.
@@ -719,7 +719,7 @@ sm edges
 [{V[\cont \ibox{1}]}
   [\ibox{2} Part\feattab{\textsc{mod} \ibox{3} [\cont \ibox{4} ]\\
                          \cont \ibox{1} \relation{beginnen}\iboxb{4} } [los]]
-  [V\feattab{ \subcat \sliste{ \ldots{} \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{1}] },\\
+  [V\feattab{ \comps \sliste{ \ldots{} \ibox{2} Part[\textsc{mod} \ibox{3}, \cont \ibox{1}] },\\
                \cont  \ibox{1} }, l sep+=\baselineskip
     [{\ibox{3} V[\cont \ibox{4} \textit{lachen}(x)]},edge label={node[midway,right]{PV-LR}}
       [lach-]]]]
@@ -768,7 +768,7 @@ Merkmalsnamen aus Platzgründen abgekürzt sind.
 \savebox{\boxxcomp}{
 \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \ms{
                                                                   cat & \onems{ head   \type{verb} \\
-                                                                            subcat \ibox{1}  \\
+                                                                            comps \ibox{1}  \\
                                                                           }\\
                                                                   cont & \ms[lachen]{ agens & \ibox{2} \\
                                                                                   } \\
@@ -786,7 +786,7 @@ Merkmalsnamen aus Platzgründen abgekürzt sind.
 %\resizebox{\linewidth}{!}{%
 \onems{%
 cat \ms{ %head  & \type{verb} \\
-       subcat & \textrm{(}\,\ibox{1} \liste{NP[\str]\ind{2}} \textrm{)}  $\oplus$\\
+       comps & \textrm{(}\,\ibox{1} \liste{NP[\str]\ind{2}} \textrm{)}  $\oplus$\\
               & \liste{\usebox{\boxxcomp} } \\
      }\\
 cont \ibox{3} \\
@@ -800,19 +800,19 @@ Das Ergebnis der Flexion ist ein Lexikoneintrag, der (\mex{0}) sehr ähnlich ist
 Verben ändert sich nur die phonologische Form, \dash, Flexionsendungen werden mit der morphologischen
 Repräsentation für den Stamm kombiniert, und Information in bezug auf die Verbform und Subjekt"=Verb"=Kongruenz
 wird hinzugefügt. Bei infiniten Verben wird das Subjekt bzw.\ das designierte Argument
-von der \subcatl entfernt, so wie das im Kapitel~\ref{sec-analysis-da-modal-inf} erklärt wurde.
+von der \compsl entfernt, so wie das im Kapitel~\ref{sec-analysis-da-modal-inf} erklärt wurde.
  
 %% Alternatively, (\mex{0}) may be used in derivations.
 %% In the following, I will use the entry in (\mex{0}) to explain the combination 
 %% of particle and verb. When a form of the entry in (\mex{0}) is combined with the 
 %% particle in (\ref{le-los-asp}), the structure under \textsc{cat$|$xcomp} gets instantiated in the following way:
 Wenn die Partikel in (\ref{le-los-asp}) mit dem Verb kombiniert wird, 
-wird das Element in der \subcatl des Verbs wie folgt instantiiert:
+wird das Element in der \compsl des Verbs wie folgt instantiiert:
 \newsavebox{\boxxcompzwei}
 \savebox{\boxxcompzwei}{
 \onems{ l  \onems{ c \onems{ h \onems[particle]{ mod$|$l \onems{
                                                                                             cat \ms{ head   & \type{verb}\\ 
-                                                                                                   subcat & \ibox{1} \\
+                                                                                                   comps & \ibox{1} \\
                                                                                                  }\\
                                                                                             cont \ibox{4} \ms[lachen]{ agens & \ibox{2} \\
                                                                                                             } \\
@@ -825,12 +825,12 @@ wird das Element in der \subcatl des Verbs wie folgt instantiiert:
                                  }
 }
 \eas
-\emph{lacht} (bei Kombination mit \emph{los}, Ergebnis der Instantiierung in der \subcatl):\\
+\emph{lacht} (bei Kombination mit \emph{los}, Ergebnis der Instantiierung in der \compsl):\\
 %\resizebox{\linewidth}{!}{
 \onems{%
 cat \ms{ % head \ms[verb]{ vform & fin\\
           %                 } \\
-          subcat  & \ibox{1} \liste{NP[\str]\ind{2}} $\oplus$\\
+          comps  & \ibox{1} \liste{NP[\str]\ind{2}} $\oplus$\\
                   & \liste{\usebox{\boxxcompzwei} } \\
         }\\
 cont \ibox{3} \\
@@ -853,7 +853,7 @@ Das Ergebnis der Kombination von Partikel und Verb zeigt (\mex{1}).
 \ms{
 cat & \onems{ % head \ms[verb]{ vform & fin \\
 %                            } \\
-           subcat \rule{0cm}{3ex}\liste{NP[\str]\ind{1}} \\
+           comps \rule{0cm}{3ex}\liste{NP[\str]\ind{1}} \\
          }\\
 cont & \ms[beginnen]{ soa & \ms[lachen]{ agens & \ibox{1} \\
                                   } \\
@@ -872,10 +872,10 @@ die Partikel lizenziert. Den Eintrag für die Partikel zeigt (\mex{1}):
 \label{le-an5}
 \mbox{\emph{an$_5$} (Richtung):}\\
 \ms{
-cat & \ms{ head & \ms[particle]{ mod  & \textrm{V[\textsc{subcat} \sliste{ NP[\str] }, \textsc{cont} \ibox{1}]} \\[2mm]
+cat & \ms{ head & \ms[particle]{ mod  & \textrm{V[\textsc{comps} \sliste{ NP[\str] }, \textsc{cont} \ibox{1}]} \\[2mm]
                                  subj & \sliste{ NP[\str]\ind{2} } \\
                               } \\
-           subcat & \eliste \\
+           comps & \eliste \\
          }\\
 cont & \ms[gerichtet-auf~]{ arg1 & \ibox{1} \\
                                arg2 & \ibox{2} \\
@@ -898,7 +898,7 @@ Die Argumentanziehung muss in der Partikelverblexikonregel vorangelegt sein.
            synsem \ibox{1} \onems{ loc$|$cat \ms{ head & \type{verb} \\ 
 %head & \ms{ subj & \liste{ NP[\type{str}] } \\
 %                                                                  } \\
-                                                  subcat & \ibox{2}\\
+                                                  comps & \ibox{2}\\
 }
 %                                                      } \\
 %                                           } \\
@@ -907,11 +907,11 @@ Die Argumentanziehung muss in der Partikelverblexikonregel vorangelegt sein.
 \onems[stem]{
   synsem$|$loc
   \onems { cat \ms{ 
-                    subcat & \ibox{2} $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$\\
+                    comps & \ibox{2} $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$\\
                            & \liste{ \ms{ loc & \onems{ cat \onems{ head    \ms[particle]{ mod  & \ibox{1} \\
                                                                                          subj & \ibox{3} \\
                                                                                        } \\
-                                                                  subcat \ibox{4} \\
+                                                                  comps \ibox{4} \\
                                                                 } \\
                                                       cont \ibox{5} \\
                                                     } \\
@@ -925,24 +925,24 @@ Die Argumentanziehung muss in der Partikelverblexikonregel vorangelegt sein.
 %\end{tabular}
 \zs
 \NOTE{FB: Gibt es eine Motivation, bei Partikelverben ein Argument in \subj und die anderen in
-  \subcat zu schreiben, statt alle in \subcat?} 
+  \comps zu schreiben, statt alle in \comps?} 
 
 \noindent
-Diese Regel unterscheidet sich von der in (\ref{lr-pv-prel}) dadurch, dass \subj und \subcat
+Diese Regel unterscheidet sich von der in (\ref{lr-pv-prel}) dadurch, dass \subj und \comps
 der Partikel angezogen werden. Die Regel lizenziert bei der Eingabe des Stammes \stem{lach} 
 folgenden Lexikoneintrag:
 \newsavebox{\boxxcompargat}
 \savebox{\boxxcompargat}{
 \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \ms{
                                                                   cat & \onems{ head   \type{verb} \\
-                                                                            subcat \ibox{1}  \\
+                                                                            comps \ibox{1}  \\
                                                                           }\\
                                                                   cont & \ms[lachen]{ agens & \ibox{2} \\
                                                                                   } \\
                                                                }\\
                                                                                    subj \ibox{3} \\
                                                                                  } \\
-                                                         subcat \ibox{4} \\
+                                                         comps \ibox{4} \\
                                                        } \\
                                                 cont \ibox{5} \\
                                               } \\
@@ -955,7 +955,7 @@ folgenden Lexikoneintrag:
 %\resizebox{\linewidth}{!}{%
 \onems{%
 cat \ms{ %head  & \type{verb} \\
-       subcat & \textrm{(}\,\ibox{1} \liste{NP[\str]\ind{2}} \textrm{)} $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$ \\[3mm]
+       comps & \textrm{(}\,\ibox{1} \liste{NP[\str]\ind{2}} \textrm{)} $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$ \\[3mm]
               & \liste{\usebox{\boxxcompargat} } \\
      }\\
 cont \ibox{5} \\
@@ -963,12 +963,12 @@ cont \ibox{5} \\
 %}
 \zs
 Dieser Lexikoneintrag ist parallel zu den Lexikoneinträgen für AcI"=Verben (vergleiche (\ref{le-sehen})
-auf Seite~\pageref{le-sehen}): \subj- und \subcatw des eingebetteten Elements werden in die
-\subcatl des Matrixverbs eingefügt. In (\mex{0}) sind das \iboxt{3} und \iboxt{4}.
+auf Seite~\pageref{le-sehen}): \subj- und \compsw des eingebetteten Elements werden in die
+\compsl des Matrixverbs eingefügt. In (\mex{0}) sind das \iboxt{3} und \iboxt{4}.
 Wie für andere Anhebungsverben muss für die Valenzliste gelten, dass sie -- vom letzten Element abgesehen
 -- keine lexikalischen Elemente, \dash Elemente mit dem \lexw +, enthalten darf (siehe Seite~\pageref{constr-non-complex-forming}).
 Aus diesem Grund kann die Lexikonregel nicht auf ihre eigenen Ausgaben angewendet werden,
-da die Ausgabe der Lexikonregel ja ein lexikalisches Element in der \subcatl enthält.
+da die Ausgabe der Lexikonregel ja ein lexikalisches Element in der \compsl enthält.
 Somit sind ungrammatische Sätze wie (\mex{1}) ausgeschlossen:
 \ea[*]{\iw{anloslacht@* anloslacht}
 weil Maria Karl anloslacht
@@ -987,42 +987,42 @@ der Kombination der Partikel \emph{an} mit einer finiten Form von \emph{lachen}.
 \begin{figure}
 \begin{forest}
 sm edges
-[{V[\subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3}]}
+[{V[\comps \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3}]}
   [\ibox{4} Part\feattab{\textsc{mod} \ibox{5}\\
                          \subj \ibox{2} \sliste{ NP[\str] },\\
-                         \subcat \ibox{3} \eliste } [an]]
-  [{V[\subcat \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \nliste{ \ibox{4} Part[\subj
-      \ibox{2}, \subcat \ibox{3}] }]}, l sep+=\baselineskip
-     [{\ibox{5} V[\subcat \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}}
+                         \comps \ibox{3} \eliste } [an]]
+  [{V[\comps \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \nliste{ \ibox{4} Part[\subj
+      \ibox{2}, \comps \ibox{3}] }]}, l sep+=\baselineskip
+     [{\ibox{5} V[\comps \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}}
        [lach-]]]] 
 \end{forest}
 
 \caption{Kombination von \emph{an} und \emph{lachen} (Valenzinformation)}\label{fig-anlachen-val}
 \end{figure}
-\emph{an} enthält ein Element in \subj \iboxb{2}, und der Wert von \subcat ist die leere Liste \iboxb{3}.
+\emph{an} enthält ein Element in \subj \iboxb{2}, und der Wert von \comps ist die leere Liste \iboxb{3}.
 Deshalb ist \iboxt{2} $\oplus$ \iboxt{3} eine Liste mit genau einem Element. Das Basisverb steuert
-ein Argument bei \iboxb{1}. Das Verb \emph{anlachen} hat also zwei NP[\str] in seiner \subcatl, \dash, es ist ein transitives Verb.
+ein Argument bei \iboxb{1}. Das Verb \emph{anlachen} hat also zwei NP[\str] in seiner \compsl, \dash, es ist ein transitives Verb.
 
 Die Komposition der Bedeutung von \emph{anlachen} ist absolut analog zur Bedeutungskomposition
 für \emph{loslachen} in Abbildung~\vref{fig-loslachen-sem} und wird hier deshalb nicht separat diskutiert.
 
 
 Im folgenden soll noch die gesamte Analyse im Detail besprochen werden. (\mex{1}) zeigt das Ergebnis
-der Instantiierung der Spezifikation der Partikel in der \subcatl
+der Instantiierung der Spezifikation der Partikel in der \compsl
 von \emph{lacht} in (\ref{le-lach-+particle}) durch \emph{an}$_5$ bei einer Kombination in einer
 \type{head"=cluster"=phrase}.
 \newsavebox{\boxxcompdrei}
 \savebox{\boxxcompdrei}{
 \onems{ l  \onems{ c \onems{ h \onems[particle]{ mod$|$l \onems{
                                                                                             cat \ms{ head   & \type{verb} \\
-                                                                                                   subcat & \ibox{1}\\
+                                                                                                   comps & \ibox{1}\\
                                                                                                  }\\
                                                                                             cont \ibox{5} \ms[lachen]{ agens & \ibox{2} \\
                                                                                                             } \\
                                                                                             }\\
                                                                                    subj \ibox{3} \liste{NP[\str]\ind{6}} \\
                                                                                  } \\
-                                                         subcat \ibox{4} \eliste  \\
+                                                         comps \ibox{4} \eliste  \\
                                                        } \\
                                                 cont \ibox{7} \ms[gerichtet-auf~]{ arg1 & \ibox{5} \\
                                                                                       arg2 & \ibox{6} \\
@@ -1032,12 +1032,12 @@ von \emph{lacht} in (\ref{le-lach-+particle}) durch \emph{an}$_5$ bei einer Komb
 }
 \ea
 \begin{minipage}[t]{\linewidth}
-\emph{lacht} (Kombination mit der Partikel \anf, Ergebnis der Instantiierung in \subcat):\\
+\emph{lacht} (Kombination mit der Partikel \anf, Ergebnis der Instantiierung in \comps):\\
 %\resizebox{\linewidth}{!}{%
 \onems{
 cat \ms{%  head \ms[verb]{ vform & fin \\
 %                         } \\
-           subcat & \textrm{(} \ibox{1} \liste{NP[\str]\ind{2}}\textrm{)} $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$ \\
+           comps & \textrm{(} \ibox{1} \liste{NP[\str]\ind{2}}\textrm{)} $\oplus$ \ibox{3} $\oplus$ \ibox{4} $\oplus$ \\
                   & \liste{ \usebox{\boxxcompdrei}}\\
          }\\
 cont \ibox{7} \\
@@ -1052,7 +1052,7 @@ Das Ergebnis der Kombination von \emph{lachen} und \emph{an$_5$} zeigt (\mex{1})
 \ms{
 cat & \onems{ % head \ms[verb]{ vform & fin\\
 %                         } \\
-           subcat \rule{0cm}{3ex}\liste{NP[\str]\ind{1}, NP[\str]\ind{2}} \\[2mm]
+           comps \rule{0cm}{3ex}\liste{NP[\str]\ind{1}, NP[\str]\ind{2}} \\[2mm]
          }\\
 cont & \ms[gerichtet-auf~]{ arg1 & \ms[lachen]{ agens & \ibox{1} \\
                                                }  \\
@@ -1064,7 +1064,7 @@ cont & \ms[gerichtet-auf~]{ arg1 & \ms[lachen]{ agens & \ibox{1} \\
 \noindent
 Da \anf ein Argument zum gesamten Partikelverb beisteuert, ist das gesamte Verb transitiv.
 Für finite Verben bekommen wir so einen komplexen Kopf, der sowohl das Subjekt von \emph{lachen}
-als auch das Element, das von \anf beigesteuert wurde, in seiner \subcatl enthält.
+als auch das Element, das von \anf beigesteuert wurde, in seiner \compsl enthält.
 Diese Argumente hängen vom selben Kopf ab und können somit in beliebiger Reihenfolge
 mit dem Kopf kombiniert werden. Die Beispiele (\ref{ex-anlachen-perm-mf}c,d), die hier
 der Übersichtlichkeit halber als (\mex{1}) wiederholt sind, können also problemlos analysiert werden.
@@ -1111,7 +1111,7 @@ die keine Argumente verlangen, keine Projektion nötig.\footnote{
 }
 
 Die Iteration mehrerer Partikeln wie in (\mex{1}) ist dadurch ausgeschlossen, dass die Partikeln ein
-Verb modifizieren, das genau ein Element in der \subcatl hat.
+Verb modifizieren, das genau ein Element in der \compsl hat.
 \ea[*]{
 weil er sie anloslacht
 }
@@ -1119,7 +1119,7 @@ weil er sie anloslacht
 Für die Analyse von \noword{anloslacht} müsste die Partikelverblexikonregel zweimal auf \stem{lach}
 angewendet werden. Bei der zweiten Regelanwendung würde aber die Valenzliste bereits zwei Elemente
 enthalten. \emph{an} verlangt aber, dass das Verb, mit dem es sich verbindet, genau ein Element in
-der \subcatl hat, weshalb an nicht mit einem entsprechenden Lexikoneintrag kombiniert und
+der \compsl hat, weshalb an nicht mit einem entsprechenden Lexikoneintrag kombiniert und
 \noword{anloslacht} somit auch nicht gebildet werden kann.
 
 \section{Alternativen}
@@ -1410,7 +1410,7 @@ licenses resultative constructions. See page~\pageref{bsp-anloslacht2}.
 Ein weiterer Nachteil von Kathols und Crysmanns Ansatz ist, dass die Tatsache,
 dass Partikel und Verb einen Komplex bilden nicht in dem \type{synsem}"=Objekt
 des Verbs repräsentiert ist. Im hier vorgestellten Ansatz ist die Partikel
-als selegiertes Element in der \subcatl des Verbs enthalten, in Kathols Ansatz
+als selegiertes Element in der \compsl des Verbs enthalten, in Kathols Ansatz
 entspricht das \type{synsem}"=Objekt einem Simplexverb, und es ist deshalb nicht
 klar wie man die Beschränkung erfassen will, dass bei der Partikelverbbildung
 

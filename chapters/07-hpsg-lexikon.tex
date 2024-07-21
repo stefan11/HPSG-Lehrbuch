@@ -37,7 +37,7 @@ kann. Der Lexikoneintrag für das Nomen \emph{Frau} ist in (\mex{1}) angegeben:
 \ms{
  phon & \phonliste{ \highlight{Frau}} \\
  cat  & \ms{ head & noun \\
-               subcat & \sliste{ Det } \\
+               comps & \sliste{ Det } \\
                \ldots & \ldots\\
            } \\
  cont & \ms{
@@ -70,7 +70,7 @@ haben.
 (\mex{1}) enthält die Information, die für alle referentiellen, nichtpronominalen Nomina,
 die einen Determinator verlangen, zusätzlich zu (\mex{0}) relevant ist:
 \ea
-\onems{ cat$|$subcat \sliste{ Det } \\
+\onems{ cat$|$comps \sliste{ Det } \\
                        cont  \ms{ ind   & \ibox{1} \textrm{[ \textsc{per} \type{3} ]}\\
                                   restr & \liste{ \ms[psoa]{ inst & \ibox{1} \\ }, \ldots } \\
                      } \\ 
@@ -107,7 +107,7 @@ grau unterlegten Werte sind idiosynkratisch.
 \ms{
 phon & \phonliste{ \highlight{helf}}\\
 cat  & \ms{ head & verb \\
-            subcat & \liste{ NP[\type{nom}]\ind{1}, NP[\type{dat}]\ind{2}  } \\
+            comps & \liste{ NP[\type{nom}]\ind{1}, NP[\type{dat}]\ind{2}  } \\
           } \\
 cont &  \ms[\highlight{helfen}]{ agens       & \ibox{1} \\
                                  experiencer & \ibox{2} \\
@@ -123,18 +123,18 @@ in (\mex{1}).
          cont       \type{psoa} \\
 }
 \z
-Alle Verben mit Subjekt und Dativobjekt  haben zusätzlich zu (\mex{0}) eine \subcatl
+Alle Verben mit Subjekt und Dativobjekt  haben zusätzlich zu (\mex{0}) eine \compsl
 mit einer Nominativ- und einer Dativ"=NP:
 \ea
 \onems{ 
-cat$|$subcat \liste{ NP[\type{nom}], NP[\type{dat}] } \\
+cat$|$comps \liste{ NP[\type{nom}], NP[\type{dat}] } \\
 }
 \z
 Alle zweistelligen Verben mit \textsc{agens} und \textsc{experiencer} haben zusätzlich
 zu (\mex{-1}) die folgenden Eigenschaften:
 \ea
 \label{bsp-linking-agens-experiencer}
-\ms{ cat & \ms{ subcat & \liste{ \onems{ cont$|$ind \ibox{1}\\}, \onems{ cont$|$ind \ibox{2}\\}}\\ 
+\ms{ cat & \ms{ comps & \liste{ \onems{ cont$|$ind \ibox{1}\\}, \onems{ cont$|$ind \ibox{2}\\}}\\ 
               } \\
      cont & \ms[agens-exp-rel]{
                 agens & \ibox{1} \\
@@ -166,19 +166,19 @@ type hierarchy
       [Frau, instance]]]
   [{\begin{tabular}[t]{@{}c@{}}
     saturated\\
-   \upshape [\subcat \eliste]\end{tabular}}]
+   \upshape [\comps \eliste]\end{tabular}}]
   [{\begin{tabular}[t]{@{}c@{}}
     unsaturated\\
-   \upshape [\subcat \sliste{ [], \ldots }]\end{tabular}}
+   \upshape [\comps \sliste{ [], \ldots }]\end{tabular}}
     [{\begin{tabular}[t]{@{}c@{}}
      det-sc\\
-     \upshape [\subcat \sliste{ Det }]\end{tabular}},name=det-sc]
+     \upshape [\comps \sliste{ Det }]\end{tabular}},name=det-sc]
     [{\begin{tabular}[t]{@{}c@{}}
      nom-arg\\
-     \upshape [\subcat \sliste{ NP[\type{nom}] }]\end{tabular}}]
+     \upshape [\comps \sliste{ NP[\type{nom}] }]\end{tabular}}]
     [{\begin{tabular}[t]{@{}c@{}}
      nom-dat-arg\\
-     \upshape [\subcat \sliste{ NP[\type{nom}], NP[\type{dat}] }]\end{tabular}},name=nom-dat-arg]]
+     \upshape [\comps \sliste{ NP[\type{nom}], NP[\type{dat}] }]\end{tabular}},name=nom-dat-arg]]
   [nominal-sem-sign
     [1]
     [2]
@@ -201,7 +201,7 @@ type hierarchy
 \caption{\label{abb-hierarchie-lexikon}Auszug aus einer möglichen Typhierarchie}
 \end{figure}
 Bei den Merkmalsspezifikationen in Abbildung~\ref{abb-hierarchie-lexikon}
-sind entsprechende Pfade dazuzudenken: So steht \zb [\subcat \sliste{}] für [\textsc{cat$|$subcat} \sliste{}].
+sind entsprechende Pfade dazuzudenken: So steht \zb [\comps \sliste{}] für [\textsc{cat$|$comps} \sliste{}].
 Wie in Typhierarchien üblich, gelten Beschränkungen für Typen auch für deren Untertypen (Vererbung\is{Vererbung|uu}).
 Instanzen\is{Instanz} -- also Beschreibungen für wirkliche Objekte -- sind mit Strichlinie mit einem bestimmten Typ verbunden.
 (\mex{1}) und (\mex{2}) zeigen die Information, die dann bei der Spezifikation zweier Instanzen angegeben
@@ -281,12 +281,12 @@ das man zur Analyse von (\mex{1}b) braucht.\footnote{
 Lexikonregel für persönliches Passiv nach \citet{Kiss92}:\\
 \onems[stem]{
   cat~ \ms{ head & verb  \\ 
-            subcat & \liste{ NP[\type{nom}], NP[\type{acc}]$_{\ibox{1}}$ } $\oplus$ \ibox{2} \\
+            comps & \liste{ NP[\type{nom}], NP[\type{acc}]$_{\ibox{1}}$ } $\oplus$ \ibox{2} \\
           } \\
 } $\mapsto$ \\
 \onems[word]{
   cat \ms{ head & \ms{ vform & passiv-part } \\
-           subcat & \liste{ NP[\type{nom}]$_{\ibox{1}}$ } $\oplus$ \ibox{2} \\
+           comps & \liste{ NP[\type{nom}]$_{\ibox{1}}$ } $\oplus$ \ibox{2} \\
          } \\
 }
 \z
@@ -320,7 +320,7 @@ der Passivregel auf den Verbstamm \stem{schlag} klarmachen:
 \label{lr-passiv-beispiel}
 \ex Eingabe:\\
 \ms{
-cat & \onems{ subcat      \liste{ NP[\type{nom}]\ind{1}, NP[\type{acc}]\ind{2} } \\
+cat & \onems{ comps      \liste{ NP[\type{nom}]\ind{1}, NP[\type{acc}]\ind{2} } \\
        }\\
 cont & \ms[schlagen]{
       agens       & \ibox{1}\\
@@ -331,7 +331,7 @@ cont & \ms[schlagen]{
 %\mbox{}\hspace{1em}
 \ex Ausgabe:\\
 \ms{
-cat  & \onems{ subcat      \liste{ NP[\type{nom}]\ind{2} } \\
+cat  & \onems{ comps      \liste{ NP[\type{nom}]\ind{2} } \\
        }\\
 cont & \ms[schlagen]{
       agens       & \ibox{1}\\
@@ -351,11 +351,11 @@ beschreiben:\label{pageref-lr-mit-dtr}
 \onems[acc-passive-lexical-rule]{
      cat \ms{ head & \ms{ vform & passiv-part \\
                         } \\
-              subcat & \liste{ NP[\type{nom}]$_{\ibox{1}}$ } $\oplus$ \ibox{2} \\
+              comps & \liste{ NP[\type{nom}]$_{\ibox{1}}$ } $\oplus$ \ibox{2} \\
             } \\
 lex-dtr \onems[stem]{
         cat~ \ms{ head & verb \\ 
-                  subcat & \liste{ NP[\type{nom}], NP[\type{acc}]$_{\ibox{1}}$ } $\oplus$ \ibox{2} \\
+                  comps & \liste{ NP[\type{nom}], NP[\type{acc}]$_{\ibox{1}}$ } $\oplus$ \ibox{2} \\
                 } \\
      }\\
 }
@@ -378,12 +378,12 @@ Die entsprechende Veränderung kann man einfach in die Regel in (\ref{passiv-lr-
 phon $f\iboxb{1}$\\
 cat \ms{ head & \ms{ vform & passiv-part \\
                    } \\
-         subcat & \liste{ NP[\type{nom}]$_{\ibox{2}}$ } $\oplus$ \ibox{3} \\
+         comps & \liste{ NP[\type{nom}]$_{\ibox{2}}$ } $\oplus$ \ibox{3} \\
         } \\
 lex-dtr \onems[stem]{
            phon  \ibox{1}\\
            cat  \ms{ head & verb \\ 
-                       subcat & \liste{ NP[\type{nom}], NP[\type{acc}]$_{\ibox{2}}$ } $\oplus$ \ibox{3} \\
+                       comps & \liste{ NP[\type{nom}], NP[\type{acc}]$_{\ibox{2}}$ } $\oplus$ \ibox{3} \\
                      } \\
      }\\
 }
@@ -820,7 +820,7 @@ Listen kann man bei Verwendung normaler Unifikation nicht verkürzen oder verlä
 einer Verkürzung könnte man in der HPSG erreichen, indem man ein binäres Merkmal \textsc{realized}
 einführt und dann bei einem entsprechenden Element den Wert auf $+$ setzt. 
 Eine Liste mit einem auf diese Weise bereits als realisiert markierten Element entspricht
-einer \subcatl, aus der ein Element entfernt wurde. Für die Abbindung von Elementen
+einer \compsl, aus der ein Element entfernt wurde. Für die Abbindung von Elementen
 in der Valenzliste, die einen \textsc{realized}"=Wert $-$ haben, brauchte man ein entsprechend
 angepaßtes Kopf"=Argument"=Schema, das Bezug auf den \textsc{realized}"=Wert von Argumenten nimmt
 (siehe Kapitel~\ref{kasus-anhang} für eine Ausarbeitung dieses Vorschlags).
@@ -842,10 +842,10 @@ Dieses Problem läßt sich ebenfalls lösen, wenn man mehrere Repräsentationsm�
 Argumente hat. Einen entsprechenden Vorschlag macht \citet{Koenig99a}: In neueren Arbeiten
 zur HPSG wird ein listenwertiges Merkmal \argst\isfeat{arg-st} für die Repräsentation der Argumentstruktur
 lexikalischer Elemente verwendet. Die \argstl enthält dieselbe Information, die wir
-bisher in \subcat repräsentiert haben. Wenn man also im Lexikoneintrag für ein Verb
+bisher in \comps repräsentiert haben. Wenn man also im Lexikoneintrag für ein Verb
 wie \stem{schlag} die Valenzinformation in der \argstl repräsentiert, dann können entsprechende
 Linking"=Konstruktionen\is{Linking} diese Information je nach Aktiv- oder Passivrealisierung auf
-die \subcatl übernehmen. Wie das im Detail aussieht, soll im folgenden erklärt werden.
+die \compsl übernehmen. Wie das im Detail aussieht, soll im folgenden erklärt werden.
 
 Koenig diskutiert ein Beispiel, das eine Hierarchie verwendet, die der in Abbildung~\vref{bsp-partitionen}
 ähnelt.
@@ -946,7 +946,7 @@ Die für unsere Merkmalsgeometrie angepaßten Typen \type{active} und \type{pass
 Typ für Aktiv-Linking:\\
 \ms[active]{
 cat       & \ms{
-            subcat & \ibox{1}\\
+            comps & \ibox{1}\\
             arg-st & \ibox{1}\\
             }\\
 }
@@ -956,13 +956,13 @@ cat       & \ms{
 Typ für Passiv-Linking:\\
 \ms[passive]{
 cat       & \ms{
-            subcat & \ibox{1}\\
+            comps & \ibox{1}\\
             arg-st & \sliste{ NP } $\oplus$ \ibox{1}\\
             }\\
 }
 \end{tabular}
 \zl
-Der Aktiv"=Linking"=Typ übernimmt einfach alle Elemente der Argumentstruktur auf die \subcatl.
+Der Aktiv"=Linking"=Typ übernimmt einfach alle Elemente der Argumentstruktur auf die \compsl.
 Der Passiv"=Linking"=Typ übernimmt alle Elemente aus der \argstl außer dem Subjekt.
 Das Ergebnis der Unifikationen von \type{lesen} mit den entsprechenden Typen zeigt (\mex{1}):
 \eal
@@ -972,7 +972,7 @@ Das Ergebnis der Unifikationen von \type{lesen} mit den entsprechenden Typen zei
 \ms[lesen $\wedge$ active]{
 stem-phon & \phonliste{ les }\\
 cat       & \ms{
-            subcat & \ibox{1}\\
+            comps & \ibox{1}\\
             arg-st & \ibox{1} \sliste{ NP\ind{1}, NP\ind{2} } \\
             }\\
 cont      & \ms[lesen-rel]{
@@ -987,7 +987,7 @@ cont      & \ms[lesen-rel]{
 \ms[lesen $\wedge$ passive]{
 stem-phon & \phonliste{ les }\\
 cat       & \ms{
-            subcat & \ibox{1}\\
+            comps & \ibox{1}\\
             arg-st & \sliste{ NP\ind{2} } $\oplus$ \ibox{1} \sliste{ NP\ind{3} }\\
             }\\
 cont      & \ms[lesen-rel]{
@@ -1011,13 +1011,13 @@ Der Linking"=Typ für die Medialkonstruktion\is{Medialkonstruktion} läßt sich 
 Typ für Medial-Linking:\\
 \ms[middle]{
 cat       & \ms{
-            subcat & \ibox{1} $\oplus$ \sliste{ NP[\type{refl}] }\\
+            comps & \ibox{1} $\oplus$ \sliste{ NP[\type{refl}] }\\
             arg-st & \sliste{ NP } $\oplus$ \ibox{1}\\
             }\\
 }
 \zs
 Das logische Subjekt eines Verbs wird wie beim Passiv
-nicht auf die \subcatl übernommen. Zusätzlich wird noch ein Reflexivpronomen
+nicht auf die \compsl übernommen. Zusätzlich wird noch ein Reflexivpronomen
 (und eventuell ein Modifikator) an die Liste der verbleibenden Argumente \iboxb{1}
 angehängt.
 
@@ -1026,7 +1026,7 @@ angehängt.
 \ms[lesen $\wedge$ middle]{
 stem-phon & \phonliste{ les }\\
 cat       & \ms{
-            subcat & \ibox{1} $\oplus$ \sliste{ NP[\type{refl}] }\\
+            comps & \ibox{1} $\oplus$ \sliste{ NP[\type{refl}] }\\
             arg-st & \sliste{ NP\ind{2} } $\oplus$ \ibox{1} \sliste{ NP\ind{3} }\\
             }\\
 cont      & \ms[lesen-rel]{
@@ -1138,15 +1138,15 @@ wie deutlich wird, wenn man den entsprechenden Typ aufschreibt:
 Typ für Resultativkonstruktion (funktioniert nicht):\\
 \ms[resultative-construction]{
 cat       & \ms{
-            subcat & \ibox{1} $\oplus$ \sliste{ NP, Predicate }\\
+            comps & \ibox{1} $\oplus$ \sliste{ NP, Predicate }\\
             arg-st & \ibox{1} \sliste{ NP }\\
             }\\
 }
 \z
-Das Problem ist, dass wir in (\mex{0}) die \subcatl spezifiziert haben. Dieser
+Das Problem ist, dass wir in (\mex{0}) die \compsl spezifiziert haben. Dieser
 Typ ist deshalb mit dem Passiv"=Linking"=Typ (\ref{constr-passive-linking}) und mit dem
 Medial"=Linking"=Typ (\ref{constr-middle-linking}) unvereinbar. Damit das oben erörterte System zur Passivierung
-funktioniert, müßte die Information, die in (\mex{0}) auf der \subcatl steht, auf der \argstl stehen.
+funktioniert, müßte die Information, die in (\mex{0}) auf der \compsl steht, auf der \argstl stehen.
 
 Im folgenden diskutiere ich einen Vorschlag von Koenig zur Lösung eines ähnlichen Problems
 und zeige, dass seine Analyse das Problem nur verschiebt:
@@ -1158,12 +1158,12 @@ Lexikonregel in (\mex{2}) analysiert wurden.
 \zl
 \ea
 \ms{
-cat & \ms{ subcat & \sliste{ \ibox{1} S[\type{fin}] }\\
+cat & \ms{ comps & \sliste{ \ibox{1} S[\type{fin}] }\\
            arg-st & \sliste{ \ibox{1} }\\
          }\\
 } $\mapsto$ %
 \ms{
-cat & \ms{ subcat & \sliste{ \ibox{2}, \ibox{1} }\\
+cat & \ms{ comps & \sliste{ \ibox{2}, \ibox{1} }\\
            arg-st & \sliste{ \ibox{2} NP$_{it}$, \ibox{1} }\\
          }\\
 }
@@ -1171,8 +1171,8 @@ cat & \ms{ subcat & \sliste{ \ibox{2}, \ibox{1} }\\
 Er schlägt vor, die Argumentstruktur feiner zu gliedern und zwischen von einem bestimmten
 Verb eingeführten Argumenten und zusätzlichen Argumenten zu unterscheiden.
 Er gibt einen Eintrag für \emph{likely} an, der dem folgenden entspricht:\footnote{
-  Koenig gibt auch die leere Liste als Wert von \subcat an (bei ihm \subj und \comps). Hierbei
-  scheint es sich um ein Versehen zu handeln, denn mit spezifiziertem \subcatw
+  Koenig gibt auch die leere Liste als Wert von \comps an (bei ihm \subj und \comps). Hierbei
+  scheint es sich um ein Versehen zu handeln, denn mit spezifiziertem \compsw
   würde die Analyse nicht funktionieren.%
 }
 \ea
@@ -1211,7 +1211,7 @@ der dem folgenden ähnelt:\footnote{
 \ea
 \label{linking-extraposition}
 \ms[extraposition]{
-cat & \ms{ subcat & \sliste{ \ibox{1} \ldots \ibox{2} \ldots }\\
+cat & \ms{ comps & \sliste{ \ibox{1} \ldots \ibox{2} \ldots }\\
            arg-st & \ms{
                     add-arg  & \sliste{ \ldots \ibox{1} NP$_{it}$  \ldots }\\
                     arg-list & \sliste{ \ibox{1} \ldots \ibox{2} S[\type{fin}] \ldots }\\
@@ -1228,7 +1228,7 @@ Die Unifikation von (\mex{-1}) und (\mex{0}) ist aber nicht (\mex{1}), wie das v
 behauptet wird:
 \ea
 \ms[likely $\wedge$ extraposition]{
-cat & \ms{ subcat & \sliste{ \ibox{1}, \ibox{2} }\\
+cat & \ms{ comps & \sliste{ \ibox{1}, \ibox{2} }\\
            arg-st & \ms{ sem-arg  & \sliste{ \ibox{2} S[\type{fin}]:\ibox{3} }\\
                          add-arg  & \sliste{ \ibox{1} NP$_{it}$ }\\
                          arg-list & \sliste{ \ibox{1}, \ibox{2} }\\
@@ -1242,7 +1242,7 @@ cont & \ms[likely-rel]{
 Das Ergebnis der Unifikation ist vielmehr (\mex{1}):
 \ea
 \ms[likely $\wedge$ extraposition]{
-cat & \ms{ subcat & \sliste{ \ibox{1} \ldots \ibox{2} \ldots }\\
+cat & \ms{ comps & \sliste{ \ibox{1} \ldots \ibox{2} \ldots }\\
            arg-st & \ms{ sem-arg  & \sliste{ \ibox{2} S[\type{fin}]:\ibox{3} }\\
                          add-arg  & \sliste{ \ldots \ibox{1} NP$_{it}$  \ldots }\\
                          arg-list & \sliste{ \ibox{1} \ldots \ibox{2} S[\type{fin}] \ldots }\\
@@ -1264,7 +1264,7 @@ denn die Valenzliste von (\mex{0}) ist wegen der Punkte am Ende nicht geschlosse
 Man könnte einwenden, dass (\mex{0}) ja noch mit einem der Typen \type{intransitive} oder
 \type{transitive} kombiniert werden muss. Das ist richtig, aber da diese Typunifikation
 automatisch erfolgen soll, würden ebenfalls Typkonjunktionen mit drei- und vierstelligen
-Valenzlisten berechnet. Somit hätte die \subcatl dann zwar ein Ende, ungrammatische
+Valenzlisten berechnet. Somit hätte die \compsl dann zwar ein Ende, ungrammatische
 Sätze könnten aber dennoch analysiert werden.
 
 Auf Seite~75 gibt Koenig folgenden Typ für die Extraposition von Indefinita an:\footnote{
@@ -1295,7 +1295,7 @@ cat$|$arg-st$|$add-arg & \sliste{ NP, Predicate }\\
 Ein Verb wie \stem{fisch} bringt unter \textsc{sem-arg} sein Subjekt ein, und der
 Typ in (\mex{0}) steuert das Objekt und das Resultativprädikat bei. Die Argumente
 würden von \textsc{arg-list} je nach Aktiv-, Passiv- oder Medial"=Linking
-auf die \subcatl gesetzt. Dieser Ansatz versagt aber ebenfalls, da sogenannte freie
+auf die \compsl gesetzt. Dieser Ansatz versagt aber ebenfalls, da sogenannte freie
 Dative\is{Kasus!Dativ} auch mit Resultativkonstruktionen vorkommen. Freie
 Dative\is{Dativ!freier}\is{Dativ!incommodi@\emph{incommodi}}\is{Dativ!commodi@\emph{commodi}} wie in
 (\mex{1}b) sagen etwas über den Nutznießer einer Handlung aus oder über den, dem sie schadet.
@@ -1692,7 +1692,7 @@ Das Prinzip besagt, dass alle syntaktische und semantische Information der Kopf"
 mit der syntaktischen und semantischen Information der Mutter identisch ist (zu \synsem
 siehe Kapitel~\ref{chap-lokalitaet}). Diese Aussage kann bei Untertypen von \type{headed"=phrase} überschrieben werden,
 was dann dazu führt, dass \zb nur noch die Kopf"|information (alles unter \textsc{head}) oder nur
-noch die \subcatwe identifiziert werden, also nur noch Teile der eigentlich identifizierten
+noch die \compswe identifiziert werden, also nur noch Teile der eigentlich identifizierten
 Strukturen.
 
 Diese Notation ermöglicht eine sehr kompakte Darstellung von Identitätsanforderungen, stellt
@@ -1710,7 +1710,7 @@ Der Wert von \textsc{hd}\isfeat{hd} ist das erste Element der Liste, der Wert vo
 Beschränkungen für intransitive Verben (nach \citet{Villavicencio2000a-u}):\\
 \type{intransitive-verb}\istype{intransitive-verb}  \impl
 \ms{
- subcat & \ms[ne-list]{ hd & \textrm{NP} \\
+ comps & \ms[ne-list]{ hd & \textrm{NP} \\
                         tl & / e-list\\
                       }\\
 }
@@ -1722,7 +1722,7 @@ von \type{intransitive-verb} zu klassifizieren:
 Beschränkungen für transitive Verben (nach \citet{Villavicencio2000a-u}):\\
 \type{transitive-verb}\istype{transitive-verb} \impl 
 \ms{
- subcat & \ms[ne-list]{ tl & \ms[ne-list]{ hd & \textrm{NP} \\
+ comps & \ms[ne-list]{ tl & \ms[ne-list]{ hd & \textrm{NP} \\
                                            tl & / e-list\\
                                          }\\
                     }\\
@@ -1733,7 +1733,7 @@ so dass sie zwei NPen enthält. Die Beschränkungen von (\mex{0}) zusammen mit d
 überschriebenen Beschränkungen aus (\mex{-1}) zeigt (\mex{1}):
 \ea
 \ms[transitive-verb]{
- subcat & \ms[ne-list]{ hd & \textrm{NP} \\
+ comps & \ms[ne-list]{ hd & \textrm{NP} \\
                         tl & \ms[ne-list]{ hd & \textrm{NP} \\
                                            tl & / e-list\\
                                          }\\
@@ -1868,12 +1868,12 @@ Lexikonregel für \bard (Skizze):\\
 phon & \ibox{1} $\oplus$ \phonliste{ bar }\\
 cat  & \ms{
                       head & adj\\
-                      subcat & \sliste{ NP[\nom]\ind{2} }\\
+                      comps & \sliste{ NP[\nom]\ind{2} }\\
                       }\\
 lex-dtr & \ms{ phon & \ibox{1}\\
                cat  & \ms{
                       head   & verb\\
-                      subcat & \sliste{ NP[\nom], NP[\acc]\ind{2} } $\oplus$ \etag\\ 
+                      comps & \sliste{ NP[\nom], NP[\acc]\ind{2} } $\oplus$ \etag\\ 
                       }\\
              }\\
 }
@@ -1963,7 +1963,7 @@ es sei denn, man führt entsprechende Typen ein.
 \ea
 \begin{tabular}[t]{@{}ll@{}}
 NP$_{[3,sg,fem]}$     & \onems[sign]{ synsem \onems[synsem]{ cat \ms{ head & \type{noun} \\
-                                                                      subcat & \liste{} \\
+                                                                      comps & \liste{} \\
                                                                     } \\
                                                              cont$|$ind \ms{ per & 3 \\
                                                                              num & sg \\
@@ -2000,7 +2000,7 @@ lizenziert.
 cat & \ms{ head   & \ms[adj]{
                     mod & none\\
                     }\\
-           subcat & \liste{ NP\ind{1} }\\
+           comps & \liste{ NP\ind{1} }\\
          }\\
 cont & \ms[reif]{
        thema & \ibox{1}\\
@@ -2015,7 +2015,7 @@ cat & \ms{ head   & \ms[adj]{
                                                                 restr & \ibox{2} \\
                                                               } \\
                     }\\
-           subcat & \liste{ }\\
+           comps & \liste{ }\\
          }\\
 cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
                                 num & sg\\

@@ -103,12 +103,12 @@ und zum anderen ist Valenzinformation im Lexikon enthalten.
 Um solcherart redundante Repräsentation zu vermeiden, nimmt
 man in der HPSG -- wie in der Kategorialgrammatik\is{Kategorialgrammatik (CG)} -- Beschreibungen der Argumente eines
 Kopfes in die lexikalische Repräsentation des Kopfes auf: In der Beschreibung
-von Köpfen gibt es ein listenwertiges \textsc{subcat}"=Merkmal, das Beschreibungen
+von Köpfen gibt es ein listenwertiges \textsc{comps}"=Merkmal, das Beschreibungen
 der Objekte enthält, die mit einem Kopf kombiniert werden müssen, damit eine
 vollständige Phrase vorliegt. (\mex{1}) zeigt Beispiele für die Verben aus (\mex{-1}):
 \ea
 \begin{tabular}[t]{@{}lll}
-      Verb             & \subcat\\
+      Verb             & \comps\\
       \emph{schlafen} & \sliste{ NP }\\
       \emph{erwarten} & \sliste{ NP, NP }\\
       \emph{sprechen} & \sliste{ NP, PP[\textit{über\/}] }\\
@@ -116,12 +116,12 @@ vollständige Phrase vorliegt. (\mex{1}) zeigt Beispiele für die Verben aus (\m
       \emph{dienen}   & \sliste{ NP, NP, PP[\textit{mit\/}] }\\  
       \end{tabular}
 \z
-\subcat ist die Abkürzung für \textsc{subcategorization}. Man spricht auch davon,
+\comps ist die Abkürzung für \textsc{compsegorization}. Man spricht auch davon,
 dass ein bestimmter Kopf für bestimmte Argumente subkategorisiert\is{Subkategorisierung} ist. Diese Redeweise kommt
 wohl daher, dass die Köpfe bezüglich ihrer Wortart bereits kategorisiert sind
 und dann durch die Valenzinformation weitere Unterklassen (wie \zb intransitives oder transitives Verb)
 %\glossary{name={intransitives Verb},description={Intransitive Verben können im Gegensatz zu transitiven Verben kein Akkusativobjekt binden bzw. benötigen zusätzlich eine Präposition.}}
-gebildet werden. Im Englischen gibt es auch die Verwendung \emph{X subcategorizes for Y}, was soviel wie
+gebildet werden. Im Englischen gibt es auch die Verwendung \emph{X compsegorizes for Y}, was soviel wie
 \emph{X verlangt Y} oder \emph{X selegiert Y}\is{Selektion} heißt. Man sagt auch, dass X Y \emph{regiert}.\is{Rektion}
 % Rektion schließt in der Dependenzgrammatik auch Adjunkte ein. Das ist also vielleicht etwas
 % irreführend, aber irgendwo muss Rektion noch erwähnt werden.
@@ -141,7 +141,7 @@ In den Boxen verwende ich \emph{A} und \emph{B} statt 1 oder 2, damit man nicht 
 Strukturteilungen in den folgenden Abbildungen durcheinanderkommt.
 
 Die Schemata lizenzieren die Verbindung von V, A, N bzw.\ P mit einem Element aus der
-\subcatl.
+\compsl.
 Dabei ist `$\oplus$'\is{$\oplus$} (\emph{append}\is{Relation!\emph{append}}) eine Relation zur Verknüpfung zweier Listen:\\
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{}}
@@ -156,13 +156,13 @@ Die Anwendung der Regel (\mex{-1}a) soll anhand der Beispiele in (\mex{1}) erkl�
 \ex\label{bsp-weil-peter-maria-erwartet}
 dass Aicke Conny erwartet
 \zl
-Die \subcatl im Lexikoneintrag von \emph{schläft} enthält genau eine NP. Setzt man
+Die \compsl im Lexikoneintrag von \emph{schläft} enthält genau eine NP. Setzt man
 den Lexikoneintrag für \emph{schläft} in die Regel in (\ref{psg-regeln-append}a) ein,
 ergibt sich (\mex{1}):
 \ea
 V[SUBCAT \ibox{A}] $\to$ \ibox{B} NP, V[SUBCAT \ibox{A} \sliste{} $\oplus$ \sliste{ \ibox{B} NP } ]
 \z
-\emph{append} teilt die \subcatl von \emph{schläft} in zwei Teile. 
+\emph{append} teilt die \compsl von \emph{schläft} in zwei Teile. 
 Ein Teil ist eine einelementige Liste, die die NP enthält, der zweite Teil ist die leere Liste. 
 Die leere Liste entspricht der Liste der noch zu sättigenden Argumente.
 Abbildung~\vref{fig-Aicke-schlaeft} zeigt den durch das Regelschema lizenzierten Baum.
@@ -170,10 +170,10 @@ Abbildung~\vref{fig-Aicke-schlaeft} zeigt den durch das Regelschema lizenzierten
 \centerline{
 \begin{forest}
 sm edges
-[{V[\subcat \sliste{}]}
+[{V[\comps \sliste{}]}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke]]
-  [{V[\subcat \sliste{ \ibox{1} }]}
+  [{V[\comps \sliste{ \ibox{1} }]}
     [schläft]]]
 \end{forest}}
 %
@@ -187,10 +187,10 @@ V $\to$ NP, V
 Obwohl die Regel in (\mex{0}) genauso aussieht wie die Phrasenstrukturregeln, die
 wir im Kapitel~\ref{sec-psg} behandelt haben, ist sie anderer Natur:
 Die Information darüber, dass ein Verb mit einer NP kombiniert wird, wird nicht in
-den Regeln spezifiziert, sondern wird über die \subcat{}"=Information durch das Verb
+den Regeln spezifiziert, sondern wird über die \comps{}"=Information durch das Verb
 beigesteuert.
 
-Die \subcatl im Lexikoneintrag von \emph{erwartet} enthält genau zwei NPen. Setzt man
+Die \compsl im Lexikoneintrag von \emph{erwartet} enthält genau zwei NPen. Setzt man
 den Lexikoneintrag für \emph{erwartet} in die erste Regel in (\ref{psg-regeln-append}) ein,
 ergibt sich (\mex{1}):
 \ea
@@ -206,13 +206,13 @@ Abbildung~\vref{fig-Aicke-Conny-erwartet}.
 \centerline{%
 \begin{forest}
 sm edges
-[{V[\subcat \sliste{}]}
+[{V[\comps \sliste{}]}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke]]
-  [{V[\subcat \sliste{ \ibox{1} }] }
+  [{V[\comps \sliste{ \ibox{1} }] }
     [{\ibox{2} NP[\type{acc}]} 
       [Conny]]
-    [{V[\subcat \sliste{ \ibox{1}, \ibox{2} }] }
+    [{V[\comps \sliste{ \ibox{1}, \ibox{2} }] }
       [erwartet]]]]
 \end{forest}}
 \caption{\label{fig-Aicke-Conny-erwartet}Analyse für \emph{Aicke Conny erwartet}}
@@ -234,7 +234,7 @@ In einem zweiten Schritt kann man, wie das in den \xbar-Schemata gemacht wurde, 
 die Kategorie des Kopfes abstrahieren. Man erhält dann ein abstraktes Schema, das
 die Regeln in (\ref{psg-regeln-append}) bzw.\ in (\mex{0}) zusammenfaßt:
 \ea
-\label{regelschema-psg-subcat}
+\label{regelschema-psg-comps}
 \begin{tabular}[t]{@{}lll}
 H[SUBCAT \ibox{A}] & $\to$ & H[SUBCAT \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \ibox{B}\\
 \end{tabular}
@@ -251,14 +251,14 @@ H[SUBCAT \ibox{A}] & $\to$ & H[SUBCAT \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \i
 Nach diesen Vorbemerkungen zur Repräsentation von Valenzinformation können wir uns nun
 dem Aufbau von Lexikoneinträgen zuwenden: Lexikoneinträge werden immer durch Merkmalstrukturen modelliert. Information über die
 Aussprache (\textsc{phonology}\isfeat{phon}), die Wortart (\textsc{part-of-speech}, kurs \textsc{p-o-s}) und die Valenz
-(\subcat)\isfeat{subcat} kann wie folgt dargestellt werden:
+(\comps)\isfeat{comps} kann wie folgt dargestellt werden:
 \ea
 \label{le-gibt-1}
 \textit{gibt\/} (finite Form):\\
 \ms[word]{ 
      phon   & \phonliste{ gibt } \\
      p-o-s  & verb\\
-     subcat & \liste{ NP[\textit{nom\/}], NP[\textit{acc}], NP[\textit{dat}]   } \\
+     comps & \liste{ NP[\textit{nom\/}], NP[\textit{acc}], NP[\textit{dat}]   } \\
 }
 \z
 Als Wert von \phon müßten phonologische Umschriften der Wörter angegeben werden,
@@ -270,7 +270,7 @@ NP[\textit{nom\/}], NP[\textit{acc}] und NP[\textit{dat}] stehen für komplexe M
 genauso aufgebaut sind wie der Eintrag für \emph{gibt} in (\mex{0}). Wie die Kasusinformation
 repräsentiert wird, wird auf Seite~\pageref{page-ref-case-feat} erklärt.
 %
-Die Reihenfolge der Elemente in der \subcatl entspricht der Obliqueness"=Hierarchie\is{Obliqueness}
+Die Reihenfolge der Elemente in der \compsl entspricht der Obliqueness"=Hierarchie\is{Obliqueness}
 von \citet{KC77a} und \citet{Pullum77a}:
 \begin{table}[H]
 \resizebox{\linewidth}{!}{%
@@ -295,7 +295,7 @@ für syntaktische Konstruktionen, in denen Obliqueness eine Rolle spielt, sind:
 \end{itemize}
 
 \noindent
-Eine Alternative für die Anordnung der Elemente in der \subcatl wäre die Abfolge 
+Eine Alternative für die Anordnung der Elemente in der \compsl wäre die Abfolge 
 NP[\textit{nom\/}], NP[\textit{dat}], NP[\textit{acc}], die ebenfalls bei vielen Phänomenen eine Rolle spielt. 
 Ein Beispiel für ein solches Phänomen ist die Konstituentenstellung. Diese ist im Deutschen relativ frei. Statt (\mex{1}a) kann
 man in bestimmten Kontexten auch (\mex{1}b) äußern:
@@ -397,7 +397,7 @@ also keine besonders lizenzierte Zwischenstufe VP wie \zb in HPSG"=Grammatiken d
 	ein eigenes Schema gesättigt wird.
 }
 % 
-Sowohl Subjekt als auch Objekte des finiten Verbs sind Elemente der \subcatl und werden in Strukturen
+Sowohl Subjekt als auch Objekte des finiten Verbs sind Elemente der \compsl und werden in Strukturen
 gleichen Typs mit dem Verb verbunden.
 Das heißt, es gibt keine strukturelle Unterscheidung zwischen Subjekt und 
 Objekten. In der GB"=Literatur geht man meistens

@@ -217,7 +217,7 @@ Die Datenstruktur in (\ref{geom-loc}) auf Seite~\pageref{geom-loc} wird also zu 
 \ms{
 phon & list~of~phoneme strings\\
 loc  & \ms{ cat  & \ms{ head   & head \\
-                        subcat & list of signs\\
+                        comps & list of signs\\
                       } \\
             cont & cont\\
           }\\
@@ -280,7 +280,7 @@ Spur für das Akkusativkomplement von \emph{kennen} (vorläufig):\\
 loc   & \ibox{1} \ms{ cat \ms{ head & \ms[noun]{
                                                      cas & acc\\
                                                      } \\
-                                              subcat & \liste{}\\
+                                              comps & \liste{}\\
                                             } \\
                                    }\\
 nonloc & \ms{ slash & \sliste{ \ibox{1} } \\
@@ -300,17 +300,17 @@ der Information.
 \centerline{%
 \begin{forest}
 sm edges
-[V\feattab{\subcat \eliste,\\
+[V\feattab{\comps \eliste,\\
            \slasch \eliste}, s sep+=3ex 
   [{NP\ibox{1}[\type{acc}]} [das Buch,roof]]
   [V\feattab{
-      \subcat \sliste{ },\\
+      \comps \sliste{ },\\
       \slasch \sliste{ \ibox{1} }}, s sep+=1ex
     [V\feattab{
-      \subcat \sliste{ \ibox{2} },\\
+      \comps \sliste{ \ibox{2} },\\
       \slasch \sliste{ \ibox{1} }}
       [V\feattab{
-        \subcat \sliste{ \ibox{2}, \ibox{3} },\\
+        \comps \sliste{ \ibox{2}, \ibox{3} },\\
         \slasch \sliste{ }} [kennt]]
       [\ibox{3} NP\feattab{\textsc{loc} \ibox{1} \type{acc},\\
                            \slasch \sliste{ \ibox{1} }}
@@ -345,7 +345,7 @@ nonloc$|$slash &   \eliste\\
 head-dtr      & \onems{ loc$|$cat \onems{ head \ms[verb]{vform & fin\\
                                                                  initial & \textrm{+}\\
                                                                 }\\
-                                                  subcat \liste{}\\
+                                                  comps \liste{}\\
                                                }\\
                              nonloc$|$slash   \sliste{ \ibox{1} }\\
                         }\\
@@ -394,7 +394,7 @@ type hierarchy,
 \end{forest}}
 \caption{\label{abb-sign-hf-struc}Typhierarchie für \type{phrase}}
 \end{figure}
-Dadurch wird der \subcatw der Kopf"|tochter automatisch mit dem der Mutter identifiziert (siehe Abschnitt~\ref{sec-valp} zum Valenzprinzip\is{Prinzip!Valenz-}).
+Dadurch wird der \compsw der Kopf"|tochter automatisch mit dem der Mutter identifiziert (siehe Abschnitt~\ref{sec-valp} zum Valenzprinzip\is{Prinzip!Valenz-}).
 Der semantische Beitrag kommt vom Verb (der Kopf"|tochter). Das folgt aus dem Semantikprinzip, denn der
 Typ \type{head-filler-phrase} ist ein Untertyp von \type{head-non-adjunct-phrase}.
 
@@ -442,9 +442,9 @@ Extraktionsspur: \\
 \zs
 Das liegt daran, dass der Kopf die \textsc{local}"=Eigenschaften seiner Argumente und damit auch die
 \textsc{local}"=Eigenschaften von Spuren, die mit ihm kombiniert werden, ausreichend bestimmt. Durch
-die Identifikation des Objekts in der \subcatl mit der Spur und durch die Identifikation der
+die Identifikation des Objekts in der \compsl mit der Spur und durch die Identifikation der
 Information in \textsc{slash} mit der Information über das Element im Vorfeld wird sichergestellt,
-dass nur Elemente im Vorfeld realisiert werden, die zu den Anforderungen in der \subcatl
+dass nur Elemente im Vorfeld realisiert werden, die zu den Anforderungen in der \compsl
 passen. Genauso funktioniert die Analyse von vorangestellten Adjunkten: Dadurch dass der
 \localw der Konstituente im Vorfeld über die Vermittlung durch \textsc{slash} mit dem \localw der Spur
 identifiziert wird, ist ausreichend Information über die Art der Spur vorhanden.\is{Spur!Extraktionsspur|)}
@@ -464,34 +464,34 @@ hier als (\mex{1}) mit Markierungen für die Verbspur wiederholt:
 % %\nodemargin5pt
 % \begin{tabular}[t]{@{}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{\hspace{4mm}}c@{}}%llll}
 % \multicolumn{2}{@{}c}{\rnode{3all}{V[\begin{tabular}[t]{@{}l}
-%                                  \textsc{subcat} \rnode{3}{\eliste},\\
+%                                  \textsc{comps} \rnode{3}{\eliste},\\
 %                                  \textsc{slash} \eliste]\\
 %                                  \end{tabular}}
 %                                           }\\
 % \\*[4ex]
 % \rnode{npbuch}{NP[\textsc{loc} \ibox{1} \type{acc}]} & \multicolumn{2}{c}{\rnode{1}{V[\begin{tabular}[t]{@{}l}
-%                                           \textsc{subcat} \sliste{},\\
+%                                           \textsc{comps} \sliste{},\\
 %                                           \textsc{slash} \sliste{ \ibox{1} }]\\
 %                                           \end{tabular}}
 %                                           }\\
 % \\*[4ex]
-% &\rnode{2}{V[\textsc{subcat} \sliste{ \ibox{2} }]} & \multicolumn{3}{l}{\rnode{3}{\ibox{2} V[\begin{tabular}[t]{@{}l}
-%                                                                     \textsc{subcat} \sliste{ },
+% &\rnode{2}{V[\textsc{comps} \sliste{ \ibox{2} }]} & \multicolumn{3}{l}{\rnode{3}{\ibox{2} V[\begin{tabular}[t]{@{}l}
+%                                                                     \textsc{comps} \sliste{ },
 %                                            \textsc{slash} \sliste{ \ibox{1} }]
 %                                                                     \end{tabular}}
 %                                                        }\\
 % \\
 % & \hspace{8ex}V1-LR\\*[3ex]
-% & \rnode{kennt-vl}{V[\textsc{subcat} \sliste{ \ibox{3}, \ibox{4} }]}  & \rnode{4}{\ibox{4} [\begin{tabular}[t]{@{}l@{}}
+% & \rnode{kennt-vl}{V[\textsc{comps} \sliste{ \ibox{3}, \ibox{4} }]}  & \rnode{4}{\ibox{4} [\begin{tabular}[t]{@{}l@{}}
 %                                                                         \textsc{loc} \ibox{1},\\
 %                                                                         \textsc{slash} \sliste{ \ibox{1} }] \\
 %                                                                         \end{tabular}}& \multicolumn{2}{l}{\rnode{5}{V[\begin{tabular}[t]{@{}l}
-%                                                                                                        \textsc{subcat} \sliste{ \ibox{4} }]\\
+%                                                                                                        \textsc{comps} \sliste{ \ibox{4} }]\\
 %                                                                                                        \end{tabular}}
 %                                                                                            }\\
 % \\*[4ex]
 % &                                   &                                   & \rnode{6}{\ibox{3} NP[\type{nom}]} & \rnode{7}{V[\begin{tabular}[t]{@{}l@{}}
-%                                                                                                  \textsc{subcat} \sliste{ \ibox{3}, \ibox{4} }] \\
+%                                                                                                  \textsc{comps} \sliste{ \ibox{3}, \ibox{4} }] \\
 %                                                                                                  \end{tabular}}\\
 % \\*[3ex]
 % d\rnode{buch}{as Buc}h & \rnode{8}{kennt}                     & \rnode{9}{$-$}                  & \rnode{10}{jeder} & \rnode{11}{$-$}\\
@@ -510,30 +510,30 @@ hier als (\mex{1}) mit Markierungen für die Verbspur wiederholt:
 \begin{forest}
 sm edges,
 for level={3}{l+=\baselineskip}
-[V\feattab{\subcat \eliste,\\
+[V\feattab{\comps \eliste,\\
            \slasch \eliste}, s sep+=1em
   [{NP\ibox{1}[\type{acc}]}
      [das Buch, roof]]
-  [V\feattab{\subcat \eliste,\\
+  [V\feattab{\comps \eliste,\\
              \slasch  \sliste{ \ibox{1} }}
-     [{V[\subcat \sliste{ \ibox{2} }]}
-       [{V[\subcat \sliste{ \ibox{3}, \ibox{4} }]},edge label={node[midway,right]{V1-LR}}
+     [{V[\comps \sliste{ \ibox{2} }]}
+       [{V[\comps \sliste{ \ibox{3}, \ibox{4} }]},edge label={node[midway,right]{V1-LR}}
          [kennt]]]
-     [\ibox{2} V\feattab{\subcat \eliste, \slasch \sliste{ \ibox{1} }}
+     [\ibox{2} V\feattab{\comps \eliste, \slasch \sliste{ \ibox{1} }}
          [\ibox{4} \feattab{\textsc{loc} \ibox{1},\\
                             \slasch \sliste{ \ibox{1} } }
          [\trace]]
-       [V\feattab{\subcat \sliste{ \ibox{4} }}
+       [V\feattab{\comps \sliste{ \ibox{4} }}
          [{\ibox{3} NP[\type{nom}]}
            [jeder]]
-         [V\feattab{\subcat \sliste{ \ibox{3}, \ibox{4} }}
+         [V\feattab{\comps \sliste{ \ibox{3}, \ibox{4} }}
            [\trace]]]]]]
 \end{forest}}
 \caption{\label{abb-das-buch-kennt-jeder}Analyse für:\ \emph{Das Buch kennt jeder.} kombiniert mit der Verbbewegungsanalyse für die Verberststellung}
 \end{figure}
 Die Verbbewegungsspur für \emph{kennt} wird mit einer Nominativ"=NP und einer Extraktionsspur kombiniert. 
 Die Extraktionsspur steht im Beispiel für das Akkusativobjekt. Das Akkusativobjekt ist 
-in der \subcatl des Verbs beschrieben \iboxb{4}. Über den Verbbewegungsmechanismus
+in der \compsl des Verbs beschrieben \iboxb{4}. Über den Verbbewegungsmechanismus
 gelangt die Valenzinformation, die im ursprünglichen Eintrag für \emph{kennt} enthalten ist
 (\sliste{ \ibox{3}, \ibox{4} }), zur Verbspur. Die Kombination der Projektion der Verbspur mit der
 Extraktionsspur verläuft genau so, wie wir es bisher gesehen haben. Der \slashw der Extraktionsspur
@@ -641,10 +641,10 @@ loc \onems{ cat  \ms{ head & \ms[verb]{ vform & fin\\
                                         initial & $+$\\
                                         dsl     & none\\
                                       }\\
-                           subcat & \sliste{ \onems{ loc \onems{ cat \onems{ head \ms[verb]{
+                           comps & \sliste{ \onems{ loc \onems{ cat \onems{ head \ms[verb]{
                                                                              dsl & \ibox{1}\\
                                                                              }\\
-                                                                      subcat \eliste\\
+                                                                      comps \eliste\\
                                                                     }\\
                                                            cont \ibox{2}\\
                                                          }\\
@@ -663,7 +663,7 @@ Der genaue Typ der Relation ist jedoch unterspezifiziert und wird in Abhängigke
 \eas
 Verberstsätze:\istype{verb-initial-lr}\\
 \onems[verb-initial-lr]{
-loc$|$cat$|$subcat \sliste{ [ nonloc$|$slash \eliste ] }\\
+loc$|$cat$|$comps \sliste{ [ nonloc$|$slash \eliste ] }\\
 } \impl\\
 \ms{
 loc$|$cont \type{conditional\_or\_imperative\_or\_interrogative}\\
@@ -674,7 +674,7 @@ loc$|$cont \type{conditional\_or\_imperative\_or\_interrogative}\\
 \label{impl-v2}%
 Verbzweitsätze:\istype{verb-initial-lr}\\
 \onems[verb-initial-lr]{
-loc$|$cat$|$subcat \sliste{ [ nonloc$|$slash \sliste{ [ ] } ] }\\
+loc$|$cat$|$comps \sliste{ [ nonloc$|$slash \sliste{ [ ] } ] }\\
 } \impl\\
 \ms{
 loc$|$cont \type{assertion\_or\_imperative\_or\_interrogative}\\
@@ -686,7 +686,7 @@ auf Seite~\pageref{pageref-lr-mit-dtr} wurde erklärt, dass die Notation in (\re
 als Variante einer Lexikonregel gesehen werden kann, die durch eine typisierte Merkmalstruktur
 modelliert wird. \type{verb-initial-lr} ist dann der Typ der entsprechenden Struktur.
 Die Implikationen in (\mex{-1}) und (\mex{0}) unterscheiden sich im Hinblick auf den \slashw
-des Elements in der \subcatl. Ist dieser die leere Liste, so kann das Verb nur in der ersten
+des Elements in der \compsl. Ist dieser die leere Liste, so kann das Verb nur in der ersten
 Position realisiert werden.\footnote{
   Das positionale \emph{es}\is{positionales \emph{es}} in Sätzen wie (i.a) kann entweder als Funktor analysiert werden, der einen
   Fragesatz als Argument nimmt, die Fragesemantik unterdrückt und eine entsprechende
@@ -828,7 +828,7 @@ vor der Spur anordnen, so dass man auch die Unmarkiertheit von (\mex{0}b) ableit
 %% \label{implikation-extraktion-hoechstes-element}
 %% \ms[head-argument-phrase]{
 %% non-head-dtrs & \liste{ \ms{ phon & \eliste\\ } }\\
-%% } \impl \ms{ synsem$|$loc$|$cat$|$subcat & \eliste \\ }
+%% } \impl \ms{ synsem$|$loc$|$cat$|$comps & \eliste \\ }
 %% \z
 %% Die Beschränkung drückt Folgendes aus: Wenn die Nicht"=Kopf"|tochter in einer Kopf"=Argument"=Struktur
 %% eine Spur ist, dann muss die gesamte Struktur vollständig gesättigt sein, \dash, die Nicht"=Kopf"|tochter
@@ -1174,7 +1174,7 @@ deps   & \ibox{1} $\oplus$ list\textrm{(}`adverbial'\textrm{)}\\
 Von dieser Liste gibt es schließlich eine Abbildung auf die \textsc{subj}\isfeat{subj}- und \textsc{comps}\isfeat{comps}"=Liste.
 \textsc{subj} und \textsc{comps} regeln die Kombinatorik in der Syntax, auf diese Merkmale
 wird in den Dominanzschemata Bezug genommen. (\subj und \comps entsprechen der hier verwendeten
-\subcatl, wobei Subjekte getrennt von Komplementen repräsentiert werden.)
+\compsl, wobei Subjekte getrennt von Komplementen repräsentiert werden.)
 
 \eas
 Argument Realization \citep*[\page 12]{BMS2001a}\\
@@ -1199,7 +1199,7 @@ bekommt man für finite Verben folgendes (siehe Kapitel~\ref{chap-passiv}):
 \ea
 Argument Realization\\
 \type{word} \impl \ms{
-subcat & \ibox{1} $\ominus$ list\textrm{(}`gap-ss'\textrm{)}\\
+comps & \ibox{1} $\ominus$ list\textrm{(}`gap-ss'\textrm{)}\\
 deps   & \ibox{1}\\
 } 
 \z
@@ -1207,7 +1207,7 @@ deps   & \ibox{1}\\
 
 \noindent
 Für ein ditransitives Verb wie \emph{geben} bekommt man in einem solchen Ansatz
-unter anderem die drei \subcatlen in (\mex{1}b--d):
+unter anderem die drei \compslen in (\mex{1}b--d):
 \eal
 \ex \liste{ NP[\type{nom}], NP[\type{acc}], NP[\type{dat}] }
 \ex \liste{ \hphantom{NP[\type{nom}],~}NP[\type{acc}], NP[\type{dat}] }
@@ -1215,7 +1215,7 @@ unter anderem die drei \subcatlen in (\mex{1}b--d):
 \ex \liste{ NP[\type{nom}], NP[\type{acc}]\hphantom{,~NP[\type{dat}]} }
 \zl
 Das Subjekt, das Akkusativ"=Objekt bzw.\ das Dativ"=Objekt ist in (\mex{0}b--d) extrahiert, wird
-also nicht von \textsc{deps} auf die \subcatl übernommen.
+also nicht von \textsc{deps} auf die \compsl übernommen.
 
 \citet[\page147--148]{Nerbonne94a} argumentiert gegen die Verwendung von Spuren\is{leere Kategorie} und für
 die lexikalische Einführung von Fernabhängigkeiten, da man bei der Verwendung von Spuren
@@ -1246,7 +1246,7 @@ mit der Linearisierung relevant ist, im Lexikon spezifiziert. Man würde dann f�
 Abfolge einen eigenen Lexikoneintrag mit entsprechend geordneter Valenzliste annehmen
 und verlangen, dass die Elemente der Valenzliste von rechts nach links abgebunden werden
 (also mit \emph{append} statt \emph{delete}). Für das Verb \emph{geben}, wie es in (\mex{1}a)
-benutzt wird, müßte man also eine \subcatl wie in (\mex{1}b) annehmen:
+benutzt wird, müßte man also eine \compsl wie in (\mex{1}b) annehmen:
 \eal
 \ex weil dem Mann eine Frau ein Buch gibt
 \ex \liste{ NP[\type{dat}, \textsc{def}+], NP[\type{nom}, \textsc{def}$-$], NP[\type{acc}, \textsc{def}$-$] }

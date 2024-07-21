@@ -727,7 +727,7 @@ die Restriktionen in bezug auf semantische Kasus erklärt.
 \subsection{Kasus von Argumenten}
 
 Ich gehe im folgenden davon aus, dass der Dativ immer ein lexikalischer Kasus ist. 
-Ein ditransitives Verb wie \word{geben} hat dann einen \subcatw \sliste{ NP[\str], NP[\str], NP[\ldat] },
+Ein ditransitives Verb wie \word{geben} hat dann einen \compsw \sliste{ NP[\str], NP[\str], NP[\ldat] },
 wobei \type{str}\istype{str} für strukturellen Kasus und \type{ldat} für lexikalischen Dativ steht.
 Die Zuweisung struktureller Kasus wird durch das folgende Prinzip geregelt (\citealp{Prze99}; 
 \citealp{Meurers99b}; \citealp[Kapitel~10.4.1.4]{Meurers2000b}; \citealp{MdK2001a}):\footnote{
@@ -755,33 +755,33 @@ Kapitel~\ref{chap-anhebung} und S.\,\pageref{page-aci-kasus}).
 %% Die Unterschiede zu den von diesen Autoren vorgeschlagenen Prinzipien werden im
 %% Abschnitt~\ref{sec-kasus-alternativen} diskutiert.
 
-Das Wirken des Kasusprinzips soll an den Beispielen in (\mex{1}) erklärt werden. Die \subcatlen der
+Das Wirken des Kasusprinzips soll an den Beispielen in (\mex{1}) erklärt werden. Die \compslen der
 jeweiligen Verben sind entsprechend der Obliqueness der Argumente geordnet (siehe
 Seite~\pageref{page-obliquen-h}), \dash, das Subjekt steht an erster Stelle. Wenn es ein
 Akkusativobjekt gibt, steht es an zweiter Stelle. Gibt es zusätzlich zum Akkusativobjekt ein
 Dativobjekt folgt dieses dem Akkusativobjekt:
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l}
-a. & \emph{schläft}:     & \subcat \sliste{ NP[\type{str}]$_j$ }\\[2mm]
-b. & \emph{unterstützt}: & \subcat \sliste{ NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2mm]
-c. & \emph{hilft}:       & \subcat \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2mm]
-d. & \emph{schenkt}:     & \subcat \sliste{ NP[\type{str}]$_j$, NP[\type{str}]$_k$, NP[\type{ldat}]$_l$ }\\
+a. & \emph{schläft}:     & \comps \sliste{ NP[\type{str}]$_j$ }\\[2mm]
+b. & \emph{unterstützt}: & \comps \sliste{ NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2mm]
+c. & \emph{hilft}:       & \comps \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2mm]
+d. & \emph{schenkt}:     & \comps \sliste{ NP[\type{str}]$_j$, NP[\type{str}]$_k$, NP[\type{ldat}]$_l$ }\\
 \end{tabular}
 \z
-Die \subcatl von \emph{schläft} enthält genau ein Element: eine NP mit strukturellem Kasus.
-Da diese NP das erste Element der \subcatl ist, bekommt sie Nominativ. Genauso bekommt die erste NP
-in der \subcatl von \emph{unterstützt} Nominativ, die zweite bekommt allerdings Akkusativ. Bei
+Die \compsl von \emph{schläft} enthält genau ein Element: eine NP mit strukturellem Kasus.
+Da diese NP das erste Element der \compsl ist, bekommt sie Nominativ. Genauso bekommt die erste NP
+in der \compsl von \emph{unterstützt} Nominativ, die zweite bekommt allerdings Akkusativ. Bei
 \emph{hilft} bekommt das erste Element Nominativ, das zweite ist lexikalisch als Dativ markiert. Bei
 \emph{schenkt} bekommen die ersten beiden Elemente wieder jeweils Nominativ und Akkusativ, das dritte
 Element ist wie das Objekt von \emph{hilft} lexikalisch als Dativ markiert.
 
-Bei Passivierung der Verben in (\mex{0}) ergeben sich die folgenden \subcat"=Listen:
+Bei Passivierung der Verben in (\mex{0}) ergeben sich die folgenden \comps"=Listen:
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l}
-a. & \emph{geschlafen wird}:  & \subcat \sliste{ }\\[2mm]
-b. & \emph{unterstützt wird}: & \subcat \sliste{ NP[\type{str}]$_k$ }\\[2mm]
-c. & \emph{geholfen wird}:    & \subcat \sliste{ NP[\type{ldat}]$_k$ }\\[2mm]
-d. & \emph{geschenkt wird}:   & \subcat \sliste{ NP[\type{str}]$_k$, NP[\type{ldat}]$_l$ }\\
+a. & \emph{geschlafen wird}:  & \comps \sliste{ }\\[2mm]
+b. & \emph{unterstützt wird}: & \comps \sliste{ NP[\type{str}]$_k$ }\\[2mm]
+c. & \emph{geholfen wird}:    & \comps \sliste{ NP[\type{ldat}]$_k$ }\\[2mm]
+d. & \emph{geschenkt wird}:   & \comps \sliste{ NP[\type{str}]$_k$, NP[\type{ldat}]$_l$ }\\
 \end{tabular}
 \z
 In (\mex{0}) steht jetzt eine andere NP an erster Stelle. Wenn diese NP strukturellen Kasus hat,
@@ -794,8 +794,8 @@ Für das Dativpassiv muss man ein bißchen zaubern: Bei der Kombination von \emp
 Dativ beim eingebetteten Verb wird zu einem strukturellen Kasus bei der Kombination mit dem Passiv"=Hilfsverb:
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l}
-a. & \emph{geholfen bekommt}:    & \subcat \sliste{ NP[\type{str}]$_k$ }\\[2mm]
-b. & \emph{geschenkt bekommt}:   & \subcat \sliste{ NP[\type{str}]$_l$, NP[\type{str}]$_k$ }\\
+a. & \emph{geholfen bekommt}:    & \comps \sliste{ NP[\type{str}]$_k$ }\\[2mm]
+b. & \emph{geschenkt bekommt}:   & \comps \sliste{ NP[\type{str}]$_l$, NP[\type{str}]$_k$ }\\
 \end{tabular}
 \z
 Wie diese Umordnung genau passiert, wird im Kapitel~\ref{sec:dat-pass} ausführlicher erklärt. Hier ist
@@ -817,10 +817,10 @@ Verben anheben. Solche Verben werden deshalb auch Anhebungsverben\is{Verb!Anhebu
 Entsprechende Valenzlisten sind in (\mex{1}) zu sehen:
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l}
-a. & \emph{schlafen läßt}:     & \subcat \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$ }\\[2mm]
-b. & \emph{unterstützen läßt}: & \subcat \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2mm]
-c. & \emph{helfen läßt}:       & \subcat \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2mm]
-d. & \emph{schenken läßt}:     & \subcat \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{str}]$_k$, NP[\type{ldat}]$_l$ }\\
+a. & \emph{schlafen läßt}:     & \comps \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$ }\\[2mm]
+b. & \emph{unterstützen läßt}: & \comps \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2mm]
+c. & \emph{helfen läßt}:       & \comps \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2mm]
+d. & \emph{schenken läßt}:     & \comps \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{str}]$_k$, NP[\type{ldat}]$_l$ }\\
 \end{tabular}
 \z
 NP[\str]$_i$ steht hierbei jeweils für das Subjekt des AcI-Verbs. 
@@ -836,8 +836,8 @@ verbunden, und es entsteht eine Valenzliste, die die Argumente des Adjektivs ent
 ein solcher Komplex noch unter ein AcI"=Verb wie \emph{sehen} eingebettet, erhält man die Liste in (\mex{1}b):
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l}
-a. & \emph{kleiner werden}:     & \subcat \sliste{ NP[\str]$_j$ }\\[2mm]
-b. & \emph{kleiner werden sah}: & \subcat \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$ }\\
+a. & \emph{kleiner werden}:     & \comps \sliste{ NP[\str]$_j$ }\\[2mm]
+b. & \emph{kleiner werden sah}: & \comps \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$ }\\
 \end{tabular}
 \z
 Die Kasuszuweisung funktioniert analog zu den bereits diskutierten Fällen. In den verbalen Umgebungen
@@ -910,7 +910,7 @@ weil der ganze Tag gearbeitet wurde
 %%                                                             }\\
 %%                                                    }\\
 %%                                       }\\
-%%                                subcat & \sliste{ Det }\\
+%%                                comps & \sliste{ Det }\\
 %%                              }\\
 %%                     cont \ms[and]{
 %%                            arg1 & \ibox{1}\\
@@ -991,10 +991,10 @@ als Untertypen.
 Die Valenzrepräsentationen für einige typische Verben sind in (\mex{1}) zu sehen:
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l@{}}
-a. & \emph{schlafen}:     & \subcat \sliste{ NP[\type{str\_nga}] }\\
-b. & \emph{unterstützen}: & \subcat \sliste{ NP[\type{str\_nga}], NP[\type{str\_nga}] }\\
-c. & \emph{helfen}:       & \subcat \sliste{ NP[\type{str\_nga}], NP[\type{str\_nd}] }\\
-d. & \emph{schenken}:     & \subcat \sliste{ NP[\type{str\_nga}], NP[\type{str\_nga}], NP[\type{str\_nd}] }\\
+a. & \emph{schlafen}:     & \comps \sliste{ NP[\type{str\_nga}] }\\
+b. & \emph{unterstützen}: & \comps \sliste{ NP[\type{str\_nga}], NP[\type{str\_nga}] }\\
+c. & \emph{helfen}:       & \comps \sliste{ NP[\type{str\_nga}], NP[\type{str\_nd}] }\\
+d. & \emph{schenken}:     & \comps \sliste{ NP[\type{str\_nga}], NP[\type{str\_nga}], NP[\type{str\_nd}] }\\
 \end{tabular}
 \z
 Gunkels Kasusprinzip (Kapitel~2.3.12) sagt dann, dass in verbalen Umgebungen das erste Argument Nominativ bekommt
@@ -1011,10 +1011,10 @@ Abbildung~\ref{abb-case} nichts anderes ist als eine disjunktive Aufzählung von
 aber für folgendes:
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l@{}}
-a. & \emph{schlafen}:     & \subcat \sliste{ NP[$snom \vee sacc \vee sgen$] }\\
-b. & \emph{unterstützen}: & \subcat \sliste{ NP[$snom \vee sacc \vee sgen$], NP[$snom \vee sacc \vee sgen$] }\\
-c. & \emph{helfen}:       & \subcat \sliste{ NP[$snom \vee sacc \vee sgen$], NP[$snom \vee sdat$] }\\
-d. & \emph{schenken}:     & \subcat $\langle$ \begin{tabular}[t]{@{}l@{}}
+a. & \emph{schlafen}:     & \comps \sliste{ NP[$snom \vee sacc \vee sgen$] }\\
+b. & \emph{unterstützen}: & \comps \sliste{ NP[$snom \vee sacc \vee sgen$], NP[$snom \vee sacc \vee sgen$] }\\
+c. & \emph{helfen}:       & \comps \sliste{ NP[$snom \vee sacc \vee sgen$], NP[$snom \vee sdat$] }\\
+d. & \emph{schenken}:     & \comps $\langle$ \begin{tabular}[t]{@{}l@{}}
                                               \textsc{NP[$snom \vee sacc \vee sgen$], NP[$snom \vee sacc \vee sgen$],}\\
                                               \textsc{NP[$snom \vee sdat$]} $\rangle$\\
                                               \end{tabular}
@@ -1046,18 +1046,18 @@ der geholfene Mann
 Mit der Passivanalyse, die in Kapitel~\ref{chap-passiv} vorgestellt wird, würde man die
 folgende Valenzliste für \emph{geholfen} bekommen:
 \ea
-\emph{geholfen}: \subcat \sliste{ NP[\type{str\_nd}] }
+\emph{geholfen}: \comps \sliste{ NP[\type{str\_nd}] }
 \z
 An der ersten Stelle der Valenzliste stünde ein struktureller Kasus. Die Lexikonregel für die
 Ableitung von adjektivischen Partizipien in (\ref{lr-adjective-formation-da-approach}) 
 auf Seite~\pageref{lr-adjective-formation-da-approach} ist für den im vorigen Abschnitt vorgestellten
 Ansatz sehr einfach: Sie besagt, dass eine Adjektivform abgeleitet werden kann, wenn das
-erste Element der \subcatl des Partizips strukturellen Kasus hat. Dieses Element mit strukturellem
+erste Element der \compsl des Partizips strukturellen Kasus hat. Dieses Element mit strukturellem
 Kasus wird dann zum Subjekt des Adjektivs, \dash zu dem Element, über das prädiziert wird.
 Das entspricht dem modifizierten Nomen. Das Objekt von \emph{unterstützt} wird somit zu dem
 Element, das dem modifizierten Nomen entspricht. Da der Kasus des Objekts von \emph{helfen}
 aber lexikalisch ist, wird ein Wort wie \noword{geholfene} überhaupt nicht lizenziert. Mit einer
-\subcatl wie in (\mex{0}) müßte man dagegen in der Lexikonregel für die Adjektivderivation
+\compsl wie in (\mex{0}) müßte man dagegen in der Lexikonregel für die Adjektivderivation
 noch festlegen, dass das Objekt des Verbs, das dann zum Subjekt des Adjektivs wird,
 kein Dativobjekt sein darf. Dies ist jedoch nicht ohne weiteres möglich, denn \type{str\_nd}
 steht für $\nom \vee dat$, und wenn man so etwas wie $\neg dat$ sagt, bleibt immer noch \type{nom}
@@ -1079,14 +1079,14 @@ Akkusativobjekts nicht, wenn man annimmt, dass der Dativ ein lexikalischer Kasus
 \mbox{}\citew[\page 209--210]{HM94a}, \citew[\page 280--281]{Mueller99a} und \citew[\page 112]{Gunkel2003b}
 schlagen Kasusprinzipien vor, die Kasus innerhalb von Kopf"=Argumentstrukturen, \dash in bestimmten
 phrasalen Konfigurationen, zuweisen. So sorgt \zb die folgende Implikation dafür,
-dass wenn es an der ersten Stelle der \subcatl der Kopf"|tochter eine NP mit strukturellem
+dass wenn es an der ersten Stelle der \compsl der Kopf"|tochter eine NP mit strukturellem
 Kasus gibt, diese NP Nominativ bekommt:\footnote{
-  Im 99er Buch gehe ich davon aus, dass die Argumente vom Ende der \subcatl vor denen am Anfang der
+  Im 99er Buch gehe ich davon aus, dass die Argumente vom Ende der \compsl vor denen am Anfang der
   Liste gesättigt werden. Das Kopf"=Argument"=Schema entspricht also dem Schema auf
   Seite~\pageref{schema-bin-prel} mit \emph{append}   und nicht dem Schema auf
   Seite~\pageref{schema-bin-prel2} mit \emph{delete}. Deshalb steht das Subjekt auch bei
-  Verbprojektionen immer an erster Stelle der \subcatl. Es kann nicht passieren, dass das Subjekt
-  gesättigt wird und dann eine Objektsnominalphrase mit strukturellem Kasus an erster Stelle der \subcatl steht.%
+  Verbprojektionen immer an erster Stelle der \compsl. Es kann nicht passieren, dass das Subjekt
+  gesättigt wird und dann eine Objektsnominalphrase mit strukturellem Kasus an erster Stelle der \compsl steht.%
 }
 
 \eas
@@ -1094,9 +1094,9 @@ Ausschnitt aus dem Kasusprinzip von \citew[\page 280]{Mueller99a}\\\istype{head"
 \onems[head"=argument"=structure]{ 
      synsem  \ms{ loc$|$cat$|$head & \ms[verb]{ vform & fin \\ } \\ 
                  } \\
-     h-dtr$|$synsem$|$loc$|$cat$|$subcat \sliste{ NP[\type{str}] } $\oplus$ \ibox{1} \\
+     h-dtr$|$synsem$|$loc$|$cat$|$comps \sliste{ NP[\type{str}] } $\oplus$ \ibox{1} \\
     } ~\impl \\ \\
-\mbox{}\hspace{3cm}\ms{ h-dtr$|$synsem$|$loc$|$cat$|$subcat & \sliste{ NP[\type{snom}] } $\oplus$ \ibox{1}  \\
+\mbox{}\hspace{3cm}\ms{ h-dtr$|$synsem$|$loc$|$cat$|$comps & \sliste{ NP[\type{snom}] } $\oplus$ \ibox{1}  \\
    }
 \zs
 
@@ -1216,7 +1216,7 @@ und das Objekt von \emph{auskosten} wird zum Subjekt der gesamten Konstruktion.
 Der Verbalkomplex \emph{auszukosten erlaubt wurde} hat die Valenz- bzw.\
 Argumentstrukturliste in (\mex{1}):
 \ea
-\emph{auszukosten erlaubt wurde}:   \subcat \sliste{ NP[\type{ldat}], NP[\type{str}] }
+\emph{auszukosten erlaubt wurde}:   \comps \sliste{ NP[\type{ldat}], NP[\type{str}] }
 \z
 Die Implikation in (\ref{case-prz}) würden der NP[\str] Akkusativ zuweisen.
 Das läßt sich reparieren, indem man verlangt, dass in der ersten Implikation

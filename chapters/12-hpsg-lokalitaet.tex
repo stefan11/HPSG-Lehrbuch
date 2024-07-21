@@ -23,7 +23,7 @@ die interne Struktur von selegierten Elementen, da Köpfe ganze Zeichen selegier
 \ea
 \ms{ phon & list~of~phoneme strings\\
      loc  & \ms[loc]{  cat  & \ms[cat]{ head   & head \\
-                                        subcat & list of signs\\
+                                        comps & list of signs\\
                                       } \\
                        cont & cont\\
                     }\\
@@ -49,7 +49,7 @@ Sowohl syntaktische als auch semantische Information kann selegiert werden, wesh
 Information als Wert des Merkmals \textsc{syntax-semantics} (\textsc{synsem}) zusammengefaßt wird. (\mex{1})
 zeigt die neue Datenstruktur.
 Nur der in (\mex{1}) markierte Bereich soll selegierbar sein. Damit ist der direkte
-Zugriff auf Töchter oder \textsc{phon}"=Werte ausgeschlossen. Die Elemente von \subcat{}"=Listen
+Zugriff auf Töchter oder \textsc{phon}"=Werte ausgeschlossen. Die Elemente von \comps{}"=Listen
 und der Wert des \textsc{mod}"=Merkmals sind nicht mehr wie bisher vom Typ \type{sign}, sondern vom Typ
 \type{synsem}.
 %\begin{figure}[htbp]
@@ -57,7 +57,7 @@ und der Wert des \textsc{mod}"=Merkmals sind nicht mehr wie bisher vom Typ \type
 \ms{ phon & list~of~phoneme strings\\
      syntax-semantics & \highlight{\ms[synsem]{
      loc  & \ms[loc]{  cat  & \ms[cat]{ head   & head \\
-                                        subcat & list of synsems\\
+                                        comps & list of synsems\\
                                       } \\
                        cont & cont\\
                     }\\
@@ -78,20 +78,38 @@ und der Wert des \textsc{mod}"=Merkmals sind nicht mehr wie bisher vom Typ \type
 \noindent
 Die Schemata müssen entsprechend angepaßt werden. Das neue Kopf"=Argument"=Schema\is{Schema!Kopf"=Argument"=}
 hat folgende Form:
-\begin{schema}[Kopf-Argument-Schema]
+\begin{schema}[Kopf-Argument-Schema (vorläufige Version)]
 \label{schema-head-arg}
 \type{head"=argument"=phrase}\istype{head"=argument"=phrase} \impl\\
 \ms{
-      synsem & \onems{ loc$|$cat$|$subcat \ibox{1} $\oplus$ \ibox{3}\\
+      synsem & \onems{ loc$|$cat$|$comps \ibox{1} $\oplus$ \ibox{3}\\
                      }\\
-      head-dtr & \onems{ synsem$|$loc$|$cat$|$subcat \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3} \\
+      head-dtr & \onems{ synsem$|$loc$|$cat$|$comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3} \\
                        }\\
       non-head-dtrs & \sliste{ \onems{ synsem \ibox{2}  \\ } }
 }
 \end{schema}
 Statt wie in der Version auf Seite~\pageref{schema-bin-prel2} ein Element
-der \subcatl vollständig mit der Nicht"=Kopf"|tochter zu identifizieren, wird
-das Element aus der \subcatl nur mit dem \synsemw der Nicht"=Kopf"|tochter identifiziert.
+der \compsl vollständig mit der Nicht"=Kopf"|tochter zu identifizieren, wird
+das Element aus der \compsl nur mit dem \synsemw der Nicht"=Kopf"|tochter identifiziert.
+Genauso muss das Kopf"=Adjunkt"=Schema angepasst werden:
+\begin{schema}[Kopf-Adjunkt-Schema (endgültige Version)]
+\label{ha-schema-final}
+\begin{tabular}[t]{@{}l@{}}
+\type{head"=adjunct"=phrase}\istype{head"=adjunct"=phrase} \impl\\
+\ms{ 
+cont & \ibox{1} \\
+head"=dtr      & \onems{ \synsem \ibox{2} }\\
+non-head"=dtrs & \liste{ \ms{ cat & \ms{ head$|$mod & \ibox{2} \\
+                                        comps   & \liste{} \\
+                                      } \\
+                             cont & \ibox{1} \\
+                           }}\\
+}
+\end{tabular}
+\end{schema}
+Der \modw entspricht nicht der gesamten Kopf"=Tochter, sondern nur dem \synsemw der Kopf"=Tochter.
+
 Die hier direkt in die Merkmalsgeometrie integrierte Annahme der Lokalität der Selektion
 wird im Abschnitt~\ref{disc-lokalitaet} noch kritisch beleuchtet.
 
@@ -221,8 +239,8 @@ verwendeten Repräsentation für Valenzinformation und Töchter hätte die Form 
 Kopf"=Argument"=Schema nach \citet*[481]{SWB2003a}:\\
 \type{head-argument-construction}\istype{head"=argument"=construction} \impl\\
 \ms{
-mother$|$syn$|$subcat   & \ibox{1}\\
-head-dtr$|$syn$|$subcat & \ibox{1} $\oplus$ \ibox{2}\\
+mother$|$syn$|$comps   & \ibox{1}\\
+head-dtr$|$syn$|$comps & \ibox{1} $\oplus$ \ibox{2}\\
 non-head-dtrs & \liste{ \ibox{2} } \\
 }
 \z
@@ -243,13 +261,13 @@ diese auch nicht selegiert werden können. Das \synsemm wird dadurch überflüss
 mother & \ms[phrase]{
          phon  & \phonliste{ aß, eine Pizza }\\
          syn   & \ms{ head   & verb\\
-                      subcat & \sliste{ NP\ind{1} }\\
+                      comps & \sliste{ NP\ind{1} }\\
                     }\\
          sem   & \ibox{2}\\
          }\\
 head-dtr & \ms[lex-sign]{
            syn & \ms{ head   & verb\\
-                      subcat & \sliste{ NP\ind{1}, \ibox{4} NP\ind{3} }\\
+                      comps & \sliste{ NP\ind{1}, \ibox{4} NP\ind{3} }\\
                     }\\
            sem   & \ibox{2} \ms[essen]{
                    agens & \ibox{1}\\
@@ -276,13 +294,13 @@ Zum Vergleich sei hier die Struktur angegeben, die in diesem Buch angenommen wir
 \onems[head-argument-phrase]{
 phon   \phonliste{ aß, eine Pizza }\\
 synsem$|$loc  \ms{ cat   & \ms{ head   & verb\\
-                            subcat & \sliste{ NP\ind{1} }\\
+                            comps & \sliste{ NP\ind{1} }\\
                           }\\
                     cont  & \ibox{2}\\
                   }\\
 head-dtr  \ms[lex-sign]{
            synsem$|$loc & \ms{ cat & \ms{ head   & verb\\
-                                          subcat & \sliste{ NP\ind{1}, \ibox{4} NP\ind{3} }\\
+                                          comps & \sliste{ NP\ind{1}, \ibox{4} NP\ind{3} }\\
                                         }\\
                                cont & \ibox{2} \ms[essen]{
                                       agens & \ibox{1}\\
@@ -433,13 +451,13 @@ beschrieben wird:
 \ea
 \ms{
 phon & \phonliste{ seine, Freundin }\\
-head-dtr & \ms{ synsem \ibox{1} loc$|$cat$|$subcat \liste{ \ibox{2} } }\\
+head-dtr & \ms{ synsem \ibox{1} loc$|$cat$|$comps \liste{ \ibox{2} } }\\
 non-head-dtrs & \liste{ [ synsem \ibox{2} loc$|$cat$|$head$|$spec \ibox{1} ] } \\
 }
 \z
 Die Nicht"=Kopf"|tochter ist in der Valenzliste des Nomens enthalten, und die Kopf"|tochter wird
 über \textsc{spec} vom Possessivum selegiert. Folgt man dem Pfad
-\textsc{non-head-dtrs$|$""hd$|$""synsem$|$""loc$|$""cat$|$""head$|$""spec$|$""loc$|$""cat$|$""subcat$|$""hd}\footnote{
+\textsc{non-head-dtrs$|$""hd$|$""synsem$|$""loc$|$""cat$|$""head$|$""spec$|$""loc$|$""cat$|$""comps$|$""hd}\footnote{
   \textsc{hd} steht dabei für den Pfad zum ersten Element einer Liste.%
 }, so gelangt man wieder zu \iboxt{2}, \dash, es liegt ein Zyklus vor, da \iboxt{2} auch schon am
 Beginn des genannten Pfades nämlich als Wert von \textsc{non-head-dtrs$|$""hd$|$""synsem} auf"|tritt.

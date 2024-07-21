@@ -188,28 +188,28 @@ sm edges
 \onems[head-argument-phrase~]{
       phon  \phonliste{ das Kind schläft }\\
       head  \ibox{1}\\
-      subcat \ibox{2} \sliste{ } \\
+      comps \ibox{2} \sliste{ } \\
       head-dtr \onems[word]{ phon \phonliste{ schläft }\\
                                      head \ibox{1} \ms[verb]{vform & fin \\
                                                             }\\
-                                     subcat \ibox{2}  $\oplus$ \sliste{ \ibox{3} } \\
+                                     comps \ibox{2}  $\oplus$ \sliste{ \ibox{3} } \\
                        } \\
       non-head-dtrs \liste{ \ibox{3} \onems[head-argument-phrase~]{ 
                                         phon \phonliste{ das Kind }\\
                                         head \ibox{4} \ms[noun]{ cas & \ibox{5} nom\\
                                                       } \\
-                                        subcat   \eliste \\
+                                        comps   \eliste \\
                                         head-dtr \onems[word]{ 
                                                   phon \phonliste{ Kind }\\
                                                   head \ibox{4} \\
-                                                  subcat   \sliste{ \ibox{6} } \\
+                                                  comps   \sliste{ \ibox{6} } \\
                                                   }\\
                                         non-head-dtrs \liste{ \ibox{6} \onems[word]{ 
                                                                 phon \phonliste{ das }\\
                                                                 head \ms[det]{
                                                                       cas & \ibox{5} \\ 
                                                                       }\\
-                                                                subcat \eliste{ } \\
+                                                                comps \eliste{ } \\
                                                   } }\\
                                      }
                        }\\
@@ -232,13 +232,13 @@ sm edges
 \onems[head-argument-phrase~]{
       phon  \phonliste{ er lacht }\\
       cat \ms{ head  \ibox{1}\\
-               subcat \ibox{2} \sliste{ } \\
+               comps \ibox{2} \sliste{ } \\
              }\\
       cont \ibox{3}\\
       head-dtr \ms[word]{ phon & \phonliste{ lacht }\\
                           cat & \ms{ head \ibox{1} \ms[verb]{vform & fin \\
                                                             }\\
-                                     subcat \ibox{2}  $\oplus$ \sliste{ \ibox{4} } \\
+                                     comps \ibox{2}  $\oplus$ \sliste{ \ibox{4} } \\
                                    }\\
                           cont & \ibox{3} \ms[lachen]{ agens & \ibox{5}\\
                                           }\\
@@ -247,7 +247,7 @@ sm edges
                                         phon & \phonliste{ er }\\
                                         cat & \ms{ head & \ms[noun]{ cas & nom\\
                                                                    } \\
-                                                   subcat &  \eliste \\
+                                                   comps &  \eliste \\
                                                  }\\
                                         cont & \ms{ ind & \ibox{5} \ms{ per & 3\\
                                                                       num & sg\\
@@ -280,7 +280,7 @@ sm edges
                                                                      restr & \ibox{2} \\
                                                                     } \\
                       } \\
-               subcat & \liste{} \\
+               comps & \liste{} \\
              } \\
    cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
                                    num & sg \\
@@ -307,7 +307,7 @@ sm edges
 cat & \ms{ head   & \ms[adj]{
                     mod & none\\
                     }\\
-           subcat & \sliste{ NP[\nom]\ind{1} } $\oplus$ \ibox{2}\\
+           comps & \sliste{ NP[\nom]\ind{1} } $\oplus$ \ibox{2}\\
          }\\
 cont & \ibox{3}\\
 } $\mapsto$\\
@@ -317,7 +317,7 @@ cat & \ms{ head   & \ms[adj]{
                                                                 restr & \ibox{4} \\
                                                               } \\
                     }\\
-           subcat & \ibox{2}\\
+           comps & \ibox{2}\\
          }\\
 cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
 %                                num & sg\\
@@ -379,15 +379,15 @@ keine Umstellung des Relativsatzes stattgefunden hat, sondern dass die einfacher
 \begin{figure}[H]
 \begin{forest}
 sm edges
-[{C[\subcat \eliste ] }
-   [{C[\subcat \sliste{ \ibox{1} }]} [dass] ]
-      [{\ibox{1} V[\subcat \eliste ] }
+[{C[\comps \eliste ] }
+   [{C[\comps \sliste{ \ibox{1} }]} [dass] ]
+      [{\ibox{1} V[\comps \eliste ] }
         [{\ibox{2} NP[\type{nom}]} [Kurt-Martin] ]
-          [{V[\subcat \sliste{ \ibox{2} } ] } 
+          [{V[\comps \sliste{ \ibox{2} } ] } 
             [{\ibox{3} NP[\type{dat}]} [dem Clown, roof] ]
-            [{V[\subcat \sliste{ \ibox{2}, \ibox{3} } ] }
+            [{V[\comps \sliste{ \ibox{2}, \ibox{3} } ] }
                [{\ibox{4} NP[\type{acc}]} [drei Mark, roof] ]
-                      [{V[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } [gibt] ] ] ] ]
+                      [{V[\comps \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } [gibt] ] ] ] ]
 ]
 \end{forest}
 \end{figure}
@@ -397,15 +397,15 @@ sm edges
 \begin{figure}[H]
 \begin{forest}
 sm edges
-[{C[\subcat \eliste ] }
-  [{C[\subcat \sliste{ \ibox{1} } ] } [dass] ]
-  [{\ibox{1} V[\subcat \eliste ] }
+[{C[\comps \eliste ] }
+  [{C[\comps \sliste{ \ibox{1} } ] } [dass] ]
+  [{\ibox{1} V[\comps \eliste ] }
     [{\ibox{4} NP[\type{dat}]} [dem Clown, roof] ]
-    [{V[\subcat \sliste{ \ibox{4} } ] } 
+    [{V[\comps \sliste{ \ibox{4} } ] } 
        [{\ibox{3} NP[\type{acc}]} [drei Mark,roof] ]
-       [{V[\subcat \sliste{ \ibox{3}, \ibox{4} } ] }
+       [{V[\comps \sliste{ \ibox{3}, \ibox{4} } ] }
           [{\ibox{2} NP[\type{nom}]} [Kurt-Martin] ]
-          [{V[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } [gibt] ] ] ] ] ]
+          [{V[\comps \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } [gibt] ] ] ] ] ]
 \end{forest}
 \end{figure}
 
@@ -413,22 +413,22 @@ sm edges
 \oneline{%
 \begin{forest}
 sm edges
-[{V[\subcat \eliste ] }
-       [{V[\subcat \sliste{ \ibox{1} } ] }, l sep+=\baselineskip 
-         [{V\ibox{5}[\subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] }, tier=np, edge
+[{V[\comps \eliste ] }
+       [{V[\comps \sliste{ \ibox{1} } ] }, l sep+=\baselineskip 
+         [{V\ibox{5}[\comps \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] }, tier=np, edge
          label={node[midway,right]{V1-LR}}
             [gibt] ] ]
        [{\ibox{1} V\feattab{\dsl \ibox{5},\\
-                             \subcat \eliste} }
+                             \comps \eliste} }
           [{\ibox{2} NP[\type{nom}]}, tier=np [Kurt-Martin] ]
           [{V\feattab{\dsl \ibox{5},\\
-                       \subcat \sliste{ \ibox{2} } } } 
+                       \comps \sliste{ \ibox{2} } } } 
             [{\ibox{4} NP[\type{acc}]} [drei Mark,roof] ]
             [{V\feattab{\dsl \ibox{5},\\
-                         \subcat \sliste{ \ibox{2}, \ibox{4} } } }
+                         \comps \sliste{ \ibox{2}, \ibox{4} } } }
               [{\ibox{3} NP[\type{dat}]} [dem Clown,roof] ]
               [{V\ibox{5}\feattab{\dsl \ibox{5},\\
-                           \subcat \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } } } [\trace{}] ] ] ] ] ]
+                           \comps \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } } } [\trace{}] ] ] ] ] ]
 \end{forest}}
 \end{figure}
 
@@ -439,23 +439,23 @@ sm edges
 \oneline{%
 \begin{forest}
 sm edges
-[{V\feattab{\subcat \eliste,\\
+[{V\feattab{\comps \eliste,\\
                   \slasch \eliste } }, s sep+=2em
        [{NP\ibox{1}[\type{acc}]} [diese Wohnung,roof] ]
-       [V\feattab{ \subcat \eliste,\\
+       [V\feattab{ \comps \eliste,\\
                    \slasch \sliste{ \ibox{1} } }  
-         [{V[\subcat \sliste{ \ibox{2} } ] }, l sep+=\baselineskip
-           [{V\ibox{3}[\subcat \sliste{ \ibox{4}, \ibox{5} } ] }, tier=np, edge label={node[midway,right]{V1-LR}} [mietet] ] ]
+         [{V[\comps \sliste{ \ibox{2} } ] }, l sep+=\baselineskip
+           [{V\ibox{3}[\comps \sliste{ \ibox{4}, \ibox{5} } ] }, tier=np, edge label={node[midway,right]{V1-LR}} [mietet] ] ]
          [{\ibox{2} V\feattab{ \dsl \ibox{3},\\
-                                \subcat \eliste,\\
+                                \comps \eliste,\\
                                 \slasch \sliste{ \ibox{1} } } } 
            [\ibox{5} NP\ibox{1}\feattab{ \slasch \sliste{ \ibox{1} } }, tier=np [\trace] ]
            [V\feattab{\dsl \ibox{3},\\
-                      \subcat \sliste{ \ibox{4}, \ibox{5} },\\
+                      \comps \sliste{ \ibox{4}, \ibox{5} },\\
                               \slasch \eliste }
               [{\ibox{4} NP[\type{nom}]} [er] ]
               [V\ibox{3}\feattab{\dsl \ibox{3},\\
-                                 \subcat \sliste{ \ibox{4}, \ibox{5} },\\
+                                 \comps \sliste{ \ibox{4}, \ibox{5} },\\
                                  \slasch \eliste }  [\trace] ] ] ] ] ]
 \end{forest}
 }
@@ -482,14 +482,14 @@ sm edges
                 \slasch \eliste }
       [NP~\ibox{4}\feattab{\type{acc},\\
                            \textsc{rel} \sliste{ \ibox{3} }} [die] ]
-      [V\feattab{ \subcat \eliste,\\
+      [V\feattab{ \comps \eliste,\\
                   \slasch \sliste{ \ibox{4} }}
          [\ibox{5} NP\feattab{\HPSGloc \ibox{4},\\
                               \slasch \sliste{ \ibox{4} }} [\trace{}] ]
-         [V\feattab{ \subcat \sliste{ \ibox{5} },\\
+         [V\feattab{ \comps \sliste{ \ibox{5} },\\
                      \slasch \eliste }
            [{\ibox{6}~NP[\type{nom}]} [alle] ]
-           [V\feattab{ \subcat \sliste{ \ibox{6}, \ibox{5} },\\
+           [V\feattab{ \comps \sliste{ \ibox{6}, \ibox{5} },\\
                        \slasch \eliste }  [lieben] ] ] ] ] ] ]
 \end{forest}
 \end{figure}
@@ -513,27 +513,27 @@ sm edges
 \begin{forest}
 sm edges
 [{\ms[cat]{ head   & \ibox{1} \\
-           subcat & \eliste\\
+           comps & \eliste\\
             }}
  [{\ibox{2} NP[\type{nom}]} [Aicke]]
  [{\ms[cat]{ head   & \ibox{1} \\
-             subcat & \ibox{3}\\
+             comps & \ibox{3}\\
             }}
    [\iboxt{5}~\onems{ loc \ms{ head & \ibox{4} \\
-                               subcat & \ibox{3} \\
+                               comps & \ibox{3} \\
                                  }}
      [\iboxt{6}~\onems{ loc \onems{ head  \ms[verb]{ vform & bse  \\
                                                 }  \\
-                                subcat~\ibox{3} \sliste{ \ibox{2} NP[\textit{nom\/}] } \\
+                                comps~\ibox{3} \sliste{ \ibox{2} NP[\textit{nom\/}] } \\
                               }\\
                 } [singen]]
      [{\onems[cat]{ head~\ibox{4} \ms[verb]{ vform & bse \\
                             } \\
-            subcat ~ \ibox{3} $\oplus$ \sliste{ \ibox{6} } \\
+            comps ~ \ibox{3} $\oplus$ \sliste{ \ibox{6} } \\
           }} [können]]]
     [{\ms[cat]{ head & \ibox{1} \ms[verb]{ vform & fin \\
                                                     } \\
-                      subcat & \ibox{3} $\oplus$ \sliste{ \ibox{5} } \\
+                      comps & \ibox{3} $\oplus$ \sliste{ \ibox{5} } \\
                     }} [muss]]]]
 \end{forest}}
 \end{figure}
@@ -546,7 +546,7 @@ sm edges
 \oneline{%
 \ms{
 cat & \ms{% head   & verb \\ 
-           subcat & \ibox{1} $\oplus$ \sliste{ NP[\type{ldat}]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \sliste{ \textrm{V[\textit{inf}, \textsc{lex}+, \textsc{subj}~\ibox{1}, \textsc{subcat}~\ibox{3} ]:\ibox{4}}}\\
+           comps & \ibox{1} $\oplus$ \sliste{ NP[\type{ldat}]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \sliste{ \textrm{V[\textit{inf}, \textsc{lex}+, \textsc{subj}~\ibox{1}, \textsc{comps}~\ibox{3} ]:\ibox{4}}}\\
          }\\
 cont & \ms[scheinen]{
         experiencer & \ibox{2} \\
@@ -578,7 +578,7 @@ cont & \ms[scheinen]{
 cat & \ms{ head & \ms[particle]{ mod  & \textrm{V} \\
                                  subj & \eliste \\
                                } \\
-           subcat & \eliste \\
+           comps & \eliste \\
          }
 }
 \zs\iw{los|uu}
@@ -596,7 +596,7 @@ vater würde ihn mir zu xmas vorschenken\footnote{
 \label{le-kochen}
 \mbox{\stem{koch}:}\\
 \ms{ head   & verb \\
-     subcat & \liste{NP[\str], NP[\str]} \\[2mm]
+     comps & \liste{NP[\str], NP[\str]} \\[2mm]
 }
 \iw{kochen|uu}
 \zs
@@ -618,7 +618,7 @@ Lexikonregel für \emph{ung}"=Nominalisierung:\\
 phon & \ibox{1} $\oplus$ \phonliste{ ung }\\
 synsem & \onems{ loc  \ms{ cat  & \ms{ head   & noun\\
                                        spr & \sliste{ Det }\\
-%                                       subcat & \eliste\\
+%                                       comps & \eliste\\
                                       } \\
                             cont & \ms{ ind & \ibox{2} \ms{ per & 3\\
                                                             %num & sg\\    nicht für den Stamm
@@ -644,7 +644,7 @@ lex-dtr & \onems[stem]{
 Zur Semantik der \emph{ung}-Nominalisierung siehe \citew{ER2000a-u}.
 
 \item Die \suffix{ung}-Nominalisierungsregel wird auf den Stamm des Partikelverbs angewendet. Dieser
-  enthält bereits die Partikel in der \subcatl. Es muss also nicht erst aus dem Simplex"=Verb
+  enthält bereits die Partikel in der \compsl. Es muss also nicht erst aus dem Simplex"=Verb
   \emph{treten} \noword{Tretung} gebildet werden, um dann \emph{Abtretung} bilden zu können.
 
 \end{enumerate}
