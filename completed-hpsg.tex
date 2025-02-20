@@ -65,8 +65,10 @@
 \tikzset{every roof node/.append style={inner sep=0.1pt,text height=2ex,text depth=0.3ex}}
 
 
-%\newcommand{\NOTE}[1]{}
-\newcommand{\NOTE}[1]{\marginpar{#1}}
+\newcommand{\NOTE}[1]{}
+%\newcommand{\NOTE}[1]{\marginpar{#1}}
+
+\renewcommand{\itdopt}[1]{}
 
 \memoizeset{
   memo filename prefix={hpsg.memo.dir/},
@@ -86,6 +88,8 @@
 
 %\bibliography{germanic}
 \bibliography{bib-abbr,biblio-xdata-en,biblio}
+
+\includeonly{chapters/00-hpsg-vorwort,chapters/01-hpsg-einleitung}
 
 
 \input hpsg-lehrbuch-include

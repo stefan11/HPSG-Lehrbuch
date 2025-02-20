@@ -2,7 +2,7 @@ STYLE-PATH= ${HOME}/Library/texmf/tex/latex/
 LANGSCI-PATH=~/Documents/Dienstlich/Projekte/LangSci/Git-HUB/latex/
 
 
-all: germanic.pdf
+all: completed-hpsg.pdf
 
 
 SOURCE=/Users/stefan/Documents/Dienstlich/Bibliographien/biblio.bib $(wildcard *.tex chapters/*.tex)
@@ -11,29 +11,29 @@ SOURCE=/Users/stefan/Documents/Dienstlich/Bibliographien/biblio.bib $(wildcard *
 
 
 # for Stefan. Uses memoize.
-germanic.pdf: germanic.tex $(SOURCE)
-	xelatex -shell-escape -no-pdf germanic |grep -v math
-	biber germanic
-	xelatex -shell-escape -no-pdf germanic |grep -v math
-	biber germanic
-	xelatex germanic -shell-escape -no-pdf |egrep -v 'math|PDFDocEncod' |egrep 'Warning|label|aux'
+completed-hpsg.pdf: completed-hpsg.tex $(SOURCE)
+	xelatex -shell-escape -no-pdf completed-hpsg |grep -v math
+	biber completed-hpsg
+	xelatex -shell-escape -no-pdf completed-hpsg |grep -v math
+	biber completed-hpsg
+	xelatex completed-hpsg -shell-escape -no-pdf |egrep -v 'math|PDFDocEncod' |egrep 'Warning|label|aux'
 	correct-toappear
 	correct-index
-	sed -i.backup s/.*\\emph.*// germanic.adx #remove titles which biblatex puts into the name index
-# sed -i.backup 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' germanic.sdx # ordering of references to footnotes
-# sed -i.backup 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' germanic.adx
-# sed -i.backup 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' germanic.ldx
-	sed -i.backup 's/\\MakeCapital //g' germanic.adx
-	python3 fixindex.py a germanic
-	mv germanicmod.adx germanic.adx
-	sed -i.backup 's/\\MakeCapital //g' germanic.adx
-	footnotes-index.pl germanic.ldx
-	footnotes-index.pl germanic.sdx
-	footnotes-index.pl germanic.adx 
-	makeindex -o germanic.and germanic.adx
-	makeindex -gs index.format -o germanic.lnd germanic.ldx
-	makeindex -gs index.format -o germanic.snd germanic.sdx 
-	xelatex -shell-escape germanic | egrep -v 'math|PDFDocEncod|\\mark' |egrep 'Warning|label'
+	sed -i.backup s/.*\\emph.*// completed-hpsg.adx #remove titles which biblatex puts into the name index
+# sed -i.backup 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' completed-hpsg.sdx # ordering of references to footnotes
+# sed -i.backup 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' completed-hpsg.adx
+# sed -i.backup 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' completed-hpsg.ldx
+	sed -i.backup 's/\\MakeCapital //g' completed-hpsg.adx
+	python3 fixindex.py a completed-hpsg
+	mv completed-hpsgmod.adx completed-hpsg.adx
+	sed -i.backup 's/\\MakeCapital //g' completed-hpsg.adx
+	footnotes-index.pl completed-hpsg.ldx
+	footnotes-index.pl completed-hpsg.sdx
+	footnotes-index.pl completed-hpsg.adx 
+	makeindex -o completed-hpsg.and completed-hpsg.adx
+	makeindex -gs index.format -o completed-hpsg.lnd completed-hpsg.ldx
+	makeindex -gs index.format -o completed-hpsg.snd completed-hpsg.sdx 
+	xelatex -shell-escape completed-hpsg | egrep -v 'math|PDFDocEncod|\\mark' |egrep 'Warning|label'
 
 
 
@@ -71,19 +71,19 @@ main.pdf: main.tex $(SOURCE)
 
 
 # just for quick comile and checking
-index: germanic.tex $(SOURCE)
-	xelatex germanic -shell-escape -no-pdf 
-	footnotes-index.pl germanic.ldx
-	footnotes-index.pl germanic.sdx
-	footnotes-index.pl germanic.adx 
-	makeindex -o germanic.and germanic.adx
-	makeindex -gs index.format -o germanic.lnd germanic.ldx
-	makeindex -gs index.format -o germanic.snd germanic.sdx 
-	xelatex -shell-escape germanic | egrep -v 'math|PDFDocEncod|\\mark' |egrep 'Warning|label'
+index: completed-hpsg.tex $(SOURCE)
+	xelatex completed-hpsg -shell-escape -no-pdf 
+	footnotes-index.pl completed-hpsg.ldx
+	footnotes-index.pl completed-hpsg.sdx
+	footnotes-index.pl completed-hpsg.adx 
+	makeindex -o completed-hpsg.and completed-hpsg.adx
+	makeindex -gs index.format -o completed-hpsg.lnd completed-hpsg.ldx
+	makeindex -gs index.format -o completed-hpsg.snd completed-hpsg.sdx 
+	xelatex -shell-escape completed-hpsg | egrep -v 'math|PDFDocEncod|\\mark' |egrep 'Warning|label'
 
 
 # http://stackoverflow.com/questions/10934456/imagemagick-pdf-to-jpgs-sometimes-results-in-black-background
-cover: germanic.pdf
+cover: completed-hpsg.pdf
 	convert $<\[0\] -resize 486x -background white -alpha remove -bordercolor black -border 2  cover.png
 
 
@@ -97,7 +97,7 @@ lsp-styles:
 
 
 
-public: germanic.pdf
+public: completed-hpsg.pdf
 	cp $? /Users/stefan/public_html/Pub/
 
 
@@ -105,21 +105,21 @@ commit:
 	svn commit -m "published version to the web"
 
 forest-commit:
-	git add germanic.for.dir/*.pdf
-	git commit -m "forest trees" germanic.for.dir/*.pdf germanic.for
+	git add completed-hpsg.for.dir/*.pdf
+	git commit -m "forest trees" completed-hpsg.for.dir/*.pdf completed-hpsg.for
 	git push -u origin
 
 
-/Users/stefan/public_html/Pub/germanic.pdf: main.pdf
-	cp -p $?                      /Users/stefan/public_html/Pub/germanic.pdf
+/Users/stefan/public_html/Pub/completed-hpsg.pdf: completed-hpsg.pdf
+	cp -p $?                      /Users/stefan/public_html/Pub/completed-hpsg.pdf
 
 
 o-public: o-public-lehrbuch 
 #commit 
 #o-public-bib
 
-o-public-lehrbuch: /Users/stefan/public_html/Pub/germanic.pdf 
-	scp -p $? hpsg.hu-berlin.de:/home/stefan/public_html/Pub/
+o-public-lehrbuch: /Users/stefan/public_html/Pub/completed-hpsg.pdf 
+	scp -p $? hpsg.hu-berlin.de:/home/stefan/public_html/Pub/hpsg-lehrbuch.pdf
 
 
 
@@ -144,21 +144,21 @@ $(PUB_FILE): ../hpsg/make_bib_header ../hpsg/make_bib_html_number  ../hpsg/.bibt
 
 
 # xelatex has to be run two times + biber to get "also printed as ..." right.
-germanic.bib: ../../Bibliographien/biblio.bib $(SOURCE) langsci.dbx bib-creation.tex
+completed-hpsg.bib: ../../Bibliographien/biblio.bib $(SOURCE) langsci.dbx bib-creation.tex
 	xelatex -no-pdf -interaction=nonstopmode -shell-escape bib-creation 
 	biber bib-creation
 	xelatex -no-pdf -interaction=nonstopmode -shell-escape bib-creation
-	biber --output_format=bibtex --output-resolve-xdata --output-legacy-date bib-creation.bcf -O germanic_tmp.bib
-	biber --tool --configfile=biber-tool.conf --output-field-replace=location:address,journaltitle:journal --output-legacy-date germanic_tmp.bib -O germanic.bib
+	biber --output_format=bibtex --output-resolve-xdata --output-legacy-date bib-creation.bcf -O completed-hpsg_tmp.bib
+	biber --tool --configfile=biber-tool.conf --output-field-replace=location:address,journaltitle:journal --output-legacy-date completed-hpsg_tmp.bib -O completed-hpsg.bib
 
 
-todo-bib.unique.txt: germanic.bcf
-	biber -V germanic | grep -i warn | sort -uf > todo-bib.unique.txt
+todo-bib.unique.txt: completed-hpsg.bcf
+	biber -V completed-hpsg | grep -i warn | sort -uf > todo-bib.unique.txt
 
 
 memos:
-	xelatex -shell-escape germanic
-	python3 memomanager.py split germanic.mmz
+	xelatex -shell-escape completed-hpsg
+	python3 memomanager.py split completed-hpsg.mmz
 
 languagecandidates:
 	ggrep -ohP "(?<=[a-z]|[0-9])(\))?(,)? (\()?[A-Z]['a-zA-Z-]+" chapters/*tex| grep -o  [A-Z].* |sort -u >languagelist.txt
@@ -200,7 +200,7 @@ install:
 
 
 source: 
-	tar chzvf ~/Downloads/germanic.tgz *.tex styles/*.sty LSP/
+	tar chzvf ~/Downloads/completed-hpsg.tgz *.tex styles/*.sty LSP/
 
 
 clean:

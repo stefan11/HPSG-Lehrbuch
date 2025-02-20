@@ -1723,12 +1723,12 @@ komplexen Prädikate Worteigenschaften, da sie in Nominalisierungen vorkommen. S
 dass es sich bei der Kombination von X0 und V0 im Normalfall um ein V0 handelt. In der
 der Konstruktionsgrammatik eigenen Boxschreibweise stellt sie das so dar:
 \eas
-Komplexes"=Prädikat"=Konstruktion (CPV0) im Persischen nach \citew{Goldberg2003a}:\\
-\begin{tabular}{|l|}\hline
-Cat: V0  \\
-         \\
-X0  <  V0\\\hline
-\end{tabular}
+Komplexes"=Prädikat"=Konstruktion (CPV0) im Persischen nach \citew[\page 125]{Goldberg2003a}:\\
+\begin{tikzpicture}[align=left]
+%relative placement of nodes starting from the bottom: Future-CP
+\node[draw](CPV0){Cat: V0  \\[1mm]
+                  X0  <  V0};
+\end{tikzpicture}
 \zs
 Das Zeichen `<' drückt aus, dass X0 unmittelbar vor V0 stehen muss. Goldberg argumentiert
 für solche Konstruktionen, da die Kombination aus X0 und V0 nicht der Bedeutung der
@@ -1737,12 +1737,11 @@ Einzelteile entspricht.
 Das Futur"=Hilfsverb\is{Verb!Hilfs-} \emph{x{\^a}stan} steht im Persischen immer direkt vor dem
 Simplexverb, das in der Vergangenheitsform stehen muss. Goldberg drückt das wie folgt aus:
 \eas
-Futurhilfsverbkonstruktion nach \citew{Goldberg2003a}:\\
-\begin{tabular}{|l|}\hline
-Cat: V$'$  \\
-         \\
-\emph{x{\^a}stan-agr}  <  V0\sub{past}\\\hline
-\end{tabular}
+Futurhilfsverbkonstruktion nach \citew[\page 127]{Goldberg2003a}:\\
+\begin{tikzpicture}[align=left]
+\node[draw](Future){Cat: V$'$  \\[1mm]
+                    \emph{x{\^a}stan-agr}  <  V0\sub{past}};
+\end{tikzpicture}
 \zs
 Werden komplexe Prädikate ins Futur gesetzt, so steht das Futurhilfsverb zwischen dem X0
 und dem V0 des komplexen Prädikats. Goldberg argumentiert, dass das Futurhilfsverb nicht als
@@ -1756,30 +1755,28 @@ mit der Futurkonstruktion und der Komplexes"=Prädikat"=Konstruktion werden durc
 entsprechende Vererbungshierarchie mit Defaultvererbung erfaßt, die in Abbildung~\vref{goldberg-persisch-vererbung}
 dargestellt ist.
 \begin{figure}
-\centering{
-\begin{tabular}[t]{cc}
-Futur & CPV0\\
-\rnode{fut}{\begin{tabular}{|l|}\hline
-Cat: V$'$  \\
-         \\
-\emph{x{\^a}stan-agr}  <  V0\sub{past}\\\hline
-\end{tabular}} & %
-\rnode{cp}{\begin{tabular}{|l|}\hline
-Cat: V0  \\
-         \\
-X0  <  V0\\\hline
-\end{tabular}}\\
-\\[3ex]
-\multicolumn{2}{@{}c@{}}{
-\rnode{fcp}{Futur-CP}}\\
-\multicolumn{2}{@{}c@{}}{\begin{tabular}{|l|}\hline
-Cat: V$'$  \\
-         \\
-X0  < \emph{x{\^a}stan} <  V0\sub{past}\\\hline
-\end{tabular}}\\
-\end{tabular}
-\ncline{->}{fut}{fcp}
-\ncline{->}{cp}{fcp}}
+\begin{tikzpicture}[node distance=2.8cm,align=left]
+%relative placement of nodes starting from the bottom: Future-CP
+
+% Future-CP
+\node[draw](Future-CP) at (0,0){Cat: V$'$  \\[1mm]
+                                X0  < \emph{x{\^a}stan} <  V0\sub{past}};
+\node[above] (Future-CP label) at (Future-CP.north) {Future-CP};
+
+% Future
+\node[draw,xshift=1cm](Future)[above left of=Future-CP label]{Cat: V$'$  \\[1mm]
+                                             \emph{x{\^a}stan-agr}  <  V0\sub{past}};
+\node[above] at (Future.north) {Future};
+
+% CPV0
+\node[draw](CPV0)[above right of=Future-CP label]{Cat: V0  \\[1mm]
+                                            X0  <  V0\strut};
+\node[above] at (CPV0.north) {CPV0};
+
+\draw[->] (Future.south) to (Future-CP label.north);
+\draw[->] (CPV0.south) to (Future-CP label.north);
+
+\end{tikzpicture}
 \caption{\label{goldberg-persisch-vererbung}%
 Kombination der Komplexes"=Prädikat"=Konstruktion mit der Futurhilfsverbkonstruktion über Mehrfachvererbung mit Defaults}
 \end{figure}
@@ -1789,7 +1786,7 @@ als auch die lineare Abfolge der Konstruktionsbestandteile (\emph{x{\^a}stan-agr
 sind verschieden. Diese Information wird bei der Unterkonstruktion, die von den beiden übergeordneten
 Konstruktionen erbt, überschrieben.
 
-\citet[\page]{Goldberg2003a} % S. 20
+\citet[\page 139--140]{Goldberg2003a} % S. 20
 argumentiert dagegen, beim Vorliegen nicht"=transparenter Komplexes"=Verb"=Konstruktionen die Bedeutung
 einem der Teile zuzuschreiben (also \emph{roSan} oder \emph{kardan} in (\mex{1})),
 da die Bedeutung des komplexen Prädikats nur beim Vorliegen beider Bestandteile gegeben ist. 
@@ -1806,43 +1803,43 @@ denn dieser Fall ist in Abbildung~\ref{goldberg-persisch-vererbung} noch nicht e
 dass es sowohl eine \emph{roSan kardan}"=Konstruktion als auch eine \emph{roSan x{\^a}stan kardan}"=Konstruktion
 geben muss. Eine entsprechend modifizierte Hierarchie zeigt Abbildung~\vref{goldberg-persisch-vererbung-korrekt}.
 \begin{figure}
-\centering{
-\begin{tabular}[t]{cc}
-Futur & CPV0\\
-\rnode{fut}{\begin{tabular}{|l|}\hline
-Cat: V$'$  \\
-         \\
-\emph{x{\^a}stan-agr}  <  V0\sub{past}\\\hline
-\end{tabular}} & %
-\rnode{cp}{\begin{tabular}{|l|}\hline
-Cat: V0  \\
-         \\
-X0  <  V0\\\hline
-\end{tabular}}\\
-\\[3ex]
-\rnode{fcp}{Futur-CP} & \rnode{cp-gk}{roSan   kardan}\\
-\rnode{fcp-b}{\begin{tabular}{|l|}\hline
-Cat: V$'$  \\
-         \\
-X0  < \emph{x{\^a}stan} <  V0\sub{past}\\\hline
-\end{tabular}} & %
-\rnode{cp-gkb}{\begin{tabular}{|l|}\hline
-Cat: V0  \\
-         \\
-roSan  <  kardan\\\hline
-\end{tabular}}\\
-\\[3ex]
-\multicolumn{2}{@{}c@{}}{
-\rnode{fcp-gk}{roSan kardan-Futur-CP}}\\
-\multicolumn{2}{@{}c@{}}{\begin{tabular}{|l|}\hline
-Cat: V$'$  \\
-         \\
-roSan  < \emph{x{\^a}stan} <  kardan\sub{past}\\\hline
-\end{tabular}}
-\end{tabular}
-\ncline{->}{fut}{fcp}
-\ncline{->}{cp}{fcp}\ncline{->}{cp}{cp-gk}
-\ncline{->}{fcp-b}{fcp-gk}\ncline{->}{cp-gkb}{fcp-gk}}
+\begin{tikzpicture}[node distance=2.8cm,align=left]
+%relative placement of nodes starting from the bottom: x0-xastan-V0
+\node[draw](roSan kardan-Future-CP) at (0,0){Cat: V$'$  \\
+                                roSan  < \emph{xâstan} <  kardan\sub{past}};
+% Label
+\node[above] (roSan kardan-Future-CP label) at (roSan kardan-Future-CP.north) {roSan kardan-Future-CP};
+
+\node[draw](Future-CP)[above left of=roSan kardan-Future-CP label]{Cat: V$'$  \\
+                                           X0  < \emph{xâstan}  <  V0\sub{past}};
+
+% Label
+\node[above] (Future-CP label) at (Future-CP.north) {Future-CP};
+
+\node[draw](roSan kardan)[above right of=roSan kardan-Future-CP label]{Cat: V0  \\
+                                            roSan  <  kardan\strut};
+
+% Label
+\node[above] (roSan kardan label) at (roSan kardan.north) {roSan kardan};
+
+\node[draw](CPV0)[above of=roSan kardan]{Cat: V0  \\[1mm]
+                                           X0  <  V0\strut};
+
+\node[above] at (CPV0.north) {CPV0};
+
+\node[draw](Future)[above of=Future-CP]{Cat: V$'$  \\[1mm]
+                                 \emph{x{\^a}stan-agr}  <  V0\sub{past}};
+
+\node[above] at (Future.north) {Future};
+
+
+\draw[->] (Future-CP.south) to (roSan kardan-Future-CP label.north);
+\draw[->] (roSan kardan.south) to (roSan kardan-Future-CP label.north);
+\draw[->] (Future) to (Future-CP label);
+
+\draw[->] (CPV0) to (roSan kardan label.north);
+\draw[->] (CPV0.south) to (Future-CP label.north);
+\end{tikzpicture}
 \caption{\label{goldberg-persisch-vererbung-korrekt}%
 Modifizierte Hierarchie nach Goldberg}
 \end{figure}
