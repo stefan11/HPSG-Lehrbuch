@@ -36,17 +36,18 @@ Für Merkmalstrukturen finden sich auch folgende Bezeichnungen:
 \item \emph{feature structure}
 \end{itemize}
 Merkmalstrukturen sind komplexe Gebilde, die alle Eigenschaften eines linguistischen
-Objekts modellieren. Der Linguist arbeitet meist mit Merkmalbeschreibungen, die nur Ausschnitte der
+Objekts modellieren. Linguist*innen arbeiten meist mit Merkmalbeschreibungen, die nur Ausschnitte der
 Merkmalstruktur beschreiben. Der Unterschied zwischen Modell und Beschreibung wird im Abschnitt~\ref{sec-modelle-theorien}
 noch genauer erklärt. Andere Bezeichnungen für Merkmalbeschreibungen sind:
 \begin{itemize}
 \item \emph{attribute-value matrix} (AVM)
 \item \emph{feature matrix}
 \end{itemize}
-Ich beschränke mich im folgenden auf das unbedingt Nötige, um den formalen Teil
+Ich beschränke mich im Folgenden auf das unbedingt Nötige, um den formalen Teil
 des Buches so klein wie möglich zu halten. Der interessierte Leser sei auf
 \citet{Shieber86a}, \citet[Kapitel~2]{ps}, \citet{Johnson88}, \citet{Carpenter92a},
-\citet{King94a} und \citet{Richter2004a-u} verwiesen. Shiebers Buch ist
+\citet{King94a} und \citet{Richter2004a-u} verwiesen. \citet{Richter2024a} fasst die Entwicklungen
+in einem Handbuchartikel zusammen. Shiebers Buch ist
 eine leicht lesbare Einführung in Unifikationsgrammatiken, Kings und Richters Arbeiten, die wichtige Grundlagen
 für die HPSG darstellen, dürften mathematischen Laien unzugänglich bleiben.
 Wichtig ist, dass es diese Arbeiten gibt und dass man weiß, dass die Theorie
@@ -56,13 +57,13 @@ auf einem sicheren Fundament steht.
 
 Wenn\is{Merkmalbeschreibung|(} wir sprachliche Zeichen beschreiben wollen, wollen wir etwas über ihre Eigenschaften
 aussagen. Wir können \zb einem Nomen Kasus, Genus, Numerus und Person zuordnen. Für das
-Wort \emph{Mannes} müßten diese Merkmale die Werte \emph{Genitiv}, \emph{maskulin}, \emph{Singular} und \emph{3} haben.
+Wort \emph{Kindes} müssten diese Merkmale die Werte \emph{Genitiv}, \emph{maskulin}, \emph{Singular} und \emph{3} haben.
 Schreibt man dies als Liste von Merkmal"=Wert"=Paaren auf, so hat man bereits eine Merkmalbeschreibung:
 \ea
-Merkmal"=Wert"=Paare für \emph{Mannes}:\\
+Merkmal"=Wert"=Paare für \emph{Kindes}:\\
 \ms{
 kasus   & Genitiv\\
-genus   & maskulin\\
+genus   & neutrum\\
 numerus & Singular\\
 person  & 3\\
 }
@@ -120,7 +121,7 @@ tochter    & \ldots\\
 \z
 Diese Lösung ist jedoch nicht befriedigend, da sie es nicht ohne weiteres
 ermöglicht, Menschen mit mehreren Töchtern zu beschreiben. Sollte man dann
-Merkmale wie \textsc{tochter-1} oder \textsc{tochter-3} einführen?
+Merkmale wie \textsc{toch\-ter-1} oder \textsc{tochter-3} einführen?
 \ea
 \ms{
 vorname    & max\\
@@ -133,7 +134,7 @@ tochter-2  & \ldots\\
 tochter-3  & \ldots\\
 }
 \z
-Wieviele Merkmale will man annehmen? Wo ist die Grenze?
+Wie viele Merkmale will man annehmen? Wo ist die Grenze?
 Was ist der Wert von \textsc{tochter"=32}?
 
 Geschickter ist es hier, eine Liste\is{Liste} zu verwenden. Listen werden mit spitzen
@@ -161,7 +162,9 @@ töchter    & \liste{ \ms{
 Nun stellt sich die Frage: Was ist mit Söhnen? Soll man eine Liste der Söhne einführen?
 Wollen wir zwischen Söhnen und Töchtern differenzieren? 
 Sicher ist das Geschlecht der Kinder eine wichtige Eigenschaft, aber es ist eine Eigenschaft
-der beschriebenen Objekte. Alle Menschen haben ein Geschlecht. Die Beschreibung in (\mex{1})
+der beschriebenen Objekte. Alle Menschen haben ein Geschlecht. Diese Notation lässt auch zu, dass
+der Wert für Geschlecht \type{divers} ist. Würde man Listen für Töchter und Söhne benutzen, bräuchte
+man auch Listen für diverse Kinder. Die Beschreibung in (\mex{1})
 ist also eine adäquatere Repräsentation:
 
 \ea
@@ -239,7 +242,7 @@ geschlecht & männlich\\
 \z
 Man weiß aber, dass Max Meier an irgendeinem Tag Geburtstag haben muss, da die
 Beschreibung vom Typ \textit{person} ist. Die Frage \emph{Wann hat Max Geburtstag?}
-ist also in bezug auf eine von (\mex{0}) beschriebene Struktur sinnvoll, was für die Frage
+ist also in Bezug auf eine von (\mex{0}) beschriebene Struktur sinnvoll, was für die Frage
 \emph{Welche Betriebsspannung hat Max?} nicht der Fall ist. Wenn wir wissen, dass ein Objekt vom Typ
 \textit{person} ist, haben wir sozusagen seine Grobstruktur:
 \ea
@@ -302,7 +305,7 @@ zugänglich ist.
 %% Auf das Verhältnis von Typen in Hierarchien zueinander werde ich in Kapitel~\ref{sec-typen} noch genauer eingehen.
 
 Typhierarchien spielen eine wichtige Rolle für das Erfassen linguistischer
-Generalisierungen, weshalb im folgenden Typhierarchien und die Vererbung\is{Vererbung}
+Generalisierungen, weshalb im Folgenden Typhierarchien und die Vererbung\is{Vererbung}
 von Beschränkungen und Information an einem weiteren Beispiel erklärt werden sollen.
 Typhierarchien kann man sich wie eine effektive Organisation von Wissen vorstellen.
 In einem Nachschlagewerk sind die einzelnen Einträge miteinander verknüpft, so steht beim Eintrag für Affe
@@ -325,7 +328,7 @@ die Hierarchie in Abbildung~\vref{fig-elektr-geraet} verwenden.
 \begin{forest} 
 type hierarchy
 [elektrisches Gerät, calign=midpoint, calign children={1}{2},
-  [durckendes Gerät,calign=first
+  [druckendes Gerät,calign=first
     [Drucker,calign=first
       [Laser-Drucke]
       [\ldots]]
@@ -408,13 +411,13 @@ Beispiel für eine Identität von Werten ist die Kongruenz\is{Kongruenz}. In Sä
 muss der Numerus"=Wert der Nominalphrase mit dem des Verbs identisch sein:
 \eal
 \ex[]{
-Der Mann schläft.
+Der Elefant schläft.
 }
 \ex[]{
-Die Männer schlafen.
+Die Elefanten schlafen.
 }
 \ex[*]{
-Der Mann schlafen.
+Der Elefant schlafen.
 }
 \zl
 Die Identität von Werten wird durch Boxen mit Zahlen darin verdeutlicht.
@@ -497,7 +500,7 @@ steht, und außerdem muss auch noch sichergestellt werden, dass das
 Objekt, das als Kind beschrieben wird, mit dem Gesamtobjekt identisch
 ist, denn sonst hätten wir wieder die Situation, in der Max' Eltern
 noch ein zweites Kind namens Max haben könnten.
-Die Beschreibung in (\mex{1})\vpageref{bsp-avm-zyklen} erfaßt die Zusammenhänge korrekt.
+Die Beschreibung in (\mex{1})\vpageref{bsp-avm-zyklen} erfasst die Zusammenhänge korrekt.
 \begin{figure}[htbp]
 \ea
 \label{bsp-avm-zyklen}
@@ -539,7 +542,7 @@ verwendet werden kann, muss das Wort bzw.\ die phrasale Einheit Eigenschaften ha
 der Beschreibung der Tochter in der Grammatikregel kompatibel sind. Liegt eine solche Kompatibilität vor, spricht
 man auch von \emph{Unifizierbarkeit}.\footnote{
   Der Begriff \emph{Unifikation} ist mit Vorsicht zu verwenden. Er ist nur bei bestimmten Annahmen
-  in bezug auf die formalen Grundlagen der HPSG sinnvoll einsetzbar. Informell wird der Begriff oft
+  in Bezug auf die formalen Grundlagen der HPSG sinnvoll einsetzbar. Informell wird der Begriff oft
   auch in Formalismen verwendet, in denen Unifikation gar nicht technisch definiert ist. In der HPSG
   meint er dann in der Regel, dass man die Beschränkungen zweier Beschreibungen in eine einzige
   Beschreibung zusammenführt. Intuitiv will man damit sagen, dass die beschriebenen Objekte dann die
@@ -559,7 +562,7 @@ bestimmte Person sucht. Normalerweise haben diejenigen, die in das Detektivbüro
 partielle Beschreibung der Person, die sie suchen, also \zb das Geschlecht, die Haarfarbe, evtl.\
 auch das Geburtsdatum. Vielleicht ist auch ein Autokennzeichen bekannt, zu dem der Fahrzeughalter
 ermittelt werden soll.
-Was vom Detektiv nun verlangt wird, ist, dass er Information liefert, die zur Anfrage paßt. Wird
+Was vom Detektiv nun verlangt wird, ist, dass er Information liefert, die zur Anfrage passt. Wird
 nach einer blonden, weiblichen Person namens Meier gesucht, darf keine Personenbeschreibung für eine rothaarige,
 männliche Person geliefert werden. Die beiden Beschreibungen in (\mex{1}) sind inkompatibel und unifizieren nicht:
 \eal
@@ -574,7 +577,7 @@ geschlecht & männlich\\
 haarfarbe  & rot\\
 }
 \zl
-Die Beschreibung in (\mex{1}) wäre ein mögliches Ergebnis für eine Anfrage in bezug auf eine blonde, weibliche Person namens Meier:
+Die Beschreibung in (\mex{1}) wäre ein mögliches Ergebnis für eine Anfrage in Bezug auf eine blonde, weibliche Person namens Meier:
 \ea
 \ms[person]{
 vorname    & katharina\\
@@ -637,8 +640,8 @@ Kasus auf"|treten:
 \eal\jamwidth=6cm\relax
 \ex Die Frau schläft.       \jam(Nominativ)
 \ex Wir gedenken der Frau.  \jam(Genitiv)
-\ex Er hilft der Frau.      \jam(Dativ)
-\ex Er liebt die Frau.      \jam(Akkusativ)
+\ex Aicke hilft der Frau.      \jam(Dativ)
+\ex Aicke liebt die Frau.      \jam(Akkusativ)
 \zl
 In einem Modell gibt es aber nur vollständig spezifizierte Repräsentationen,
 \dash, das Modell enthält vier Formen für \emph{Frau} mit den jeweiligen Kasus.
@@ -673,7 +676,7 @@ Abbildungen~\ref{abb-avm-frau} und~\ref{abb-avm-mann}.%\NOTE{Punkt ist hier fals
 \begin{figure}
 % scaling does not work with pstricks, so I first create the pdf and then scale, 24.10.2015 for GT book
 \oneline{%
-\includegraphics{Figures/frau-model-theoretic-cropped}
+\includegraphics{Figures/frau-model-theoretic-crop}
 }
 % \oneline{%
 % \begin{pspicture}(-0.5,0.4)(2.8,4.1)
@@ -766,7 +769,7 @@ Abbildungen~\ref{abb-avm-frau} und~\ref{abb-avm-mann}.%\NOTE{Punkt ist hier fals
 \begin{figure}
 %\oneline{%
 \centerline{%
-\includegraphics{Figures/mann-model-theoretic-cropped}
+\includegraphics{Figures/mann-model-theoretic-crop}
 }
 % \begin{pspicture}(-0.5,0.4)(2.8,4.1)
 % %\psgrid
@@ -841,7 +844,7 @@ so kann man sich den Unterschied zwischen Modell und Beschreibung so verdeutlich
 %\NOTE{JB: unklar, Vor allem der Begriff M-Beschreibung/beschreibt ist ihm nicht klar}
 Wenn wir ein Modell von Personen haben, das Vorname, Nachname, Geburtstag,
 Geschlecht und Haarfarbe enthält, dann ist es klar, dass jedes modellierte Objekt
-einen Geburtstag hat, wir können aber in Beschreibungen die Angaben in bezug
+einen Geburtstag hat, wir können aber in Beschreibungen die Angaben in Bezug
 auf den Geburtstag weglassen, wenn diese bei der Formulierung von Beschränkungen
 oder Suchen unwichtig sind.
 
@@ -926,7 +929,7 @@ Das Modell modelliert linguistische Phänomene. Es muss außerdem
 %alle Beschränkungen unserer Theorie erfüllen. 
 von unserer Theorie lizenziert werden.
 Die Theorie legt das Modell fest % FR: festlegen  gibt mehrere Modelle, exhaustive Modell enthält alle Sätze
-und macht außerdem Vorhersagen in bezug auf mögliche
+und macht außerdem Vorhersagen in Bezug auf mögliche
 Phänomene.
 
 In den folgenden Kapiteln wird eine Theorie des Deutschen entwickelt.
@@ -996,7 +999,7 @@ mutter      \ms[person]{
       relationaler Beschränkungen kann man beliebige Werte von Merkmalen zu anderen Werten in
       Beziehung setzen, \dash, man kann kleine Programme schreiben, die einen Wert in Abhängigkeit von
       anderen Werten ausrechnen.  Es stellt sich die Frage, ob man solch mächtige Beschreibungsmittel in
-      einer linguistischen Theorie braucht und wenn man sie zuläßt, was für eine Komplexität man
+      einer linguistischen Theorie braucht und wenn man sie zulässt, was für eine Komplexität man
       ihnen zubilligt. Eine Theorie, die ohne relationale Beschränkungen auskommt, ist einer anderen
       vorzuziehen (siehe auch Kapitel~\ref{sec-kriterien} zum Vergleich von Theorien).
 
@@ -1009,9 +1012,9 @@ mutter      \ms[person]{
 
 \furtherreading{
 
-Dieses Kapitel sollte den Leser auf leicht verständliche Weise an getypte Merkmalstrukturen heranführen.
+Dieses Kapitel sollte den Leser auf leicht verständliche Weise an getypte Merkmalbeschreibungen und -strukturen heranführen.
 Mathematische Eigenschaften der Strukturen, der Typhierarchien und der Verknüpfungsmöglichkeiten
-solcher Strukturen können hier nicht erörtert werden. Die Kenntnis zumindest eines Teils dieser Eigenschaften
+der Beschreibungen solcher Strukturen können hier nicht erörtert werden. Die Kenntnis zumindest eines Teils dieser Eigenschaften
 sind aber für die Arbeit in der Computerlinguistik und auch beim Entwickeln eigener Analysen
 wichtig. Der interessierte Leser sei deshalb auf die folgenden Publikationen verwiesen:
 %
@@ -1025,9 +1028,14 @@ beschreibt den Formalismus ungetypter Merkmalstrukturen mathematisch exakt.
 %
 \citet{Carpenter92a} setzt sich sehr mathematisch mit getypten Merkmalstrukturen auseinander.  Der
 Formalismus, den \citet{King99a-u} für HPSG"=Grammatiken entwickelt hat, bildet die Grundlage für
-den von \citet{Richter2004a-u} entwickelten Formalismus, der derzeit als Standard gilt.
+den von \citet{Richter2004a-u} entwickelten Formalismus, der derzeit als Standard
+gilt. \citet{Richter2024a} fasst verschiedene Ansätze bzgl.\ formaler Grundlagen in der HPSG zusammen
+und gibt einen Überblick über aktuell gültige Grundannahmen.
 
 }
 
 % FR: auch Pollard99 strong generative capacity. ist Variante auf Kings Modelltheorie
+
+
+%      <!-- Local IspellDict: de -->
 
