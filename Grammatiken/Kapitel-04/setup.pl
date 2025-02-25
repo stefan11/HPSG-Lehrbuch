@@ -7,8 +7,9 @@ hidden_feat(dtrs).          % hide the dtrs attribute (shown by tree)
 
 >>> phon.        % phon shall be shown first
 phon   <<< head.
-head   <<< subcat.
-subcat <<< head_dtr.
+head   <<< spr.
+spr    <<< comps.
+comps  <<< head_dtr.
 
 
 % use ghostview for drawing signatures

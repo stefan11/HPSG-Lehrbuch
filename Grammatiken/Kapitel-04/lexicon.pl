@@ -12,236 +12,341 @@
 das ---> (word,
   head:(det,
         case:nom),
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 das ---> (word,
   head:(det,
         case:acc),
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 der ---> (word,
   head:(det,
         case:nom),
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 % wir gedenken der Frau
 der ---> (word,
   head:(det,
         case:gen),
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 % wir helfen der Frau
 der ---> (word,
   head:(det,
         case:dat),
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 
 % dem Mann
 dem ---> (word,
   head:(det,
         case:dat),
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 % den Mann
 den ---> (word,
   head:(det,
         case:acc),
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 
 des ---> (word,
   head:(det,
         case:gen),
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 die ---> (word,
   head:(det,
         case:nom),
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 die ---> (word,
   head:(det,
         case:acc),
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 
 mann ---> (word,
   head:(noun,
         case:nom),
-  subcat:[(head:(det,
-                 case:nom),
-           subcat:[]) ] ).
+  spr:[(head:(det,
+              case:nom),
+        spr:[],
+        comps:[])],
+  comps:[ ] ).
 
 mann ---> (word,
   head:(noun,
         case:dat),
-  subcat:[(head:(det,
+  spr:[(head:(det,
                  case:dat),
-           subcat:[]) ] ).
+           comps:[])],
+  comps:[ ] ).
 
 mann ---> (word,
   head:(noun,
         case:acc),
-  subcat:[(head:(det,
+  spr:[(head:(det,
                  case:acc),
-           subcat:[]) ] ).
+          spr:[],
+          comps:[])],
+  comps:[ ] ).
 
 mannes ---> (word,
   head:(noun,
         case:gen),
-  subcat:[(head:(det,
+  spr:[(head:(det,
                  case:gen),
-           subcat:[]) ] ).
+          spr:[],
+          comps:[])],
+  comps:[ ] ).
 
 frau ---> (word,
   head:(noun,
         case:nom),
-  subcat:[(head:(det,
+  spr:[(head:(det,
                  case:nom),
-           subcat:[]) ] ).
+           comps:[])],
+  comps:[ ] ).
 
 frau ---> (word,
   head:(noun,
         case:gen),
-  subcat:[(head:(det,
+  spr:[(head:(det,
                  case:gen),
-           subcat:[]) ] ).
+          spr:[],
+          comps:[])],
+  comps:[ ] ).
 
 frau ---> (word,
   head:(noun,
         case:dat),
-  subcat:[(head:(det,
-                 case:dat),
-           subcat:[]) ] ).
+  spr:[(head:(det,
+                case:dat),
+          spr:[],
+          comps:[])],
+  comps:[ ] ).
 
 frau ---> (word,
   head:(noun,
         case:acc),
-  subcat:[(head:(det,
+  spr:[(head:(det,
                  case:acc),
-           subcat:[]) ] ).
+          spr:[],
+          comps:[])],
+  comps:[ ] ).
 
 buch ---> (word,
   head:(noun,
         case:nom),
-  subcat:[(head:(det,
+  spr:[(head:(det,
                  case:nom),
-           subcat:[]) ] ).
+          spr:[],
+          comps:[])],
+  comps:[ ] ).
 
 buch ---> (word,
   head:(noun,
         case:dat),
-  subcat:[(head:(det,
+  spr:[(head:(det,
                  case:dat),
-           subcat:[]) ] ).
+          spr:[],
+          comps:[])],
+  comps:[ ] ).
 
 buch ---> (word,
   head:(noun,
         case:acc),
-  subcat:[(head:(det,
+  spr:[(head:(det,
                  case:acc),
-           subcat:[]) ] ).
+          spr:[],
+          comps:[])],
+  comps:[ ] ).
 
 buches ---> (word,
   head:(noun,
         case:gen),
-  subcat:[(head:(det,
+  spr:[(head:(det,
                  case:gen),
-           subcat:[]) ] ).
+          spr:[],
+          comps:[])],
+  comps:[ ] ).
+
+tochter ---> (word,
+  head:(noun,
+        case:nom),
+  spr:[(head:(det,
+              case:nom),
+        spr:[],
+        comps:[])],
+  comps:[(head:(noun,
+                case:gen),
+          spr:[],
+          comps:[]) ] ).
+
+tochter ---> (word,
+  head:(noun,
+        case:gen),
+  spr:[(head:(det,
+              case:gen),
+        spr:[],
+        comps:[])],
+  comps:[(head:(noun,
+                case:gen),
+          spr:[],
+          comps:[]) ] ).
+
+tochter ---> (word,
+  head:(noun,
+        case:dat),
+  spr:[(head:(det,
+              case:dat),
+        spr:[],
+        comps:[])],
+  comps:[(head:(noun,
+                case:gen),
+          spr:[],
+          comps:[]) ] ).
+
+tochter ---> (word,
+  head:(noun,
+        case:acc),
+  spr:[(head:(det,
+              case:acc),
+        spr:[],
+        comps:[])],
+  comps:[(head:(noun,
+                case:gen),
+          spr:[],
+          comps:[]) ] ).
 
 
 er ---> (word,
   head:(noun,
         case:nom),
-  subcat:[]).
+  spr:[],
+  comps:[]).
 
 ihm ---> (word,
   head:(noun,
         case:dat),
-  subcat:[]).
+  spr:[],
+  comps:[]).
 
 schläft ---> (word,
   head:(verb,
-             vform:fin),
-  subcat:[(head:(noun,
-                 case:nom),
-           subcat:[]) ] ).
+        vform:fin),
+  spr:[],
+  comps:[(head:(noun,
+                case:nom),
+          spr:[],
+          comps:[]) ] ).
 
 graut ---> (word,
   head:(verb,
-             vform:fin),
-  subcat:[(head:(noun,
+        vform:fin),
+  spr:[],
+  comps:[(head:(noun,
                  case:dat),
-           subcat:[]) ] ).
+          spr:[],
+          comps:[]) ] ).
 
 jagt ---> (word,
   head:(verb,
         vform:fin),
-  subcat:[ (head:(noun,
-                  case:nom),
-               subcat:[]),
-           (head:(noun,
-                  case:acc),
-               subcat:[]) ] ).
+  spr:[],
+  comps:[ (head:(noun,
+                 case:nom),
+           spr:[],
+           comps:[]),
+          (head:(noun,
+                 case:acc),
+           spr:[],
+           comps:[]) ] ).
 
 kennt ---> (word,
   head:(verb,
         vform:fin),
-  subcat:[ (head:(noun,
-                  case:nom),
-            subcat:[]),
-           (head:(noun,
-                  case:acc),
-               subcat:[]) ] ).
+  spr:[],
+  comps:[ (head:(noun,
+                 case:nom),
+           spr:[],
+           comps:[]),
+          (head:(noun,
+                 case:acc),
+           spr:[],
+           comps:[]) ] ).
 
 gab ---> (word,
   head:(verb,
         vform:fin),
-  subcat:[ (head:(noun,
-                  case:nom),
-               subcat:[]),
-           (head:(noun,
-                  case:acc),
-               subcat:[]),
-           (head:(noun,
-                  case:dat),
-               subcat:[]) ] ).
+  spr:[],
+  comps:[ (head:(noun,
+                 case:nom),
+           spr:[],
+           comps:[]),
+          (head:(noun,
+                 case:acc),
+           spr:[],
+           comps:[]),
+          (head:(noun,
+                 case:dat),
+           spr:[],
+           comps:[]) ] ).
 
 
 gibt ---> (word,
   head:(verb,
         vform:fin),
-  subcat:[ (head:(noun,
-                  case:nom),
-               subcat:[]),
-           (head:(noun,
-                  case:acc),
-               subcat:[]),
-           (head:(noun,
-                  case:dat),
-               subcat:[]) ] ).
+  spr:[],
+  comps:[ (head:(noun,
+                 case:nom),
+           spr:[],
+           comps:[]),
+          (head:(noun,
+                 case:acc),
+           spr:[],
+           comps:[]),
+          (head:(noun,
+                 case:dat),
+           spr:[],
+           comps:[]) ] ).
 
 
 denkt ---> (word,
   head:(verb,
         vform:fin),
-  subcat:[ (head:(noun,
-                  case:nom),
-               subcat:[]),
-           (head:(prep,
-                  pform:an_pform,
-                  case:acc),
-               subcat:[]) ] ).
+  spr:[],
+  comps:[ (head:(noun,
+                 case:nom),
+           spr:[],
+           comps:[]),
+          (head:(prep,
+                 pform:an_pform,
+                 case:acc),
+           spr:[],
+           comps:[]) ] ).
 
 
 an ---> (word,
   head:(prep,
         pform:an_pform,
         case:Cas),
-  subcat:[(head:(noun,
-                 case:Cas),
-           subcat:[]) ] ).
+  spr:[],
+  comps:[(head:(noun,
+                case:Cas),
+          spr:[],
+          comps:[]) ] ).
 
 
 

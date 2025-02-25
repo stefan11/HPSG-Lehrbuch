@@ -20,23 +20,32 @@ headed_phrase *>
    (head:Head,
     head_dtr:head:Head).
 
-head_argument_phrase *>
-   (subcat:Subcat,
-    head_dtr:subcat:append(Subcat,[NonHeadDtr]),
+head_complement_phrase *>
+   (comps:Subcat,
+    head_dtr:comps:append(Subcat,[NonHeadDtr]),
     non_head_dtrs:[NonHeadDtr]).
 
 
+head_specifier_phrase *>
+   (spr:Spr,
+    head_dtr:(spr:[NonHeadDtr|Spr],
+              comps:[]),
+    non_head_dtrs:[NonHeadDtr]).
 
+head_non_complement_phrase *>
+   (comps:Comps,
+    head_dtr:comps:Comps).
 
-
-
-
+head_non_specifier_phrase *>
+   (spr:Spr,
+    head_dtr:spr:Spr).
 
 
 
 
 root macro
- (subcat:[]).
+ (spr:[],
+  comps:[]).
 
 interrog macro
  (@root).
