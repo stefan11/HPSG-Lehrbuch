@@ -1335,39 +1335,6 @@ Storage and cataloguing done by \storageinstitution\\[3ex]
 	\clearpage
   }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%    Header and footer
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage{datetime}
-\usepackage[autoenlargeheadfoot=off, draft=false]{scrlayer-scrpage}
-% This option explicitely increases the size of the footer in plain pages.
-% This ensures there is enough space to print the citation in collected vols.
-% This setting does not influence the composition of the typearea.
-\AddToLayerPageStyleOptions{plain.scrheadings}
-    {onselect={\setlength{\footheight}{3\baselineskip}}}
-    
-\ohead{\headmark}
-\ihead{}
-\cfoot{}
-\ofoot[]{\pagemark}
-\ifbool{draft}{
-  \ifoot{Draft of \today, \currenttime}
-}{}
-\ifbool{openreview}{
-  \ifoot{{\color{lsRed}Open review version}. Final version at \url{\lsURL}.}
-}{}
-
-\newcommand{\lsPageStyleEmpty}{
-  \ohead{}
-  \ihead{}
-  \cfoot{}
-  \ofoot[]{}
-}
-
-\renewcommand*{\partpagestyle}{empty}
-
-\pagestyle{scrheadings}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1536,6 +1503,44 @@ Storage and cataloguing done by \storageinstitution\\[3ex]
             }
      \fi%Close language=chinese
 }{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Header and footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{datetime}
+\usepackage[autoenlargeheadfoot=off, draft=false]{scrlayer-scrpage}
+% This option explicitely increases the size of the footer in plain pages.
+% This ensures there is enough space to print the citation in collected vols.
+% This setting does not influence the composition of the typearea.
+\AddToLayerPageStyleOptions{plain.scrheadings}
+    {onselect={\setlength{\footheight}{3\baselineskip}}}
+    
+\ohead{\headmark}
+\ihead{}
+\cfoot{}
+\ofoot[]{\pagemark}
+\ifbool{draft}{
+  \ifoot{Draft of \today, \currenttime}
+  \ifx\lsBookLanguage\lsBookLanguageGerman
+    \ifoot{Entwurf vom \today, \currenttime}
+  \fi
+}{}
+\ifbool{openreview}{
+  \ifoot{{\color{lsRed}Open review version}. Final version at \url{\lsURL}.}
+}{}
+
+\newcommand{\lsPageStyleEmpty}{
+  \ohead{}
+  \ihead{}
+  \cfoot{}
+  \ofoot[]{}
+}
+
+\renewcommand*{\partpagestyle}{empty}
+
+\pagestyle{scrheadings}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

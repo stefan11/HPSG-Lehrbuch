@@ -4,10 +4,12 @@
 	        %,blackandwhite
 	        ,smallfont
 	        %,draftmode  
-		  ]{../LSP/langsci}                          
+		  ]{../langscibook}                          
+
+% use pdfcrop for cropping
 
 
-\usepackage{makros.2e}
+\usepackage{makros.2e,merkmalstruktur}
 
 \usepackage{pstricks,pst-node}
 
@@ -25,74 +27,74 @@
 %\psgrid
      \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
      \pnode(-0.4,2){start1}
-     \Cnode(0,2){noun1}
+     \Cnode(0,2){Nomen1}
      \Cnode(2,4){fem1}
      \Cnode(2,1){nom1}
 %
      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
 %
-     \nccurve{start1}{noun1}
-     \nccurve{noun1}{fem1}\naput{\textsc{gender}}
-     \nccurve{noun1}{nom1}\naput{\textsc{case}}
+     \nccurve{start1}{Nomen1}
+     \nccurve{Nomen1}{fem1}\naput{\textsc{Genus}}
+     \nccurve{Nomen1}{nom1}\naput{\textsc{Kasus}}
 %
-     \nput{270}{noun1}{\type{noun}}
+     \nput{270}{Nomen1}{\type{Nomen}}
      \nput{270}{fem1}{\type{fem}}
-     \nput{270}{nom1}{\type{nominative}}
+     \nput{270}{nom1}{\type{Nominativ}}
 \end{pspicture}
 \begin{pspicture}(-0.5,0.4)(2.8,4.1)
 %\psgrid
 %
      \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
      \pnode(-0.4,2){start2}
-     \Cnode(0,2){noun2}
+     \Cnode(0,2){Nomen2}
      \Cnode(2,4){fem2}
      \Cnode(2,1){nom2}
 %
      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
 %
-     \nccurve{start2}{noun2}
-     \nccurve{noun2}{fem2}\naput{\textsc{gender}}
-     \nccurve{noun2}{nom2}\naput{\textsc{case}}
+     \nccurve{start2}{Nomen2}
+     \nccurve{Nomen2}{fem2}\naput{\textsc{Genus}}
+     \nccurve{Nomen2}{nom2}\naput{\textsc{Kasus}}
 
-     \nput{270}{noun2}{\type{noun}}
+     \nput{270}{Nomen2}{\type{Nomen}}
      \nput{270}{fem2}{\type{fem}}
-     \nput{270}{nom2}{\type{genitive}}
+     \nput{270}{nom2}{\type{Genitiv}}
 \end{pspicture}
 \begin{pspicture}(-0.5,0.4)(2.8,4.1)
 %\psgrid
      \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
      \pnode(-0.4,2){start3}
-     \Cnode(0,2){noun3}
+     \Cnode(0,2){Nomen3}
      \Cnode(2,4){fem3}
      \Cnode(2,1){nom3}
 %
      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
 %
-     \nccurve{start3}{noun3}
-     \nccurve{noun3}{fem3}\naput{\textsc{gender}}
-     \nccurve{noun3}{nom3}\naput{\textsc{case}}
+     \nccurve{start3}{Nomen3}
+     \nccurve{Nomen3}{fem3}\naput{\textsc{Genus}}
+     \nccurve{Nomen3}{nom3}\naput{\textsc{Kasus}}
 %
-     \nput{270}{noun3}{\type{noun}}
+     \nput{270}{Nomen3}{\type{Nomen}}
      \nput{270}{fem3}{\type{fem}}
-     \nput{270}{nom3}{\type{dative}}
+     \nput{270}{nom3}{\type{Dativ}}
 \end{pspicture}
 \begin{pspicture}(-0.5,0.4)(2.8,4.1)
 %\psgrid
      \psset{fillstyle=solid, fillcolor=black,radius=0.75mm}
      \pnode(-0.4,2){start2}
-     \Cnode(0,2){noun2}
+     \Cnode(0,2){Nomen2}
      \Cnode(2,4){fem2}
      \Cnode(2,1){nom2}
 %
      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
 %
-     \nccurve{start2}{noun2}
-     \nccurve{noun2}{fem2}\naput{\textsc{gender}}
-     \nccurve{noun2}{nom2}\naput{\textsc{case}}
+     \nccurve{start2}{Nomen2}
+     \nccurve{Nomen2}{fem2}\naput{\textsc{Genus}}
+     \nccurve{Nomen2}{nom2}\naput{\textsc{Kasus}}
 %
-     \nput{270}{noun2}{\type{noun}}
+     \nput{270}{Nomen2}{\type{Nomen}}
      \nput{270}{fem2}{\type{fem}}
-     \nput{270}{nom2}{\type{accusative}}
+     \nput{270}{nom2}{\type{Akkusativ}}
 \end{pspicture}
 
 

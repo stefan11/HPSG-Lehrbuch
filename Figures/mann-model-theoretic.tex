@@ -4,10 +4,10 @@
 	        %,blackandwhite
 	        ,smallfont
 	        %,draftmode  
-		  ]{../langsci/langscibook}                          
+		  ]{../langscibook}                          
 
 
-\usepackage{makros.2e}
+\usepackage{makros.2e,merkmalstruktur}
 
 \usepackage{pstricks,pst-node}
 
@@ -35,12 +35,12 @@
      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
 %
      \nccurve{start1}{noun1}
-     \nccurve{noun1}{mas1}\naput{\textsc{gender}}
-     \nccurve{noun1}{nom1}\naput{\textsc{case}}
+     \nccurve{noun1}{mas1}\naput{\textsc{genus}}
+     \nccurve{noun1}{nom1}\naput{\textsc{kasus}}
 %
-     \nput{270}{noun1}{\type{noun}}
+     \nput{270}{noun1}{\type{Nomen}}
      \nput{270}{mas1}{\type{mas}}
-     \nput{270}{nom1}{\type{nominative}}
+     \nput{270}{nom1}{\type{Nominativ}}
 \end{pspicture}
 \begin{pspicture}(-0.5,0.4)(2.8,4.1)
 %\psgrid
@@ -55,12 +55,12 @@
      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
 %
      \nccurve{start2}{noun2}
-     \nccurve{noun2}{mas2}\naput{\textsc{gender}}
-     \nccurve{noun2}{nom2}\naput{\textsc{case}}
+     \nccurve{noun2}{mas2}\naput{\textsc{genus}}
+     \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
 %
-     \nput{270}{noun2}{\type{noun}}
+     \nput{270}{noun2}{\type{Nomen}}
      \nput{270}{mas2}{\type{mas}}
-     \nput{270}{nom2}{\type{dative}}
+     \nput{270}{nom2}{\type{Dativ}}
 \end{pspicture}
 \begin{pspicture}(-0.5,0.4)(2.8,4.1)
 %\psgrid
@@ -75,12 +75,12 @@
      \psset{fillstyle=none,nodesep=0pt,angleB=180,arrows=->} 
 %
      \nccurve{start2}{noun2}
-     \nccurve{noun2}{mas2}\naput{\textsc{gender}}
-     \nccurve{noun2}{nom2}\naput{\textsc{case}}
+     \nccurve{noun2}{mas2}\naput{\textsc{genus}}
+     \nccurve{noun2}{nom2}\naput{\textsc{kasus}}
 %
-     \nput{270}{noun2}{\type{noun}}
+     \nput{270}{noun2}{\type{Nomen}}
      \nput{270}{mas2}{\type{mas}}
-     \nput{270}{nom2}{\type{accusative}}
+     \nput{270}{nom2}{\type{Akkusativ}}
 \end{pspicture}
 
 
