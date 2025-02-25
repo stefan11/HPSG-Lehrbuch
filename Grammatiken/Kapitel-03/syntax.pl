@@ -37,10 +37,9 @@ head_specifier_phrase *>
 
 
 
-
-
 root macro
- (comps:[]).
+ (spr:[],
+  comps:[]).
 
 interrog macro
  (@root).
