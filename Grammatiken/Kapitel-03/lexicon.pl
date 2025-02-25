@@ -120,7 +120,8 @@ schläft ---> (word,
   p_o_s:verb,
   spr:[],
   comps:[(p_o_s:noun,
-           comps:[]) ] ).
+          spr:[],
+          comps:[]) ] ).
 
 graut ---> (word,
   p_o_s:verb,
