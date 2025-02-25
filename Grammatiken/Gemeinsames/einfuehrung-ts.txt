@@ -1,0 +1,547 @@
+;;  -*- mode:lisp -*-
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;   $RCSfile: einfuehrung-ts.txt,v $
+;;  $Revision: 1.16 $
+;;      $Date: 2007/09/12 14:57:26 $
+;;     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
+;;             (c) Stefan Müller (2005)
+;;    Purpose: Test data for German toy grammars
+;;   Language: ASCII
+;;        URL: http://www.cl.uni-bremen.de/~stefan/Pub/Einfuehrung/
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; This is the einfuehrung-ts test suite.
+;;
+;; Syntax:
+;;
+;; Lines starting with `;;;' indicate phenomena. Everything
+;; that follows such a line is treated as belonging to the
+;; phenomenon or phenomena mentioned in this line until
+;; a new line starting with `;;;' is found.
+;; 
+;; The general pattern is:
+;; ;;; phenomenon (+ phenomenon)*
+;;
+;; Lines starting with `;;' are treated as comments and are
+;; ignored. Everything between `#|' and `|#' is also ignored.
+;;
+;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+
+
+
+;; Die folgenden Daten sind der Kapitelabfolge entsprechend geordnet.
+
+
+;;; Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Argument-Strukturen
+
+
+  Der Mann schläft.
+  der Mann die Frau kennt
+  der Mann an die Frau denkt
+
+  Ihm graut.
+
+* Mann schläft.
+* der Mann kennt
+
+* an die Frau schläft
+* an die Frau den Mann kennt
+
+
+;; Kapitel 5: Semantik (es kommt nur Semantik hinzu)
+
+;;; Kapitel 6: Adjunktion und Spezifikation
+
+das interessante Buch
+der mutmaßliche Mörder
+
+seine Frau
+
+der seiner Frau treue Mann
+
+  die Wurst in der Speisekammer
+* die Wurst in
+
+
+;; Kapitel 7: Das Lexikon (was soll man da testen? Test the rest!)
+
+;;; Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung 
+
+  daß der Mann der Frau das Buch gibt
+  daß der Mann das Buch der Frau gibt
+  Schläft er?
+  Lacht der Mann oft?
+  Lacht der Mann oft nicht?
+  Lacht der Mann nicht oft?
+
+* Er schläft schläft.
+
+  daß der Mann der Frau das Buch morgen gibt
+  daß der Mann der Frau morgen das Buch gibt
+  daß der Mann morgen der Frau das Buch gibt
+  daß morgen der Mann der Frau das Buch gibt
+
+
+* Mann der
+* der Speisekammer in
+* der Mann kluge
+* die in der Speisekammer Wurst
+* daß er das Buch gibt ihm
+
+;;; Kapitel 10: Vorfeldbesetzung
+
+  Das Buch kennt er.
+  Er lacht oft.
+  Oft lacht er.
+  Oft lacht er nicht.                       ;; 2 Lesarten
+  Oft gibt er nicht dem Mann das Buch.      ;; 2 Lesarten
+
+* Er das Buch gibt der Frau.
+
+;;; Kapitel 11: Relativsätze
+
+  Der Mann, der lacht, liebt die Frau.
+  die Speisekammer, in der er lacht
+* der, der lacht, Mann
+* der Mann, lacht der, liebt die Frau.
+* die Speisekammer, er in der lacht
+
+
+  der Mann, dessen Frau lacht
+
+* der Mann, ihn die Frau kennt
+
+;;; Kapitel 13: Kongruenz
+
+
+  Ich schlafe.
+  Du schläfst.
+  Er schläft.
+
+* Er schläfst.
+
+
+
+* die Männern
+
+
+der kluge  Mann
+des klugen Mannes
+dem klugen Mann
+den klugen Mann
+die klugen Männer
+der klugen Männer
+den klugen Männern
+
+das kluge  Kind
+des klugen Kindes
+dem klugen Kind
+das kluge  Kind
+die klugen Kinder
+der klugen Kinder
+den klugen Kindern
+
+die kluge  Frau
+der klugen Frau
+die klugen Frauen
+der klugen Frauen
+den klugen Frauen
+
+ein   kluger Mann
+eines klugen Mannes
+einem klugen Mann
+einen klugen Mann
+
+ein   kluges Kind
+eines klugen Kindes
+einem klugen Kind
+
+eine  kluge  Frau
+einer klugen Frau
+
+
+
+seine kluge Frau
+sein kluger Mann
+sein kluges Kind
+
+seiner klugen Frau
+seines klugen Mannes
+seines klugen Kindes
+
+seinem klugen Mann
+seinem klugen Kind
+
+seinen klugen Mann
+
+
+ein kluger Beamter
+eines klugen Beamten
+einem klugen Beamten
+einen klugen Beamten
+
+eine kluge Beamte
+einer klugen Beamten
+
+der kluge Beamte
+des klugen Beamten
+dem klugen Beamten
+den klugen Beamten          ;; 2 Lesarten
+
+die kluge Beamte
+der klugen Beamten          ;; 2 Lesarten
+
+* ein Beamtes
+* das Beamte
+
+  kluge Beamte
+  klugen Beamten
+* kluge Lügnere
+* klugen Lügneren
+
+  Die klugen Männer schlafen.
+  Kluge Männer schlafen.
+* Die kluge Männer schlafen.
+* Klugen Männer schlafen.
+
+
+;;; Kapitel 15: Verbalkomplex
+
+  daß er lachen wird
+
+* daß lachen er wird
+
+  daß er den Aufsatz lesen wird
+* daß lesen er den Aufsatz wird
+* daß er lesen den Aufsatz wird
+
+
+
+  Er wird das Lied singen dürfen.
+;;  Er wird das Lied haben singen wollen.  ;; Oberfeldumstellung
+
+  Er wird lachen können wollen.
+
+
+;;; Kapitel 15: Verbalkomplex + PVP
+
+  Lachen muß er.
+
+  Dem Kind erzählen muß er das Märchen.
+  Eine Geschichte erzählen muß er dem Kind.
+
+  Eine Geschichte erzählen wird er ihm müssen.
+
+* Müssen wird er ihm eine Geschichte erzählen.
+
+* Dem Kind eine Geschichte wird er.    ;;  Struktur: Dem Kind eine Geschichte _v wird er. bei Analyse für scheinbar mehrfache Vorfeldbesetzung
+
+;;; Oberfeldumstellung
+
+daß er das Buch wird lesen müssen
+daß er das Buch wird haben lesen müssen
+
+
+;;; Kapitel 16: Anhebung und Kontrolle
+
+
+
+  daß er ihn zu lesen scheint
+
+  daß den Aufsatz zu lesen der Mann beginnt
+  daß der Mann den Aufsatz zu lesen morgen beginnt
+
+
+;; daß ihn das Buch gestern niemand lesen sah
+
+  Er sieht es schlafen.
+  Er versucht, das Lied zu singen.            ;; 2 Lesarten, da Komma ignoriert
+  Er verspricht ihm, das Lied zu singen.      ;; 2 Lesarten, da Komma ignoriert
+  Er zwingt ihn, das Lied zu singen.          ;; 3 Lesarten, da Komma und Selektionsrestriktionen ignoriert
+
+  daß ihn der Mann zu lesen versucht
+
+  daß ihn zu lesen der Mann versucht          ;; inkohärente Konstruktion
+  daß er ihn den Aufsatz lesen sah            ;; 2 Lesarten, da Selektionsrestriktionen ignoriert
+
+
+;;; Kapitel 17: Passiv
+
+
+Der Mann wurde geschlagen.
+Der Mann wurde von der Frau geschlagen.
+
+Mir wird geholfen.
+Mir wird von der Frau geholfen.
+
+Der Aufsatz wird mir geschenkt.
+Der Aufsatz wird mir von ihm geschenkt.
+
+
+* Er wird geschlafen.
+
+
+* Mich wird geholfen.
+* Dir wirst geholfen. ;; Mir werde geholfen geht wegen Konjunktiv
+
+
+* Heute wurde geregnet.
+
+  Wird gearbeitet?
+* Wird geregnet?
+
+* Er wurde schlafen. ;; @nach Bierwisch63:75
+
+* Wird gestorben gewesen?
+
+
+* daß der Aufsatz zu lesen gezwungen worden wird. ;; Doppelpassivierung: Passivierung von 'daß er den Aufsatz zu lesen gezwungen wird'
+
+
+;;; Kapitel 17: Passiv + Kasus
+
+* Mir wird geschlagen.
+* Mir werde geschlagen.
+
+;;; Kapitel 17: Passiv + subjektloses Prädikat
+
+* Der Frau wird gegraut.
+* Heute wird gegraut.
+
+;;; Partizip + Passiv + attributiv
+
+  der geliebte Mann
+  die von ihrem Mann geliebte Frau
+* der geschlafene Mann ;; @ nach Grewendorf93:1305
+
+* der geschlafene Mann
+* der geholfene Mann
+
+
+* die geschlafen gehabte Frau
+* die zu schlafen gehabte Frau
+
+;;; Partizip + Passiv + attributiv + subjektloses Prädikat
+
+* der gegraute Mann
+;; * der geekelte Mann  ;; vs. Das ekelt den Mann. 
+
+;;; Partizip + Passiv + attributiv + unakkusativ
+
+
+  der gestorbene Mann
+  der ihm gelungene Aufsatz  ;; @Mueller2002b:          siehe auch  (seine Freude über die ihm gelungene Rettung der Kirche)
+
+* der von ihm gestorbene Mann
+* der von ihm ihm gelungene Aufsatz
+
+
+
+*daß er dem Mann haben wird ;; geholfen fehlt
+
+;;; Kapitel 17: Passiv + lassen-Passiv
+
+Er läßt den Mann den Kran reparieren.         ;; 2 Lesarten, da Selektionsrestriktionen ignoriert
+Er läßt den Kran reparieren.
+Er läßt den Kran von einem Mann reparieren.
+Er läßt dem Mann helfen.
+Er läßt arbeiten.
+
+;;Er läßt von ihm arbeiten.   ???
+
+* Er läßt von ihm dem Mann gelingen.
+* Er läßt sterben.
+* Er läßt von ihm sterben.
+
+
+;;; Kapitel 17: Passiv + bekommen-Passiv
+
+
+Du bekommst den Aufsatz geschenkt.
+Du bekommst von mir den Aufsatz geschenkt.
+Du hast den Aufsatz geschenkt bekommen.
+Du wirst den Aufsatz geschenkt bekommen haben.
+
+* Das Buch ist ihm geschenkt bekommen worden.
+* Das Buch ist er geschenkt bekommen worden.
+* Das Buch wird geschenkt bekommen.
+* Er ist das Buch geschenkt bekommen.
+
+* Du bekommst gelungen.
+* Du bekommst von ihm gelungen.
+
+
+;;* Der Mann bekommt von dem Kind gefallen. ;; @nach Leirbukt87:108
+
+
+* Er bekommt ein Buch geschenkt bekommen.  ;; Reis: * Hans bekommt einen Anzug vom Schneider gemacht bekommen. @Reis76a:77
+
+
+* daß widersprochen bekam. ;; @ nach Gunkel2003a:64
+
+;;; Kapitel 17: Passiv + Zustandspassiv
+
+Er ist geschlagen.
+Ist genug gearbeitet?
+Dem Mann ist geholfen.
+
+Der Kran wird repariert sein.
+Der Kran ist repariert gewesen.
+
+
+* Ist heute geregnet? 
+* Ich bin geholfen.     ;; @HB70: 221
+
+;;; Kapitel 17: Passiv + Zustandspassiv + modaler Infinitiv
+Der Kran hat repariert zu sein.
+
+
+
+
+
+
+
+;;; Kapitel 17: Passiv + Fernpassiv + Kohärenz + Kasus
+
+daß der Kran zu reparieren versucht wurde
+;;daß der Kran versucht wurde zu reparieren
+Zu reparieren versucht wurde der Kran.
+
+Den Kran zu reparieren wurde versucht.
+;;daß versucht wurde, den Kran zu reparieren
+daß den Kran zu reparieren versucht wurde
+
+Der Kran wurde zu reparieren versucht.
+Den Kran wurde zu reparieren versucht.
+
+Ist der Kran zu reparieren versucht worden?
+
+Ein Aufsatz wurde ihm zu lesen erlaubt. ;; @ nach Stefan Zweig siehe Mueller2002b:137
+
+;;; Kapitel 17: Passiv + Fernpassiv + Kohärenz + Kasus + Kongruenz
+
+Die Aufsätze wurden ihm zu lesen erlaubt.
+
+;;; Kapitel 17: Passiv + Fernpassiv + Kohärenz + Kasus + PVP
+
+  Zu reparieren versucht wurde der Kran.
+* Zu reparieren versucht wurde den Kran.
+
+  Den Kran zu reparieren wurde versucht.
+* Der Kran zu reparieren wurde versucht.
+
+  Der Aufsatz gelesen wurde.
+  Den Aufsatz gelesen hat er.
+* Den Aufsatz gelesen wurde.
+* Der Aufsatz gelesen hat er.
+
+;;; Kapitel 17: Passiv + Fernpassiv + Kohärenz + Kongruenz + PVP
+
+  Die Aufsätze gelesen wurden. ;; Zwei Männer ermordet wurden am Wochenende
+* Die Aufsätze gelesen wurde.
+
+;; Das Subjekt von `lesen' wird zum Objekt von `sehen'
+;; ist also nicht lokal realisiert. Trotzdem ist es als nicht blockiertes
+;; Subjekt relevant.
+  Den Aufsatz lesen sieht er ihn müssen.
+* Der Aufsatz lesen sieht er ihn müssen.
+
+
+;;; Kapitel 17: modaler Infinitiv + sein
+
+Das Buch ist zu lesen.
+Dem Mann ist zu helfen.
+Dem Mann scheint nicht zu helfen zu sein. ;; 3 Lesarten
+
+* Die Frau ist ihm zu helfen.
+* Die Frau ist das Buch zu lesen.
+
+
+
+
+;;; Kapitel 17: modaler Infinitiv + attributiv
+
+das zu lesende Buch
+das von dir zu lesende Buch
+
+
+;;; Kapitel 17: modaler Infinitiv + haben
+
+  Er hat den Aufsatz zu lesen.
+  Der Mann hat ihm zu helfen.
+
+* Der Frau hat zu helfen.
+
+;;; Kapitel 17: modaler Infinitiv + haben + subjektloses Prädikat
+
+Dem Mann hat zu grauen. ;; vor der Prüfung
+
+;;; Kapitel 17: modaler Infinitiv + haben + Passiv
+
+  Der Aufsatz hat gelesen zu werden.            ;; @nach Haider84b:36
+* Das Buch wird zu lesen gehabt.                ;; Aktiv: Karl hat das Buch zu lesen.
+
+;;; Kapitel 17: modaler Infinitiv + haben + Passiv + subjektloses Prädikat
+
+  Ihm hat geholfen zu werden.                   ;; @Haider84b:35
+* daß ihm nicht geholfen zu werden ist          ;; @Haider90 Pro-bleme
+
+
+;;; Kapitel 17: Passiv + Voranstellung + PVP
+
+* Dem Mann gelungen wurde nicht. ;; Ansätze, die sich auf Argument-Struktur und Argumentanziehung verlassen, müssen die Argumentstruktur projizieren, um den Satz korrekt zu erfassen. @Mueller2002b:171
+
+
+;;; Oberfeldumstellung + Passiv
+
+;;daß er das Buch hat  lesen lassen
+daß er das Buch wird lesen lassen
+
+
+;;; Kapitel 18: Partikelverben
+
+
+  Er schlägt die Frau vor.
+  Er lacht los.
+* Er lacht ihn los.
+  Er lacht ihn an.
+* Er lacht an.
+* Er wird an gelacht.
+  Er wird angelacht.
+* Er versucht, ihn an zu lachen.  
+  Er versucht, ihn anzulachen.    ;; 2 Lesarten, da Komma ignoriert
+
+* Er anlacht die Frau.
+* Er loslacht oft.
+
+
+;;; Kapitel 19: Morphologie
+
+  der das Buch lesende  Mann
+  dem das Buch lesenden Mann
+
+  der das Buch lesen wollende Mann
+* das gelesen habbare Buch
+* der das Buch gelesen habbare Mann
+
+
+* die an lachbare Frau
+  die anlachbare Frau
+
+
+  die angelachte Frau   ;; nur eine Lesart, prinzipiell die Möglichkeit die Partikel vor oder nach der Derivation abzubinden
+
+  das lesbare Buch
+* das liestbare Buch
+* das liest bar e Buch
+
+  das Angelache
+* das Gelachean
+* das An gelache
+* das gelache An
+  das Angelache
+
+* das Herum gerenne
+  das Herumgerenne
+

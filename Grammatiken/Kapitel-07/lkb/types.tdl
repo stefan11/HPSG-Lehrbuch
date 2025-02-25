@@ -1,0 +1,307 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;   $RCSfile: types.tdl,v $
+;;  $Revision: 1.2 $
+;;      $Date: 2007/03/05 11:26:29 $
+;;     Author: Stefan Mueller, Universität Bremen
+;;    Purpose: 
+;;   Language: TDL
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+none_or_sign :< bot.
+
+none :< none_or_sign.
+
+sign := none_or_sign & [
+ phon list,
+ cat  cat,
+ cont cont ].
+
+list :< bot.
+e_list :< list.
+ne_list := list & [
+  hd bot,
+  tl list ].
+
+cat := bot & [
+  head   head,
+  subcat list ].
+
+
+cont := bot & [
+  nucleus nucleus,
+  qstore  list ].
+
+
+phrase := sign & [
+ non_head_dtrs list,
+ dtrs          list ].
+
+
+headed_phrase := phrase & [
+  head_dtr sign ].
+
+head_non_adjunct_phrase  :< headed_phrase.
+head_non_argument_phrase :< headed_phrase.
+
+head_argument_phrase :< head_non_adjunct_phrase.
+head_adjunct_phrase  :< head_non_argument_phrase.
+
+non_headed_phrase :< phrase.
+
+
+word :< sign.
+
+saturated_word   :< word.
+
+
+determiner_word :< saturated_word.
+
+determiner :< determiner_word.
+possessive :< determiner_word.
+
+noun_word :< word.
+
+pers_pronoun := saturated_word   & noun_word.
+
+simple_noun  :< noun_word.
+
+verb_word    :< word.
+
+subjlos_verb :< verb_word.
+intrans_verb :< verb_word.
+
+strict_intrans_verb :< intrans_verb.
+np_pp_verb          :< intrans_verb.
+
+trans_verb :< verb_word.
+
+strict_trans_verb :< trans_verb.
+ditrans_verb      :< trans_verb.
+
+preposition_word :< word.
+comp_preposition :< preposition_word.
+mod_preposition  :< preposition_word.
+
+noun_mod_preposition := mod_preposition & isect_n_modifier_word.
+
+location_noun_mod_prep :< noun_mod_preposition.
+
+
+n_modifier_word := n_modifier & word.
+
+
+isect_n_modifier_word := isect_n_modifier & n_modifier_word.
+
+intersective_adj :< isect_n_modifier_word.
+
+
+attr_adjective_word :< n_modifier_word.
+
+
+; klug
+simple_attr_adj := saturated_word & attr_adjective_word & intersective_adj. 
+
+; treu
+attr_np_adj     := attr_adjective_word & intersective_adj. 
+
+; mutmaßlich              
+scopal_adj := saturated_word & attr_adjective_word.
+
+
+
+; Adjektive, Präpositionen, Nomina, aber auch Relativsätze (=phrasal)
+n_modifier :< sign.
+
+isect_n_modifier :< n_modifier.
+
+
+head := bot &
+ [ mod  none_or_sign,
+   spec none_or_sign ].
+
+
+non_modifier_head := head & [
+  mod none ].
+
+non_spec_head := head & [
+  spec none ].
+
+; prep steht für Prä- und Postpositionen, der initial-Wert wird in le_macros.pl festgelegt
+prep :< non_spec_head.
+
+comp_prep := prep & intro_case_head & non_modifier_head &
+ [ pform pform ].
+
+; kann nach Nomina und vor Verben stehen, siehe le_macros.pl
+mod_prep :< prep.
+
+intro_case_head := head &
+ [ case case ]. 
+
+
+
+det := intro_case_head & intro_gen_num & non_modifier_head.
+       
+noun := intro_case_head & non_modifier_head & non_spec_head.
+
+
+verb := non_modifier_head & non_spec_head &
+ [ vform vform ].
+
+
+attr_adj := intro_case_head & non_spec_head.
+
+
+string :< bot.
+
+
+pform :< bot.
+
+an_pform  :< pform.
+
+
+vform  :< bot.
+fin    :< vform.
+
+
+nucleus :< bot.
+quantifier := nucleus & [
+  restind nominal_obj ].
+
+def       :< quantifier.
+all       :< quantifier.
+ein       :< quantifier.
+
+
+nominal_obj := nucleus & [
+  ind   index,
+  restr list ].
+
+
+relation := nucleus & index_or_relation.
+
+
+arg1_rel  := relation & [
+  arg1 index_or_relation ].
+
+arg2_rel := relation & [
+  arg2 index_or_relation ].
+
+arg3_rel := relation & [
+  arg3 index_or_relation ].
+
+
+arg12_rel  := arg1_rel  & arg2_rel.
+
+arg13_rel  := arg1_rel  & arg3_rel.
+
+arg23_rel  := arg2_rel  & arg3_rel.
+
+arg123_rel := arg12_rel & arg13_rel.
+
+
+buch :< arg1_rel.
+frau :< arg1_rel.
+mann :< arg1_rel.
+mörder :< arg1_rel.
+speisekammer :< arg1_rel.
+wurst :< arg1_rel.
+
+groß :< arg1_rel.
+interessant :< arg1_rel.
+klug :< arg1_rel.
+
+bellen :< arg1_rel.
+lachen :< arg1_rel.
+schlafen :< arg1_rel.
+
+
+jagen     :< arg12_rel.
+kennen    :< arg12_rel.
+lieben    :< arg12_rel.
+denken_an :< arg12_rel.
+
+treu      :< arg12_rel.
+
+in        :< arg12_rel.
+
+geben :<  arg123_rel.
+
+grauen :< arg2_rel.
+
+besitzen :< arg23_rel.
+
+psoa_rel := relation & [
+  psoa_arg list ].
+
+
+mutmaßlich :< psoa_rel.
+
+
+index_or_relation :< bot.
+index := index_or_relation & intro_gen_num & [
+  per per ].
+
+
+
+case :< bot.
+
+nom_or_dat_or_acc :< case.
+
+; Plural
+nom_or_gen_or_acc :< case.
+
+; Endung `n' in Singular Junggesellen
+gen_or_dat_or_acc :< case.
+
+nom_or_acc := nom_or_gen_or_acc & nom_or_dat_or_acc.
+dat_or_acc := gen_or_dat_or_acc & nom_or_dat_or_acc.
+gen_or_dat :< gen_or_dat_or_acc.
+
+nom :< nom_or_acc.
+gen := gen_or_dat & nom_or_gen_or_acc.
+dat := gen_or_dat & dat_or_acc.
+acc := nom_or_acc & dat_or_acc.
+
+
+genus :< bot.
+
+; Beamte
+fem_or_mas :< genus.
+
+; Index von Mädchen, Weib, ...
+fem_or_neu :< genus.
+
+; ein
+mas_or_neu :< genus.
+       
+fem := fem_or_mas & fem_or_neu.
+mas := fem_or_mas & mas_or_neu.
+neu := fem_or_neu & mas_or_neu.
+
+per :< bot.
+
+first_or_third :< per.
+
+; Stamm 2:  ich fange vs. du fängst, er fängt
+second_or_third :< per.
+
+first  :< first_or_third.
+second :< second_or_third.
+third  := first_or_third & second_or_third.
+
+
+num :< bot.
+sg  :< num.
+pl  :< num.
+
+
+intro_gen_num := bot & [
+  gen genus,
+  num num ].
+
+
+
+
+
+

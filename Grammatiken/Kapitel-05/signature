@@ -1,0 +1,76 @@
+% -*-trale-prolog-*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: signature,v $
+%%  $Revision: 1.9 $
+%%      $Date: 2006/02/26 18:08:12 $
+%%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
+%%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
+%%   Language: Trale
+%      System: TRALE 2.7.5 (release ) under Sicstus 3.12.0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+type_hierarchy
+bot
+  sign phon:list cat:cat cont:cont
+    phrase non_head_dtrs:list dtrs:list
+      headed_phrase head_dtr:sign
+        head_non_adjunct_phrase
+          head_argument_phrase
+      non_headed_phrase
+    word
+  cat head:head subcat:list
+  head 
+    intro_case_head case:case
+      attr_adj
+      det
+      noun
+      prep pform:pform
+    verb vform:vform
+  cont
+    quantifier restind:nominal_obj
+      def
+      all
+      ein 
+    nominal_obj ind:index restr:list
+    relation
+      arg1_rel arg1:index
+        buch
+        frau
+        mann
+        schlafen
+        arg12_rel
+          denken_an
+          jagen
+          kennen
+          arg123_rel arg3:index
+            geben
+      arg2_rel arg2:index
+        grauen
+        &arg12_rel 
+  index per:per num:num gen:genus
+  list
+    e_list
+    ne_list hd:bot tl:list
+  case
+    nom
+    gen
+    dat
+    acc
+  genus
+    fem
+    mas
+    neu
+  per
+    first
+    third
+    second
+  num
+    sg
+    pl 
+  pform
+    an_pform
+  vform
+    fin
+.

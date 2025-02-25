@@ -1,0 +1,148 @@
+#!/usr/bin/perl
+# -*- perl -*-
+#
+#########################################################
+##   $RCSfile: trale-test-import,v $
+##  $Revision: 1.4 $
+##      $Date: 2007/06/23 14:36:58 $
+##     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
+##    Purpose: Import test suites into TSDB
+##   Language: Perl
+#########################################################
+
+#########################################################
+#
+# for an example testsuite file see:
+# http://hpsg.fu-berlin.de/Resources/TS/b-ger-ts.html
+#
+
+#use strict;
+use utf8;
+
+
+
+open(IN,  $ARGV[0] )    or die("Cannot open '$ARGV[0]': $!\n");
+
+#open (ITEM,  "test-items.pl" )              or die("Cannot open 'test-items.pl': $!");
+
+
+
+$i_id = 1;
+
+$author = $ENV{USER};
+$date = `date +'%m-%d-%Y'`; chop($date);
+
+
+
+
+
+
+$comment = 0;
+
+while (<IN>) {
+
+# catch multiline comments
+
+   if (/^#\|/) {
+      $comment = 1;
+      next;
+  };
+
+  if ($comment && (!(/^\|#/))) { 
+
+      next;
+  } elsif ($comment) {
+
+          $comment = 0;
+          next;
+  }
+
+
+if (/^(\s)?;;;/) {
+  /;;;(\s)?(.*)/;
+
+# For ITSDB we can have crossclassification with regard to several phenommena
+# TRALE test items are much simpler.
+  $phenomenon = $2;
+
+
+} 
+
+
+  next if /^\s*;;/;              # just a comment
+  next if /^\s*$/;               # just an empty line
+
+
+# space $2 space ;; space $5
+# .*? is stingy mode rather than .* which is gridy 
+if (/^(\s*)(.*?)(\s*);;(\s*)(.*)/) {
+    $judge_sent = $2;
+    $i_comment = $5;
+
+} else {
+# space $2 space
+    /^(\s*)(.*)(\s*)$/;
+    $judge_sent = $2;
+    $i_comment = "";
+    $i_origin = $author;
+}
+
+# sentence starts with (some) `?' and (some) `*'
+if ($judge_sent =~ /^([\?]+[\*]+)(\s*)(.*)/) {
+    $i_wf = 2;
+    $i_input = $3;
+}
+# sentence starts with (some) `?'
+elsif ($judge_sent =~ /^([\?]+)(\s*)(.*)/) {
+    $i_wf = 2;
+    $i_input = $3;
+} 
+# sentence starts with (some) `*'
+elsif ($judge_sent =~ /^[\*]+(\s*)(.*)/) {
+    $i_wf = 0;
+    $i_input = $2;
+} else {
+    $i_wf = 1;
+    $i_input = $judge_sent;
+}
+
+    if ($i_comment =~ /\s*(\d*)\s*(Lesarten|readings)/) {
+        $i_lesarten = $1;
+    } elsif ($i_wf < 2) {
+        $i_lesarten = $i_wf;
+    } else {
+        $i_lesarten = 1;
+    }
+
+    if ($i_comment =~ /'([^']*)'/) {
+        $i_gloss = $1;
+    } else {
+        $i_gloss = '';
+    }
+
+$i_input =~ s/\s*$//;
+
+if ($i_input =~ /。$/) {
+    $i_category = "\@decl";
+}  elsif ($i_input =~ /\.$/) {
+    $i_category = "\@decl";
+}  elsif ($i_input =~ /!$/) {
+    $i_category = "\@imp";
+} elsif ($i_input =~ /\?$/) {
+    $i_category = "\@interrog";
+} else {
+    $i_category = "\@root";
+}
+
+
+    if ($i_gloss) {
+        print "t($i_id,\"$i_input\",\"$i_gloss\",$i_category,$i_lesarten,'$phenomenon').\n";
+
+    } else {
+        print "t($i_id,\"$i_input\",$i_category,$i_lesarten,'$phenomenon').\n";
+    }
+
+                   $i_id++;
+    
+}
+

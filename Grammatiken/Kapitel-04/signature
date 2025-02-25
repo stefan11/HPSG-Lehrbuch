@@ -1,0 +1,39 @@
+% -*-trale-prolog-*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: signature,v $
+%%  $Revision: 1.5 $
+%%      $Date: 2006/02/26 18:08:12 $
+%%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
+%%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
+%%   Language: Trale
+%      System: TRALE 2.7.5 (release ) under Sicstus 3.12.0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+type_hierarchy
+bot
+  sign phon:list head:head subcat:list
+    phrase non_head_dtrs:list dtrs:list
+      headed_phrase head_dtr:sign
+        head_argument_phrase
+      non_headed_phrase
+    word
+  head 
+    intro_case_head case:case
+      attr_adj
+      det
+      noun
+      prep pform:pform
+    verb vform:vform
+  list
+    e_list
+    ne_list hd:bot tl:list
+  case
+    nom
+    gen
+    dat
+    acc  
+  pform
+    an_pform
+  vform
+    fin
+.
