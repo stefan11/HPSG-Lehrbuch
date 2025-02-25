@@ -52,6 +52,7 @@ signature(signature).
 examples(['  Der Mann schläft.',
           '  der Mann die Frau kennt',
           '  der Mann an die Frau denkt',
+          '  Die Tochter des Mannes schläft.',
           '* Mann schläft.',
           '* Der Mann kennt.']).
 

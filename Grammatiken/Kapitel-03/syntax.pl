@@ -11,9 +11,22 @@
 
 :- multifile '*>'/2.
 
-head_argument_phrase *>
-   (subcat:Subcat,
-    head_dtr:subcat:append(Subcat,[NonHeadDtr]),
+head_complement_phrase *>
+   (p_o_s:POS,
+    spr:Spr,
+    comps:Comps,
+    head_dtr:(p_o_s:POS,
+              spr:Spr,
+              comps:append(Comps,[NonHeadDtr])),
+    non_head_dtrs:[NonHeadDtr]).
+
+head_specifier_phrase *>
+   (p_o_s:POS,
+    spr:Spr,
+    comps:Comps,
+    head_dtr:(p_o_s:POS,
+              spr:[NonHeadDtr|Spr],
+              comps:(Comps,[])),
     non_head_dtrs:[NonHeadDtr]).
 
 
@@ -27,7 +40,7 @@ head_argument_phrase *>
 
 
 root macro
- (subcat:[]).
+ (comps:[]).
 
 interrog macro
  (@root).

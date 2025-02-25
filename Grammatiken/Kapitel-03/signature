@@ -11,10 +11,11 @@
 
 type_hierarchy
 bot
-  sign phon:list p_o_s:p_o_s subcat:list
+  sign phon:list p_o_s:p_o_s spr:list comps:list
     phrase non_head_dtrs:list dtrs:list
       headed_phrase head_dtr:sign
-        head_argument_phrase
+        head_complement_phrase
+        head_specifier_phrase
       non_headed_phrase
     word
   p_o_s

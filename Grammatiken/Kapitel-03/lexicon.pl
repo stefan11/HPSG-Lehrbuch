@@ -12,127 +12,188 @@
 
 das ---> (word,
   p_o_s:det,
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 
 der ---> (word,
   p_o_s:det,
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 
 % dem Mann
 dem ---> (word,
   p_o_s:det,
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 % den Mann
 den ---> (word,
   p_o_s:det,
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 
 des ---> (word,
   p_o_s:det,
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 die ---> (word,
   p_o_s:det,
-  subcat:[] ).
+  spr:[],
+  comps:[] ).
 
 
 
 mann ---> (word,
   p_o_s:noun,
-  subcat:[(p_o_s:det,
-           subcat:[]) ] ).
+  spr:[(p_o_s:det,
+          spr:[],
+          comps:[])],
+  comps:[] ).
 
 
 mannes ---> (word,
   p_o_s:noun,
-  subcat:[(p_o_s:det,
-           subcat:[]) ] ).
+  spr:[(p_o_s:det,
+        spr:[],
+        comps:[])],
+  comps:[ ] ).
 
 frau ---> (word,
   p_o_s:noun,
-  subcat:[(p_o_s:det,
-           subcat:[]) ] ).
+  spr:[(p_o_s:det,
+        spr:[],
+        comps:[])],
+  comps:[ ] ).
+
+tochter ---> (word,
+  p_o_s:noun,
+  spr:[(p_o_s:det,
+        spr:[],
+        comps:[])],
+  comps:[(p_o_s:noun,
+          spr:[],
+          comps:[]) ] ).
+
 
 
 buch ---> (word,
   p_o_s:noun,
-  subcat:[(p_o_s:det,
-           subcat:[]) ] ).
+  spr:[(p_o_s:det,
+        spr:[],
+        comps:[])],
+  comps:[ ] ).
 
 buches ---> (word,
   p_o_s:noun,
-  subcat:[(p_o_s:det,
-           subcat:[]) ] ).
+  spr:[(p_o_s:det,
+        spr:[],
+        comps:[])],
+  comps:[ ] ).
 
 
 er ---> (word,
   p_o_s:noun,
-  subcat:[]).
+  spr:[],
+  comps:[]).
 
 ihm ---> (word,
   p_o_s:noun,
-  subcat:[]).
+  spr:[],
+  comps:[]).
+
+aicke ---> (word,
+  p_o_s:noun,
+  spr:[],
+  comps:[]).
+
+conny ---> (word,
+  p_o_s:noun,
+  spr:[],
+  comps:[]).
+
 
 schläft ---> (word,
   p_o_s:verb,
-  subcat:[(p_o_s:noun,
-           subcat:[]) ] ).
+  spr:[],
+  comps:[(p_o_s:noun,
+           comps:[]) ] ).
 
 graut ---> (word,
   p_o_s:verb,
-  subcat:[(p_o_s:noun,
-           subcat:[]) ] ).
+  spr:[],
+  comps:[(p_o_s:noun,
+          spr:[],
+          comps:[]) ] ).
 
 jagt ---> (word,
   p_o_s:verb,
-  subcat:[ (p_o_s:noun,
-            subcat:[]),
+  spr:[],
+  comps:[ (p_o_s:noun,
+           spr:[],
+           comps:[]),
            (p_o_s:noun,
-            subcat:[]) ] ).
+            spr:[],
+            comps:[]) ] ).
 
 kennt ---> (word,
   p_o_s:verb,
-  subcat:[ (p_o_s:noun,
-            subcat:[]),
+  spr:[],
+  comps:[ (p_o_s:noun,
+           spr:[],
+           comps:[]),
            (p_o_s:noun,
-            subcat:[]) ] ).
+            spr:[],
+            comps:[]) ] ).
 
 gab ---> (word,
   p_o_s:verb,
-  subcat:[ (p_o_s:noun,
-               subcat:[]),
+  spr:[],
+  comps:[ (p_o_s:noun,
+           spr:[],
+           comps:[]),
            (p_o_s:noun,
-               subcat:[]),
+            spr:[],
+            comps:[]),
            (p_o_s:noun,
-               subcat:[]) ] ).
+            spr:[],
+            comps:[]) ] ).
 
 
 gibt ---> (word,
   p_o_s:verb,
-  subcat:[ (p_o_s:noun,
-               subcat:[]),
+  spr:[],
+  comps:[ (p_o_s:noun,
+           spr:[],
+           comps:[]),
            (p_o_s:noun,
-               subcat:[]),
+            spr:[],
+            comps:[]),
            (p_o_s:noun,
-               subcat:[]) ] ).
+            spr:[],
+            comps:[]) ] ).
 
 
 denkt ---> (word,
   p_o_s:verb,
-  subcat:[ (p_o_s:noun,
-               subcat:[]),
+  spr:[],
+  comps:[ (p_o_s:noun,
+           spr:[],
+           comps:[]),
            (p_o_s:prep,
-               subcat:[]) ] ).
+            spr:[],
+            comps:[]) ] ).
 
 
 an ---> (word,
   p_o_s:prep,
-  subcat:[(p_o_s:noun,
-           subcat:[]) ] ).
+  spr:[],
+  comps:[(p_o_s:noun,
+          spr:[],
+          comps:[]) ] ).
 
 
 

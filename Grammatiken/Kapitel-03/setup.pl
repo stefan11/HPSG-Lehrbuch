@@ -7,7 +7,8 @@ hidden_feat(non_head_dtrs). % hide the dtrs attribute (shown by tree)
 
 >>> phon.        % phon shall be shown first
 phon  <<< p_o_s.
-p_o_s <<< subcat.
+p_o_s <<< spr.
+spr   <<< comps.
 
 % use ghostview for drawing signatures
 % für Linux
