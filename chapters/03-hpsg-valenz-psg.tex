@@ -351,18 +351,36 @@ das meistens die Reihenfolge \type{nom}, \type{dat}, \type{acc}, aber bei Verben
 % \ex Den Wählern erzählen sollte man diese Geschichte nicht.
 % \ex Märchen erzählen sollte man den Wählern nicht.
 % \zl
-\is{Valenz|)}
 
-\section{Die Argumentstruktur}
+\section{Spezifikatoren}
 
-Wir haben bisher nur das Valenzmerkmal \comps benutzt. In den folgenden Kapiteln werden wir auch
-noch das Merkmal \spr kennenlernen. Für das Deutsche spielt \spr in Nominalstrukturen eine
+Wir haben bisher nur das Valenzmerkmal \comps benutzt. Es gibt 
+noch das Merkmal \spr, das für die Repräsentation von Spezifikatoren verwendet wird. Für das Deutsche spielt \spr in Nominalstrukturen eine
 Rolle. Ein Nomen wie \emph{Schwester} selegiert seinen Determinator über das \sprm. Komplemente, wie
-sie bei relationalen Nomina wie \emph{Schwester} oder \emph{Bild}, möglich sind, werden über \comps selegiert. 
-\ea
-die Schwester von Aicke
-\z 
-Das Deutsche zählt typologisch zu den Subjekt-Objekt-Verb-Sprachen (SOV), so wie Afrikaans,
+sie bei relationalen Nomina wie \emph{Schwester}, \emph{Bild} oder Nominalisierungen wie \emph{Vorlesen} möglich sind, werden über \comps
+selegiert. Abbildung~\ref{fig-die-Schwester-von-Aicke} zeigt die Analyse von (\mex{1}a):
+\eal
+\ex die Schwester von Aicke
+\ex das Bild vom Gleimtunnel
+\ex das Vorlesen von Büchern
+\zl 
+\begin{figure}
+\centerfit{%
+\begin{forest}
+sm edges
+[{NP[\spr \eliste, \comps \eliste]}
+   [Det [die] ]
+   [N\feattab{
+      \spr \nliste{ Det }, \comps \sliste{}}
+     [N\feattab{
+         \spr \nliste{ Det },\\
+         \comps \nliste{ PP[\type{von}] }} [Schwester] ]
+        [{PP[\type{von}]} [von Aicke,roof] ] ] ]
+\end{forest}}
+\caption{\label{fig-die-Schwester-von-Aicke}Analyse des Beispiels \emph{die Schwester von Aicke}}
+\end{figure}
+
+Das Deutsche zählt typologisch zu den Subjekt-Objekt-Verb-Sprachen (SOV), so wie \zb auch Afrikaans,
 Niederländisch, Japanisch, Koreanisch und Persisch. Das Englische, die skandinavischen Sprachen und die
 romanischen Sprachen werden zu den Subjekt"=Verb"=Objekt"=Sprachen (SVO) gezählt. Ich habe in diesem Kapitel
 alle Argumente von finiten Verben gleich behandelt. Sie sind alle in der \compsl repräsentiert. Das
@@ -371,8 +389,35 @@ ein Subjekt im Satz geben. Das wird im kommenden Abschnitt genauer besprochen. B
 ist das jedoch anders: Schon durch die Stellung hat das Subjekt einen anderen Status. Subjekte
 stehen links vom Verb, andere Argumente rechts. Das wird in HPSG-Grammatiken dadurch erfasst, dass
 für Subjekte ein separates Valenzmerkmal verwendet wird. In manchen Grammatiken ist das das \subjm,
-in anderen das \sprm. Da ich das \subjm anders verwende, benutze ich wie \citet{GSag2000a-u} das \sprm
-für die Repräsentation des Subjekts in SVO-Sprachen \citep{MuellerGermanic}.
+in anderen das \sprm. Da ich das \subjm anders verwende, benutze ich wie \citet*[Chapter~4.3]{SWB2003a} das \sprm
+für die Repräsentation des Subjekts in SVO-Sprachen \citep[Kapitel~4.3]{MuellerGermanic}.
+
+Die Struktur in Abbildung~\ref{fig-Aicke-expects-Conny} ist das Gegenstück zu
+Abbildung~\ref{fig-Aicke-Conny-erwartet}. Die Komplemente stehen im Englischen rechts des Verbs, das
+Subjekt steht links. Für das Subjekt gibt es eine besondere Position. Im Deutschen ist das nicht der
+Fall. Da kann das Subjekt irgendwo stehen, Hauptsache, es steht links des Verbs. Gemeinsam mit den
+anderen Argumenten.
+\begin{figure}
+\centerfit{%
+\begin{forest}
+sm edges
+[{V[\spr \eliste, \comps \eliste]}
+   [{NP[\type{nom}]} [Aicke] ]
+   [V\feattab{
+      \spr \sliste{ NP[\type{nom}] }, \comps \sliste{}}
+     [V\feattab{
+         \spr \sliste{ NP[\type{nom}] },\\
+         \comps \sliste{ NP[\type{acc}] }} [expects] ]
+        [{NP[\type{acc}]} [Conny] ] ] ]
+\end{forest}}
+\caption{\label{fig-Aicke-expects-Conny}Analyse des Beispiels \emph{Aicke expects Conny} in der
+  SVO-Sprache Englisch}
+\end{figure}
+
+
+
+\section{Die Argumentstruktur}
+
 
 Will man erfassen, was alle Sprachen (oder zumindest viele Sprachen) gemeinsam haben, ist es
 sinnvoll, eine zugrundeliegende Struktur anzunehmen: die Argumentstruktur (\argst). Die Argumentstruktur ist
@@ -405,30 +450,6 @@ Verb            & \spr                      & \comps                            
 \end{tabular}
 \z
 
-Mit den Valenzmerkmalen in (\mex{-1}) bekommt man die Struktur in
-Abbildung~\ref{fig-Aicke-expects-Conny} als Gegenstück zu
-Abbildung~\ref{fig-Aicke-Conny-erwartet}. Die Komplemente stehen im Englischen rechts des Verbs, das
-Subjekt steht links. Für das Subjekt gibt es eine besondere Position. Im Deutschen ist das nicht der
-Fall. Da kann das Subjekt irgendwo stehen, Hauptsache, es steht links des Verbs. Gemeinsam mit den
-anderen Argumenten.
-\begin{figure}
-\centerfit{%
-\begin{forest}
-sm edges
-[{V[\spr \eliste, \comps \eliste]}
-   [{NP[\type{nom}]} [Aicke] ]
-   [V\feattab{
-      \spr \sliste{ NP[\type{nom}] }, \comps \sliste{}}
-     [V\feattab{
-         \spr \sliste{ NP[\type{nom}] },\\
-         \comps \sliste{ NP[\type{acc}] }} [expects] ]
-        [{NP[\type{acc}]} [Conny] ] ] ]
-\end{forest}}
-\caption{\label{fig-Aicke-expects-Conny}Analyse des Beispiels \emph{Aicke expects Conny} in der
-  SVO-Sprache Englisch}
-\end{figure}
-
-
 In der Literatur findet man das Argumentrealisierungsprinzip, das für die Verteilung von Argumenten
 auf Valenzlisten sorgt.
 \ea
@@ -457,6 +478,7 @@ gleich behandelt werden können. So kann zum Beispiel die Beziehung zwischen Syn
 so genannte Linking\is{Linking}) auf \argst gemacht werden \citep*{DKW2024a}. Wir werden uns das im Kapitel~\ref{Kapitel-Semantik}
 über Semantik genauer ansehen. Die Argumentstrukturliste ist für die Kasusvergabe
 und für die Bindungstheorie relevant.
+\is{Valenz|)}
   
 
 \section{Alternativen}
