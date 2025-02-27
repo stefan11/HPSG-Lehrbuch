@@ -84,7 +84,13 @@ index: completed-hpsg.tex $(SOURCE)
 
 # http://stackoverflow.com/questions/10934456/imagemagick-pdf-to-jpgs-sometimes-results-in-black-background
 cover: completed-hpsg.pdf
-	convert $<\[0\] -resize 486x -background white -alpha remove -bordercolor black -border 2  cover.png
+	magick $<\[0\] -resize 486x -background white -alpha remove -bordercolor black -border 2  cover.png
+	cp cover.png hpsg-lehrbuch.png
+	magick $<\[0\] -resize 140x -background white -alpha remove -bordercolor black -border 1  hpsg-lehrbuch-142x200.png
+
+# Ergebnis ist dann 490xirgendwas
+
+
 
 
 # fuer Sprachenindex

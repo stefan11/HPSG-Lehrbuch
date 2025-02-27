@@ -57,11 +57,11 @@ signature(signature).
 :- ['../Gemeinsames/common.pl'].
 
 
-examples(['  Der Mann schläft.',
-          '  der Mann die Frau kennt',
-          '  der Mann an die Frau denkt',
-          '* Mann schläft.',
-          '* Der Mann kennt.']).
+examples(['  Der Affe schläft.',
+          '  der Affe das Kind kennt',
+          '  der Affe an das Kind denkt',
+          '* Affe schläft.',
+          '* Der Affe kennt.']).
 
 
 
