@@ -1,7 +1,7 @@
-% -*-trale-prolog-*-
+% -*-  coding:utf-8; mode:trale-prolog   -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: signature,v $
-%%  $Revision: 1.9 $
+%%  $Revision: 1.5 $
 %%      $Date: 2006/02/26 18:08:12 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
@@ -9,68 +9,88 @@
 %      System: TRALE 2.7.5 (release ) under Sicstus 3.12.0
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
 type_hierarchy
 bot
-  sign phon:list cat:cat cont:cont
-    phrase non_head_dtrs:list dtrs:list
-      headed_phrase head_dtr:sign
-        head_non_adjunct_phrase
-          head_argument_phrase
-      non_headed_phrase
-    word
-  cat head:head subcat:list
-  head 
+  none_or_sign
+    none
+    sign phon:list head:head spr:list comps:list cont:cont
+      phrase non_head_dtrs:list dtrs:list
+        headed_phrase head_dtr:sign
+          head_non_specifier_phrase
+            head_complement_phrase
+            head_adjunct_phrase
+          head_non_complement_phrase
+            head_specifier_phrase
+            &head_adjunct_phrase
+        non_headed_phrase
+      word
+  head mod:none_or_sign spec:none_or_sign scopal:bool
     intro_case_head case:case
       attr_adj
-      det
-      noun
-      prep pform:pform
-    verb vform:vform
-  cont
-    quantifier restind:nominal_obj
-      def
-      all
-      ein 
-    nominal_obj ind:index restr:list
-    relation
-      arg1_rel arg1:index
-        buch
-        frau
-        mann
-        schlafen
-        arg12_rel
-          denken_an
-          jagen
-          kennen
-          arg123_rel arg3:index
-            geben
-      arg2_rel arg2:index
-        grauen
-        &arg12_rel 
-  index per:per num:num gen:genus
+      glb_det_noun_prep
+        det
+        noun
+        prep pform:pform
+    non_modifier mod:none % alle Unterkategorien können im Prinzip auch Adjunkte sein, aber nicht in dieser Grammatik
+      &glb_det_noun_prep
+      verb vform:vform
+    modifier mod:sign
+      adv
+      adj
+        &attr_adj
   list
     e_list
     ne_list hd:bot tl:list
+  bool
+    plus
+    minus
   case
     nom
     gen
     dat
-    acc
-  genus
-    fem
-    mas
-    neu
-  per
-    first
-    third
-    second
-  num
-    sg
-    pl 
+    acc  
   pform
     an_pform
   vform
     fin
+  cont gtop:handle ltop:handle ind:event_or_index rels:list hcons:list
+  event_or_index
+    event
+    index
+    handle
+  relation lbl:handle
+    arg0_relation arg0:event_or_index
+      arg0_nominal_rel arg0:index
+        affe_rel
+        beispiel_rel
+        buch_rel
+        frau_rel
+        kind_rel
+        mann_rel
+        mitarbeiter_rel
+        klein_rel
+        schwierig_rel
+        quant_rel rstr:handle body:handle
+          def_q
+          every_q
+          one_q
+      &arg01_relation
+      &arg02_relation
+    arg1_relation arg1:event_or_index
+      angeblich_rel
+      mutmaßlich_rel
+      wahrscheinlich_rel
+      &arg01_relation
+        schlafen_rel
+        arg012_relation
+          denken_an_rel
+          jagen_rel
+          kennen_rel
+          arg0123_rel arg3:index
+            geben_rel
+    arg02_relation arg2:index
+      tochter_rel
+      grauen_rel
+      &arg012_relation
+  qeq harg:handle larg:handle
 .
