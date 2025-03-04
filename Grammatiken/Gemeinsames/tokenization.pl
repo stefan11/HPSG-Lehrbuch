@@ -44,7 +44,7 @@ tokenize_sentence_string_act([],[],Desc) :-
    -> root_symbol(Desc)
    ;  Desc = bot
    ).
-tokenize_sentence_string_act([LastChar],[],Desc) :- 
+tokenize_sentence_string_act([LastChar],[],Desc) :-
    LastChar==fullstop,
    !,
    (  current_predicate(decl_symbol/1) 
