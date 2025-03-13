@@ -17,36 +17,38 @@
 %% Das Kopfmerkmalsprinzip
 
 headed_phrase *>
-   (head:Head,
-    head_dtr:head:Head).
+   (cat:head:Head,
+    head_dtr:cat:head:Head).
 
 head_complement_phrase *>
-   (comps:Subcat,
-    head_dtr:comps:append(Subcat,[NonHeadDtr]),
+   (cat:comps:Subcat,
+    head_dtr:cat:comps:append(Subcat,[NonHeadDtr]),
     non_head_dtrs:[NonHeadDtr]).
 
 
 head_specifier_phrase *>
-   (spr:Spr,
-    head_dtr:(spr:[NonHeadDtr|Spr],
-              comps:[]),
+   (cat:spr:Spr,
+    head_dtr:cat:(spr:[NonHeadDtr|Spr],
+                  comps:[]),
     non_head_dtrs:[NonHeadDtr]).
 
 head_non_complement_phrase *>
-   (comps:Comps,
-    head_dtr:comps:Comps).
+   (cat:comps:Comps,
+    head_dtr:cat:comps:Comps).
 
 head_non_specifier_phrase *>
-   (spr:Spr,
-    head_dtr:spr:Spr).
+   (cat:spr:Spr,
+    head_dtr:cat:spr:Spr).
 
 head_adjunct_phrase *>
    (head_dtr:HD,
-    non_head_dtrs:[head:mod:HD]).
+    non_head_dtrs:[cat:head:mod:HD]).
        
 
 % for headed structures the head daughter is appended to the non-head daughters to give a list of all daughters.
 % This daughters list can be used to collect RELS, HCONS and so on.
+% See rules.pl. The dtrs are ordered according to surface order in rules.pl.
+
 %headed_phrase *>
 %   head_dtr:HD,
 %   non_head_dtrs:NHDtrs,
@@ -60,12 +62,18 @@ phrase *>
   (cont:hcons:append(HCons1,HCons2),
    dtrs:[cont:hcons:HCons1,cont:hcons:HCons2]).
 
+/* GTop wird nciht wirklich gebraucht. 
 headed_phrase *>
    (cont:(ind:Ind,
           gtop:GTop),
     head_dtr:cont:(ind:Ind,
                    gtop:GTop),
     non_head_dtrs:[cont:gtop:GTop]).
+*/
+
+headed_phrase *>
+   (cont:ind:Ind,
+    head_dtr:cont:ind:Ind).
 
 head_complement_phrase *>
    (cont:ltop:LTop,
@@ -82,14 +90,14 @@ head_adjunct_phrase *>
 % Wegen „ein scheinbar schwieriges Beispiel“ kann sich „schwieriges“ nicht im Lexikon den LTop-Wert
 % von „Beispiel“ nehmen, denn der LTop-Wert von „Beispiel“ muss mit dem von „scheinbar schwieriges“ gleichgesetzt werden.
 (head_adjunct_phrase,
- non_head_dtrs:[head:scopal:minus]) *>
+ non_head_dtrs:[cat:head:scopal:minus]) *>
  (head_dtr:cont:ltop:LTop,
   non_head_dtrs:[cont:ltop:LTop]).
 
 (headed_phrase,
- non_head_dtrs:[head:spec:sign]) *>
+ non_head_dtrs:[cat:head:spec:sign]) *>
  (head_dtr:Spec,
-  non_head_dtrs:[head:spec:Spec]).
+  non_head_dtrs:[cat:head:spec:Spec]).
 
 
 % root macro
@@ -99,8 +107,8 @@ head_adjunct_phrase *>
 %         ltop:GTop)).
 
 root macro
- (spr:[],
-  comps:[]).
+ (cat:(spr:[],
+       comps:[])).
 
 
 interrog macro

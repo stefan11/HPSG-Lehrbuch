@@ -15,7 +15,7 @@ spr    <<< comps.
 comps  <<< cont.
 cont   <<< head_dtr.
 
-gtop <<< ltop.
+%gtop <<< ltop.
 ltop <<< ind.
 ind  <<< rels.
 rels <<< hcons.

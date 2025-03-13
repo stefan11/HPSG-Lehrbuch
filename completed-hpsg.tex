@@ -9,12 +9,13 @@
 %	        ,collectionchapter
 %	        ,collectiontoclongg
  	        ,biblatex  
+                ,decapbib
                 ,booklanguage=german
 %                ,babelshorthands
 %                ,showindex
                 ,newtxmath
 %                ,colorlinks, citecolor=brown % for drafts
-%                ,draftmode
+                ,draftmode
 % 	        ,coverus
                 ,uniformtopskip
                 ,tblseight % to get the fonts for the Chinese title of GT
@@ -39,10 +40,10 @@
 %\memoizeset{readonly}
 % see below for further settings
 
+\input{localhyphenation.tex} % has to be loaded before german.sty
 \input{localmetadata.tex}
 \input{localpackages.tex}
 \input{localcommands.tex}
-\input{localhyphenation.tex}
 
 
 \input{locallangscifixes.tex}
@@ -89,7 +90,25 @@
 %\bibliography{germanic}
 \bibliography{bib-abbr,biblio-xdata-en,biblio}
 
-\includeonly{chapters/00-hpsg-vorwort,chapters/01-hpsg-einleitung}
+\includeonly{chapters/00-hpsg-vorwort,chapters/01-hpsg-einleitung,chapters/02-hpsg-formalismus,chapters/03-hpsg-valenz-psg,chapters/04-hpsg-komplementation,chapters/05-hpsg-semantik}
+
+% \include{chapters/06-hpsg-adjunkte}
+% \include{chapters/07-hpsg-lexikon}
+% \include{chapters/08-hpsg-topologie}
+% \include{chapters/09-hpsg-konstituentenreihenfolge}
+% \include{chapters/10-hpsg-udc}
+% \include{chapters/11-hpsg-rs}
+% \include{chapters/12-hpsg-lokalitaet}
+% \include{chapters/13-hpsg-kongruenz}
+% \include{chapters/14-hpsg-kasus}
+% \include{chapters/15-hpsg-verbalkomplex}
+% \include{chapters/16-hpsg-anhebung}
+% \include{chapters/17-hpsg-passiv}
+% \include{chapters/18-hpsg-partikel}
+
+% \include{chapters/19-hpsg-morphologie}
+
+% \include{chapters/20-hpsg-theorie}
 
 
 \input hpsg-lehrbuch-include

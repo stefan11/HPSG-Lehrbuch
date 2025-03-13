@@ -23,6 +23,11 @@
 % temporary fix, remove later
 %\newcount\pdftexversion \pdftexversion140 \def\pgfsysdriver{pgfsys-dvipdfm.def} \usepackage{tikz} \usetikzlibrary{tikzmark}
 
+% for MRS
+%\usetikzlibrary{tikzmark}
+
+% for bezier curves (bounding box) for scoped MRSes
+\usetikzlibrary{bbox}
 
 
 % \justify to switch of \raggedright in translations
@@ -84,6 +89,9 @@
 
 
 \usepackage{langsci-gb4e}
+
+\let\eal\ealnoraggedright
+
 \usepackage{styles/jambox}
 
 % fixes problem with to much vertical space between \zl and \eal due to the \nopagebreak
@@ -149,7 +157,8 @@
 
 %\selectlanguage{ngerman}
 
-\usepackage{./styles/merkmalstruktur,./styles/abbrev,./styles/makros.2020,./styles/my-xspace,./styles/article-ex,./styles/additional-langsci-index-shortcuts,
+
+\usepackage{./styles/merkmalstruktur,./styles/makros.2020,./styles/my-xspace,./styles/abbrev,./styles/article-ex,./styles/additional-langsci-index-shortcuts,
 ./styles/de-date,./styles/my-theorems,styles/mycommands}
 
 \usepackage{langsci-avm}
@@ -276,3 +285,13 @@ Figure~\ref{#1}\vpageref[]{#1} and Figure~\ref{#2} \vpageref{#2}}}%
 % remove when finished
 \usepackage{proofread}
 
+
+% without loading german.sty abbreviations with "= following them do not work. babel does not
+% recognize the " escape provided in my-xspace. St. Mü. 06.03.2025
+%\usepackage{ngerman}
+
+
+\usepackage{pst-node}
+\psset{nodesep=4pt}
+
+\definecolor{fugreen}{rgb}{0.6,0.8,0}

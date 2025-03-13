@@ -8,9 +8,12 @@ t(5,"Affe schläft.",@decl,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinz
 t(6,"der Affe kennt",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
 t(7,"an das Kind schläft",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
 t(8,"an das Kind den Affe kennt",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
-t(9,"die Tochter des Mannes",@root,2,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
+t(9,"die Tochter des Mannes schläft.",@root,1,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
 t(10,"die Tochter Mannes",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
 t(11,"der kleine Affe",@root,1,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Spezifikator-Strukturen, Kopf-Adjunkt-Strukturen').
-t(12,"der mutmaßliche Affe",@root,1,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Spezifikator-Strukturen, Kopf-Adjunkt-Strukturen, Semantik').
-t(13,"Der angeblich kleine Affe schläft.",@decl,1,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Spezifikator-Strukturen, Kopf-Adjunkt-Strukturen, Semanitk, Scopus').
-t(14,"der Affe wahrscheinlich schläft.",@decl,1,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Spezifikator-Strukturen, Kopf-Adjunkt-Strukturen, Semanitk, Scopus').
+t(12,"Jede Tochter eines Mitarbeiters schläft.",@root,1,'Kapitel 5: Semantik, Skopus').
+t(13,"der mutmaßliche Affe",@root,1,'Kapitel 5: Semantik, Skopus').
+t(14,"sein Affe schläft.",@root,1,'Kapitel 5: Semantik, Skopus').
+t(15,"Der angeblich kleine Affe schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
+t(16,"der Affe wahrscheinlich schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
+t(17,"Jeder Affe glaubt, dass ein Einhorn schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').

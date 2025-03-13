@@ -238,9 +238,13 @@
 \newcommand{\gapf}{\textsc{gap} feature\xspace}
 \newcommand{\gtop}{\textsc{gtop}\xspace}
 \newcommand{\hcons}{\textsc{hcons}\xspace}
-\newcommand{\hconsl}{\textsc{hcons} list\xspace}
+\iflanguage{german}{%
+\newcommand{\hconsl}{\textsc{hcons}"=Liste\xspace}}{%
+\newcommand{\hconsl}{\textsc{hcons} list\xspace}}
 \newcommand{\hconsv}{\textsc{hcons} value\xspace}
 \newcommand{\hconsvs}{\textsc{hcons} values\xspace}
+\newcommand{\hconsw}{\textsc{hcons}\hyp Wert\xspace}
+\newcommand{\hconswe}{\textsc{hcons}\hyp Werte\xspace}
 \newcommand{\head}{\textsc{head}\xspace}
 \newcommand{\headdtr}{\textsc{head-dtr}\xspace}
 \newcommand{\headf}{\textsc{head} feature\xspace}
@@ -308,7 +312,10 @@
 \newcommand{\localwes}{\textsc{local}\hyp Wertes\xspace}
 % conflict with some package loaded by langsci.cls
 \newcommand{\ltop}{\textsc{ltop}\xspace}
+\newcommand{\ltopm}{\textsc{ltop}\hyp Merkmal\xspace}
 \newcommand{\ltopv}{\textsc{ltop} value\xspace}
+\newcommand{\ltopw}{\textsc{ltop}-Wert\xspace}
+\newcommand{\ltopwe}{\textsc{ltop}-Werte\xspace}
 % Konflikt mit Beamer
 %\newcommand{\mod}{\textsc{mod}\xspace}
 \newcommand{\modf}{\textsc{mod} feature\xspace}
@@ -317,6 +324,7 @@
 \newcommand{\modv}{\textsc{mod} value\xspace}
 \newcommand{\modvs}{\textsc{mod} values\xspace}
 \newcommand{\modw}{\textsc{mod}\hyp Wert\xspace}
+\newcommand{\modwes}{\textsc{mod}\hyp Wertes\xspace}
 \newcommand{\mother}{\textsc{mother}\xspace}
 \newcommand{\motherf}{\textsc{mother} feature\xspace}
 \newcommand{\movealpha}{Move-$\alpha$\xspace}
@@ -392,6 +400,8 @@
 \newcommand{\slashws}{\textsc{slash}\hyp Wertes\xspace}
 \newcommand{\slashv}{\textsc{slash} value\xspace}
 \newcommand{\slashvs}{\textsc{slash} values\xspace}
+\newcommand{\specm}{\textsc{spec}\hyp Merkmal\xspace}
+\newcommand{\specms}{\textsc{spec}\hyp Merkmals\xspace}
 \newcommand{\specv}{\textsc{spec} value\xspace}
 \newcommand{\specw}{\textsc{spec}\hyp Wert\xspace}
 \newcommand{\specwes}{\textsc{spec}\hyp Wertes\xspace}
@@ -751,6 +761,11 @@ Derivation}{derivation}\xspace}
 \newcommand{\vbar}{\mbox{$\overline{\mbox{V}}$}\xspace}
 \newcommand{\tbar}{\mbox{$\overline{\mbox{T}}$}\xspace}
 
+\newcommand{\vbarDSLv}{V$'$\kern-0.2em//V}
+\newcommand{\vbarSLASH}{V$'$\kern-0.2em/}
+\newcommand{\vSLASHnp}{V\kern-0.1em/NP}
+\newcommand{\vSLASH}{V\kern-0.1em/}
+
 \iflanguage{german}{
 \newcommand{\xbart}{\texorpdfstring{\xbar-Theo\-rie\is{X-Theorie@\xbar-Theorie}}{X̄-Theo\-rie}\xspace}
 }{\newcommand{\xbart}{\texorpdfstring{\xbar theory\is{X theory@\xbar theory}}{X̄ theo\-ry}\xspace}}
@@ -801,6 +816,7 @@ Derivation}{derivation}\xspace}
 \newcommand{\that}{\spacebr{}that\xspace}
 
 
+\newcommand{\argzero}{\textsc{arg0}\xspace}
 \newcommand{\argone}{\textsc{arg1}\xspace}
 \newcommand{\argtwo}{\textsc{arg2}\xspace}
 \newcommand{\argthree}{\textsc{arg3}\xspace}

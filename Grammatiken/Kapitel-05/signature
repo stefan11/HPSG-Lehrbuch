@@ -13,7 +13,7 @@ type_hierarchy
 bot
   none_or_sign
     none
-    sign phon:list head:head spr:list comps:list cont:cont
+    sign phon:list cat:cat cont:cont
       phrase non_head_dtrs:list dtrs:list
         headed_phrase head_dtr:sign
           head_non_specifier_phrase
@@ -24,6 +24,7 @@ bot
             &head_adjunct_phrase
         non_headed_phrase
       word
+  cat head:head spr:list comps:list
   head mod:none_or_sign spec:none_or_sign scopal:bool
     intro_case_head case:case
       attr_adj
@@ -34,10 +35,10 @@ bot
     non_modifier mod:none % alle Unterkategorien können im Prinzip auch Adjunkte sein, aber nicht in dieser Grammatik
       &glb_det_noun_prep
       verb vform:vform
-    modifier mod:sign
-      adv
-      adj
-        &attr_adj
+    adv
+    adj
+      &attr_adj
+    comp cform:cform
   list
     e_list
     ne_list hd:bot tl:list
@@ -51,12 +52,14 @@ bot
     acc  
   pform
     an_pform
+  cform
+    dass
   vform
     fin
   cont gtop:handle ltop:handle ind:event_or_index rels:list hcons:list
   event_or_index
     event
-    index
+    index per:per num:num gen:gender
     handle
   relation lbl:handle
     arg0_relation arg0:event_or_index
@@ -64,16 +67,19 @@ bot
         affe_rel
         beispiel_rel
         buch_rel
+        einhorn_rel
         frau_rel
         kind_rel
         mann_rel
         mitarbeiter_rel
+        pronoun_rel
         klein_rel
         schwierig_rel
         quant_rel rstr:handle body:handle
           def_q
           every_q
-          one_q
+          exists_q
+          pronoun_q
       &arg01_relation
       &arg02_relation
     arg1_relation arg1:event_or_index
@@ -83,14 +89,28 @@ bot
       &arg01_relation
         schlafen_rel
         arg012_relation
+          poss_rel
           denken_an_rel
+          glauben_rel
           jagen_rel
           kennen_rel
           arg0123_rel arg3:index
             geben_rel
-    arg02_relation arg2:index
-      tochter_rel
+    arg2_relation arg2:event_or_index
+      &arg02_relation
+        tochter_rel
+        &arg012_relation
       grauen_rel
-      &arg012_relation
   qeq harg:handle larg:handle
+  per
+    first
+    second
+    third
+  num
+    sg
+    pl
+  gender
+    mas
+    fem
+    neu
 .

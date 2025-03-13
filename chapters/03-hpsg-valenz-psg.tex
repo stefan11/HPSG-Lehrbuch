@@ -142,10 +142,10 @@ für Kopf"=Argument"=Kombination benutzen:
 \ea
 \label{psg-regeln-append}
 \begin{tabular}[t]{@{}l@{~}l@{~$\to$~}l}
-a.& V[\comps \ibox{A}] &  \ibox{B}, V[\comps \ibox{A} $\oplus$ \sliste{ \ibox{B} } ]\\
-b.& A[\comps \ibox{A}] &  \ibox{B}, A[\comps \ibox{A} $\oplus$ \sliste{ \ibox{B} } ]\\
-c.& N[\comps \ibox{A}] &  \ibox{B}, N[\comps \ibox{A} $\oplus$ \sliste{ \ibox{B} } ]\\
-d.& P[\comps \ibox{A}] &  P[\comps \ibox{A} $\oplus$ \sliste{ \ibox{B} } ], \ibox{B}\\
+a.& V[\comps \ibox{1}] &  \ibox{2}, V[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ]\\
+b.& A[\comps \ibox{1}] &  \ibox{2}, A[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ]\\
+c.& N[\comps \ibox{1}] &  \ibox{2}, N[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ]\\
+d.& P[\comps \ibox{1}] &  P[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ], \ibox{2}\\
 \end{tabular}
 \z
 In den Boxen verwende ich \emph{A} und \emph{B} statt 1 oder 2, damit man nicht mit den
@@ -172,7 +172,7 @@ den Lexikoneintrag für \emph{schläft} in die Regel in (\ref{psg-regeln-append}
 ergibt sich (\mex{1}):
 \ea
 \label{ex-Regel-mit-einer-NP-in-Valenz}
-V[\comps \ibox{A}] $\to$ \ibox{B} NP, V[\comps \ibox{A} \sliste{} $\oplus$ \sliste{ \ibox{B} NP } ]
+V[\comps \ibox{1}] $\to$ \ibox{2} NP, V[\comps \ibox{1} \sliste{} $\oplus$ \sliste{ \ibox{2} NP } ]
 \z
 \emph{append} teilt die \compsl von \emph{schläft} in zwei Teile. 
 Ein Teil ist eine einelementige Liste, die die NP enthält, der zweite Teil ist die leere Liste. 
@@ -206,7 +206,7 @@ Die \compsl im Lexikoneintrag von \emph{erwartet} enthält genau zwei NPen. Setz
 den Lexikoneintrag für \emph{erwartet} in die erste Regel in (\ref{psg-regeln-append}) ein,
 ergibt sich (\mex{1}):
 \ea
-V[\comps \ibox{A}] $\to$ \ibox{B} NP, V[\comps \ibox{A} \sliste{ NP } $\oplus$ \sliste{ \ibox{B} NP } ]
+V[\comps \ibox{1}] $\to$ \ibox{2} NP, V[\comps \ibox{1} \sliste{ NP } $\oplus$ \sliste{ \ibox{2} NP } ]
 \z
 Das Ergebnis der Regelanwendung ist V[\comps \sliste{ NP }]. Das entspricht dem
 Lexikoneintrag von \emph{schläft}. Die Regel kann also wie in (\ref{ex-Regel-mit-einer-NP-in-Valenz}) noch einmal
@@ -236,10 +236,10 @@ Zuerst kann man von der Abfolge der Konstituenten auf der rechten Regelseite abs
 \ea
 \label{abstraktion-linearisierung}
       \begin{tabular}[t]{@{}lll}
-      V[\comps \ibox{A}] & $\to$ & V[\comps \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \ibox{B}\\
-      N[\comps \ibox{A}] & $\to$ & N[\comps \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \ibox{B}\\
-      A[\comps \ibox{A}] & $\to$ & A[\comps \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \ibox{B}\\
-      P[\comps \ibox{A}] & $\to$ & P[\comps \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \ibox{B}\\
+      V[\comps \ibox{1}] & $\to$ & V[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
+      N[\comps \ibox{1}] & $\to$ & N[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
+      A[\comps \ibox{1}] & $\to$ & A[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
+      P[\comps \ibox{1}] & $\to$ & P[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
       \end{tabular}
 \z
 In einem zweiten Schritt kann man, wie das in den \xbar-Schemata gemacht wurde, über
@@ -248,7 +248,7 @@ die Regeln in (\ref{psg-regeln-append}) bzw.\ in (\mex{0}) zusammenfasst:
 \ea
 \label{regelschema-psg-comps}
 \begin{tabular}[t]{@{}lll}
-H[\comps \ibox{A}] & $\to$ & H[\comps \ibox{A} $\oplus$ \sliste{ \ibox{B} } ] \ibox{B}\\
+H[\comps \ibox{1}] & $\to$ & H[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
 \end{tabular}
 \z
 `H' steht hierbei für irgendeinen Kopf (also \zb A, N, P oder V).
@@ -358,9 +358,9 @@ Wir haben bisher nur das Valenzmerkmal \comps benutzt. Es gibt
 noch das Merkmal \spr, das für die Repräsentation von Spezifikatoren verwendet wird. Für das Deutsche spielt \spr in Nominalstrukturen eine
 Rolle. Ein Nomen wie \emph{Schwester} selegiert seinen Determinator über das \sprm. Komplemente, wie
 sie bei relationalen Nomina wie \emph{Schwester}, \emph{Bild} oder Nominalisierungen wie \emph{Vorlesen} möglich sind, werden über \comps
-selegiert. Abbildung~\ref{fig-die-Schwester-von-Aicke} zeigt die Analyse von (\mex{1}a):
+selegiert. Abbildung~\ref{fig-die-Tochter-eines-Mitarbeiters} zeigt die Analyse von (\mex{1}a):
 \eal
-\ex die Schwester von Aicke
+\ex die Tochter eines Mitarbeiters
 \ex das Bild vom Gleimtunnel
 \ex das Vorlesen von Büchern
 \zl 
@@ -368,16 +368,16 @@ selegiert. Abbildung~\ref{fig-die-Schwester-von-Aicke} zeigt die Analyse von (\m
 \centerfit{%
 \begin{forest}
 sm edges
-[{NP[\spr \eliste, \comps \eliste]}
+[{N[\spr \eliste, \comps \eliste]}
    [Det [die] ]
    [N\feattab{
       \spr \nliste{ Det }, \comps \sliste{}}
      [N\feattab{
          \spr \nliste{ Det },\\
-         \comps \nliste{ PP[\type{von}] }} [Schwester] ]
-        [{PP[\type{von}]} [von Aicke,roof] ] ] ]
+         \comps \nliste{ NP[\type{gen}] }} [Tochter] ]
+        [{NP[\type{gen}]} [eines Mitarbeiters,roof] ] ] ]
 \end{forest}}
-\caption{\label{fig-die-Schwester-von-Aicke}Analyse des Beispiels \emph{die Schwester von Aicke}}
+\caption{\label{fig-die-Tochter-eines-Mitarbeiters}Analyse des Beispiels \emph{die Tochter eines Mitarbeiters}}
 \end{figure}
 
 Für die Analyse von Spezifikator-Kopf-Strukturen braucht man ein Schema, das analog zu dem in
@@ -385,7 +385,7 @@ Für die Analyse von Spezifikator-Kopf-Strukturen braucht man ein Schema, das an
 \ea
 \label{regelschema-psg-spr}
 \begin{tabular}[t]{@{}lll}
-H[\spr \ibox{A}] & $\to$ & \ibox{B} H[\spr \ibox{A}  $\oplus$ \sliste{ \ibox{B} }  ]\\
+H[\spr \ibox{1}] & $\to$ & \ibox{2}~~~ H[\spr \ibox{1}  $\oplus$ \sliste{ \ibox{2} }  ]\\
 \end{tabular}
 \z
 Wir werden darauf im nächsten Kapitel zurückkommen.
@@ -437,7 +437,7 @@ die Komplemente auf \comps. Für das Deutsche bleibt die \sprl finiter Verben le
 kommen auf \comps. (\mex{1}) und (\mex{2}) zeigen prototypische Verben im Englischen und im Deutschen:
 
 \ea
-\label{ex-spr-comps-arg-st}
+\label{ex-spr-comps-arg-st-Englisch}
 \begin{tabular}[t]{@{}ll@{~~}l@{~~}l@{}}
 Verb          & \spr                      & \comps                                     & \argst\\
 \emph{sleep}  & \sliste{ NP[\type{nom}] } & \sliste{}                                  & \sliste{ NP[\type{nom}] }\\
@@ -449,7 +449,7 @@ Verb          & \spr                      & \comps                              
 \z
 
 \ea
-\label{ex-spr-comps-arg-st}
+\label{ex-spr-comps-arg-st-Deutsch}
 \begin{tabular}[t]{@{}ll@{~~}l@{~~}l@{}}
 Verb            & \spr                      & \comps                                      & \argst\\
 \emph{sclafen}  & \sliste{ } & \sliste{ NP[\type{nom}] }                                  & \sliste{ NP[\type{nom}] }\\
@@ -490,6 +490,175 @@ so genannte Linking\is{Linking}) auf \argst gemacht werden \citep*{DKW2024a}. Wi
 und für die Bindungstheorie relevant.
 \is{Valenz|)}
   
+\section{Adjunkte}
+\label{sec-Adjunkte-psg}
+
+In den vorigen Abschnitten wurden die Argumente von Köpfen behandelt, in diesem Abschnitt sollen
+Adjunkte besprochen werden. Auf S.\,\pageref{adj-kriterien} wurde festgehalten: Adjunkte füllen keine semantische
+Rolle, Adjunkte sind iterierbar und Adjunkte sind optional. Argumente hingegen können eine
+semantische Rolle ihres Kopfes füllen, der Kopf bestimmt normalerweise die Eigenschaften seiner
+Argumente, zum Beispiel deren Kasus, und legt fest, wie viele Argumente er braucht. Für die
+Argumente haben wir Valenzlisten verwendet. Für Adjunkte wäre das nicht sinnvoll. Im
+Kapitel~\ref{sec-intro-arg-adj}\is{Adjunkt|(}\is{Modifikator|(} wurde festgestellt, dass die Form
+von Adjunkten, die mit bestimmten Köpfen vorkommen können, relativ wenig beschränkt ist. Andererseits
+können Adjunkte oft nur mit Köpfen einer bestimmten Wortart vorkommen. Flektierte
+Adjektive sind \zb nur als Modifikatoren von Nomina möglich. 
+\eal
+\ex[]{
+der laute Gesang
+}
+\ex[*]{
+Aicke singt laute.
+}
+\ex[]{
+Aicke singt laut.
+}
+\zl
+Analog zur Selektion von Argumenten durch Köpfe über \spr und \comps kann
+man Adjunkte ihren Kopf über ein Merkmal (\textsc{modified})\isfeat{mod} selegieren lassen.
+Adjektive, Nomina modifizierende Präpositionalphrasen und Relativsätze
+selegieren eine fast vollständige Nominalprojektion, \dash ein Nomen, das
+nur noch mit einem Determinierer kombiniert werden muss, um eine vollständige
+NP zu bilden. Die Abkürzung dafür ist \nbar. Ausschnitte des Lexikoneintrags für \emph{interessantes} zeigt (\mex{1}):
+\ea\is{Adjektiv}
+\label{le-interessantes}
+\emph{interessantes}:\\
+\ms{ 
+   phon & \phonliste{ interessantes }\\
+   p-o-s & adj\\
+   mod &  \nbar\\
+   spr   & \eliste\\
+   comps & \liste{} \\
+}
+\z
+\emph{interessantes} ist ein Adjektiv, das selbst keine Argumente mehr zu sich nimmt,
+und das deshalb eine leere \sprl und \compsl hat. Adjektive wie \emph{treu} in (\mex{1}) würden entsprechend
+eine Dativ"=NP in ihrer \compsl haben.
+\ea
+ein dem König treues Mädchen
+\z
+Den Lexikoneintrag zeigt (\mex{1}):
+\ea
+\label{le-treue}
+\emph{treues}:\\
+\ms{ 
+   phon & \phonliste{ treues }\\
+   p-o-s & adj\\ %prd & $-$ \\
+   mod &  \nbar\\
+   spr   & \eliste\\
+   comps & \liste{ NP[\type{dat}] } \\
+}
+\z
+\emph{dem König treues} bildet dann eine Adjektivphrase, die \emph{Mädchen} modifiziert.
+
+Ähnlich wie bei den Valenzmerkmalen muss die Information darüber, womit sich ein Adjunkt kombinieren
+kann in komplexen Strukturen nach oben gegeben werden. Die Eigenschaft der Adjektivphrase \emph{dem
+König treues}, dass sie \nbar{}s modifiziert, muss in der Repräsentation der gesamten AP enthalten sein,
+genauso wie sie im Lexikoneintrag für Adjektive in (\ref{le-interessantes}) auf lexikalischer Ebene
+vorhanden ist. Die Adjektivphrase \emph{dem König treues} hat dieselben syntaktischen Eigenschaften wie das einfache
+Adjektiv \emph{interessantes}:
+\ea
+\label{avm-dem-koenig-treues}
+\emph{dem König treues}:\\
+\ms{ 
+   phon & \phonliste{ dem König treues }\\
+   p-o-s & adj\\ %prd & $-$ \\
+   mod &  \nbar\\
+   spr & \eliste\\
+   comps & \eliste{ } \\
+}
+\z
+Wie die Weitergabe des \textsc{mod}"=Wertes genau erfolgt, werden wir im nächsten Kapitel sehen, in
+dem wir uns mit Kopfmerkmalen und dem Kopfmerkmalsprinzip (siehe Seite~\pageref{prinzip-hfp})
+beschäftigen: Das Kopfmerkmalsprinzip sorgt dafür, dass der \modw der gesamten Projektion mit dem
+\modw des Lexikoneintrags für \emph{treues} identisch ist. 
+
+\itdopt{Selektion der Adjunkte durch Kopf?}
+% Alternativ zur Selektion des Kopfes durch den Modifikator könnte man eine
+% Beschreibung aller möglichen Adjunkte beim Kopf vornehmen. Dies wurde von
+% \citet[\page 161]{ps} vorgeschlagen. \citet[Abschnitt~1.9]{ps2} rücken von diesem Ansatz aber wieder
+% ab, da die Semantik der Modifikation mit diesem Ansatz nicht ohne weiteres
+% beschreibbar ist.\footnote{
+%         Siehe jedoch \citew*{BMS2001a}. \citet*{BMS2001a} verfolgen einen hybriden Ansatz, in dem es sowohl Adjunkte gibt,
+%         die den Kopf selegieren, als auch solche, die vom Kopf selegiert werden.
+%         Als Semantiktheorie liegt diesem Ansatz die \textit{Minimal Recursion Semantics}
+%         (MRS)\is{Minimal Recursion Semantics@\emph{Minimal Recursion Semantics} (MRS)}
+%         zugrunde, die ab der vierten Auflage auch in diesem Buch verwendet wird. Mit dieser Semantik treten die Probleme bei der Beschreibung der Semantik
+%         von Modifikatoren, die \citet*{ps} hatten, nicht auf.
+% }
+
+
+Abbildung~\vref{fig-ha-selektion} zeigt ein Beispiel für die Selektion in Kopf"=Adjunkt"=Strukturen.
+\begin{figure}
+\begin{forest}
+sm edges
+[\nbar
+  [{AP[\textsc{mod} \ibox{1}]}
+    [interessantes]]
+  [\ibox{1} \nbar
+    [Buch]]]
+\end{forest}
+\caption{\label{fig-ha-selektion}Kopf"=Adjunkt"=Struktur (Selektion)}
+\end{figure}
+In Kopf-Argument-Strukturen bestimmt der Kopf die Form der Argumente. Man kann \zb in der \compsl
+festlegen, dass eine Argument-NP vollständig sein muss, \dash, dass die \sprl und die \compsl des
+entsprechenden Arguments leer sein muss. Bei Adjunkten hat der Kopf keinen Zugriff auf das
+Adjunkt. Deshalb muss in der Grammatikregel, die Kopf und Adjunkt kombiniert, festgelegt werden,
+dass das Adjunkt gesättigt ist, \dash, dass \sprl und \compsl der Adjunkttochter leer sind. 
+\ea
+\label{regelschema-psg-adjunct}
+\begin{tabular}[t]{@{}lll@{}}
+H[\spr \ibox{1}, \comps \ibox{2}] & $\to$ & [\textsc{mod} \ibox{3}, \spr \eliste, \comps \eliste]~~~ \ibox{3}~H[\spr \ibox{1}, \comps \ibox{2} ]\\
+\end{tabular}
+\z
+In (\mex{0}) wählt die Adjunkttochter über \ibox{3} den Kopf, den sie modifizieren will. \spr und
+\comps der Adjunkttochter müssen leer sein. Der \sprw und der \compsw der Kopftochter werden mit dem
+\sprw und dem \compsw der Mutter identifiziert (\ibox{1} und \ibox{2}).
+
+Phrasen wie (\mex{1}b) werden somit korrekt ausgeschlossen:
+\eal
+\label{ex-die-Wurst-in}
+\ex[]{
+die Wurst in der Speisekammer
+}
+\ex[*]{
+die Wurst in
+}
+\zl
+Das Beispiel in (\mex{0}a) soll noch genauer diskutiert werden. Für die Präposition \emph{in} (in der
+Verwendung in (\mex{0}a)) nimmt man den folgenden Lexikoneintrag an:
+
+\ea
+Lexikoneintrag für \emph{in}:\\
+\ms{
+phon & \phonliste{ in } \\
+p-o-s & prep\\
+mod &   \nbar\\
+spr & \eliste\\
+comps & \sliste{ NP[\type{dat}] } \\
+}
+\z
+Nach der Kombination mit der Nominalphrase \emph{der Speisekammer} bekommt man:
+\ea
+Repräsentation für \emph{in der Speisekammer}:\\
+\ms{
+phon & \phonliste{ in der Speisekammer } \\
+p-o-s & prep\\
+mod &   \nbar\\
+spr & \eliste\\
+comps & \eliste{ } \\
+}
+\z
+Diese Repräsentation entspricht der des Adjektivs \emph{interessantes} und kann 
+-- abgesehen von der Stellung der PP -- auch genauso verwendet
+werden: Die PP modifiziert eine \nbar.
+
+Köpfe, die nur als Argumente verwendet werden können und nicht selbst modifizieren,
+haben als \modw \type{none}. Dadurch können sie in Kopf"=Adjunkt"=Strukturen nicht an die Stelle
+der Nicht"=Kopf"|tochter treten, da der \modw der Nicht"=Kopf"|tochter mit der Kopf"|tochter kompatibel
+sein muss.
+
+
 
 \section{Alternativen}
 
