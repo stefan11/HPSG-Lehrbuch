@@ -11,22 +11,31 @@
 
 type_hierarchy
 bot
-  sign phon:list head:head spr:list comps:list
-    phrase non_head_dtrs:list dtrs:list
-      headed_phrase head_dtr:sign
-        head_non_specifier_phrase
-          head_complement_phrase
-        head_non_complement_phrase
-          head_specifier_phrase
-      non_headed_phrase
-    word
-  head 
+  none_or_sign
+    none
+    sign phon:list head:head spr:list comps:list
+      phrase non_head_dtrs:list dtrs:list
+        headed_phrase head_dtr:sign
+          head_non_specifier_phrase
+            head_complement_phrase
+            head_adjunct_phrase
+          head_non_complement_phrase
+            head_specifier_phrase
+            &head_adjunct_phrase
+        non_headed_phrase
+      word
+  head mod:none_or_sign 
     intro_case_head case:case
       attr_adj
-      det
-      noun
-      prep pform:pform
-    verb vform:vform
+      glb_det_noun_prep
+        det
+        noun
+        prep pform:pform
+    non_modifier mod:none
+      &glb_det_noun_prep
+      verb vform:vform
+    adj
+      &attr_adj
   list
     e_list
     ne_list hd:bot tl:list

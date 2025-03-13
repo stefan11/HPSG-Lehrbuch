@@ -40,6 +40,9 @@ head_non_specifier_phrase *>
    (spr:Spr,
     head_dtr:spr:Spr).
 
+head_adjunct_phrase *>
+   (head_dtr:HD,
+    non_head_dtrs:[head:mod:HD]).
 
 
 

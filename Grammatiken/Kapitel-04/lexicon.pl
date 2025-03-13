@@ -75,6 +75,15 @@ die ---> (word,
   spr:[],
   comps:[] ).
 
+kleine ---> (word,
+  head:(adj,
+        case:nom,
+        mod:(head:noun,
+             spr:[_],
+             comps:[])),
+  spr:[],
+  comps:[]).
+
 
 affe ---> (word,
   head:(noun,

@@ -39,3 +39,10 @@ spr_h rule (head_specifier_phrase,
 cat> NonHeadDtr,
 cat> HeadDtr.
 
+adj_h rule (head_adjunct_phrase,
+             dtrs:[NonHeadDtr,HeadDtr],
+             head_dtr:HeadDtr,
+             non_head_dtrs:[NonHeadDtr])
+  ===>
+cat> NonHeadDtr,
+cat> HeadDtr.
