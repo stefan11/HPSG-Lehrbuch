@@ -8,19 +8,23 @@
 %	        ,collection
 %	        ,collectionchapter
 %	        ,collectiontoclongg
- 	        ,biblatex
+% 	        ,biblatex
                 ,decapbib
 %                ,babel
                 ,booklanguage=german
 %                ,babelshorthands
 %                ,showindex
-                ,newtxmath
+%                ,newtxmath
 %                ,colorlinks, citecolor=brown % for drafts
                 ,draftmode
 % 	        ,coverus
                 ,uniformtopskip
-                ,tblseight % to get the fonts for the Chinese title of GT
 		  ]{langscibook} 
+
+
+%	citestyle=langsci-unified,
+%	datamodel=langsci,   % add authauthor and autheditor as possible fields to bibtex entries
+
 
 %\renewcommand{\lsBookLanguage}{german}
 
@@ -56,9 +60,10 @@
 
 % load memoize before german.sty
 
-%\usepackage{nomemoize} 
-\usepackage{memoize} % The figures have been created with an earlier version of texlive. Recreating
-                     % them changes the layout of the pages, so we have to rely on them. Unless ... 16.03.2023
+\usepackage{nomemoize} 
+%\usepackage[extract=no]{memoize} % If malformed trees occur in a first pass, use this and extract later.
+%\usepackage[biblatex={}]{memoize} % 
+
 %\memoizeset{readonly}
 % see below for further settings
 
@@ -75,23 +80,14 @@
 % do not stop and warn! This will be tested in the final version
 \vrefwarning
 
-\usepackage{pstricks,pst-node}
-\psset{linewidth=.3pt}
-\psset{nodesep=5pt}
-
-\usepackage{tikz-qtree}
-% has strange side effects
-%\tikzset{every tree node/.style={align=left, anchor=north}}
-\tikzset{every roof node/.append style={inner sep=0.1pt,text height=2ex,text depth=0.3ex}}
-
 
 %\newcommand{\NOTE}[1]{}
 \newcommand{\NOTE}[1]{\marginpar{#1}}
 
-\memoizeset{
-  memo filename prefix={hpsg.memo.dir/},
-  register=\todo{O{}+m},
-  prevent=\todo,
+\mmzset{
+  prefix=hpsg.memo.dir/,
+%  deactivate=\todo,
+%  deactivate=\verb,
 }
 
 
@@ -112,9 +108,8 @@
 %\includeonly{chapters/02-hpsg-formalismus}
 %\includeonly{chapters/03-hpsg-valenz-psg}
 %\includeonly{chapters/04-hpsg-komplementation}
-\includeonly{chapters/05-hpsg-semantik}
-%\includeonly{chapters/06-hpsg-adjunkte}
-%\includeonly{chapters/07-hpsg-lexikon}
+%\includeonly{chapters/05-hpsg-semantik}
+\includeonly{chapters/06-hpsg-lexikon}
 %\includeonly{chapters/08-hpsg-topologie}
 %\includeonly{chapters/09-hpsg-konstituentenreihenfolge}
 %\includeonly{chapters/10-hpsg-udc}

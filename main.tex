@@ -18,7 +18,6 @@
 %                ,draftmode
 % 	        ,coverus
                 ,uniformtopskip
-                ,tblseight % to get the fonts for the Chinese title of GT
 		  ]{langscibook} 
 
 
@@ -34,10 +33,12 @@
 
 % load memoize before german.sty
 
-%\usepackage{nomemoize} 
-\usepackage{memoize} % The figures have been created with an earlier version of texlive. Recreating
-                     % them changes the layout of the pages, so we have to rely on them. Unless ... 16.03.2023
-%\memoizeset{readonly}
+\usepackage{nomemoize} 
+%\usepackage{memoize} 
+% Figures are created while compiling with check-hpsg-lehrbuch.
+% Sometimes trees are broken during first compile. To be on the safe side,
+% we set things to be readonly here in main.tex
+\mmzset{readonly}
 % see below for further settings
 
 \input{localhyphenation.tex} % has to be loaded before german.sty
@@ -69,10 +70,8 @@
 %\newcommand{\NOTE}[1]{}
 \newcommand{\NOTE}[1]{\marginpar{#1}}
 
-\memoizeset{
-  memo filename prefix={hpsg.memo.dir/},
-  register=\todo{O{}+m},
-  prevent=\todo,
+\mmzset{
+  prefix={hpsg.memo.dir/},
 }
 
 

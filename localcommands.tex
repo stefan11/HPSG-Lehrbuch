@@ -135,31 +135,94 @@
 
 
 
+% \newcommand{\questions}[1]{~\newline\vspace*{-10mm}
+% {\mmzset{disable}%
+% \tblssy{people}{Kontrollfragen}{\setlist{leftmargin=*}#1}}}
+% %\tblssy{people}{Comprehension questions}{#1}}
+
+% \newcommand{\exercises}[1]{{\mmzset{disable}%
+% \tblssy{pencil}{Übungsaufgaben}{\setlist{leftmargin=*}#1}}}
+% %\tblssy{pencil}{Exercises}{#1}}
+
+% \newcommand{\furtherreading}[1]{%~\newline\vspace*{-10mm}
+% {\mmzset{disable}%
+% \tblssy{book}{Literaturhinweise}{#1}}}
+
+% \newcommand{\greyboxrest}[1]{
+% {\mmzset{disable}%
+% \begin{mdframed}[style=greyexercise]
+% #1
+% \end{mdframed}}}
+
+
+% \newcommand{\questions}[1]{~\newline\vspace*{-10mm}
+% {\mmzset{disable}%
+% \tblssy{people}{Kontrollfragen}{\setlist{leftmargin=*}#1}}}
+% %\tblssy{people}{Comprehension questions}{#1}}
+
+% \newcommand{\exercises}[1]{{\mmzset{disable}%
+% \tblssy{pencil}{Übungsaufgaben}{\setlist{leftmargin=*}#1}}}
+% %\tblssy{pencil}{Exercises}{#1}}
+
+% \newcommand{\furtherreading}[1]{%~\newline\vspace*{-10mm}
+% {\mmzset{disable}%
+% \tblssy{book}{Literaturhinweise}{#1}}}
+
+% \newcommand{\greyboxrest}[1]{
+% {\mmzset{disable}%
+% \begin{mdframed}[style=greyexercise]
+% #1
+% \end{mdframed}}}
+
+
+% \mdfdefinestyle{greyexercisenologo}{%
+% 	everyline=true,ignorelastdescenders=true,
+% 	linewidth=0pt,backgroundcolor=\tblsboxcolor,
+% 	innerleftmargin=5mm, innerrightmargin=5mm, innerbottommargin=5mm, innertopmargin=5mm,
+% 	frametitleaboveskip=15mm, frametitlebelowskip=5mm,frametitlerule=false, repeatframetitle=false
+% }
+
+
+
+% Is mdframed used as backend?
+\notbool{langsci@tbls@tcolorbox}{%
 \newcommand{\questions}[1]{~\newline\vspace*{-10mm}
-{\memoizeset{disable}%
-\tblssy{people}{Kontrollfragen}{\setlist{leftmargin=*}#1}}}
+{\mmzset{disable}%
+\tblssy{people}{Comprehension questions}{\setlist{leftmargin=*}#1}}}
 %\tblssy{people}{Comprehension questions}{#1}}
 
-\newcommand{\exercises}[1]{{\memoizeset{disable}%
-\tblssy{pencil}{Übungsaufgaben}{\setlist{leftmargin=*}#1}}}
+\newcommand{\exercises}[1]{{\mmzset{disable}%
+\tblssy{pencil}{Exercises}{\setlist{leftmargin=*}#1}}}
 %\tblssy{pencil}{Exercises}{#1}}
 
 \newcommand{\furtherreading}[1]{%~\newline\vspace*{-10mm}
-{\memoizeset{disable}%
-\tblssy{book}{Literaturhinweise}{#1}}}
+{\mmzset{disable}%
+\tblssy{book}{Further reading}{#1}}}
 
 \newcommand{\greyboxrest}[1]{
-{\memoizeset{disable}%
-\begin{mdframed}[style=greyexercise]
+{\mmzset{disable}%
+\begin{mdframed}[style=greyexercisenologo]
 #1
-\end{mdframed}}}
+\end{mdframed}
+}}
 
 \mdfdefinestyle{greyexercisenologo}{%
 	everyline=true,ignorelastdescenders=true,
 	linewidth=0pt,backgroundcolor=\tblsboxcolor,
 	innerleftmargin=5mm, innerrightmargin=5mm, innerbottommargin=5mm, innertopmargin=5mm,
 	frametitleaboveskip=15mm, frametitlebelowskip=5mm,frametitlerule=false, repeatframetitle=false
-}
+}}{}
+
+% Is tcolorbox used as backend?
+\ifbool{langsci@tbls@tcolorbox}{%
+\newcommand{\questions}[1]{{\mmzset{disable}%
+\begin{tblsfilledsymbol}{Comprehension questions}{people}\setlist{leftmargin=*}#1\end{tblsfilledsymbol}}}
+\newcommand{\exercises}[1]{{\mmzset{disable}%
+\begin{tblsfilledsymbol}{Exercises}{pencil}\setlist{leftmargin=*}#1\end{tblsfilledsymbol}}}
+\newcommand{\furtherreading}[1]{{\mmzset{disable}%
+\begin{tblsfilledsymbol}{Further reading}{book}#1\end{tblsfilledsymbol}}}}{}
+
+
 
 
 % get rid of these morewrite messages:
@@ -224,7 +287,8 @@ frbox/.style={
 \newcommand\TZbox[1]{\tikz{\node[frbox,baseline] {#1};}}
 
 \newgray{hell}{.85}
-\newcommand{\highlight}[1]{\psframebox[linecolor=hell,fillcolor=hell,fillstyle=solid]{#1}}
+%\newcommand{\highlight}[1]{\psframebox[linecolor=hell,fillcolor=hell,fillstyle=solid]{#1}}
+\newcommand{\highlight}[1]{\colorbox{hell}{#1}}
 
 \newcommand{\nom}{{\normalfont\textit{nom}}}
 \newcommand{\gen}{{\normalfont\textit{gen}}}

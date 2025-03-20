@@ -30,6 +30,7 @@
 \usetikzlibrary{bbox}
 
 
+
 % \justify to switch of \raggedright in translations
 %\usepackage{ragged2e}
 
@@ -248,7 +249,8 @@ Figure~\ref{#1}\vpageref[]{#1} and Figure~\ref{#2} \vpageref{#2}}}%
 %\newlength{\offset}
 %\newlength{\offsetup}
 
-\ifxetex
+%\ifxetex
+\ifluatex
 \usepackage{./styles/de-hyp-utf8}
 \else
 \usepackage{./styles/de-hyp}
@@ -271,7 +273,8 @@ Figure~\ref{#1}\vpageref[]{#1} and Figure~\ref{#2} \vpageref{#2}}}%
 %\usepackage{caption}
 
 
-
+% alt
+%\usepackage[mdframed]{langsci-tbls}
 \usepackage{langsci-tbls}
 % do not need identation for enumerate since we are in a box anyway.
 \usepackage{enumitem}
@@ -291,7 +294,10 @@ Figure~\ref{#1}\vpageref[]{#1} and Figure~\ref{#2} \vpageref{#2}}}%
 %\usepackage{ngerman}
 
 
-\usepackage{pst-node}
-\psset{nodesep=4pt}
+% \usepackage{pst-node}
+% \psset{nodesep=4pt}
 
 \definecolor{fugreen}{rgb}{0.6,0.8,0}
+
+
+%\usepackage[libertine]{newtxmath}

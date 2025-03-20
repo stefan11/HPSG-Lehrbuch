@@ -310,3 +310,14 @@ hpsg-lehrbuch-zusatzaufgaben.tex
 hpsg-loesungen-teil.tex
 completed-hpsg.pdf
 mann-model-theoretic.pdf
+*.tgz
+test.mrs.pl
+test-mrs.pl
+test-4.mrs.pl
+test-3.mrs.pl
+test-2.mrs.pl
+hpsg-lehrbuch-142x200.png
+hpsg-lehrbuch.png
+Grammatiken/Kapitel-03-offline
+05-hpsg-semantik-neu.tex
+05-hpsg-semantik-old.tex
