@@ -18,7 +18,7 @@ HPSG"=Arbeiten \citep{ps,ps2,Kiss95a,Mueller99a} und auch in einigen Umsetzungen
 innerhalb der Computerlinguistik \citep{MuellerBabel} wurde die Situationssemantik
 \citep*{BP83a,CMP90,Devlin92}\nocite{BP87a} verwendet. Ab den frühen 1990ern gab es Arbeiten zur Unterspezifikationssemantik
 \citep{Nerbonne93a}. Zu dieser Art Semantik zählen die \emph{Lexical Resource Semantics} (LRS,
-\citealt{RS2004a-u,IR2015a-u,Richter2016a-u}, \citealt[Section~6.2]{KR2024a}), die \emph{Minimal Recursion Semantics}\is{Minimal Recursion Semantics@\emph{Minimal Recursion Semantics} (MRS)}
+\citealt{RS2004a-u,IR2015a-u,Richter2016a-u,SailerRichter2021a-u}, \citealt[Section~6.2]{KR2024a}), die \emph{Minimal Recursion Semantics}\is{Minimal Recursion Semantics@\emph{Minimal Recursion Semantics} (MRS)}
 (MRS, \citealt*{CFPS2005a}) und Varianten der \emph{Discourse Representation Theory} (DRT, \citealt{KR93a}) mit Underspecified
 Discourse Representation Structures (UDRS, \citealt{FR95a-u}). Zur MRS gab es 1995 die ersten Veröffentlichungen \citep{CFMRS95a-u} und
 der 2005er Aufsatz kursierte
@@ -30,7 +30,10 @@ weiter verbreitet. MRS wird in theoretischen Arbeiten (\zb \citealt{Kiss2001a}) 
 Computerimplementationen und Übersetzungssystemen \citep*{FCS2000a,MK2000a,Siegel2000a,BFO2002a-u,MuellerCoreGram}. MRS ist für computerlinguistische Systeme gut geeignet, da
 Skopusbeziehungen\is{Skopus} unterspezifiziert dargestellt werden können, was eine effizientere
 Verarbeitung der Grammatiken durch Computer ermöglicht. Zu weiteren Vorteilen siehe \citep*[Abschnitt~2]{CFPS2005a}.
-Das folgende Kapitel führt in MRS ein. Die ersten drei Auf"|lagen dieses Buches haben noch
+Das folgende Kapitel führt in MRS ein. Dazu diskutiere ich viele der Anwendungsfälle, die für das
+Englische von \citet*{CFPS2005a} ausgearbeitet wurden. Für Details, die in diesem klassischen Papier
+offen geblieben sind, habe ich die implementierte Grammatik von Dan Flickinger konsultiert
+\parencites{Flickinger2000a,FCS2000a}. Die ersten drei Auf"|lagen dieses Buches haben noch
 Situationssemantik verwendet. Leser*innen, die die Ansätze vergleichen möchten, können also frühere
 Auflagen konsultieren.
 
@@ -81,7 +84,7 @@ Mehrdeutigkeit entsteht dadurch, dass es zwei verschiedene syntaktische Struktur
 Es ist die Aufgabe der Syntax die Mehrdeutigkeit des Satzes zu erklären. Interessanter für die
 Diskussion in diesem Kapitel ist der Satz in (\mex{0}b). Hier entspricht \emph{jede} dem Allquantor ($\forall$) und \emph{eine} dem
 Existenzquantor ($\exists$), der vielleicht schon aus der Mathematik bekannt ist.\footnote{%
-Für eine Einführung in die Logik für Sprachwissenschaftler*innen siehe \citew{AAD73a} oder \citew{Lohnstein2011a}.}
+Für eine Einführung in die Logik für Sprachwissenschaftler*innen siehe \citew*{AAD73a} oder \citew{Lohnstein2011a}.}
 Es gibt dann zwei Lesarten: In der einen muss es einen bestimmten Mitarbeiter geben
 und für alle Töchter, die er hat, muss gelten, dass sie schlafen. Man sagt, dass der Existenzquantor
 \isi{Skopus} über den Allquantor hat. In der anderen Lesart muss für alle
@@ -94,7 +97,7 @@ S.\,\pageref{fig-die-Tochter-eines-Mitarbeiters} gesehen und auch bei der Kombin
 \emph{schläft} entstehen keine Mehrdeutigkeiten. Es gibt aber in der Tat Ansätze, die
 von syntaktischen Mehrdeutigkeiten ausgehen. Zum Beispiel haben \citet{Chomsky76a-u} und
 \citet{May77a-u,May85a-u} im Rahmen der Transformationsgrammatik \citep{Chomsky57a,Chomsky81a} vorgeschlagen, dass die verschiedenen Lesarten durch das Bewegen der Quantoren in
-syntaktischen Strukturen (auf der so genannten Logischen Form) entstehen. Frühere HPSG"=Ansätze
+syntaktischen Strukturen (auf der so genannten Logischen Form\is{Logische Form}) entstehen. Frühere HPSG"=Ansätze
 verwenden Speicher für Quantoren und man kann die Quantoren dann an unterschiedlichen Stellen in
 syntaktischen Strukturen aus dem Speicher entnehmen \parencites{Cooper83}[Kapitel~8]{ps2}. Da in der
 HPSG syntaktische und semantische Aspekte in einer gemeinsamen Struktur behandelt werden, bekommt
@@ -135,7 +138,7 @@ lieben? Was bedeutet das Wort \emph{Tasse}? Muss das Objekt, auf das wir uns bez
 Form haben? Einen Henkel? Warum ist ein Eimer etwas Anderes als eine Tasse? Was macht eine Zitrone
 aus? Dass sie gelb ist und sauer? Ist eine grüne Zitrone keine Zitrone \citep{Braisby90}? All das sind spannende
 Fragen, mit denen sich Semantiker*innen auch beschäftigen \citep{Rosch1973b-u}. Hier spielen sie aber keine Rolle, denn
-man kann sich mit einem Trick behelfen: Für die Bedeutung von \emph{lieben} verwendet man die
+man kann sich damit behelfen, dass man dem Bündel an Eigenschaften einfach einen Namen gibt: Für die Bedeutung von \emph{lieben} verwendet man die
 Relation \relation{lieben} und für die von \emph{Zitrone} die Relation \relation{zitrone}. Man muss
 dann immer noch klären, wofür \relation{zitrone} genau steht, aber für die Interaktion mit der
 Syntax ist die Repräsentation über Relationen mit Argumenten ausreichend. Die Bezeichnungen für die
@@ -200,50 +203,81 @@ Abbildung~\ref{fig-Diskursuniversum-Konstanten} könnte es sich bei dem Objekt r
 Staubfluse handeln. Zu Staubflusen entwickeln die wenigsten Menschen eine so innige Beziehung, dass
 sie ihr einen Namen geben.
 \begin{figure}
-\begin{pspicture}(0,0)(8,5)
-%\psgrid
-\psframe(0,0)(8,5)
-\rput[Bl](2.6,1.2){%
-\rnode{Aicke}{Aicke}}
-\rput[Bl](1,3){%
-\rnode{sweety}{sweety}}
-\rput[Bl](4,3){%
-\rnode{Conny}{Conny}}
-\rput[Bl](2,.5){%
-\rnode{Kirby}{Kirby}}
+	\begin{tikzpicture}[scale=0.75]
+		\draw (0,0) rectangle (8,5);
+		%
+		\node[anchor=west] at (1.5,0.5) {Kirby};
+		\node[anchor=west] at (2.3,1.7) {Aicke};
+		\node[anchor=east] at (1.8,3) {sweety};
+		\node[anchor=west] at (3.5,3.5) {Conny};
+		%
+		\draw (1,1) -- (1.6,0.7); %Kirby
+		\draw (2,2) -- (2.4,1.9); %Aicke
+		\draw (2,2) -- (1.4,2.7); %sweety
+		\draw (3,3) -- (3.6,3.3); %Conny
+		%
+		\draw[fill=fugreen, draw=black] (1,1) circle (0.1);
+		\draw[fill=fugreen, draw=black] (2,2) circle (0.1);
+		\draw[fill=fugreen, draw=black] (3,3) circle (0.1);
+		\draw[fill=fugreen, draw=black] (4,2) circle (0.1);
+		\draw[fill=fugreen, draw=black] (7,4) circle (0.1);
+	\end{tikzpicture}
+% \begin{pspicture}(0,0)(8,5)
+% %\psgrid
+% \psframe(0,0)(8,5)
+% \rput[Bl](2.6,1.2){%
+% \rnode{Aicke}{Aicke}}
+% \rput[Bl](1,3){%
+% \rnode{sweety}{sweety}}
+% \rput[Bl](4,3){%
+% \rnode{Conny}{Conny}}
+% \rput[Bl](2,.5){%
+% \rnode{Kirby}{Kirby}}
 
-\cnode[fillcolor=fugreen,fillstyle=solid](1,1){0.1}{KirbyDot}
-\cnode[fillcolor=fugreen,fillstyle=solid](2,2){0.1}{AickeDot}
-\cnode[fillcolor=fugreen,fillstyle=solid](4,2){0.1}{NonameDot}
-\cnode[fillcolor=fugreen,fillstyle=solid](3,3){0.1}{ConnyDot}
-\cnode[fillcolor=fugreen,fillstyle=solid](7,4){0.1}{NoName2Dot}
-%
-%\psellipse(4,2)(3,1.5)
-%\anodeconnect[l]{modell}[r]{phen}%
-\ncline[nodesepA=2pt,nodesepB=0pt]{Kirby}{KirbyDot}
-\ncline[nodesepA=2pt,nodesepB=0pt]{Aicke}{AickeDot}
-\ncline[nodesepA=2pt,nodesepB=0pt]{sweety}{AickeDot}
-\ncline[nodesepA=2pt,nodesepB=0pt]{Conny}{ConnyDot}
-\end{pspicture}
+% \cnode[fillcolor=fugreen,fillstyle=solid](1,1){0.1}{KirbyDot}
+% \cnode[fillcolor=fugreen,fillstyle=solid](2,2){0.1}{AickeDot}
+% \cnode[fillcolor=fugreen,fillstyle=solid](4,2){0.1}{NonameDot}
+% \cnode[fillcolor=fugreen,fillstyle=solid](3,3){0.1}{ConnyDot}
+% \cnode[fillcolor=fugreen,fillstyle=solid](7,4){0.1}{NoName2Dot}
+% %
+% %\psellipse(4,2)(3,1.5)
+% %\anodeconnect[l]{modell}[r]{phen}%
+% \ncline[nodesepA=2pt,nodesepB=0pt]{Kirby}{KirbyDot}
+% \ncline[nodesepA=2pt,nodesepB=0pt]{Aicke}{AickeDot}
+% \ncline[nodesepA=2pt,nodesepB=0pt]{sweety}{AickeDot}
+% \ncline[nodesepA=2pt,nodesepB=0pt]{Conny}{ConnyDot}
+% \end{pspicture}
 \caption{Diskursuniversum mit Individuen, denen Individuenkonstanten zugeordnet sind}\label{fig-Diskursuniversum-Konstanten}
 \end{figure}
 
 Abbildung~\ref{fig-Diskursuniversum-blond} zeigt die Menge der blonden Individuen im Diskursuniversum.
 \begin{figure}
-\begin{pspicture}(0,0)(8,5)
-%\psgrid
-\psframe(0,0)(8,5)
-\pscircle[fillcolor=fugreen,fillstyle=solid](1,1){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](2,2){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](4,2){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](3,3){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](7,4){0.1}
-\rput[Bl](3,0.5){%
-\rnode{blond}{blond}}
-%
-\cnode(1.5,1.5){1}{blondSet}
-\ncline[nodesepA=0pt,nodesepB=2pt]{blondSet}{blond}
-\end{pspicture}
+	\begin{tikzpicture}[scale=0.75]
+		\draw (0,0) rectangle (8,5);
+		\draw (1.5,1.5) circle (1);
+		\draw[fill=fugreen, draw=black] (1,1) circle (0.1);
+		\draw[fill=fugreen, draw=black] (2,2) circle (0.1);
+		\draw[fill=fugreen, draw=black] (3,3) circle (0.1);
+		\draw[fill=fugreen, draw=black] (4,2) circle (0.1);
+		\draw[fill=fugreen, draw=black] (7,4) circle (0.1);
+		%
+		\node[anchor=west] at (3,0.5) {blond};
+		\draw (2.3,0.9) -- (3,0.7);
+	\end{tikzpicture}
+% \begin{pspicture}(0,0)(8,5)
+% %\psgrid
+% \psframe(0,0)(8,5)
+% \pscircle[fillcolor=fugreen,fillstyle=solid](1,1){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](2,2){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](4,2){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](3,3){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](7,4){0.1}
+% \rput[Bl](3,0.5){%
+% \rnode{blond}{blond}}
+% %
+% \cnode(1.5,1.5){1}{blondSet}
+% \ncline[nodesepA=0pt,nodesepB=2pt]{blondSet}{blond}
+% \end{pspicture}
 \caption{Diskursuniversum mit der Menge der blonden Individuen}\label{fig-Diskursuniversum-blond}
 \end{figure}
 
@@ -251,80 +285,136 @@ Abbildung~\ref{fig-Diskursuniversum-blond-Kind} zeigt zwei Mengen: die der blond
 die der Kinder. Mann kann hier schön sehen, dass die Schnittmenge dieser beiden Mengen genau der
 Menge der blonden Kinder entspricht.
 \begin{figure}
-\begin{pspicture}(0,0)(8,5)
-%\psgrid
-\psframe(0,0)(8,5)
-\rput[Bl](5,3){%
-\rnode{Kind}{Kind}}
-%
-\cnode(3,2){1.5}{KindSet}
-\ncline[nodesepA=0pt,nodesepB=2pt]{KindSet}{Kind}
-\rput[Bl](0.5,3.5){%
-\rnode{blond}{blond}}
-%
-\cnode(1.5,1.5){1}{blondSet}
-\ncline[nodesepA=0pt,nodesepB=2pt]{blondSet}{blond}
-\psclip
-{%
-\pscircle(3,2){1.5}
-}
-\pscircle[fillstyle=hlines](1.5,1.5){1}
-\endpsclip
-\pscircle[fillcolor=fugreen,fillstyle=solid](1,1){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](2,2){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](4,2){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](3,3){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](7,4){0.1}
-%
-%\psellipse(4,2)(3,1.5)
-%\anodeconnect[l]{modell}[r]{phen}%
-\end{pspicture}
+\nomemoize{
+	\begin{tikzpicture}[scale=0.75]
+		\draw (0,0) rectangle (8,5);
+		% 
+		\begin{scope}
+			\clip (3,2) circle (1.5);
+			\fill[pattern=north east lines] (1.5,1.5) circle (1);
+		\end{scope}
+		% 
+		\draw (1.5,1.5) circle (1);
+		\draw (3,2) circle (1.5);
+		% 
+		\draw[fill=fugreen, draw=black] (1,1) circle (0.1);
+		\draw[fill=fugreen, draw=black] (2,2) circle (0.1);
+		\draw[fill=fugreen, draw=black] (3,3) circle (0.1);
+		\draw[fill=fugreen, draw=black] (4,2) circle (0.1);
+		\draw[fill=fugreen, draw=black] (7,4) circle (0.1);
+		% 
+		\node[anchor=east] at (1.5,3.5) {blond};
+		\draw (0.8,3.3) -- (1.1,2.4);
+		% 
+		\node[anchor=west] at (5,3) {Kind};
+		\draw (4.1,3) -- (5,3);
+	\end{tikzpicture}}
+% \begin{pspicture}(0,0)(8,5)
+% %\psgrid
+% \psframe(0,0)(8,5)
+% \rput[Bl](5,3){%
+% \rnode{Kind}{Kind}}
+% %
+% \cnode(3,2){1.5}{KindSet}
+% \ncline[nodesepA=0pt,nodesepB=2pt]{KindSet}{Kind}
+% \rput[Bl](0.5,3.5){%
+% \rnode{blond}{blond}}
+% %
+% \cnode(1.5,1.5){1}{blondSet}
+% \ncline[nodesepA=0pt,nodesepB=2pt]{blondSet}{blond}
+% \psclip
+% {%
+% \pscircle(3,2){1.5}
+% }
+% \pscircle[fillstyle=hlines](1.5,1.5){1}
+% \endpsclip
+% \pscircle[fillcolor=fugreen,fillstyle=solid](1,1){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](2,2){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](4,2){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](3,3){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](7,4){0.1}
+% %
+% %\psellipse(4,2)(3,1.5)
+% %\anodeconnect[l]{modell}[r]{phen}%
+% \end{pspicture}
 \caption{Diskursuniversum mit Menge von blonden Individuen und von Individuen mit der Eigenschaft,
   Kind zu sein, und der Schnittmenge der blonden Kinder}\label{fig-Diskursuniversum-blond-Kind}
 \end{figure}
 
 Abbildung~\ref{fig-Diskursuniversum-blond-Kind-schlafen} zeigt zusätzlich noch die Menge der
 schlafenden Individuen. Da die Menge aller blonden Kinder eine Teilmenge der schlafenden Individuen
-ist, ist der Satz (\mex{1}) im vorliegenden Diskursuniversum wahr.
-\ea
-Alle blonden Kinder schlafen.
-\z
+ist, ist der Satz (\mex{1}a) im vorliegenden Diskursuniversum wahr.
+\eal
+\ex Alle blonden Kinder schlafen.
+\ex Ein blondes Kind schläft.
+\zl
+Da es im Diskursuniversum ein blondes Kind gibt und dieses schläft, ist auch der Satz in (\mex{0}b) wahr.
 \begin{figure}
-\begin{pspicture}(0,0)(8,5)
-%\psgrid
-\psframe(0,0)(8,5)
-\rput[Bl](5,3){%
-\rnode{Kind}{Kind}}
-%
-\cnode(3,2){1.5}{KindSet}
-\ncline[nodesepA=0pt,nodesepB=2pt]{KindSet}{Kind}
-\rput[Bl](0.5,3.5){%
-\rnode{blond}{blond}}
-%
-\cnode(1.5,1.5){1}{blondSet}
-\ncline[nodesepA=0pt,nodesepB=2pt]{blondSet}{blond}
-\psclip
-{%
-\pscircle(3,2){1.5}
-}
-\pscircle[fillstyle=hlines](1.5,1.5){1}
-\endpsclip
-\pscircle[fillcolor=fugreen,fillstyle=solid](1,1){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](2,2){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](4,2){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](3,3){0.1}
-\pscircle[fillcolor=fugreen,fillstyle=solid](7,4){0.1}
-%
-\rput*[refpoint]{45}(2.5,-1){\psellipse(2.5,2.5)(1.8,0.9)}
-\rput[Bl](4.5,4){%
-\rnode{schlafen}{schlafen}}
-\psline(4.3,4.1)(3.8,3.8)
-\ncline[nodesepA=0pt,nodesepB=2pt]{schlafenSet}{schlafen}
-%\anodeconnect[l]{modell}[r]{phen}%
-\end{pspicture}
+\nomemoize{%
+\begin{tikzpicture}[scale=0.75]
+		\draw (0,0) rectangle (8,5);
+		\draw (1.5,1.5) circle (1); %klug
+		\draw (3,2) circle (1.5);  %Kind
+		\draw[rotate around={50:(2.4,2.4)}] (2.5,2.5) ellipse (1.5 and 0.9); %schlafen 
+		%
+		\begin{scope}
+			\clip (1.5,1.5) circle (1);
+			\clip (3,2) circle (1.5);
+			\clip[rotate around={50:(2.4,2.4)}] (2.5,2.5) ellipse (1.5 and 0.9);
+			\fill[pattern=north east lines] (0,0) rectangle (8,5);
+		\end{scope}
+		%
+		\draw[fill=fugreen, draw=black] (1,1) circle (0.1);
+		\draw[fill=fugreen, draw=black] (2,2) circle (0.1);
+		\draw[fill=fugreen, draw=black] (3,3) circle (0.1);
+		\draw[fill=fugreen, draw=black] (4,2) circle (0.1);
+		\draw[fill=fugreen, draw=black] (7,4) circle (0.1);
+		%
+		\node[anchor=east] at (1.5,3.5) {blond};
+		\draw (0.8,3.3) -- (1.1,2.4);
+		%
+		\node[anchor=west] at (5,3) {Kind};
+		\draw (4.1,3) -- (5,3);
+		%
+		\node[anchor=west] at (3,4.4) {schlafen};
+		\draw (2.8,3.8) -- (3,4.3);
+	\end{tikzpicture}}
+% \begin{pspicture}(0,0)(8,5)
+% %\psgrid
+% \psframe(0,0)(8,5)
+% \rput[Bl](5,3){%
+% \rnode{Kind}{Kind}}
+% %
+% \cnode(3,2){1.5}{KindSet}
+% \ncline[nodesepA=0pt,nodesepB=2pt]{KindSet}{Kind}
+% \rput[Bl](0.5,3.5){%
+% \rnode{blond}{blond}}
+% %
+% \cnode(1.5,1.5){1}{blondSet}
+% \ncline[nodesepA=0pt,nodesepB=2pt]{blondSet}{blond}
+% \psclip
+% {%
+% \pscircle(3,2){1.5}
+% }
+% \pscircle[fillstyle=hlines](1.5,1.5){1}
+% \endpsclip
+% \pscircle[fillcolor=fugreen,fillstyle=solid](1,1){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](2,2){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](4,2){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](3,3){0.1}
+% \pscircle[fillcolor=fugreen,fillstyle=solid](7,4){0.1}
+% %
+% \rput*[refpoint]{45}(2.5,-1){\psellipse(2.5,2.5)(1.8,0.9)}
+% \rput[Bl](4.5,4){%
+% \rnode{schlafen}{schlafen}}
+% \psline(4.3,4.1)(3.8,3.8)
+% \ncline[nodesepA=0pt,nodesepB=2pt]{schlafenSet}{schlafen}
+% %\anodeconnect[l]{modell}[r]{phen}%
+% \end{pspicture}
 \caption{Diskursuniversum mit Schnittmenge aus blonden, schlafenden und Kind-seienden Individuen}\label{fig-Diskursuniversum-blond-Kind-schlafen}
 \end{figure}
-Damit ist die Verknüpfung von Relationen und die Bezugname auf Diskursunviersen ausreichend genau
+
+Damit ist die Verknüpfung von Relationen und die Bezugname auf Diskursuniversen ausreichend genau
 erklärt und wir können uns nun der Repräsentation der Bedeutung von Determinatoren zuwenden.
 
 Wenn man sich überlegt, was in einem Diskursuniversum der Fall sein muss, damit die folgenden Sätze
@@ -486,8 +576,8 @@ einzeln verhalten würden.\is{Koordination|)}
 \label{sec-index}
 
 Nominale Objekte führen einen Index (\textsc{ind}\isfeat{ind}) ein. Dieser Index entspricht einer Variable in
-der Prädikatenlogik, also den x und y die weiter oben verwendet wurden. Relationen, die die Menge
-der Objekte im Diskursuniversum einschränken, auf die sich der referentiellen Index bezieht, werden
+der Prädikatenlogik, also den x und y, die weiter oben verwendet wurden. Relationen, die die Menge
+der Objekte im Diskursuniversum einschränken, auf die sich der referentielle Index bezieht, werden
 in der \relsl\isfeat{rels} repräsentiert. Mit \relation{buch}(x) bezieht man sich auf ein \emph{x} mit der
 Eigenschaft, Buch zu sein. Mit den beiden Relationen \relation{buch}(x) und \relation{interessant}(x)
 bezieht man sich auf eine Teilmenge der Bücher, nämlich genau auf die, die interessant sind.
@@ -499,7 +589,7 @@ Der Wert von \rels ist eine Liste der jeweiligen Relationen, die die Referenzmen
 }
 (\mex{1}) zeigt den Lexikoneintrag für \emph{Buch}:
 \eas
-\label{le-buch}
+\label{le-buch}%
 Lexikoneintrag für \emph{Buch}:\\
 \ms{ 
   cat & \ms{ head & noun\\
@@ -546,7 +636,7 @@ Die Beschreibung in (\mex{1}) zeigt einen Lexikoneintrag für das Pronomen \emph
 hat leere Valenzlisten, da es keine weiteren Konstituenten benötigt, um als vollständige
 Nominalphrase in Sätzen verwendet zu werden.
 \eas
-\label{le-er}
+\label{le-er}%
 Lexikoneintrag für \emph{er}:\\
 \ms{ 
   cat & \ms{ head  & \ms[noun]{
@@ -615,12 +705,12 @@ um ein nominales Objekt mit leerer \compsl, das in seiner \sprl noch einen Deter
 Der semantische Beitrag von Verben und Nomina ist recht ähnlich: Es gibt ein \textsc{index}"=Merkmal
 und dann eine Relation in der \relsl, wobei der \textsc{index}"=Wert mit dem \argzero der
 wichtigsten Relation in der \relsl identifiziert ist. Bisher gibt es aber noch keine Zuordnung der Elemente in der \argstl\is{Valenz} zu
-Argumentrollen\is{semantische Rolle} im semantischem Beitrag. Eine solche Verbindung wird auch \emph{Linking} genannt.
+Argumentrollen\is{semantische Rolle} im semantischen Beitrag. Eine solche Verbindung wird auch \emph{Linking} genannt.
 (\mex{1}) zeigt, wie einfach das Linking in der HPSG funktioniert.
 Die referentiellen Indizes der Nominalphrasen sind mit den entsprechenden Merkmalen in der Relation
 in der \relsl identifiziert.\is{Argument}
 \eas
-\label{le-gibt}
+\label{le-gibt}%
 \emph{gibt}:\\
 \ms
 { cat & \ms{ head & \ms[verb]
@@ -647,10 +737,10 @@ Verben mit Agens, Thema und Goal hat die Form in (\mex{1}):
 \ea
 \onems
 { cat$|$arg-st \liste{ []\ind{1}, []\ind{2}, []\ind{3}  } \\[1mm]
-  cont  \ms[arg123-rel~]{ arg1 & \ibox{1} \\
+  cont|rels \liste{ \ms[arg123-rel~]{ arg1 & \ibox{1} \\
                       arg2 & \ibox{2} \\
                       arg3 & \ibox{3} \\
-           } \\
+           }} \\
 }
 \z
 []\ind{1} steht dabei für ein Objekt mit beliebiger syntaktischer Kategorie und dem Index
@@ -660,7 +750,8 @@ Verben mit Agens, Thema und Goal hat die Form in (\mex{1}):
 %% die \compsl mit drei Elementen beginnt, deren Index mit Werten von Argumentrollen innerhalb von \cont
 %% identisch ist.
 Der Typ für die Relation \emph{geben} ist Untertyp von \type{arg123-rel}.
-Der Lexikoneintrag für das Wort \emph{geben} bzw.\ den Stamm \stem{geb} hat das Linking"=Muster in (\mex{0}).
+Der Lexikoneintrag für das Wort \emph{geben} bzw.\ den Stamm \stem{geb} hat das Linking"=Muster in
+(\mex{0}). 
 
 Zu Linking"=Theorien im Rahmen der HPSG siehe \citew{Davis96a-u} und \citew{Wechsler95a-u}.
 \is{Linking|)}
@@ -725,6 +816,9 @@ cont|ind & \ibox{1}\\
 head-dtr|cont|ind & \ibox{1}\\
 }
 \z
+\itdopt{Gibt es für nicht(schlafen(e)) bei nicht ein Event? h1:nicht(e1,h2), h2:schlafen(e2,x) oder
+  h1:nicht(h2), h2:schlafen(e2,x)
+}
 Die Implikation in (\mex{0}) sagt, dass in Strukturen mit Kopftochter, der Index der Kopftochter mit
 dem der Mutter identisch ist. So wird die Ereignisvariable von Verben ($e$ in Abbildung~\ref{fig-Der-kleine-Affe-schläft}) nach oben gegeben und der
 referentielle Index von Nomen ($x$ in Abbildung~\ref{fig-Der-kleine-Affe-schläft}) auch.
@@ -734,7 +828,7 @@ Die Relationen sammelt die folgende Beschränkung für Zeichen vom Typ \type{phr
 \type{phrase} \impl\\
 \onems{
 cont|rels  \ibox{1} $\oplus$ \ibox{2}\\
-dtrs  \liste{ [cont|rels \ibox{1} ], [cont|rels \ibox{2} ] }\\
+dtrs  \sliste{ [cont|rels \ibox{1} ], [cont|rels \ibox{2} ] }\\
 }
 \z
 \textsc{dtrs} ist hierbei eine Liste, die sich beim Aneinanderhängen einer Liste mit der Kopftochter
@@ -879,7 +973,7 @@ ersetzen. \citet[\page 284]{CFPS2005a} haben diese Möglichkeit erwogen, sie dan
 Modifikationen durch mehrere Attribute verschiedene Klammerungsmöglichkeiten gibt, ohne dass es
 wirkliche Bedeutungsunterschiede gäbe. Stattdessen schlagen die Autor*innen das vor, was wir schon
 in den vorangegangenen Abschnitten umgesetzt haben. Die Relationen werden in einer Liste
-gesammelt. Die referentiellen Indices von Köpfen und Adjunkten werden identifiziert. Zusätzlich muss
+gesammelt. Die referentiellen Indizes von Köpfen und Adjunkten werden identifiziert. Zusätzlich muss
 bei intersektiver Modifikation das Label von Kopf und Adjunkt identifiziert werden.
 Für (\mex{0}a) ergibt sich also:
 \ea
@@ -974,6 +1068,7 @@ Damit ist schon den wesentlichen Teil der Analyse erklärt. Es fehlt lediglich d
 in Merkmalbeschreibungen für die entsprechenden Lexikoneinträge. 
 (\mex{1}) zeigt den Lexikoneintrag für \emph{Tochter}:
 \ea
+\label{le-Tochter}%
 \emph{Tochter}:\\
 \ms{
 cat & \ms{ head & \ms[noun]{
@@ -1032,7 +1127,7 @@ cont & \ms{
        }
 }
 \zs
-\emph{jede} ist ein Determinator, der selbst keine Argumente braucht, also eine leer \spr- und
+\emph{jede} ist ein Determinator, der selbst keine Argumente braucht, also eine leere \spr- und
 \compsl hat. Der Allquantor wird in der \relsl eingeführt. \argzero ist das Merkmal für die
 Variable. Außerdem gibt es je ein Merkmal für die Restriktion und den Body. Für die Restriktion
 wurde oben angenommen, dass sie in einer \qeq\vspace{-2pt}\hspace{-.5ex}\hyp Relation zum Handel der \nbar steht. Das Nomen kann
@@ -1132,9 +1227,9 @@ der Kopf"|tochter.
 \end{prinzip-break}
 Formalisieren lässt sich das Prinzip wie folgt:
 \ea
-\ms{ non-head-dtrs & \liste{ [head|spec \type{sign}] } } \impl
+\ms{ non-head-dtrs & \liste{ [\textsc{head|spec} \type{sign}] } } \impl
 \ms{ head-dtr & \ibox{1}\\
-     non-head-dtrs & \liste{ [head|spec \ibox{1}] } }
+     non-head-dtrs & \liste{ [\textsc{head|spec} \ibox{1}] } }
 \z
 
 \subsection{Eigennamen, Pronomen, Possessivpronomen}
@@ -1306,9 +1401,8 @@ Lexikoneintrag für \emph{ihr}:\\
            } \\
 }
 \zs
-\itdopt{
-check definiter Artikel
-}
+% ERG verwendet def_implicit_q_rel für Possessivpronomina.
+% def_implicit_q_rel := def_q_rel & implicit_q_rel.
 Kombiniert man \emph{ihr} mit \emph{Buch} erhält man die folgende MRS:
 \ea
 \textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1,y,x), h4:buch(x),
@@ -1355,7 +1449,7 @@ Auf S.\,\pageref{page-kleinen-Kinder} wurde bereits die Kombination von \emph{kl
 \emph{Kinder} besprochen. Dabei wird der \ltopw des modifizierten Nomens mit dem \ltopw des
 Adjektivs identifiziert. (\mex{1}) zeigt den Lexikoneintrag für das Adjektiv \emph{kleinen}:
 \eas
-\label{le-kleinen-vorläufig}
+\label{le-kleinen-vorläufig}%
 Lexikoneintrag für \emph{kleinen} (vorläufig):\\
 \ms{
 cat & \ms{ head & \ms[adj]{
@@ -1475,8 +1569,8 @@ skopen kann. Das kann erreicht werden, indem man nicht \relation{schlafen} direk
 \z
 Den entsprechenden Lexikoneintrag für \emph{glauben} zeigt (\mex{1}):
 \eas
-\label{le-glauben}
-\emph{glauben}:\\
+\label{le-glauben}%
+Lexikoneintrag für \emph{glauben}:\\
 \ms
 { cat & \ms{ head & \ms[verb]
                      { vform & fin \\} \\
@@ -1493,6 +1587,20 @@ Den entsprechenden Lexikoneintrag für \emph{glauben} zeigt (\mex{1}):
                           harg & \ibox{3}\\
                           larg & \ibox{2}} } }\\
 }
+% \avm{
+% [ cat & [ head & [\type*{verb}
+%                   vform & fin ] \\
+%           arg-st & < NP[\type{nom}]\ind{1}, CP[\type{dass}, \ltop \ibox{2}] > \\
+%            ] \\
+%   cont & [ind  & \ibox{4} event\\
+%           rels & < [\type*{glauben}\\ 
+%                     arg0 & \ibox{4}\\
+%                     arg1 & \ibox{1}\\
+%                     arg2 & \ibox{3} ] >\\
+%           hcons & < [\type*{qeq}
+%                      harg & \ibox{3}\\
+%                      larg & \ibox{2} ] > ] ]
+% } 
 \zs
 Während bei Verben wie \emph{geben} (siehe (\ref{le-gibt} auf S.\,\pageref{le-gibt}) die \hconsl leer ist, gibt es bei \emph{glauben} ein
 \qeq-Element. \argtwo von \relation{glauben} wird in Beziehung zum \ltopw des CP"=Arguments
@@ -1524,6 +1632,7 @@ Lesarten, die in (\ref{ex-Prädikatenlogik-alle-Affen-glauben-dass-ein-Einhorn-s
 \end{figure}
 
 \subsection{\emph{scheinbar einfache Beispiele}}
+\label{sec-scheinbar-einfaches-Beispiel}
 
 Beispiele wie die in (\mex{1}) sind scheinbar einfach:
 \ea
@@ -1591,17 +1700,44 @@ cont & \ms{ ltop & \ibox{1}\\
 }
 \zs
 Im Gegensatz zu (\ref{le-kleinen-vorläufig}) wird der \ltopw in (\mex{0}) nicht mit dem \ltopw innerhalb des \modwes gleichgesetzt.
-Stattdessen wird festgelegt, dass in
-Kopf"=Adjunkt"=Strukturen mit nicht-skopalen Adjunkten die \ltopwe der Töchter identifiziert
+Stattdessen wird festgelegt, dass in Kopf"=Adjunkt"=Strukturen mit nicht-skopalen Adjunkten die \ltopwe der Töchter identifiziert
 werden. 
-\itdopt{Implikation angeben, KEY feature?}
+\ea
+\label{ex-scopal-ltop}
+\avm{
+[ non-head-dtrs < [ cat|head|scopal & minus ] > ]} \impl
+\flushright 
+\avm{[ head-dtr|cont|ltop & \1\\
+  non-head-dtrs < [ cont|ltop & \1 ] > ]
+}
+\z
+% bug
+\medskip
+
+\noindent
 Das bedeutet, dass die Handels von \emph{einfach} und \emph{Beispiel} nicht im
 Lexikoneintrag von \emph{einfaches} gleichgesetzt werden, dass aber die \ltopwe von \emph{scheinbar
   einfaches} und \emph{Beispiel} durch das Kopf"=Adjunkt"=Schema identifiziert werden. Damit ergibt
 sich die richtige MRS in (\ref{mrs-ein-scheinbar-einfaches-Beispiel}), weil der \ltopw von
-\emph{scheinbares} mit dem von \emph{Beispiel} gleichgesetzt wird, denn \emph{scheinbares} steuert
+\emph{scheinbar} mit dem von \emph{Beispiel} gleichgesetzt wird, denn \emph{scheinbar} steuert
 den \ltopw von \emph{scheinbar einfaches} bei.
 
+Es stellt sich die Frage, ob es gut ist, die Tatsache, dass es um skopale oder intersective
+Modifikatoren geht als Kopfmerkmal zu repräsentieren. Die Alternative bestünde darin, die
+Hauptrelation des Kopfes zu kennzeichnen und dann bei Modifikation als Antezedens einer Implikation
+auf das Vorliegen einer skopalen oder intersektionalen Relation zu testen. Die Repräsentation als
+Kopfmerkmal scheint die richtigen Vorhersagen bezüglich Koordinierbarkeit zu machen:
+\eal
+\ex[*]{
+ein mutmaßlicher und brutaler Mörder
+}
+\ex[]{
+ein mutmaßlicher brutaler Mörder
+}
+\ex[]{
+ein brutaler mutmaßlicher Mörder
+}
+\zl
 
 
 Damit ist die Einführung in die Minimal Recursion Semantics abgeschlossen. Es freut mich, dass Sie
@@ -1612,6 +1748,494 @@ die Warnung zu Beginn dieses Abschnitts ignoriert und auch diesen technischen Te
 % LTOP bei SPR und COMPS identifizieren? Wozu?
 % Wenn man das täte, müsste man Verben wie glauben anders behandeln, denn deren LTOP ist nicht mit
 % dem des Komplements identifizierbar, denn es bettet das LTOP ein.
+
+
+\section{Alternativen}
+
+\subsection{Intersektive und skopale Modifikatoren}
+
+\citet*{CFPS2005a} skizzieren eine Typhierarchie, die die korrekte Weitergabe von \ltopwen
+sicherstellen soll. Sie haben ausdrücklich angemerkt, dass das nur eine Skizze ist, aber ich möchte
+hier dennoch einige Gründe dafür anführen, warum dieser Vorschlag formal nicht funktioniert, also
+auch keine Skizze mit noch auszufüllenden Details sein kann. Das kann letztendlich für ein tieferes
+Verständnis von HPSG und den allgemein zur Verfügung stehenden Mechanismen hilfreich
+sein. Abbildung~\ref{fig-skopal-intesaktiv-MRS-Paper} zeigt eine Hierarchie von Typen mit
+entsprechenden Beschränkungen, wie sie von \citet[\page 308]{CFPS2005a} angegeben wird.
+\begin{figure}
+\begin{forest}
+type hierarchy
+[\avm{[\type*{phrase}
+       cont  [ hook & \1 [ gtop & \0 ]\\
+                rels & \2 \+ \3\\
+                hcons & \4 \+ \5 ]\\
+       dtr1|cont [ hook & \1\\
+                   rels & \2\\
+                   hcons & \4]\\ 
+       dtr2|cont [ hook & [ gtop & \0 ]\\
+                   rels & \2\\
+                   hcons & \4]]}   
+  [\avm{[\type*{intersective-phrase}
+         dtr1|cont|hook|ltop & \6\\
+         dtr2|cont|hook|ltop & \6]}]
+  [\avm{[\type*{scopal-phrase}
+         dtr1|cont & [ hook & [ltop & \7]\\
+                       rels & < \ldots{} [\type*{scopal-reln} 
+                                         lbl & \7\\
+                                         arg1 & \8] ~\ldots{} >\\
+                       hcons & < [\type*{qeq}
+                                  harg & \8\\
+                                  larg & \9], \ldots > ]\\
+         \punk{dtr2|cont|hook|ltop}{\9}]}]]
+\end{forest}
+\caption{Typhierarchie von \citet[\page 308]{CFPS2005a}}\label{fig-skopal-intesaktiv-MRS-Paper}
+\end{figure}
+\textsc{hook} ist bei \citeauthor{CFPS2005a} ein Merkmal, dessen Wert eine Merkmalbeschreibung mit
+\textsc{index}, \ltop und weiteren Merkmalen ist, die nach oben hochgereicht werden. \gtop steht für
+global top. Alle Quantoren und Relationen müssen unter dem \gtop-Label sein. Da man es eigentlich
+nicht braucht, habe ich das in diesem Kapitel weggelassen. Ansonsten werden für alle Strukturen vom
+Typ \type{phrase} die \relswe und die \hconswe aneinandergehängt. Dann unterscheiden die Autor*innen
+die beiden Untertype \type{intersective-phrase} und \type{scopal-phrase}. Für Strukturen vom Typ
+\type{intersective-phrase} werden die \ltopwe der beiden Töchter identifiziert und für Strukturen
+vom \type{scopal-phrase} muss es in der \relsl der \textsc{dtr1} irgendeine skopale Relation geben, deren Label mit
+dem \ltopw von \textsc{dtr1} identisch ist und deren \argone \qeq mit dem \ltop der \textsc{dtr2}
+ist.
+
+Dabei gibt es aber einige Probleme: Erstens muss man bei Annahme dieser Typen sämtliche
+in Frage kommenden Dominanzschemata verdoppeln. Es muss intersektive und skopale
+Kopf"=Adjunkt"=Schemata geben. Zweitens sind immer beide Typen anwendbar, sobald es in der \relsl
+von \textsc{dtrs1} mindestens eine skopale Relation gibt und in der \hconsl mindestens eine
+\qeq-Relation. Das liegt daran, dass Handels und Labels alle immer miteinander kompatibel sind. Alle
+sind vom Typ \type{handle} und können somit immer geteilt werden. Die
+entstehenden MRSen sind dann unter Umständen nicht wohlgeformt, aber man hätte wohl lieber eine
+Grammatik, die bei intersektiver Modfikation auch nur die Struktur für intersektive Modifikation
+liefert und nicht noch zusätzliche eine für skopale Modifikation mit unsinniger Semantik. Das
+folgende Beispiel zeigt, wo das Problem liegt:
+\eal
+\ex (das) scheinbar einfache Beispiel
+\ex \textmrs{ h0, \{ h1:scheinbar(h2), h3:einfach(x), h1:beispiel(x)  \},\\
+    \hphantom{\textlangle~}\{ h2 \qeq h3  \}  }
+\zl
+Wenn \emph{scheinbar} mit \emph{einfache} kombiniert wird, bettet \relation{scheinbar}
+\relation{einfach} ein. Das entspricht dem, was oben als \type{scopal-phrase} dargestellt ist. Wenn
+jetzt aber \emph{scheinbar einfache} mit \emph{Beispiel} kombiniert wird, dann enthält die
+Adjunkttochter \emph{scheinbar einfache} eine \type{scopal-reln}, nämlich \relation{scheinbar} und
+auch ein Handle"=Constraint, nämlich h2 \qeq h3. Durch die Identifikation der Beschränkungen für
+\type{scopal-phrase} wird das Label der durch \relation{scheinbar} outgeskopten Relation, nämlich
+\relation{einfach} mit dem Label für \relation{beispiel} identifiziert. Man bekäme also die
+inkonsistente MRS in (\mex{1}), in der sich h2 selbst dominiert:
+\ea
+\textmrs{ h0, \{ h1:scheinbar(h2), h1:einfach(x), h1:beispiel(x)  \},\\
+    \hphantom{\textlangle~}\{ h2 \qeq h1  \}  }
+\z
+Schuld an dem Problem sind die drei Punkte in der \relsl. Immer, wenn man irgendwo in Repräsentationen drei Punkte
+sieht, ist das ein Zeichen für ungenügende Formalisierung. Es kann sein, dass es eine mehr oder
+wenige einfache Formalisierung gibt, aber sicher ist es nicht. Sicher kann man erst sein, wenn man
+sie selbst ausgearbeitet hat. Man könnte diesen Teil des Problems lösen, indem man einen Zeiger wie
+\textsc{key} auf die von einem Modifikator beigesteuerte Relation verwendet. Der \textsc{key} von \emph{einfache} wäre
+dann die \relation{einfach}"=Relation und der \textsc{key} von \emph{scheinbar} die
+\relation{scheinbar}"=Relation. Wenn diese Relation vom Typ \type{scopal-reln} ist, dann handelt es
+sich um eine skopale Modifikation und wenn nicht, dann um eine intersektive. Das würde auch gleich
+ein weiteres Problem lösen, nämlich dass \type{intersective-phrase} mit allen Phrasen kompatibel
+ist, denn alle \ltop{}s sind immer identifizierbar. Auch bei skopalen Modifikatoren wäre es
+ansonsten möglich, dass sie in entsprechende Konfigurationen eintreten. 
+
+Im letzten Abschnitt habe ich einen anderen Ansatz gewählt. Statt Bezug auf Relationen zu nehmen,
+habe ich ein Kopfmerkmal verwendet, dass für einen Modifikator sagt, ob er skopal oder intersektiv
+ist. Koordinationsdaten legen nahe, dass das der richtige Weg ist. Man beachte, dass das Problem,
+dass einfach irgendwelche Handles identifiziert werden, weil Töchter in bestimmte Konfigurationen
+eingesetzt werden, nicht entsteht, denn durch die Implikation in (\ref{ex-scopal-ltop}) wird getestet, ob eine
+bestimmte Bedingung erfüllt ist, und nur wenn das der Fall ist, werden Werte von Merkmalen
+identifiziert. Die Verwendung der Implikation macht es auch unnötig, zwei verschiedene Schemata für
+intersektionale und skopale Modifikation zu haben. Es wird ein einziges Schema benutzt. Mit Hilfe
+der Implikationen kann man einfach bei Vorliegen bestimmter Konfigurationen weitere Beschränkungen anwenden.
+
+\subsection{Leere Elemente und sublexikalischer Skopus}
+
+In diesem Abschnitt möchte ich eine Analyse diskutieren, in der leere Elemente angenommen werden, um
+verschiedene Lesarten bestimmter Sätze ableiten zu können. Ich zeige dann, wie man mit dem in diesem
+Kapitel vorgestellten Unterspezifikationsansatz auch ohne leere Elemente auskommen
+kann.\footnote{Der Text aus diesem Abschnitt basiert auf \citet[Abschnitt~11.9.2]{MuellerGTBuch1}.}
+
+Sätze wie (\mex{1}) sind interessant, da sie verschiedene Lesarten haben (siehe
+\citew[Abschnitt~5.6]{Dowty79a}) und es nicht offensichtlich ist, wie man diese ableiten kann.
+\ea
+\label{ex-alle-wieder}
+dass Max alle Fenster wieder öffnete
+\z
+Man unterscheidet zwischen einer repetitiven\is{repetitiv} und restitutiven\is{restitutiv} Lesart: Bei der repetitiven Lesart von
+(\mex{0}) muss Max schon einmal alle Fenster geöffnet haben, wobei in der restitutiven Lesart nur
+alle Fenster offen gewesen sein müssen, \dash, sie können auch offen gewesen sein, weil jemand anders
+sie geöffnet hat. 
+
+Die verschiedenen Lesarten werden dadurch erklärt, dass man das Prädikat \relation{öffnen} in
+mindestens zwei Teilprädikate zerlegt. \citet{Egg99a} schlägt die Zerlegung in CAUSE\is{CAUSE} und \relation{offen} vor:
+\ea
+CAUSE(x, \relation{offen}(y))
+\z
+Das heißt, es gibt einen CAUSE"=Operator, der Skopus über die Relation \relation{offen} hat. Mit
+einer solchen Zerlegung kann man dann die verschiedenen Bezüge von \emph{wieder} erklären: In der
+einen Lesart bezieht sich \emph{wieder} auf CAUSE und in der anderen auf \relation{offen}. Wenn man davon
+ausgeht, dass \emph{öffnen} die Bedeutung in (\mex{0}) hat, muss man aber trotzdem noch erklären,
+wie ein Adverb Bestandteile einer Wortbedeutung modifizieren kann, \dash wie sich \emph{wieder} auf
+\relation{offen} beziehen kann. \Citet[\page 93]{Stechow96a} hat deshalb die Analyse in
+Abbildung~\vref{Abbildung-wieder-oeffnen-Stechow} entwickelt.
+\begin{figure}
+\centering
+\begin{forest}
+no word baseline
+[AgrSP
+	[DP
+		[Max$_i$,tier=word]]
+	[AgrS$'$
+		[TP
+			[AgrOP
+				[DP
+					[alle Fenster$_ j$,roof,tier=word]]
+				[AgrO$'$
+					[VoiceP
+						[DP
+							[t$_i$,tier=word]]
+						[Voice$'$
+							[Voice
+								[CAUSE,tier=word]]
+							[VP
+								[XP
+									[t$_j$,tier=word]
+									[offen,tier=word]]
+								[V
+									[BECOME,tier=word]]]]]
+					[AgrO]]]
+			[T]]
+		[AgrS]]]
+\end{forest}
+\caption{\label{Abbildung-wieder-oeffnen-Stechow}Decomposition in syntactic structures}
+\end{figure}%
+AgrS\is{Kategorie!funktionale!AgrS} und AgrO\is{Kategorie!funktionale!AgrO} sind dabei funktionale
+Köpfe, die für Subjekt- und Objektkongruenz\is{Kongruenz!Objekt-} in Sprachen wie Baskisch\il{Baskisch} vorgeschlagen und auch ins Deutsche
+übernommen wurden (siehe \citealt[Kapitel~3]{MuellerGT-Eng5}). Nominalphrasen 
+müssen aus der VoiceP\is{Kategorie!funktionale!Voice} in die Spezifikatorpositionen dieser Köpfe bewegt werden, um Kasus zu
+erhalten. T\is{Kategorie!funktionale!T} steht für Tense und entspricht der Kategorie Infl aus
+früheren Arbeiten im Rahmen der \gbt \citep[\page 3]{Chomsky86b}. Wichtig ist der
+Voice"=Kopf und die separate Repräsentation von \emph{offen} als Kopf einer eigenen 
+Phrase. In der Abbildung entspricht alles unterhalb von Voice$'$ dem Verb \emph{öffnen}. Durch die
+Annahme eines eigenen Voice"=Kopfes, der die Kausativbedeutung beisteuert, wird es möglich, die
+beiden Lesarten in der Syntax abzuleiten: In der Lesart mit engem Skopus von \emph{wieder} geht das
+Adverb an die XP und hat dann Skopus über offen(x) und in der Lesart mit weitem Skopus geht
+das Adverb an VoiceP oder eine höhere Phrase und hat dann Skopus über CAUSE(BECOME(offen(x))).
+
+\citet{JB2003a-u} haben darauf hingewiesen, dass diese Analyse vorhersagt, dass es für Sätze wie
+(\mex{1}) nur die repetitive Lesart gibt, \dash die Lesart, in der \emph{wieder} Skopus über CAUSE hat.
+\ea
+\label{ex-wieder-alle}
+dass Max wieder alle Fenster öffnete
+\z
+Das liegt daran, dass \emph{wieder} vor \emph{alle Fenster} steht und somit auch vor allen Köpfen,
+die sich innerhalb von VoiceP befinden. \emph{wieder} kann nur mit AgrOP oder höheren Phrasen
+kombiniert werden und hat deshalb (zu) weiten Skopus. (\mex{0}) hat aber auch eine restitutive
+Lesart: Alle Fenster wurden zu einem früheren Zeitpunkt gleichzeitig geöffnet, und Max stellte
+diesen Zustand wieder her.
+
+
+\citet{Egg99a} entwickelt eine Analyse für die \emph{wieder}"=Fälle im Rahmen der \emph{Constraint
+  Langugae for Lambda"=Structures} (CLLS)\is{Constraint Langugae for
+    Lambda"=Structures@\emph{Constraint Language for Lambda"=Structures}}. CLLS ist wie MRS auch ein
+  Unterspezifikationsformalismus\is{Unterspezifikation}. Im Folgenden werde ich Eggs Analyse in MRS"=Notation
+  wiedergeben.
+
+Bevor wir uns (\ref{ex-alle-wieder}) und (\ref{ex-wieder-alle}) zuwenden, soll der einfachere Satz in (\mex{1}) betrachtet werden:
+\ea
+dass Max alle Fenster öffnete
+\z
+Dieser Satz kann bedeuten, dass in einer bestimmten Situation für alle Fenster gilt, dass Max sie
+geöffnet hat. Eine weniger leicht zugängliche Lesart ist diejenige, in der Max bewirkt, dass alle
+Fenster offen sind. Man kann diese Lesart erzwingen, indem man die erste durch Kontextinformation
+ausschließt \citep[\page 111]{Egg99a}:
+\ea
+Erst war nur die Hälfte aller Fenster im Bus auf, aber dann öffnete Max alle Fenster.
+\z
+Die beiden besprochenen Lesarten unterscheiden sich im Skopus des Allquantors. Die Lesart, in der
+Max alle Fenster selbst öffnet, entspricht der Lesart mit weitem Skopus in
+(\mex{1}a), die in der einige bereits offen sein können, entspricht der in (\mex{1}b):
+\eal
+\ex $\forall$ x \relation{fenster}(x) $\to$ CAUSE(\relation{max}, \relation{offen}(x))
+\ex CAUSE(\relation{max}, $\forall$ x \relation{fenster}(x) $\to$ \relation{offen}(x))
+\zl
+Diese beiden Lesarten kann man unterspezifiziert in einem Dominanzgraphen wie ihn Abbildung~\ref{Abbildung-Max-alle-Fenster-oeffnete}
+zeigt repräsentieren.
+\begin{figure}
+    \begin{tikzpicture}
+%    \draw (-5,10) to[grid with coordinates] (5,-.5);
+    \node(offen)   at (0,0) {h7:offen(x)};
+    \node(fenster) at (-4,2){h4:fenster(x)};
+    \node(every-q) at (-4,4){h1:every\_q(x, h2, h3)};
+    \node(cause)   at (2,4) {h5:CAUSE(max, h6)};
+
+    \draw[->,dashed]   (every-q.-23)  to (fenster);
+    \draw[->,dashed]   (every-q.-13)  to (offen);
+    \draw[->,dashed]   (cause.-15)    to (offen);
+    \end{tikzpicture}
+\caption{Dominanzgraph für \emph{Max alle Fenster öffnete}\label{Abbildung-Max-alle-Fenster-oeffnete}}
+\end{figure}
+Der Dominanzgraph sagt aus, dass $h2$ $h4$, $h3$ $h7$ und $h6$ $h7$ dominiert. Dabei sind die genauen Skopusverhältnisse unterbestimmt: Der
+Allquantor kann Skopus über CAUSE haben oder CAUSE kann Skopus über den Allquantor haben. Die
+Abbildungen~\ref{fig-alle-cause} und \ref{fig-cause-alle} zeigen die skopusaufgelösten Varianten des
+Graphen.
+\begin{figure}
+    \begin{tikzpicture}[bezier bounding box]
+%    \draw (-5,10) to[grid with coordinates] (5,-.5);
+    \node(offen)   at (0,0) {h7:offen(x)};
+    \node(fenster) at (-4,2){h4:fenster(x)};
+    \node(every-q) at (-4,4){h1:every\_q(x, h2, h3)};
+    \node(cause)   at (2,4) {h5:CAUSE(max, h6)};
+
+    \draw   (every-q.-23)  to (fenster);
+    \draw   (every-q.-13) .. controls +(0,-1) and +(0,2).. (cause);
+    \draw   (cause.-15)    to (offen);
+    \end{tikzpicture}
+\caption{Dominanzgraph für die Lesart $\forall$x fenster(x) $\to$ CAUSE(max, offen(x))\label{fig-alle-cause}}
+\end{figure}
+\begin{figure}
+    \begin{tikzpicture}[bezier bounding box]
+%    \draw (-5,10) to[grid with coordinates] (5,-.5);
+    \node(offen)   at (0,0) {h7:offen(x)};
+    \node(fenster) at (-4,2){h4:fenster(x)};
+    \node(every-q) at (-4,4){h1:every\_q(x, h2, h3)};
+    \node(cause)   at (2,4) {h5:CAUSE(max, h6)};
+
+    \draw   (every-q.-23)  to (fenster);
+    \draw   (every-q.-13)  to (offen);
+    \draw   (cause.-15)    .. controls +(0,-2) and +(0,2).. (every-q);
+    \end{tikzpicture}
+\caption{Graph für die Lesart CAUSE(max, $\forall$x fenster(x) $\to$ offen(x)).\label{fig-cause-alle}}
+\end{figure}
+Dass der Quantor $h4$ dominiert, wird im Lexikoneintrag des Quantors festgelegt. Dass der Quantor
+$h7$ dominiert, muss man in der Analyse nicht explizit machen, denn der Quantor bindet eine Variable
+in der zu $h7$ gehörenden Relation, und zwar x. Die Dominanzbeziehung zwischen $h6$ und $h7$ wird ebenfalls
+im Lexikon festgelegt, denn CAUSE und \relation{offen} gehören ja zum semantischen Beitrag eines
+einzigen Lexikoneintrags. (\mex{1}) zeigt den Lexikoneintrag für \emph{öffnen}:
+\eas
+\label{le-öffnen}%
+Lexikoneintrag für \stem{öffn}:\\
+\ms
+{ cat & \ms{ head & verb\\
+             arg-st & \liste{ NP[\type{nom}]\ind{1}, NP[\type{acc}]\ind{2}   } \\
+           } \\
+  cont &  \ms{
+          ltop & \ibox{3}\\
+          ind  & \ibox{4} event\\
+          rels & \liste{ \ms[cause]{
+                         lbl  & \ibox{3}\\
+                         arg0 & \ibox{4}\\
+                         arg1 & \ibox{5} },
+                         \ms[offen]{ 
+                          lbl  & \ibox{6}\\
+                          arg0 & event\\
+                          arg1 & \ibox{1} 
+                          } } }\\
+          hcons & \liste{ \ms[qeq]{
+                          harg & \ibox{5}\\
+                          larg & \ibox{6} } }\\
+}
+\zs
+Man beachte, dass das Linking zwischen der \argstl und der \relsl erfolgt. Es gibt
+alternative Vorschläge, wo Elemente aus der \argstl zu Argumenten nur einer ausgewählten Relation in
+Beziehung gesetzt werden. Die Relation wird mit Hilfe des Merkmals \textsc{key} aus der \relsl
+ausgewählt: \textsc{key} zeigt auf genau ein Element \citep{Flickinger2000a}. Diese Art von Linking
+funktioniert nicht, wenn wie in (\mex{0}) Elemente der \argstl an Argumente in verschiedenen Relationen innerhalb der
+\relsl gelinkt werden.
+
+
+Die syntaktische Theorie, die man für diese Analyse annimmt, ist letztendlich nebensächlich. Ich habe
+hier HPSG gewählt. Wie Abbildung~\vref{Abbildung-Fenster-oeffnete-MRS} zeigt, handelt es sich bei der
+Analyse für \emph{alle Fenster öffnet} um eine einfache Struktur mit einem Verb und einem Objekt.
+\begin{figure}
+%\begin{sideways}
+\oneline{%
+\begin{forest}
+sm edges, for tree={l sep= 4ex}
+[V\feattab{
+    \comps \sliste{ NP\ind{y} },\\
+    \rels \relliste{ h1:every(x, h2, h3), h4:fenster(x), h5:CAUSE(y, h6), h7:offen(x) },\\
+    \hcons \relliste{ h2 \qeq h4, h6 \qeq h7 }    }
+  [\ibox{2} NP\ind{x}\feattab{
+    \rels \relliste{ h1:every(x, h2, h3), h4:fenster(x) },\\
+    \hcons \relliste{ h2 \qeq h4 } } 
+    [Det\feattab{
+    \rels \relliste{ h1:every(x, h2, h3) },\\
+    \hcons \relliste{ h2 \qeq h4  } } [alle] ]
+    [N\feattab{
+    \rels \relliste{ h4:fenster(x) },\\
+    \hcons \relliste{ } } [Fenster] ] ]
+  [V\feattab{
+     \comps \sliste{ NP\ind{y}, \ibox{2} },\\
+     \rels \relliste{ h5:CAUSE(y, h6), h7:offen(x) },\\
+     \hcons \relliste{ h6 \qeq h7 } } [öffnete] ]
+]
+\end{forest}
+}%\end{sideways}
+\caption{\label{Abbildung-Fenster-oeffnete-MRS}Die MRS"=Analyse von \emph{alle Fenster öffnete}}
+\end{figure}
+Die Struktur unterscheidet sich nicht von der, die man für Sätze mit einem semantische einfachen
+Verb -- wie zum Beispiel \emph{kennen} in \emph{alle Kinder kennt} -- annehmen würde. Der einzige
+Unterschied liegt in der Bedeutung der involvierten Wörter.  Wie in den
+Abschnitten~\ref{sec-Komposition} und~\ref{sec-Skopus} gezeigt, werden die Relationen und
+Handle"=Constraints der einzelnen Wörter nach oben gereicht. 
+
+Für den Satz (\ref{ex-wieder-alle}) -- hier als (\mex{1}) wiederholt -- führt Egg die folgenden Lesarten auf:
+\ea
+\label{ex-wieder-alle-zwei}
+dass Max wieder alle Fenster öffnete
+\z
+\begin{enumerate}
+\item Max öffnete jedes Fenster und er hat das mit jedem Fenster schon einmal gemacht 
+      (\relation{wieder}($\forall$(CAUSE(offen))); repetitiv)
+\item Max bewirkte, dass jedes Fenster offen war, und er hat das schon einmal gemacht
+      (\relation{wieder}(CAUSE($\forall$(offen))); repetitiv)
+\item Alle Fenster waren zu einem früheren Zeitpunkt gemeinsam offen, und Max stellte diesen Zustand wieder her
+      (CAUSE(\relation{wieder}($\forall$(offen))); restitutiv)
+\end{enumerate}
+%% In allen drei Lesarten hat \emph{wieder} Skopus über den Allquantor. Die Lesarten für (\ref{ex-alle-wieder}) -- hier als (\mex{1}) wiederholt -- unterscheiden sich nur im Skopus von \emph{wieder} und Allquantor.
+%% \ea
+%% \label{ex-alle-wieder-zwei}
+%% dass Max alle Fenster wieder öffnete
+%% \z
+%% Ein skopustragendes Adverbial, das links von einer NP steht, hat Skopus über diese.
+%%
+%% \begin{enumerate}
+%% \item 
+%%       ($\forall$ < \relation{wieder} < CAUSE < offen; repetitiv)
+%% \item 
+%%       ($\forall$ < CAUSE < \relation{wieder} < offen; restitutiv)
+%% \item 
+%%       (CAUSE  < $\forall$ < \relation{wieder} < offen; restitutiv)
+%% \end{enumerate}
+
+\noindent
+Diese Lesarten entsprechen dem Dominanzgraph in Abbildung~\ref{Abbildung-Max-wieder-alle-Fenster-oeffnete}.
+\begin{figure}
+    \begin{tikzpicture}
+%    \draw (-5,10) to[grid with coordinates] (5,-.5);
+    \node(offen)   at (0,0) {h7:offen(x)};
+    \node(fenster) at (-4,2){h4:fenster(x)};
+    \node(every-q) at (-4,4){h1:every\_q(x, h2, h3)};
+    \node(wieder)  at (-4,6){h8:wieder(h9)};
+    \node(cause)   at (2,4) {h5:CAUSE(max, h6)};
+
+    \draw[->,dashed]   (wieder.-23)  to (every-q);   
+    \draw[->,dashed]   (every-q.-23) to (fenster);
+    \draw[->,dashed]   (every-q.-13) to (offen);
+    \draw[->,dashed]   (cause.-15)   to (offen);
+    \end{tikzpicture}
+\caption{Dominanzgraph für \emph{Max wieder alle Fenster öffnete}\label{Abbildung-Max-wieder-alle-Fenster-oeffnete}}
+\end{figure}
+Abbildung~\ref{Abbildung-Max-alle-Fenster-wieder-oeffnete} zeigt den Graph für (\ref{ex-alle-wieder}) -- hier als (\mex{1}) wiederholt:
+\ea
+\label{ex-alle-wieder-zwei}
+dass Max alle Fenster wieder öffnete
+\z
+\begin{figure}
+    \begin{tikzpicture}
+%    \draw (-5,10) to[grid with coordinates] (5,-.5);
+    \node(offen)   at (0,0) {h7:offen(x)};
+    \node(fenster) at (-4.5,2){h4:fenster(x)};
+    \node(every-q) at (-4,4){h1:every\_q(x, h2, h3)};
+    \node(wieder)  at (-1.5,2){h8:wieder(h9)};
+    \node(cause)   at (2,4) {h5:CAUSE(max, h6)};
+
+    \draw[->,dashed]   (wieder.-23)  to (offen);   
+    \draw[->,dashed]   (every-q.-23)  to (fenster);
+    \draw[->,dashed]   (every-q.-13)  to (wieder);
+    \draw[->,dashed]   (cause.-15)    to (offen);
+    \end{tikzpicture}
+\caption{Dominanzgraph für \emph{Max alle Fenster wieder öffnete}\label{Abbildung-Max-alle-Fenster-wieder-oeffnete}}
+\end{figure}
+Um diese Dominanzgraphen aus dem Graphen ohne \emph{wieder} zu erhalten, muss nur der Ausdruck h8:wieder(h9)
+eingefügt werden und Dominanzbedingungen, die verlangen, dass $h9$ Quantoren dominiert, die rechts
+von \emph{wieder} stehen bzw.\ von Quantoren dominiert wird, die links von \emph{wieder}
+stehen. Dafür habe ich 2008 eine Analyse implementiert, die sich die Kodierung der Valenz zu Nutze
+macht, die in Kapitel~\ref{sec-realized} vorgestellt wird. Im Zusammenhang mit Kasusvergabe hat
+\citet{Meurers99b} so genannte Spirits eingeführt. Damit wird es möglich, den Kasus für \emph{diesen
+  Roman} in Abhängigkeit vom finiten Verb zu vergeben.
+vom 
+\eal
+\ex Diesen Roman vorgelesen hat Max gestern.
+\ex Dieser Roman vorgelesen wird nur selten.
+\zl
+Die Kombination von \emph{diesen}/\emph{dieser} \emph{Roman} mit \emph{vorgelesen} ist immer gleich
+  und erst bei Kombination mit dem finiten Verb wird entschieden, welchen Kasus die NP am Satzanfang
+  haben muss. Genauso verhält es sich mit der Kongruenz:
+\eal
+\ex Alle Fenster geöffnet hat Max gestern.
+\ex Alle Fenster geöffnet werden nur selten.
+\zl
+Wenn die Nominalphrase innerhalb von \emph{alle Fenster geöffnet} im Nominativ steht, muss das
+finite Verb mit ihr kongruieren. In Meurers' Ansatz werden deshalb Argumente, die schon realisiert
+wurden, immer noch in den Valenzlisten ihrer Köpfe repräsentiert. Es wird lediglich das binäre
+Merkmal \textsc{realized} von $-$ auf $+$ gesetzt. Das bedeutet aber, dass man diese Information
+auch für die Beschränkungen von Skopus benutzen kann.
+\ea
+dass die Busfahrerin wieder alle Fenster öffnet
+\z
+In dem Moment, in dem \emph{wieder} mit \emph{alle Fenster öffnet} kombiniert wird, ist klar, dass
+die NP für das Objekt \emph{alle Fenster} den \textsc{realized}"=Wert $+$ hat und die Subjekts-NP
+den \textsc{realized}"=Wert $-$. Das bedeutet, man kann eine Beschränkung festlegen, die sagt, dass
+alle NPen, die bei der Kombination bereits realisiert sind, im Skopus von \emph{wieder} sein müssen,
+wohingegen alle NPen, die noch nicht realisiert wurden, Skopus über \emph{wieder} haben müssen.
+
+(\mex{1}) zeigt den entsprechenden Lexikoneintrag für \emph{wieder}:
+\eas
+\label{le-wieder}%
+Lexikoneintrag für \emph{wieder}:\\
+\avm{
+[ cat & [ head & [\type{adv}\\
+                  mod & [ cat &  [ head  & verb\\
+                                   comps & \ibox{1} ]]\\
+                          cont & [ ltop & \ibox{2}\\
+                                   ind  & \ibox{3} ]]\\
+          spr  & <>\\
+          comps & <> ]\\
+  cont & [ ltop & \ibox{4}\\
+           ind  & \ibox{3}\\        
+           rels & < [\type{wieder}\\
+                     lbl  & \ibox{4}\\
+                     arg1 & \ibox{5}] >\\
+           hcons & < [\type{qeq}\\
+                      harg & \ibox{5}\\
+                      larg & \ibox{2} ] > \+ outscope-realized(\ibox{1}) ] ]
+}
+\zs
+\itdopt{Runde Klammern sind zu groß.}
+\emph{wieder} modifiziert ein Verb mit einer \compsl \ibox{1}. \emph{wieder} ist ein Adverb, braucht
+also weder eine Spezifikator noch ein Komplement. Der \ltopw von \emph{wieder} ist identisch mit dem
+Label der \relation{wieder}"=Relation. \emph{wieder} hat ein \argone, das das modifizierte Verb im
+Skopus hat: \ibox{5} \qeq \ibox{2}. Zusätzlich wird an die Liste der Handle"=Constraints eine Liste
+angehängt, die das Ergebnis der Anwendung von \emph{outscope-realized} ist. \emph{outscope-realized} wird auf die
+\compsl des modifizierten Verbs angewendet \iboxb{1}. Für alle bereits realisierten Quantoren gibt
+es eine \qeq-Beschränkung, die auf der linken Seite das Handle von \emph{wieder} \iboxb{5} hat und
+auf der rechten Seite das Handle des Quantors des jeweiligen Arguments des modifizierten Verbs. Für
+die nicht realisierten Argumente des modifizierten Verbs wird eine Beschränkung in \hcons
+aufgenommen, die besagt, dass der Quantor des noch nicht realisierten Arguments \emph{wieder}, also
+\ibox{4} dominiert.
+\itdopt{
+Constraint angeben}
+%
+% Wie ist das mit dem \argzero von \emph{wieder}? Hat es eins? In ERG gibt es ein event:
+%   \ibox{3}. Allerdings gibt es auch bei apparently eins.
+%
+Interessanterweise funktioniert diese Analyse auch für schwierige Fälle wie (\mex{1}):
+\ea 
+Alle Fenster öffnen wird Klaus wieder.
+%\ex Öffnen wird Klaus alle Fenster wieder.
+\z
+Obwohl der Allquantor sich innerhalb einer komplexen vorangestellten Phrase befindet, hat
+\emph{wieder} Skopus über den Allquantor.
+
+Die entsprechenden Lesarten für Modifikationen durch \emph{wieder} lassen sich also problemlos ohne
+leere Elemente für CAUSE und BECOME ableiten. Es wird genauso eine Dekomposition der Wortbedeutung
+von \emph{öffnen} vorgenommen, die dekomponierte Bedeutung ist aber einem einzigen Element, dem Verb, zugeordnet. Durch
+Unterspezifikation der Skopusverhältnisse im Lexikon lassen sich dann die entsprechenden Lesarten
+ableiten.
+
 
 
 %\section*{Kontrollfragen}
@@ -1661,7 +2285,7 @@ beschäftigen sich mit Argumentstruktur und Linking.
 Der Artikel von
 \citet{CFPS2005a} stellt MRS vor. Ich kann mich erinnern, dass ich in den 90ern diesen Artikel nicht
 verstehen konnte, obwohl ich an einer Grammatik gearbeitet habe, die eine MRS enthielt. Ich habe
-damals gemeinsam mit Walter Kasper an der deutschen \Verbmobil\hyp Grammatik gearbeitet. Das Buch von
+damals gemeinsam mit Walter Kasper an der deutschen \Verbmobil-Grammatik gearbeitet. Das Buch von
 \citet{BB2005a} hat mir sehr dabei geholfen, die Grundidee von Semantikframeworks mit
 Unterspezifikation zu verstehen. Das Buch kommt mit einer Prolog"=Implementation der entsprechenden
 Grammatikfragmente, so dass man Dinge selbst ausprobieren kann. Ich hoffe, dass das hier vorliegende

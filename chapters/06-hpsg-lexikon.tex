@@ -13,71 +13,112 @@
 \label{chap-lexikon}
 
 In\is{Lexikon|(} diesem Kapitel wird gezeigt, wie das Lexikon organisiert werden kann
-und wie Generalisierungen erfaßt werden können.
+und wie Generalisierungen erfasst werden können.
 
 
 \section{Vertikale Generalisierungen: Typhierarchien}
 
-Durch\is{Typhierarchie|(} die Lexikalisierung der Grammatik haben wir eine enorme Reduktion der Anzahl der Dominanzschemata
+Durch\is{Typhierarchie|(} die Lexikalisierung der Grammatik wurde eine enorme Reduktion der Anzahl der Dominanzschemata
 erreicht. Statt viele verschiedene Grammatikregeln für verschiedene Valenzmuster zu haben, verwenden
-wir nur ein sehr abstraktes Dominanzschema für Kopf"=Argument"=Strukturen. Dafür sind jetzt aber
+wir nur zwei sehr abstrakte Dominanzschemata für Kopf"=Argument"=Strukturen. Dafür sind jetzt aber
 die Lexikoneinträge sehr komplex geworden. Man kann jedoch verschiedene Generalisierungen in Bezug auf
 Lexikoneinträge formulieren. Zum Beispiel kann man Verben nach ihrer Valenz klassifizieren
-und bestimmten Typen zuordnen, die in einer Hierarchie von Untertypen des Typs \type{word}
+und bestimmten Typen zuordnen, die in einer Hierarchie von Untertypen des Typs \type{sign}
 organisiert sind. Solcherart Generalisierungen nennt man vertikale Generalisierungen, da
 es immer um die Zuordnung von Beschreibungen zu Typen in einer Hierarchie geht, wobei die
 allgemeinste Beschreibung oben in der Hierarchie steht und spezifischere Beschreibungen
 zu in der Hierarchie untergeordneten Typen gehören. Den Gegensatz zu solchen vertikalen
 Generalisierungen bilden horizontale Generalisierungen, denen wir uns im nächsten Abschnitt zuwenden werden.
 
+Das HPSG-Lexikon enthält Stämme wie \zb \stem{helf} und \stem{Kind} aber auch Wörter wie \emph{sie}
+oder \emph{auf}. Aus den Stämmen leiten morphologische Regeln flektierte Fformen wie \emph{helfen},
+\emph{hilft} und \emph{geholfen} bzw.\ \emph{Kind}, \emph{Kindes} und \emph{Kinder}
+ab. Morphologische Regeln werden in Kapitel~\ref{Kapitel-Morphologie} behandelt.
 
-Im folgenden soll gezeigt werden, wie man einen Lexikoneintrag für ein Nomen wie \emph{Frau} repräsentieren
-kann. Der Lexikoneintrag für das Nomen \emph{Frau} ist in (\mex{1}) angegeben:
+Im folgenden soll gezeigt werden, wie man einen Lexikoneintrag für ein Nomen wie \emph{Kind} repräsentieren
+kann. Der Lexikoneintrag für das Nomen \emph{Kind} ist in (\mex{1}) angegeben:
 \ea
 \ms{
- phon & \phonliste{ \highlight{Frau}} \\
+ phon & \phonliste{ \highlight{Kind} } \\[2mm]
  cat  & \ms{ head & noun \\
-               comps & \sliste{ Det } \\
+             spr  & \nliste{ Det } \\
+             comps & \eliste{ }\\
+             arg-st & \nliste{ Det } \\
                \ldots & \ldots\\
            } \\
  cont & \ms{
-           ind   & \ibox{1} \ms{ per & 3 \\
+           ltop & \ibox{1}\\
+           ind  & \ibox{2} \ms[referential]{ per & 3 \\
 % kommt aus der Morphologie            num & sg \\
-                                       gen & \highlight{fem} \\
-                                     } \\
-           restr & \liste{ \ms[\highlight{frau}]{ inst & \ibox{1} \\ }} \\
+                                gen & \highlight{neu} \\
+                              } \\
+           rels & \liste{ \ms[\highlight{kind}]{ lbl & \ibox{1}\\
+                                                 arg0 & \ibox{2} \\ }} \\
+           hcons & \eliste\\
            } \\
 \ldots & \ldots\\
 }
 \z
 Nur ein kleiner Teil dieser Information -- nämlich der grau unterlegte -- ist idiosynkratisch.
 Die Punkte in (\mex{0}) sollen darauf hinweisen, dass in den folgenden Kapiteln noch weitere Merkmale
-eingeführt werden, die auch für Nomina relevant ist, so dass sich das Verhältnis von wortspezifischer
+eingeführt werden, die auch für Nomina relevant sind, so dass sich das Verhältnis von wortspezifischer
 Information zu allgemeiner Information noch zu Ungunsten der wortspezifischen Information
 verändert.
 
-Man kann die Information in (\mex{0}) wie folgt zerlegen: (\mex{1}) enthält
+Man kann die Information in (\mex{0}) wie folgt zerlegen: (\mex{1}) enthält 
+die Merkmal"=Wert"=Paare, die für alle lexikalischen Elemente gleich sind, die eine Relation
+einführen:
+\ea
+Alle relationalen Lexikonelemente bis auf Quantoren:\\
+\avm{
+[ cont & [ ltop & \1\\
+           ind  & \2\\
+           rels & < [\type{relation}\\
+                     lbl  & \1\\
+                     arg0 & \2], \ldots > ] ]
+}
+\z
+Der \ltopw ist dabei mit dem Label der ersten Relation identifiziert. Statt der genauen Relation ist
+in (\mex{0}) nur der allgemeinste Typ angegeben. \type{buch} und \type{kind} und auch \type{lesen}
+und \type{lachen} sind Untertypen von \type{relation}.
+Der \textsc{index} ist
+identisch mit dem \argzero der Relation. Bei Nomina ist der Index vom Typ \type{index}, bei Verben ist der
+\textsc{index} vom Typ \type{event}. Man beachte, dass der Wert von \ltop nicht genauer angegeben
+werden muss, denn er ist in der Grunddatenstruktur, der sogenannten \isi{Signatur} angegeben. In
+der Signatur für die hier entwickelte Grammatik steht zum Beispiel, dass Zeichen einen \contw haben
+und dass der Wert von \cont vom Typ \type{mrs} sein muss. Zu Strukturen vom Typ \type{mrs} gehören
+dann die Merkmale \ltop \textsc{ind}, \rels und \hcons. Für jedes Merkmal muss festgelegt werden,
+welchen Typ der Wert haben muss. Siehe hierzu auch Kapitel~\ref{sec-modelle-theorien} und \citew{Richter2024a}.
+
+Bei Nomen ohne Argument und Verben ist die \hconsl für
+gewöhnlich leer (siehe jedoch den Lexikoneintrag für \emph{Tochter} auf S.\,\pageref{le-Tochter} und den für \emph{glauben} auf S.\,\pageref{le-glauben}).
+\ea
+Alle nicht-skopenden Lexikonelemente:\\
+\avm{
+[ cont & [ hcons & < > ] ]
+}
+\z
+
+(\mex{1}) enthält
 die Merkmal"=Wert"=Paare, die für alle Nomina gleich belegt sind:
 \ea
 \onems{ cat$|$head \type{noun} \\
-            cont \type{nom-obj} \\
+%            cont \type{nom-obj} \\
         }
 \z
-\type{noun} steht dabei für die Wortart und \type{nom"=obj}\istype{nom-obj} für den Typ,
-den Strukturen mit einem \textsc{index}"=Merkmal und einem \textsc{restrictions}"=Merkmal
-haben.
+\type{noun} steht dabei für die Wortart.
 
-(\mex{1}) enthält die Information, die für alle referentiellen, nichtpronominalen Nomina,
+(\mex{1}) enthält die Information, die für alle referentiellen, nicht pronominalen Nomina,
 die einen Determinator verlangen, zusätzlich zu (\mex{0}) relevant ist:
 \ea
-\onems{ cat$|$comps \sliste{ Det } \\
-                       cont  \ms{ ind   & \ibox{1} \textrm{[ \textsc{per} \type{3} ]}\\
-                                  restr & \liste{ \ms[psoa]{ inst & \ibox{1} \\ }, \ldots } \\
-                     } \\ 
-      }
+Alle Nomina, die einen Determinator verlangen:\\
+\avm{
+[ cat|arg-st   & < Det > \\
+  cont|ind|per & 3 ]
+}
 \z
 Solche Nomina haben mindestens eine Relation zur Beschränkung des Indexes in der Liste
-ihrer Restriktionen. Das genaue Prädikat (\emph{buch}' oder \emph{haus}') hängt vom einzelnen
+ihrer Restriktionen. Das genaue Prädikat (\relation{buch} oder \relation{haus}) hängt vom einzelnen
 Wort ab und ist hier nicht festgelegt. An Stelle des Prädikats steht in (\mex{0})
 der maximal unspezifische Typ für Prädikate: \type{psoa} (\type{psoa} steht für
 \emph{parametrized state of affairs}. Siehe auch Seite~\pageref{page-psoa}).
@@ -105,13 +146,21 @@ die die Information aus beiden Zerlegungen hierarchisch gliedert.
 grau unterlegten Werte sind idiosynkratisch.
 \ea
 \ms{
-phon & \phonliste{ \highlight{helf}}\\
+phon & \phonliste{ \highlight{helf} }\\
 cat  & \ms{ head & verb \\
-            comps & \liste{ NP[\type{nom}]\ind{1}, NP[\type{dat}]\ind{2}  } \\
+            spr    & \eliste\\
+            comps  & \ibox{1}\\
+            arg-st & \ibox{1} \liste{ NP[\type{nom}]\ind{2}, NP[\type{dat}]\ind{3}  } \\
           } \\
-cont &  \ms[\highlight{helfen}]{ agens       & \ibox{1} \\
-                                 experiencer & \ibox{2} \\
-                               } \\
+cont &  \ms[psoa]{ 
+             ltop & \ibox{4}\\
+             ind  & \ibox{5} event\\
+             rels & \liste{ \ms[\highlight{helfen}]{ 
+                                 lbl  & \ibox{4}\\
+                                 arg0 & \ibox{5}\\
+                                 arg1 & \ibox{2}\\
+                                 arg2 & \ibox{3}\\
+                               } } }
 }
 \z
 
@@ -127,29 +176,31 @@ Alle Verben mit Subjekt und Dativobjekt  haben zusätzlich zu (\mex{0}) eine \co
 mit einer Nominativ- und einer Dativ"=NP:
 \ea
 \onems{ 
-cat$|$comps \liste{ NP[\type{nom}], NP[\type{dat}] } \\
+cat$|$arg-st \liste{ NP[\type{nom}], NP[\type{dat}] } \\
 }
 \z
-Alle zweistelligen Verben mit \textsc{agens} und \textsc{experiencer} haben zusätzlich
+Alle zweistelligen Verben mit \argone und \argtwo haben zusätzlich
 zu (\mex{-1}) die folgenden Eigenschaften:
 \ea
 \label{bsp-linking-agens-experiencer}
-\ms{ cat & \ms{ comps & \liste{ \onems{ cont$|$ind \ibox{1}\\}, \onems{ cont$|$ind \ibox{2}\\}}\\ 
+\ms{ cat & \ms{ arg-st & \sliste{ [ cont$|$ind \ibox{1} ], [ cont$|$ind \ibox{2} ] }\\ 
               } \\
-     cont & \ms[agens-exp-rel]{
-                agens & \ibox{1} \\
-                experiencer & \ibox{2} \\
-                }\\
+     cont & \ms{
+            rels & \ms[arg12-rel]{
+                   arg1 & \ibox{1} \\
+                   arg2 & \ibox{2} \\
+                   } }\\
 }
 \z
 Siehe auch Kapitel~\ref{sec-linking} zum Linking\is{Linking}.
 
 Abbildung~\vref{abb-hierarchie-lexikon} zeigt, wie ein Ausschnitt einer Typhierarchie
 aussehen könnte, in die man die den oben vorgenommenen Informationsaufteilungen
-entsprechenden Typen integrieren müßte. \type{root} steht dabei für Wurzel.
+entsprechenden Typen integrieren müsste. \type{root} steht dabei für Wurzel.
 %
 \begin{figure}
-\oneline{%
+\begin{sideways}
+\scalebox{.5}{%
 \begin{forest}
 type hierarchy
 [sign, l sep*=3
@@ -198,6 +249,7 @@ type hierarchy
     \upshape [\cont \type{exp-rel}]\end{tabular}}
       ]]]
 \end{forest}}
+\end{sideways}
 \caption{\label{abb-hierarchie-lexikon}Auszug aus einer möglichen Typhierarchie}
 \end{figure}
 Bei den Merkmalsspezifikationen in Abbildung~\ref{abb-hierarchie-lexikon}
@@ -212,7 +264,7 @@ und semantischen Beitrag.
 \ms[count-noun-root]{
  phon & \phonliste{ Frau } \\
  cont & \ms{ ind$|$gen & fem \\
-             restr  & \sliste{ \type{frau} } \\
+             rels  & \sliste{ \type{frau} } \\
            }\\
 }
 \z
@@ -248,7 +300,7 @@ Aber es gibt auch andere Regularitäten, die sich nicht gut in Hierarchien erfas
 \ex \emph{lieben} und \emph{geliebt}  wie in \emph{wurde geliebt}
 \zl
 Die Wörter könnten ebenfalls in der Hierarchie repräsentiert werden (als Untertypen von intransitiv und transitiv),
-aber dann wäre nicht erfaßt, dass die Valenzänderung in (\mex{0}a) und (\mex{0}b) durch denselben Prozeß
+aber dann wäre nicht erfasst, dass die Valenzänderung in (\mex{0}a) und (\mex{0}b) durch denselben Prozess
 ausgelöst wird (siehe Abschnitt~\ref{sec-vererbung-koenig} zur Diskussion von vererbungsbasierten Ansätzen).
 
 Man verwendet statt dessen Lexikonregeln, die zwei Wörter, zwei Stämme oder einen Stamm und ein
@@ -440,7 +492,7 @@ werden, so dass rekursiv\is{Rekursion} beliebig komplexe Strukturen aufgebaut we
 
 Da die Lexikoneinträge, die Lexikonregeln und die Dominanzschemata mit Hilfe getypter Merkmalstrukturen
 modelliert werden, können Generalisierungen über alle drei Arten von Objekten in der Typhierarchie
-erfaßt werden. Wird ein Prinzip formalisiert, so geschieht das meistens mit Bezug auf einen Typ. Das Prinzip
+erfasst werden. Wird ein Prinzip formalisiert, so geschieht das meistens mit Bezug auf einen Typ. Das Prinzip
 gilt dann für alle Untertypen des betreffenden Typs.
 
 
@@ -498,7 +550,7 @@ Passiv"=Resultativ"=Konstruktion geben. Um diese beiden phrasalen Konstruktionen
 zueinander zu setzen, braucht man dann Transformationen\is{Transformation}, die über komplexen phrasalen
 Objekten operieren. Solcherart komplexe Transformationen wurden in den 70er und 80er Jahren
 in den auf Chomskys Arbeiten basierenden Grammatikmodellen\is{Government and Binding (GB)@\emph{Government and Binding} (GB)}
-eliminiert. Die genauen Gründe hierfür sind gut in \citew[Kapitel~3.1]{Klenk2003a} zusammengefaßt.
+eliminiert. Die genauen Gründe hierfür sind gut in \citew[Kapitel~3.1]{Klenk2003a} zusammengefasst.
 
 In HPSG"=Analysen nimmt man dagegen oft Lexikonregeln für Resultativkonstruktionen an
 (\citealp{Wechsler97a,WN2001a,Verspoor97a}; \citealp[Kapitel~6]{Mueller2002b}).\footnote{
@@ -749,9 +801,9 @@ Der Mann denkt an die Frau das Buch.
 \zl
 In (\mex{0}a) wurde ein intransitives Verb mit der Transitiv"=Konstruktion verbunden und in
 (\mex{0}b) ein Verb, das ein Präpositionalobjekt verlangt, \dash, man kann die Repräsentationen in
-(\ref{ex-schlagen-linking}) nicht automatisch berechnen lassen. In Kays und Fillmores System müßte
+(\ref{ex-schlagen-linking}) nicht automatisch berechnen lassen. In Kays und Fillmores System müsste
 man also für jedes Verb einzeln Unterkonstruktionen für das Verb im Aktiv, im Passiv, in der
-Medialkonstruktion usw.\ festlegen, wodurch man nicht erfaßt, dass neu entstehende transitive Verben
+Medialkonstruktion usw.\ festlegen, wodurch man nicht erfasst, dass neu entstehende transitive Verben
 von Sprechern nach dem Erwerb des neuen Verbs auch ohne weiteres passiviert werden können.\is{Menge|)}%
 \is{Passiv|)}%
 
@@ -808,7 +860,7 @@ die inkompatible Elemente enthalten, nicht möglich. Es gibt eine schwierige Def
 bei \citet[\page47--49]{ps} und \citet{PM90a}. Mengen werden dazu verwendet, sogenannte Schmarotzerlücken\is{Lücke!Schmarotzer-} (\emph{parasitic gaps})
 zu analysieren. Auf Schmarotzerlücken werde ich hier nicht eingehen, da es dieses Phänomen im Deutschen
 nicht gibt.\footnote{
-        \citet*{Felix85} gibt Beispiele aus dem  Bairischen.\il{Bairisch} 
+        \citet*{Felix85} gibt Beispiele aus dem Bairischen.\il{Bairisch} 
         Diese gehören aber garantiert nicht zum Standard"=Deutschen und
         werden auch nicht von allen Sprechern des Süddeutschen akzeptiert. 
         Zu einer Kritik an Felix' Ansatz siehe auch 
@@ -822,7 +874,7 @@ einführt und dann bei einem entsprechenden Element den Wert auf $+$ setzt.
 Eine Liste mit einem auf diese Weise bereits als realisiert markierten Element entspricht
 einer \compsl, aus der ein Element entfernt wurde. Für die Abbindung von Elementen
 in der Valenzliste, die einen \textsc{realized}"=Wert $-$ haben, brauchte man ein entsprechend
-angepaßtes Kopf"=Argument"=Schema, das Bezug auf den \textsc{realized}"=Wert von Argumenten nimmt
+angepasstes Kopf"=Argument"=Schema, das Bezug auf den \textsc{realized}"=Wert von Argumenten nimmt
 (siehe Kapitel~\ref{kasus-anhang} für eine Ausarbeitung dieses Vorschlags).
 Ein größeres Problem stellen Fälle dar, für die man eine Erweiterung der Valenzliste
 benötigt. Zum Beispiel benötigt man für die Analyse der Medialkonstruktion\is{Medialkonstruktion} in (\mex{1}b)
@@ -838,7 +890,7 @@ von \emph{lesen} wird unterdrückt, und es erscheint ein Reflexivum als
 formale Markierung im Satz.
 
 \is{Passiv|(}%
-Dieses Problem läßt sich ebenfalls lösen, wenn man mehrere Repräsentationsmöglichkeiten für
+Dieses Problem lässt sich ebenfalls lösen, wenn man mehrere Repräsentationsmöglichkeiten für
 Argumente hat. Einen entsprechenden Vorschlag macht \citet{Koenig99a}: In neueren Arbeiten
 zur HPSG wird ein listenwertiges Merkmal \argst\isfeat{arg-st} für die Repräsentation der Argumentstruktur
 lexikalischer Elemente verwendet. Die \argstl enthält dieselbe Information, die wir
@@ -895,7 +947,7 @@ muss jeweils ein von einer solchen Partition dominierter Typ ausgewählt werden,
 ein Lexem muss entweder \type{passive} %\type{middle} 
 oder \type{active} und entweder \type{lesen} oder \type{essen} sein. 
 Die jeweils möglichen Kombinationen
-läßt Koenig automatisch berechnen. Ist die für die entsprechenden Typen definierte Information
+lässt Koenig automatisch berechnen. Ist die für die entsprechenden Typen definierte Information
 kompatibel, wird ein entsprechender Subtyp in die Hierarchie eingefügt.
 Für die Hierarchie in Abbildung~\ref{bsp-partitionen} ergibt sich die Hierarchie
 mit den zusätzlichen Typen in Abbildung~\vref{bsp-partitionen-ausgerechnet}.
@@ -939,7 +991,7 @@ cont      & \ms[lesen-rel]{
             }\\
 }
 \z
-Die für unsere Merkmalsgeometrie angepaßten Typen \type{active} und \type{passive} zeigt (\mex{1}):
+Die für unsere Merkmalsgeometrie angepassten Typen \type{active} und \type{passive} zeigt (\mex{1}):
 \eal
 \ex 
 \begin{tabular}[t]{@{}l@{}}
@@ -1001,11 +1053,11 @@ Der aufmerksame Leser wird festgestellt haben, dass in den Spezifikationen keine
 Kasusinformation enthalten ist. In der Lexikonregel in (\ref{lr-passiv-beispiel})
 weichen die Kasus des logischen Objekts im Eintrag für die Aktivform und die Passivform
 voneinander ab: Im Aktiv erhält das Objekt Akkusativ, im Passiv dagegen Nominativ.
-Entsprechende Beschränkungen müßten für die Aktiv- und die Passiv"=Linking"=Typen
+Entsprechende Beschränkungen müssten für die Aktiv- und die Passiv"=Linking"=Typen
 formuliert werden. Das ist unproblematisch, man würde auf die Kasusprinzipien,
 die im Kapitel~\ref{chap-kasus} erläutert werden, zurückgreifen.
 
-Der Linking"=Typ für die Medialkonstruktion\is{Medialkonstruktion} läßt sich analog zum Passiv definieren:
+Der Linking"=Typ für die Medialkonstruktion\is{Medialkonstruktion} lässt sich analog zum Passiv definieren:
 
 \eas\label{constr-middle-linking}
 Typ für Medial-Linking:\\
@@ -1050,7 +1102,7 @@ Prozess mehrfach angewendet werden kann. Ein Beispiel hierfür ist die Kausativi
 `bewirken, dass jemand bewirkt, dass jemand jemanden tötet'\\
 (töten = verursachen zu sterben)
 \z
-Das Kausativmorphem \suffix{t} wird dreimal mit dem Verb verknüpft. Diesen argumentstrukturverändeernden
+Das Kausativmorphem \suffix{t} wird dreimal mit dem Verb verknüpft. Diesen argumentstrukturverändernden
 Prozess kann man nicht in einer Vererbungshierarchie modellieren, denn wenn man sagen würde, dass
 ein Wort drei mal von \type{causative} erbt, bekommt man nichts anderes, als wenn das Wort
 einmal erbt. Für solche Phänomene braucht man Regeln, die ein
@@ -1100,7 +1152,7 @@ die türkischen Beispiele von \citet[\page 77]{Ozkaragoez86a}:
 die Daten durch eine Analyse am besten erfasst, die davon ausgeht, dass ein passiviertes transitives
 Verb erneut passiviert werden kann, so dass sich dann ein unpersönliches Passiv ergibt. Solche
 Doppelpassivierungen lassen sich ebenfalls nicht über Vererbung analysieren, denn wenn man die
-entsprechenden Beschränkungen merhfach erbt, kommt keine neue Information hinzu bzw.\ ändern sich
+entsprechenden Beschränkungen mehrfach erbt, kommt keine neue Information hinzu bzw.\ ändern sich
 Strukturen nicht.
 
 Wenn man davon ausgeht, dass Valenzänderungen wie Passiv, Kausativierung und Medialkonstruktionen
@@ -1146,7 +1198,7 @@ cat       & \ms{
 Das Problem ist, dass wir in (\mex{0}) die \compsl spezifiziert haben. Dieser
 Typ ist deshalb mit dem Passiv"=Linking"=Typ (\ref{constr-passive-linking}) und mit dem
 Medial"=Linking"=Typ (\ref{constr-middle-linking}) unvereinbar. Damit das oben erörterte System zur Passivierung
-funktioniert, müßte die Information, die in (\mex{0}) auf der \compsl steht, auf der \argstl stehen.
+funktioniert, müsste die Information, die in (\mex{0}) auf der \compsl steht, auf der \argstl stehen.
 
 Im folgenden diskutiere ich einen Vorschlag von Koenig zur Lösung eines ähnlichen Problems
 und zeige, dass seine Analyse das Problem nur verschiebt:
@@ -1300,7 +1352,7 @@ Dative\is{Kasus!Dativ} auch mit Resultativkonstruktionen vorkommen. Freie
 Dative\is{Dativ!freier}\is{Dativ!incommodi@\emph{incommodi}}\is{Dativ!commodi@\emph{commodi}} wie in
 (\mex{1}b) sagen etwas über den Nutznießer einer Handlung aus oder über den, dem sie schadet.
 Wie (\mex{1}c) zeigt, können diese Dative vom \emph{bekommen}"=Passiv
-erfaßt werden, was dafür spricht, sie als Argumente zu behandeln.
+erfasst werden, was dafür spricht, sie als Argumente zu behandeln.
 \eal
 \ex Er bemalt den Tisch.
 \ex Er bemalt ihr den Tisch.
@@ -1317,7 +1369,7 @@ Damit hat man aber dann Probleme mit Sätzen wie (\mex{1}):
 Da \textsc{add-arg} bereits im Resultativkonstruktionstyp verwendet wird, kann es in einem
 Dativtyp nicht anders belegt werden.
 
-Dieses Problem läßt sich nur durch die Stipulation eines \textsc{add-arg-2}"=Merkmals lösen. Finden
+Dieses Problem lässt sich nur durch die Stipulation eines \textsc{add-arg-2}"=Merkmals lösen. Finden
 sich noch weitere Kombinationen von Argumenterweiterungen, muss man weitere \textsc{add-arg-n}"=Merkmale
 in die Grammatik aufnehmen.
 
@@ -1471,7 +1523,7 @@ tiefer, nämlich bei den Töchtern zu spezifizieren. Rechnet man dann automatisc
 für \type{vendre} $\wedge$ \type{active} bzw.\ \type{vendre} $\wedge$ \type{medio-passive}
 aus, bekommt man auf der obersten Ebene die erwünschte Valenzrepräsentation.
 
-Das ist aber nicht die Lösung des Problems. Das System, das Koenig entwickelt, läßt sich
+Das ist aber nicht die Lösung des Problems. Das System, das Koenig entwickelt, lässt sich
 nicht umsetzen, wenn die Typhierarchie Derivationstypen und Wurzeln in Partitionen enthält.
 Mit einer Hierarchie wie der in Abbildung~\vref{bsp-derivation-wurzeln-partitionen} können
 wir \emph{lesbar} und \emph{traurigkeit} ableiten, nicht aber \emph{Lesbarkeit}.
@@ -1619,7 +1671,7 @@ type hierarchy
 \end{figure}
 Wenn ein solches Überschreiben von Information möglich ist, spricht man von 
 nicht"=monotoner\is{Monotonie} Vererbung. Die Information in der Typhierarchie in Abbildung~\ref{pinguin}
-läßt sich auch ohne Defaults darstellen, wie Abbildung~\vref{mon-pinguin} zeigt.
+lässt sich auch ohne Defaults darstellen, wie Abbildung~\vref{mon-pinguin} zeigt.
 \begin{figure}
 \begin{forest}
 type hierarchy
@@ -1662,13 +1714,13 @@ sagen, dass Quaker nur per Default Pazifisten sind. Wenn die Information über d
 Default"=Information ist, dann würde das dazu führen, dass \emph{Nixon} die Information "`kein Pazifist"' erbt.
 Für den Fall, dass beide Eigenschaften als Default"=Information gekennzeichnet sind, muss man sich
 ebenfalls ein Vorgehen überlegen: Ist der Wert am erbenden Knoten dann eine disjunktive Verknüpfung
-der Werte des Obertyps, der allgemeinste Typ, der auf beide Werte paßt, oder einfach nicht definiert?
+der Werte des Obertyps, der allgemeinste Typ, der auf beide Werte passt, oder einfach nicht definiert?
 In unserem Beispiel hier ist die Entscheidung für das eine oder das andere relativ harmlos, aber
 in einer umfangreichen Theorie mit vielen im Typsystem kodierten Unterscheidungen können die Konsequenzen
 enorm sein.
 
 
-\subsubsection{Mißbrauch von Defaults}
+\subsubsection{Missbrauch von Defaults}
 
 Eine interessante Möglichkeit, die die Formalisierung der Default"=Unifikation in \citew{LC99a}
 bietet, ist es, Strukturteilung als Default zu spezifizieren. Dabei kann die Information über die
@@ -1696,7 +1748,7 @@ noch die \compswe identifiziert werden, also nur noch Teile der eigentlich ident
 Strukturen.
 
 Diese Notation ermöglicht eine sehr kompakte Darstellung von Identitätsanforderungen, stellt
-meiner Meinung nach aber einen Mißbrauch von Defaults dar, denn es gibt keine einzige Struktur,
+meiner Meinung nach aber einen Missbrauch von Defaults dar, denn es gibt keine einzige Struktur,
 in der das Generalisierte Kopfmerkmalsprinzip ohne Überschreibung bestimmter Werte gilt: Bei allen Untertypen von \type{headed"=phrase}
 wird die Default"=Pfadgleichung überschrieben. Eine Generalisierung, die nie gilt, ist keine Generalisierung.
 
@@ -1745,7 +1797,7 @@ so dass sie zwei NPen enthält. Die Beschränkungen von (\mex{0}) zusammen mit d
 
 \noindent
 Die Klassifikation von transitiven Verben als Untertyp der intransitiven Verben dürften die meisten
-Linguisten unintuitiv finden. Läßt man solcherart Klassifikationen zu, stellt sich sofort die Frage,
+Linguisten unintuitiv finden. Lässt man solcherart Klassifikationen zu, stellt sich sofort die Frage,
 wo die Grenzen sind: Warum kann ein intransitives Verb nicht von einem Nomen erben und dann die
 Wortart überschreiben? In der KI"=Literatur wurde die Frage wie folgt gestellt: \emph{Wenn
 ein Pinguin ein Vogel ist, der nicht fliegen kann, warum kann man dann nicht sagen, dass ein Holzklotz
@@ -1816,7 +1868,7 @@ constraints of the lexical element conform to those of the grammatical structure
 with which it is combined. \citep[\page38]{MR2001a}
 \end{quote}
 Man könnte nun annehmen, dass die Kategorie von \emph{lesbar} bzw.\ \emph{Lesbarkeit}
-durch ein solches Prinzip bestimmt wird. Das Override Principle läßt sich aber
+durch ein solches Prinzip bestimmt wird. Das Override Principle lässt sich aber
 in Bezug auf Vererbungshierarchien nicht formalisieren, und wenn man Einbettung hat,
 braucht man es nicht. Das soll im folgenden kurz erklärt werden: Man könnte
 das Wort \emph{Lesbarkeit} in einer Vererbungshierarchie wie in Abbildung~\vref{abb-lesbarkeit} repräsentieren.\footnote{
@@ -1891,7 +1943,7 @@ verwendet \citep{Riehemann98a}.
 
 
 Es gibt einen weiteren Grund dafür, warum man derivationelle Morphologie nicht mit Vererbung beschreiben kann:
-Mit Vererbung läßt sich keine rekursive\is{Rekursion} Einbettung erzeugen. Man kann also ein Nomen wie
+Mit Vererbung lässt sich keine rekursive\is{Rekursion} Einbettung erzeugen. Man kann also ein Nomen wie
 \emph{Vorvorvorvorversion}\footnote{%
    \url{http://www.sgaf.de/viewtopic.php?t=21551&postdays=0&postorder=asc&start=0}. 11.11.2006.%
 } bzw.\ \emph{Vorvorvorvorvorversion}\footnote{%
@@ -1952,9 +2004,9 @@ Solche Abkürzungen werden auch Makros genannt. Für die Definition von Makros
 kann man auch Makros benutzen, so dass man Makrohierarchien aufbauen kann, die den
 bereits vorgestellten Typhierarchien entsprechen. Während manche Systeme Makros als
 zusätzliches Beschreibungsmittel neben Typen zulassen (Page, Trale), erlaubt das LKB"=System
-\citep{Copestake2002a} die Verwendung von Makros nicht. In frühren Version
+\citep{Copestake2002a} die Verwendung von Makros nicht. In früheren Version
 des Systems konnten Makros wie in TDL \citep{KS93a} definiert verwendet werden, diese
-Funktionalität wurde aber bewußt entfernt. Die Begründung dafür ist,
+Funktionalität wurde aber bewusst entfernt. Die Begründung dafür ist,
 dass Makros keinen Status in der linguistischen Theorie haben. Das ist richtig, und
 sie werden deshalb in linguistischen Aufsätzen auch nicht zum Gegenstand von Abhandlungen
 gemacht. Allerdings ist es ohne Abkürzungen nicht möglich, sich auf Merkmalsbündel zu beziehen,
