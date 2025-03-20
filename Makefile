@@ -185,7 +185,7 @@ install:
 	cp -p ${STYLE-PATH}abbrev.sty    styles/
 	cp -p ${STYLE-PATH}mycommands.sty    styles/
 	cp -p ${STYLE-PATH}fixcitep.sty  styles/
-	cp -p ${STYLE-PATH}eng-date.sty   styles/
+	cp -p ${STYLE-PATH}de-date.sty   styles/
 	cp -p ${STYLE-PATH}oneline.sty   styles/
 	cp -p ${STYLE-PATH}my-theorems.sty   styles/
 	cp -p ${STYLE-PATH}Ling/article-ex.sty           styles/
