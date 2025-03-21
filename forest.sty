@@ -6316,6 +6316,7 @@
         /forest/TeX={\forestanchortotikzanchor{##1}\forest@temp@anchor},
         forest@orig@anchor/.expand once=\forest@temp@anchor
       }]
+      \global\cslet{pgf@sys@pdf@mark@pos@\pgfpictureid}\pgfutil@undefined
       \pgfpositionnodelater{\forest@positionnodelater@save}%
       \forest@temp@nodeformat
       \pgfinterruptpath
