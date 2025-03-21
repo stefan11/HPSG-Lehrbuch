@@ -1,0 +1,45 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: 3-hpsg-valenz-psg.tex,v $
+%%  $Revision: 1.17 $
+%%      $Date: 2008/09/30 09:14:41 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Valenz und Grammatikregeln}
+\label{chap-valenz}
+
+\begin{figure}
+\centerline{
+\begin{forest}
+[O
+  [H] 
+  [H] ]
+\end{forest}
+\hspace{5em}
+\begin{forest}
+[helfen
+ [Aicke]
+ [Conny] ]
+\end{forest}
+}
+\caption{\label{abb-chemie-valenz}Verbindung von Sauerstoff mit Wasserstoff und Verbindung
+eines Verbs mit seinen Argumenten}
+\end{figure}
+
+\begin{figure}
+\centerline{
+\begin{forest}
+%sm edges
+[{V[comps sliste{}]}
+  [{ibox{1} NP[type{nom}]}
+    [Aicke]]
+  [{V[comps sliste{ ibox{1} }]}
+    [schläft]]]
+\end{forest}}
+%
+\caption{\label{fig-Aicke-schlaeft}Analyse für \emph{Aicke schläft}}
+\end{figure}
+

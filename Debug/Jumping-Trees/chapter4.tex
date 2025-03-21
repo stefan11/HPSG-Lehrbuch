@@ -1,0 +1,115 @@
+%% -*- coding:utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   $RCSfile: 4-hpsg-komplementation.tex,v $
+%%  $Revision: 1.20 $
+%%      $Date: 2007/02/13 11:00:11 $
+%%     Author: Stefan Mueller (CL Uni-Bremen)
+%%    Purpose: 
+%%   Language: LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Dominanzstrukturen und Prinzipien}
+\label{chap-komplementation}
+
+\begin{figure}
+\centerline{%
+\begin{forest}
+%sm edges
+[NP
+  [Det [dem]]
+  [N
+    [Eichhörnchen]]]
+\end{forest}}
+\caption{\label{fig-dem-Eichhörnchen}\emph{dem Eichhörnchen}}
+\end{figure}
+
+\begin{figure}
+\centering
+\centerline{%
+\begin{forest}
+%sm edges
+[V
+  [NP
+    [Aicke]]
+  [V
+    [NP
+      [Det [dem]]
+      [N [Eichhörnchen]]]
+    [V
+      [NP
+        [Det [die]]
+        [N [Nuss]]]
+      [V
+        [gibt]]]]]
+\end{forest}}
+\caption{\label{fig-bin-Aicke-dem-Eichhörnchen-die-Nuss-gibt}Binär verzweigende Kopf-Komplement-Strukturen}
+\end{figure}
+
+
+% \begin{figure}
+% \centering
+% \centerline{%
+% \begin{forest}
+% sm edges
+% [{V[comps \sliste{} ]}
+%   [{\ibox{1} NP[type{nom}]}
+%     [Aicke]]
+%   [{V[comps \sliste{ \ibox{1} }]}
+%     [{\ibox{2} NP[type{dat}]} 
+%       [dem Eichhörnchen, roof]]
+%     [{V[comps \sliste{ \ibox{1}, \ibox{2} }]}
+%       [{\ibox{3} NP[type{acc}]}
+%         [die Nuss,roof]]
+%       [{V[comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]}
+%         [gibt]]]]]
+% \end{forest}}
+% \caption{\label{fig-saettigung-valenz}Abarbeitung der Valenzliste des Verbs}
+% \end{figure}
+
+
+% \begin{figure}
+% \settowidth{\offset}{V[type{fi}}
+% \settowidth{\offsetup}{V[type{fin}}
+% \centerline{
+% \begin{forest}
+% sm edges, for tree={l+=\baselineskip}
+% [V{[type{fin}, comps \eliste]}, name=fin1
+% 	[\ibox{1} NP{[type{nom}]}
+% 		[Aicke]]
+% 	[V{[type{fin}, comps \sliste{ \ibox{1} }]}, name=fin2
+% 		[\ibox{2} NP{[\textit{dat}]}
+% 			[dem Eichhörnchen,roof]]
+% 		[V{[type{fin}, comps \sliste{ \ibox{1}, \ibox{2} }]}, name=fin3
+% 			[\ibox{3} NP{[\textit{acc}]}
+% 				[die Nuss,roof]]
+% 			[V{[type{fin}, comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }]}, name=fin4
+% 				[gibt]]]]]	
+% tikz={\draw[<->] ($(fin1.south west)+(\offsetup,0)$) to ($(fin2.north west)+(\offset,0)$);
+%       \draw[<->] ($(fin2.south west)+(\offsetup,0)$) to ($(fin3.north west)+(\offset,0)$);
+%       \draw[<->] ($(fin3.south west)+(\offsetup,0)$) to ($(fin4.north west)+(\offset,0)$);}
+% \end{forest}
+% }
+% \caption{\label{fig-projektion-head-feat}Projektion der Kopfmerkmale des Verbs}
+% \end{figure}
+% \begin{figure}
+% \centerline{%
+% \begin{forest}
+% type hierarchy
+% [sign,
+%    calign=fixed angles,
+%    calign angle=60
+%   [word]
+%   [phrase
+%     [non-headed-phrase]
+%     [headed-phrase
+%       [head-specifier-phrase]
+%       [head-complement-phrase]
+%       [head-adjunct-phrase]]]]
+% \end{forest}}
+% \caption{\label{fig-type-sign}Typhierarchie für type{sign}: alle Untertypen von type{headed"=phrase} erben Beschränkungen.}
+% \end{figure}
+
+
+
+

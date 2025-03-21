@@ -1,0 +1,64 @@
+%% -*- coding:utf-8 -*-
+%\documentclass{scrbook}
+
+% It has to be langscibook, so some of the classes loaded there must be the culprit
+\documentclass{langscibook}
+
+%\usepackage{langsci-forest-setup}
+
+\usepackage{forest}
+
+%\usepackage{merkmalstruktur,makros.2020,abbrev,xspace}
+
+%\usepackage{memoize}
+
+%\usepackage[extract=python]{memoize}
+
+% for offsets in trees
+\newlength{\offset}
+\newlength{\offsetup}
+
+\title{Jumping trees}
+\author{Tree Hugger}
+
+% 0) make realclean
+% 1) comment out chapter 4
+% 2) run xelatex main two times to get trees and extract them
+%    running it one time will do as well
+% 3) comment out chapter 3
+% 4) two instances of figure about type hierarchy come out scrambled
+
+%\includeonly{chapter3}
+\includeonly{chapter4}
+
+\begin{document}
+% without the following lines until mainmatter compiling chapter4.tex fails:
+% memoize-extract.py: Logging to 'main.mmz.log'.
+% memoize-extract.py: Extracting new externs listed in 'main.mmz' from 'main.pdf'.
+% memoize-extract.py: Python error: 'NoneType' object is not subscriptable.
+% Traceback (most recent call last):
+%   File "/Library/TeX/texbin/memoize-extract.py", line 505, in <module>
+%     width_bp = float(mb[2]) - float(mb[0])
+%                      ~~^^^
+% TypeError: 'NoneType' object is not subscriptable
+
+% system returned with code 2816
+
+% (./main.mmz.log
+% ! Text line contains an invalid character.
+% l.5                      ~~^^^
+
+
+%\mmzset{disable}
+\maketitle
+\frontmatter
+%\mmzset{enable}
+
+\tableofcontents
+
+\mainmatter
+
+\include{chapter3}
+\include{chapter4}
+
+\end{document}
