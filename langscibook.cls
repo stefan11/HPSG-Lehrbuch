@@ -1580,6 +1580,7 @@ Storage and cataloguing done by \storageinstitution\\[3ex]
                     \usepackage[\lsBookLanguage,es-minimal]{babel}
                 \else
                     \usepackage[\lsBookLanguage]{babel}
+                \fi
             }
      \fi%Close language=chinese
 }{}
