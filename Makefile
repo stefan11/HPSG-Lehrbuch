@@ -2,6 +2,20 @@ STYLE-PATH= ${HOME}/Library/texmf/tex/latex/
 LANGSCI-PATH=~/Documents/Dienstlich/Projekte/LangSci/Git-HUB/latex/
 
 
+# texlive 2025
+# mit vorberechneten Bäumen aus memoize: time lualatex main.tex
+# MacBook Pro 16" 2023 M2 Max 39.759u 27.837s 1:07.63 99.9%	0+0k 0+0io 24pf+0w
+#                             40.512u 28.475s 1:09.01 99.9%	0+0k 0+0io 24pf+0w
+# mit nomemoize 
+# 52.828u 31.830s 1:24.69 99.9%	0+0k 0+0io 1pf+0w
+#
+#
+# mit vorberechneten Bäumen aus memoize: time xelatex main.tex
+# MacBook Pro 16" 2023 M2 Max 42.020u 38.833s 1:20.04 101.0%	0+0k 0+0io 1070pf+0w
+#                             40.062u 38.184s 1:17.28 101.2%	0+0k 0+0io 561pf+0w
+# mit nomemoize
+# 52.968u 41.995s 1:34.02 100.9%	0+0k 0+0io 373pf+0w
+
 all: completed-hpsg.pdf
 
 
@@ -12,11 +26,11 @@ SOURCE=/Users/stefan/Documents/Dienstlich/Bibliographien/biblio.bib $(wildcard *
 
 # for Stefan. Uses memoize.
 completed-hpsg.pdf: completed-hpsg.tex $(SOURCE)
-	xelatex -shell-escape -no-pdf completed-hpsg |grep -v math
+	lualatex  -no-pdf completed-hpsg |grep -v math
 	biber completed-hpsg
-	xelatex -shell-escape -no-pdf completed-hpsg |grep -v math
+	lualatex  -no-pdf completed-hpsg |grep -v math
 	biber completed-hpsg
-	xelatex completed-hpsg -shell-escape -no-pdf |egrep -v 'math|PDFDocEncod' |egrep 'Warning|label|aux'
+	lualatex completed-hpsg  -no-pdf |egrep -v 'math|PDFDocEncod' |egrep 'Warning|label|aux'
 	correct-toappear
 	correct-index
 	sed -i.backup s/.*\\emph.*// completed-hpsg.adx #remove titles which biblatex puts into the name index
@@ -33,7 +47,7 @@ completed-hpsg.pdf: completed-hpsg.tex $(SOURCE)
 	makeindex -o completed-hpsg.and completed-hpsg.adx
 	makeindex -gs index.format -o completed-hpsg.lnd completed-hpsg.ldx
 	makeindex -gs index.format -o completed-hpsg.snd completed-hpsg.sdx 
-	xelatex -shell-escape completed-hpsg | egrep -v 'math|PDFDocEncod|\\mark' |egrep 'Warning|label'
+	lualatex  completed-hpsg | egrep -v 'math|PDFDocEncod|\\mark' |egrep 'Warning|label'
 
 
 
@@ -45,11 +59,11 @@ completed-hpsg.pdf: completed-hpsg.tex $(SOURCE)
 
 # for Sebastian and overleaf. Does not use memoize
 main.pdf: main.tex $(SOURCE)
-	xelatex -shell-escape -no-pdf main |grep -v math
+	lualatex  -no-pdf main 
 	biber main
-	xelatex -shell-escape -no-pdf main |grep -v math
+	lualatex  -no-pdf main 
 	biber main
-	xelatex main -shell-escape -no-pdf |egrep -v 'math|PDFDocEncod' |egrep 'Warning|label|aux'
+	lualatex main  -no-pdf |egrep -v 'math|PDFDocEncod' |egrep 'Warning|label|aux'
 	correct-toappear
 	correct-index
 	sed -i.backup s/.*\\emph.*// main.adx #remove titles which biblatex puts into the name index
@@ -66,20 +80,20 @@ main.pdf: main.tex $(SOURCE)
 	makeindex -o main.and main.adx
 	makeindex -gs index.format -o main.lnd main.ldx
 	makeindex -gs index.format -o main.snd main.sdx 
-	xelatex -shell-escape main | egrep -v 'math|PDFDocEncod|\\mark' |egrep 'Warning|label'
+	lualatex  main | egrep -v 'math|PDFDocEncod|\\mark' |egrep 'Warning|label'
 
 
 
 # just for quick comile and checking
 index: completed-hpsg.tex $(SOURCE)
-	xelatex completed-hpsg -shell-escape -no-pdf 
+	lualatex completed-hpsg  -no-pdf 
 	footnotes-index.pl completed-hpsg.ldx
 	footnotes-index.pl completed-hpsg.sdx
 	footnotes-index.pl completed-hpsg.adx 
 	makeindex -o completed-hpsg.and completed-hpsg.adx
 	makeindex -gs index.format -o completed-hpsg.lnd completed-hpsg.ldx
 	makeindex -gs index.format -o completed-hpsg.snd completed-hpsg.sdx 
-	xelatex -shell-escape completed-hpsg | egrep -v 'math|PDFDocEncod|\\mark' |egrep 'Warning|label'
+	lualatex  completed-hpsg | egrep -v 'math|PDFDocEncod|\\mark' |egrep 'Warning|label'
 
 
 # http://stackoverflow.com/questions/10934456/imagemagick-pdf-to-jpgs-sometimes-results-in-black-background
@@ -149,11 +163,11 @@ $(PUB_FILE): ../hpsg/make_bib_header ../hpsg/make_bib_html_number  ../hpsg/.bibt
 
 
 
-# xelatex has to be run two times + biber to get "also printed as ..." right.
+# lualatex has to be run two times + biber to get "also printed as ..." right.
 completed-hpsg.bib: ../../Bibliographien/biblio.bib $(SOURCE) langsci.dbx bib-creation.tex
-	xelatex -no-pdf -interaction=nonstopmode -shell-escape bib-creation 
+	lualatex -no-pdf -interaction=nonstopmode  bib-creation 
 	biber bib-creation
-	xelatex -no-pdf -interaction=nonstopmode -shell-escape bib-creation
+	lualatex -no-pdf -interaction=nonstopmode  bib-creation
 	biber --output_format=bibtex --output-resolve-xdata --output-legacy-date bib-creation.bcf -O completed-hpsg_tmp.bib
 	biber --tool --configfile=biber-tool.conf --output-field-replace=location:address,journaltitle:journal --output-legacy-date completed-hpsg_tmp.bib -O completed-hpsg.bib
 
@@ -163,7 +177,7 @@ todo-bib.unique.txt: completed-hpsg.bcf
 
 
 memos:
-	xelatex -shell-escape completed-hpsg
+	lualatex completed-hpsg
 	python3 memomanager.py split completed-hpsg.mmz
 
 languagecandidates:
@@ -220,7 +234,14 @@ cleanmemo:
 	rm -f *.mmz chapters/*.mmz hpsg.memo.dir/*
 
 realclean: clean
+	mv langsci_logo_nocolor.pdf langsci_logo_nocolor.safe
+	mv ccby.pdf ccby.safe
+	mv storagelogo.pdf storagelogo.safe
 	rm -f *.dvi *.ps *.pdf chapters/*.pdf
+	mv langsci_logo_nocolor.safe langsci_logo_nocolor.pdf
+	mv ccby.safe ccby.pdf
+	mv storagelogo.safe storagelogo.pdf
+
 
 brutal-clean: realclean cleanmemo
 
