@@ -10,13 +10,10 @@
 
 
 % for subnodes in trees
-\usepackage{tcolorbox}
-\tcbuselibrary{skins}
-\newtcbox{\mybox}[1][]{empty,shrink tight,nobeforeafter,on line,before upper=\vphantom{gM},remember as=#1,top=2pt,bottom=2pt}
+%\usepackage{tcolorbox}
+%\tcbuselibrary{skins}
+%\newtcbox{\mybox}[1][]{empty,shrink tight,nobeforeafter,on line,before upper=\vphantom{gM},remember as=#1,top=2pt,bottom=2pt}
 
-
-
-\newcommand{\page}{}
 
 
 % http://tex.stackexchange.com/questions/229500/tikzmark-and-xelatex
@@ -24,7 +21,7 @@
 %\newcount\pdftexversion \pdftexversion140 \def\pgfsysdriver{pgfsys-dvipdfm.def} \usepackage{tikz} \usetikzlibrary{tikzmark}
 
 % for MRS
-%\usetikzlibrary{tikzmark}
+\usetikzlibrary{tikzmark}
 
 % for bezier curves (bounding box) for scoped MRSes
 \usetikzlibrary{bbox}

@@ -1012,6 +1012,17 @@ illustriert die Dominanzverhältnisse.
 % \draw[->,dashed]   (h6) to (mitarbeiter);
 % \draw[->,dashed]   (h2) to (schlafen);
 % \end{tikzpicture}
+% \begin{tikzpicture}[node distance=3.8cm]
+% \node(tochter) at (0,0){h4:tochter(x,y)};
+% \node(exist-q)[above left  of=tochter]{h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+% \node(every-q)[above right of=tochter]{h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+% \node(mitarbeiter)[left of=tochter]{h8:mitarbeiter(y)};
+% \node(schlafen)[right of=tochter]{h9:schlafen(x)};
+% \draw[->,dashed]   (h7) to (tochter);
+% \draw[->,dashed]   (h2) to (tochter);
+% \draw[->,dashed]   (h6) to (mitarbeiter);
+% \draw[->,dashed]   (h3) to (schlafen);
+% \end{tikzpicture}
 \begin{tikzpicture}[node distance=3.8cm]
 \node(tochter) at (0,0){h4:tochter(x,y)};
 \node(exist-q)[above left  of=tochter]{h5:exist\_q(y, h6, h7)};
