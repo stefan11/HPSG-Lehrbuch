@@ -21,6 +21,7 @@
 		  ]{langscibook} 
 
 
+
 \usepackage{ifthen}
 \provideboolean{draft}
 \setboolean{draft}{false}
@@ -46,25 +47,7 @@
 \input{localpackages.tex}
 \input{localcommands.tex}
 
-
 \input{locallangscifixes.tex}
-
-
-\usepackage[figuresright]{rotating}
-
-\usepackage[german]{varioref}
-% do not stop and warn! This will be tested in the final version
-\vrefwarning
-
-\usepackage{pstricks,pst-node}
-\psset{linewidth=.3pt}
-\psset{nodesep=5pt}
-
-
-\usepackage{tikz-qtree}
-% has strange side effects
-%\tikzset{every tree node/.style={align=left, anchor=north}}
-\tikzset{every roof node/.append style={inner sep=0.1pt,text height=2ex,text depth=0.3ex}}
 
 
 %\newcommand{\NOTE}[1]{}
@@ -74,6 +57,7 @@
   prefix={hpsg.memo.dir/},
 }
 
+%\usepackage{nohyperref}
 
 % \renewcommand{\itd}[1]{}
 % \renewcommand{\itdobl}[1]{}
@@ -87,6 +71,11 @@
 %\bibliography{germanic}
 \bibliography{bib-abbr,biblio-xdata-en,biblio}
 
+%\PassOptionsToPackage{draft}{hyperref}
+
+% complains about \href being defined
+% Doesn't make a difference in speed. 24.03.2025
+% \usepackage{nohyperref}
 
 \input hpsg-lehrbuch-include
 
