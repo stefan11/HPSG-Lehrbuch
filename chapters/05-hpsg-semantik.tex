@@ -886,7 +886,7 @@ gesagt. Das Beispiel (\ref{ex-Alle-Kinder-schlafen}) sei hier der Übersichtlich
 \eal
 \label{ex-Alle-Kinder-schlafen-zwei}
 \ex Alle Kinder schlafen.
-\ex $\forall$ x \relation{kind}(x) $\to$ \relation{schlafen}(x)
+\ex $\forall$x \relation{kind}(x) $\to$ \relation{schlafen}(x)
 \ex Für jede Entität x in unserem Diskursuniversum, für die gilt, dass sie ein Kind ist, gilt auch,
 dass sie schläft.
 \zl
@@ -908,13 +908,13 @@ Jede Tochter eines Mitarbeiters schläft.
 \z
 Dieses Beispiel hat die beiden Lesarten in (\mex{1}) und (\mex{1}):
 \eal
-\ex $\forall$ x ($\exists$ y \relation{mitarbeiter}(y) $\wedge$ \relation{tochter}(x,y)) $\to$
+\ex $\forall$x ($\exists$y \relation{mitarbeiter}(y) $\wedge$ \relation{tochter}(x,y)) $\to$
 \relation{schlafen}(x)
 \ex Für jede Entität x in unserem Diskursuniversum für die gilt, dass es im Diskursuniversum eine Entität y gibt, die
 Mitarbeiter ist und deren Tochter x ist, gilt auch, dass sie (x) schläft.
 \zl
 \eal
-\ex $\exists$ y \relation{mitarbeiter}(y) $\wedge$ ($\forall$ x \relation{tochter}(x,y) $\to$
+\ex $\exists$y \relation{mitarbeiter}(y) $\wedge$ ($\forall$x \relation{tochter}(x,y) $\to$
 \relation{schlafen}(x))
 \ex Es gibt im Diskursuniversum eine Entität y, für die gilt, dass sie ein Mitarbeiter ist und dass für alle Entitäten
 x im Diskursuniversum, für die gilt, dass sie die Tochter von y sind, auch gilt, dass sie schlafen.
@@ -964,7 +964,7 @@ Wie würde man mit Modifikation in Nominalgruppen umgehen? Unser Beispiel in (\r
 Adjektiv \emph{kleinen} zeigt (\mex{1}):
 \eal
 \ex Alle kleinen Kinder schlafen.
-\ex $\forall$ x (\relation{klein}(x) $\wedge$ \relation{kind}(x)) $\to$ \relation{schlafen}(x)
+\ex $\forall$x (\relation{klein}(x) $\wedge$ \relation{kind}(x)) $\to$ \relation{schlafen}(x)
 \ex Für jede Entität x in unserem Diskursuniversum, für die gilt, dass sie klein und ein Kind ist, gilt auch,
 dass sie schläft.
 \zl
@@ -1000,39 +1000,16 @@ Das Handle auf der rechten Seite wird mit dem auf der linken identifiziert, wobe
 Quantoren dazwischentreten können. Abbildung~\ref{fig-Jede Tochter eines Mitarbeiters schläft-MRS}
 illustriert die Dominanzverhältnisse.
 \begin{figure}
-% Does not work in xelatex due to bug. For several years now. 07.03.2025
-% \begin{tikzpicture}[node distance=3.8cm]
-% \node(tochter) at (0,0){h4:tochter(x,y)};
-% \node(exist-q)[above left  of=tochter]{h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
-% \node(every-q)[above right of=tochter]{h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
-% \node(mitarbeiter)[left of=tochter]{h8:mitarbeiter(y)};
-% \node(schlafen)[right of=tochter]{h9:schlafen(x)};
-% \draw[->,dashed]   (h7) to (tochter);
-% \draw[->,dashed]   (h3) to (tochter);
-% \draw[->,dashed]   (h6) to (mitarbeiter);
-% \draw[->,dashed]   (h2) to (schlafen);
-% \end{tikzpicture}
-% \begin{tikzpicture}[node distance=3.8cm]
-% \node(tochter) at (0,0){h4:tochter(x,y)};
-% \node(exist-q)[above left  of=tochter]{h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
-% \node(every-q)[above right of=tochter]{h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
-% \node(mitarbeiter)[left of=tochter]{h8:mitarbeiter(y)};
-% \node(schlafen)[right of=tochter]{h9:schlafen(x)};
-% \draw[->,dashed]   (h7) to (tochter);
-% \draw[->,dashed]   (h2) to (tochter);
-% \draw[->,dashed]   (h6) to (mitarbeiter);
-% \draw[->,dashed]   (h3) to (schlafen);
-% \end{tikzpicture}
-\begin{tikzpicture}[node distance=3.8cm]
+\begin{tikzpicture}[node distance=3.8cm,mrs]
 \node(tochter) at (0,0){h4:tochter(x,y)};
-\node(exist-q)[above left  of=tochter]{h5:exist\_q(y, h6, h7)};
-\node(every-q)[above right of=tochter]{h1:every\_q(x, h2, h3)};
+\node(exist-q)[above left  of=tochter]{h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+\node(every-q)[above right of=tochter]{h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
 \node(mitarbeiter)[left of=tochter]{h8:mitarbeiter(y)};
 \node(schlafen)[right of=tochter]{h9:schlafen(x)};
-\draw[->,dashed]   (exist-q.-13) to (tochter);
-\draw[->,dashed]   (every-q.-25) to (tochter);
-\draw[->,dashed]   (exist-q.-25) to (mitarbeiter);
-\draw[->,dashed]   (every-q.-13) to (schlafen);
+\draw (h7) to (tochter);
+\draw (h2) to (tochter);
+\draw (h6) to (mitarbeiter);
+\draw (h3) to (schlafen);
 \end{tikzpicture}
 \caption{Dominanzverhältnisse für \emph{Jede Tochter eines Mitarbeiters schläft.}}\label{fig-Jede Tochter eines Mitarbeiters schläft-MRS}
 \end{figure}
@@ -1045,31 +1022,30 @@ bezieht, muss tochter von h7 dominiert werden. In Abbildung~\ref{fig-Jede Tochte
 andersherum. Entweder h2 wird mit h5
 identifiziert und h3 mit h9 oder h6 wird direkt mit h8 identifiziert und h7 mit h1. Die Abbildungen~\ref{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Allquantor} und~\ref{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Existenzquantor} zeigen die entsprechend geskopten MRSen.
 \begin{figure}
-\begin{tikzpicture}[node distance=3.8cm,bezier bounding box]
+\begin{tikzpicture}[node distance=3.8cm,scoped mrs]
 \node(tochter) at (0,0){h4:tochter(x,y)};
-\node(exist-q)[above left  of=tochter]{h5:exist\_q(y, h6, h7)};
-\node(every-q)[above right of=tochter]{h1:every\_q(x, h2, h3)};
+\node(exist-q)[above left  of=tochter]{h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+\node(every-q)[above right of=tochter]{h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
 \node(mitarbeiter)[left of=tochter]{h8:mitarbeiter(y)};
 \node(schlafen)[right of=tochter]{h9:schlafen(x)};
-\draw   (exist-q.-12) to (tochter);
-\draw   (every-q.-25) .. controls +(0,-2) and +(0,2).. (exist-q.north);
-\draw   (exist-q.-25) to (mitarbeiter);
-\draw   (every-q.-13) to (schlafen);
+\draw (h7) to (tochter);
+\draw (h2) .. controls +(0,-2.5) and +(0,2).. (exist-q.north);
+\draw (h6) to (mitarbeiter);
+\draw (h3) to (schlafen);
 \end{tikzpicture}
 \caption{Skopusaufgelöste MRS mit weitem Skopus für den Allquantor}\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Allquantor}
 \end{figure}
 \begin{figure}
-\begin{tikzpicture}[node distance=3.8cm,bezier bounding box]
+\begin{tikzpicture}[node distance=3.8cm,scoped mrs]
 \node(tochter) at (0,0){h4:tochter(x,y)};
-\node(exist-q)[above left  of=tochter]{h5:exist\_q(y, h6, h7)};
-\node(every-q)[above right of=tochter]{h1:every\_q(x, h2, h3)};
+\node(exist-q)[above left  of=tochter]{h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+\node(every-q)[above right of=tochter]{h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
 \node(mitarbeiter)[left of=tochter]{h8:mitarbeiter(y)};
 \node(schlafen)[right of=tochter]{h9:schlafen(x)};
-%\draw   (exist-q.-12) to (tochter);
-\draw   (exist-q.-12) .. controls +(0,-1) and +(0,2).. (every-q.north);
-\draw   (every-q.-25) to (tochter);
-\draw   (exist-q.-25) to (mitarbeiter);
-\draw   (every-q.-13) to (schlafen);
+\draw   (h7) .. controls +(0,-1) and +(0,2).. (every-q.north);
+\draw   (h2) to (tochter);
+\draw   (h6) to (mitarbeiter);
+\draw   (h3) to (schlafen);
 \end{tikzpicture}
 \caption{Skopusaufgelöste MRS mit weitem Skopus für den Existenzquantor}\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Existenzquantor}
 \end{figure}
@@ -1078,7 +1054,8 @@ Die Skopus-aufgelösten MRSen entsprechen genau den beiden Lesarten aus (\ref{ex
 Damit ist schon den wesentlichen Teil der Analyse erklärt. Es fehlt lediglich die Umsetzung
 in Merkmalbeschreibungen für die entsprechenden Lexikoneinträge. 
 (\mex{1}) zeigt den Lexikoneintrag für \emph{Tochter}:
-\ea
+
+\eas
 \label{le-Tochter}%
 \emph{Tochter}:\\
 \ms{
@@ -1099,7 +1076,7 @@ cont & \ms{
        hcons & \eliste
        }
 }
-\z
+\zs
 \emph{Tochter} verlangt einen Determinator und eine Genitiv-NP. Der Index der Genitiv-NP ist
 identisch mit dem \argone der \type{tochter\_rel}"=Relation. Zum semantischen Beitrag sprachlicher
 Zeichen gehört nicht nur ein Index, sondern auch ein \ltopm. \ltop steht dabei für \emph{local top}
@@ -1623,20 +1600,20 @@ Lesarten, die in (\ref{ex-Prädikatenlogik-alle-Affen-glauben-dass-ein-Einhorn-s
 (\ref{ex-Quantoren-Relationen-alle-Affen-glauben-dass-ein-Einhorn-schläft}) angegeben wurden.
 
 \begin{figure}
-\begin{tikzpicture}
+\begin{tikzpicture}[mrs]
 %\draw (-5,10) to[grid with coordinates] (5,-.5);
 \node(schlafen) at (0,0) {h11:schlafen(y)};
-\node(glauben)  at (-2,2){h5:glauben(x, h6)};
+\node(glauben)  at (-2,2){h5:glauben(x, \subnode{h6}{h6})};
 \node(affe)     at (-4,4){h4:affe(x)};
 \node(einhorn)  at (0,4) {h10:einhorn(y)};
-\node(every-q)  at (-4,6){h1:every\_q(x, h2, h3)};
-\node(exists-q) at (2,6) {h7:exists\_q(y, h8, h9)};
+\node(every-q)  at (-4,6){h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(exists-q) at (2,6) {h7:exists\_q(y, \subnode{h8}{h8}, \subnode{h9}{h9})};
 
-\draw[->,dashed]   (every-q.-23)  to (affe);
-\draw[->,dashed]   (every-q.-12)  to (glauben);
-\draw[->,dashed]   (exists-q.-23) to (einhorn);
-\draw[->,dashed]   (exists-q.-13) to (schlafen);
-\draw[->,dashed]   (glauben.-15)  to (schlafen);
+\draw (h2) to (affe);
+\draw (h3) to (glauben);
+\draw (h8) to (einhorn);
+\draw (h9) to (schlafen);
+\draw (h6) to (schlafen);
 \end{tikzpicture}
 \caption{Dominanzgraph für \emph{Alle Affen glauben, dass ein Einhorn schläft.}}\label{fig-alle-Affen-glauben-dass-ein-Einhorn-schläft}
 
@@ -1968,23 +1945,23 @@ Die beiden besprochenen Lesarten unterscheiden sich im Skopus des Allquantors. D
 Max alle Fenster selbst öffnet, entspricht der Lesart mit weitem Skopus in
 (\mex{1}a), die in der einige bereits offen sein können, entspricht der in (\mex{1}b):
 \eal
-\ex $\forall$ x \relation{fenster}(x) $\to$ CAUSE(\relation{max}, \relation{offen}(x))
-\ex CAUSE(\relation{max}, $\forall$ x \relation{fenster}(x) $\to$ \relation{offen}(x))
+\ex $\forall$x \relation{fenster}(x) $\to$ CAUSE(\relation{max}, \relation{offen}(x))
+\ex CAUSE(\relation{max}, $\forall$x \relation{fenster}(x) $\to$ \relation{offen}(x))
 \zl
 Diese beiden Lesarten kann man unterspezifiziert in einem Dominanzgraphen wie ihn Abbildung~\ref{Abbildung-Max-alle-Fenster-oeffnete}
 zeigt repräsentieren.
 \begin{figure}
-    \begin{tikzpicture}
-%    \draw (-5,10) to[grid with coordinates] (5,-.5);
-    \node(offen)   at (0,0) {h7:offen(x)};
-    \node(fenster) at (-4,2){h4:fenster(x)};
-    \node(every-q) at (-4,4){h1:every\_q(x, h2, h3)};
-    \node(cause)   at (2,4) {h5:CAUSE(max, h6)};
+\begin{tikzpicture}[mrs]
+% \draw (-5,10) to[grid with coordinates] (5,-.5);
+\node(offen)   at (0,0) {h7:offen(x)};
+\node(fenster) at (-4,2){h4:fenster(x)};
+\node(every-q) at (-4,4){h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(cause)   at (2,4) {h5:CAUSE(max, \subnode{h6}{h6})};
 
-    \draw[->,dashed]   (every-q.-23)  to (fenster);
-    \draw[->,dashed]   (every-q.-13)  to (offen);
-    \draw[->,dashed]   (cause.-15)    to (offen);
-    \end{tikzpicture}
+\draw (h2)  to (fenster);
+\draw (h3)  to (offen);
+\draw (h6)  to (offen);
+\end{tikzpicture}
 \caption{Dominanzgraph für \emph{Max alle Fenster öffnete}\label{Abbildung-Max-alle-Fenster-oeffnete}}
 \end{figure}
 Der Dominanzgraph sagt aus, dass $h2$ $h4$, $h3$ $h7$ und $h6$ $h7$ dominiert. Dabei sind die genauen Skopusverhältnisse unterbestimmt: Der
@@ -1992,31 +1969,31 @@ Allquantor kann Skopus über CAUSE haben oder CAUSE kann Skopus über den Allqua
 Abbildungen~\ref{fig-alle-cause} und \ref{fig-cause-alle} zeigen die skopusaufgelösten Varianten des
 Graphen.
 \begin{figure}
-    \begin{tikzpicture}[bezier bounding box]
-%    \draw (-5,10) to[grid with coordinates] (5,-.5);
-    \node(offen)   at (0,0) {h7:offen(x)};
-    \node(fenster) at (-4,2){h4:fenster(x)};
-    \node(every-q) at (-4,4){h1:every\_q(x, h2, h3)};
-    \node(cause)   at (2,4) {h5:CAUSE(max, h6)};
+\begin{tikzpicture}[scoped mrs]
+% \draw (-5,10) to[grid with coordinates] (5,-.5);
+\node(offen)   at (0,0) {h7:offen(x)};
+\node(fenster) at (-4,2){h4:fenster(x)};
+\node(every-q) at (-4,4){h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(cause)   at (2,4) {h5:CAUSE(max, \subnode{h6}{h6})};
 
-    \draw   (every-q.-23)  to (fenster);
-    \draw   (every-q.-13) .. controls +(0,-1) and +(0,2).. (cause);
-    \draw   (cause.-15)    to (offen);
-    \end{tikzpicture}
+\draw (h2) to (fenster);
+\draw (h3) .. controls +(0,-1) and +(0,2).. (cause);
+\draw (h6) to (offen);
+\end{tikzpicture}
 \caption{Dominanzgraph für die Lesart $\forall$x fenster(x) $\to$ CAUSE(max, offen(x))\label{fig-alle-cause}}
 \end{figure}
 \begin{figure}
-    \begin{tikzpicture}[bezier bounding box]
-%    \draw (-5,10) to[grid with coordinates] (5,-.5);
-    \node(offen)   at (0,0) {h7:offen(x)};
-    \node(fenster) at (-4,2){h4:fenster(x)};
-    \node(every-q) at (-4,4){h1:every\_q(x, h2, h3)};
-    \node(cause)   at (2,4) {h5:CAUSE(max, h6)};
+\begin{tikzpicture}[scoped mrs]
+% \draw (-5,10) to[grid with coordinates] (5,-.5);
+\node(offen)   at (0,0) {h7:offen(x)};
+\node(fenster) at (-4,2){h4:fenster(x)};
+\node(every-q) at (-4,4){h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(cause)   at (2,4) {h5:CAUSE(max, \subnode{h6}{h6})};
 
-    \draw   (every-q.-23)  to (fenster);
-    \draw   (every-q.-13)  to (offen);
-    \draw   (cause.-15)    .. controls +(0,-2) and +(0,2).. (every-q);
-    \end{tikzpicture}
+\draw (h2) to (fenster);
+\draw (h3) to (offen);
+\draw (h6) .. controls +(0,-2) and +(0,2).. (every-q);
+\end{tikzpicture}
 \caption{Graph für die Lesart CAUSE(max, $\forall$x fenster(x) $\to$ offen(x)).\label{fig-cause-alle}}
 \end{figure}
 Dass der Quantor $h4$ dominiert, wird im Lexikoneintrag des Quantors festgelegt. Dass der Quantor
@@ -2124,19 +2101,19 @@ dass Max wieder alle Fenster öffnete
 \noindent
 Diese Lesarten entsprechen dem Dominanzgraph in Abbildung~\ref{Abbildung-Max-wieder-alle-Fenster-oeffnete}.
 \begin{figure}
-    \begin{tikzpicture}
-%    \draw (-5,10) to[grid with coordinates] (5,-.5);
-    \node(offen)   at (0,0) {h7:offen(x)};
-    \node(fenster) at (-4,2){h4:fenster(x)};
-    \node(every-q) at (-4,4){h1:every\_q(x, h2, h3)};
-    \node(wieder)  at (-4,6){h8:wieder(h9)};
-    \node(cause)   at (2,4) {h5:CAUSE(max, h6)};
+\begin{tikzpicture}[mrs]
+% \draw (-5,10) to[grid with coordinates] (5,-.5);
+\node(offen)   at (0,0) {h7:offen(x)};
+\node(fenster) at (-4,2){h4:fenster(x)};
+\node(every-q) at (-4,4){h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(wieder)  at (-4,6){h8:wieder(\subnode{h9}{h9})};
+\node(cause)   at (2,4) {h5:CAUSE(max, \subnode{h6}{h6})};
 
-    \draw[->,dashed]   (wieder.-23)  to (every-q);   
-    \draw[->,dashed]   (every-q.-23) to (fenster);
-    \draw[->,dashed]   (every-q.-13) to (offen);
-    \draw[->,dashed]   (cause.-15)   to (offen);
-    \end{tikzpicture}
+\draw (h9) to (every-q);   
+\draw (h2) to (fenster);
+\draw (h3) to (offen);
+\draw (h6) to (offen);
+\end{tikzpicture}
 \caption{Dominanzgraph für \emph{Max wieder alle Fenster öffnete}\label{Abbildung-Max-wieder-alle-Fenster-oeffnete}}
 \end{figure}
 Abbildung~\ref{Abbildung-Max-alle-Fenster-wieder-oeffnete} zeigt den Graph für (\ref{ex-alle-wieder}) -- hier als (\mex{1}) wiederholt:
@@ -2145,19 +2122,19 @@ Abbildung~\ref{Abbildung-Max-alle-Fenster-wieder-oeffnete} zeigt den Graph für 
 dass Max alle Fenster wieder öffnete
 \z
 \begin{figure}
-    \begin{tikzpicture}
-%    \draw (-5,10) to[grid with coordinates] (5,-.5);
-    \node(offen)   at (0,0) {h7:offen(x)};
-    \node(fenster) at (-4.5,2){h4:fenster(x)};
-    \node(every-q) at (-4,4){h1:every\_q(x, h2, h3)};
-    \node(wieder)  at (-1.5,2){h8:wieder(h9)};
-    \node(cause)   at (2,4) {h5:CAUSE(max, h6)};
+\begin{tikzpicture}[mrs]
+% \draw (-5,10) to[grid with coordinates] (5,-.5);
+\node(offen)   at (0,0) {h7:offen(x)};
+\node(fenster) at (-4.5,2){h4:fenster(x)};
+\node(every-q) at (-4,4){h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(wieder)  at (-1.5,2){h8:wieder(\subnode{h9}{h9})};
+\node(cause)   at (2,4) {h5:CAUSE(max, \subnode{h6}{h6})};
 
-    \draw[->,dashed]   (wieder.-23)  to (offen);   
-    \draw[->,dashed]   (every-q.-23)  to (fenster);
-    \draw[->,dashed]   (every-q.-13)  to (wieder);
-    \draw[->,dashed]   (cause.-15)    to (offen);
-    \end{tikzpicture}
+\draw (h9)  to (offen);   
+\draw (h2)  to (fenster);
+\draw (h3)  to (wieder);
+\draw (h6)  to (offen);
+\end{tikzpicture}
 \caption{Dominanzgraph für \emph{Max alle Fenster wieder öffnete}\label{Abbildung-Max-alle-Fenster-wieder-oeffnete}}
 \end{figure}
 Um diese Dominanzgraphen aus dem Graphen ohne \emph{wieder} zu erhalten, muss nur der Ausdruck h8:wieder(h9)
