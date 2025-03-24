@@ -80,24 +80,50 @@ $%
 }%
 }
 
-\newcommand{\liste}[1]{%
+\newcommand{\tabularliste}[1]{%
 \mbox{%
 $%
-\left\langle\begin{tabular}{@{}>{\upshape\scshape}l@{}}#1\end{tabular}\right\rangle%
+\left\langle\begin{tabular}{@{}>{\upshape}l@{}}#1\end{tabular}\right\rangle%
 $%
 %\\[-1.5mm]
 }%
 }
 
-\newcommand{\phonliste}[1]{%
+% \newcommand{\tabularliste}[1]{%
+% \mbox{%
+% $%
+% \left\langle\begin{tabular}{@{}>{\upshape\scshape}l@{}}#1\end{tabular}\right\rangle%
+% $%
+% %\\[-1.5mm]
+% }%
+% }
+
+% I do not remember, why there was a tabular environment. Seems to be overkill. 14.03.2025
+\newcommand{\liste}[1]{%
 \mbox{%
 $%
+\left\langle\mbox{\upshape\normalfont#1}\right\rangle%
+$%
+}%\\[2pt]%
+}
+
+
+\newcommand{\phonliste}[1]{%
+\normalfont\mbox{%
+$%
 %
-\left\langle \mbox{\normalfont\itshape#1} \right\rangle%
+\left\langle \mbox{\itshape#1} \right\rangle%
 $%
 %\\[-1.5mm]
 }%
 }
+
+% \newcommand{\phonliste}[1]{%
+% \mbox{%
+% \normalfont\textlangle \textit{#1}\textrangle}%
+% }
+
+
 
 %\let\phonlist\phonliste
 
