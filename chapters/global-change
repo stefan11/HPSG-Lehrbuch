@@ -14,7 +14,7 @@ echo $x
 #sed -e 's/\\nodetriangle{/\\ncline{/g'   $x >$x.neu
 #sed -e 's/\\aanodeconnect/\\ncline{<->}/g'   $x >$x.neu
 #sed -e 's/\\anodeconnect/\\ncline{->}/g'   $x >$x.neu
-sed -e 's/subcat/comps/g'   $x >$x.neu
+sed -e 's/{chap/{Kapitel/g'   $x >$x.neu
 #sed -e 's/\\aanodecurve/\\ncline{<->}/g'   $x >$x.neu
 #sed -e 's/\\anodecurve/\\ncline{<->}/g'   $x >$x.neu
 #sed -e 's/\\nodeconnect\[t\]/\\ncline/g'   $x >$x.neu

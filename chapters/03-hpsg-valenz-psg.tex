@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Valenz und Grammatikregeln}
-\label{chap-valenz}
+\label{Kapitel-Valenz}
 
 %% \NOTE{
 %% Haitao Liu:
@@ -399,7 +399,7 @@ ein Subjekt im Satz geben. Das wird im kommenden Abschnitt genauer besprochen. B
 ist das jedoch anders: Schon durch die Stellung hat das Subjekt einen anderen Status. Subjekte
 stehen links vom Verb, andere Argumente rechts. Das wird in HPSG-Grammatiken dadurch erfasst, dass
 für Subjekte ein separates Valenzmerkmal verwendet wird. In manchen Grammatiken ist das das \subjm,
-in anderen das \sprm. Da ich das \subjm anders verwende, benutze ich wie \citet*[Chapter~4.3]{SWB2003a} das \sprm
+in anderen das \sprm. Da ich das \subjm anders verwende, benutze ich wie \citet*[Kapitel~4.3]{SWB2003a} das \sprm
 für die Repräsentation des Subjekts in SVO-Sprachen \citep[Kapitel~4.3]{MuellerGermanic}.
 
 Die Struktur in Abbildung~\ref{fig-Aicke-expects-Conny} ist das Gegenstück zu
@@ -452,7 +452,7 @@ Verb          & \spr                      & \comps                              
 \label{ex-spr-comps-arg-st-Deutsch}
 \begin{tabular}[t]{@{}ll@{~~}l@{~~}l@{}}
 Verb            & \spr                      & \comps                                      & \argst\\
-\emph{sclafen}  & \sliste{ } & \sliste{ NP[\type{nom}] }                                  & \sliste{ NP[\type{nom}] }\\
+\emph{schlafen}  & \sliste{ } & \sliste{ NP[\type{nom}] }                                  & \sliste{ NP[\type{nom}] }\\
 \emph{erwarten} & \sliste{ } & \sliste{ NP[\type{nom}], NP[\type{acc}] }                  & \sliste{ NP[\type{nom}], NP[\type{acc}] }\\
 \emph{sprechen} & \sliste{ } & \sliste{ NP[\type{nom}], PP[\type{über}] }                 & \sliste{ NP[\type{nom}], PP[\type{about}] }\\
 \emph{geben}    & \sliste{ } & \sliste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }  & \sliste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }\\
@@ -477,17 +477,19 @@ Die Formalisierung dieses Prinzips scheint einfach zu sein: Die \argstl wird in 
 und der erste Teil bildet die \sprl und der zweite die \compsl. Für das Deutsche kann man dann
 für Verben einfach sagen, dass die \sprl die leere Liste ist. Es gibt aber – je nach Analyse – noch andere Phänomene,
 die mit der Verteilung der Argumente auf Valenzlisten interagieren. \citet[\page 171]{GSag2000a-u} analysieren
-die Voranstellung von Konstituenten (siehe Kapitel~\ref{chap-nla}) so, dass die vorangestellten Konstituenten nicht mehr in den
+die Voranstellung von Konstituenten (siehe Kapitel~\ref{Kapitel-nla}) so, dass die vorangestellten Konstituenten nicht mehr in den
 Valenzmerkmalen auftauchen. Das muss dann im Argumentrealisierungsprinzip berücksichtigt
 werden. Auch muss irgendwo geregelt werden, wie viele Elemente überhaupt in der \sprl vorkommen
 können. Ohne eine solche Beschränkung könnten im Prinzip alle Elemente aus der \argstl in der \sprl
 stehen und keins in der \compsl. Das alles soll uns hier nicht kümmern: Für deutsche Verben
-ist die \sprl leer und alle Argumente finiter Verben werden unter \comps aufgeführt.
+ist die \sprl leer und alle Argumente finiter Verben werden unter \comps aufgeführt. Im folgenden
+Abschnitt gebe ich einfach die Valenzmerkmale \spr und \comps an. Ich komme auf die von \argst
+ausgehende Verteilung der Valenzinformation im Kapitel~\ref{Kapitel-Lexikon} über das Lexikon noch einmal zurück.
 
 Die einheitliche \argstl hat den Vorteil, dass bestimmte Eigenschaften von Sprachen sprachübergreifend
 gleich behandelt werden können. So kann zum Beispiel die Beziehung zwischen Syntax und Semantik (das
 so genannte Linking\is{Linking}) auf \argst gemacht werden \citep*{DKW2024a}. Wir werden uns das im Kapitel~\ref{Kapitel-Semantik}
-über Semantik genauer ansehen. Die Argumentstrukturliste ist für die Kasusvergabe
+über Semantik genauer ansehen. Die Argumentstrukturliste ist für die Kasusvergabe (siehe Kapitel~\ref{Kapitel-Kasus})
 und für die Bindungstheorie relevant.
 \is{Valenz|)}
   
@@ -669,6 +671,71 @@ Lehrbuch. Sie enthalten ausführliche Literatur- und Datendiskussionen, wie das 
 Texte nötig ist. Außerdem gibt es mitunter Querverweise auf spätere Kapitel. Dem Neueinsteiger
 wird geraten, diese Abschnitte zu überspringen und sie erst beim zweiten Lesen des Buches zu berücksichtigen.
 
+\subsection{Lexikalische oder phrasale Repräsentation von Valenz}
+
+Die erste Auflage dieses Buches ist 2006 erschienen. Ich war zu der Zeit, in der ich an diesem Buch
+gearbeitet habe, Juniorprofessor an der Universität Bremen. Anatol Stefanowitsch war mein
+Kollege. Gemeinsam mit Kerstin Fischer, Felix Bildhauer und Arne Zeschel waren wir in einem Netzwerk
+zur Konstruktionsgrammatik. Seit 2003 habe ich mit Anatol Stefanowitsch über die Frage diskutiert,
+ob man grammatische Konstruktionen phrasal oder lexikalisch behandeln muss. Viele Forscher*innen,
+die in der Konstruktionsgrammatik arbeiten, gehen davon aus, dass bestimmte Bedeutungsbestandteile
+nur deshalb vorhanden sind, weil sprachliches Material in einer bestimmten Konfiguration auftritt
+und nehmen also an, dass diese Bedeutungsbestandteile eben durch diese Konfiguration beigesteuert
+werden. So gibt es bei (\mex{1}b) eine Resultativbedeutung: Aickes Fischen bewirkt, dass der Teich
+leer wird.
+\eal
+\ex Aicke fischt.
+\ex Aicke fischt den Teich leer.
+\zl
+Diese Bedeutung ist nicht Bestandteil der im Satz vorkommenden Wörter, woraus geschlossen wird, dass
+sie Bestandteil der Konfiguration oder auch Konstruktion sein muss.
+
+2004 erschien in der Zeitschrift \emph{Language}, die von der Linguistic Scociety of America
+herausgegeben wird, ein Aufsatz zu Resultativkonstruktionen von \citet{GJ2004a}, in dem behauptet
+wurde, dass das englische Gegenstück zu (\mex{0}) eine phrasale Konstruktion sei. Ich habe darauf
+eine Antwort geschrieben, die 2006 veröffentlicht wurde \citep{Mueller2006d}. Damit war die Sache
+aber nicht erledigt. Die Idee phrasaler Konstruktionen ist so attraktiv, dass sie sich Jahrzehnte
+gehalten hat und immer wieder auch in anderen theoretischen Frameworks in anderer Form
+auftaucht. 2013 im Rahmen der Lexical Functional Grammar \citep{Toivonen2013a,ADT2013a} und zuletzt in Tree Adjoining
+Grammar \citep{Seyffarth2023a}. Ich habe also seit 2003 viele, viele Aufsätze und ja, sogar ein Buch veröffentlicht, die
+zeigen, warum bestimmte Ansätze nicht funktionieren und wie man die Phänomene stattdessen
+beschreiben kann. Alle der Publikationen wurden von Gutachter*innen begutachtet wurden (peer
+review) und sind in den führenden Fachzeitschriften veröffentlicht. Ein langer Artikel war ein
+Target"=Artikel \citep{MWArgSt}, zu dem es Antworten von führenden Wissenschaftler*innen gab, auf die wir auch
+wieder geantwortet haben \citep{MWArgStReply}. Das Buch zur LFG \citep{MuellerLFGphrasal} ist aus einem
+Konferenzbeitrag für eine gemeinsame HPSG/LFG"=Konferenz \citep{MuellerHeadLex} entstanden, der von
+fünf (!) statt der üblichen zwei Gutachter*innen begutachtet wurde. Das Buch wurde dann nochmals von
+führenden LFGerinnen begutachtet. Dennoch ist es nicht ausgeschlossen, dass ich mich irre und dass
+es Möglichkeiten gibt, phrasale mit Valenz interagierende Konstruktionen zu formalisieren, aber ich
+denke, dass das aus diversen Gründen mathematisch unmöglich ist. Ich kann nicht alle Aspekte der Diskussion hier
+wiederholen, aber die wichtigsten Punkte sollen auch hier genannt werden, denn man muss ja
+motivieren, warum in der HPSG, im Gegensatz zu vielen anderen Theorien bzw.\ Theorievarianten, ein lexikalischer Ansatz
+vertreten wird.
+
+Bevor die Details besprochen werden, hier noch ein Disclaimer: All die Punkte, die hier vorgebracht
+werden, sind kein Argument gegen Konstruktionsgrammatik. Sie sind Argumente gegen phrasale Ansätze
+zur Argumentstruktur. Solche phrasalen Ansätze gibt es nicht nur in der Konstruktionsgrammatik,
+sondern auch in der GPSG, der LFG und in TAG. HPSG zählt selbst zur Klasse der konstruktionsgrammatischen Theorien. Seit
+1997 gibt es Constructional HPSG \citep{Sag97a} und Sign"=Based Construction Grammar ist auch eine
+HPSG"=Variante \citep[\page 486]{Sag2010b}. Das HPSG"=Handbuch \citep{HPSGHandbook} ist im Rahmen der Constructional HPSG
+geschrieben. Im Artikel \emph{HPSG and Construction Grammar} diskutiere ich, was 
+Konstruktionsgrammatiken ausmacht und wie HPSG dazu steht \citep{MuellerCxG}.
+
+
+\subsubsection{Die Lehren aus der Generalisierten Phrasenstrukturgrammatik (GPSG)}
+
+\subsubsubsection{Morphologie}
+
+\subsubsubsection{Voranstellung von Phrasenteilen}
+
+\subsubsection{Vererbung}
+
+\subsubsection{Sprachübergreifenden Generalisierungen}
+
+
+
+\subsection{Subjekte und Valenz}
+
 Im vorangegangenen Abschnitt wurde das Subjekt (finiter Verben) genauso wie andere Argumente des Verbs
 in der Valenzliste repräsentiert und auch in syntaktischen Strukturen wie die anderen
 Argumente behandelt. Das wird in anderen Grammatiktheorien anders gesehen.
@@ -743,7 +810,7 @@ die eine solche Sonderbehandlung des Subjekts rechtfertigen sollen, empirisch fa
 
 % Bresnan82c:349f zu Subjekt, Selektionsrestriktion und Subjektidiomen
 
-\subsection{Subjekte als Bestandteil von Idiomen}
+\subsubsection{Subjekte als Bestandteil von Idiomen}
 
 % Chomsky2007a:23 Why do idioms typically exclude EA?
 
@@ -840,7 +907,7 @@ sondern zugrundeliegende Objekte sind.
 Wäre diese Annahme richtig,
 dürften keine Passivvarianten von Idiomen mit festem Subjekt existieren,
 da bei der Passivierung das Subjekt unterdrückt wird und unakkusativische
-Verben eben kein zugrundeliegendes Subjekt haben (siehe Kapitel~\ref{chap-passiv}).
+Verben eben kein zugrundeliegendes Subjekt haben (siehe Kapitel~\ref{Kapitel-passiv}).
 Betrachtet man die oben aufgeführten Beispiele, so stellt man fest, dass die Verben in
 (\mex{-1}) in der wörtlichen Lesart durchaus passivierbar sind.
 Dass manche Passivierungen der Idiombeispiele schlecht sind, ist
@@ -959,7 +1026,7 @@ Damit ist Marantz' Behauptung für eine Sprache widerlegt und kann somit auch ni
 \is{Passiv|)}
 \is{Idiom|)}\is{Verb!unakkusativisches|)}
 
-\subsection{Expletivpronomina in Objektsposition}
+\subsubsection{Expletivpronomina in Objektsposition}
 \label{sec-expletivum-in-obj-position}
 
 \is{Pronomen!Expletiv-|(}%
@@ -1021,7 +1088,7 @@ syntaktisiert\label{page-syntaktisierung} und somit entwertet.
 \is{Pronomen!Expletiv-|)}
 % Das ist das Theta-Kriterium (Fanselow91a:46)
 
-\subsection{Subjektlose Prädikate}
+\subsubsection{Subjektlose Prädikate}
 \label{sec-subjekt-valenz}
 % Berman99: Safir85, Cardinaletti90, Grewendorf89, Vikner95 -> expletives pro
 
@@ -1054,7 +1121,7 @@ Zu subjektlosen Verben und dem
 \citews{Berman99a}[Kapitel~4]{Berman2003a} und \citew[\page 176]{Fanselow2000b}.
 Zu leeren Subjekten und Kontrolle\is{Kontrolle} siehe \citew[\page912]{Nerbonne86b}.
 
-%% \subsection{Prädikate mit fakultativ expletivem Subjekt}
+%% \subsubsection{Prädikate mit fakultativ expletivem Subjekt}
 %%
 %% Hubert Haider (p.\,M., 2005) hat mich noch auf die folgenden Daten hingewiesen,
 %% die schon Hermann \citet[\S 24]{Paul1919a} diskutiert:\footnote{
