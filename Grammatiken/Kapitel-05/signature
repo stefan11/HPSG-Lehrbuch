@@ -13,7 +13,7 @@ type_hierarchy
 bot
   none_or_sign
     none
-    sign phon:list cat:cat cont:cont
+    sign phon:list cat:cat cont:mrs
       phrase non_head_dtrs:list dtrs:list
         headed_phrase head_dtr:sign
           head_non_specifier_phrase
@@ -24,7 +24,7 @@ bot
             &head_adjunct_phrase
         non_headed_phrase
       word
-  cat head:head spr:list comps:list
+  cat head:head spr:list comps:list arg_st:list
   head mod:none_or_sign spec:none_or_sign scopal:bool
     intro_case_head case:case
       attr_adj
@@ -56,7 +56,12 @@ bot
     dass
   vform
     fin
-  cont gtop:handle ltop:handle ind:event_or_index rels:list hcons:list
+  mrs gtop:handle ltop:handle ind:event_or_index rels:list hcons:list
+% Untertypen von MRS sind sinnlos, da der CONT-Wert der Mutter nie der CONT-Wert einer Tochter sind,
+% weil RELS und HCONS immer zusammengesammelt werden. Man kann den Typ aber nicht Teilen ohne den ganzen CONT-Wert zu teilen.
+% Also wären diese Typen nur für lexikalische Elemente.
+%    nom_obj ind:index
+%    psoa    ind:event
   event_or_index
     event
     index per:per num:num gen:gender
@@ -100,7 +105,7 @@ bot
       &arg02_relation
         tochter_rel
         &arg012_relation
-      grauen_rel
+        grauen_rel
   qeq harg:handle larg:handle
   per
     first

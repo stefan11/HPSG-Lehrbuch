@@ -20,11 +20,12 @@ headed_phrase *>
    (cat:head:Head,
     head_dtr:cat:head:Head).
 
-head_complement_phrase *>
-   (cat:comps:Subcat,
-    head_dtr:cat:comps:append(Subcat,[NonHeadDtr]),
-    non_head_dtrs:[NonHeadDtr]).
+%% Das Valenzprinzip
 
+head_complement_phrase *>
+   (cat:comps:Comps,
+    head_dtr:cat:comps:append(Comps,[NonHeadDtr]),
+    non_head_dtrs:[NonHeadDtr]).
 
 head_specifier_phrase *>
    (cat:spr:Spr,
@@ -40,6 +41,8 @@ head_non_specifier_phrase *>
    (cat:spr:Spr,
     head_dtr:cat:spr:Spr).
 
+
+
 head_adjunct_phrase *>
    (head_dtr:HD,
     non_head_dtrs:[cat:head:mod:HD]).
@@ -53,6 +56,30 @@ head_adjunct_phrase *>
 %   head_dtr:HD,
 %   non_head_dtrs:NHDtrs,
 %   dtrs:[HD|NHDtrs].
+
+
+% Argumentrealisierungsprinzip
+word *> cat:(spr:Spr,
+             comps:Comps,
+             arg_st:append(Spr,Comps)).
+
+% Wenn ein Wort mit der Wortart noun mindestens ein Element in der ARG-ST-Liste hat,
+% muss die SPR-Liste ein Element ethalten.
+(word,
+ cat:(head:noun,
+      arg_st:hd:sign)) *> cat:spr:[sign]. 
+
+% Die SPR-Liste von (finiten) Verben ist leer.
+(word,
+ cat:head:verb) *> cat:spr:[]. 
+
+% Die von Adjektiven auch.
+(word,
+ cat:head:adj) *> cat:spr:[]. 
+
+
+
+% Semantik
 
 phrase *>
   (cont:rels:append(Rels1,Rels2),
@@ -106,14 +133,14 @@ head_adjunct_phrase *>
 %   cont:(gtop:GTop,
 %         ltop:GTop)).
 
-root macro
+root :=
  (cat:(spr:[],
        comps:[])).
 
 
-interrog macro
+interrog :=
  (@root).
 
-decl macro
+decl :=
  (@root).
 
