@@ -256,8 +256,29 @@ kleine ---> (word,
         ltop:LTop,
         rels:[(klein_rel,
                lbl:LTop,
-               arg0:Ind)],
+               arg1:Ind)],
         hcons:[])).
+
+in ---> (word,
+  cat:(head:(prep,
+             scopal:minus,
+             mod:(cat:(head:noun,
+                       spr:[_],
+                       comps:[]),
+                  cont:ind:Ind)),
+       arg_st:[(cat:(head:(noun,
+                           case:dat),
+                     spr:[],
+                     comps:[]),
+                cont:ind:Ind2)]),
+  cont:(ind:Ind,
+        ltop:LTop,
+        rels:[(in_rel,
+               lbl:LTop,
+               arg1:Ind,
+               arg2:Ind2)],
+        hcons:[])).
+
 
 schwierige ---> (word,
   cat:(head:(adj,
@@ -272,7 +293,7 @@ schwierige ---> (word,
         ltop:LTop,
         rels:[(schwierig_rel,
                lbl:LTop,
-               arg0:Ind)],
+               arg1:Ind)],
         hcons:[])).
 
 mutmaßliche ---> (word,
@@ -566,8 +587,8 @@ buches ---> (word,
         hcons:[]) ).
 
 tochter ---> (word,
-  cat:(head:noun,
-            case:nom),
+  cat:(head:(noun,
+             case:nom),
        arg_st:[cat:(head:(det,
                           case:nom),
                     spr:[],
@@ -583,7 +604,7 @@ tochter ---> (word,
                lbl:Lbl,
                arg0:Ind,
                arg2:Ind2)],
-        hcons:[]) ).
+        hcons:[])).
 
 tochter ---> (word,
   cat:(head:(noun,
@@ -643,6 +664,35 @@ tochter ---> (word,
                lbl:Lbl,
                arg0:Ind,
                arg2:Ind2)],
+        hcons:[]) ).
+
+
+tofu ---> (word,
+  cat:(head:(noun,
+             case:nom),
+       arg_st:[cat:(head:(det,
+                          case:nom),
+                    spr:[],
+                    comps:[])]),
+  cont:(ind:Ind,
+        ltop:Lbl,
+        rels:[(tofu_rel,
+               lbl:Lbl,
+               arg0:Ind)],
+        hcons:[]) ).
+
+speisekammer ---> (word,
+  cat:(head:(noun,
+             case:dat),
+       arg_st:[cat:(head:(det,
+                          case:dat),
+                    spr:[],
+                    comps:[])]),
+  cont:(ind:Ind,
+        ltop:Lbl,
+        rels:[(speisekammer_rel,
+               lbl:Lbl,
+               arg0:Ind)],
         hcons:[]) ).
 
 

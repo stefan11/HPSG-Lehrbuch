@@ -79,10 +79,10 @@ in ---> (word,
              spr:[_],
              comps:[])),
   spr:[],
-  comps:[(head:(noun,
-                case:dat),
-          spr:[],
-          comps:[])]).
+  arg_st:[(head:(noun,
+                 case:dat),
+           spr:[],
+           comps:[])]).
 
 affe ---> (word,
   head:(noun,
@@ -97,6 +97,7 @@ affen ---> (word,
         case:dat),
   arg_st:[(head:(det,
                  case:dat),
+           spr:[],
            comps:[])]).
 
 affe ---> (word,
@@ -128,6 +129,7 @@ mann ---> (word,
         case:dat),
   arg_st:[(head:(det,
                  case:dat),
+           spr:[],
            comps:[])]).
 
 mann ---> (word,
@@ -151,6 +153,7 @@ kind ---> (word,
         case:nom),
   arg_st:[(head:(det,
                  case:nom),
+           spr:[],
            comps:[])]).
 
 kindes ---> (word,
@@ -260,19 +263,19 @@ tochter ---> (word,
 tofu ---> (word,
   head:(noun,
         case:nom),
-  spr:[(head:(det,
-              case:nom),
-           comps:[])],
-  comps:[] ).
+  arg_st:[(head:(det,
+                 case:nom),
+           spr:[],
+           comps:[])]).
 
 
 speisekammer ---> (word,
   head:(noun,
         case:dat),
-  spr:[(head:(det,
+  arg_st:[(head:(det,
               case:dat),
-           comps:[])],
-  comps:[] ).
+           spr:[],
+           comps:[])]).
 
 
 er ---> (word,

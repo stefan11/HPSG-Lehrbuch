@@ -28,13 +28,16 @@ bot
   head mod:none_or_sign spec:none_or_sign scopal:bool
     intro_case_head case:case
       attr_adj
-      glb_det_noun_prep
+      glb_det_noun_comp_prep
         det
         noun
-        prep pform:pform
-    non_modifier mod:none % alle Unterkategorien können im Prinzip auch Adjunkte sein, aber nicht in dieser Grammatik
-      &glb_det_noun_prep
+        comp_prep
+    non_modifier mod:none
+      &glb_det_noun_comp_prep
       verb vform:vform
+    prep
+      comp_prep pform:pform
+      mod_prep
     adv
     adj
       &attr_adj
@@ -76,9 +79,9 @@ bot
       kind_rel
       mann_rel
       mitarbeiter_rel
+      speisekammer_rel
+      tofu_rel
       pronoun_rel
-      klein_rel
-      schwierig_rel
       quant_rel rstr:handle body:handle
         def_q
         every_q
@@ -87,6 +90,8 @@ bot
       &arg01_relation
       &arg02_relation
     arg1_relation arg1:event_or_index
+      klein_rel
+      schwierig_rel
       angeblich_rel
       mutmaßlich_rel
       wahrscheinlich_rel
@@ -100,7 +105,11 @@ bot
           kennen_rel
           arg0123_rel arg3:index
             geben_rel
+      arg12_relation
+        in_rel
     arg2_relation arg2:event_or_index
+      &arg12_relation
+        &arg012_relation
       &arg02_relation
         tochter_rel
         &arg012_relation

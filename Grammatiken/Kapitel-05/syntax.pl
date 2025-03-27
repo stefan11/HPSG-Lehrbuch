@@ -42,10 +42,11 @@ head_non_specifier_phrase *>
     head_dtr:cat:spr:Spr).
 
 
-
 head_adjunct_phrase *>
    (head_dtr:HD,
-    non_head_dtrs:[cat:head:mod:HD]).
+    non_head_dtrs:[cat:(head:mod:HD,
+                        spr:[],
+                        comps:[])]).
        
 
 % for headed structures the head daughter is appended to the non-head daughters to give a list of all daughters.
