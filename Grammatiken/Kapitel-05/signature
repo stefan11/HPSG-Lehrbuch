@@ -68,23 +68,22 @@ bot
     handle
   relation lbl:handle
     arg0_relation arg0:event_or_index
-      arg0_nominal_rel arg0:index
-        affe_rel
-        beispiel_rel
-        buch_rel
-        einhorn_rel
-        frau_rel
-        kind_rel
-        mann_rel
-        mitarbeiter_rel
-        pronoun_rel
-        klein_rel
-        schwierig_rel
-        quant_rel rstr:handle body:handle
-          def_q
-          every_q
-          exists_q
-          pronoun_q
+      affe_rel
+      beispiel_rel
+      buch_rel
+      einhorn_rel
+      frau_rel
+      kind_rel
+      mann_rel
+      mitarbeiter_rel
+      pronoun_rel
+      klein_rel
+      schwierig_rel
+      quant_rel rstr:handle body:handle
+        def_q
+        every_q
+        exists_q
+        pronoun_q
       &arg01_relation
       &arg02_relation
     arg1_relation arg1:event_or_index
