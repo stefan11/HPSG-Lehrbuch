@@ -46,3 +46,12 @@ adj_h rule (head_adjunct_phrase,
   ===>
 cat> NonHeadDtr,
 cat> HeadDtr.
+
+adj_h rule (head_adjunct_phrase,
+             dtrs:[HeadDtr,NonHeadDtr],
+             head_dtr:HeadDtr,
+             non_head_dtrs:[NonHeadDtr])
+  ===>
+cat> HeadDtr,
+cat> NonHeadDtr.
+

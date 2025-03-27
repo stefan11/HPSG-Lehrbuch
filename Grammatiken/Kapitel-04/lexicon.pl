@@ -56,7 +56,6 @@ den ---> (word,
   spr:[],
   comps:[] ).
 
-
 des ---> (word,
   head:(det,
         case:gen),
@@ -84,6 +83,17 @@ kleine ---> (word,
   spr:[],
   comps:[]).
 
+in ---> (word,
+  head:(prep,
+        mod:(head:noun,
+             spr:[_],
+             comps:[])),
+  spr:[],
+  comps:[(head:(noun,
+                case:dat),
+          spr:[],
+          comps:[])]).
+
 
 affe ---> (word,
   head:(noun,
@@ -98,7 +108,7 @@ affen ---> (word,
   head:(noun,
         case:dat),
   spr:[(head:(det,
-                 case:dat),
+              case:dat),
            comps:[])],
   comps:[ ] ).
 
@@ -106,7 +116,7 @@ affe ---> (word,
   head:(noun,
         case:acc),
   spr:[(head:(det,
-                 case:acc),
+              case:acc),
           spr:[],
           comps:[])],
   comps:[ ] ).
@@ -115,7 +125,7 @@ affens ---> (word,
   head:(noun,
         case:gen),
   spr:[(head:(det,
-                 case:gen),
+              case:gen),
           spr:[],
           comps:[])],
   comps:[ ] ).
@@ -133,7 +143,7 @@ mann ---> (word,
   head:(noun,
         case:dat),
   spr:[(head:(det,
-                 case:dat),
+              case:dat),
            comps:[])],
   comps:[ ] ).
 
@@ -141,7 +151,7 @@ mann ---> (word,
   head:(noun,
         case:acc),
   spr:[(head:(det,
-                 case:acc),
+              case:acc),
           spr:[],
           comps:[])],
   comps:[ ] ).
@@ -150,17 +160,16 @@ mannes ---> (word,
   head:(noun,
         case:gen),
   spr:[(head:(det,
-                 case:gen),
+              case:gen),
           spr:[],
           comps:[])],
   comps:[ ] ).
-
 
 kind ---> (word,
   head:(noun,
         case:nom),
   spr:[(head:(det,
-                 case:nom),
+              case:nom),
            comps:[])],
   comps:[ ] ).
 
@@ -168,7 +177,7 @@ kindes ---> (word,
   head:(noun,
         case:gen),
   spr:[(head:(det,
-                 case:gen),
+              case:gen),
           spr:[],
           comps:[])],
   comps:[ ] ).
@@ -177,7 +186,7 @@ kind ---> (word,
   head:(noun,
         case:dat),
   spr:[(head:(det,
-                case:dat),
+              case:dat),
           spr:[],
           comps:[])],
   comps:[ ] ).
@@ -186,7 +195,7 @@ kind ---> (word,
   head:(noun,
         case:acc),
   spr:[(head:(det,
-                 case:acc),
+              case:acc),
           spr:[],
           comps:[])],
   comps:[ ] ).
@@ -195,7 +204,7 @@ buch ---> (word,
   head:(noun,
         case:nom),
   spr:[(head:(det,
-                 case:nom),
+              case:nom),
           spr:[],
           comps:[])],
   comps:[ ] ).
@@ -204,7 +213,7 @@ buch ---> (word,
   head:(noun,
         case:dat),
   spr:[(head:(det,
-                 case:dat),
+              case:dat),
           spr:[],
           comps:[])],
   comps:[ ] ).
@@ -213,7 +222,7 @@ buch ---> (word,
   head:(noun,
         case:acc),
   spr:[(head:(det,
-                 case:acc),
+              case:acc),
           spr:[],
           comps:[])],
   comps:[ ] ).
@@ -222,7 +231,7 @@ buches ---> (word,
   head:(noun,
         case:gen),
   spr:[(head:(det,
-                 case:gen),
+              case:gen),
           spr:[],
           comps:[])],
   comps:[ ] ).
@@ -274,6 +283,24 @@ tochter ---> (word,
                 case:gen),
           spr:[],
           comps:[]) ] ).
+
+tofu ---> (word,
+  head:(noun,
+        case:nom),
+  spr:[(head:(det,
+              case:nom),
+           comps:[])],
+  comps:[] ).
+
+
+speisekammer ---> (word,
+  head:(noun,
+        case:dat),
+  spr:[(head:(det,
+              case:dat),
+           comps:[])],
+  comps:[] ).
+
 
 
 er ---> (word,

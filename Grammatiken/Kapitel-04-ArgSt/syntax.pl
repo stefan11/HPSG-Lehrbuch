@@ -45,7 +45,9 @@ head_non_specifier_phrase *>
 
 head_adjunct_phrase *>
    (head_dtr:HD,
-    non_head_dtrs:[head:mod:HD]).
+    non_head_dtrs:[(head:mod:HD,
+                    spr:[],
+                    comps:[])]).
 
 % Argumentrealisierungsprinzip
 word *> (spr:Spr,

@@ -73,6 +73,16 @@ kleine ---> (word,
              comps:[])),
   arg_st:[]).
 
+in ---> (word,
+  head:(prep,
+        mod:(head:noun,
+             spr:[_],
+             comps:[])),
+  spr:[],
+  comps:[(head:(noun,
+                case:dat),
+          spr:[],
+          comps:[])]).
 
 affe ---> (word,
   head:(noun,
@@ -246,6 +256,23 @@ tochter ---> (word,
                  case:gen),
            spr:[],
            comps:[]) ] ).
+
+tofu ---> (word,
+  head:(noun,
+        case:nom),
+  spr:[(head:(det,
+              case:nom),
+           comps:[])],
+  comps:[] ).
+
+
+speisekammer ---> (word,
+  head:(noun,
+        case:dat),
+  spr:[(head:(det,
+              case:dat),
+           comps:[])],
+  comps:[] ).
 
 
 er ---> (word,

@@ -27,13 +27,16 @@ bot
   head mod:none_or_sign 
     intro_case_head case:case
       attr_adj
-      glb_det_noun_prep
+      glb_det_noun_comp_prep
         det
         noun
-        prep pform:pform
+        comp_prep
     non_modifier mod:none
-      &glb_det_noun_prep
+      &glb_det_noun_comp_prep
       verb vform:vform
+    prep
+      comp_prep pform:pform
+      mod_prep
     adj
       &attr_adj
   list
