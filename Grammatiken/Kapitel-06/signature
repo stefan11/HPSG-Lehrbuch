@@ -8,12 +8,12 @@ bot
   string
   relation lbl:handle
     arg3_relation arg3:event_or_index
-      glbtype10
+      glbtype1
         arg023_relation
         arg0123_relation
           geben_rel
     arg2_relation arg2:event_or_index
-      glbtype11
+      glbtype2
         arg12_relation
           treu_rel
           in_rel
@@ -26,12 +26,12 @@ bot
           glauben_rel
           denken_an_rel
       arg02_relation
-        &glbtype10
+        &glbtype1
         &arg012_relation
         tochter_rel
         grauen_rel
     arg1_relation arg1:event_or_index
-      &glbtype11
+      &glbtype2
       arg01_relation
         &arg012_relation
         schlafen_rel
@@ -49,6 +49,7 @@ bot
       &arg02_relation
       &arg01_relation
       wurst_rel
+      tofu_rel
       speisekammer_rel
       quant_rel rstr:handle body:handle
         pronoun_q
@@ -81,24 +82,24 @@ bot
   none_or_sign
     sign phon:list cat:cat cont:mrs
       word
-        glbtype8
-          glbtype7
-            glbtype1
+        glbtype10
+          glbtype9
+            glbtype3
               scopal_adv_word
               scopal_adj
-            glbtype2
+            glbtype4
               simple_attr_adj
               &scopal_adj
           relational_word
-            glbtype6
-              glbtype3
+            glbtype8
+              glbtype5
                 noun_mod_preposition
                   location_noun_mod_prep
                 intersective_adj
-                  glbtype4
+                  glbtype6
                     attr_np_adj
                     &simple_attr_adj
-              glbtype5
+              glbtype7
                 det_noun_word
                   simple_noun
                   relational_noun
@@ -114,19 +115,19 @@ bot
                 &noun_mod_preposition
             n_modifier_word
               isect_n_modifier_word
-                &glbtype3
+                &glbtype5
               attr_adjective_word
-                &glbtype2
                 &glbtype4
+                &glbtype6
             relational_arg0_word
-              &glbtype5
+              &glbtype7
               verb_word
                 intrans_verb
                   &non_scopal_intrans_verb
                   glauben_denken_verb
                 &non_scopal_verb_word
-        glbtype9
-          &glbtype6
+        glbtype11
+          &glbtype8
           preposition_word
             comp_preposition
             &mod_preposition
@@ -134,7 +135,7 @@ bot
           &det_noun_word
           pers_pronoun
         saturated_word
-          &glbtype7
+          &glbtype9
           adv_word
             &scopal_adv_word
           &pers_pronoun
@@ -155,7 +156,7 @@ bot
             head_specifier_phrase
             &head_adjunct_phrase
       non_scopal_le
-        &glbtype9
+        &glbtype11
         non_scopal_non_relational_le
           transparent_head_le
             &comp_preposition
@@ -166,11 +167,11 @@ bot
           &isect_n_modifier_word
         &n_modifier_word
       ltop_lbl_le
-        &glbtype8
+        &glbtype10
         arg0_ltop_lbl_le
           &relational_arg0_word
         scopal_modifier_le
-          &glbtype1
+          &glbtype3
           &scopal_v_modifier_le
       isect_modifier_le
         &isect_n_modifier

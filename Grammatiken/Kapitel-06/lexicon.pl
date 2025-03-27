@@ -99,6 +99,10 @@ speisekammer ---> @noun(case,fem,sg,speisekammer_rel).
 
 tochter ---> @relational_noun(case,fem,sg,tochter_rel).
 
+tofu   ---> @noun(nom_or_dat_or_acc,mas,sg,tofu_rel).
+
+tofus ---> @noun(gen,mas,sg,tofu_rel).
+
 wurst ---> @noun(case,fem,sg,wurst_rel).
 
 
