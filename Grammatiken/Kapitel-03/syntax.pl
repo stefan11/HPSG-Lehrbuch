@@ -32,12 +32,12 @@ head_specifier_phrase *>
 
 
 
-root macro
+root :=
  (spr:[],
   comps:[]).
 
-interrog macro
+interrog :=
  (@root).
 
-decl macro
+decl :=
  (@root).

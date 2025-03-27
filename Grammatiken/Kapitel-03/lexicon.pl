@@ -78,8 +78,6 @@ tochter ---> (word,
           spr:[],
           comps:[]) ] ).
 
-
-
 buch ---> (word,
   p_o_s:noun,
   spr:[(p_o_s:det,

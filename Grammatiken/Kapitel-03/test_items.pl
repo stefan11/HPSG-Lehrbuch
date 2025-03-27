@@ -8,4 +8,6 @@ t(5,"Mann schläft.",@decl,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinz
 t(6,"der Mann kennt",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
 t(7,"die Tochter des Mannes",@root,1,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
 t(8,"die Tochter Mannes",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
+t(9,"die Wurst in der Speisekammer",@root,1,'Kapitel 6: Adjunktion und Spezifikation').
+t(10,"die Wurst in",@root,0,'Kapitel 6: Adjunktion und Spezifikation').
 
