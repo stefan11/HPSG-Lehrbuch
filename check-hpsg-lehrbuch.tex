@@ -26,6 +26,7 @@
 %	datamodel=langsci,   % add authauthor and autheditor as possible fields to bibtex entries
 
 
+
 %\renewcommand{\lsBookLanguage}{german}
 
 \usepackage{ifthen}
@@ -60,8 +61,9 @@
 
 % load memoize before german.sty
 
-\usepackage{nomemoize} 
+%\usepackage{nomemoize} 
 %\usepackage[extract=no]{memoize} % If malformed trees occur in a first pass, use this and extract later.
+\usepackage[extract=python]{memoize} % If malformed trees occur in a first pass, use this and extract later.
 %\usepackage[biblatex={}]{memoize} % 
 
 %\memoizeset{readonly}
@@ -86,8 +88,6 @@
 
 \mmzset{
   prefix=hpsg.memo.dir/,
-%  deactivate=\todo,
-%  deactivate=\verb,
 }
 
 
@@ -109,20 +109,20 @@
 %\includeonly{chapters/03-hpsg-valenz-psg}
 %\includeonly{chapters/04-hpsg-komplementation}
 %\includeonly{chapters/05-hpsg-semantik}
-\includeonly{chapters/06-hpsg-lexikon}
-%\includeonly{chapters/08-hpsg-topologie}
-%\includeonly{chapters/09-hpsg-konstituentenreihenfolge}
-%\includeonly{chapters/10-hpsg-udc}
-%\includeonly{chapters/11-hpsg-rs}
-%\includeonly{chapters/12-hpsg-lokalitaet}
-%\includeonly{chapters/13-hpsg-kongruenz}
-%\includeonly{chapters/14-hpsg-kasus}
-%\includeonly{chapters/15-hpsg-verbalkomplex}
-%\includeonly{chapters/16-hpsg-anhebung}
-%\includeonly{chapters/17-hpsg-passiv}
-%\includeonly{chapters/18-hpsg-partikel}
-%\includeonly{chapters/19-hpsg-morphologie}
-%\includeonly{chapters/20-hpsg-theorie}
+%\includeonly{chapters/06-hpsg-lexikon}
+\includeonly{chapters/07-hpsg-topologie}
+%\includeonly{chapters/08-hpsg-konstituentenreihenfolge}
+%\includeonly{chapters/09-hpsg-udc}
+%\includeonly{chapters/10-hpsg-rs}
+%\includeonly{chapters/11-hpsg-lokalitaet}
+%\includeonly{chapters/12-hpsg-kongruenz}
+%\includeonly{chapters/13-hpsg-kasus}
+%\includeonly{chapters/14-hpsg-verbalkomplex}
+%\includeonly{chapters/15-hpsg-anhebung}
+%\includeonly{chapters/16-hpsg-passiv}
+%\includeonly{chapters/17-hpsg-partikel}
+%\includeonly{chapters/18-hpsg-morphologie}
+%\includeonly{chapters/19-hpsg-theorie}
 %\includeonly{chapters/hpsg-loesungen}
 
 
