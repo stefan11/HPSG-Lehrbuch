@@ -735,9 +735,10 @@ in Typhierarchien spezifizieren und die spezifischen Lexikoneinträge diesen Mus
 \dash von den entsprechenden Typen Beschränkungen erben lassen. Eine Typbeschränkung für
 Verben mit Agens, Thema und Goal hat die Form in (\mex{1}):
 \ea
+\label{bsp-linking-arg123}
 \onems
 { cat$|$arg-st \liste{ []\ind{1}, []\ind{2}, []\ind{3}  } \\[1mm]
-  cont|rels \liste{ \ms[arg123-rel~]{ arg1 & \ibox{1} \\
+  cont|rels \liste{ \ms{ arg1 & \ibox{1} \\
                       arg2 & \ibox{2} \\
                       arg3 & \ibox{3} \\
            }} \\
@@ -749,9 +750,34 @@ Verben mit Agens, Thema und Goal hat die Form in (\mex{1}):
 %% sein oder aber auch eine Liste mit einem oder mehreren Elementen. Wichtig ist nur, dass
 %% die \compsl mit drei Elementen beginnt, deren Index mit Werten von Argumentrollen innerhalb von \cont
 %% identisch ist.
-Der Typ für die Relation \emph{geben} ist Untertyp von \type{arg123-rel}.
+Der Typ für die Relation \emph{geben} ist Untertyp von \type{arg123-rel}, dem Typ, den alle
+Strukturen mit den Merkmalen \argone, \argtwo und \argthree haben (siehe auch Kapitel~\ref{Abschnitt-Typhierarchien}). 
 Der Lexikoneintrag für das Wort \emph{geben} bzw.\ den Stamm \stem{geb} hat das Linking"=Muster in
 (\mex{0}). 
+
+% \begin{forest}
+% type hierarchy,
+% for tree={nameN/.option=content},
+% [relation
+%   [arg0\_rel
+%     [buch\_rel]
+%     [arg01\_rel, name=arg01-rel
+%       [tochter\_rel]
+%       [schlafen\_rel]
+%       [arg012\_rel, name=arg012-rel
+%         [helfen\_rel]
+%         [arg0123\_rel, name=arg0123-rel
+%           [geben\_rel]]]]]
+%   [arg1\_rel
+%     [klein\_rel]
+% %    [mutmaßlich\_rel]
+%     [,identify=arg01-rel]]
+%   [arg2\_rel
+%     [,identify=arg012-rel]]
+%   [arg3\_rel
+%     [,identify=arg0123-rel]]]
+% \end{forest}
+
 
 Zu Linking"=Theorien im Rahmen der HPSG siehe \citew{Davis96a-u} und \citew{Wechsler95a-u}.
 \is{Linking|)}
@@ -857,7 +883,7 @@ Damit sind die wichtigsten Aspekte geklärt. Im Prinzip verfügt man an dieser S
 Wissen für das Verständnis der kommenden Kapitel. Der nun folgenden Abschnitt wird etwas technisch,
 denn hier wird der formale Apparat eingeführt, den man für die Unterspezifikation von
 Skopusverhältnissen braucht. Diejenigen, die das nicht interessiert, können unbeschadet zu
-Kapitel~\ref{Kapitel-lexikon} springen.\footnote{
+Kapitel~\ref{Kapitel-Lexikon} springen.\footnote{
   Ich verwende hier denselben Trick wie Lemony Snicket, der jedem der 13 Bände von \emph{Eine Reihe
     betrüblicher Ereignisse} seitenlange Warnungen vor dem schlimmen und deprimierenden Inhalt des
   Buches, das man gerade zu lesen im Begriff ist, voranstellt. Ich habe keine Studie durchgeführt,
@@ -1301,6 +1327,7 @@ Die Situation für Pronomina ist ähnlich. Es gibt eine Art Quantor für Pronomi
 entsprechende Relation. Der Eintrag für das Pronomen \emph{er} von Seite~\pageref{le-er} kann nun wie folgt um die \rels- und \hconswe
 erweitert werden:
 \eas
+\label{Lexikoneintrag-er}%
 Lexikoneintrag für \emph{er}:\\
 \ms{ 
   cat & \ms{ head  & \ms[noun]{
@@ -1566,7 +1593,7 @@ Lexikoneintrag für \emph{glauben}:\\
            } \\
   cont &  \ms{
           ind & \ibox{4} event\\
-          rels & \liste{ \ms[glauben]{ 
+          rels & \liste{ \ms[glauben\_rel]{ 
                           arg0 & \ibox{4}\\
                           arg1 & \ibox{1} \\
                           arg2 & \ibox{3} \\

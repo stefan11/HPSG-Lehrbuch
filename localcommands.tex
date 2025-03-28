@@ -189,18 +189,18 @@
 
 % Is mdframed used as backend?
 \notbool{langsci@tbls@tcolorbox}{%
-\newcommand{\questions}[1]{~\newline\vspace*{-10mm}
+\newcommand{\questions}[1]{%~\newline\vspace*{-10mm}
 {\mmzset{disable}%
-\tblssy{people}{Comprehension questions}{\setlist{leftmargin=*}#1}}}
+\tblssy{people}{Kontrollfragen}{\setlist{leftmargin=*}#1}}}
 %\tblssy{people}{Comprehension questions}{#1}}
 
 \newcommand{\exercises}[1]{{\mmzset{disable}%
-\tblssy{pencil}{Exercises}{\setlist{leftmargin=*}#1}}}
+\tblssy{pencil}{Übungsaufgaben}{\setlist{leftmargin=*}#1}}}
 %\tblssy{pencil}{Exercises}{#1}}
 
 \newcommand{\furtherreading}[1]{%~\newline\vspace*{-10mm}
 {\mmzset{disable}%
-\tblssy{book}{Further reading}{#1}}}
+\tblssy{book}{Literaturhinweise}{#1}}}
 
 \newcommand{\greyboxrest}[1]{
 {\mmzset{disable}%
@@ -219,11 +219,11 @@
 % Is tcolorbox used as backend?
 \ifbool{langsci@tbls@tcolorbox}{%
 \newcommand{\questions}[1]{{\mmzset{disable}%
-\begin{tblsfilledsymbol}{Comprehension questions}{people}\setlist{leftmargin=*}#1\end{tblsfilledsymbol}}}
+\begin{tblsfilledsymbol}{Kontrollfragen}{people}\setlist{leftmargin=*}#1\end{tblsfilledsymbol}}}
 \newcommand{\exercises}[1]{{\mmzset{disable}%
-\begin{tblsfilledsymbol}{Exercises}{pencil}\setlist{leftmargin=*}#1\end{tblsfilledsymbol}}}
+\begin{tblsfilledsymbol}{Übungsaufgaben}{pencil}\setlist{leftmargin=*}#1\end{tblsfilledsymbol}}}
 \newcommand{\furtherreading}[1]{{\mmzset{disable}%
-\begin{tblsfilledsymbol}{Further reading}{book}#1\end{tblsfilledsymbol}}}}{}
+\begin{tblsfilledsymbol}{Literaturhinweise}{book}#1\end{tblsfilledsymbol}}}}{}
 
 
 
