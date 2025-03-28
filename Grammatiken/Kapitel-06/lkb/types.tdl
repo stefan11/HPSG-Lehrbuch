@@ -54,11 +54,13 @@ head_adjunct_phrase    := head_non_complement_phrase & head_non_specifier_phrase
 
 non_headed_phrase := phrase.
 
+lexical_sign := sign.
+
 ; empty HCONS
-non_scopal_le := sign.
+non_scopal_le := lexical_sign.
 
 ; empty RELS
-non_relational_le := sign.
+non_relational_le := lexical_sign.
 
 non_scopal_non_relational_le := non_scopal_le & non_relational_le.
 
@@ -67,13 +69,13 @@ non_scopal_non_relational_le := non_scopal_le & non_relational_le.
 ; complement prepositions and some complementizers.
 transparent_head_le := non_scopal_non_relational_le.
 
-arg0_le := sign.
+arg0_le := lexical_sign.
 
-ltop_lbl_le := sign.
+ltop_lbl_le := lexical_sign.
 
 arg0_ltop_lbl_le := arg0_le & ltop_lbl_le.
 
-word := sign.
+word := lexical_sign.
 
 saturated_word   := word.
 
@@ -109,9 +111,14 @@ intrans_verb := verb_word.
 non_scopal_intrans_verb := intrans_verb & non_scopal_verb_word.
 
 strict_intrans_verb := non_scopal_intrans_verb.
-np_pp_verb          := non_scopal_intrans_verb.
+np_np_dat_verb      := non_scopal_intrans_verb & bi_or_more_val_verb.
+np_pp_verb          := non_scopal_intrans_verb & bi_or_more_val_verb.
 
-trans_verb := non_scopal_verb_word.
+; helfen, kennen, geben
+bi_or_more_val_verb := non_scopal_verb_word.
+
+; kennen, geben
+trans_verb := bi_or_more_val_verb.
 
 strict_trans_verb := trans_verb.
 ditrans_verb      := trans_verb.
@@ -152,7 +159,7 @@ scopal_adj := saturated_word & attr_adjective_word & scopal_modifier_le.
 ; Adjektive, Präpositionen, Nomina, aber auch Relativsätze (=phrasal)
 n_modifier := sign.
 
-isect_modifier_le := sign.
+isect_modifier_le := lexical_sign.
 
 isect_n_modifier := isect_modifier_le & n_modifier.
 

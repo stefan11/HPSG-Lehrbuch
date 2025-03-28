@@ -89,10 +89,18 @@ possessive(Case,NNumerus,NGenus,Person,Numerus,Genus) :=
 % Die folgenden XP-Makros werden als Abkürzung in Valenzrahmen
 % verwendet.
 
-np :=
-  (cat:(head:noun,
-        spr:[],
+xp :=
+  (cat:(spr:[],
         comps:[])).
+
+% kennen, helfen, denken an
+xp(Ind) :=
+  (@xp,
+   cont:ind:Ind).
+
+np :=
+  (@xp,
+   cat:head:noun).
 
 np(Ind) :=
   (@np,
@@ -108,17 +116,19 @@ nbar(Ind) :=
         comps:[]),
    cont:ind:Ind).
 
+pp :=
+  (@xp,
+   cat:head:prep).
+
 pp(Ind) :=
-  (cat:(head:prep,
-        spr:[],
-        comps:[]),
+  (@pp,
+   cat:head:prep,
    cont:ind:Ind).
 
 pp(PForm,Case) :=
-  (cat:(head:(prep,
-              pform:PForm,
-              case:Case),
-        arg_st:[])).
+  (@pp,
+   cat:head:(pform:PForm,
+             case:Case)).
 
 
 non_scopal_le *>
@@ -243,9 +253,9 @@ intrans_verb(Relation) :=
   cont:rels:hd:Relation).
 
 np_pp_verb *> 
- (%intrans_verb,
-  cat:arg_st:tl:[ @pp(Ind2) ],
-  cont:rels:hd:arg2:Ind2).
+ (%non_scopal_intrans_verb,
+  %bi_or_more_val_verb, 
+  cat:arg_st:tl:[ @pp ]).
 
 np_pp_verb(PForm,Case,Relation) :=
  (np_pp_verb,
@@ -263,23 +273,24 @@ subjlos_verb(Case,Relation) :=
   cat:arg_st:[ @np(Case,_Ind) ],
   cont:rels:hd:Relation).
 
-trans_verb *>
+% kennen, helfen verbs with at least two arguments and a nominative
+bi_or_more_val_verb *>
  (%non_scopal_verb_word,
-  cat:arg_st:[ @np(nom,Ind1), @np(acc,Ind2) |_ ],
+  cat:arg_st:[ @np(nom,Ind1), @xp(Ind2) |_ ],
   cont:rels:hd:(arg1:Ind1,
                 arg2:Ind2)).
 
+% kennen
 strict_trans_verb *>
- (%trans_verb,
-  cat:arg_st:[ _, _ ]).
+ (%trans_verb = bi_or_more_val_verb
+  cat:arg_st:[ _, @np(acc,_) ]).
 
 trans_verb(Relation) :=
  (strict_trans_verb,
   cont:rels:hd:Relation).
 
-
 ditrans_verb *>
- (%trans_verb,
+ (%trans_verb = bi_or_more_val_verb
   cat:arg_st:[ _, _, @np(dat,Ind3) ],
   cont:rels:hd:arg3:Ind3).
 

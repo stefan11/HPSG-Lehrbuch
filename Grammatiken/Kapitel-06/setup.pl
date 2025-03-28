@@ -24,10 +24,20 @@ rstr <<< body.
 % use ghostview for drawing signatures
 % für Linux
 %graphviz_option(ps,gv).
+
+
 % für Mac
 %graphviz_option(svg,'batik-squiggle').
+
 % Install gapplin, so that it is the default app.
+%graphviz_option(svg,'sleep 0.1; open').
+
+% just use built-in preview for SVG
+% graphviz_option(svg,'qlmanage -p').
+
+% install SVGViewer from Appstore and use
 graphviz_option(svg,'sleep 0.1; open').
+
 
 :- trale_milca_version('2.7.12') -> true; ['../Gemeinsames/new-trale.pl'].
 
