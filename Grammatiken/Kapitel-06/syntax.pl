@@ -65,20 +65,6 @@ word *> cat:(spr:Spr,
              comps:Comps,
              arg_st:append(Spr,Comps)).
 
-% Wenn ein Wort mit der Wortart noun mindestens ein Element in der ARG-ST-Liste hat,
-% muss die SPR-Liste ein Element ethalten.
-(word,
- cat:(head:noun,
-      arg_st:hd:sign)) *> cat:spr:[sign]. 
-
-% Die SPR-Liste von (finiten) Verben ist leer.
-(word,
- cat:head:verb) *> cat:spr:[]. 
-
-% Die von Adjektiven auch.
-(word,
- cat:head:adj) *> cat:spr:[]. 
-
 
 
 % Semantik

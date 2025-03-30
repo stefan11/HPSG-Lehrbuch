@@ -165,6 +165,7 @@ det_noun_word *>
   %non_scopal_le
   %relational_arg0_word,  % enthält auch lbl:LTop
   cat:(head:case:Case,
+       spr:[_],
        % Das erste Element der ARG-ST-Liste ist der Determinator.
        arg_st:hd:cat:(head:(det,
                             case:Case,
@@ -291,7 +292,7 @@ trans_verb(Relation) :=
 
 ditrans_verb *>
  (%trans_verb = bi_or_more_val_verb
-  cat:arg_st:[ _, _, @np(dat,Ind3) ],
+  cat:arg_st:[ _, @np(dat,_), @np(acc,Ind3) ],
   cont:rels:hd:arg3:Ind3).
 
 ditrans_verb(Relation) :=
@@ -320,6 +321,7 @@ preposition_word *>
 (%word,
  %non_scopal_le
  cat:(head:prep,
+      spr:[],
       arg_st:[ @np ] )).
 
 comp_preposition *>
@@ -353,7 +355,8 @@ n_modifier_word *>
  
 attr_adjective_word *>
  (%n_modifier_word,
-  cat:head:attr_adj).
+  cat:(head:attr_adj,
+       spr:[])).
 
 % klug
 simple_attr_adj *>
