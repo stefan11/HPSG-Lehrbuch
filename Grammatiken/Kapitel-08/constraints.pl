@@ -1,19 +1,21 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: constraints.pl,v $
-%%  $Revision: 1.8 $
+%%  $Revision: 1.3 $
 %%      $Date: 2006/02/26 18:08:12 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
 %      System: TRALE 2.7.5 (release ) under Sicstus 3.10.1
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 :- multifile if/2.
 :- discontiguous if/2.
 
 :- multifile fun/1.
 :- discontiguous fun/1.
+
 
 
 % *****************************
@@ -38,59 +40,55 @@ undelayed_append([],L,L) if true.
 undelayed_append([H|T1],L,[H|T2]) if append(T1,L,T2).
 
 
-fun del(+,+,-).
-del(X,Y,Z) if 
-   when( (Y=(e_list;ne_list);
-          Z=(e_list;ne_list)) 
-       , undelayed_del(X,Y,Z)
-       ).
+% Beschränkung, die alle RELS-Elemente sammelt.
+fun collect_rels(+,-).
+%collect_rels(Dtrs,Rels)
 
-undelayed_del(El,[El|L],L) if true.
-undelayed_del(El,[H|T1],[H|T2]) if del(El,T1,T2).
-
-
-% Beschränkung, die alle QStore-Elemente sammelt.
-fun collectQStores(+,-).
-%collectQStores(Subcat,Stores)
-
-collectQStores(X,Y) if
+collect_rels(X,Y) if
   when( (X=(e_list;ne_list);
          Y=(e_list;ne_list)) 
-       , undelayed_collectQStores(X,Y)
+       , undelayed_collect_rels(X,Y)
        ).
 
-undelayed_collectQStores([],[]) if true.
-undelayed_collectQStores([loc:cont:qstore:QStore1],QStore1) if true.
-undelayed_collectQStores([loc:cont:qstore:QStore1,loc:cont:qstore:QStore2],append(QStore1,QStore2)) if true.
-undelayed_collectQStores([loc:cont:qstore:QStore1,loc:cont:qstore:QStore2,loc:cont:qstore:QStore3],
-                         append(QStore1,append(QStore2,QStore3))) if true.
+/*
+
+% Leere Liste, also keine Relationen
+undelayed_collect_rels([],[]) if true.
+
+% Rels1 sind die Relationen der ersten Tochter.
+% Dtrs sind die restlichen Töchter.
+% Für die Dtrs werden die Relationen in Rels2 zusammengesammelt.
+% append verknüpft Rels1 und Rels2 zum Ergebnis Rels.
+undelayed_collect_rels([rels:Rels1|Dtrs],Rels) if collect_rels(Dtrs,Rels2),
+                                                  append(Rels1,Rels2,Rels).
+
+*/
+
+
+% Es gibt nur zwei Fälle: eine oder zwei Töchter
+undelayed_collect_rels([rels:Rels],Rels) if true.
+undelayed_collect_rels([rels:Rels1,rels:Rels2],Rels) if append(Rels1,Rels2,Rels).
 
 
 
+% Beschränkung, die alle HCONS-Elemente sammelt.
+fun collect_hcons(+,-).
+%collect_hcons(Dtrs,Hcons)
 
-fun sublist(-,+).
-sublist(X,Y) if 
-  when( (X=(e_list;ne_list),
+collect_hcons(X,Y) if
+  when( (X=(e_list;ne_list);
          Y=(e_list;ne_list)) 
-       , undelayed_sublist(X,Y)
+       , undelayed_collect_hcons(X,Y)
        ).
 
-undelayed_sublist([],_) if true.
-undelayed_sublist([El|Rest1],[El|Rest2]) if
-  sublist(Rest1,Rest2).
-undelayed_sublist(List,[_El|Rest2]) if
-  sublist(List,Rest2).
+/*
+undelayed_collect_hcons([],[]) if true.
+undelayed_collect_hcons([hcons:Hcons1|Dtrs],Hcons) if collect_hcons(Dtrs,Hcons2),
+                                                               append(Hcons1,Hcons2,Hcons).
+*/
 
 
 
-
-
-debug_phon(X) if
-  when( X=(e_list;ne_list) 
-      , undelayed_debug_phon(X)
-      ).
-
-undelayed_debug_phon([]) if prolog((nl,flush_output)).
-undelayed_debug_phon([(a_ P)|Rest]) if
-  prolog(format(user_error,'~w ',[P])),
-  debug_phon(Rest).
+% Es gibt nur zwei Fälle: eine oder zwei Töchter
+undelayed_collect_hcons([hcons:Hcons],Hcons) if true.
+undelayed_collect_hcons([hcons:Hcons1,hcons:Hcons2],Hcons) if append(Hcons1,Hcons2,Hcons).

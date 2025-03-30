@@ -25,6 +25,10 @@
 ; For a given type print the type hierarchy below that type including
 ; all appropriateness conditions in the controll/trale signature format
 
+(defvar already-output)
+(defvar subtyping-hash)
+
+
 (defun print_signature (type)
   (if (is-valid-type type)
       (progn  (format t "type_hierarchy~%")
@@ -160,10 +164,10 @@
 
 (defun get_ncommon_subtypes (tlist1 tlist2)
   (if tlist1
-      (if (or (type-glbp (car tlist1))
+      (if (or (ltype-glbp (car tlist1))
               (member (car tlist1) tlist2 :test #'equal))
 	  (get_ncommon_subtypes (cdr tlist1) tlist2)
-	  (cons (string (type-name (car tlist1))) (get_ncommon_subtypes (cdr tlist1) tlist2)))))
+	  (cons (string (ltype-name (car tlist1))) (get_ncommon_subtypes (cdr tlist1) tlist2)))))
 
 
 ; iterative version for the other way around: get_common_subtypes
@@ -180,8 +184,8 @@
 (defun get_common_subtypes_aux (tlist1 tlist2)
   (let ((returnlist nil))
     (dolist (each tlist1)
-      (when (and (not (type-glbp each))
+      (when (and (not (ltype-glbp each))
                  (member each tlist2 :test #'equal))
-	(push (string (type-name each)) returnlist)))
+	(push (string (ltype-name each)) returnlist)))
     returnlist))
 

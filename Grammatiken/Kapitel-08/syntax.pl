@@ -1,18 +1,19 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: syntax.pl,v $
-%%  $Revision: 1.14 $
-%%      $Date: 2007/09/14 20:28:02 $
+%%  $Revision: 1.3 $
+%%      $Date: 2006/02/26 18:08:12 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
 %      System: TRALE 2.7.5 (release ) under Sicstus 3.10.1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+:- multifile '*>'/2.
+
 :- multifile ':='/2.
 :- discontiguous ':='/2.
-:- multifile '*>'/2.
-:- discontiguous '*>'/2.
 
 %% Das Kopfmerkmalsprinzip
 
@@ -20,57 +21,100 @@ headed_phrase *>
    (loc:cat:head:Head,
     head_dtr:loc:cat:head:Head).
 
+%% Das Valenzprinzip
 
-%% Valenzprinzip
-
-head_argument_phrase *>
-   (loc:cat:subcat:append(Subcat1,Subcat2),                       % = Subcat1 + Subcat2
-    head_dtr:loc:cat:subcat:append(Subcat1,[NonHeadDtr|Subcat2]), % = Subcat1 + [NonHeadDtr] + Subcat2
+head_complement_phrase *>
+   (loc:cat:comps:append(Comps1,Comps2),                       % = Comps1 + Comps2
+    head_dtr:loc:cat:comps:append(Comps1,[NonHeadDtr|Comps2]), % = Comps1 + [NonHeadDtr] + Comps2
     non_head_dtrs:[NonHeadDtr]).
 
-head_non_argument_phrase *>
-   (loc:cat:subcat:Subcat,
-    head_dtr:loc:cat:subcat:Subcat).
 
+head_specifier_phrase *>
+   (loc:cat:spr:Spr,
+    head_dtr:loc:cat:(spr:[NonHeadDtr|Spr],
+                  comps:[]),
+    non_head_dtrs:[NonHeadDtr]).
 
-%% Semantikprinzip
+head_non_complement_phrase *>
+   (loc:cat:comps:Comps,
+    head_dtr:loc:cat:comps:Comps).
 
-head_non_adjunct_phrase *>
-   (loc:cont:Cont,
-    head_dtr:loc:cont:Cont).
-
-head_adjunct_phrase *>
-   (loc:cont:Cont,
-    non_head_dtrs:[loc:cont:Cont]).
-
-
-%% Kopf-Adjunkt-Strukturen
+head_non_specifier_phrase *>
+   (loc:cat:spr:Spr,
+    head_dtr:loc:cat:spr:Spr).
 
 
 head_adjunct_phrase *>
-   (head_dtr:Head,
-    non_head_dtrs:[loc:cat:(head:mod:Head,
+   (head_dtr:HD,
+    non_head_dtrs:[loc:cat:(head:mod:HD,
                             spr:[],
-                            subcat:[])]).
+                            comps:[])]).
+       
+
+% for headed structures the head daughter is appended to the non-head daughters to give a list of all daughters.
+% This daughters list can be used to collect RELS, HCONS and so on.
+% See rules.pl. The dtrs are ordered according to surface order in rules.pl.
+
+%headed_phrase *>
+%   head_dtr:HD,
+%   non_head_dtrs:NHDtrs,
+%   dtrs:[HD|NHDtrs].
 
 
-%% Spezifikatorprinzip
+% Argumentrealisierungsprinzip
+word *> loc:cat:(spr:Spr,
+                 comps:Comps,
+                 arg_st:append(Spr,Comps)).
+
+
+% Semantik
+
+phrase *>
+  (rels:collect_rels(Dtrs),
+   dtrs:Dtrs).
+
+phrase *>
+  (hcons:collect_hcons(Dtrs),
+   dtrs:Dtrs).
+
+
+
+/* GTop wird nicht wirklich gebraucht. 
+headed_phrase *>
+   (cont:(ind:Ind,
+          gtop:GTop),
+    head_dtr:cont:(ind:Ind,
+                   gtop:GTop),
+    non_head_dtrs:[cont:gtop:GTop]).
+*/
+
+headed_phrase *>
+   (loc:cont:ind:Ind,
+    head_dtr:loc:cont:ind:Ind).
+
+head_complement_phrase *>
+   (loc:cont:ltop:LTop,
+    head_dtr:loc:cont:ltop:LTop).
+
+head_specifier_phrase *>
+   (loc:cont:ltop:LTop,
+    head_dtr:loc:cont:ltop:LTop).
+
+head_adjunct_phrase *>
+   (loc:cont:ltop:LTop,
+    non_head_dtrs:[loc:cont:ltop:LTop]).
+
+% Wegen „ein scheinbar schwieriges Beispiel“ kann sich „schwieriges“ nicht im Lexikon den LTop-Wert
+% von „Beispiel“ nehmen, denn der LTop-Wert von „Beispiel“ muss mit dem von „scheinbar schwieriges“ gleichgesetzt werden.
+(head_adjunct_phrase,
+ non_head_dtrs:[loc:cat:head:scopal:minus]) *>
+ (head_dtr:loc:cont:ltop:LTop,
+  non_head_dtrs:[loc:cont:ltop:LTop]).
 
 (headed_phrase,
  non_head_dtrs:[loc:cat:head:spec:sign]) *>
-   (head_dtr:Head,
-    non_head_dtrs:[loc:cat:head:spec:Head]).
-
-
-head_specifier_phrase *> 
-   (loc:cat:spr:[],
-    head_dtr:loc:cat:(spr:[Spr],
-                      subcat:[]),
-    non_head_dtrs:[Spr]).
-
-head_non_specifier_phrase *> 
-   (loc:cat:spr:Spr,
-    head_dtr:loc:cat:spr:Spr).
+ (head_dtr:Spec,
+  non_head_dtrs:[loc:cat:head:spec:Spec]).
 
 
 % die Verbbewegungsanalyse
@@ -80,9 +124,14 @@ head_non_specifier_phrase *>
 % Siehe auch coordination.pl.
 verb_initial_rule *>
 ( %complementizer_like_sign
-  loc:cat:(head:(verb,
+  loc:(cat:(head:(verb,
                  vform:fin),
-           subcat:[loc:cat:head:dsl:Loc]),
+            spr:[],
+            comps:[loc:(cat:head:dsl:Loc,
+                        cont:(ind:Ind,
+                              ltop:LTop))]),
+       cont:(ind:Ind,
+             ltop:LTop)),
   non_head_dtrs:[(loc:(Loc,
                        cat:head:(verb,
                                  vform:fin,
@@ -101,20 +150,11 @@ verb_initial_rule *>
 
 headed_phrase *> phrase:plus.
 
-% Da coord_phrase nicht Untertyp von headed_phrase ist,
-% ist der PHRASE-Wert unterspezifiziert.
-
-% [Ihn kennt und schläft] er.
-% Ist dennoch ausgeschlossen, da die obige Implikation
-% dafür sorgt, daß der DSL-Wert von `ihn kennt' none ist.
-% Damit hat die Konjunktion auch den DSL-Wert none und kann
-% dann nicht mehr Tochter der V1-Regel sein.
-
 
 root :=
  (loc:cat:(head:dsl:none,
            spr:[],
-           subcat:[])).
+           comps:[])).
 
 initial_fin_verb :=
  (@root,

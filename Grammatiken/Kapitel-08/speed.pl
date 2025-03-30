@@ -38,7 +38,7 @@ argument_sign :=
                  spec:none      % keine Determinierer
                 ),
            spr:[],
-           subcat:[])).
+           comps:[])).
 
 % Das könnte man auch wie folgt als Implikation definieren:
 %
@@ -67,7 +67,7 @@ fun not_type(+,-).
 
 % Folgendes schließt finite Verben als Argumente (der Verbspur) aus, da
 % sie in diesem Fragment nicht vorkommen.
-(head_argument_phrase,
+(head_complement_phrase,
  loc:cat:head:initial:minus) *> non_head_dtrs:[loc:cat:head: @not(verb)].
 
 
@@ -91,99 +91,9 @@ head_adjunct_phrase *>
  head_dtr:loc:cat:head:verb) *> (non_head_dtrs:[loc:cat:head:pre_modifier:plus]).
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%
-%%%%%%%% Generierung
-
-
-% Beschränkung für Elemente in Subcat-Listen
-% Die Beschränkung ist eigentlich
-% nicht nötig, da das vom Quantor gemacht wird, aber beim Generieren ist
-% der Quantor noch nicht verfügbar und so können beliebig viele Adjunkte eingeführt
-% werden, weshalb das Generieren nicht terminieren würde.
-
-%(subcat:hd:(cat:head:noun,
-%                   cont:qstore:ne_list)) *> (subcat:hd:(cont:(nucleus:Cont,
-%                                                                     qstore:hd:restind:Cont))).
-
-%(cat:(head:noun,
-%      subcat:[]),
-% cont:qstore:ne_list) *> (cont:(nucleus:Cont,
-%                                 qstore:hd:restind:Cont)).
-
-
-% Schlägt wegen `seine Frau' fehl.
-% non_head_dtrs:hd:(cat:head:noun,
-%                   cont:qstore:ne_list) *> non_head_dtrs:hd:cont:(nucleus:Cont,
-%                                                                  qstore:hd:restind:Cont).
-
-
-% geht nicht wegen "der mutmaßliche Mörder"
-% (cat:head:noun,
-%  cont:qstore:ne_list)          *> cont:(nucleus:restr:sublist(Restr),
-%                                         qstore:hd:restind:restr:Restr).
-
-
-
-% das interessante buch seine kluge frau kennt = 1:41 Min
-non_head_dtrs:hd:loc:(cat:head:noun,
-                      cont:qstore:ne_list) *> non_head_dtrs:hd:loc:cont:( % der normale Fall
-                                                                          nucleus:Cont,
-                                                                          qstore:hd:restind:Cont
-                                                                        ; % Possessivpronomina fügen eine `besitzen'-Relation
-                                                                          % in die Menge der Restriktionen ein.
-                                                                          nucleus:restr:Restr,
-                                                                          qstore:hd:restind:restr:tl:Restr
-                                                                        ).
-
-
-% ist nicht restriktiv genug, da alle Nomina im Lexikon erst mal zur Generierung
-% der NP gewählt werden.
-% das interessante buch seine kluge frau kennt = 1:00 Min
-
-% Eventuell wird die obige Restriktion bei größeren Lexika besser.
-
-% (head_adjunct_phrase,
-%    loc:cat:head:noun)          *> loc:cont:(nucleus:restr:sublist(Restr),
-%                                             qstore:hd:restind:restr:Restr).
-
-
-
-
-
-% schließt beim Generieren von Pronomina Hypothesen für Nomina aus.
-% er oft lacht 1.910 -> 0.280 sec
-cat:head:det *> cont:qstore:ne_list.
-
-/*
-
-non_quantifying_pred :=
-  (loc:(cat:subcat:Subcat,
-        cont:qstore:collectQStores(Subcat))).
-
-verb_trace_generator_hack :=
-  (@non_quantifying_pred,  % nur für das Terminieren der Generierung nötig
-                           % setzt QStore zu SUBCAT in Beziehung.
-
-   % Diese Spezifikation macht die Spur mit dem semantischen Beitrag
-   % in Verberststellung inkompatibel. Damit kann sie bei der semantic-head-driven
-   % Generierung nicht verwendet werden und nur Verberstverben werden generiert.
-   % Diese sind spezifisch genug, so daß die Generierung terminiert.
-   loc:cont:relation).
-
-
-*/
+% Entweder in rules.pl spr_h nur für nomina und Determinatoren spezifizieren, oder hier sagen, dass
+% Verbspuren keinen Specifier haben. Das kommt sonst erst, wenn das Verb in Initialstellung mit dem
+% Rest kombiniert wird. Das bedeutet, dass beliebig viele Elemente mit der Verbspur als Spezifikator
+% kombiniert werden könnten.
+(phon:[],
+ loc:cat:head:verb) *> loc:cat:spr:[].

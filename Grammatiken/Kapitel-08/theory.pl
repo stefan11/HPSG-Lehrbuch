@@ -1,7 +1,8 @@
 % -*-  coding:utf-8; mode:trale-prolog   -*-
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: theory.pl,v $
-%%  $Revision: 1.11 $
+%%  $Revision: 1.12 $
 %%      $Date: 2007/03/05 11:26:29 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
@@ -9,49 +10,42 @@
 %      System: TRALE 2.7.5 (release ) under Sicstus 3.10.1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-:- multifile if/2.
-
 :- (environ('TRALE_UNICODE', true);
     format(user_error,"~n~n**ERROR: Please start trale with the option `-u' to enable unicode support, which is needed for this grammar.~n~n~n",[]),
     abort).
 
-% generate code for generation
-%:- ale_flag(pscompiling,_,parse_and_gen).
-
-
 % für [incr TSDB()]
-grammar_version('Lehrbuchgrammatik Kapitel 9').
+grammar_version('Lehrbuchgrammatik Kapitel 4').
+
+
+% Load phonology and tree output
+
+:- [phonology].
 
 :- [setup].
 
 root_symbol(@root).
-decl_symbol(@root).
+decl_symbol(@decl).
 que_symbol(@interrog).
 
 % load tokenization rules for parsing ordinary strings and atoms
 :- ['../Gemeinsames/tokenization'].
 
-
 % specify signature file
 signature(signature).
 
-% load lexicon
-:- [lexicon].
-
-
-% load lexical macros
+% macros for the lexicon
 :- [le_macros].
 
-
-% load lexical rules
-% Verbbewegungsregel wird ab 2013 durch eine Grammatikregel gemacht
-%:- [lexrules].
+% load lexicon
+:- [lexicon].
 
 % load phrase structure rules
 :- [rules].
 
 % load phrase structure macros
 :- [syntax].
+
 
 % load lexical items and grammar rules for coordination
 :- [coordination].
@@ -72,22 +66,15 @@ signature(signature).
 :- ['../Gemeinsames/common.pl'].
 
 
-% für Generierung
-semantics sem1.
-sem1(loc:cont:Cont,Cont) if true.
+examples(['  Der Affe schläft.',
+          '  Der angeblich kleine Affe schläft.',
+          '  Der mutmaßliche Affe schläft.',
+          '  der Affe wahrscheinlich schläft.',
+          '  der Affe das Kind kennt',
+          '  der Affe an das Kind denkt',
+          '  Jede Tochter eines Mitarbeiters schläft.',
+          '* Affe schläft.',
+          '* Der Affe kennt.']).
 
-gen_pathes([[loc,cat],[loc,cont]]).
-
-%:- chain_length(4).
-
-examples(['daß der Mann der Frau das Buch gibt',
-          'daß der Mann das Buch der Frau gibt',
-          'Schläft er?',
-          'Lacht der Mann oft?',
-          '* Mann der',
-          '* der Speisekammer in',
-          '* der Mann kluge',
-          '* die in der Speisekammer Wurst',
-          '* daß er das Buch gibt ihm']).
 
 
