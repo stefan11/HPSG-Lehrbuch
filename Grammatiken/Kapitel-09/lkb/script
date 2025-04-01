@@ -1,6 +1,6 @@
 ;; Start LKB in Emacs with ESC-x lkb
 ;; then type 
-;; (lkb::read-script-file-aux "/home/stefan/Prolog/Trale/HPSG-Lehrbuch/Kapitel-15/lkb/script")
+;; (lkb::read-script-file-aux "/home/stefan/Prolog/Trale/German/HPSG-Lehrbuch/Kapitel-10/lkb/script")
 ;; or
 ;; (lkb::reload-script-file)
 

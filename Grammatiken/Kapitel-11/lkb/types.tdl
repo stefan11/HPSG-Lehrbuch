@@ -1,31 +1,35 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;   $RCSfile: types.tdl,v $
-;;  $Revision: 1.2 $
+;;  $Revision: 1.1 $
 ;;      $Date: 2007/03/05 11:26:28 $
 ;;     Author: Stefan Mueller, Universität Bremen
 ;;    Purpose: 
 ;;   Language: TDL
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-none_or_sign :< bot.
-
-none := none_or_sign & none_or_local.
-
-sign := none_or_sign & [
- phon  list,
- loc   local,
- nonloc nonloc,
- v2     bool,
- trace  minus_or_extraction_or_vm,
- lex    bool,
- phrase bool,
- max_   bool ].
+sign := bot &
+ [ phon list,
+   synsem synsem ].
 
 list :< bot.
 e_list :< list.
 ne_list := list & [
   hd bot,
   tl list ].
+
+
+none_or_synsem :< bot.
+
+none   := none_or_synsem & none_or_local.
+synsem := none_or_synsem & [
+  loc    local,
+  nonloc nonloc,
+  v2     bool,
+  trace  minus_or_extraction_or_vm,
+  lex    bool,
+  phrase bool,
+  max_   bool  ].
+
 
 none_or_local :< bot.
 local := none_or_local & [
@@ -104,9 +108,8 @@ simple_word :< word.
 
 overt_word     :< simple_word.
 
-non_rel_sign :< sign.
-
-non_rel_word := non_rel_sign & simple_word.
+non_rel_sign   :< sign.
+non_rel_word   := non_rel_sign & simple_word.
 
 non_overt_word :< non_rel_word.
 
@@ -117,10 +120,11 @@ spr_saturated_sign :< sign.          ; V1-LR (complex) und Komplementierer (simp
 
 spr_saturated_word := spr_saturated_sign & word.
 
+
 saturated_word   := spr_saturated_word & sc_saturated_word.
 
 
-complementizer_like_sign := spr_saturated_sign & non_rel_sign.
+complementizer_like_sign := spr_saturated_word & non_rel_sign.
 
 complementizer_word := complementizer_like_sign & overt_word.
 
@@ -223,8 +227,8 @@ intersective_adverb := adverb_word & isect_v_modifier_word.
 
 
 head := bot &
- [ mod     none_or_sign,
-   spec    none_or_sign,
+ [ mod     none_or_synsem,
+   spec    none_or_synsem,
    initial bool,
    dsl     none_or_local ].
 
@@ -239,7 +243,7 @@ non_dsl_head := head & [
   dsl none ].
 
 modifier_head := non_spec_head & non_dsl_head & 
- [ mod          sign,
+ [ mod          synsem,
    pre_modifier bool ].
 
 pre_modifier_head := modifier_head & [
@@ -283,7 +287,6 @@ comp := non_dsl_head & non_modifier_head & non_spec_head & [
 
 coord := non_dsl_head & non_modifier_head & [
   initial plus ].
-
 
 relativizer :< post_modifier_head.
 
@@ -376,7 +379,6 @@ geben :<  arg123_rel.
 grauen :< arg2_rel.
 
 besitzen :< arg23_rel.
-
 
 ; Für Satztypen
 s_type :< arg3_rel.

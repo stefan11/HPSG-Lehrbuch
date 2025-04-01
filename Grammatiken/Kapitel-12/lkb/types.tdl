@@ -1,6 +1,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;   $RCSfile: types.tdl,v $
-;;  $Revision: 1.1 $
+;;  $Revision: 1.2 $
 ;;      $Date: 2007/03/05 11:26:28 $
 ;;     Author: Stefan Mueller, Universität Bremen
 ;;    Purpose: 
@@ -98,7 +98,7 @@ complex_word :=
   intro_complex_sign &
   word.
 
-;verb_initial_lr := complex_word & complementizer_like_word.
+; verb_initial_lr := complex_word & complementizer_like_word.
 
 verb_initial_rule := non_headed_phrase & complementizer_like_sign.
 
@@ -106,35 +106,37 @@ verb_initial_rule := non_headed_phrase & complementizer_like_sign.
 ; Wörter, die im Lexikon aufgelistet sind.
 simple_word :< word.
 
-overt_word     :< simple_word.
+non_slashed_word :< simple_word.
+overt_word       :< non_slashed_word.
 
-non_rel_sign   :< sign.
-non_rel_word   := non_rel_sign & simple_word.
+non_rel_sign :< sign.
+non_rel_word := non_rel_sign & simple_word.
 
 non_overt_word :< non_rel_word.
 
 trace      :< non_overt_word.
+; leere Determinatoren und Nomina
+empty      := non_overt_word & non_slashed_word.
 
 sc_saturated_word  :< word.
 spr_saturated_sign :< sign.          ; V1-LR (complex) und Komplementierer (simple)
 
 spr_saturated_word := spr_saturated_sign & word.
 
-
 saturated_word   := spr_saturated_word & sc_saturated_word.
 
 
-complementizer_like_sign := spr_saturated_word & non_rel_sign.
+complementizer_like_sign := spr_saturated_sign & non_rel_sign.
 
 complementizer_word := complementizer_like_sign & overt_word.
 
 determiner_word :< saturated_word.
 
-determiner := determiner_word & non_rel_word.
+determiner := determiner_word & non_rel_word & non_slashed_word.
 possessive :< determiner_word.
 
 overt_determiner := determiner & overt_word.
-empty_determiner := determiner & non_overt_word.
+empty_determiner := determiner & empty.
 
 simple_possessive      := possessive & non_rel_word.
 possessive_rel_pronoun := possessive & rel_pronoun.
@@ -162,6 +164,7 @@ subjlos_verb :< verb_word.
 intrans_verb :< verb_word.
 
 strict_intrans_verb :< intrans_verb.
+np_np_verb          :< intrans_verb.
 np_pp_verb          :< intrans_verb.
 
 trans_verb :< verb_word.
@@ -266,7 +269,8 @@ intro_case_head := non_dsl_head &
 
 
 
-det  := intro_case_head & intro_gen_num & non_modifier_head.
+det  := intro_case_head & intro_gen_num & non_modifier_head & [
+  dtype dtype ].
        
 ; Es gibt auch modifizierende Nomina, die werden hier aber ignoriert.
 noun := intro_case_head & non_modifier_head & non_spec_head & [
@@ -315,6 +319,7 @@ def       :< quantifier.
 all       :< quantifier.
 ein       :< quantifier.
 
+abstr_rel :< quantifier.
 
 nominal_obj := nucleus & [
   ind   index,
@@ -343,16 +348,20 @@ arg23_rel  := arg2_rel  & arg3_rel.
 arg123_rel := arg12_rel & arg13_rel.
 
 
-buch :< arg1_rel.
-frau :< arg1_rel.
-mann :< arg1_rel.
-mörder :< arg1_rel.
+beamter :< arg1_rel.
+buch    :< arg1_rel.
+frau    :< arg1_rel.
+kind    :< arg1_rel.
+mädchen :< arg1_rel.
+mann    :< arg1_rel.
+mörder  :< arg1_rel.
 speisekammer :< arg1_rel.
-wurst :< arg1_rel.
+wurst   :< arg1_rel.
 
-groß :< arg1_rel.
+groß        :< arg1_rel.
 interessant :< arg1_rel.
-klug :< arg1_rel.
+klug        :< arg1_rel.
+schön       :< arg1_rel.
 
 bellen :< arg1_rel.
 lachen :< arg1_rel.
@@ -363,6 +372,7 @@ oft   :< arg1_rel.
 
 morgen :< arg1_rel.
 
+helfen    :< arg12_rel.
 jagen     :< arg12_rel.
 kennen    :< arg12_rel.
 lieben    :< arg12_rel.
@@ -460,6 +470,12 @@ third  := first_or_third & second_or_third.
 num :< bot.
 sg  :< num.
 pl  :< num.
+
+
+dtype  :< bot.
+weak   :< dtype.
+strong :< dtype.
+
 
 
 intro_gen_num := bot & [

@@ -84,6 +84,7 @@ non_headed_phrase :< phrase.
 
 coord_phrase :< non_headed_phrase.
 
+rc := non_headed_phrase & isect_n_modifier.
 
 word :< sign.
 
@@ -93,6 +94,7 @@ complex_word :=
   intro_complex_sign &
   word.
 
+;verb_initial_lr := complex_word & complementizer_like_word.
 
 verb_initial_rule := non_headed_phrase & complementizer_like_sign.
 
@@ -100,36 +102,57 @@ verb_initial_rule := non_headed_phrase & complementizer_like_sign.
 ; Wörter, die im Lexikon aufgelistet sind.
 simple_word :< word.
 
-overt_word :< simple_word.
-trace      :< simple_word.
+overt_word     :< simple_word.
+
+non_rel_sign :< sign.
+
+non_rel_word := non_rel_sign & simple_word.
+
+non_overt_word :< non_rel_word.
+
+trace      :< non_overt_word.
 
 sc_saturated_word  :< word.
 spr_saturated_sign :< sign.          ; V1-LR (complex) und Komplementierer (simple)
 
-saturated_word   := spr_saturated_sign & sc_saturated_word.
+spr_saturated_word := spr_saturated_sign & word.
+
+saturated_word   := spr_saturated_word & sc_saturated_word.
 
 
-complementizer_like_sign :< spr_saturated_sign.
+complementizer_like_sign := spr_saturated_sign & non_rel_sign.
 
 complementizer_word := complementizer_like_sign & overt_word.
 
-determiner_word := saturated_word & overt_word.
+determiner_word :< saturated_word.
 
-determiner :< determiner_word.
+determiner := determiner_word & non_rel_word.
 possessive :< determiner_word.
+
+overt_determiner := determiner & overt_word.
+empty_determiner := determiner & non_overt_word.
+
+simple_possessive      := possessive & non_rel_word.
+possessive_rel_pronoun := possessive & rel_pronoun.
+
 
 ; Leere Nomina werden hier vorerst ignoriert.
 noun_word :< overt_word.
 
+pronoun := saturated_word & overt_word.
 
-pronoun := saturated_word   & noun_word.
+nominal_pronoun := noun_word & pronoun.
 
-pers_pronoun  :< pronoun.
-positional_es := pronoun & v_modifier_word.
+pers_pronoun := nominal_pronoun  & non_rel_word.
 
-simple_noun  := noun_word & sc_saturated_word.
+rel_pronoun :< overt_word.
 
-verb_word    := spr_saturated_sign & overt_word.
+nominal_rel_pronoun  := nominal_pronoun & rel_pronoun.
+
+simple_noun  := noun_word & sc_saturated_word & non_rel_word.
+
+
+verb_word    := spr_saturated_word & overt_word & non_rel_word.
 
 subjlos_verb :< verb_word.
 intrans_verb :< verb_word.
@@ -142,16 +165,19 @@ trans_verb :< verb_word.
 strict_trans_verb :< trans_verb.
 ditrans_verb      :< trans_verb.
 
-preposition_word := spr_saturated_sign & overt_word.
+preposition_word := spr_saturated_word & overt_word & non_rel_word.
 comp_preposition :< preposition_word.
 mod_preposition  :< preposition_word.
 
 noun_mod_preposition := mod_preposition & isect_n_modifier_word.
+verb_mod_preposition := mod_preposition & isect_v_modifier_word.
+
 
 location_noun_mod_prep :< noun_mod_preposition.
+location_verb_mod_prep :< verb_mod_preposition.
 
 
-n_modifier_word := n_modifier & overt_word.
+n_modifier_word := n_modifier & overt_word & non_rel_word.
 
 
 isect_n_modifier_word := isect_n_modifier & n_modifier_word.
@@ -159,7 +185,7 @@ isect_n_modifier_word := isect_n_modifier & n_modifier_word.
 intersective_adj :< isect_n_modifier_word.
 
 
-attr_adjective_word := n_modifier_word & spr_saturated_sign.
+attr_adjective_word := n_modifier_word & spr_saturated_word.
 
 
 ; klug
@@ -178,13 +204,22 @@ n_modifier :< sign.
 
 isect_n_modifier :< n_modifier.
 
-v_modifier_word := overt_word & spr_saturated_sign.
+
+v_modifier_word := overt_word & spr_saturated_word & non_rel_word.
+
+isect_v_modifier_word  :< v_modifier_word.
+scopal_v_modifier_word :< v_modifier_word.
+
 
 adverb_word := saturated_word & v_modifier_word.
 
-scopal_adverb :< adverb_word.
+scopal_adverb       := adverb_word & scopal_v_modifier_word.
 
-intersective_adverb :< adverb_word.
+intersective_adverb := adverb_word & isect_v_modifier_word.
+
+
+
+
 
 
 head := bot &
@@ -210,6 +245,9 @@ modifier_head := non_spec_head & non_dsl_head &
 pre_modifier_head := modifier_head & [
   pre_modifier plus ].
 
+post_modifier_head := modifier_head & [
+  pre_modifier minus ].
+
 ; prep steht für Prä- und Postpositionen, der initial-Wert wird in le_macros.pl festgelegt
 prep := non_spec_head & non_dsl_head.
 
@@ -226,11 +264,8 @@ intro_case_head := non_dsl_head &
 
 det  := intro_case_head & intro_gen_num & non_modifier_head.
        
-; Nomina können modifizieren (Er singt den ganzen Tag). Der MOD-Wert
-; wird im Lexikon geregelt.
-; Das positionale `es' ist in le_macros.pl auskommentiert, so daß
-; hier der MOD-Wert über den Typ geregelt werden kann.
-noun := intro_case_head & non_spec_head & non_modifier_head & [
+; Es gibt auch modifizierende Nomina, die werden hier aber ignoriert.
+noun := intro_case_head & non_modifier_head & non_spec_head & [
   initial plus ].
 
 
@@ -249,6 +284,8 @@ comp := non_dsl_head & non_modifier_head & non_spec_head & [
 coord := non_dsl_head & non_modifier_head & [
   initial plus ].
 
+
+relativizer :< post_modifier_head.
 
 string :< bot.
 
@@ -339,6 +376,7 @@ geben :<  arg123_rel.
 grauen :< arg2_rel.
 
 besitzen :< arg23_rel.
+
 
 ; Für Satztypen
 s_type :< arg3_rel.

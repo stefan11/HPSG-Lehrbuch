@@ -2,7 +2,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: lexicon.pl,v $
 %%  $Revision: 1.11 $
-%%      $Date: 2006/08/14 18:36:36 $
+%%      $Date: 2007/03/05 11:26:28 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
@@ -12,7 +12,7 @@
 :- multifile '--->'/2.
 
 
-das ---> @det(nom_or_acc,sg,mas_or_neu,strong,def).
+das ---> @det(nom_or_acc,sg,neu,strong,def).
 
 
 der ---> @det(nom,sg,mas,strong,def).
@@ -58,9 +58,9 @@ bücher  ---> @noun(nom_or_gen_or_acc,neu,pl,buch).
 büchern ---> @noun(dat,              neu,pl,buch).
 
 
-kind   ---> @noun(nom_or_dat_or_acc,neu,sg,kind).
-kindes ---> @noun(gen,              neu,sg,kind).
-kinder ---> @noun(nom_or_gen_or_acc,neu,pl,kind).
+kind    ---> @noun(nom_or_dat_or_acc,neu,sg,kind).
+kindes  ---> @noun(gen,              neu,sg,kind).
+kinder  ---> @noun(nom_or_gen_or_acc,neu,pl,kind).
 kindern ---> @noun(dat,             neu,pl,kind).
 
 
@@ -74,6 +74,13 @@ mädchen  ---> @noun(case,             genus,fem_or_neu,pl,mädchen).
 
 % Nomina mask
 
+
+lügner  ---> @noun(nom_or_dat_or_acc,mas,sg,lügner).
+lügners ---> @noun(gen,              mas,sg,lügner).
+lügner  ---> @noun(nom_or_gen_or_acc,mas,pl,lügner).
+lügnern ---> @noun(dat,              neu,pl,lügner).
+
+
 mann    ---> @noun(nom_or_dat_or_acc,mas,sg,mann).
 mannes  ---> @noun(gen,              mas,sg,mann).
 männer  ---> @noun(nom_or_gen_or_acc,mas,pl,mann).
@@ -84,6 +91,7 @@ mörder  ---> @noun(nom_or_dat_or_acc,mas,sg,mörder).
 mörders ---> @noun(gen,              mas,sg,mörder).
 mörder  ---> @noun(nom_or_gen_or_acc,mas,pl,mörder).
 mördern ---> @noun(dat,              neu,pl,mörder).
+
 
 
 
@@ -136,6 +144,8 @@ beamten ---> @adj_noun(dat,       fem_or_mas,pl,weak,  beamter).
 
 beamter ---> @adj_noun(nom,       mas,       sg,weak,  beamter).
 beamter ---> @adj_noun(gen,       fem_or_mas,pl,weak,  beamter).
+
+
 
 
 
@@ -323,8 +333,8 @@ denke  ---> @np_pp_verb(first, sg, an_pform,acc,denken_an).
 denkst ---> @np_pp_verb(second,sg, an_pform,acc,denken_an).
 denkt  ---> @np_pp_verb(third, sg, an_pform,acc,denken_an).
 
-denken ---> @np_pp_verb(first_or_third, pl, an_pform,acc,denken_an).
-denkt  ---> @np_pp_verb(second,         pl, an_pform,acc,denken_an).
+denken   ---> @np_pp_verb(first_or_third, pl, an_pform,acc,denken_an).
+denkt    ---> @np_pp_verb(second,         pl, an_pform,acc,denken_an).
 
 
 
@@ -417,7 +427,8 @@ treuer ---> @attr_adj_np(gen,       genus,     pl,weak,  treu,dat).
 treues ---> @attr_adj_np(nom_or_acc,neu,       sg,weak,  treu,dat).
 
 
-mutmaßliche ---> @scopal_attr_adj(nom_or_acc,fem,sg,dtype,mutmaßlich).
+
+mutmaßliche  ---> @scopal_attr_adj(nom_or_acc,fem,sg,dtype,mutmaßlich).
 mutmaßliche ---> @scopal_attr_adj(nom,       mas,sg,strong,mutmaßlich).
 mutmaßliche ---> @scopal_attr_adj(nom_or_acc,neu,sg,strong,mutmaßlich).
 mutmaßliche ---> @scopal_attr_adj(nom_or_acc,    pl,weak,  mutmaßlich).
@@ -455,22 +466,19 @@ daß ---> @complementizer(daß_cform).
 
 
 
+
+
 empty
-   (trace,
-    synsem:(loc:(Loc,
-                 cat:head:(verb,
-                           initial:minus,
-                           dsl:Loc)),
-            nonloc:slash:[],
-            trace:vm)).
+   v_trace.
 
 empty 
-   (trace,
-    synsem:(loc:Loc,
-            nonloc:slash:[Loc],
-            trace:extraction)).
+   e_trace.
 
 
 empty 
     (empty_determiner,
      @det(pl,weak,abstr_rel)).
+
+
+
+

@@ -17,6 +17,8 @@
 :- multifile fun/1.
 :- discontiguous fun/1.
 
+:- multifile macro/2.
+
 
 % *****************************
 %   list manipulation utilities
@@ -62,13 +64,11 @@ collectQStores(X,Y) if
        , undelayed_collectQStores(X,Y)
        ).
 
+
 undelayed_collectQStores([],[]) if true.
-undelayed_collectQStores([loc:cont:qstore:QStore1],QStore1) if true.
-undelayed_collectQStores([loc:cont:qstore:QStore1,loc:cont:qstore:QStore2],append(QStore1,QStore2)) if true.
-undelayed_collectQStores([loc:cont:qstore:QStore1,loc:cont:qstore:QStore2,loc:cont:qstore:QStore3],
-                         append(QStore1,append(QStore2,QStore3))) if true.
-
-
+undelayed_collectQStores([loc:cont:qstore:QStore|T1],Result) if
+   collectQStores(T1,T2),
+   append(QStore,T2,Result).
 
 
 fun list_with_zero_or_one_element(-).
@@ -81,3 +81,13 @@ undelayed_list_with_zero_or_one_element([]) if true.
 undelayed_list_with_zero_or_one_element([_]) if true.
 
 
+
+% Hey, Negation!
+
+%% Type negation - delay until type T and then die.
+not(Type) macro not_type(a_ Type).
+fun not_type(+,-).
+( not_type((a_ Type),FS) if
+      when(FS=Type,
+           prolog(fail)) ) :-
+        type(Type).

@@ -98,7 +98,7 @@ complex_word :=
   intro_complex_sign &
   word.
 
-; verb_initial_lr := complex_word & complementizer_like_word.
+;verb_initial_lr := complex_word & complementizer_like_word.
 
 verb_initial_rule := non_headed_phrase & complementizer_like_sign.
 
@@ -118,6 +118,9 @@ trace      :< non_overt_word.
 ; leere Determinatoren und Nomina
 empty      := non_overt_word & non_slashed_word.
 
+e_trace :< trace.
+v_trace := trace & non_slashed_word.
+
 sc_saturated_word  :< word.
 spr_saturated_sign :< sign.          ; V1-LR (complex) und Komplementierer (simple)
 
@@ -132,7 +135,7 @@ complementizer_word := complementizer_like_sign & overt_word.
 
 determiner_word :< saturated_word.
 
-determiner := determiner_word & non_rel_word & non_slashed_word.
+determiner := determiner_word & non_rel_word.
 possessive :< determiner_word.
 
 overt_determiner := determiner & overt_word.
@@ -265,8 +268,12 @@ comp_prep := prep & intro_case_head & non_modifier_head &
 mod_prep := prep & modifier_head.
 
 intro_case_head := non_dsl_head &
- [ case case ]. 
+ [ case cas ]. 
 
+
+cas := bot & [
+  case_type case_type,
+  morph_case case ].
 
 
 det  := intro_case_head & intro_gen_num & non_modifier_head & [
@@ -289,8 +296,10 @@ adv  := pre_modifier_head & [
 comp := non_dsl_head & non_modifier_head & non_spec_head & [
   cform cform ].
 
+
 coord := non_dsl_head & non_modifier_head & [
   initial plus ].
+
 
 relativizer :< post_modifier_head.
 
@@ -352,6 +361,7 @@ beamter :< arg1_rel.
 buch    :< arg1_rel.
 frau    :< arg1_rel.
 kind    :< arg1_rel.
+lügner  :< arg1_rel.
 mädchen :< arg1_rel.
 mann    :< arg1_rel.
 mörder  :< arg1_rel.
@@ -418,6 +428,10 @@ nonloc := bot & [
   rel   list,
   slash list ].
 
+
+case_type :< bot.
+str :< case_type.
+lex :< case_type.
 
 
 case :< bot.

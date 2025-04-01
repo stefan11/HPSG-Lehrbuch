@@ -1,8 +1,8 @@
 % -*-  coding:utf-8; mode:trale-prolog   -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: lexicon.pl,v $
-%%  $Revision: 1.11 $
-%%      $Date: 2007/03/05 11:26:28 $
+%%  $Revision: 1.15 $
+%%      $Date: 2007/03/05 11:26:29 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
@@ -61,7 +61,16 @@ büchern ---> @noun(dat,              neu,pl,buch).
 kind    ---> @noun(nom_or_dat_or_acc,neu,sg,kind).
 kindes  ---> @noun(gen,              neu,sg,kind).
 kinder  ---> @noun(nom_or_gen_or_acc,neu,pl,kind).
-kindern ---> @noun(dat,             neu,pl,kind).
+kindern ---> @noun(dat,              neu,pl,kind).
+
+lied    ---> @noun(nom_or_dat_or_acc,neu,sg,lied).
+liedes  ---> @noun(gen,              neu,sg,lied).
+lieder  ---> @noun(nom_or_gen_or_acc,neu,pl,lied).
+liedern ---> @noun(dat,              neu,pl,lied).
+
+märchen   ---> @noun(nom_or_dat_or_acc,neu,sg,märchen).
+märchenes ---> @noun(gen,              neu,sg,märchen).
+märchen   ---> @noun(case,             neu,pl,märchen).
 
 
 % Achtung! Mädchen hat das Genus Neutrum, für Pronomenbindung
@@ -74,6 +83,11 @@ mädchen  ---> @noun(case,             genus,fem_or_neu,pl,mädchen).
 
 % Nomina mask
 
+
+aufsatz   ---> @noun(nom_or_dat_or_acc,mas,sg,aufsatz).
+aufsatzes ---> @noun(gen,              mas,sg,aufsatz).
+aufsatze  ---> @noun(nom_or_gen_or_acc,mas,pl,aufsatz).
+aufsätzen ---> @noun(dat,              neu,pl,aufsatz).
 
 lügner  ---> @noun(nom_or_dat_or_acc,mas,sg,lügner).
 lügners ---> @noun(gen,              mas,sg,lügner).
@@ -100,8 +114,14 @@ mördern ---> @noun(dat,              neu,pl,mörder).
 frau   ---> @noun(case,fem,sg,frau).
 frauen ---> @noun(case,fem,pl,frau).
 
+geschichte  ---> @noun(case,fem,sg,geschichte).
+geschichten ---> @noun(case,fem,pl,geschichte).
+
 speisekammer  ---> @noun(case,fem,sg,speisekammer).
 speisekammern ---> @noun(case,fem,pl,speisekammer).
+
+tochter ---> @noun(case,fem,sg,tochter).
+töchter ---> @noun(case,fem,pl,tochter).
 
 wurst   ---> @noun(case,fem,sg,wurst).
 würste  ---> @noun(nom_or_gen_or_acc,fem,pl,wurst).
@@ -147,8 +167,6 @@ beamter ---> @adj_noun(gen,       fem_or_mas,pl,weak,  beamter).
 
 
 
-
-
 % Personalpronomina
 
 ich    ---> @pers_pronoun(nom,first,sg).
@@ -163,10 +181,13 @@ dir    ---> @pers_pronoun(dat,second,sg).
 dich   ---> @pers_pronoun(acc,second,sg).
 
 
+
 er     ---> @pers_pronoun(nom,third,sg,mas).
 seiner ---> @pers_pronoun(gen,third,sg,mas_or_neu).
 ihm    ---> @pers_pronoun(dat,third,sg,mas_or_neu).
 ihn    ---> @pers_pronoun(acc,third,sg,mas).
+
+
 
 sie   ---> @pers_pronoun(nom_or_acc,third,sg,fem).
 ihrer ---> @pers_pronoun(gen,       third,sg,fem).
@@ -270,6 +291,8 @@ bellt    ---> @intrans_verb(third, sg, bellen).
 bellen   ---> @intrans_verb(first_or_third, pl, bellen).
 bellt    ---> @intrans_verb(second,         pl, bellen).
 
+bellen   ---> @intrans_verb(bse, bellen).
+
 lache    ---> @intrans_verb(first, sg, lachen).
 lachst   ---> @intrans_verb(second,sg, lachen).
 lacht    ---> @intrans_verb(third, sg, lachen).
@@ -277,6 +300,7 @@ lacht    ---> @intrans_verb(third, sg, lachen).
 lachen   ---> @intrans_verb(first_or_third, pl, lachen).
 lacht    ---> @intrans_verb(second,         pl, lachen).
 
+lachen   ---> @intrans_verb(bse, lachen).
 
 schlafe  ---> @intrans_verb(first, sg, schlafen).
 schläfst ---> @intrans_verb(second,sg, schlafen).
@@ -285,8 +309,10 @@ schläft  ---> @intrans_verb(third, sg, schlafen).
 schlafen ---> @intrans_verb(first_or_third, pl, schlafen).
 schlaft  ---> @intrans_verb(second,         pl, schlafen).
 
+schlafen ---> @intrans_verb(bse, schlafen).
 
-graut    ---> @subjlos_verb(dat,grauen).
+graut    ---> @subjlos_verb(fin,dat,grauen).
+grauen   ---> @subjlos_verb(bse,dat,grauen).
 
 
 helfe    ---> @np_np_verb(first, sg, dat, helfen).
@@ -296,10 +322,14 @@ hilft    ---> @np_np_verb(third, sg, dat, helfen).
 helfen   ---> @np_np_verb(first_or_third, pl, dat, helfen).
 helft    ---> @np_np_verb(second,         pl, dat, helfen).
 
+helfen   ---> @np_np_verb(bse, dat, helfen).
+
 
 jage     ---> @trans_verb(first, sg, jagen).
 jagst    ---> @trans_verb(second,sg, jagen).
 jagt     ---> @trans_verb(third, sg, jagen).
+
+jagen    ---> @trans_verb(bse, jagen).
 
 
 kenne    ---> @trans_verb(first, sg, kennen).
@@ -309,6 +339,17 @@ kennt    ---> @trans_verb(third, sg, kennen).
 kennen   ---> @trans_verb(first_or_third, pl, kennen).
 kennt    ---> @trans_verb(second,         pl, kennen).
 
+kennen   ---> @trans_verb(bse, kennen).
+
+
+lese    ---> @trans_verb(first, sg, lesen).
+liest   ---> @trans_verb(second,sg, lesen).
+
+lesen   ---> @trans_verb(first_or_third, pl, lesen).
+lest    ---> @trans_verb(second,         pl, lesen).
+
+lesen   ---> @trans_verb(bse, lesen).
+
 liebe    ---> @trans_verb(first, sg, lieben).
 liebst   ---> @trans_verb(second,sg, lieben).
 liebt    ---> @trans_verb(third, sg, lieben).
@@ -316,17 +357,34 @@ liebt    ---> @trans_verb(third, sg, lieben).
 lieben   ---> @trans_verb(first_or_third, pl, lieben).
 liebt    ---> @trans_verb(second,         pl, lieben).
 
+lieben   ---> @trans_verb(bse, lieben).
+
+singe    ---> @trans_verb(first, sg, singen).
+singst   ---> @trans_verb(second,sg, singen).
+singt    ---> @trans_verb(third, sg, singen).
+
+singen   ---> @trans_verb(first_or_third, pl, singen).
+singt    ---> @trans_verb(second,         pl, singen).
+
+singen   ---> @trans_verb(bse, singen).
 
 
-gebe  ---> @ditrans_verb(first, sg, geben).
-gibst ---> @ditrans_verb(second,sg, geben).
-gibt  ---> @ditrans_verb(third, sg, geben).
+gebe   ---> @ditrans_verb(first, sg, geben).
+gibst  ---> @ditrans_verb(second,sg, geben).
+gibt   ---> @ditrans_verb(third, sg, geben).
 
-geben   ---> @trans_verb(first_or_third, pl, geben).
-gebt    ---> @trans_verb(second,         pl, geben).
+geben  ---> @ditrans_verb(first_or_third, pl, geben).
+gebt   ---> @ditrans_verb(second,         pl, geben).
 
 
-gab   ---> @ditrans_verb(first_or_third, sg, geben).
+gab    ---> @ditrans_verb(first_or_third, sg, geben).
+
+geben  ---> @ditrans_verb(bse, geben).
+
+erzählt  --->  @ditrans_verb(third, sg, erzählen).
+
+erzählen --->  @ditrans_verb(bse, erzählen).
+
 
 
 denke  ---> @np_pp_verb(first, sg, an_pform,acc,denken_an).
@@ -336,7 +394,56 @@ denkt  ---> @np_pp_verb(third, sg, an_pform,acc,denken_an).
 denken   ---> @np_pp_verb(first_or_third, pl, an_pform,acc,denken_an).
 denkt    ---> @np_pp_verb(second,         pl, an_pform,acc,denken_an).
 
+denken   ---> @np_pp_verb(bse, an_pform,acc,denken_an).
 
+
+% Modalverben
+
+darf   ---> @modal_verb(first_or_third,sg,dürfen).
+darfst ---> @modal_verb(second,        sg,dürfen).
+
+dürfen ---> @modal_verb(first_or_third,pl,dürfen).
+dürft  ---> @modal_verb(second,        pl,dürfen).
+
+dürfen ---> @modal_verb(bse,dürfen).
+
+kann   ---> @modal_verb(first_or_third,sg,können).
+kannst ---> @modal_verb(second,        sg,können).
+
+können ---> @modal_verb(first_or_third,pl,können).
+könnt  ---> @modal_verb(second,        pl,können).
+
+können ---> @modal_verb(bse,können).
+
+muß    ---> @modal_verb(first_or_third,sg,müssen).
+mußt   ---> @modal_verb(second,        sg,müssen).
+
+müssen ---> @modal_verb(first_or_third,pl,müssen).
+müßt   ---> @modal_verb(second,        pl,müssen).
+
+müssen ---> @modal_verb(bse,müssen).
+
+
+will   ---> @modal_verb(first_or_third,sg,wollen).
+willst ---> @modal_verb(second,        sg,wollen).
+
+wollen ---> @modal_verb(first_or_third,pl,wollen).
+wollt  ---> @modal_verb(second,        pl,wollen).
+
+wollen ---> @modal_verb(bse,wollen).
+
+
+% Hilfsverben
+
+werde ---> @futur_aux_verb(first,  sg).
+wirst ---> @futur_aux_verb(second, sg).
+wird  ---> @futur_aux_verb(third,  sg).
+
+werden ---> @futur_aux_verb(first_or_third, pl).
+werdet ---> @futur_aux_verb(second,         pl).
+
+
+haben ---> @perfect_aux_verb(bse).
 
 an ---> @comp_prep(an_pform).
 
@@ -428,6 +535,7 @@ treues ---> @attr_adj_np(nom_or_acc,neu,       sg,weak,  treu,dat).
 
 
 
+
 mutmaßliche  ---> @scopal_attr_adj(nom_or_acc,fem,sg,dtype,mutmaßlich).
 mutmaßliche ---> @scopal_attr_adj(nom,       mas,sg,strong,mutmaßlich).
 mutmaßliche ---> @scopal_attr_adj(nom_or_acc,neu,sg,strong,mutmaßlich).
@@ -467,17 +575,18 @@ daß ---> @complementizer(daß_cform).
 
 
 
-
 empty
    v_trace.
 
 empty 
    e_trace.
 
-
 empty 
     (empty_determiner,
      @det(pl,weak,abstr_rel)).
+
+
+
 
 
 

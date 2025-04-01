@@ -9,6 +9,7 @@
 %      System: TRALE 2.7.5 (release ) under Sicstus 3.10.1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 :- multifile ':='/2.
 :- discontiguous ':='/2.
 :- multifile '*>'/2.
@@ -102,7 +103,7 @@ verb_initial_rule *>
 %
 (headed_phrase,
  head_dtr:(word,
-           phon:ne_list)) *> (head_dtr:loc:cat:head:dsl:none).
+           phon:ne_list)) *> head_dtr:loc:cat:head:dsl:none.
 
 
 headed_phrase *> phrase:plus.
@@ -120,13 +121,12 @@ headed_phrase *> phrase:plus.
 
 head_filler_phrase *>
    (nonloc:slash:[],
-       head_dtr:(loc:cat:(head:(verb,
-                                initial:plus),
-                          subcat:[]),
-                 nonloc:slash:[Slash]),
-       non_head_dtrs:[(loc:Slash,
-                       nonloc:(rel:[],            % "In der hat er geschlafen." hätte sonst zwei Strukturen.
-                               slash:[]))]).
+    v2:plus,
+    head_dtr:(loc:cat:(head:(verb,
+                             initial:plus),
+                       subcat:[]),
+              nonloc:slash:[Slash]),
+       non_head_dtrs:[loc:Slash]).
 
 %%
 head_non_filler_phrase *>
@@ -143,11 +143,11 @@ headed_phrase *>
    (head_dtr:trace:minus_or_vm).
 
 
-
 % Adjunkte sind Extraktionsinseln
 (headed_phrase,
  non_head_dtrs:[trace:extraction]) *>
       (head_dtr:loc:cat:head:mod:none).
+
 
 
 % Das entspricht auch der Analyse von Frey 2004 und Fanselow 2003. Die gehen davon
@@ -187,47 +187,13 @@ headed_phrase *>
 head_argument_phrase *> head_dtr:max_:minus.
 
 
-headed_phrase *>
-  (nonloc:rel:(list_with_zero_or_one_element,
-               append(Rel1,Rel2)),
-       head_dtr:nonloc:rel:Rel1,
-       non_head_dtrs:[nonloc:rel:Rel2]).
-
-% Relativsätze
-rc *>
- (%isect_n_modifier,
-  loc:(cat:(head:(relativizer,
-                  mod:loc:cont:qstore:[Q]),
-            subcat:[]),
-       cont:(nucleus:(ind:Ind,
-                      restr:hd:RCCont), %[RCCont|_NP_CONT],
-             qstore:[Q|QStore])),
-  nonloc:(rel:[],
-          slash:[]),
-  non_head_dtrs:[(loc:Slash,
-                  nonloc:(rel:[Ind],
-                          slash:[])),
-                 (loc:(cat:(head:(verb,
-                                  dsl:none,
-                                  initial:minus,
-                                  vform:fin),
-                            subcat:[]),
-                       cont:(nucleus:RCCont,
-                             qstore:QStore)),
-                  nonloc:(rel:[],
-                          slash:[Slash]),
-                  % Der finite Satz selbst darf nicht extrahiert werden.
-                  % Das könnte man auch durch loc:Loc, Loc =/= Slash erzwingen.
-                  trace:minus)]).
-
-
 
 
 root :=
  (loc:cat:(head:dsl:none,
            spr:[],
            subcat:[]),
-     nonloc:slash:[]).
+  nonloc:slash:[]).
 
 initial_fin_verb :=
  (@root,

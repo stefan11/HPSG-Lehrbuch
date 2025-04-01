@@ -1,8 +1,8 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: le_macros.pl,v $
-%%  $Revision: 1.18 $
-%%      $Date: 2007/03/05 11:26:28 $
+%%  $Revision: 1.19 $
+%%      $Date: 2007/03/05 11:26:29 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
@@ -11,10 +11,13 @@
 
 :- multifile ':='/2.
 :- discontiguous ':='/2.
+:- multifile if/2.
+:- discontiguous if/2.
+:- multifile fun/1.
+:- discontiguous fun/1.
 
 :- multifile '*>'/2.
 :- discontiguous '*>'/2.
-
 
 non_slashed_word *>
  (%simple_word,
@@ -26,8 +29,7 @@ overt_word *>
   phon:ne_list,
   synsem:trace:minus).
 
-
-non_rel_sign *>
+non_rel_word *>
  (%simple_word,
   synsem:nonloc:rel:[]).
 
@@ -54,6 +56,25 @@ v_trace *>
                          dsl:Loc)),
           trace:vm)).
 
+% normale Wörter selegieren nie DSL:local-Elemente.
+% Nur über LR abgeleitete Wörter tun dies.
+% Beschränkung wird gebraucht, um die Einbettung einer
+% Verbspur unter ein Hilfs- oder Modalverb auszuschließen.
+%
+% * Der Frau den Aufsatz _v will er.
+
+overt_word *>
+  synsem:loc:cat:subcat:list_of_non_dsl_synsems.
+
+fun list_of_non_dsl_synsems(-).
+list_of_non_dsl_synsems(L) if
+   when( (L=(e_list;ne_list)),
+         undelayed_list_of_non_dsl_synsems(L) ).
+
+undelayed_list_of_non_dsl_synsems([]) if true.
+undelayed_list_of_non_dsl_synsems([loc:cat:head:dsl:none|T]) if
+   list_of_non_dsl_synsems(T).
+
 
 rel_pronoun *>
  (%overt_word,
@@ -65,7 +86,6 @@ sc_saturated_word *>
 
 spr_saturated_word *>
   synsem:loc:cat:spr:[].
-
 
 
 determiner_word *>
@@ -146,6 +166,11 @@ np_lex :=
 np_str(Ind) :=
   (@np_str,
    loc:cont:nucleus:ind:Ind).
+
+np_str(Per,Num) :=
+  (@np_str,
+   loc:cont:nucleus:ind:(per:Per,
+                         num:Num)).
 
 lex(Case) :=
  (case_type:lex,
@@ -271,57 +296,92 @@ possessive_rel_pronoun(Numerus,Genus) :=
   @pronoun(_Case,third,Numerus,Genus)).
 
 verb_word *>
- (%spr_saturated_sc_incomplete_word
+ (%spr_saturated
   synsem:loc:(cat:(head:(verb,
-                         initial:minus),
+                         initial:minus
+                         %dsl:none  
+                        ),
                    subcat:Subcat),
               cont:qstore:collectQStores(Subcat))).
 
 
+% finite Verben
+fin_verb(Per,Num) :=
+ (synsem:loc:cat:(head:vform:fin
+                  ,subcat:subj_verb_agreement(Per,Num)
+                 )).
+
+fin_verb(Per,Num,Relation) :=
+ (@fin_verb(Per,Num),
+  synsem:loc:cont:nucleus:Relation).
+
+% Infinite Verben
+verb(VForm) :=
+  (synsem:loc:cat:head:vform:VForm).
+
+
+
+verb(VForm,Relation) :=
+ (@verb(VForm),
+  synsem:loc:cont:nucleus:Relation).
+
+% alle Verben außer Modalverben und `haben'
+non_flip_verb_word *>
+  synsem:loc:cat:head:flip:minus.
+
+
 intrans_verb *>
  (%verb_word,
-  synsem:loc:(cat:subcat:hd: @np_str(Ind),
-              cont:nucleus:arg1:Ind)).
+  synsem:loc:(cat:subcat:Subcat,
+              cont:nucleus:arg1:Ind))
+       goal last(Subcat,@np_str(Ind)).
 
 % schlafen
 strict_intrans_verb *>
   synsem:loc:cat:subcat:[_].
 
-verb(Per,Num) :=
- (synsem:loc:cat:(head:vform:fin,
-                  subcat:hd: @np_(Per,Num))).
 
 intrans_verb(Per,Num,Relation) :=
  (strict_intrans_verb,
-  @verb(Per,Num),
-  synsem:loc:cont:nucleus:Relation).
+  @fin_verb(Per,Num,Relation)).
 
+intrans_verb(VForm,Relation) :=
+ (strict_intrans_verb,
+  @verb(VForm,Relation)).
 
 % denken an
 np_pp_verb *> 
  (%intrans_verb,
-  synsem:loc:(cat:subcat:tl:[ @pp(Ind2) ],
+  synsem:loc:(cat:subcat:[ @pp(Ind2), _ ],
               cont:nucleus:arg2:Ind2)).
 
 
 np_pp_verb(Per,Num,PForm,Case,Relation) :=
  (np_pp_verb,
-  @verb(Per,Num),
-  synsem:loc:(cat:subcat:tl:hd: @pp(PForm,Case),
-              cont:nucleus:Relation)).
+  @fin_verb(Per,Num,Relation),
+  synsem:loc:cat:subcat:hd: @pp(PForm,Case)).
+
+np_pp_verb(VForm,PForm,Case,Relation) :=
+ (np_pp_verb,
+  @verb(VForm,Relation),
+  synsem:loc:cat:subcat:hd: @pp(PForm,Case)).
 
 % helfen
 np_np_verb *>
  (%intrans_verb,
-  synsem:loc:(cat:subcat:tl: [ @np(Ind2) ],
+  synsem:loc:(cat:subcat:[ @np(Ind2), _ ],
               cont:nucleus:arg2:Ind2)).
 
 % helfen
 np_np_verb(Per,Num,Case,Relation) :=
  (np_np_verb,
-  @verb(Per,Num),
-  synsem:loc:(cat:subcat:tl: [ @np(Case,_Ind2) ],
-              cont:nucleus:Relation)).
+  @fin_verb(Per,Num,Relation),
+  synsem:loc:cat:subcat:hd: @np(Case,_Ind2) ).
+
+np_np_verb(VForm,Case,Relation) :=
+ (np_np_verb,
+  @verb(VForm,Relation),
+  synsem:loc:cat:subcat:hd: @np(Case,_Ind2)).
 
 % grauen
 subjlos_verb *>
@@ -329,16 +389,18 @@ subjlos_verb *>
   synsem:loc:(cat:subcat:[ @np(Ind) ],
               cont:nucleus:arg2:Ind)).
 
-subjlos_verb(Case,Relation) :=
+% grauen, auch finit, ohne Subjekt-Verb-Kongruenz
+subjlos_verb(VForm,Case,Relation) :=
  (subjlos_verb,
-  synsem:loc:(cat:subcat:[ @np(Case,_Ind) ],
+  synsem:loc:(cat:(head:vform:VForm,
+                   subcat:[ @np(Case,_Ind) ]),
               cont:nucleus:Relation)).
 
 
 % lieben, geben
 trans_verb *>
  (%verb,
-  synsem:loc:(cat:subcat:[ @np_str(Ind1), @np_str(Ind2) |_ ],
+  synsem:loc:(cat:subcat:append(_, [ @np_str(Ind2), @np_str(Ind1) ]),
               cont:nucleus:(arg1:Ind1,
                             arg2:Ind2))).
 
@@ -349,20 +411,117 @@ strict_trans_verb *>
 
 trans_verb(Per,Num,Relation) :=
  (strict_trans_verb,
-  @verb(Per,Num),
-  synsem:loc:cont:nucleus:Relation).
+  @fin_verb(Per,Num,Relation)).
 
+trans_verb(VForm,Relation) :=
+ (strict_trans_verb,
+  @verb(VForm,Relation)).
 
 % geben
 ditrans_verb *>
  (%trans_verb,
-  synsem:loc:(cat:subcat:[ _, _, @np(dat,Ind3) ],
+  synsem:loc:(cat:subcat:[ @np(dat,Ind3), _, _ ],
               cont:nucleus:arg3:Ind3)).
 
 ditrans_verb(Per,Num,Relation) :=
  (ditrans_verb,
-  @verb(Per,Num),
+  @fin_verb(Per,Num,Relation)).
+
+
+ditrans_verb(VForm,Relation) :=
+ (ditrans_verb,
+  @verb(VForm,Relation)).
+
+
+
+% Das sind die Beschränkungen, die nötig sind, damit
+% keine eingebetteten Köpfe von komplexbildenden Prädikate angezogen werden.
+%
+% * weil er das Buch lesen [können wird]
+%
+% Komplexbildende Prädikate müssen immer direkt mit ihrem
+% eingebetteten Kopf verbunden werden:
+%
+% weil er das Buch [[lesen können] wird]
+
+
+non_complex_forming_synsem :=
+  (loc:cat:subcat:[],
+   lex:minus).
+
+fun list_of_non_complex_forming_synsems(-).
+list_of_non_complex_forming_synsems(L) if
+   when( (L=(e_list;ne_list)),
+         undelayed_list_of_non_complex_forming_synsems(L) ).
+
+undelayed_list_of_non_complex_forming_synsems([]) if true.
+undelayed_list_of_non_complex_forming_synsems([(@non_complex_forming_synsem)|T]) if
+   list_of_non_complex_forming_synsems(T).
+
+
+optionally_coherent_word *>
+  (synsem:loc:cat:subcat:[loc:cat:(head:verb,
+                                   subcat:Subcat)|(list_of_non_complex_forming_synsems,
+                                                   Subcat)]).
+
+argument_raising_verb *>
+ (%optionally_coherent_verb,
+  synsem:loc:(cat:subcat:hd:(loc:cont:nucleus:VCont,
+                             lex:plus),
+              cont:nucleus:arg3:VCont)).
+
+argument_raising_verb(Relation) :=
+ (argument_raising_verb,
   synsem:loc:cont:nucleus:Relation).
+
+argument_raising_verb(GovVForm,Relation) :=
+ (@argument_raising_verb(Relation),
+  synsem:loc:cat:subcat:hd:loc:cat:head:vform:GovVForm).
+
+
+modal_verb *>
+ (%argument_raising_verb
+  synsem:loc:cat:subcat:hd:loc:cat:head:(vform:bse,
+                                         flip:minus)).    % [ dürfen _Extraction ]     % nur für Geschwindigkeit
+
+
+modal_verb(Per,Num,Relation) :=
+ (modal_verb,
+  @fin_verb(Per,Num,Relation)).
+
+modal_verb(VForm,Relation) :=
+ (modal_verb,
+  @verb(VForm,Relation)).
+
+% daß er das Lied hat singen müssen
+modal_flip_verb(Relation) :=
+ (modal_verb,
+  synsem:loc:cat:head:flip:plus,
+  @verb(ppp,Relation)).
+
+futur_aux_verb(Per,Num) :=
+ (non_flip_argument_raising_verb,
+  @fin_verb(Per,Num),
+  @argument_raising_verb(bse,futur)).
+
+futur_aux_verb(VForm) :=
+ (non_flip_argument_raising_verb,
+  @verb(VForm),
+  @argument_raising_verb(bse,futur)).
+
+general_prefect_aux_verb :=
+ (@argument_raising_verb(ppp,perfect),
+  synsem:loc:cat:(head:flip:Flip,
+                  subcat:hd:loc:cat:head:flip:Flip)).
+
+
+prefect_aux_verb(Per,Num) :=
+ (@fin_verb(Per,Num),
+  @general_prefect_aux_verb).
+
+perfect_aux_verb(VForm) :=
+ (@verb(VForm),
+  @general_prefect_aux_verb).
 
 
 
@@ -543,8 +702,8 @@ location_verb_mod_prep(Relation) :=
 
 
 % Komplementierer und das Verb in Erststellung
-complementizer_like_sign *>
- (%spr_saturated_word
+complementizer_like_word *>
+ (%spr_saturated_sc_incomplete_word
   synsem:loc:(cat:(head:(dsl:none,
                          initial:plus),
                    subcat:[ (loc:(cat:(head:(verb,
@@ -553,12 +712,12 @@ complementizer_like_sign *>
                                        subcat:[]),
                                   cont:(nucleus:Nuc,
                                         qstore:QStore)),
-                                trace:minus) ]),
+                             trace:minus) ]),
               cont:(nucleus:arg3:Nuc,
                     qstore:QStore))).
 
 complementizer_word *> 
- (%spr_saturated_word
+ (%spr_saturated_sc_incomplete_word
   %complementizer_like_word
   synsem:loc:(cat:(head:comp,
                    subcat:hd:loc:cat:head:dsl:none),

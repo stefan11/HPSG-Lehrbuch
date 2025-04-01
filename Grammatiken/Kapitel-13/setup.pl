@@ -1,4 +1,3 @@
-
 % feature hiding and ordering
 hidden_feat(dtrs).      % hide the dtrs attribute (shown by tree)
 
@@ -13,7 +12,6 @@ hidden_feat(trace).
 hidden_feat(phrase).    % V1 ist eine unäre Projektion, keine Lexikonregel
                         % Koordinationen von Wörtern dürfen Töchter sein, echte Phrasen nicht.
                         % Da das Merkmal im Buch nicht eingeführt wurde, wird es nciht angezeigt.
-
 
 >>> phon.        % phon shall be shown first
 phon   <<< synsem.

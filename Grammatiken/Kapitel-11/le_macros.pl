@@ -1,8 +1,8 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: le_macros.pl,v $
-%%  $Revision: 1.18 $
-%%      $Date: 2006/08/14 16:37:38 $
+%%  $Revision: 1.20 $
+%%      $Date: 2007/03/05 11:26:28 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
@@ -19,74 +19,73 @@
 overt_word *>
  (%simple_word,
   phon:ne_list,
-  nonloc:slash:[],
-  trace:minus).
+  synsem:(nonloc:slash:[],
+          trace:minus)).
 
 non_rel_sign *>
  (%sign,
-  nonloc:rel:[]).
+  synsem:nonloc:rel:[]).
 
 non_overt_word *>
   (%non_rel_word,
    phon:[]).
 
 trace *>
-  trace:extraction_or_vm.
+  synsem:trace:extraction_or_vm.
 
 rel_pronoun *>
  (%overt_word,
-  loc:cont:nucleus:ind:Ind,
-  nonloc:rel:[Ind]).
+  synsem:(loc:cont:nucleus:ind:Ind,
+          nonloc:rel:[Ind])).
 
 sc_saturated_word *>
-  loc:cat:subcat:[].
+  synsem:loc:cat:subcat:[].
 
 spr_saturated_word *>
-  loc:cat:spr:[].
-
+  synsem:loc:cat:spr:[].
 
 
 determiner_word *>
  (%saturated_word Diese Information steht in der signatur
-  loc:cat:head:det).
+  synsem:loc:cat:head:det).
 
 determiner(Case,Numerus,Genus) :=
 (%determiner_word,
- loc:cat:head:(case:Case,
-               num:Numerus,
-               gen:Genus)).
+ synsem:loc:cat:head:(case:Case,
+                      num:Numerus,
+                      gen:Genus)).
 
 
 determiner *> 
  (%determiner_word
-  loc:(cat:head:spec:loc:cont:nucleus:Cont,
-       cont:(nucleus:(Quant,
-                      restind:Cont),
-             qstore:[Quant]))).
+  synsem:loc:(cat:head:spec:loc:cont:nucleus:Cont,
+              cont:(nucleus:(Quant,
+                             restind:Cont),
+                    qstore:[Quant]))).
 
 det(Case,Numerus,Genus,Quant) :=
 (@determiner(Case,Numerus,Genus),
  overt_determiner,
- loc:cont:nucleus:Quant).
+ synsem:loc:cont:nucleus:Quant).
 
 possessive *>
  (%determiner_word
-  loc:(cat:head:spec:loc:cont:nucleus:(ind:NInd,
-                                       restr:NRestr),
-       cont:(nucleus:(ind:Ind,
-                      restr:[]),
-             qstore:[(def,
-                      restind:(ind:NInd,
-                               restr:[(besitzen,
-                                       arg2:Ind,
-                                       arg3:NInd)|NRestr]))]))).
- 
+  synsem:loc:(cat:head:spec:loc:cont:nucleus:(ind:NInd,
+                                              restr:NRestr),
+              cont:(nucleus:(ind:Ind,
+                             restr:[]),
+                    qstore:[(def,
+                             restind:(ind:NInd,
+                                      restr:[(besitzen,
+                                              arg2:Ind,
+                                              arg3:NInd)|NRestr]))]))).
+
 possessive(Case,Person,Numerus,Genus,NNumerus,NGenus) :=
  (@determiner(Case,NNumerus,NGenus),
   simple_possessive,
-  loc:cont:nucleus:ind:(per:Person,
-                        num:Numerus,
-                        gen:Genus)).
+  synsem:loc:cont:nucleus:ind:(per:Person,
+                               num:Numerus,
+                               gen:Genus)).
 
 
 % Die folgenden XP-Makros werden als Abkürzung in Valenzrahmen
@@ -129,47 +128,47 @@ pp(PForm,Case) :=
 % alle Nomina
 noun_word *>
   %word
-  loc:cat:head:noun.
+  synsem:loc:cat:head:noun.
 
 % alle einfachen Nomina (ohne Argument)
 simple_noun *>
  (%noun_word,
-  loc:(cat:(head:case:Case,
-            spr:[loc:(cat:(head:(det,
-                                 case:Case,
-                                 num:Numerus,
-                                 gen:Genus),
-                           subcat:[] ),
-                      cont:qstore:QStore)]),
-       cont:(nucleus:(ind:(Ind,
-                           per:third,
-                           num:Numerus,
-                           gen:Genus),
-                      restr:[arg1:Ind]),
-             qstore:QStore))).
+  synsem:loc:(cat:(head:case:Case,
+                   spr:[loc:(cat:(head:(det,
+                                        case:Case,
+                                        num:Numerus,
+                                        gen:Genus),
+                                  subcat:[] ),
+                             cont:qstore:QStore)]),
+              cont:(nucleus:(ind:(Ind,
+                                  per:third,
+                                  num:Numerus,
+                                  gen:Genus),
+                             restr:[arg1:Ind]),
+                    qstore:QStore))).
 
 noun(Case,Genus,Numerus,Relation) :=
  (simple_noun,
-  loc:(cat:head:case:Case,
-       cont:nucleus:(ind:(num:Numerus,
-                          gen:Genus),
-                     restr:[Relation]))).
- 
+  synsem:loc:(cat:head:case:Case,
+              cont:nucleus:(ind:(num:Numerus,
+                                 gen:Genus),
+                            restr:[Relation]))).
+
 
 pronoun *>
  (%saturated_word
-  loc:cont:nucleus:restr:[]).
+  synsem:loc:cont:nucleus:restr:[]).
 
 nominal_pronoun *>
  (%noun_word,
   %pronoun
-  loc:cont:qstore:[]).
+  synsem:loc:cont:qstore:[]).
 
 pronoun(Case,Person,Numerus,Genus) :=
- (loc:(cat:head:case:Case,
-       cont:nucleus:ind:(per:Person,
-                         num:Numerus,
-                         gen:Genus))).
+ (synsem:loc:(cat:head:case:Case,
+              cont:nucleus:ind:(per:Person,
+                                num:Numerus,
+                                gen:Genus))).
 
 pers_pronoun(Case,Person,Numerus,Genus) :=
  (pers_pronoun,
@@ -189,169 +188,174 @@ possessive_rel_pronoun(Numerus,Genus) :=
 
 verb_word *>
  (%spr_saturated_sc_incomplete_word
-  loc:(cat:(head:(verb,
-                  initial:minus,
-                  vform:fin),
-            subcat:Subcat),
-       cont:qstore:collectQStores(Subcat))).
+  synsem:loc:(cat:(head:(verb,
+                         initial:minus,
+                         vform:fin),
+                   subcat:Subcat),
+              cont:qstore:collectQStores(Subcat))).
 
 
 intrans_verb *>
  (%verb_word,
-  loc:(cat:subcat:hd: @np(nom,Ind),
-       cont:nucleus:arg1:Ind)).
+  synsem:loc:(cat:subcat:hd: @np(nom,Ind),
+              cont:nucleus:arg1:Ind)).
 
+% schlafen
 strict_intrans_verb *>
-  loc:cat:subcat:[_].
+  synsem:loc:cat:subcat:[_].
 
 intrans_verb(Relation) :=
  (strict_intrans_verb,
-  loc:cont:nucleus:Relation).
+  synsem:loc:cont:nucleus:Relation).
 
 
-
+% denken an
 np_pp_verb *> 
  (%intrans_verb,
-  loc:(cat:subcat:tl:[ @pp(Ind2) ],
-       cont:nucleus:arg2:Ind2)).
+  synsem:loc:(cat:subcat:tl:[ @pp(Ind2) ],
+              cont:nucleus:arg2:Ind2)).
 
 
 np_pp_verb(PForm,Case,Relation) :=
  (np_pp_verb,
-  loc:(cat:subcat:tl:hd: @pp(PForm,Case),
-       cont:nucleus:Relation)).
+  synsem:loc:(cat:subcat:tl:hd: @pp(PForm,Case),
+              cont:nucleus:Relation)).
 
 
+% grauen
 subjlos_verb *>
  (%verb,
-  loc:(cat:subcat:[ @np(Ind) ],
-       cont:nucleus:arg2:Ind)).
+  synsem:loc:(cat:subcat:[ @np(Ind) ],
+              cont:nucleus:arg2:Ind)).
 
 subjlos_verb(Case,Relation) :=
  (subjlos_verb,
-  loc:(cat:subcat:[ @np(Case,_Ind) ],
-       cont:nucleus:Relation)).
+  synsem:loc:(cat:subcat:[ @np(Case,_Ind) ],
+              cont:nucleus:Relation)).
 
 
+% lieben, geben
 trans_verb *>
  (%verb,
-  loc:(cat:subcat:[ @np(nom,Ind1), @np(acc,Ind2) |_ ],
-       cont:nucleus:(arg1:Ind1,
-                     arg2:Ind2))).
+  synsem:loc:(cat:subcat:[ @np(nom,Ind1), @np(acc,Ind2) |_ ],
+              cont:nucleus:(arg1:Ind1,
+                            arg2:Ind2))).
 
+% lieben
 strict_trans_verb *>
  (%trans_verb,
-  loc:cat:subcat:[ _, _ ]).
+  synsem:loc:cat:subcat:[ _, _ ]).
 
 trans_verb(Relation) :=
  (strict_trans_verb,
-  loc:cont:nucleus:Relation).
+  synsem:loc:cont:nucleus:Relation).
 
 
+% geben
 ditrans_verb *>
  (%trans_verb,
-  loc:(cat:subcat:[ _, _, @np(dat,Ind3) ],
-       cont:nucleus:arg3:Ind3)).
+  synsem:loc:(cat:subcat:[ _, _, @np(dat,Ind3) ],
+              cont:nucleus:arg3:Ind3)).
 
 ditrans_verb(Relation) :=
  (ditrans_verb,
-  loc:cont:nucleus:Relation).
+  synsem:loc:cont:nucleus:Relation).
 
 
 
 
 preposition_word *>
 (%word,
- loc:(cat:(head:(prep,
-                 initial:plus),
-           subcat:[ (@np,
-                     nonloc:slash:[]) ] ))).
+ synsem:loc:(cat:(head:(prep,
+                        initial:plus),
+                  subcat:[ (@np,
+                            nonloc:slash:[]) ] ))).
 
 comp_preposition *>
  (%preposition_word,
-  loc:(cat:(head:case:Cas,
-            subcat:[loc:(cat:head:case:Cas,
-                         cont:Cont) ] ),
-       cont:Cont)).
+  synsem:loc:(cat:(head:case:Cas,
+                   subcat:[loc:(cat:head:case:Cas,
+                                cont:Cont) ] ),
+              cont:Cont)).
 
 comp_prep(PForm) :=
  (comp_preposition,
-  loc:cat:head:pform:PForm).
+  synsem:loc:cat:head:pform:PForm).
 
 
 n_modifier *>
-(loc:(cat:head:mod: @nbar(Ind),
-      cont:nucleus:ind:Ind)).
+ synsem:loc:(cat:head:mod: @nbar(Ind),
+             cont:nucleus:ind:Ind).
 
 isect_n_modifier *>
 (%n_modifier,
- loc:(cat:head:mod:loc:cont:nucleus:restr:Restr,
-      cont:nucleus:restr:tl:Restr)).
+ synsem:loc:(cat:head:mod:loc:cont:nucleus:restr:Restr,
+             cont:nucleus:restr:tl:Restr)).
 
 n_modifier_word *>
  (%word,
-  loc:(cat:(head:mod:loc:cont:qstore:[Q],
-            subcat:Subcat),
-       cont:qstore:[Q|collectQStores(Subcat)])).
+  synsem:loc:(cat:(head:mod:loc:cont:qstore:[Q],
+                   subcat:Subcat),
+              cont:qstore:[Q|collectQStores(Subcat)])).
      
 attr_adjective_word *>
  (%n_modifier_word,
-  loc:cat:head:attr_adj).
+  synsem:loc:cat:head:attr_adj).
 
 % klug
 simple_attr_adj *>
  (%intersective_adj
-  loc:(cat:subcat:[],
-       cont:nucleus:(ind:Ind,
-                     restr:hd:arg1:Ind))).
+  synsem:loc:(cat:subcat:[],
+              cont:nucleus:(ind:Ind,
+                            restr:hd:arg1:Ind))).
 
 attr_adj(Relation) :=
  (simple_attr_adj,
-  loc:cont:nucleus:restr:hd:Relation).
+  synsem:loc:cont:nucleus:restr:hd:Relation).
 
 % treu
 attr_np_adj *>
  (%intersective_adj
-  loc:(cat:subcat:[@np(Ind2)],
-       cont:nucleus:(ind:Ind,
-                     restr:hd:(arg1:Ind,
-                               arg2:Ind2)))).
+  synsem:loc:(cat:subcat:[@np(Ind2)],
+              cont:nucleus:(ind:Ind,
+                            restr:hd:(arg1:Ind,
+                                      arg2:Ind2)))).
  
 attr_adj_np(Relation,Case) :=
  (attr_np_adj,
-  loc:(cat:subcat:[@np(Case,_Ind2)],
-       cont:nucleus:restr:hd:Relation)).
+  synsem:loc:(cat:subcat:[@np(Case,_Ind2)],
+              cont:nucleus:restr:hd:Relation)).
 
 % mutmaßlich
 scopal_adj *>
- (loc:(cat:head:mod:loc:cont:nucleus:restr:Restr,
-       cont:nucleus:restr:[psoa_arg:Restr])).
+ synsem:loc:(cat:head:mod:loc:cont:nucleus:restr:Restr,
+             cont:nucleus:restr:[psoa_arg:Restr]).
 
 scopal_attr_adj(Relation) :=
  (scopal_adj,
-  loc:cont:nucleus:restr:[Relation]).
+  synsem:loc:cont:nucleus:restr:[Relation]).
 
 mod_preposition *>
  (%preposition_word,
-  loc:cat:head:mod_prep).
+  synsem:loc:cat:head:mod_prep).
 
 noun_mod_preposition *>
  (%mod_preposition
   %isect_n_modifier_word
-  loc:(cat:(head:(pre_modifier:minus,
-                  mod:loc:cont:nucleus:ind:Ind),
-            subcat:[ @np(Ind2) ] ),
-       cont:nucleus:(ind:Ind,
-                     restr:hd:(arg1:Ind,
-                               arg2:Ind2)))).
+  synsem:loc:(cat:(head:(pre_modifier:minus,
+                         mod:loc:cont:nucleus:ind:Ind),
+                   subcat:[ @np(Ind2) ] ),
+              cont:nucleus:(ind:Ind,
+                            restr:hd:(arg1:Ind,
+                                      arg2:Ind2)))).
  
 location_noun_mod_prep *>
  (%noun_mod_preposition
-  loc:cat:subcat:[ @np(dat,_) ] ).
+  synsem:loc:cat:subcat:[ @np(dat,_) ] ).
 
 location_noun_mod_prep(Relation) :=
  (location_noun_mod_prep,
-  loc:cont:nucleus:restr:hd:Relation).
+  synsem:loc:cont:nucleus:restr:hd:Relation).
 
 
 
@@ -359,39 +363,39 @@ location_noun_mod_prep(Relation) :=
 
 v_modifier_word *>
   (%word,
-   loc:cat:head:(pre_modifier:plus,
-                 mod:loc:cat:head:(verb,
-                                   initial:minus))).
+   synsem:loc:cat:head:(pre_modifier:plus,
+                        mod:loc:cat:head:(verb,
+                                          initial:minus))).
 
 
 isect_v_modifier_word *>
   (%v_modifier_word,
-   loc:(cat:head:mod:loc:cont:nucleus:Cont,
-       cont:nucleus:(und,
-                     arg1:Cont,
-                     arg2:arg1:Cont))).
+   synsem:loc:(cat:head:mod:loc:cont:nucleus:Cont,
+               cont:nucleus:(und,
+                             arg1:Cont,
+                             arg2:arg1:Cont))).
 
 scopal_v_modifier_word *>
  (%v_modifier_word,
-  loc:(cat:head:mod:loc:cont:nucleus:Cont,
-       cont:nucleus:arg1:Cont)).
+  synsem:loc:(cat:head:mod:loc:cont:nucleus:Cont,
+              cont:nucleus:arg1:Cont)).
 
 
 adverb_word *>
  (%v_modifier_word
-  loc:(cat:(head:(adv,
-                  mod:loc:cont:qstore:QStore)),
-       cont:qstore:QStore)).
+  synsem:loc:(cat:(head:(adv,
+                         mod:loc:cont:qstore:QStore)),
+              cont:qstore:QStore)).
 
 
 scopal_adv(Relation) :=
  (scopal_adverb,
-  loc:cont:nucleus:Relation).
+  synsem:loc:cont:nucleus:Relation).
 
 
 intersect_adv(Relation) :=
  (intersective_adverb,
-  loc:cont:nucleus:arg2:Relation).
+  synsem:loc:cont:nucleus:arg2:Relation).
 
 temp_adv(Relation) :=
   @intersect_adv(Relation).
@@ -399,39 +403,39 @@ temp_adv(Relation) :=
 
 
 location_verb_mod_prep *>
-  loc:cat:subcat:[ @np(dat,_Ind2) ].
+  synsem:loc:cat:subcat:[ @np(dat,_Ind2) ].
 
 location_verb_mod_prep(Relation) :=
  (location_verb_mod_prep,
-  loc:cont:nucleus:arg2:Relation).
+  synsem:loc:cont:nucleus:arg2:Relation).
 
 
 % Komplementierer und das Verb in Erststellung
 complementizer_like_sign *>
  (%spr_saturated_word
-  loc:(cat:(head:(dsl:none,
-                  initial:plus),
-            subcat:[ (loc:(cat:(head:(verb,
-                                      vform:fin,
-                                      initial:minus),
-                                subcat:[]),
-                           cont:(nucleus:Nuc,
-                                 qstore:QStore)),
-                         trace:minus) ]),
-       cont:(nucleus:arg3:Nuc,
-             qstore:QStore))).
+  synsem:loc:(cat:(head:(dsl:none,
+                         initial:plus),
+                   subcat:[ (loc:(cat:(head:(verb,
+                                             vform:fin,
+                                             initial:minus),
+                                       subcat:[]),
+                                  cont:(nucleus:Nuc,
+                                        qstore:QStore)),
+                                trace:minus) ]),
+              cont:(nucleus:arg3:Nuc,
+                    qstore:QStore))).
 
 complementizer_word *> 
  (%spr_saturated_word
   %complementizer_like_word
-  loc:(cat:(head:comp,
-            subcat:hd:loc:cat:head:dsl:none),
-       cont:nucleus:assertion)).
+  synsem:loc:(cat:(head:comp,
+                   subcat:hd:loc:cat:head:dsl:none),
+              cont:nucleus:assertion)).
 
 
 complementizer(CForm) :=
  (complementizer_word,
-  loc:cat:head:cform:CForm).
+  synsem:loc:cat:head:cform:CForm).
 
 
 

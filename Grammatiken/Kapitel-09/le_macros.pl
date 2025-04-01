@@ -1,13 +1,13 @@
 % -*-trale-prolog-*-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: le_macros.pl,v $
-%%  $Revision: 1.18 $
-%%      $Date: 2006/08/14 16:37:38 $
+%%  $Revision: 1.21 $
+%%      $Date: 2007/03/05 11:26:28 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
 %      System: TRALE 2.7.5 (release ) under Sicstus 3.10.1
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 :- multifile ':='/2.
 :- discontiguous ':='/2.
@@ -15,6 +15,9 @@
 :- multifile '*>'/2.
 :- discontiguous '*>'/2.
 
+trace *>
+  (%simple_word,
+   phon:[]).
 
 overt_word *>
  (%simple_word,
@@ -22,28 +25,12 @@ overt_word *>
   nonloc:slash:[],
   trace:minus).
 
-non_rel_sign *>
- (%sign,
-  nonloc:rel:[]).
-
-non_overt_word *>
-  (%non_rel_word,
-   phon:[]).
-
-trace *>
-  trace:extraction_or_vm.
-
-rel_pronoun *>
- (%overt_word,
-  loc:cont:nucleus:ind:Ind,
-  nonloc:rel:[Ind]).
 
 sc_saturated_word *>
   loc:cat:subcat:[].
 
-spr_saturated_word *>
+spr_saturated_sign *>
   loc:cat:spr:[].
-
 
 
 determiner_word *>
@@ -66,7 +53,7 @@ determiner *>
 
 det(Case,Numerus,Genus,Quant) :=
 (@determiner(Case,Numerus,Genus),
- overt_determiner,
+ determiner,
  loc:cont:nucleus:Quant).
 
 possessive *>
@@ -83,7 +70,7 @@ possessive *>
  
 possessive(Case,Person,Numerus,Genus,NNumerus,NGenus) :=
  (@determiner(Case,NNumerus,NGenus),
-  simple_possessive,
+  possessive,
   loc:cont:nucleus:ind:(per:Person,
                         num:Numerus,
                         gen:Genus)).
@@ -131,7 +118,7 @@ noun_word *>
   %word
   loc:cat:head:noun.
 
-% alle einfachen Nomina (ohne Argument)
+% alle einfachen, nicht modifizierenden Nomina (ohne Argument)
 simple_noun *>
  (%noun_word,
   loc:(cat:(head:case:Case,
@@ -156,36 +143,27 @@ noun(Case,Genus,Numerus,Relation) :=
                      restr:[Relation]))).
  
 
-pronoun *>
- (%saturated_word
-  loc:cont:nucleus:restr:[]).
-
-nominal_pronoun *>
+pers_pronoun *>
  (%noun_word,
-  %pronoun
-  loc:cont:qstore:[]).
+  %saturated_word
+  loc:cont:(nucleus:restr:[],
+            qstore:[])).
 
-pronoun(Case,Person,Numerus,Genus) :=
- (loc:(cat:head:case:Case,
+pers_pronoun(Case,Person,Numerus,Genus) :=
+ (pers_pronoun,
+  loc:(cat:head:case:Case,
        cont:nucleus:ind:(per:Person,
                          num:Numerus,
                          gen:Genus))).
 
-pers_pronoun(Case,Person,Numerus,Genus) :=
- (pers_pronoun,
-  @pronoun(Case,Person,Numerus,Genus)).
 
-
-% der, die, das
-rel_pronoun(Case,Person,Numerus,Genus) :=
- (nominal_rel_pronoun,
-  @pronoun(Case,Person,Numerus,Genus)).
-
-
-% dessen, deren
-possessive_rel_pronoun(Numerus,Genus) :=
- (possessive_rel_pronoun,
-  @pronoun(_Case,third,Numerus,Genus)).
+% positional_es *>
+%  (%noun_word,
+%   %saturated_word
+%   loc:(cat:head:(case:nom,
+%                  mod:loc:(cat:head:verb,
+%                           cont:Cont)),
+%        cont:Cont)).
 
 verb_word *>
  (%spr_saturated_sc_incomplete_word
@@ -364,30 +342,29 @@ v_modifier_word *>
                                    initial:minus))).
 
 
-isect_v_modifier_word *>
-  (%v_modifier_word,
-   loc:(cat:head:mod:loc:cont:nucleus:Cont,
-       cont:nucleus:(und,
-                     arg1:Cont,
-                     arg2:arg1:Cont))).
-
-scopal_v_modifier_word *>
- (%v_modifier_word,
-  loc:(cat:head:mod:loc:cont:nucleus:Cont,
-       cont:nucleus:arg1:Cont)).
-
 
 adverb_word *>
- (%v_modifier_word
+ (%saturated_word,
+  %v_modifier_word
   loc:(cat:(head:(adv,
                   mod:loc:cont:qstore:QStore)),
        cont:qstore:QStore)).
 
+scopal_adverb *>
+ (%adverb_word,
+  loc:(cat:head:mod:loc:cont:nucleus:Cont,
+       cont:nucleus:arg1:Cont)).
 
 scopal_adv(Relation) :=
  (scopal_adverb,
   loc:cont:nucleus:Relation).
 
+intersective_adverb *>
+ (%adverb_word,
+  loc:(cat:head:mod:loc:cont:nucleus:Cont,
+       cont:nucleus:(und,
+                     arg1:Cont,
+                     arg2:arg1:Cont))).
 
 intersect_adv(Relation) :=
  (intersective_adverb,
@@ -395,15 +372,6 @@ intersect_adv(Relation) :=
 
 temp_adv(Relation) :=
   @intersect_adv(Relation).
-
-
-
-location_verb_mod_prep *>
-  loc:cat:subcat:[ @np(dat,_Ind2) ].
-
-location_verb_mod_prep(Relation) :=
- (location_verb_mod_prep,
-  loc:cont:nucleus:arg2:Relation).
 
 
 % Komplementierer und das Verb in Erststellung
@@ -423,7 +391,7 @@ complementizer_like_sign *>
 
 complementizer_word *> 
  (%spr_saturated_word
-  %complementizer_like_word
+  %complementizer_like_sign
   loc:(cat:(head:comp,
             subcat:hd:loc:cat:head:dsl:none),
        cont:nucleus:assertion)).
@@ -432,12 +400,4 @@ complementizer_word *>
 complementizer(CForm) :=
  (complementizer_word,
   loc:cat:head:cform:CForm).
-
-
-
-
-
-
-
-
 

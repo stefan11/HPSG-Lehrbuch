@@ -1,8 +1,8 @@
 % -*-  coding:utf-8; mode:trale-prolog   -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: lexicon.pl,v $
-%%  $Revision: 1.7 $
-%%      $Date: 2006/02/26 18:08:11 $
+%%  $Revision: 1.10 $
+%%      $Date: 2007/03/05 11:26:28 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: 
 %%   Language: Trale
@@ -68,6 +68,9 @@ sie ---> @pers_pronoun(nom_or_acc,third,sg,fem).
 
 ihr ---> @pers_pronoun(dat,third,sg,fem).
 
+
+%es ---> positional_es.
+
 meine ---> @possessive(nom_or_acc,first, sg,genus,     sg,fem).
 
 deine ---> @possessive(nom_or_acc,second,sg,genus,     sg,fem).
@@ -75,22 +78,6 @@ deine ---> @possessive(nom_or_acc,second,sg,genus,     sg,fem).
 seine  ---> @possessive(nom_or_acc,third, sg,mas_or_neu,sg,fem).
 seiner ---> @possessive(gen_or_dat,third, sg,mas_or_neu,sg,fem).
 
-
-die    ---> @rel_pronoun(nom_or_acc,third,sg,fem).
-der    ---> @rel_pronoun(gen_or_dat,third,sg,fem).
-
-der    ---> @rel_pronoun(nom,third,sg,mas).
-
-dessen ---> @rel_pronoun(gen,third,sg,mas_or_neu).
-dem    ---> @rel_pronoun(dat,third,sg,mas_or_neu).
-
-den    ---> @rel_pronoun(acc,third,sg,mas).
-
-das    ---> @rel_pronoun(nom_or_acc,third,sg,neu).
-
-
-dessen ---> @possessive_rel_pronoun(sg,mas_or_neu).
-deren  ---> @possessive_rel_pronoun(sg,fem).
 
 
 bellt   ---> @intrans_verb(bellen).
@@ -135,7 +122,6 @@ mutmaßliche  ---> @scopal_attr_adj(mutmaßlich).
 
 in ---> @location_noun_mod_prep(in).
 
-in ---> @location_verb_mod_prep(in).
 
 
 nicht ---> @scopal_adv(nicht).
@@ -161,6 +147,11 @@ empty
     loc:Loc,
     nonloc:slash:[Loc],
     trace:extraction).
+
+
+
+
+
 
 
 

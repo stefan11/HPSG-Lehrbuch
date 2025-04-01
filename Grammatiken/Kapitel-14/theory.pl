@@ -1,8 +1,8 @@
 % -*-  coding:utf-8; mode:trale-prolog   -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: theory.pl,v $
-%%  $Revision: 1.8 $
-%%      $Date: 2007/03/05 11:26:28 $
+%%  $Revision: 1.14 $
+%%      $Date: 2007/03/05 11:26:29 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
@@ -14,9 +14,8 @@
     abort).
 
 % für [incr TSDB()]
-grammar_version('Lehrbuchgrammatik Kapitel 14').
+grammar_version('Lehrbuchgrammatik Kapitel 15').
 
-:- [setup].
 
 root_symbol(@root).
 decl_symbol(@decl).
@@ -37,16 +36,19 @@ signature(signature).
 
 
 % load lexical rules
-%:- [lexrules].
+:- [lexrules].
+
+% load lexical rule for multiple frontings
+:- ['mehrfache-vorfeldbesetzung'].
 
 % load phrase structure rules
 :- [rules].
 
+% load phrase structure rules for Oberfeldumstellung
+%:- [oberfeldumstellung].
+
 % load phrase structure macros
 :- [syntax].
-
-% load lexical items and grammar rules for coordination
-:- [coordination].
 
 % load some constraints that are not linguistically necessary,
 % but good for performance
@@ -61,11 +63,22 @@ signature(signature).
 % load a sequence that is executed after the grammar is loaded
 :- ['../Gemeinsames/common.pl'].
 
-%phenomenon('Kapitel 13: Kongruenz').
 
-examples(['  Die Frau liebt den Mann.',
-          '  Die Frau liebt der Mann.',
-          '  Die Frau liebt das Kind.',
-          '* Den Mann liebt den Mann.']).
+examples(['  daß er lachen muß',
+          '  Lachen muß er.',
+          '  Dem Kind erzählen muß er die Geschichte.',
+          '  Eine Geschichte erzählen muß er dem Kind.']).
 
 
+% Beispiele für Vorträge
+demo :-
+        parse_print_all([kennt,er,ihn],@interrog),
+        parse_print_all([den,mann,kennt,er],@decl),
+        parse_print_all([daß,er,ihn,lesen,wird],@root),
+        parse_print_all([daß,ihn,der,mann,lesen,wird],@root),
+        parse_print_all([das,buch,lesen,wird,er,nicht],@decl),
+        parse_print_all([lesen,wird,er,nicht,das,buch],@decl),
+        parse_print_all([der,frau,das,buch,gibt,er,nicht],@decl),
+        parse_print_all([der,frau,den,aufsatz,will,er,geben],@decl).
+
+            

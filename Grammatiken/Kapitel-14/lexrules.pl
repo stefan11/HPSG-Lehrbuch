@@ -1,37 +1,44 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: lexrules.pl,v $
-%%  $Revision: 1.9 $
-%%      $Date: 2007/03/05 11:26:28 $
+%%  $Revision: 1.13 $
+%%      $Date: 2007/03/05 11:26:29 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
 %      System: TRALE 2.7.5 (release ) under Sicstus 3.12.0
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+:- multifile lex_rule/2.
+
+
 :- multifile '*>'/2.
 :- discontiguous '*>'/2.
 
 
 
-
-% Die semantisch richtige Version, die einen Interrogativoperator
-% für V1-Sätze und einen Assertationsoperator für V2-Sätze einführt.
-
-verb_initial_lr *>
-( %word
-  synsem:(loc:cat:(head:(verb,
-                         vform:fin),
-                   subcat:[loc:cat:head:dsl:Loc]),
+verb_movement_lr *>
+( %complex_word
+  %optionally_coherent_word
+  synsem:(loc:cat:(head:verb,
+                   subcat:hd:loc:cat:head:dsl:Loc),
           nonloc:Nonloc,
-          trace:Trace),
+          trace:Trace,
+          lex:Lex),
   dtrs:[( word,
           synsem:(loc:(Loc,
                        cat:head:(verb,
-                                 vform:fin,
                                  initial:minus)),
                   nonloc:Nonloc,
-                  trace:Trace))]).
+                  trace:Trace,
+                  lex:Lex))]).
+
+
+verb_initial_lr *>
+( %verb_movement_lr
+  %complementizer_like_word
+  synsem:loc:cat:head:vform:fin,
+  dtrs:[ synsem:loc:cat:head:vform:fin ]).
 
 
 % Sätze mit Verb in Erststellung können Imperativsätze oder auch Interrogativsätze sein.
@@ -56,15 +63,13 @@ verb_initial_lr *>
 (verb_initial_lr,
  synsem:loc:cat:subcat:[nonloc:slash:ne_list]) *> synsem:loc:cont:nucleus:assertion_or_imperative.
 
-verb_initial_lr ##
+
+
+verb_initial_lr lex_rule
   Dtr
 **>
 ( verb_initial_lr,
   dtrs:[Dtr])
 morphs
   X becomes X.
-
-
-
-
 

@@ -1,16 +1,15 @@
 % -*-  coding:utf-8; mode:trale-prolog   -*-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: lexicon.pl,v $
-%%  $Revision: 1.7 $
+%%  $Revision: 1.8 $
 %%      $Date: 2006/02/26 18:08:11 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
-%%    Purpose: 
+%%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
-%      System: TRALE 2.3.7 under Sicstus 3.9.1
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      System: TRALE 2.7.5 (release ) under Sicstus 3.12.0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 :- multifile '--->'/2.
-
 
 das ---> @det(nom_or_acc,sg,neu,def).
 
@@ -57,21 +56,20 @@ wurst ---> @noun(case,fem,sg,wurst).
 
 
 
-er  ---> @pers_pronoun(nom,third,sg,mas).
+er     ---> @pers_pronoun(nom,third,sg,mas).
+seiner ---> @pers_pronoun(gen,third,sg,mas_or_neu).
+ihm    ---> @pers_pronoun(dat,third,sg,mas_or_neu).
+ihn    ---> @pers_pronoun(acc,third,sg,mas).
 
-ihm ---> @pers_pronoun(dat,third,sg,mas).
+sie   ---> @pers_pronoun(nom_or_acc,third,sg,fem).
+ihrer ---> @pers_pronoun(gen,       third,sg,fem).
+ihr   ---> @pers_pronoun(dat,       third,sg,fem).
 
-ihn ---> @pers_pronoun(acc,third,sg,mas).
+es    ---> @pers_pronoun(nom_or_acc,third,sg,neu).
 
 
-sie ---> @pers_pronoun(nom_or_acc,third,sg,fem).
-
-ihr ---> @pers_pronoun(dat,third,sg,fem).
-
-meine ---> @possessive(nom_or_acc,first, sg,genus,     sg,fem).
-
-deine ---> @possessive(nom_or_acc,second,sg,genus,     sg,fem).
-
+meine  ---> @possessive(nom_or_acc,first, sg,genus,     sg,fem).
+deine  ---> @possessive(nom_or_acc,second,sg,genus,     sg,fem).
 seine  ---> @possessive(nom_or_acc,third, sg,mas_or_neu,sg,fem).
 seiner ---> @possessive(gen_or_dat,third, sg,mas_or_neu,sg,fem).
 
@@ -88,9 +86,9 @@ den    ---> @rel_pronoun(acc,third,sg,mas).
 
 das    ---> @rel_pronoun(nom_or_acc,third,sg,neu).
 
-
 dessen ---> @possessive_rel_pronoun(sg,mas_or_neu).
 deren  ---> @possessive_rel_pronoun(sg,fem).
+
 
 
 bellt   ---> @intrans_verb(bellen).
@@ -147,20 +145,28 @@ morgen ---> @temp_adv(morgen).
 
 daß ---> @complementizer(daß_cform).
 
+
+
 empty
    (trace,
-    loc:(Loc,
-         cat:head:(verb,
-                   initial:minus,
-                   dsl:Loc)),
-    nonloc:slash:[],
-    trace:vm).
+    synsem:(loc:(Loc,
+                 cat:head:(verb,
+                           initial:minus,
+                           dsl:Loc)),
+            nonloc:slash:[],
+            trace:vm
+            )).
 
 empty 
    (trace,
-    loc:Loc,
-    nonloc:slash:[Loc],
-    trace:extraction).
+    synsem:(loc:Loc,
+            nonloc:slash:[Loc],
+            trace:extraction)).
+
+
+
+
+
 
 
 

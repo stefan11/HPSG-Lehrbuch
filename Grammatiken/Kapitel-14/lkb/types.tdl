@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;   $RCSfile: types.tdl,v $
 ;;  $Revision: 1.2 $
-;;      $Date: 2007/03/05 11:26:28 $
+;;      $Date: 2007/03/05 11:26:29 $
 ;;     Author: Stefan Mueller, Universität Bremen
 ;;    Purpose: 
 ;;   Language: TDL
@@ -27,7 +27,6 @@ synsem := none_or_synsem & [
   v2     bool,
   trace  minus_or_extraction_or_vm,
   lex    bool,
-  phrase bool,
   max_   bool  ].
 
 
@@ -74,19 +73,23 @@ phrase := intro_complex_sign & [
 headed_phrase := phrase & [
   head_dtr sign ].
 
+head_non_cluster_phrase   :< headed_phrase.
+head_non_specifier_phrase :< headed_phrase.
+head_non_filler_phrase    :< headed_phrase.
 head_non_adjunct_phrase   :< headed_phrase.
 head_non_argument_phrase  :< headed_phrase.
-head_non_filler_phrase    :< headed_phrase.
-head_non_specifier_phrase :< headed_phrase.
 
-head_adjunct_phrase   := head_non_argument_phrase & head_non_filler_phrase   & head_non_specifier_phrase.
-head_argument_phrase  := head_non_adjunct_phrase  & head_non_filler_phrase   & head_non_specifier_phrase.
-head_filler_phrase    := head_non_adjunct_phrase  & head_non_argument_phrase & head_non_specifier_phrase.
-head_specifier_phrase := head_non_adjunct_phrase  & head_non_filler_phrase   & head_non_argument_phrase.
+head_non_argument_non_cluster_phrase :< head_non_cluster_phrase.
+
+
+head_argument_phrase  := head_non_specifier_phrase & head_non_cluster_phrase & head_non_filler_phrase   & head_non_adjunct_phrase.
+head_cluster_phrase   := head_non_specifier_phrase & head_non_filler_phrase  & head_non_adjunct_phrase  & head_non_adjunct_phrase.
+head_adjunct_phrase   := head_non_specifier_phrase & head_non_filler_phrase  & head_non_argument_non_cluster_phrase.
+head_filler_phrase    := head_non_specifier_phrase & head_non_adjunct_phrase & head_non_argument_non_cluster_phrase & head_non_adjunct_phrase.
+head_specifier_phrase := head_non_adjunct_phrase & head_non_argument_non_cluster_phrase & head_non_filler_phrase & head_non_adjunct_phrase.
+
 
 non_headed_phrase :< phrase.
-
-coord_phrase :< non_headed_phrase.
 
 rc := non_headed_phrase & isect_n_modifier.
 
@@ -98,10 +101,9 @@ complex_word :=
   intro_complex_sign &
   word.
 
-;verb_initial_lr := complex_word & complementizer_like_word.
-
-verb_initial_rule := non_headed_phrase & complementizer_like_sign.
-
+verb_movement_lr := complex_word & optionally_coherent_word.
+verb_initial_lr  := verb_movement_lr & complementizer_like_word.
+mvf_lr           :< verb_movement_lr.
 
 ; Wörter, die im Lexikon aufgelistet sind.
 simple_word :< word.
@@ -109,8 +111,7 @@ simple_word :< word.
 non_slashed_word :< simple_word.
 overt_word       :< non_slashed_word.
 
-non_rel_sign :< sign.
-non_rel_word := non_rel_sign & simple_word.
+non_rel_word :< simple_word.
 
 non_overt_word :< non_rel_word.
 
@@ -122,16 +123,14 @@ e_trace :< trace.
 v_trace := trace & non_slashed_word.
 
 sc_saturated_word  :< word.
-spr_saturated_sign :< sign.          ; V1-LR (complex) und Komplementierer (simple)
-
-spr_saturated_word := spr_saturated_sign & word.
+spr_saturated_word :< word.          ; V1-LR (complex) und Komplementierer (simple)
 
 saturated_word   := spr_saturated_word & sc_saturated_word.
 
 
-complementizer_like_sign := spr_saturated_sign & non_rel_sign.
+complementizer_like_word := spr_saturated_word & non_rel_word.
 
-complementizer_word := complementizer_like_sign & overt_word.
+complementizer_word := complementizer_like_word & overt_word.
 
 determiner_word :< saturated_word.
 
@@ -163,17 +162,28 @@ simple_noun  := noun_word & sc_saturated_word & non_rel_word.
 
 verb_word    := spr_saturated_word & overt_word & non_rel_word.
 
-subjlos_verb :< verb_word.
-intrans_verb :< verb_word.
+
+optionally_coherent_word :< spr_saturated_word.
+
+argument_raising_verb := optionally_coherent_word & verb_word.
+
+modal_verb :< argument_raising_verb.
+non_flip_argument_raising_verb := non_flip_verb_word & argument_raising_verb.
+
+non_flip_verb_word :< verb_word.
+
+subjlos_verb :< non_flip_verb_word.
+intrans_verb :< non_flip_verb_word.
 
 strict_intrans_verb :< intrans_verb.
 np_np_verb          :< intrans_verb.
 np_pp_verb          :< intrans_verb.
 
-trans_verb :< verb_word.
+trans_verb :< non_flip_verb_word.
 
 strict_trans_verb :< trans_verb.
 ditrans_verb      :< trans_verb.
+
 
 preposition_word := spr_saturated_word & overt_word & non_rel_word.
 comp_preposition :< preposition_word.
@@ -285,7 +295,8 @@ noun := intro_case_head & non_modifier_head & non_spec_head & [
 
 
 verb := non_modifier_head & non_spec_head &
- [ vform vform ].
+ [ vform vform,
+   flip  bool ].
 
 
 attr_adj := intro_case_head & pre_modifier_head.
@@ -295,11 +306,6 @@ adv  := pre_modifier_head & [
 
 comp := non_dsl_head & non_modifier_head & non_spec_head & [
   cform cform ].
-
-
-coord := non_dsl_head & non_modifier_head & [
-  initial plus ].
-
 
 relativizer :< post_modifier_head.
 
@@ -318,6 +324,15 @@ an_pform  :< pform.
 
 vform  :< bot.
 fin    :< vform.
+non_fin :< vform.
+
+; irreguläre Form von `sein'
+bse_or_inf :< non_fin.
+bse := bse_or_inf & bse_or_ppp.
+inf :< bse_or_inf.
+       
+bse_or_ppp :< non_fin.
+ppp :< bse_or_ppp.
 
 
 nucleus :< bot.
@@ -357,16 +372,21 @@ arg23_rel  := arg2_rel  & arg3_rel.
 arg123_rel := arg12_rel & arg13_rel.
 
 
-beamter :< arg1_rel.
-buch    :< arg1_rel.
-frau    :< arg1_rel.
-kind    :< arg1_rel.
-lügner  :< arg1_rel.
-mädchen :< arg1_rel.
-mann    :< arg1_rel.
-mörder  :< arg1_rel.
+aufsatz      :< arg1_rel.
+beamter      :< arg1_rel.
+buch         :< arg1_rel.
+frau         :< arg1_rel.
+geschichte   :< arg1_rel.
+kind         :< arg1_rel.
+lied         :< arg1_rel.
+lügner       :< arg1_rel.
+mädchen      :< arg1_rel.
+mann         :< arg1_rel.
+märchen      :< arg1_rel.
+mörder       :< arg1_rel.
 speisekammer :< arg1_rel.
-wurst   :< arg1_rel.
+tochter      :< arg1_rel.
+wurst        :< arg1_rel.
 
 groß        :< arg1_rel.
 interessant :< arg1_rel.
@@ -385,7 +405,10 @@ morgen :< arg1_rel.
 helfen    :< arg12_rel.
 jagen     :< arg12_rel.
 kennen    :< arg12_rel.
+lesen     :< arg12_rel.
 lieben    :< arg12_rel.
+singen    :< arg12_rel.
+
 denken_an :< arg12_rel.
 
 treu      :< arg12_rel.
@@ -394,7 +417,8 @@ in        :< arg12_rel.
 
 und       :< arg12_rel.
 
-geben :<  arg123_rel.
+erzählen :< arg123_rel.
+geben    :< arg123_rel.
 
 grauen :< arg2_rel.
 
@@ -410,6 +434,18 @@ interrogative := assertion_or_interrogative  & imperative_or_interrogative.
 imperative    := imperative_or_interrogative & assertion_or_imperative.
 
 assertion  := assertion_or_imperative & assertion_or_interrogative.
+
+
+modal_rel :< arg3_rel.
+
+dürfen :< modal_rel.
+können :< modal_rel.
+müssen :< modal_rel.
+sollen :< modal_rel.
+wollen :< modal_rel.
+
+futur   :< arg3_rel.
+perfect :< arg3_rel.
 
 
 psoa_rel := relation & [

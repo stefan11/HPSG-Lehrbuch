@@ -1,7 +1,7 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: lexrules.pl,v $
-%%  $Revision: 1.14 $
+%%  $Revision: 1.10 $
 %%      $Date: 2007/03/05 11:26:28 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre

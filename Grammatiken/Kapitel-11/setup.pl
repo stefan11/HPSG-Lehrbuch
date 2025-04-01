@@ -1,11 +1,10 @@
-
 % feature hiding and ordering
 hidden_feat(dtrs).      % hide the dtrs attribute (shown by tree)
 
 % Die sind in den Bäumen enthalten, deshalb werden sie hier ausgeblendet.
 hidden_feat(non_head_dtrs).
 hidden_feat(head_dtr).
-hidden_feat(max_).
+
 
 % Binäres Merkmal, das aus Effizenzgründen verwendet wird.
 % Sieht nicht gut aus in Demos ... =;-)
@@ -16,16 +15,15 @@ hidden_feat(phrase).    % V1 ist eine unäre Projektion, keine Lexikonregel
 
 
 >>> phon.        % phon shall be shown first
-phon     <<< loc.
-loc      <<< nonloc.
-nonloc   <<< head_dtr.
-head_dtr <<< non_head_dtrs.
-%non_head_dtrs <<< dtrs.
-
-nonloc <<< dtrs.
+phon <<< synsem.
+synsem <<< qstore.
+qstore <<< head_dtr.
 
 head <<< subcat.
 
+loc <<< nonloc.
+nonloc <<< lex.
+%<<<(lex, max_).
 
 % use ghostview for drawing signatures
 % für Linux

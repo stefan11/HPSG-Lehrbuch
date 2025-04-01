@@ -1,8 +1,8 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: syntax.pl,v $
-%%  $Revision: 1.12 $
-%%      $Date: 2006/08/14 18:30:26 $
+%%  $Revision: 1.13 $
+%%      $Date: 2006/08/14 18:59:35 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
@@ -15,6 +15,8 @@
 :- discontiguous ':='/2.
 :- multifile '*>'/2.
 :- discontiguous '*>'/2.
+:- multifile if/2.
+:- discontiguous if/2.
 
 
 
@@ -28,8 +30,8 @@ headed_phrase *>
 %% Valenzprinzip
 
 head_argument_phrase *>
-   (synsem:loc:cat:subcat:append(Subcat1,Subcat2),                       % = Subcat1 + Subcat2
-    head_dtr:synsem:loc:cat:subcat:append(Subcat1,[NonHeadDtr|Subcat2]), % = Subcat1 + [NonHeadDtr] + Subcat2
+   (synsem:loc:cat:subcat:del(NonHeadDtr,Subcat),
+    head_dtr:synsem:loc:cat:subcat:Subcat,
     non_head_dtrs:[synsem:NonHeadDtr]).
 
 head_non_argument_phrase *>
@@ -49,13 +51,13 @@ head_adjunct_phrase *>
 
 
 
+
 %% Kopf-Adjunkt-Strukturen
 
 
 head_adjunct_phrase *>
    (head_dtr:synsem:HeadSynsem,
     non_head_dtrs:[synsem:loc:cat:(head:mod:HeadSynsem,
-                                   spr:[],
                                    subcat:[])]).
 
 
@@ -106,13 +108,14 @@ verb_initial_rule *>
  head_dtr:(word,
            phon:ne_list)) *> (head_dtr:synsem:loc:cat:head:dsl:none).
 
+
 headed_phrase *> synsem:phrase:plus.
 
 
 head_filler_phrase *>
    (synsem:nonloc:slash:[],
        head_dtr:synsem:(loc:cat:(head:(verb,
-                                       initial:plus),
+                                      initial:plus),
                                  subcat:[]),
                         nonloc:slash:[Slash]),
        non_head_dtrs:[synsem:(loc:Slash,
@@ -138,7 +141,6 @@ headed_phrase *>
 (headed_phrase,
  non_head_dtrs:[synsem:trace:extraction]) *>
       (head_dtr:synsem:loc:cat:head:mod:none).
-
 
 
 % Das entspricht auch der Analyse von Frey 2004 und Fanselow 2003. Die gehen davon
@@ -184,7 +186,6 @@ headed_phrase *>
       head_dtr:synsem:nonloc:rel:Rel1,
       non_head_dtrs:[synsem:nonloc:rel:Rel2]).
 
-
 % Relativsätze
 rc *>
  (%isect_n_modifier,
@@ -213,6 +214,32 @@ rc *>
                          trace:minus)]).
 
 
+
+
+
+% Kasusprinzip
+
+(word,
+ synsem:loc:cat:(head:verb,
+                 subcat:hd:loc:cat:head:case:case_type:str)) *> (synsem:loc:cat:subcat:hd:loc:cat:head:case:morph_case:nom).
+
+
+Rest^(word,
+ synsem:loc:cat:(head:verb,
+                 subcat:tl:Rest)) *> (bot) goal (assign_accusative(Rest)).
+
+
+assign_accusative(List) if
+       when(
+            List=(e_list;ne_list)
+           , undelayed_assign_accusative(List)
+           ).
+
+undelayed_assign_accusative([]) if true.
+undelayed_assign_accusative([(@np_str,
+                              loc:cat:head:case:morph_case:acc)|Rest])  if assign_accusative(Rest).
+undelayed_assign_accusative([@np_lex|Rest])                             if assign_accusative(Rest).
+undelayed_assign_accusative([@no_noun|Rest])                            if assign_accusative(Rest).
 
 
 

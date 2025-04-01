@@ -15,7 +15,7 @@
 
 
 % für [incr TSDB()]
-grammar_version('Lehrbuchgrammatik Kapitel 12').
+grammar_version('Lehrbuchgrammatik Kapitel 13').
 
 :- [setup].
 
@@ -62,31 +62,18 @@ signature(signature).
 % load a sequence that is executed after the grammar is loaded
 :- ['../Gemeinsames/common.pl'].
 
+%phenomenon('Kapitel 13: Kongruenz').
 
-examples(['  Der Mann, der lacht, liebt die Frau.',
-          '  die Speisekammer, in der er lacht',
-          '* der Mann, lacht der, liebt die Frau.',
-          '* die Speisekammer, er in der lacht']).
+examples(['  der kluge  Mann',
+          '  des klugen Mannes',
+          '  dem klugen Mann',
+          '  den klugen Mann',
+          '  die klugen Männer',
+          '  der klugen Männer',
+          '  den klugen Männern',
+          '  Die klugen Männer schlafen.',
+          '  Kluge Männer schlafen.',
+          '* Die kluge Männer schlafen.',
+          '* Klugen Männer schlafen.']).
 
 
-
-
-
-% nur für die Entwicklung von Trale.
-make :- ensure_loaded([trale_home(grammar_interface),
-                       trale_home('tsdb/itsdb'),
-                       trale_home('chart_display/chart_display'),
-                       trale_home('chart_display/sic'),
-                       trale_home('chart_display/ale_redefinitions'),
-                       trale_home('chart_display/print_mrs'),
-                  trale_home('tsdb/retract_lex_desc')    % retraction of stems
-                  ,trale_home('tsdb/itsdb-err')              % capi-registration write-filed ...
-                 ,trale_home('tsdb/trale-itsdb')
-                      ,trale_home('debug_unify'),
-                       trale_home('toplevel')
-                 ]),
-         chart_display,
-         nofs,
-         german,
-         notcl_warnings,
-         hrp.

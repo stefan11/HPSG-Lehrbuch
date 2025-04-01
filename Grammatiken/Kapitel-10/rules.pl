@@ -61,7 +61,7 @@ cat> HeadDtr.
 spr_h rule (head_specifier_phrase,
              dtrs:[NonHeadDtr,HeadDtr],
              head_dtr:(HeadDtr,
-                       loc:cat:head:noun         % speed + Regelberechnung
+                       loc:cat:head:noun        % speed + Regelberechnung
                       ),
              non_head_dtrs:[(NonHeadDtr,
                              loc:cat:head:det,   % speed + Regelberechnung
@@ -87,3 +87,13 @@ v1 rule (verb_initial_rule,
           non_head_dtrs:[NonHeadDtr])
   ===>
 sem_head>      NonHeadDtr.
+
+
+rc rule (rc,
+       dtrs:[Filler,Clause],
+       non_head_dtrs:[Filler,Clause])
+  ===>
+cat> Filler,
+cat> Clause.
+
+

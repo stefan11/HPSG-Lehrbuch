@@ -1,7 +1,7 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: lexrules.pl,v $
-%%  $Revision: 1.10 $
+%%  $Revision: 1.11 $
 %%      $Date: 2007/03/05 11:26:28 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
@@ -20,18 +20,18 @@
 
 verb_initial_lr *>
 ( %word
-  loc:cat:(head:(verb,
-                 vform:fin),
-           subcat:[loc:cat:head:dsl:Loc]),
-  nonloc:Nonloc,
-  trace:Trace,
-  dtrs:[( word,
-          loc:(Loc,
-               cat:head:(verb,
-                         vform:fin,
-                         initial:minus)),
+  synsem:(loc:cat:(head:(verb,
+                         vform:fin),
+                   subcat:[loc:cat:head:dsl:Loc]),
           nonloc:Nonloc,
-          trace:Trace)]).
+          trace:Trace),
+  dtrs:[( word,
+          synsem:(loc:(Loc,
+                       cat:head:(verb,
+                                 vform:fin,
+                                 initial:minus)),
+                  nonloc:Nonloc,
+                  trace:Trace))]).
 
 
 % Sätze mit Verb in Erststellung können Imperativsätze oder auch Interrogativsätze sein.
@@ -47,16 +47,16 @@ verb_initial_lr *>
 
 
 (verb_initial_lr,
- loc:cat:subcat:[nonloc:slash:[]])      *> loc:cont:nucleus:imperative_or_interrogative.
+ synsem:loc:cat:subcat:[nonloc:slash:[]])      *> synsem:loc:cont:nucleus:imperative_or_interrogative.
 
 % Hier spielt das Element in SLASH eine entscheidende Rolle.
 % Ist es eine Interrogativphrase, muß ein entsprechender Operator angenommen
 % werden. Da die vorliegende Grammatik keine Interrogativpronomina enthält,
 % wird die Fallunterscheidung nicht gemacht.
 (verb_initial_lr,
- loc:cat:subcat:[nonloc:slash:ne_list]) *> loc:cont:nucleus:assertion_or_imperative.
+ synsem:loc:cat:subcat:[nonloc:slash:ne_list]) *> synsem:loc:cont:nucleus:assertion_or_imperative.
 
-verb_initial_lr lex_rule
+verb_initial_lr ##
   Dtr
 **>
 ( verb_initial_lr,

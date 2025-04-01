@@ -1,7 +1,7 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: le_macros.pl,v $
-%%  $Revision: 1.20 $
+%%  $Revision: 1.16 $
 %%      $Date: 2007/03/05 11:26:28 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
@@ -16,11 +16,15 @@
 :- discontiguous '*>'/2.
 
 
-overt_word *>
+non_slashed_word *>
  (%simple_word,
+  synsem:nonloc:slash:[]).
+
+
+overt_word *>
+ (%non_slashed_word,
   phon:ne_list,
-  synsem:(nonloc:slash:[],
-          trace:minus)).
+  synsem:trace:minus).
 
 non_rel_sign *>
  (%sign,
@@ -49,12 +53,21 @@ determiner_word *>
  (%saturated_word Diese Information steht in der signatur
   synsem:loc:cat:head:det).
 
-determiner(Case,Numerus,Genus) :=
+determiner(Numerus,DType) :=
+ (synsem:loc:cat:head:(num:Numerus,
+                       dtype:DType)).
+
+determiner(Case,Numerus,Genus,DType) :=
 (%determiner_word,
+ @determiner(Numerus,DType),
  synsem:loc:cat:head:(case:Case,
-                      num:Numerus,
                       gen:Genus)).
 
+
+% leerer Determinator und overte Determinatoren
+det(Numerus,DType,Quant) :=
+ (@determiner(Numerus,DType),
+  synsem:loc:cont:nucleus:Quant).
 
 determiner *> 
  (%determiner_word
@@ -63,10 +76,15 @@ determiner *>
                              restind:Cont),
                     qstore:[Quant]))).
 
-det(Case,Numerus,Genus,Quant) :=
-(@determiner(Case,Numerus,Genus),
+% Determinatoren mit Genus
+det(Case,Numerus,Genus,DType,Quant) :=
+(@determiner(Case,Numerus,Genus,DType),
  overt_determiner,
- synsem:loc:cont:nucleus:Quant).
+ @det(Numerus,DType,Quant)).
+
+% Determinatoren ohne Genus
+det(Case,Numerus,DType,Quant) :=
+  @det(Case,Numerus,genus,DType,Quant).
 
 possessive *>
  (%determiner_word
@@ -80,8 +98,8 @@ possessive *>
                                               arg2:Ind,
                                               arg3:NInd)|NRestr]))]))).
 
-possessive(Case,Person,Numerus,Genus,NNumerus,NGenus) :=
- (@determiner(Case,NNumerus,NGenus),
+possessive(Case,Person,Numerus,Genus,NNumerus,NGenus,DType) :=
+ (@determiner(Case,NNumerus,NGenus,DType),
   simple_possessive,
   synsem:loc:cont:nucleus:ind:(per:Person,
                                num:Numerus,
@@ -103,6 +121,12 @@ np(Ind) :=
 np(Case,Ind) :=
   (@np(Ind),
    loc:cat:head:case:Case).
+
+np_(Per,Num) :=
+ (@np,
+  loc:cont:nucleus:ind:(per:Per,
+                        num:Num)).
+
 
 nbar(Ind) :=
   loc:(cat:(head:noun,
@@ -147,12 +171,29 @@ simple_noun *>
                              restr:[arg1:Ind]),
                     qstore:QStore))).
 
-noun(Case,Genus,Numerus,Relation) :=
+
+
+
+% Bei Mädchen, Weib usw. sind SynGenus und SemGenus
+% verschieden.
+noun(Case,SynGenus,SemGenus,Numerus,Relation) :=
  (simple_noun,
-  synsem:loc:(cat:head:case:Case,
+  synsem:loc:(cat:(head:case:Case,
+                   spr:[loc:cat:head:gen:SynGenus]),
               cont:nucleus:(ind:(num:Numerus,
-                                 gen:Genus),
+                                 gen:SemGenus),
                             restr:[Relation]))).
+
+% Normalerweise sind die Genus-Werte aber gleich.
+% Haus
+noun(Case,Genus,Numerus,Relation) :=
+ (@noun(Case,Genus,Genus,Numerus,Relation)).
+
+
+% Beamter, Verwandter
+adj_noun(Case,Genus,Numerus,DType,Relation) :=
+ (@noun(Case,Genus,Genus,Numerus,Relation),
+  synsem:loc:cat:spr:[loc:cat:head:dtype:DType]).
 
 
 pronoun *>
@@ -174,6 +215,9 @@ pers_pronoun(Case,Person,Numerus,Genus) :=
  (pers_pronoun,
   @pronoun(Case,Person,Numerus,Genus)).
 
+% ich, du haben kein spezifiziertes Genus
+pers_pronoun(Case,Person,Numerus) :=
+  (@pers_pronoun(Case,Person,Numerus,genus)).
 
 % der, die, das
 rel_pronoun(Case,Person,Numerus,Genus) :=
@@ -189,8 +233,7 @@ possessive_rel_pronoun(Numerus,Genus) :=
 verb_word *>
  (%spr_saturated_sc_incomplete_word
   synsem:loc:(cat:(head:(verb,
-                         initial:minus,
-                         vform:fin),
+                         initial:minus),
                    subcat:Subcat),
               cont:qstore:collectQStores(Subcat))).
 
@@ -204,8 +247,13 @@ intrans_verb *>
 strict_intrans_verb *>
   synsem:loc:cat:subcat:[_].
 
-intrans_verb(Relation) :=
+verb(Per,Num) :=
+ (synsem:loc:cat:(head:vform:fin,
+                  subcat:hd: @np_(Per,Num))).
+
+intrans_verb(Per,Num,Relation) :=
  (strict_intrans_verb,
+  @verb(Per,Num),
   synsem:loc:cont:nucleus:Relation).
 
 
@@ -216,11 +264,24 @@ np_pp_verb *>
               cont:nucleus:arg2:Ind2)).
 
 
-np_pp_verb(PForm,Case,Relation) :=
+np_pp_verb(Per,Num,PForm,Case,Relation) :=
  (np_pp_verb,
+  @verb(Per,Num),
   synsem:loc:(cat:subcat:tl:hd: @pp(PForm,Case),
               cont:nucleus:Relation)).
 
+% helfen
+np_np_verb *>
+ (%intrans_verb,
+  synsem:loc:(cat:subcat:tl: [ @np(Ind2) ],
+              cont:nucleus:arg2:Ind2)).
+
+% helfen
+np_np_verb(Per,Num,Case,Relation) :=
+ (np_np_verb,
+  @verb(Per,Num),
+  synsem:loc:(cat:subcat:tl: [ @np(Case,_Ind2) ],
+              cont:nucleus:Relation)).
 
 % grauen
 subjlos_verb *>
@@ -246,8 +307,9 @@ strict_trans_verb *>
  (%trans_verb,
   synsem:loc:cat:subcat:[ _, _ ]).
 
-trans_verb(Relation) :=
+trans_verb(Per,Num,Relation) :=
  (strict_trans_verb,
+  @verb(Per,Num),
   synsem:loc:cont:nucleus:Relation).
 
 
@@ -257,8 +319,9 @@ ditrans_verb *>
   synsem:loc:(cat:subcat:[ _, _, @np(dat,Ind3) ],
               cont:nucleus:arg3:Ind3)).
 
-ditrans_verb(Relation) :=
+ditrans_verb(Per,Num,Relation) :=
  (ditrans_verb,
+  @verb(Per,Num),
   synsem:loc:cont:nucleus:Relation).
 
 
@@ -302,6 +365,13 @@ attr_adjective_word *>
  (%n_modifier_word,
   synsem:loc:cat:head:attr_adj).
 
+general_attr_adj(Case,Genus,Num,DType) :=
+ (synsem:loc:cat:head:mod:loc:cat:spr:[loc:cat:head:(case:Case,
+                                                     gen:Genus,
+                                                     num:Num,
+                                                     dtype:DType)]).
+
+
 % klug
 simple_attr_adj *>
  (%intersective_adj
@@ -309,8 +379,16 @@ simple_attr_adj *>
               cont:nucleus:(ind:Ind,
                             restr:hd:arg1:Ind))).
 
-attr_adj(Relation) :=
+attr_adj(Case,Genus,Num,DType,Relation) :=
  (simple_attr_adj,
+  @general_attr_adj(Case,Genus,Num,DType),
+  synsem:loc:cont:nucleus:restr:hd:Relation).
+
+
+% für Pluralformen
+attr_adj(Case,Num,DType,Relation) :=
+ (simple_attr_adj,
+  @general_attr_adj(Case,genus,Num,DType),
   synsem:loc:cont:nucleus:restr:hd:Relation).
 
 % treu
@@ -321,18 +399,32 @@ attr_np_adj *>
                             restr:hd:(arg1:Ind,
                                       arg2:Ind2)))).
  
-attr_adj_np(Relation,Case) :=
+attr_adj_np(Case,Genus,Num,DType,Relation,GCase) :=
  (attr_np_adj,
-  synsem:loc:(cat:subcat:[@np(Case,_Ind2)],
+  @general_attr_adj(Case,Genus,Num,DType),
+  synsem:loc:(cat:subcat:[@np(GCase,_Ind2)],
               cont:nucleus:restr:hd:Relation)).
+
+attr_adj_np(Case,Num,DType,Relation,GCase) :=
+ (attr_np_adj,
+  @general_attr_adj(Case,genus,Num,DType),
+  synsem:loc:(cat:subcat:[@np(GCase,_Ind2)],
+              cont:nucleus:restr:hd:Relation)).
+
 
 % mutmaßlich
 scopal_adj *>
  synsem:loc:(cat:head:mod:loc:cont:nucleus:restr:Restr,
              cont:nucleus:restr:[psoa_arg:Restr]).
 
-scopal_attr_adj(Relation) :=
+scopal_attr_adj(Case,Genus,Num,DType,Relation) :=
  (scopal_adj,
+  @general_attr_adj(Case,Genus,Num,DType),
+  synsem:loc:cont:nucleus:restr:[Relation]).
+
+scopal_attr_adj(Case,Num,DType,Relation) :=
+ (scopal_adj,
+  @general_attr_adj(Case,genus,Num,DType),
   synsem:loc:cont:nucleus:restr:[Relation]).
 
 mod_preposition *>

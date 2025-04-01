@@ -13,17 +13,13 @@ hidden_feat(phrase).    % V1 ist eine unäre Projektion, keine Lexikonregel
                         % Koordinationen von Wörtern dürfen Töchter sein, echte Phrasen nicht.
                         % Da das Merkmal im Buch nicht eingeführt wurde, wird es nciht angezeigt.
 
-
+hidden_feat(max_).
 
 >>> phon.        % phon shall be shown first
-phon   <<< synsem.
-synsem <<< head_dtr.
+phon <<< loc.
+loc <<< head_dtr.
 
 head <<< subcat.
-
-loc <<< nonloc.
-nonloc <<< lex.
-%<<<(lex, max_).
 
 % use ghostview for drawing signatures
 % für Linux
@@ -32,9 +28,9 @@ nonloc <<< lex.
 graphviz_option(svg,'batik-squiggle').
 
 
-% Load phonology and tree output
 
-:- [trale_home(tree_extensions)].
+% Load phonology
+:- [phonology].
 
 :- trale_milca_version('2.7.12') -> true; ['../Gemeinsames/new-trale.pl'].
 

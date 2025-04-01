@@ -1,7 +1,7 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: constraints.pl,v $
-%%  $Revision: 1.7 $
+%%  $Revision: 1.5 $
 %%      $Date: 2006/02/26 18:08:11 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
@@ -79,6 +79,5 @@ list_with_zero_or_one_element(X) if
       
 undelayed_list_with_zero_or_one_element([]) if true.
 undelayed_list_with_zero_or_one_element([_]) if true.
-
 
 

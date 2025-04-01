@@ -1,7 +1,7 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: speed.pl,v $
-%%  $Revision: 1.11 $
+%%  $Revision: 1.9 $
 %%      $Date: 2007/06/23 14:36:58 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Linguistisch nicht signifikante Hacks
@@ -37,14 +37,13 @@ head_filler_phrase *>
 
 
 
-
-
 % Phrasen sind natürlich nie Spuren.
 phrase *> trace:minus.
 
 
 (head_adjunct_phrase,
  non_head_dtrs:[trace:extraction]) *> head_dtr:lex:plus. % to avoid spurious ambiguities
+
 
 
 
@@ -57,7 +56,7 @@ argument_sign :=
                  
                  mod:none,      % keine Adjunkte: Adjektive ^ Adverbien
                  spec:none      % keine Determinierer
-                 ),
+                ),
            spr:[],
            subcat:[])).
 
@@ -74,6 +73,7 @@ argument_sign :=
 
 */
 
+
 % Hey, Negation!
 
 %% Type negation - delay until type T and then die.
@@ -86,12 +86,10 @@ fun not_type(+,-).
 
 
 
-
 % Folgendes schließt finite Verben als Argumente (der Verbspur) aus, da
 % sie in diesem Fragment nicht vorkommen.
 (head_argument_phrase,
  loc:cat:head:initial:minus) *> non_head_dtrs:[loc:cat:head: @not(verb)].
-
 
 
 
@@ -160,6 +158,22 @@ head_non_adjunct_phrase *> (lex:minus).
  head_dtr:head_argument_phrase) *> (head_dtr:non_head_dtrs:[trace:minus]).
 
 
+
+% Relativsätze
+
+% Information über Relativpronomina kann nur aus der vorangestellten Relativphrase kommen.
+% Die Relativphrase kann aber nur aus dem Relativpronomen selbst oder aus einer PP bestehen.
+
+head_adjunct_phrase *>
+  (non_head_dtrs:[nonloc:rel:[]]).
+
+% Das stimmt nicht für zu-Infinitive wie in
+% das Buch, das zu lesen ich ihm empfohlen habe
+% Deshalb wird diese Beschränkung später revidiert.
+(headed_phrase,
+ loc:cat:head:verb) *> (nonloc:rel:[]).
+
+% Für die Anzeige der Regeln
 head_argument_phrase *> (head_dtr:HD,
                             non_head_dtrs:[NHD],
                             ( head_dtr:loc:cat:head:initial:plus,
@@ -167,3 +181,7 @@ head_argument_phrase *> (head_dtr:HD,
                             ; head_dtr:loc:cat:head:initial:minus,
                               dtrs:[NHD,HD]
                             )).
+
+
+
+

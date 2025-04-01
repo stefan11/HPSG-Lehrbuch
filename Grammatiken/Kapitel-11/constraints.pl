@@ -9,6 +9,8 @@
 %      System: TRALE 2.7.5 (release ) under Sicstus 3.10.1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
 :- multifile if/2.
 :- discontiguous if/2.
 
@@ -49,6 +51,7 @@ undelayed_del(El,[El|L],L) if true.
 undelayed_del(El,[H|T1],[H|T2]) if del(El,T1,T2).
 
 
+
 % Beschränkung, die alle QStore-Elemente sammelt.
 fun collectQStores(+,-).
 %collectQStores(Subcat,Stores)
@@ -76,5 +79,6 @@ list_with_zero_or_one_element(X) if
       
 undelayed_list_with_zero_or_one_element([]) if true.
 undelayed_list_with_zero_or_one_element([_]) if true.
+
 
 

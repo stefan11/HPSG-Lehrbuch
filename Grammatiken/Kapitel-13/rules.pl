@@ -1,7 +1,7 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: rules.pl,v $
-%%  $Revision: 1.3 $
+%%  $Revision: 1.2 $
 %%      $Date: 2006/02/26 18:08:11 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
@@ -71,8 +71,6 @@ spr_h rule (head_specifier_phrase,
   ===>
 cat> NonHeadDtr,
 cat> HeadDtr.
-
-
 
 
 f_h rule (head_filler_phrase,

@@ -1,7 +1,7 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: constraints.pl,v $
-%%  $Revision: 1.8 $
+%%  $Revision: 1.7 $
 %%      $Date: 2006/02/26 18:08:11 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
@@ -64,7 +64,6 @@ undelayed_collectQStores([loc:cont:qstore:QStore1],QStore1) if true.
 undelayed_collectQStores([loc:cont:qstore:QStore1,loc:cont:qstore:QStore2],append(QStore1,QStore2)) if true.
 undelayed_collectQStores([loc:cont:qstore:QStore1,loc:cont:qstore:QStore2,loc:cont:qstore:QStore3],
                          append(QStore1,append(QStore2,QStore3))) if true.
-
 
 
 

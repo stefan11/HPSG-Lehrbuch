@@ -1,7 +1,7 @@
 % -*-  coding:utf-8; mode:trale-prolog   -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: theory.pl,v $
-%%  $Revision: 1.7 $
+%%  $Revision: 1.8 $
 %%      $Date: 2007/03/05 11:26:28 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
@@ -13,9 +13,8 @@
     format(user_error,"~n~n**ERROR: Please start trale with the option `-u' to enable unicode support, which is needed for this grammar.~n~n~n",[]),
     abort).
 
-
 % für [incr TSDB()]
-grammar_version('Lehrbuchgrammatik Kapitel 13').
+grammar_version('Lehrbuchgrammatik Kapitel 14').
 
 :- [setup].
 
@@ -64,16 +63,9 @@ signature(signature).
 
 %phenomenon('Kapitel 13: Kongruenz').
 
-examples(['  der kluge  Mann',
-          '  des klugen Mannes',
-          '  dem klugen Mann',
-          '  den klugen Mann',
-          '  die klugen Männer',
-          '  der klugen Männer',
-          '  den klugen Männern',
-          '  Die klugen Männer schlafen.',
-          '  Kluge Männer schlafen.',
-          '* Die kluge Männer schlafen.',
-          '* Klugen Männer schlafen.']).
+examples(['  Die Frau liebt den Mann.',
+          '  Die Frau liebt der Mann.',
+          '  Die Frau liebt das Kind.',
+          '* Den Mann liebt den Mann.']).
 
 

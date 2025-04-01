@@ -37,9 +37,9 @@ head_filler_phrase *>
 
 
 
+
 % Phrasen sind natürlich nie Spuren.
 phrase *> synsem:trace:minus.
-
 
 (head_adjunct_phrase,
  non_head_dtrs:[synsem:trace:extraction]) *> head_dtr:synsem:lex:plus. % to avoid spurious ambiguities
@@ -55,7 +55,7 @@ argument_sign :=
                  
                         mod:none,      % keine Adjunkte: Adjektive ^ Adverbien
                         spec:none      % keine Determinierer
-                       ),
+                        ),
                   spr:[],
                   subcat:[])).
 
@@ -74,22 +74,11 @@ argument_sign :=
 
 
 
-% Hey, Negation!
-
-%% Type negation - delay until type T and then die.
-not(Type) macro not_type(a_ Type).
-fun not_type(+,-).
-( not_type((a_ Type),FS) if
-      when(FS=Type,
-           prolog(fail)) ) :-
-        type(Type).
-
-
-
 % Folgendes schließt finite Verben als Argumente (der Verbspur) aus, da
 % sie in diesem Fragment nicht vorkommen.
 (head_argument_phrase,
  synsem:loc:cat:head:initial:minus) *> non_head_dtrs:[synsem:loc:cat:head: @not(verb)].
+
 
 
 

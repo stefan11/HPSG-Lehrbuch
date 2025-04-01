@@ -1,8 +1,8 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: syntax.pl,v $
-%%  $Revision: 1.16 $
-%%      $Date: 2007/03/05 11:26:28 $
+%%  $Revision: 1.12 $
+%%      $Date: 2006/08/14 18:30:26 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
@@ -26,6 +26,7 @@ headed_phrase *>
 
 
 %% Valenzprinzip
+
 head_argument_phrase *>
    (synsem:loc:cat:subcat:append(Subcat1,Subcat2),                       % = Subcat1 + Subcat2
     head_dtr:synsem:loc:cat:subcat:append(Subcat1,[NonHeadDtr|Subcat2]), % = Subcat1 + [NonHeadDtr] + Subcat2
@@ -99,13 +100,11 @@ verb_initial_rule *>
                                 % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
                          phrase:minus)]).
 
-
 % * Er schläft schläft.
 %
 (headed_phrase,
  head_dtr:(word,
-           phon:ne_list)) *> head_dtr:synsem:loc:cat:head:dsl:none.
-
+           phon:ne_list)) *> (head_dtr:synsem:loc:cat:head:dsl:none).
 
 headed_phrase *> synsem:phrase:plus.
 
@@ -132,13 +131,14 @@ head_non_filler_phrase *>
 %% dar (siehe Müller, 1999)
 %% "Helfen wird er ihm morgen."
 headed_phrase *>
-   head_dtr:synsem:trace:minus_or_vm.
+   (head_dtr:synsem:trace:minus_or_vm).
 
 
 % Adjunkte sind Extraktionsinseln
 (headed_phrase,
  non_head_dtrs:[synsem:trace:extraction]) *>
-      head_dtr:synsem:loc:cat:head:mod:none.
+      (head_dtr:synsem:loc:cat:head:mod:none).
+
 
 
 % Das entspricht auch der Analyse von Frey 2004 und Fanselow 2003. Die gehen davon
@@ -178,13 +178,11 @@ headed_phrase *>
 head_argument_phrase *> head_dtr:synsem:max_:minus.
 
 
-
 headed_phrase *>
   (synsem:nonloc:rel:(list_with_zero_or_one_element,
                       append(Rel1,Rel2)),
       head_dtr:synsem:nonloc:rel:Rel1,
       non_head_dtrs:[synsem:nonloc:rel:Rel2]).
-
 
 
 % Relativsätze
@@ -213,6 +211,8 @@ rc *>
                                 % Der finite Satz selbst darf nicht extrahiert werden.
                                 % Das könnte man auch durch loc:Loc, Loc =/= Slash erzwingen.
                          trace:minus)]).
+
+
 
 
 

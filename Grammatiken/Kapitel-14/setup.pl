@@ -1,3 +1,4 @@
+
 % feature hiding and ordering
 hidden_feat(dtrs).      % hide the dtrs attribute (shown by tree)
 
@@ -5,13 +6,14 @@ hidden_feat(dtrs).      % hide the dtrs attribute (shown by tree)
 hidden_feat(non_head_dtrs).
 hidden_feat(head_dtr).
 
-
 % Binäres Merkmal, das aus Effizenzgründen verwendet wird.
 % Sieht nicht gut aus in Demos ... =;-)
 hidden_feat(trace).
 hidden_feat(phrase).    % V1 ist eine unäre Projektion, keine Lexikonregel
                         % Koordinationen von Wörtern dürfen Töchter sein, echte Phrasen nicht.
                         % Da das Merkmal im Buch nicht eingeführt wurde, wird es nciht angezeigt.
+
+
 
 >>> phon.        % phon shall be shown first
 phon   <<< synsem.
@@ -29,9 +31,10 @@ nonloc <<< lex.
 % für Mac
 graphviz_option(svg,'batik-squiggle').
 
+
 % Load phonology and tree output
 
-:- [phonology].
+:- [trale_home(tree_extensions)].
 
 :- trale_milca_version('2.7.12') -> true; ['../Gemeinsames/new-trale.pl'].
 
@@ -44,6 +47,6 @@ graphviz_option(svg,'batik-squiggle').
 
 :- notcl_warnings.  % on = output of warnings in a TCL window, off = output to console
 
-%:- hrp.  % use grisu for rules
+:- hrp.  % use grisu for rules
 
 %:- nofs. % do not print feature structures after parsing

@@ -1,7 +1,7 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: le_macros.pl,v $
-%%  $Revision: 1.16 $
+%%  $Revision: 1.18 $
 %%      $Date: 2007/03/05 11:26:28 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
@@ -26,8 +26,9 @@ overt_word *>
   phon:ne_list,
   synsem:trace:minus).
 
+
 non_rel_sign *>
- (%sign,
+ (%simple_word,
   synsem:nonloc:rel:[]).
 
 non_overt_word *>
@@ -35,7 +36,24 @@ non_overt_word *>
    phon:[]).
 
 trace *>
+  % non_overt_word
   synsem:trace:extraction_or_vm.
+
+e_trace *>
+ (%trace,
+  synsem:(loc:Loc,
+          nonloc:slash:[Loc],
+          trace:extraction)).
+
+v_trace *>
+ (%trace,
+  %non_slashed_word
+  synsem:(loc:(Loc,
+               cat:head:(verb,
+                         initial:minus,
+                         dsl:Loc)),
+          trace:vm)).
+
 
 rel_pronoun *>
  (%overt_word,
@@ -49,6 +67,7 @@ spr_saturated_word *>
   synsem:loc:cat:spr:[].
 
 
+
 determiner_word *>
  (%saturated_word Diese Information steht in der signatur
   synsem:loc:cat:head:det).
@@ -60,7 +79,7 @@ determiner(Numerus,DType) :=
 determiner(Case,Numerus,Genus,DType) :=
 (%determiner_word,
  @determiner(Numerus,DType),
- synsem:loc:cat:head:(case:Case,
+ synsem:loc:cat:head:(case:morph_case:Case,
                       gen:Genus)).
 
 
@@ -114,19 +133,40 @@ np :=
             spr:[],
             subcat:[])).
 
+% Eine NP mit strukturellem Kasus
+np_str :=
+  (@np,
+   loc:cat:head:case:case_type:str).
+
+np_lex :=
+  (@np,
+   loc:cat:head:case:case_type:lex).
+
+
+np_str(Ind) :=
+  (@np_str,
+   loc:cont:nucleus:ind:Ind).
+
+lex(Case) :=
+ (case_type:lex,
+  morph_case:Case).
+
 np(Ind) :=
   (@np,
    loc:cont:nucleus:ind:Ind).
 
 np(Case,Ind) :=
   (@np(Ind),
-   loc:cat:head:case:Case).
+   loc:cat:head:case: @lex(Case)).
+
 
 np_(Per,Num) :=
  (@np,
   loc:cont:nucleus:ind:(per:Per,
                         num:Num)).
 
+no_noun :=
+  (loc:cat:head: @not(noun)).
 
 nbar(Ind) :=
   loc:(cat:(head:noun,
@@ -144,7 +184,7 @@ pp(Ind) :=
 pp(PForm,Case) :=
   loc:(cat:(head:(prep,
                   pform:PForm,
-                  case:Case),
+                  case:morph_case:Case),
             subcat:[])).
 
 
@@ -178,7 +218,7 @@ simple_noun *>
 % verschieden.
 noun(Case,SynGenus,SemGenus,Numerus,Relation) :=
  (simple_noun,
-  synsem:loc:(cat:(head:case:Case,
+  synsem:loc:(cat:(head:case:morph_case:Case,
                    spr:[loc:cat:head:gen:SynGenus]),
               cont:nucleus:(ind:(num:Numerus,
                                  gen:SemGenus),
@@ -206,7 +246,7 @@ nominal_pronoun *>
   synsem:loc:cont:qstore:[]).
 
 pronoun(Case,Person,Numerus,Genus) :=
- (synsem:loc:(cat:head:case:Case,
+ (synsem:loc:(cat:head:case:morph_case:Case,
               cont:nucleus:ind:(per:Person,
                                 num:Numerus,
                                 gen:Genus))).
@@ -240,7 +280,7 @@ verb_word *>
 
 intrans_verb *>
  (%verb_word,
-  synsem:loc:(cat:subcat:hd: @np(nom,Ind),
+  synsem:loc:(cat:subcat:hd: @np_str(Ind),
               cont:nucleus:arg1:Ind)).
 
 % schlafen
@@ -298,7 +338,7 @@ subjlos_verb(Case,Relation) :=
 % lieben, geben
 trans_verb *>
  (%verb,
-  synsem:loc:(cat:subcat:[ @np(nom,Ind1), @np(acc,Ind2) |_ ],
+  synsem:loc:(cat:subcat:[ @np_str(Ind1), @np_str(Ind2) |_ ],
               cont:nucleus:(arg1:Ind1,
                             arg2:Ind2))).
 
@@ -366,7 +406,7 @@ attr_adjective_word *>
   synsem:loc:cat:head:attr_adj).
 
 general_attr_adj(Case,Genus,Num,DType) :=
- (synsem:loc:cat:head:mod:loc:cat:spr:[loc:cat:head:(case:Case,
+ (synsem:loc:cat:head:mod:loc:cat:spr:[loc:cat:head:(case:morph_case:Case,
                                                      gen:Genus,
                                                      num:Num,
                                                      dtype:DType)]).

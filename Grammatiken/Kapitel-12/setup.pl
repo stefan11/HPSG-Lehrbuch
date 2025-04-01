@@ -1,3 +1,4 @@
+
 % feature hiding and ordering
 hidden_feat(dtrs).      % hide the dtrs attribute (shown by tree)
 
@@ -15,9 +16,8 @@ hidden_feat(phrase).    % V1 ist eine unäre Projektion, keine Lexikonregel
 
 
 >>> phon.        % phon shall be shown first
-phon <<< synsem.
-synsem <<< qstore.
-qstore <<< head_dtr.
+phon   <<< synsem.
+synsem <<< head_dtr.
 
 head <<< subcat.
 

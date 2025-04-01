@@ -1,7 +1,7 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: speed.pl,v $
-%%  $Revision: 1.8 $
+%%  $Revision: 1.12 $
 %%      $Date: 2007/06/23 14:36:58 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Linguistisch nicht signifikante Hacks
@@ -41,23 +41,26 @@ head_filler_phrase *>
 % Phrasen sind natürlich nie Spuren.
 phrase *> synsem:trace:minus.
 
+
 (head_adjunct_phrase,
  non_head_dtrs:[synsem:trace:extraction]) *> head_dtr:synsem:lex:plus. % to avoid spurious ambiguities
 
 
 
 % Bedingung, die in rules.pl für kopffinale Regel verwendet wird.
-argument_sign :=
- (synsem:loc:cat:(head:(% Linguistisch ist es nicht notwendig, aber TRALE rechnet
-                        % die leeren Elemente aus und hängt sich dabei auf, wenn
-                        % man nicht Spuren per Hand ausschließt.
-                        dsl:none,
-                 
-                        mod:none,      % keine Adjunkte: Adjektive ^ Adverbien
-                        spec:none      % keine Determinierer
-                        ),
-                  spr:[],
-                  subcat:[])).
+argument_synsem :=
+ (loc:cat:(head:(% Linguistisch ist es nicht notwendig, aber TRALE rechnet
+                 % die leeren Elemente aus und hängt sich dabei auf, wenn
+                 % man nicht Spuren per Hand ausschließt.
+                 dsl:none,
+
+                 mod:none,      % keine Adjunkte: Adjektive ^ Adverbien
+                 spec:none % keine Determinierer
+                ),
+           spr:[],
+           subcat:[])).
+
+
 
 % Das könnte man auch wie folgt als Implikation definieren:
 %
@@ -72,12 +75,26 @@ argument_sign :=
 
 */
 
+/*
+% inkohärente Konstruktion mit zu-Infinitiv
+% Einbettung finiter Verben (Sätze) ist natürlich auch möglich,
+% kommt aber in diesem Fragment nicht vor.
 
+(head_argument_phrase,
+ non_head_dtrs:[synsem:loc:cat:head:verb]) *> (non_head_dtrs:[synsem:loc:cat:head:vform:(fin;inf)]).
 
-% Folgendes schließt finite Verben als Argumente (der Verbspur) aus, da
+% Ansonsten könnte z.B. [ _ sieht] als Argument der Verbspur auftreten.
+(head_argument_phrase,
+ synsem:loc:cat:head:initial:minus,
+ non_head_dtrs:[synsem:loc:cat:head:(verb,
+                                     vform:fin)]) *> (non_head_dtrs:[synsem:loc:cat:head:initial:plus]).
+*/
+
+% Folgendes schließt finite Verben als Argumente (der Verbspur) ganz aus, da
 % sie in diesem Fragment nicht vorkommen.
 (head_argument_phrase,
- synsem:loc:cat:head:initial:minus) *> non_head_dtrs:[synsem:loc:cat:head: @not(verb)].
+ synsem:loc:cat:head:initial:minus,
+ non_head_dtrs:[synsem:loc:cat:head:verb]) *> (non_head_dtrs:[synsem:loc:cat:head:vform:inf]).
 
 
 
@@ -132,10 +149,7 @@ head_adjunct_phrase *>
 (head_adjunct_phrase,
  non_head_dtrs:[synsem:trace:extraction]) *> (head_dtr:synsem:lex:plus).
 
-% Das wird später im Zusammenhang mit dem Verbalkomplex benötigt.
-% Jetzt ist es aus Effizienzgründen schon in der Grammatik.
-% Siehe speed.pl.
-head_non_adjunct_phrase *> (synsem:lex:minus).
+
 
 % Achtung: Oft gibt er nicht dem Mann das Buch.
 
@@ -164,6 +178,42 @@ head_adjunct_phrase *>
 (headed_phrase,
  synsem:loc:cat:head:verb) *> (synsem:nonloc:rel:[]).
 
+
+% Für Sätze wie "Lachen muß er." braucht man am Satzende
+% eine Kombination der Verbspur mit einer Extraktionsspur.
+% Die Sucat-Liste der entstehenden Projektion ist unbestimmt,
+% so daß dieser Komplex dann mit allem Material, das es
+% im Satz gibt, kombiniert werden kann.
+% Erst wenn der Füller gefunden wird, stellt sich heraus,
+% daß diese Kombinationen sinnlos waren.
+% Wir sind schlauer und sagen schon jetzt Bescheid:
+
+
+fun list_of_argument_synsems(-).
+list_of_argument_synsems(L) if
+   when( (L=(e_list;ne_list)),
+         undelayed_list_of_argument_synsems(L) ).
+
+undelayed_list_of_argument_synsems([]) if true.
+undelayed_list_of_argument_synsems([(@argument_synsem)|T]) if
+   list_of_argument_synsems(T).
+
+head_cluster_phrase *> (synsem:loc:cat:subcat:(list_of_argument_synsems,
+                                               list_of_non_complex_forming_synsems)). % Extraktionsspur + Verbspur -> danach weitere Cluster
+
+
+% er ihm müssen mit verbleibendem Verb-Komplement auf der Valenzliste
+(head_argument_phrase,
+ synsem:loc:cat:head:initial:minus) *> (synsem:loc:cat:subcat:list_of_non_complex_forming_synsems).
+
+% Ansonsten würde `er lachen' als Verbalkomplexbestandteil mit einer
+% Verbspur kombinierbar sein.
+(head_cluster_phrase,
+ synsem:loc:cat:head:initial:minus) *> (non_head_dtrs:[synsem:lex:plus]).
+
+
+
+/*
 % Für die Anzeige der Regeln
 head_argument_phrase *> (head_dtr:HD,
                             non_head_dtrs:[NHD],
@@ -173,6 +223,60 @@ head_argument_phrase *> (head_dtr:HD,
                               dtrs:[NHD,HD]
                             )).
 
+*/
 
+
+% Der folgende Satz ist der einzige Satztyp, für den man eine geflippte Verbspur braucht.
+% Das Lied wird er [ _ [haben singen wollen]].
+%
+% * Das Lied wird er [ _ singen wollen].
+%   Das Lied wird er [ singen wollen _].
+
+% Verhindert unechte Mehrdeutigkeiten und:
+
+% er wird lachen dürfen wollen.
+% ==> 18 min 37.340 sec CPU time.        2 solutions; 1033 passive edges; residues: 0,0
+%
+% ==>  8 min 45.000 sec CPU time.        1 solutions; 583 passive edges; residues: 0
+
+(head_cluster_phrase,
+ synsem:loc:cat:head:dsl:local,
+ non_head_dtrs:[synsem:loc:cat:head:flip:plus]) *> (non_head_dtrs:[phon:hd: (a_ haben)]).
+
+
+% Terminierung: Der Regelberechnung.
+% Die Nicht-Kopftochter in Kopf-Cluster-Strukturen kann nur einen
+% gefüllten DSL-Wert haben, wenn die Verbspur auch extrahiert wird.
+(head_cluster_phrase,
+ non_head_dtrs:[ synsem:loc:cat:head:dsl:local]) *> non_head_dtrs:[synsem:trace:extraction].
+
+
+% Das schließt das finite Verb als cluster daughter aus.
+% Diese Implikation schließt auch Partikel und Adjektive aus, ist also zu stark.
+% Die Einschränkung auf gefüllte PHON läßt Verbspuren für die mehrfache Vorfeldbesetzung zu.
+(head_cluster_phrase
+% ,phon:ne_list  % funktioniert nicht. TRALE-Bug??
+, non_head_dtrs:[synsem:loc:cat:head:dsl:none] 
+)         *> (non_head_dtrs:[synsem:loc:cat:head:vform:non_fin]).
+
+
+% Das oben funktioniert nicht ohne folgende Implikation, da der DSL-Wert finiter
+% Verben nicht im Lexikon festgelegt wird, sondern erst über Implikationen in der
+% Syntax. Siehe syntax.pl zum Fall mit Spur als Kopftochter.
+
+(headed_phrase,
+ non_head_dtrs:hd:(%word,           % should be sufficient, seems to be a TRALE bug.
+                   (simple_word;
+                       complex_word),
+                   phon:ne_list)) *> (non_head_dtrs:hd:synsem:loc:cat:head:dsl:none).
+
+
+head_initial := (head_dtr:HD,
+                    non_head_dtrs:[NHD],
+                    dtrs:[HD,NHD]).
+
+head_final := (head_dtr:HD,
+                  non_head_dtrs:[NHD],
+                  dtrs:[NHD,HD]).
 
 
