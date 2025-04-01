@@ -239,6 +239,25 @@ pers_pronoun(Case,Person,Numerus,Genus) :=
                  num:Numerus,
                  gen:Genus))).
 
+proper_noun *>
+ (%noun_word,
+  %saturated_word
+  loc:cont:ind:Ind,
+  rels:[(proper_q,
+         arg0:Ind,
+         rstr:Restr),(named_rel,
+                      lbl:NamedRel,
+                      arg0:Ind)],
+  hcons:[(qeq,
+          harg:Restr,
+          larg:NamedRel)]).
+
+
+proper_noun(Genus,Name) :=
+ (proper_noun,
+  loc:cont:ind:gen:Genus,
+  rels:tl:hd:name:(a_ Name)).
+
 verb_word *>
  (%word,
   %arg0_ltop_lbl_le

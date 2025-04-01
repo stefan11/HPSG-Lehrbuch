@@ -97,7 +97,15 @@ mitarbeiter ---> @noun(nom_or_dat_or_acc,mas,sg,mitarbeiter_rel).
 
 mitarbeiters ---> @noun(gen,mas,sg,mitarbeiter_rel).
 
+roman ---> @noun(nom_or_dat_or_acc,mas,sg,roman_rel).
+
+romans ---> @noun(gen,mas,sg,roman_rel).
+
 speisekammer ---> @noun(case,fem,sg,speisekammer_rel).
+
+stock   ---> @noun(nom_or_dat_or_acc,mas,sg,stock_rel).
+
+stockes ---> @noun(gen,mas,sg,stock_rel).
 
 tochter ---> @relational_noun(case,fem,sg,tochter_rel).
 
@@ -108,8 +116,6 @@ tofus ---> @noun(gen,mas,sg,tofu_rel).
 wurst ---> @noun(case,fem,sg,wurst_rel).
 
 
-
-
 er  ---> @pers_pronoun(nom,third,sg,mas).
 
 ihm ---> @pers_pronoun(dat,third,sg,mas).
@@ -117,6 +123,8 @@ ihm ---> @pers_pronoun(dat,third,sg,mas).
 ihn ---> @pers_pronoun(acc,third,sg,mas).
 
 sie ---> @pers_pronoun(nom_or_acc,third,sg,fem).
+
+aicke ---> @proper_noun(fem_or_mas,'Aicke').
 
 
 bellt   ---> @intrans_verb(bellen_rel).

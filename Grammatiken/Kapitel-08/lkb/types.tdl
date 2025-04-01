@@ -108,6 +108,9 @@ noun_word := word.
 
 pers_pronoun := saturated_word   & noun_word.
 
+proper_noun  := saturated_word   & noun_word.
+
+
 ; noun with a determiner
 det_noun_word := noun_word & non_scopal_le & relational_arg0_word.
 
@@ -288,11 +291,17 @@ kind_rel         := arg0_relation.
 mann_rel         := arg0_relation.
 mitarbeiter_rel  := arg0_relation.
 mörder_rel       := arg0_relation.
+roman_rel        := arg0_relation.
 speisekammer_rel := arg0_relation.
+stock_rel        := arg0_relation.
 tofu_rel         := arg0_relation.
 wurst_rel        := arg0_relation.
 
 pronoun_rel      := arg0_relation.
+
+named_rel := arg0_relation & [
+  name string ].
+
 
 morgen_rel := arg1_relation.
 oft_rel    := arg1_relation.
@@ -305,6 +314,7 @@ def_q     := quant_rel.
 every_q   := quant_rel.
 exists_q  := quant_rel.
 pronoun_q := quant_rel.
+proper_q  := quant_rel.
 
 arg1_relation := relation & [
   arg1 event_or_index ].
@@ -363,6 +373,7 @@ grauen_rel := arg02_relation.
 poss_rel := arg012_relation.
 
 tochter_rel := arg02_relation.
+
 
 conjunction_rel := arg0_relation & [
   lhandle handle,

@@ -13,31 +13,33 @@ t(10,"die Tochter Mannes",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmals
 t(11,"der kleine Affe",@root,1,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Spezifikator-Strukturen, Kopf-Adjunkt-Strukturen').
 t(12,"der Tofu in der Speisekammer",@root,1,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Spezifikator-Strukturen, Kopf-Adjunkt-Strukturen').
 t(13,"der Tofu in",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Spezifikator-Strukturen, Kopf-Adjunkt-Strukturen').
-t(14,"der Tofu der Speisekammer in",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Spezifikator-Strukturen, Kopf-Adjunkt-Strukturen').
-t(15,"jede Tochter eines Mitarbeiters schläft",@root,1,'Kapitel 5: Semantik, Skopus').
-t(16,"der mutmaßliche Affe",@root,1,'Kapitel 5: Semantik, Skopus').
-t(17,"sein Affe schläft",@root,1,'Kapitel 5: Semantik, Skopus').
-t(18,"der angeblich kleine Affe schläft",@root,1,'Kapitel 5: Semanitk, Skopus').
-t(19,"der Affe wahrscheinlich schläft",@root,1,'Kapitel 5: Semanitk, Skopus').
-t(20,"jeder Affe, dass ein Einhorn schläft, glaubt.",@root,1,'Kapitel 5: Semanitk, Skopus').
-t(21,"dass der Mann der Frau das Buch gibt",@root,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(22,"dass der Mann das Buch der Frau gibt",@root,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(23,"Schläft er?",@interrog,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(24,"Lacht der Mann oft?",@interrog,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(25,"Lacht der Mann oft nicht?",@interrog,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(26,"Lacht der Mann nicht oft?",@interrog,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(27,"Kennt der Mann die Frau?",@interrog,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(28,"Kennt die Frau der Mann?",@interrog,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(29,"Er schläft schläft.",@decl,0,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(30,"Ihn kennt und schläft er",@root,0,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(31,"Kennt und liebt der Mann die Frau?",@interrog,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(32,"Kennt und liebt die Frau den Mann?",@interrog,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(33,"dass der Mann der Frau das Buch morgen gibt",@root,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(34,"dass der Mann der Frau morgen das Buch gibt",@root,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(35,"dass der Mann morgen der Frau das Buch gibt",@root,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(36,"dass morgen der Mann der Frau das Buch gibt",@root,1,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(37,"Mann der",@root,0,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(38,"der Speisekammer in",@root,0,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(39,"der Mann kluge",@root,0,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(40,"die in der Speisekammer Wurst",@root,0,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(41,"dass er das Buch gibt ihm",@root,0,'Kapitel 9: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(14,"jede Tochter eines Mitarbeiters schläft",@root,1,'Kapitel 5: Semantik, Skopus').
+t(15,"der mutmaßliche Affe",@root,1,'Kapitel 5: Semantik, Skopus').
+t(16,"sein Affe schläft",@root,1,'Kapitel 5: Semantik, Skopus').
+t(17,"der angeblich kleine Affe schläft",@root,1,'Kapitel 5: Semanitk, Skopus').
+t(18,"der Affe wahrscheinlich schläft",@root,1,'Kapitel 5: Semanitk, Skopus').
+t(19,"jeder Affe, dass ein Einhorn schläft, glaubt.",@root,1,'Kapitel 5: Semanitk, Skopus').
+t(20,"Aicke schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
+t(21,"Er schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
+t(22,"der Tofu der Speisekammer in",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(23,"dass das Kind dem Affen den Stock gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(24,"dass das Kind den Stock dem Affen gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(25,"Schläft er?",@interrog,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(26,"Lacht das Kind oft?",@interrog,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(27,"Lacht das Kind oft nicht?",@interrog,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(28,"Lacht das Kind nicht oft?",@interrog,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(29,"Kennt ein Kind den Roman?",@interrog,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(30,"Kennt den Roman ein Kind?",@interrog,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(31,"Aicke schläft schläft.",@decl,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(32,"Den Roman kennt und schläft er",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(33,"Kennt und liebt das Kind den Roman?",@interrog,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(34,"Kennt und liebt den Roman das Kind?",@interrog,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(35,"dass das Kind dem Affen den Stock morgen gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(36,"dass das Kind dem Affen morgen den Stock gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(37,"dass das Kind morgen dem Affen den Stock gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(38,"dass morgen das Kind dem Affen den Stock gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(39,"Mann der",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(40,"der Speisekammer in",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(41,"das Kind kluge",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(42,"die in der Speisekammer Wurst",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(43,"dass Aicke den Stock gibt ihm",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
