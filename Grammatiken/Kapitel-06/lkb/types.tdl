@@ -92,6 +92,8 @@ noun_word := word.
 
 pers_pronoun := saturated_word   & noun_word.
 
+proper_noun := saturated_word   & noun_word.
+
 ; noun with a determiner
 det_noun_word := noun_word & non_scopal_le & relational_arg0_word.
 
@@ -250,6 +252,8 @@ wurst_rel        := arg0_relation.
 
 pronoun_rel      := arg0_relation.
 
+named_rel := arg0_relation & [
+  name string ].
 
 quant_rel := arg0_relation & [
   rstr handle,
@@ -259,6 +263,7 @@ def_q     := quant_rel.
 every_q   := quant_rel.
 exists_q  := quant_rel.
 pronoun_q := quant_rel.
+proper_q  := quant_rel.
 
 arg1_relation := relation & [
   arg1 event_or_index ].

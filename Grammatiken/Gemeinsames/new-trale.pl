@@ -40,3 +40,11 @@
 
 % Do not ask any questions!
 :-ale_flag(another,_,0).
+
+% this shows a warning if a unification in macro expansion did not succeed
+% may be useful for debugging
+% :- ale_flag(adderrs,_,on).
+
+
+% this shows the input of lexical rules as daughters
+:- ale_flag(lrtrees,_,on).

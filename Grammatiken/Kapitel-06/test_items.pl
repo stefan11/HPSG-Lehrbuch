@@ -19,3 +19,5 @@ t(16,"sein Affe schläft.",@root,1,'Kapitel 5: Semantik, Skopus').
 t(17,"Der angeblich kleine Affe schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
 t(18,"der Affe wahrscheinlich schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
 t(19,"Jeder Affe glaubt, dass ein Einhorn schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
+t(20,"Aicke schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
+t(21,"Er schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').

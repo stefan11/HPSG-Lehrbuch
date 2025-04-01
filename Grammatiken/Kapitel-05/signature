@@ -87,8 +87,10 @@ bot
         every_q
         exists_q
         pronoun_q
+        proper_q
       &arg01_relation
       &arg02_relation
+      named_rel name:(a_ _)
     arg1_relation arg1:event_or_index
       klein_rel
       schwierig_rel

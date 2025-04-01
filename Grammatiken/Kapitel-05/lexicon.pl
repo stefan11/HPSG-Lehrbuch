@@ -730,6 +730,25 @@ ihm ---> (word,
                 harg:Restr,
                 larg:PronounRel)])).
 
+aicke ---> (word,
+  cat:(head:(noun,
+             case:nom),
+       arg_st:[]),
+  cont:(ind:(Ind,
+             per:third,
+             num:sg,
+             gen:mas),
+        rels:[(proper_q,
+               arg0:Ind,
+               rstr:Restr),(named_rel,
+                            lbl:NamedRel,
+                            arg0:Ind,
+                            name:(a_ 'Aicke'))],
+        hcons:[(qeq,
+                harg:Restr,
+                larg:NamedRel)])).
+
+
 schläft ---> (word,
   cat:(head:(verb,
              vform:fin),

@@ -116,6 +116,8 @@ ihn ---> @pers_pronoun(acc,third,sg,mas).
 
 sie ---> @pers_pronoun(nom_or_acc,third,sg,fem).
 
+aicke ---> @proper_noun(fem_or_mas,'Aicke').
+
 
 bellt   ---> @intrans_verb(bellen_rel).
 
