@@ -50,7 +50,7 @@ collect_rels(X,Y) if
        , undelayed_collect_rels(X,Y)
        ).
 
-/*
+
 
 % Leere Liste, also keine Relationen
 undelayed_collect_rels([],[]) if true.
@@ -62,12 +62,12 @@ undelayed_collect_rels([],[]) if true.
 undelayed_collect_rels([rels:Rels1|Dtrs],Rels) if collect_rels(Dtrs,Rels2),
                                                   append(Rels1,Rels2,Rels).
 
-*/
+
 
 
 % Es gibt nur zwei Fälle: eine oder zwei Töchter
-undelayed_collect_rels([rels:Rels],Rels) if true.
-undelayed_collect_rels([rels:Rels1,rels:Rels2],Rels) if append(Rels1,Rels2,Rels).
+%undelayed_collect_rels([rels:Rels],Rels) if true.
+%undelayed_collect_rels([rels:Rels1,rels:Rels2],Rels) if append(Rels1,Rels2,Rels).
 
 
 
@@ -81,14 +81,14 @@ collect_hcons(X,Y) if
        , undelayed_collect_hcons(X,Y)
        ).
 
-/*
+
 undelayed_collect_hcons([],[]) if true.
 undelayed_collect_hcons([hcons:Hcons1|Dtrs],Hcons) if collect_hcons(Dtrs,Hcons2),
                                                                append(Hcons1,Hcons2,Hcons).
-*/
+
 
 
 
 % Es gibt nur zwei Fälle: eine oder zwei Töchter
-undelayed_collect_hcons([hcons:Hcons],Hcons) if true.
-undelayed_collect_hcons([hcons:Hcons1,hcons:Hcons2],Hcons) if append(Hcons1,Hcons2,Hcons).
+%undelayed_collect_hcons([hcons:Hcons],Hcons) if true.
+%undelayed_collect_hcons([hcons:Hcons1,hcons:Hcons2],Hcons) if append(Hcons1,Hcons2,Hcons).
