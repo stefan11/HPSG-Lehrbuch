@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<equivalences style="Core-B-Gram">   
+<!-- Version 2006-09-10 -->
+	<equivalencegroup>
+		<!-- implicit_q_rel -->
+		<quantifier label="def_q"  hole="1"/>
+		<quantifier label="def_q"  hole="1"/>
+		<quantifier label="udef_q" hole="1"/>
+
+
+		<!-- demonstrative_q_rel -->
+		<quantifier label="demonstrative_q" hole="1"/>
+		<quantifier label="demonstrative_q" hole="1"/>
+
+		<!-- some_q_rel -->
+		<quantifier label="some_q" hole="0" />
+		<quantifier label="some_q" hole="1" />
+		<quantifier label="one_q" hole="0" />
+		<quantifier label="one_q" hole="1" />
+	</equivalencegroup>
+
+
+	<equivalencegroup>
+	        <quantifier label="every_q" hole="1" />
+		<quantifier label="each_q"  hole="1" />
+	</equivalencegroup>
+
+	
+	<permutesWithEverything label="proper_q"  hole="1" />
+	<permutesWithEverything label="pronoun_q" hole="1" />
+</equivalences>
