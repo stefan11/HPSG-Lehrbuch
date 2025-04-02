@@ -15,7 +15,7 @@ t(12,"der Tofu in der Speisekammer",@root,1,'Kapitel 4: Valenz, Kopfmerkmale, Ko
 t(13,"der Tofu in",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Spezifikator-Strukturen, Kopf-Adjunkt-Strukturen').
 t(14,"Jede Tochter eines Mitarbeiters schläft.",@root,1,'Kapitel 5: Semantik, Skopus').
 t(15,"der mutmaßliche Affe",@root,1,'Kapitel 5: Semantik, Skopus').
-t(16,"sein Affe schläft.",@root,1,'Kapitel 5: Semantik, Skopus').
+t(16,"Sein Affe schläft.",@root,1,'Kapitel 5: Semantik, Skopus').
 t(17,"Der angeblich kleine Affe schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
 t(18,"der Affe wahrscheinlich schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
 t(19,"Jeder Affe glaubt, dass ein Einhorn schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').

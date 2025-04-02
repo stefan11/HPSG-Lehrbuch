@@ -19,8 +19,8 @@ t(16,"sein Affe schläft",@root,1,'Kapitel 5: Semantik, Skopus').
 t(17,"der angeblich kleine Affe schläft",@root,1,'Kapitel 5: Semanitk, Skopus').
 t(18,"der Affe wahrscheinlich schläft",@root,1,'Kapitel 5: Semanitk, Skopus').
 t(19,"jeder Affe, dass ein Einhorn schläft, glaubt.",@root,1,'Kapitel 5: Semanitk, Skopus').
-t(20,"Aicke schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
-t(21,"Er schläft.",@decl,1,'Kapitel 5: Semanitk, Skopus').
+t(20,"Aicke schläft",@root,1,'Kapitel 5: Semanitk, Skopus').
+t(21,"er schläft",@root,1,'Kapitel 5: Semanitk, Skopus').
 t(22,"der Tofu der Speisekammer in",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
 t(23,"dass das Kind dem Affen den Stock gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
 t(24,"dass das Kind den Stock dem Affen gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').

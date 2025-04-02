@@ -81,12 +81,10 @@ bot
       mitarbeiter_rel
       speisekammer_rel
       tofu_rel
-      pronoun_rel
       quant_rel rstr:handle body:handle
         def_q
         every_q
         exists_q
-        pronoun_q
         proper_q
       &arg01_relation
       &arg02_relation

@@ -23,10 +23,9 @@ spr_saturated_sign *>
 saturated_word *>
  loc:cat:arg_st:[].
 
-% Für Artikelwörter und das Possessivpronomen.
-% Die RELS- und HCONS-Liste ist offen, so dass
-% entweder nur die Information über einen Quantor darin
-% enthalten sein kann oder aber noch weitere Relationen und HANDLE-Constraints.
+% Für Artikelwörter und das Possessivpronomen.  Die RELS-Liste ist offen, so dass entweder nur die
+% Information über einen Quantor darin enthalten sein kann oder aber noch weitere Relationen. Damit
+% wird Beschreibung von Determinatoren und Possessivpronomen möglich.
 determiner_word *>
  (%saturated_word Diese Information steht in der signatur
   loc:cat:head:(det,
@@ -35,9 +34,9 @@ determiner_word *>
   rels:hd:(% eine Relation eines Quantors z.B. exists_q
            arg0:Ind,
            rstr:Restr),
-  hcons:hd:(qeq,
-            harg:Restr,
-            larg:NLTop)).
+  hcons:[(qeq,
+          harg:Restr,
+          larg:NLTop)]).
 
 
 determiner(Case,Numerus,Genus) :=
@@ -50,8 +49,7 @@ determiner(Case,Numerus,Genus) :=
 % Ließe sich mit rels:tl:e_liste effizienter aufschreiben. Aber weniger lesbar.
 determiner *> 
  (%determiner_word
-  rels:[_],
-  hcons:[_]).
+  rels:[_]).
 
 det(Case,Numerus,Genus,Quant) :=
 (@determiner(Case,Numerus,Genus),
@@ -70,17 +68,7 @@ possessive *>
             lbl:NLTop,
             arg0:event,
             arg1:Ind,
-            arg2:Ind2),
-        (pronoun_q,
-            arg0:Ind,
-            rstr:PRestr),
-        (pronoun_rel,
-            lbl:LTop,
-            arg0:Ind)],
-  hcons:[_,                     % Das erste HCONS kommt vom Obertyp.
-         (qeq,
-             harg:PRestr,
-             larg:LTop)]).
+            arg2:Ind2)]).
 
 possessive(Case,NNumerus,NGenus,Person,Numerus,Genus) :=
  (@determiner(Case,NNumerus,NGenus),
@@ -218,19 +206,12 @@ relational_noun(Case,Genus,Numerus,Relation) :=
   rels:[Relation]).
 
 
-
+/*
 pers_pronoun *>
  (%noun_word,
   %saturated_word
-  loc:cont:ind:Ind,
-  rels:[(pronoun_q,
-         arg0:Ind,
-         rstr:Restr),(pronoun_rel,
-                      lbl:PronounRel,
-                      arg0:Ind)],
-  hcons:[(qeq,
-          harg:Restr,
-          larg:PronounRel)]).
+  loc:cont:ind:ref).
+*/
 
 pers_pronoun(Case,Person,Numerus,Genus) :=
  (pers_pronoun,

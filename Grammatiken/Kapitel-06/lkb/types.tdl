@@ -90,7 +90,7 @@ possessive := determiner_word.
 
 noun_word := word.
 
-pers_pronoun := saturated_word   & noun_word.
+pers_pronoun := saturated_word   & noun_word & non_scopal_non_relational_le.
 
 proper_noun := saturated_word   & noun_word.
 
@@ -250,7 +250,6 @@ speisekammer_rel := arg0_relation.
 tofu_rel         := arg0_relation.
 wurst_rel        := arg0_relation.
 
-pronoun_rel      := arg0_relation.
 
 named_rel := arg0_relation & [
   name string ].
@@ -262,7 +261,6 @@ quant_rel := arg0_relation & [
 def_q     := quant_rel.
 every_q   := quant_rel.
 exists_q  := quant_rel.
-pronoun_q := quant_rel.
 proper_q  := quant_rel.
 
 arg1_relation := relation & [
