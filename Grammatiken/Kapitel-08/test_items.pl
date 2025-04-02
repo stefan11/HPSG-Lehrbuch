@@ -43,3 +43,4 @@ t(40,"der Speisekammer in",@root,0,'Kapitel 8: Argument- und Adjunktstellung im 
 t(41,"das Kind kluge",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
 t(42,"die in der Speisekammer Wurst",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
 t(43,"dass Aicke den Stock gibt ihm",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(44,"dass das Kind den Roman",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').

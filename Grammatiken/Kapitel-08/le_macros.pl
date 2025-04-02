@@ -482,7 +482,8 @@ complementizer_like_sign *>
 
 complementizer_word *>
  (%complementizer_like_sign
-  loc:cat:head:comp).
+  loc:cat:(head:comp,
+           arg_st:[loc:cat:head:dsl:none])).
 
 complementizer(CForm) :=
  (complementizer_word,
