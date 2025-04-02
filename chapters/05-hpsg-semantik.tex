@@ -525,14 +525,14 @@ Damit ist die Repräsentation von Relationen erklärt und wir können uns im nä
 beschäftigen, wie die Bedeutung in die Merkmalbeschreibungen für sprachliche Zeichen integriert wird.
 
 
-\section{Repräsentation des semantischen Beitrags als \textsc{content}-Wert}
+\section{Repräsentation des semantischen Beitrags}
 \label{sec-CONT}
 
 Information über die Bedeutung von Lexikoneinträgen wird als Wert des Merkmals \textsc{content}
 (Abkürzung \textsc{cont}\isfeat{cont}) angegeben. Erweitert man die bisherige Beschreibung einfach
 um dieses Merkmal, so erhält man (\mex{1}): 
 \ea
-      \ms{ phon   & list~of~phoneme strings\\
+      \ms{ phon   & list~of~phoneme strings\,\\
            head   & head \\
            spr   & list~of~signs\\
            comps & list~of~signs\\
@@ -571,6 +571,35 @@ Der \textsc{cat}"=Wert der gesamten Koordination entspricht den \textsc{cat}"=We
 Die Verbindung aus \emph{kennt} und \emph{liebt} verhält sich so, wie sich \emph{kennt} und \emph{liebt}
 einzeln verhalten würden.\is{Koordination|)}
 
+% Normalerweise wird in der HPSG der gesamte semantische Beitrag eines Wortes oder einer Wortgruppe unter
+% \cont repräsentiert. Das schließt Information über semantische Relationen zwischen Objekten und
+% Information über Quantoren ein \parencites[Kapitel~8.2]{ps2}[\page 311]{CFPS2005a}. In MRS werden
+% Relationen, Quantoren und Beschränkungen bzgl.\ Skopus allerdings in Listen behandelt, die einfach
+% verkettet werden. In der Analyse der Verbstellung, die im Kapitel~\ref{Abschnitt-V1} erklärt wird,
+% wird der \contw des vorangestellten Verbs mit dem eines Platzhalterverbs in Endstellung (dem \_$_i$
+% in (\mex{1})) geteilt. Würde diese Information die
+% Relationen beinhalten, würden diese einmal vom vorangestellten Verb und einmal von der Verbspur am
+% Ende beigesteuert. Die Relation für \emph{geben} wäre also in der semantischen Repräsentation von
+% (\mex{1}) doppelt enthalten.
+% \ea
+% Das Kind gibt$_i$ dem Affen den Stock \_$_i$.
+% \z
+% Die Relationen und die Skopus"=Beschränkungen müssen also wie in (\mex{1}) außerhalb von \cont repräsentiert werden:
+% \ea
+% \label{geom-cat-cont-rels-hcons}
+%       \ms{ phon & list~of~phoneme strings\,\\[2pt]
+%            cat  & \ms{ head  & head\\
+%                        spr   & list~of~signs\\
+%                        comps & list~of~signs\\
+%                      } \\
+%            cont & cont\\
+%            rels & list~of~relations\\
+%            hcons& list~of~handle~constraints\\
+%          }
+% \z
+% Die Details werden in den nun folgenden Abschnitten diskutiert.
+
+
 
 \section{Der semantische Beitrag nominaler Objekte}
 \label{sec-index}
@@ -587,7 +616,12 @@ Der Wert von \rels ist eine Liste der jeweiligen Relationen, die die Referenzmen
   Repräsentation eine Menge bzw.\ eine Multimenge verwenden. Wie in Kapitel~\ref{kap-merkmalstrukturen} bereits angemerkt, ist die
   Formalisierung von Mengen recht kompliziert, weshalb ich -- wie \citeauthor*{CFPS2005a} auch – Listen verwende.%
 }
-(\mex{1}) zeigt den Lexikoneintrag für \emph{Buch}:
+(\mex{1}) zeigt den Lexikoneintrag für \emph{Buch}:\footnote{
+  In den folgenden Kapiteln bis zum Kapitel~\ref{Kapitel-Konstituentenreihenfolge} werden Relationen (\rels)
+  und Skopus"=Beschränkungen (\hcons) innerhalb von \cont aufgeführt. Das wird im Abschnitt~\ref{Abschnitt-V1} dann
+  revidiert, damit die Relationen nicht mir der Verbspur geteilt werden und in der \relsl der
+  gesamten Sätze nicht doppelt repräsentiert werden.
+}
 \eas
 \label{le-buch}%
 Lexikoneintrag für \emph{Buch}:\\
@@ -650,11 +684,11 @@ Lexikoneintrag für \emph{er}:\\
                         num & sg  \\
                         gen & mas \\
                       } \\
-             rels & \ldots
+             rels & \eliste
            } \\
 }
 \zs
-Die Liste der Relationen müsste eigentlich die leere Liste sein, da wir, wenn wir einen Satz wie (\mex{1}) äußern, nur
+Die Liste der Relationen ist die leere Liste sein, da wir, wenn wir einen Satz wie (\mex{1}) äußern, nur
 wissen, dass wir von einem Individuum sprechen, auf das wir uns entweder deiktisch beziehen oder das
 im bisherigen Diskurs mit einem Nomen in der dritten Person Singular maskulin erwähnt wurde.
 \ea
@@ -662,8 +696,7 @@ Er schläft.
 \z
 Es ist außerdem noch bekannt, dass dieses Individuum schläft, aber diese Information kommt vom Verb, sie
 gehört nicht zu den Relationen, die das Subjekt \emph{er} zur Gesamtbedeutung des Satzes
-beisteuert. Leider ist die Sache nicht ganz so einfach. Ich komme auf den Beitrag von Pronomen
-zurück, wenn wir uns ausreichend mit Quantoren beschäftigt haben.
+beisteuert. 
 
 Im folgenden werden die Abkürzungen in (\mex{1}) verwendet:
 \ea
@@ -864,16 +897,34 @@ ist die \textsc{dtrs}"=Liste mit der Liste der Nicht"=Kopftöchter identisch. Di
 Beschränkung angeben, die die Relationen von beliebig vielen Töchtern zusammensammelt. Die
 Beschränkung in (\mex{0}) hat dann die Form:
 \ea
+Berechnung des \relswes (vorläufig):\\
 \type{phrase} \impl\\
 \onems{
-cont|rels  \normalfont collect-rels(\ibox{1})\\
+cont|rels  \texttt{collect-rels}(\ibox{1})\\
 dtrs  \ibox{1} \\
 }
 \z
-\itdopt{collect-rels angeben}
-\emph{collect-rels} geht dabei durch die Liste der Töchter und hängt den jeweiligen \relsw an eine
+\texttt{collect-rels} geht dabei durch die Liste der Töchter und hängt den jeweiligen \relsw an eine
 Liste, die dann eine Verkettung aller \relswe und das Ergebnis der relationalen Beschränkung
-\emph{collect-rels} ist.
+\texttt{collect-rels} ist. Formal kann man das wie folgt aufschreiben:
+\ea
+\texttt{collect-rels}([],[]).\\
+\texttt{collect-rels}([\textsc{cont|rels} Rels1|Dtrs],Rels) :=\\
+\flushright \texttt{collect-rels}(Dtrs,Rels2), \texttt{append}(Rels1,Rels2,Rels).
+\z
+\medskip
+\texttt{collect-rels} liefert für eine leere Tochter"=Liste die leere Liste an Relationen zurück
+(erste Klausel). Wenn es Elemente in der Liste der Töchter gibt, wird der Wert von
+\textsc{cont|rels}, nämlich Rels1 mit den Relationen, die aus den restlichen Töchtern
+zusammengesammelt werden (Rels2) mittels \texttt{append} zur Gesamtliste der Relationen (Rels)
+verknüpft. Die zweite Klausel zerteilt also ein großes Problem (beliebig viele Töchter in einer
+Liste) in ein kleines Problem (die erste Tochter) und einen Rest (weniger Töchter). Das kleine
+Problem wird gelöst (Rels1 wird bestimmt) und danach wird das restliche Problem auf dieselbe Weise
+gelöst. Das Verfahren endet, wenn alle Töchter abgearbeitet sind. Die Liste der zu bearbeitenden
+Töchter ist dann die leere Liste und die erste Klausel kann angewendet werden.
+
+
+
 
 
 \section{Quantoren, Skopus und Unterspezifikation}
@@ -1198,7 +1249,7 @@ Töchtern zum Mutterknoten hochgereicht. Genauso funktioniert das für die Handl
 \ea
 \type{phrase} \impl\\
 \onems{
-cont|hcons  \normalfont collect-hcons(\ibox{1})\\
+cont|hcons  \texttt{collect-hcons}(\ibox{1})\\
 dtrs  \ibox{1} \\
 }
 \z
@@ -1323,45 +1374,111 @@ Aufbau von MRS bzw.\ Regeln für die Interpretation von MRSen zusammen. Man muss
 in einem gegebenen Diskursuniversum auf genau ein Objekt bezieht, so wie das bei
 Individuenkonstanten in der Prädikatenlogik eben auch der Fall ist.
 
-Die Situation für Pronomina ist ähnlich. Es gibt eine Art Quantor für Pronomina und eine
-entsprechende Relation. Der Eintrag für das Pronomen \emph{er} von Seite~\pageref{le-er} kann nun wie folgt um die \rels- und \hconswe
-erweitert werden:
-\eas
-\label{Lexikoneintrag-er}%
-Lexikoneintrag für \emph{er}:\\
-\ms{ 
-  cat & \ms{ head  & \ms[noun]{
-                     case & nom\\
-                     }\\
-             spr   & \eliste\\
-             comps & \eliste \\
-           } \\
-  cont &  \ms{
-       ltop & \ibox{1}\\
-       ind  & \ibox{2} \ms{
-                       per & 3\\
-                       num & sg\\
-                       gen & mas \\
-                      }\\ 
-       rels & \liste{ \ms[pronoun\_q]{
-                      arg0 & \ibox{2}\\ 
-                      rstr & \ibox{3}\\ 
-%                      body &\\
-                      }, \ms[pronoun\_rel]{
-                         lbl & \ibox{1}\\
-                         arg0 & \ibox{2}\\
-                         } }\\
-       hcons & \liste{ \ms[qeq]{
-                       harg & \ibox{3}\\
-                       larg & \ibox{1}\\
-                       }
-               }\\
-           } \\
-}
-\zs
-Die Annahme einer pronoun\_rel"=Relation ist unschön, weil man nicht sagen kann, in welchen
-Diskursuniversen diese wahr sein soll, aber diese Relation ist auch dem allgemeinen Format mit
-Quantoren und gebundenen Variablen geschuldet.
+% Die Situation für Pronomina ist ähnlich. Es gibt eine Art Quantor für Pronomina und eine
+% entsprechende Relation. Der Eintrag für das Pronomen \emph{er} von Seite~\pageref{le-er} kann nun wie folgt um die \rels- und \hconswe
+% erweitert werden:
+% \eas
+% \label{Lexikoneintrag-er}%
+% Lexikoneintrag für \emph{er}:\\
+% \ms{ 
+%   cat & \ms{ head  & \ms[noun]{
+%                      case & nom\\
+%                      }\\
+%              spr   & \eliste\\
+%              comps & \eliste \\
+%            } \\
+%   cont &  \ms{
+%        ltop & \ibox{1}\\
+%        ind  & \ibox{2} \ms{
+%                        per & 3\\
+%                        num & sg\\
+%                        gen & mas \\
+%                       }\\ 
+%        rels & \liste{ \ms[pronoun\_q]{
+%                       arg0 & \ibox{2}\\ 
+%                       rstr & \ibox{3}\\ 
+% %                      body &\\
+%                       }, \ms[pronoun\_rel]{
+%                          lbl & \ibox{1}\\
+%                          arg0 & \ibox{2}\\
+%                          } }\\
+%        hcons & \liste{ \ms[qeq]{
+%                        harg & \ibox{3}\\
+%                        larg & \ibox{1}\\
+%                        }
+%                }\\
+%            } \\
+% }
+% \zs
+% Die Annahme einer pronoun\_rel"=Relation ist unschön, weil man nicht sagen kann, in welchen
+% Diskursuniversen diese wahr sein soll, aber diese Relation ist auch dem allgemeinen Format mit
+% Quantoren und gebundenen Variablen geschuldet.
+
+% Als letztes in diesem Abschnitt sollen Possessivpronomen diskutiert werden. Diese sind interessant,
+% weil sie eine Mischung aus Determinatoren und Pronomen sind. (\mex{1}) zeigt ein Beispiel:
+% \ea
+% ihr Buch
+% \z
+% Den Lexikoneintrag für \emph{ihr} zeigt (\mex{1}):
+% \eas
+% Lexikoneintrag für \emph{ihr}:\\
+% \ms{ 
+%   cat & \ms{ head  & \ms[det]{
+%                      case & nom\\
+%                      spec & \ms{ cont & \ms{ ltop & \ibox{1}\\
+%                                              ind  & \ibox{2}\\
+%                                            }}\\
+%                      }\\
+%              spr   & \eliste\\
+%              comps & \eliste \\
+%            } \\
+%   cont &  \ms{
+%        ltop & \ibox{3}\\
+%        ind  & \ibox{4} \ms{
+%                        per & 3\\
+%                        num & sg\\
+%                        gen & fem\\
+%                       }\\ 
+%        rels & \liste{ \ms[def\_q]{
+%                       arg0 & \ibox{2}\\ 
+%                       rstr & \ibox{5}\\ 
+% %                      body &\\
+%                       }, \ms[besitzen\_rel]{
+%                             lbl  & \ibox{1}\\     % pronoun_q(x,h, h) h1:pronoun_rel(x),
+%                                 % h1:besitzen(x,y) ^ h1:buch(y)
+% %                           arg0 & event\\
+%                             arg1 & \ibox{4}\\
+%                             arg2 & \ibox{2}
+%                       }, \ms[pronoun\_q]{
+%                          arg0 & \ibox{4}\\
+%                          rstr & \ibox{6}\\
+%                       }, \ms[pronoun\_rel]{
+%                          lbl & \ibox{3}\\
+%                          arg0 & \ibox{4}\\
+%                          } }\\
+%        hcons & \liste{ \ms[qeq]{
+%                        harg & \ibox{5}\\
+%                        larg & \ibox{1}\\
+%                        },
+%                        \ms[qeq]{
+%                        harg & \ibox{6}\\
+%                        larg & \ibox{3} }
+%                }\\
+%            } \\
+% }
+% \zs
+% % ERG verwendet def_implicit_q_rel für Possessivpronomina.
+% % def_implicit_q_rel := def_q_rel & implicit_q_rel.
+% Kombiniert man \emph{ihr} mit \emph{Buch} erhält man die folgende MRS:
+% \ea
+% \textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1,y,x), h4:buch(x),
+%              h5:pronoun\_q(y, h6, h7), \hphantom{\textlangle~}h8:pronoun\_rel(y) \},\\
+% \hphantom{\textlangle~}\{ h2 \qeq h4, h6 \qeq h8 \}  }
+% \z
+% Das Possessivpronomen verhält sich wie ein definiter Artikel und die Restriktion des entsprechenden
+% Quantors def\_q h2 ist \qeq mit dem Handle der besitzen"=Relation h4, das mit dem Handel von
+% \emph{Buch} identifiziert ist. Außerdem gibt es den Quantor für das feminine Pronomen, das sich auf
+% die Besitzende bezieht und das \argone der besitzen"=Relation und das Argument der zum Quantor gehörenden pronoun\_rel ist.
 
 Als letztes in diesem Abschnitt sollen Possessivpronomen diskutiert werden. Diese sind interessant,
 weil sie eine Mischung aus Determinatoren und Pronomen sind. (\mex{1}) zeigt ein Beispiel:
@@ -1398,20 +1515,11 @@ Lexikoneintrag für \emph{ihr}:\\
 %                           arg0 & event\\
                             arg1 & \ibox{4}\\
                             arg2 & \ibox{2}
-                      }, \ms[pronoun\_q]{
-                         arg0 & \ibox{4}\\
-                         rstr & \ibox{6}\\
-                      }, \ms[pronoun\_rel]{
-                         lbl & \ibox{3}\\
-                         arg0 & \ibox{4}\\
-                         } }\\
+                      } }\\
        hcons & \liste{ \ms[qeq]{
                        harg & \ibox{5}\\
                        larg & \ibox{1}\\
-                       },
-                       \ms[qeq]{
-                       harg & \ibox{6}\\
-                       larg & \ibox{3} }
+                       }
                }\\
            } \\
 }
@@ -1420,14 +1528,13 @@ Lexikoneintrag für \emph{ihr}:\\
 % def_implicit_q_rel := def_q_rel & implicit_q_rel.
 Kombiniert man \emph{ihr} mit \emph{Buch} erhält man die folgende MRS:
 \ea
-\textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1,y,x), h4:buch(x),
-             h5:pronoun\_q(y, h6, h7), \hphantom{\textlangle~}h8:pronoun\_rel(y) \},\\
-\hphantom{\textlangle~}\{ h2 \qeq h4, h6 \qeq h8 \}  }
+\textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1,y,x), h4:buch(x) \},\\
+\hphantom{\textlangle~}\{ h2 \qeq h4 \}  }
 \z
 Das Possessivpronomen verhält sich wie ein definiter Artikel und die Restriktion des entsprechenden
 Quantors def\_q h2 ist \qeq mit dem Handle der besitzen"=Relation h4, das mit dem Handel von
-\emph{Buch} identifiziert ist. Außerdem gibt es den Quantor für das feminine Pronomen, das sich auf
-die Besitzende bezieht und das \argone der besitzen"=Relation und das Argument der zum Quantor gehörenden pronoun\_rel ist.
+\emph{Buch} identifiziert ist. Die Rolle des/der Besitzenden wird durch den pronominalen Index $y$ gefüllt.
+
 
 Man beachte, dass der Index des Possessivpronomens sich vom Index der \nbar unterscheidet, mit der
 das Pronomen kombiniert wird.
@@ -1763,6 +1870,171 @@ die Warnung zu Beginn dieses Abschnitts ignoriert und auch diesen technischen Te
 % LTOP bei SPR und COMPS identifizieren? Wozu?
 % Wenn man das täte, müsste man Verben wie glauben anders behandeln, denn deren LTOP ist nicht mit
 % dem des Komplements identifizierbar, denn es bettet das LTOP ein.
+
+
+\section{Der Beitrag von Konstruktionen}
+
+Im Abschnitt~\ref{Abschnitt-phrasale-Valenz} wurden bereits konstruktionsgrammatische Ansätze
+besprochen, die für Sätze wie (\mex{1}) davon ausgehen, dass der kausative Teil der Bedeutung
+cause(fischen(Aicke), become(leer(Teich))) von der phrasalen Konfiguration beigesteuert wird, in der
+die Bestandteile vorkommen.
+\ea
+Aicke fischt den Teich leer.
+\z
+Der Grund für diese Annahme ist, dass keins der beteiligten Wörter irgendwie diese kausative
+Semantik zu haben scheint. Ich habe im Abschnitt~\ref{Abschnitt-phrasale-Valenz} gezeigt, dass die
+phrasalen Ansätze im Bereich Valenz nicht funktionieren, da sie zum Beispiel die Voranstellung von
+Teilphrasen oder auch die Interaktion mit der Morphologie nicht erklären können. Dennoch gibt es
+Phänomene, die am besten über ihre phrasale Konfiguration beschrieben werden können. Eine solche
+Konstruktion ist zum Beispiel die NPN"=Konstruktion \citep{Matsuyama2004a,Jackendoff2008a,Bargmann2015a}.
+\ea
+student after student after student
+\z
+Die Bedeutung dieser Konstruktion lässt sich nicht kompositional aus den Bedeutungen der Einzelteile
+ermitteln. \citet{Bargmann2015a} schlägt deshalb eine Analyse vor, in der die Bedeutung auf der
+Ebene der gesamten Phrase bestimmt wird.
+
+In diesem Abschnitt möchte ich die technischen Mittel vorstellen, die im MRS"=Aufsatz von \citet{CFPS2005a} für
+die Erfassung konstruktioneller Beiträge zur Semantik eingeführt wurden.
+
+Zur Erklärung ist vielleicht die Abbildung~\ref{Abbildung-leerer-Kopf-vs-Schema-mit-C-CONT} ganz gut geeignet. Sie zeigt auf der linken Seite
+einen leeren Kopf E, der eine bestimmte Semantik mitbringt und mit einer YP und einer XP kombiniert wird. Solche Analysen sind im Rahmen des
+Minimalismus \citep{Chomsky95a-u} häufig, aber auch in der HPSG gab es sie \citep[\page 216--219]{ps2}. Auf der rechten Seite sieht man
+eine Analyse ohne leeren Kopf. Die entsprechende Semantik wird in der phrasalen Konfiguration
+eingeführt. Das Merkmal \ccont steht für \textsc{constructional"=content} und der Wert ist genau der
+semantische Beitrag, der durch die Konstruktion eingeführt wird.
+\begin{figure}
+\hfill
+\begin{forest}
+%sm edges
+[{EP\\
+ \rels \nliste{ x, e, y }}
+  [{XP\\
+   \rels \nliste{ x }}]
+  [{E$'$\\
+     \rels \nliste{ e, y }}
+    [{E\\
+     \rels \nliste{ e } }]
+    [{YP\\
+     \rels \nliste{ y } }]]]
+\end{forest}
+\hfill
+\begin{forest}
+%sm edges
+[{EP\\
+ \rels \nliste{ e, x, y }\\
+ \textsc{c-cont|rels} \nliste{ e } }
+  [{XP\\
+   \rels \nliste{ x }}]
+  [{YP\\
+    \rels \nliste{ y }}]]
+\end{forest}
+\hfill\mbox{}
+\caption{Analyse mit leerem Kopf mit eigener Semantik und phrasaler Konstruktion mit eigener Semantik}\label{Abbildung-leerer-Kopf-vs-Schema-mit-C-CONT}
+\end{figure}
+
+Der \relsw der EP im rechten Beispiel ergibt sich aus der Verknüpfung der \relswe der Töchter und
+dem \relsw in \ccont.
+
+Das Beispiel zeigt die Analyse mit einem leeren Kopf und ihr Gegenstück, aber natürlich kann man
+auch leere Argumente auf diese Weise verschwinden lassen. Die Autor*innen des MRS"=Aufsatzes
+diskutieren zum Beispiel Nominalphrasen ohne Determinatoren. Determinatoren können bei Stoffnomen
+im Singular und bei Zählnomen im Plural weggelassen werden:
+\eal
+\ex Die Kinder haben das Wasser getrunken.
+\ex Kinder haben Wasser getrunken.
+\zl
+Abbildung~\ref{Abbildung-leere-Determinatoren-C-CONT} zeigt die Analyse der vollständigen NP
+\emph{die Kinder} und dann jeweils die Analyse mit einem leeren Determinator, der die Bedeutung des
+Determinators (\emph{det\_q}) beisteuert und mit einer unären Regel, in der die Bedeutung des
+Determinators in der Regel eingeführt wird.
+
+\begin{figure}
+\scalebox{.9}{%
+\begin{forest}
+%sm edges
+[{NP\\
+ \rels \nliste{ def-q, kinder }}
+  [{XP\\
+   \rels \nliste{ def-q }} [die]]
+  [{YP\\
+    \rels \nliste{ kinder }} [Kinder]]]
+\end{forest}
+}
+\hfill
+\scalebox{.9}{%
+\begin{forest}
+%sm edges
+[{NP\\
+ \rels \nliste{ udef\_q, kinder }}
+  [{XP\\
+   \rels \nliste{ udef\_q }} [\trace]]
+  [{YP\\
+    \rels \nliste{ kinder }} [Kinder]]]
+\end{forest}
+}
+\hfill
+\scalebox{.9}{%
+\begin{forest}
+%sm edges
+[{NP\\
+ \rels \nliste{ udef\_q, kinder }\\
+ \textsc{c-cont|rels} \nliste{ udef\_q}}
+ [{N\\
+   \rels \nliste{ kinder }} [Kinder]]]
+\end{forest}}
+\caption{Analyse der NP \emph{die Kinder} mit definitem Artikel, der NP \emph{Kinder} mit leerem
+  Determinator und der NP \emph{Kinder} mit unärer Regel}\label{Abbildung-leere-Determinatoren-C-CONT}
+\end{figure}
+
+Das entsprechend ausbuchstabierte Schema für artikellose Nominalphrasen im Plural zeigt:
+\eas
+\type{bare-np-phrase} \impl\\
+\avm{
+[cat & [ spr   & <>\\
+         comps & <> ]\\ 
+ c-cont & [ ind  & \1\\
+            rels & < [\type*{udef\_q}
+                      arg0 & \1\\
+                      rstr & \2 ] >\\
+            hcons & < [\type*{qeq}
+                       harg & \2\\
+                       larg & \3 ] > ]\\
+ head-dtr & [cat & [ head  & noun\\
+                     spr   & < !Det[\type{pl}]! > \\
+                     comps & <> ]\\
+             cont & [ ind & \1\\
+                      ltop & \3 ]]]
+}
+\zs
+
+Die Beschränkungen zur Berechnung des \relswes und des \hconswes müssen entsprechend so angepasst
+werden, dass der \relsw und der \hconsw under \ccont berücksichtigt wird. Außerdem gibt es innerhalb
+von \ccont noch einen Index und ein \ltop, da phrasale Schemata ja auch ein neues \ltop und einen
+neuen Index einführen können. Der \indw und der \ltopw wird also aus \ccont übernommen:   
+\ea
+Berechnung der Semantik von Phrasen:\\
+\type{phrase} \impl\\
+\ms{
+cont & \ms{ ind   & \ibox{1}\\
+            ltop  & \ibox{2}\\
+            rels  & \upshape\texttt{collect-rels}(\ibox{3}) $\oplus$ \ibox{4}\\
+            hcons & \upshape\texttt{collect-hcons}(\ibox{3}) $\oplus$ \ibox{5}\\
+          }\\
+c-cont & \ms{ ind   & \ibox{1}\\
+              ltop  & \ibox{2}\\
+              rels  & \ibox{4}\\
+              hcons & \ibox{5}}\\
+dtrs & \ibox{3} \\
+}
+\z
+Bei den Schemata, die in den vorigen  Kapiteln vorgestellt wurden, ist die Liste der Relationen und
+der Skopus"=Beschränkungen innerhalb des \ccontwes die leere Liste. Index und \ltop sind mit denen
+des semantischen Kopfes identisch (der Adjunkttochter in Kopf"=Adjunkt"=Strukturen und dem des
+syntaktischen Kopfes in allen anderen Strukturen).
+\itdopt{stimmt das?}
+
+
 
 
 \section{Alternativen}
@@ -2273,9 +2545,9 @@ ableiten.
 \item Wie kann man den semantischen Beitrag von \emph{lacht} repräsentieren? Geben Sie den
   Lexikoneintrag für \emph{lacht} an und berücksichtigen Sie das Linking.
 \item Geben Sie die vollständige Merkmalbeschreibung für die Wortfolge in (\mex{1}), wie sie in
-  \emph{dass Aicke lacht} vorkommt, an: 
+  \emph{dass er lacht} vorkommt, an: 
       \ea
-      Aicke lacht
+      er lacht
       \z
       Dabei soll sowohl die syntaktische Struktur als auch der Bedeutungsbeitrag berücksichtigt werden.
 
