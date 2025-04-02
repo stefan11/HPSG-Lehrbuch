@@ -955,14 +955,14 @@ gewählt.\istype{snom}\istype{sgen}\istype{sdat}\istype{sacc}\istype{lnom}\istyp
 \begin{figure}
 \centerline{%
 \begin{forest}
-type hierarchy,
+type hierarchy=\vphantom{d},
 [case
   [structural
     [structural\_nga 
-      [snom\strut, name=snom, tier=max]
-      [sgen\strut, name=sgen, tier=max]
-      [sdat\strut, name=sdat, tier=max]
-      [sacc\strut, name=sacc, tier=max]]
+      [snom, name=snom, tier=max]
+      [sgen, name=sgen, tier=max]
+      [sdat, name=sdat, tier=max]
+      [sacc, name=sacc, tier=max]]
     [structural\_nd, name=structural-nd, tier=structural-nd]]
   [nom, name=nom, tier=structural-nd [lnom, tier=max, l+=2\baselineskip]]
   [gen, name=gen, tier=structural-nd [lgen, tier=max]]
