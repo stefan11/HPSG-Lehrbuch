@@ -231,7 +231,7 @@ entsprechenden Typen integrieren müsste. \type{root} steht dabei für Wurzel. A
 \begin{figure}
 \oneline{%
 \begin{forest}
-type hierarchy,
+type hierarchy=\vphantom{dp}, % adds vertical space so that lines meet
 for level=3{l*=1.5}, % increases the distance to the third level by a factor of 1.5
 [sign
   [phrase]
@@ -239,11 +239,11 @@ for level=3{l*=1.5}, % increases the distance to the third level by a factor of 
     [root, name=root
       [verb-r, name=verb-r, for children={l sep*=3}
         [intr-v-r
-          [strict-intr-v-r\strut, name=strict-intr-verb-r
+          [strict-intr-v-r, name=strict-intr-verb-r
             [lach-,instance]]
-          [nom-dat-v-r\strut, name=nom-dat-verb-r
+          [nom-dat-v-r, name=nom-dat-verb-r
             [helf-, instance]]
-          [nom-pp-v-r\strut, name=nom-pp-verb-r
+          [nom-pp-v-r, name=nom-pp-verb-r
             [denk-, instance]]
           [nom-s-v-r,tier=pre-instance
             [glaub-, instance]]]
@@ -255,12 +255,12 @@ for level=3{l*=1.5}, % increases the distance to the third level by a factor of 
     [relational-le, name=relational-le, before computing xy={s+=7em}]
     [non-scopal-le, name=non-scopal-le, before computing xy={s+=7em}]
     [noun-le
-      [det-noun-r\strut,name=det-noun-r
+      [det-noun-r,name=det-noun-r
         [simple-noun-r, tier=pre-instance, name=simple-noun-r
           [Delfin-,instance]]
         [relational-noun-r, tier=pre-instance
           [Tochter-,instance]]]
-      [pronoun\strut, name=pronoun-le
+      [pronoun, name=pronoun-le
          [\ldots]]]
     [word, name=word]]]
 \draw (root.south) to (det-noun-r.north);
@@ -1771,8 +1771,9 @@ Abschnitt~\ref{sec-lr} besprochenen Lexikonregeln entspricht. Auf Hilfsmerkmale 
 
 In\is{Default|(} der Linguistik ist oft von Default"=Werten die Rede. 
 Zum Beispiel wird der Nominativ als Default"=Kasus\is{Kasus!Default-} bezeichnet (\citealp[\page
-  78]{Sternefeld95a}; \citealp[\page3]{Jacobs91a}; \citealp[\page 265, 
-\page 417]{Abraham2005a}), %für das Deutsche Svenonius2005:19 für das Isländische
+  78]{Sternefeld95a}; \citealp[\page3]{Jacobs91a}; 
+% Ist in der LB-Version von 1992 anders.
+\citealp[\page 265, \page 417]{Abraham2005a}), %für das Deutsche Svenonius2005:19 für das Isländische
 andere Autoren bezeichnen den Akkusativ als Default"=Kasus (\citealp[\page969]{Zwicky86};
 \citealp[\page688]{Hoeksema91c}) und \citet[\page 733]{Wunderlich93a} nennt alle strukturellen Kasus
 (\dash die meisten Nominative und Akkusative und je nach Sichtweise auch einige Dative) Default"=Kasus.
