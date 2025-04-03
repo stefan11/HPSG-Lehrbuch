@@ -1,8 +1,8 @@
 % -*-  coding:utf-8; mode:trale-prolog   -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: lexicon.pl,v $
-%%  $Revision: 1.8 $
-%%      $Date: 2006/02/26 18:08:11 $
+%%  $Revision: 1.7 $
+%%      $Date: 2006/02/26 18:08:12 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
@@ -11,68 +11,42 @@
 
 :- multifile '--->'/2.
 
-das ---> @det(nom_or_acc,sg,neu,def).
+das ---> @det(nom_or_acc,sg,neu,def_q).
 
-
-der ---> @det(nom,sg,mas,def).
+die ---> @det(nom_or_acc,sg,fem,def_q).
 
 % wir gedenken der Frau
 % wir helfen der Frau
-der ---> @det(gen_or_dat,sg,fem,def).
+der ---> @det(gen_or_dat,sg,fem,def_q).
 
+der ---> @det(nom,sg,mas,def_q).
 
 % dem Mann/Buch
-dem --->  @det(dat,sg,mas_or_neu,def).
+dem --->  @det(dat,sg,mas_or_neu,def_q).
 
 % den Mann
-den ---> @det(acc,sg,mas,def).
+den ---> @det(acc,sg,mas,def_q).
+
+des ---> @det(gen,sg,mas_or_neu,def_q).
+
+jede ---> @det(nom_or_acc,sg,fem,every_q).
+
+jeder ---> @det(gen_or_dat,sg,fem,every_q).
+
+jeder ---> @det(nom,sg,mas,every_q).
 
 
-des ---> @det(gen,sg,mas_or_neu,def).
+ein ---> @det(nom,sg,mas_or_neu,exists_q).
 
-die ---> @det(nom_or_acc,sg,fem,def).
+ein ---> @det(acc,sg,neu,exists_q).
 
- 
-buch   ---> @noun(nom_or_dat_or_acc,neu,sg,buch).
+eines ---> @det(gen,sg,mas_or_neu,exists_q).
 
-buches ---> @noun(gen,neu,sg,buch).
-
-
-mann    ---> @noun(nom_or_dat_or_acc,mas,sg,mann).
-
-mannes  ---> @noun(gen,mas,sg,mann).
-
-
-mörder  ---> @noun(nom_or_dat_or_acc,mas,sg,mörder).
-
-mörders ---> @noun(gen,mas,sg,mörder).
-
-
-frau ---> @noun(case,fem,sg,frau).
-
-speisekammer ---> @noun(case,fem,sg,speisekammer).
-
-wurst ---> @noun(case,fem,sg,wurst).
-
-
-
-er     ---> @pers_pronoun(nom,third,sg,mas).
-seiner ---> @pers_pronoun(gen,third,sg,mas_or_neu).
-ihm    ---> @pers_pronoun(dat,third,sg,mas_or_neu).
-ihn    ---> @pers_pronoun(acc,third,sg,mas).
-
-sie   ---> @pers_pronoun(nom_or_acc,third,sg,fem).
-ihrer ---> @pers_pronoun(gen,       third,sg,fem).
-ihr   ---> @pers_pronoun(dat,       third,sg,fem).
-
-es    ---> @pers_pronoun(nom_or_acc,third,sg,neu).
-
-
-meine  ---> @possessive(nom_or_acc,first, sg,genus,     sg,fem).
-deine  ---> @possessive(nom_or_acc,second,sg,genus,     sg,fem).
-seine  ---> @possessive(nom_or_acc,third, sg,mas_or_neu,sg,fem).
-seiner ---> @possessive(gen_or_dat,third, sg,mas_or_neu,sg,fem).
-
+% Syntaktische Eigenschaften erst, dann semantische sein = mas, ihr = fem
+sein   ---> @possessive(nom_or_acc,sg,neu,third,sg,mas_or_neu).
+sein   ---> @possessive(nom,       sg,mas,third,sg,mas_or_neu).
+seine  ---> @possessive(nom_or_acc,sg,fem,third,sg,mas_or_neu).
+seiner ---> @possessive(gen_or_dat,sg,fem,third,sg,mas_or_neu).
 
 die    ---> @rel_pronoun(nom_or_acc,third,sg,fem).
 der    ---> @rel_pronoun(gen_or_dat,third,sg,fem).
@@ -86,65 +60,135 @@ den    ---> @rel_pronoun(acc,third,sg,mas).
 
 das    ---> @rel_pronoun(nom_or_acc,third,sg,neu).
 
-dessen ---> @possessive_rel_pronoun(sg,mas_or_neu).
-deren  ---> @possessive_rel_pronoun(sg,fem).
+
+dessen ---> @possessive_rel_pronoun(mas_or_neu,sg).
+deren  ---> @possessive_rel_pronoun(fem,sg).
+
+
+interessante ---> @attr_adj(interessant_rel).
+
+kleine       ---> @attr_adj(klein_rel).
+
+kluge        ---> @attr_adj(klug_rel).
+
+treue        ---> @attr_adj_np(treu_rel,dat).
+
+mutmaßliche  ---> @scopal_attr_adj(mutmaßlich_rel).
+
+schwierige   ---> @attr_adj(schwierig_rel).
 
 
 
-bellt   ---> @intrans_verb(bellen).
+affe   ---> @noun(nom_or_acc,mas,sg,affe_rel).
 
-lacht   ---> @intrans_verb(lachen).
+affens ---> @noun(dat,mas,sg,affe_rel).
 
-schläft ---> @intrans_verb(schlafen).
+affen  ---> @noun(dat,mas,sg,affe_rel).
 
-graut   ---> @subjlos_verb(dat,grauen).
+beispiel ---> @noun(nom_or_dat_or_acc,neu,sg,beispiel_rel).
+
+buch   ---> @noun(nom_or_dat_or_acc,neu,sg,buch_rel).
+
+buches ---> @noun(gen,neu,sg,buch_rel).
+
+einhorn ---> @noun(nom_or_dat_or_acc,neu,sg,einhorn_rel).
+
+einhorns ---> @noun(gen,neu,sg,einhorn_rel).
+
+frau ---> @noun(case,fem,sg,frau_rel).
+
+kind   ---> @noun(nom_or_dat_or_acc,neu,sg,kind_rel).
+
+kindes ---> @noun(gen,neu,sg,kind_rel).
+
+mann ---> @noun(nom_or_dat_or_acc,mas,sg,mann_rel).
+
+mannes ---> @noun(gen,mas,sg,mann_rel).
+
+mörder  ---> @noun(nom_or_dat_or_acc,mas,sg,mörder_rel).
+
+mörders ---> @noun(gen,mas,sg,mörder_rel).
+
+mitarbeiter ---> @noun(nom_or_dat_or_acc,mas,sg,mitarbeiter_rel).
+
+mitarbeiters ---> @noun(gen,mas,sg,mitarbeiter_rel).
+
+roman ---> @noun(nom_or_dat_or_acc,mas,sg,roman_rel).
+
+romans ---> @noun(gen,mas,sg,roman_rel).
+
+speisekammer ---> @noun(case,fem,sg,speisekammer_rel).
+
+stock   ---> @noun(nom_or_dat_or_acc,mas,sg,stock_rel).
+
+stockes ---> @noun(gen,mas,sg,stock_rel).
+
+tochter ---> @relational_noun(case,fem,sg,tochter_rel).
+
+tofu   ---> @noun(nom_or_dat_or_acc,mas,sg,tofu_rel).
+
+tofus ---> @noun(gen,mas,sg,tofu_rel).
+
+wurst ---> @noun(case,fem,sg,wurst_rel).
 
 
-jagt  ---> @trans_verb(jagen).
+er  ---> @pers_pronoun(nom,third,sg,mas).
 
-kennt ---> @trans_verb(kennen).
+ihm ---> @pers_pronoun(dat,third,sg,mas).
 
-liebt ---> @trans_verb(lieben).
+ihn ---> @pers_pronoun(acc,third,sg,mas).
+
+sie ---> @pers_pronoun(nom_or_acc,third,sg,fem).
+
+aicke ---> @proper_noun(fem_or_mas,'Aicke').
 
 
-gab   ---> @ditrans_verb(geben).
+bellt   ---> @intrans_verb(bellen_rel).
 
-gibt  ---> @ditrans_verb(geben).
+lacht   ---> @intrans_verb(lachen_rel).
+
+schläft ---> @intrans_verb(schlafen_rel).
+
+graut   ---> @subjlos_verb(dat,grauen_rel).
 
 
-denkt ---> @np_pp_verb(an_pform,acc,denken_an).
+jagt  ---> @trans_verb(jagen_rel).
 
+kennt ---> @trans_verb(kennen_rel).
+
+liebt ---> @trans_verb(lieben_rel).
+
+
+gab   ---> @ditrans_verb(geben_rel).
+
+gibt  ---> @ditrans_verb(geben_rel).
+
+
+denkt ---> @np_pp_verb(an_pform,acc,denken_an_rel).
 
 
 an ---> @comp_prep(an_pform).
 
+in ---> @location_noun_mod_prep(in_rel).
+in ---> @location_verb_mod_prep(in_rel).
 
 
-interessante ---> @attr_adj(interessant).
-
-kluge        ---> @attr_adj(klug).
+glaubt ---> @glauben_denken_verb(glauben_rel).
 
 
-treue        ---> @attr_adj_np(treu,dat).
+
+angeblich ---> @scopal_adv(angeblich_rel).
+
+nicht ---> @scopal_adv(nicht_rel).
+
+wahrscheinlich ---> @scopal_adv(wahrscheinlich_rel).
+
+morgen ---> @isect_adv(morgen_rel).
+
+oft ---> @isect_adv(oft_rel).
 
 
-mutmaßliche  ---> @scopal_attr_adj(mutmaßlich).
-
-
-in ---> @location_noun_mod_prep(in).
-
-in ---> @location_verb_mod_prep(in).
-
-
-nicht ---> @scopal_adv(nicht).
-
-oft   ---> @scopal_adv(oft).
-
-
-morgen ---> @temp_adv(morgen).
-
-daß ---> @complementizer(daß_cform).
-
+dass ---> @complementizer(dass).
 
 
 empty
@@ -154,19 +198,10 @@ empty
                            initial:minus,
                            dsl:Loc)),
             nonloc:slash:[],
-            trace:vm
-            )).
+            trace:vm)).
 
 empty 
    (trace,
     synsem:(loc:Loc,
             nonloc:slash:[Loc],
             trace:extraction)).
-
-
-
-
-
-
-
-

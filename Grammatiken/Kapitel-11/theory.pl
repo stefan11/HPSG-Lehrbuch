@@ -1,8 +1,9 @@
 % -*-  coding:utf-8; mode:trale-prolog   -*-
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: theory.pl,v $
-%%  $Revision: 1.7 $
-%%      $Date: 2007/03/05 11:26:28 $
+%%  $Revision: 1.12 $
+%%      $Date: 2007/03/05 11:26:29 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
@@ -13,9 +14,12 @@
     format(user_error,"~n~n**ERROR: Please start trale with the option `-u' to enable unicode support, which is needed for this grammar.~n~n~n",[]),
     abort).
 
-
 % für [incr TSDB()]
-grammar_version('Lehrbuchgrammatik Kapitel 12').
+grammar_version('Lehrbuchgrammatik Kapitel 4').
+
+
+% Load phonology and tree output
+:- ['../Gemeinsames/phonology'].
 
 :- [setup].
 
@@ -29,16 +33,11 @@ que_symbol(@interrog).
 % specify signature file
 signature(signature).
 
-% load lexicon
-:- [lexicon].
-
-
-% load lexical macros
+% macros for the lexicon
 :- [le_macros].
 
-
-% load lexical rules
-%:- [lexrules].
+% load lexicon
+:- [lexicon].
 
 % load phrase structure rules
 :- [rules].
@@ -46,12 +45,14 @@ signature(signature).
 % load phrase structure macros
 :- [syntax].
 
+
 % load lexical items and grammar rules for coordination
 :- [coordination].
 
 % load some constraints that are not linguistically necessary,
-% but good for performance
+% but good for performance/termination
 :- [speed].
+
 
 % load relational constraints for rules
 :- [constraints].
@@ -59,34 +60,20 @@ signature(signature).
 % load a test sequence
 :- [test_items].
 
+
 % load a sequence that is executed after the grammar is loaded
 :- ['../Gemeinsames/common.pl'].
 
 
-examples(['  Der Mann, der lacht, liebt die Frau.',
-          '  die Speisekammer, in der er lacht',
-          '* der Mann, lacht der, liebt die Frau.',
-          '* die Speisekammer, er in der lacht']).
+examples(['  Der Affe schläft.',
+          '  Der angeblich kleine Affe schläft.',
+          '  Der mutmaßliche Affe schläft.',
+          '  der Affe wahrscheinlich schläft.',
+          '  der Affe das Kind kennt',
+          '  der Affe an das Kind denkt',
+          '  Jede Tochter eines Mitarbeiters schläft.',
+          '* Affe schläft.',
+          '* Der Affe kennt.']).
 
 
 
-
-
-% nur für die Entwicklung von Trale.
-make :- ensure_loaded([trale_home(grammar_interface),
-                       trale_home('tsdb/itsdb'),
-                       trale_home('chart_display/chart_display'),
-                       trale_home('chart_display/sic'),
-                       trale_home('chart_display/ale_redefinitions'),
-                       trale_home('chart_display/print_mrs'),
-                  trale_home('tsdb/retract_lex_desc')    % retraction of stems
-                  ,trale_home('tsdb/itsdb-err')              % capi-registration write-filed ...
-                 ,trale_home('tsdb/trale-itsdb')
-                      ,trale_home('debug_unify'),
-                       trale_home('toplevel')
-                 ]),
-         chart_display,
-         nofs,
-         german,
-         notcl_warnings,
-         hrp.
