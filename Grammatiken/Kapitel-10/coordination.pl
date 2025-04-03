@@ -11,51 +11,66 @@
 
 :- multifile '--->'/2.
 :- multifile ':='/2.
+:- discontiguous ':='/2.
 :- multifile rule/2.
+:- multifile '*>'/2.
+:- discontiguous '*>'/2.
 
 % Koordination von verbalen Projektionen
 
-und ---> (simple_word,
-          loc:(cat:(head:(coord,
-                          spec:(loc:(cat:Cat,
-                                     cont:(qstore:Q1,
-                                           nucleus:Nuc1)),
-                                nonloc:(rel:Rel,
-                                        slash:Slash))),
-                   subcat:[(loc:(cat:Cat,
-                                 cont:(qstore:Q2,
-                                       nucleus:Nuc2)),
-                            nonloc:(rel:Rel,
-                                    slash:Slash),
-                            trace:minus)]),
-              cont:(qstore:append(Q1,Q2),
-                    nucleus:(und,
-                             arg1:Nuc1,
-                             arg2:Nuc2))),
-             nonloc:(rel:Rel,
-                     slash:Slash)).
+conj_word *>
+   (loc:cat:(head:(coord,
+                   spec:(loc:(cat:Cat,
+                              cont:(ltop:LH,
+                                    ind:LI)),
+                         nonloc:Nonloc)),
+             spr:[],
+             arg_st:[(loc:(cat:Cat,
+                           cont:(ltop:RH,
+                                 ind:RI)),
+                      nonloc:Nonloc,
+                      trace:minus)]),
+     nonloc:slash:[],
+     rels:[(und_rel,
+            lhandle:LH,
+            rhandle:(RH,
+                     =\=LH),  % Wenn zwei Verben zu V1-Verben werden, haben sie LBL und IND
+                              % innerhalb ihrer DSL-Werte. Bei der Koordinatoin werden diese
+                              % identifiziert. Der Dominanzgraph ist dann nciht wohlgeformt. Man
+                              % kann die Analyse schon hier durch eine Ungleichheitsbedingung
+                              % ausschließen. Hätte man den KEY in CONT, würden die beiden KEYs
+                              % nicht kompatibel sein. Ausnahme: Schläft und schläft Aicke? Für
+                              % diesen Fall hilft nur die Ungleichheitsbedingung.
+            lindex:LI,
+            rindex:RI)]).
 
+conj_word(Relation) :=
+  (conj_word,
+   rels:hd:Relation).
 
+und ---> @conj_word(und_rel).
 
-coord_phrase :=
-  (coord_phrase,
-   non_head_dtrs:[(phon:ne_list,
-                   trace:minus),
-                  trace:minus]).
+coord_phrase *>
+  non_head_dtrs:[(phon:ne_list,
+                  trace:minus),
+                 trace:minus].
+
+% Unklar warum bei EFD-Berechnungt 4 x conj y phrasen lizenziert werden.
+%coord_phrase *>
+%  non_head_dtrs:[phon:ne_list,phon:ne_list].
+
 
 x_conj_y_coord_phrase :=
-  (@coord_phrase,
+  (coord_phrase,
    loc:(cat:Cat,
         cont:Cont),
-   nonloc:(rel:Rel,
-           slash:Slash),
+   nonloc:Nonloc,
    non_head_dtrs:[(Spec,
                    loc:cat:Cat,
-                   nonloc:(rel:Rel,
-                           slash:Slash)),
+                   nonloc:Nonloc),
                   (loc:(cat:(head:(coord,
                                    spec:Spec),
-                             subcat:[]),
+                             comps:[]),
                         cont:Cont))]).
 
 x_conj_y rule (@x_conj_y_coord_phrase,

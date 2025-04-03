@@ -1,20 +1,19 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: syntax.pl,v $
-%%  $Revision: 1.14 $
-%%      $Date: 2006/06/15 21:00:41 $
+%%  $Revision: 1.3 $
+%%      $Date: 2006/02/26 18:08:12 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
 %      System: TRALE 2.7.5 (release ) under Sicstus 3.10.1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+:- multifile '*>'/2.
+
 :- multifile ':='/2.
 :- discontiguous ':='/2.
-:- multifile '*>'/2.
-:- discontiguous '*>'/2.
-
-
 
 %% Das Kopfmerkmalsprinzip
 
@@ -22,72 +21,118 @@ headed_phrase *>
    (loc:cat:head:Head,
     head_dtr:loc:cat:head:Head).
 
+%% Das Valenzprinzip
 
-%% Valenzprinzip
-head_argument_phrase *>
-   (loc:cat:subcat:append(Subcat1,Subcat2),                       % = Subcat1 + Subcat2
-    head_dtr:loc:cat:subcat:append(Subcat1,[NonHeadDtr|Subcat2]), % = Subcat1 + [NonHeadDtr] + Subcat2
+head_complement_phrase *>
+   (loc:cat:comps:append(Comps1,Comps2),                       % = Comps1 + Comps2
+    head_dtr:loc:cat:comps:append(Comps1,[NonHeadDtr|Comps2]), % = Comps1 + [NonHeadDtr] + Comps2
     non_head_dtrs:[NonHeadDtr]).
 
-head_non_argument_phrase *>
-   (loc:cat:subcat:Subcat,
-    head_dtr:loc:cat:subcat:Subcat).
 
+head_specifier_phrase *>
+   (loc:cat:spr:Spr,
+    head_dtr:loc:cat:(spr:[NonHeadDtr|Spr],
+                  comps:[]),
+    non_head_dtrs:[NonHeadDtr]).
 
-%% Semantikprinzip
+head_non_complement_phrase *>
+   (loc:cat:comps:Comps,
+    head_dtr:loc:cat:comps:Comps).
 
-head_non_adjunct_phrase *>
-   (loc:cont:Cont,
-    head_dtr:loc:cont:Cont).
-
-head_adjunct_phrase *>
-   (loc:cont:Cont,
-    non_head_dtrs:[loc:cont:Cont]).
-
-
-
-%% Kopf-Adjunkt-Strukturen
-
-
-head_adjunct_phrase *>
-   (head_dtr:Head,
-    non_head_dtrs:[loc:cat:(head:mod:Head,
-                            spr:[],
-                            subcat:[])]).
-
-
-%% Spezifikatorprinzip
-
-(headed_phrase,
- non_head_dtrs:[loc:cat:head:spec:sign]) *>
-   (head_dtr:Head,
-    non_head_dtrs:[loc:cat:head:spec:Head]).
-
-
-head_specifier_phrase *> 
-   (loc:cat:spr:[],
-    head_dtr:loc:cat:(spr:[Spr],
-                      subcat:[]),
-    non_head_dtrs:[Spr]).
-
-head_non_specifier_phrase *> 
+head_non_specifier_phrase *>
    (loc:cat:spr:Spr,
     head_dtr:loc:cat:spr:Spr).
 
 
-% Teil der Verbbewegungsanalyse
+head_adjunct_phrase *>
+   (head_dtr:HD,
+    non_head_dtrs:[loc:cat:(head:mod:HD,
+                            spr:[],
+                            comps:[])]).
+       
 
+% for headed structures the head daughter is appended to the non-head daughters to give a list of all daughters.
+% This daughters list can be used to collect RELS, HCONS and so on.
+% See rules.pl. The dtrs are ordered according to surface order in rules.pl.
+
+%headed_phrase *>
+%   head_dtr:HD,
+%   non_head_dtrs:NHDtrs,
+%   dtrs:[HD|NHDtrs].
+
+
+% Argumentrealisierungsprinzip
+word *> loc:cat:(spr:Spr,
+                 comps:Comps,
+                 arg_st:append(Spr,Comps)).
+
+
+% Semantik
+
+phrase *>
+  (rels:collect_rels(Dtrs),
+   dtrs:Dtrs).
+
+phrase *>
+  (hcons:collect_hcons(Dtrs),
+   dtrs:Dtrs).
+
+
+
+/* GTop wird nicht wirklich gebraucht. 
+headed_phrase *>
+   (cont:(ind:Ind,
+          gtop:GTop),
+    head_dtr:cont:(ind:Ind,
+                   gtop:GTop),
+    non_head_dtrs:[cont:gtop:GTop]).
+*/
+
+headed_phrase *>
+   (loc:cont:ind:Ind,
+    head_dtr:loc:cont:ind:Ind).
+
+head_complement_phrase *>
+   (loc:cont:ltop:LTop,
+    head_dtr:loc:cont:ltop:LTop).
+
+head_specifier_phrase *>
+   (loc:cont:ltop:LTop,
+    head_dtr:loc:cont:ltop:LTop).
+
+head_adjunct_phrase *>
+   (loc:cont:ltop:LTop,
+    non_head_dtrs:[loc:cont:ltop:LTop]).
+
+% Wegen „ein scheinbar schwieriges Beispiel“ kann sich „schwieriges“ nicht im Lexikon den LTop-Wert
+% von „Beispiel“ nehmen, denn der LTop-Wert von „Beispiel“ muss mit dem von „scheinbar schwieriges“ gleichgesetzt werden.
+(head_adjunct_phrase,
+ non_head_dtrs:[loc:cat:head:scopal:minus]) *>
+ (head_dtr:loc:cont:ltop:LTop,
+  non_head_dtrs:[loc:cont:ltop:LTop]).
+
+(headed_phrase,
+ non_head_dtrs:[loc:cat:head:spec:sign]) *>
+ (head_dtr:Spec,
+  non_head_dtrs:[loc:cat:head:spec:Spec]).
+
+
+% die Verbbewegungsanalyse
 
 % Das ist eine unär verzweigende Regel und keine Lexikonregel,
 % da sie auch auf koordinierte Verben angewendet werden kann.
 % Siehe auch coordination.pl.
 verb_initial_rule *>
 ( %complementizer_like_sign
-  loc:cat:(head:(verb,
-                 vform:fin),
-           subcat:[loc:cat:head:dsl:Loc]),
-  nonloc:slash:(Slash, 
-                []),
+  loc:(cat:(head:(verb,
+                  vform:fin),
+            spr:[],
+            comps:[loc:(cat:head:dsl:Loc,
+                        cont:(ind:Ind,
+                              ltop:LTop))]),
+       cont:(ind:Ind,
+             ltop:LTop)),
+  nonloc:slash:Slash,
   non_head_dtrs:[(loc:(Loc,
                        cat:head:(verb,
                                  vform:fin,
@@ -102,7 +147,7 @@ verb_initial_rule *>
 %
 (headed_phrase,
  head_dtr:(word,
-           phon:ne_list)) *> (head_dtr:loc:cat:head:dsl:none).
+           phon:ne_list)) *> head_dtr:loc:cat:head:dsl:none.
 
 
 headed_phrase *> phrase:plus.
@@ -117,21 +162,59 @@ headed_phrase *> phrase:plus.
 % dann nicht mehr Tochter der V1-Regel sein.
 
 
+% Linearisierungsregeln: Wenn der Initial-Wert plus ist, steht die Kopf-Tochter vor der
+% Nicht-Kopf-Tochter, sonst danach.
+head_complement_phrase *> (head_dtr:HD,
+                            non_head_dtrs:[NHD],
+                            ( head_dtr:loc:cat:head:initial:plus,
+                              dtrs:[HD,NHD]
+                            ; head_dtr:loc:cat:head:initial:minus,
+                              dtrs:[NHD,HD]
+                            )).
+
+% Wenn der Pre-Modifier-Wert plus ist, steht die Adjunkt-Tochter vor der
+% Kopf-Tochter, sonst danach.
+head_adjunct_phrase *> (head_dtr:HD,
+                           non_head_dtrs:[NHD],
+                           ( non_head_dtrs:[loc:cat:head:pre_modifier:minus],
+                               dtrs:[HD,NHD]
+                           ; non_head_dtrs:[loc:cat:head:pre_modifier:plus],
+                               dtrs:[NHD,HD]
+                           )).
+
+% Der Spezifikator steht vor dem Kopf.
+head_specifier_phrase *>
+             (dtrs:[NonHeadDtr,HeadDtr],
+              head_dtr:HeadDtr,
+              non_head_dtrs:[NonHeadDtr]).
+
+% Der Filler steht vor dem Kopf.
+head_filler_phrase *> (dtrs:[NonHeadDtr,HeadDtr],
+                       head_dtr:HeadDtr,
+                       non_head_dtrs:[NonHeadDtr]).
+
+% Relativsätze (unheaded) und V2-Sätze mit Kopf.
+filler_phrase *>
+   (nonloc:slash:[],
+    dtrs:[(loc:Slash,
+           nonloc:slash:[]),
+          (loc:cat:(head:(verb,
+                          vform:fin,
+                          dsl:none),
+                    spr:[],
+                    comps:[]),
+           nonloc:slash:[Slash])]).
 
 head_filler_phrase *>
-   (nonloc:slash:[],
-       head_dtr:(loc:cat:(head:(verb,
-                                initial:plus),
-                          subcat:[]),
-                 nonloc:slash:[Slash]),
-       non_head_dtrs:[(loc:Slash,
-                       nonloc:(rel:[],            % "In der hat er geschlafen." hätte sonst zwei Strukturen.
-                               slash:[]))]).
+   (v2:plus,
+    head_dtr:loc:cat:head:initial:plus).
 
 %%
 head_non_filler_phrase *>
-   (nonloc:slash:(list_with_zero_or_one_element,
-                  append(Slash1,Slash2)),
+   (nonloc:slash:(append(Slash1,Slash2),
+                  list_with_zero_or_one_element), % The ordering of the two constraints is important.
+                                                  % If list_with ... is stated first, rule computation does not terminate.
+                                                  % This seems to be a bug. (St. Mü. 01.04.2025)
        head_dtr:nonloc:slash:Slash1,
        non_head_dtrs:[nonloc:slash:Slash2]).
 
@@ -141,7 +224,6 @@ head_non_filler_phrase *>
 %% "Helfen wird er ihm morgen."
 headed_phrase *>
    (head_dtr:trace:minus_or_vm).
-
 
 
 % Adjunkte sind Extraktionsinseln
@@ -173,18 +255,18 @@ headed_phrase *>
 % Nur eine dieser Abfolgen liegt aber in der SUBCAT-Liste des Verbs in Erststellung
 % vor.
    
-%(head_argument_phrase,
-% non_head_dtrs:[trace:extraction]) *> loc:cat:subcat:[].
+%(head_complement_phrase,
+% non_head_dtrs:[trace:extraction]) *> loc:cat:comps:[].
 
 % Wenn die Nicht-Kopftochter eine Extraktionsspur ist, ist die gesamte
 % Phrase maximal.
-(head_argument_phrase,
+(head_complement_phrase,
  non_head_dtrs:[trace:extraction]) *> max_:plus.
 
 % Maximale Phrasen können keine Köpfe in Kopf-Argumentstrukturen sein, da sie ja maximal sind.
 % Durch die beiden Beschränkungen wird Maximalität erneut und ohne Bezug auf SUBCAT definiert.
 % Wie gesagt, nur ein technischer Trick.
-head_argument_phrase *> head_dtr:max_:minus.
+head_complement_phrase *> head_dtr:max_:minus.
 
 
 headed_phrase *>
@@ -196,38 +278,29 @@ headed_phrase *>
 % Relativsätze
 rc *>
  (%isect_n_modifier,
+  %filler_phrase
   loc:(cat:(head:(relativizer,
-                  mod:loc:cont:qstore:[Q]),
-            subcat:[]),
-       cont:(nucleus:(ind:Ind,
-                      restr:hd:RCCont), %[RCCont|_NP_CONT],
-             qstore:[Q|QStore])),
-  nonloc:(rel:[],
-          slash:[]),
-  non_head_dtrs:[(loc:Slash,
-                  nonloc:(rel:[Ind],
-                          slash:[])),
-                 (loc:(cat:(head:(verb,
-                                  dsl:none,
-                                  initial:minus,
-                                  vform:fin),
-                            subcat:[]),
-                       cont:(nucleus:RCCont,
-                             qstore:QStore)),
-                  nonloc:(rel:[],
-                          slash:[Slash]),
-                  % Der finite Satz selbst darf nicht extrahiert werden.
-                  % Das könnte man auch durch loc:Loc, Loc =/= Slash erzwingen.
-                  trace:minus)]).
-
+                  mod:loc:cont:ind:Ind),
+            spr:[],
+            comps:[]),
+       cont:(ind:Ind,
+             ltop:LTop)),
+  nonloc:rel:[],
+  dtrs:[(nonloc:rel:[Ind]),
+        (loc:(cat:head:initial:minus,
+              cont:ltop:LTop),
+         nonloc:rel:[],
+                                % Der finite Satz selbst darf nicht extrahiert werden.
+                                % Das könnte man auch durch loc:Loc, Loc =/= Slash erzwingen.
+         trace:minus)]).
 
 
 
 root :=
  (loc:cat:(head:dsl:none,
            spr:[],
-           subcat:[]),
-     nonloc:slash:[]).
+           comps:[]),
+  nonloc:slash:[]).
 
 initial_fin_verb :=
  (@root,
@@ -235,9 +308,9 @@ initial_fin_verb :=
                 initial:plus,
                 vform:fin)).
 
+
 interrog :=
  @initial_fin_verb.
 
 decl :=
- (@initial_fin_verb,
-  v2:plus).
+ @initial_fin_verb.

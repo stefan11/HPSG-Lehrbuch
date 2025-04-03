@@ -1,13 +1,15 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: speed.pl,v $
-%%  $Revision: 1.9 $
-%%      $Date: 2007/06/23 14:36:58 $
+%%  $Revision: 1.11 $
+%%      $Date: 2006/02/26 18:08:12 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Linguistisch nicht signifikante Hacks
-%%             zur Effizienzsteigerung beim Bottom-Up-Parsen
+%%             zur Effizienzsteigerung/Terminierung
+%%             beim Bottom-Up-Parsen
+%%             bzw. bei der Semantic-Head-Driven-Generation
 %%   Language: Trale
-%      System: TRALE 2.3.7 under Sicstus 3.9.1
+%%     System: TRALE 2.3.7 under Sicstus 3.9.1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -24,8 +26,6 @@
 :- multifile macro/2.
 :- discontiguous macro/2.
 
-
-
 % Die folgenden Regeln schließen die Erzeugung von Phrasenstrukturregeln aus,
 % die in der Grammatik nicht gebraucht werden.
 
@@ -34,8 +34,13 @@ head_filler_phrase *>
     non_head_dtrs:[phon:ne_list]).  % keine Spuren (TRACE-) bzw. leere Elemente (Determinator).
                                     % Evtl. bei Vorfeldellipse ändern.
 
+%head_filler_phrase *> loc:cat:head:dsl:none.
+   
+% scheint nicht zu funktionieren
+%head_filler_phrase *>
+%   head_dtr:phon:ne_list.  % keine Spuren (TRACE-) bzw. leere Elemente (Determinator).
 
-
+% head_filler_phrase *> dtrs:[phon:ne_list,phon:ne_list].
 
 % Phrasen sind natürlich nie Spuren.
 phrase *> trace:minus.
@@ -43,7 +48,6 @@ phrase *> trace:minus.
 
 (head_adjunct_phrase,
  non_head_dtrs:[trace:extraction]) *> head_dtr:lex:plus. % to avoid spurious ambiguities
-
 
 
 
@@ -58,7 +62,7 @@ argument_sign :=
                  spec:none      % keine Determinierer
                 ),
            spr:[],
-           subcat:[])).
+           comps:[])).
 
 % Das könnte man auch wie folgt als Implikation definieren:
 %
@@ -67,12 +71,11 @@ argument_sign :=
 % ohne diese Bedingung könnten Projektionen der Verbspur
 % mit einer weiteren Verbspur kombiniert werden:
 % [ [ er _ ] _ ]
-(head_argument_phrase,
+(head_complement_phrase,
  loc:cat:head:initial:minus) *>
   (non_head_dtrs:[loc:cat:head:dsl:none]).
 
 */
-
 
 % Hey, Negation!
 
@@ -88,7 +91,7 @@ fun not_type(+,-).
 
 % Folgendes schließt finite Verben als Argumente (der Verbspur) aus, da
 % sie in diesem Fragment nicht vorkommen.
-(head_argument_phrase,
+(head_complement_phrase,
  loc:cat:head:initial:minus) *> non_head_dtrs:[loc:cat:head: @not(verb)].
 
 
@@ -103,7 +106,7 @@ head_adjunct_phrase *>
   (non_head_dtrs:[loc:cat:head:dsl:none]).
 
 % allgemeiner
-%head_non_argument_phrase *>
+%head_non_complement_phrase *>
 %  (non_head_dtrs:[loc:cat:head:dsl:none]).
 
 
@@ -122,6 +125,14 @@ head_adjunct_phrase *>
  non_head_dtrs:[trace:extraction]) *> (loc:cat:head:(verb,
                                                      initial:minus)).
 
+% Wahrscheinlich kann Verbspur mit Extraktionsspur kombiniert werden, diese wird dann mit
+% extrahiertem Adverb kombiniert. Das sollte nicht gehen, weil es eine Restriktion in der Anzahl der
+% Elemente auf 1 für SLASH gibt. Diese wird aber nur angewendet, wenn sie in der richtigen
+% Reihenfolge wie in syntax.pl angegeben verwendet wird.
+%
+%(head_adjunct_phrase,
+% non_head_dtrs:[trace:extraction]) *> nonloc:slash:[].
+
 
 
 % Das steht auch im Lexikon bei den Verbmodifikatoren, aber man braucht es hier,
@@ -134,7 +145,6 @@ head_adjunct_phrase *>
 
 (head_adjunct_phrase,
  head_dtr:loc:cat:head:verb) *> (non_head_dtrs:[loc:cat:head:pre_modifier:plus]).
-
 
 % Adjunkte werden immer als direkte Töchter des Verbs eingeführt,
 % da sonst unechte Mehrdeutigkeiten entstünden.
@@ -155,8 +165,23 @@ head_non_adjunct_phrase *> (lex:minus).
 %   [ _   [ oft _ ]]
 
 (head_adjunct_phrase,
- head_dtr:head_argument_phrase) *> (head_dtr:non_head_dtrs:[trace:minus]).
+ head_dtr:head_complement_phrase) *> (head_dtr:non_head_dtrs:[trace:minus]).
 
+
+
+
+% Entweder in rules.pl spr_h nur für nomina und Determinatoren spezifizieren, oder hier sagen, dass
+% Verbspuren keinen Specifier haben. Das kommt sonst erst, wenn das Verb in Initialstellung mit dem
+% Rest kombiniert wird. Das bedeutet, dass beliebig viele Elemente mit der Verbspur als Spezifikator
+% kombiniert werden könnten.
+(phon:[],
+ loc:cat:head:verb) *> loc:cat:spr:[].
+
+
+head_specifier_phrase *>
+             dtrs:[(loc:cat:head:det,   % speed + Regelberechnung
+                    trace:minus         % speed: steht eigentlich im Lexikon
+                    ),loc:cat:head:noun].        % speed + Regelberechnung
 
 
 % Relativsätze
@@ -171,17 +196,5 @@ head_adjunct_phrase *>
 % das Buch, das zu lesen ich ihm empfohlen habe
 % Deshalb wird diese Beschränkung später revidiert.
 (headed_phrase,
- loc:cat:head:verb) *> (nonloc:rel:[]).
-
-% Für die Anzeige der Regeln
-head_argument_phrase *> (head_dtr:HD,
-                            non_head_dtrs:[NHD],
-                            ( head_dtr:loc:cat:head:initial:plus,
-                              dtrs:[HD,NHD]
-                            ; head_dtr:loc:cat:head:initial:minus,
-                              dtrs:[NHD,HD]
-                            )).
-
-
-
+ loc:cat:head:verb) *> nonloc:rel:[].
 

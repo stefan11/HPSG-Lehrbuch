@@ -1,13 +1,13 @@
 % -*-trale-prolog-*-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: le_macros.pl,v $
-%%  $Revision: 1.18 $
-%%      $Date: 2006/08/14 16:37:38 $
+%%  $Revision: 1.4 $
+%%      $Date: 2007/03/05 11:26:29 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
 %      System: TRALE 2.7.5 (release ) under Sicstus 3.10.1
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 :- multifile ':='/2.
 :- discontiguous ':='/2.
@@ -15,40 +15,53 @@
 :- multifile '*>'/2.
 :- discontiguous '*>'/2.
 
+trace *>
+  (%empty_rel_word,
+   phon:[]).
+
+overt_sign *>
+ (%sign,
+  nonloc:slash:[]).
 
 overt_word *>
- (%simple_word,
+ (%overt_sign,
+  %word,
   phon:ne_list,
-  nonloc:slash:[],
   trace:minus).
 
-non_rel_sign *>
+empty_rel_sign *>
  (%sign,
   nonloc:rel:[]).
 
-non_overt_word *>
-  (%non_rel_word,
-   phon:[]).
-
-trace *>
-  trace:extraction_or_vm.
-
 rel_pronoun *>
  (%overt_word,
-  loc:cont:nucleus:ind:Ind,
+  loc:cont:ind:Ind,
   nonloc:rel:[Ind]).
 
-sc_saturated_word *>
-  loc:cat:subcat:[].
-
-spr_saturated_word *>
+% complementizer_like_sign erbt hiervon.
+% V1-Regel und Komplementierer.
+spr_saturated_sign *>
   loc:cat:spr:[].
 
+saturated_word *>
+ loc:cat:arg_st:[].
 
-
+% Für Artikelwörter und das Possessivpronomen.
+% Die RELS- und HCONS-Liste ist offen, so dass
+% entweder nur die Information über einen Quantor darin
+% enthalten sein kann oder aber noch weitere Relationen und HANDLE-Constraints.
 determiner_word *>
  (%saturated_word Diese Information steht in der signatur
-  loc:cat:head:det).
+  loc:cat:head:(det,
+                spec:loc:cont:(ind:Ind,
+                               ltop:NLTop)),
+  rels:hd:(% eine Relation eines Quantors z.B. exists_q
+           arg0:Ind,
+           rstr:Restr),
+  hcons:[(qeq,
+          harg:Restr,
+          larg:NLTop)]).
+
 
 determiner(Case,Numerus,Genus) :=
 (%determiner_word,
@@ -56,124 +69,195 @@ determiner(Case,Numerus,Genus) :=
                num:Numerus,
                gen:Genus)).
 
-
+% Genau ein Element in der RELS- und HCONS-Liste.
+% Ließe sich mit rels:tl:e_liste effizienter aufschreiben. Aber weniger lesbar.
 determiner *> 
  (%determiner_word
-  loc:(cat:head:spec:loc:cont:nucleus:Cont,
-       cont:(nucleus:(Quant,
-                      restind:Cont),
-             qstore:[Quant]))).
+  rels:[_]).
 
 det(Case,Numerus,Genus,Quant) :=
 (@determiner(Case,Numerus,Genus),
- overt_determiner,
- loc:cont:nucleus:Quant).
+ determiner,
+ rels:hd:Quant).
 
 possessive *>
  (%determiner_word
-  loc:(cat:head:spec:loc:cont:nucleus:(ind:NInd,
-                                       restr:NRestr),
-       cont:(nucleus:(ind:Ind,
-                      restr:[]),
-             qstore:[(def,
-                      restind:(ind:NInd,
-                               restr:[(besitzen,
-                                       arg2:Ind,
-                                       arg3:NInd)|NRestr]))]))).
- 
-possessive(Case,Person,Numerus,Genus,NNumerus,NGenus) :=
+  loc:(cat:head:spec:loc:cont:(ind:Ind2,
+                               ltop:NLTop),
+       cont:ind:Ind),
+%        ltop:LTop,
+  rels:[def_q,
+        (poss_rel,
+            lbl:NLTop,
+            arg0:event,
+            arg1:Ind,
+            arg2:Ind2)]).
+
+possessive(Case,NNumerus,NGenus,Person,Numerus,Genus) :=
  (@determiner(Case,NNumerus,NGenus),
   simple_possessive,
-  loc:cont:nucleus:ind:(per:Person,
-                        num:Numerus,
-                        gen:Genus)).
+  loc:cont:ind:(per:Person,
+                num:Numerus,
+                gen:Genus)).
 
 
 % Die folgenden XP-Makros werden als Abkürzung in Valenzrahmen
 % verwendet.
 
+xp :=
+  (loc:cat:(spr:[],
+            comps:[])).
+
+% kennen, helfen, denken an
+xp(Ind) :=
+  (@xp,
+   loc:cont:ind:Ind).
+
 np :=
-  (loc:cat:(head:noun,
-            spr:[],
-            subcat:[])).
+  (@xp,
+   loc:cat:head:noun).
 
 np(Ind) :=
   (@np,
-   loc:cont:nucleus:ind:Ind).
+   loc:cont:ind:Ind).
 
 np(Case,Ind) :=
   (@np(Ind),
    loc:cat:head:case:Case).
 
-nbar(Ind) :=
-  loc:(cat:(head:noun,
+nbar :=
+  (loc:cat:(head:noun,
             spr:[_],
-            subcat:[]),
-       cont:nucleus:ind:Ind).
+            comps:[])).
 
+nbar(Ind) :=
+  (@nbar,
+   loc:cont:ind:Ind).
 
+pp :=
+  (@xp,
+   loc:cat:head:prep).
 
 pp(Ind) :=
-  loc:(cat:(head:prep,
-            subcat:[]),
-       cont:nucleus:ind:Ind).
+  (@pp,
+   loc:(cat:head:prep,
+        cont:ind:Ind)).
 
 pp(PForm,Case) :=
-  loc:(cat:(head:(prep,
-                  pform:PForm,
-                  case:Case),
-            subcat:[])).
+  (@pp,
+   loc:cat:head:(pform:PForm,
+                 case:Case)).
 
 
+non_scopal_le *>
+  hcons:[].
+
+% expletives and markers
+non_relational_le *>
+  rels:[].
+
+% complement prepositions and some complementizers.
+transparent_head_le *>
+ loc:(cat:arg_st:[loc:cont:(ind:Ind,
+                            ltop:LTop) ],
+      cont:(ind:Ind,
+            ltop:LTop)).
+
+
+arg0_le *>
+  (loc:cont:ind:Ind,
+   rels:hd:arg0:Ind).
+
+ltop_lbl_le *>
+  (loc:cont:ltop:Lbl,
+   rels:hd:lbl:Lbl).
 
 % alle Nomina
 noun_word *>
-  %word
-  loc:cat:head:noun.
+ (%word
+  loc:cat:head:(noun,
+                initial:plus)).
+
+% Nomen mit Determinator
+det_noun_word *>
+(%noun_word,
+  %non_scopal_le
+  %relational_arg0_word,  % enthält auch lbl:LTop
+  loc:(cat:(head:case:Case,
+            spr:[_],
+            % Das erste Element der ARG-ST-Liste ist der Determinator.
+            arg_st:hd:loc:cat:(head:(det,
+                                     case:Case,
+                                     num:Numerus,
+                                     gen:Genus),
+                               spr:[],
+                               comps:[])),
+       cont:ind:(               % Der Typ index folgt aus der Anwesneheit der Merkmale per, num, gen
+                                per:third,
+                                num:Numerus,
+                                gen:Genus) )).
+ 
 
 % alle einfachen Nomina (ohne Argument)
 simple_noun *>
- (%noun_word,
-  loc:(cat:(head:case:Case,
-            spr:[loc:(cat:(head:(det,
-                                 case:Case,
-                                 num:Numerus,
-                                 gen:Genus),
-                           subcat:[] ),
-                      cont:qstore:QStore)]),
-       cont:(nucleus:(ind:(Ind,
-                           per:third,
-                           num:Numerus,
-                           gen:Genus),
-                      restr:[arg1:Ind]),
-             qstore:QStore))).
+ (%det_noun_word,
+  loc:cat:arg_st:tl:e_list ).
 
 noun(Case,Genus,Numerus,Relation) :=
  (simple_noun,
   loc:(cat:head:case:Case,
-       cont:nucleus:(ind:(num:Numerus,
-                          gen:Genus),
-                     restr:[Relation]))).
- 
+       cont:ind:(num:Numerus,
+                 gen:Genus)),
+  rels:[Relation]).
 
-pronoun *>
- (%saturated_word
-  loc:cont:nucleus:restr:[]).
 
-nominal_pronoun *>
- (%noun_word,
-  %pronoun
-  loc:cont:qstore:[]).
+relational_noun *>
+ (%det_noun_word
+  loc:cat:arg_st:tl:[loc:(cat:(head:(noun,
+                                     case:gen),
+                               spr:[],
+                               comps:[]),
+                          cont:ind:Ind2) ],
+  rels:hd:arg2:Ind2).
+
+
+relational_noun(Case,Genus,Numerus,Relation) :=
+ (relational_noun,
+  loc:(cat:head:case:Case,
+       cont:ind:(num:Numerus,
+                 gen:Genus)),
+  rels:[Relation]).
 
 pronoun(Case,Person,Numerus,Genus) :=
- (loc:(cat:head:case:Case,
-       cont:nucleus:ind:(per:Person,
-                         num:Numerus,
-                         gen:Genus))).
+  (loc:(cat:head:case:Case,
+        cont:ind:(per:Person,
+                  num:Numerus,
+                  gen:Genus))).
+
+% pers_pronoun *>
+%  (%noun_word,
+%   %saturated_word
+%   loc:cont:ind:Ind,
+%   rels:[(pronoun_q,
+%          arg0:Ind,
+%          rstr:Restr),(pronoun_rel,
+%                       lbl:PronounRel,
+%                       arg0:Ind)],
+%   hcons:[(qeq,
+%           harg:Restr,
+%           larg:PronounRel)]).
+
+/*
+pers_pronoun *>
+ (%noun_word,
+  %saturated_word
+  loc:cont:ind:ref).
+*/
 
 pers_pronoun(Case,Person,Numerus,Genus) :=
  (pers_pronoun,
   @pronoun(Case,Person,Numerus,Genus)).
+
 
 
 % der, die, das
@@ -182,262 +266,274 @@ rel_pronoun(Case,Person,Numerus,Genus) :=
   @pronoun(Case,Person,Numerus,Genus)).
 
 
-% dessen, deren
-possessive_rel_pronoun(Numerus,Genus) :=
+% dessen Kind, dessen Blume, dessen Roman referiert auf Maskulinum/Neutrum
+% deren Kind, deren Blume, deren Roman refereirt auf Femininum oder Plural
+possessive_rel_pronoun(Genus,Numerus) :=
  (possessive_rel_pronoun,
-  @pronoun(_Case,third,Numerus,Genus)).
+  loc:cont:ind:(per:third,
+                num:Numerus,
+                gen:Genus)).
+
+
+proper_noun *>
+ (%noun_word,
+  %saturated_word
+  loc:cont:ind:Ind,
+  rels:[(proper_q,
+         arg0:Ind,
+         rstr:Restr),(named_rel,
+                      lbl:NamedRel,
+                      arg0:Ind)],
+  hcons:[(qeq,
+          harg:Restr,
+          larg:NamedRel)]).
+
+
+proper_noun(Genus,Name) :=
+ (proper_noun,
+  loc:cont:ind:gen:Genus,
+  rels:tl:hd:name:(a_ Name)).
 
 verb_word *>
- (%spr_saturated_sc_incomplete_word
+ (%word,
+  %arg0_ltop_lbl_le
   loc:(cat:(head:(verb,
-                  initial:minus,
-                  vform:fin),
-            subcat:Subcat),
-       cont:qstore:collectQStores(Subcat))).
+                  vform:fin,
+                  initial:minus),
+            spr:[]),
+       cont:ind:event)).
 
 
 intrans_verb *>
  (%verb_word,
-  loc:(cat:subcat:hd: @np(nom,Ind),
-       cont:nucleus:arg1:Ind)).
+  loc:cat:arg_st:hd: @np(nom,Ind),
+  rels:[arg1:Ind]).
 
 strict_intrans_verb *>
-  loc:cat:subcat:[_].
+ (%non_scopal_intrans_verb
+  loc:cat:arg_st:[_]).
 
 intrans_verb(Relation) :=
  (strict_intrans_verb,
-  loc:cont:nucleus:Relation).
-
-
+  rels:hd:Relation).
 
 np_pp_verb *> 
- (%intrans_verb,
-  loc:(cat:subcat:tl:[ @pp(Ind2) ],
-       cont:nucleus:arg2:Ind2)).
-
+ (%non_scopal_intrans_verb,
+  %bi_or_more_val_verb, 
+  loc:cat:arg_st:tl:[ @pp ]).
 
 np_pp_verb(PForm,Case,Relation) :=
  (np_pp_verb,
-  loc:(cat:subcat:tl:hd: @pp(PForm,Case),
-       cont:nucleus:Relation)).
+  loc:cat:arg_st:tl:hd: @pp(PForm,Case),
+  rels:hd:Relation).
 
 
 subjlos_verb *>
- (%verb,
-  loc:(cat:subcat:[ @np(Ind) ],
-       cont:nucleus:arg2:Ind)).
+ (%non_scopal_verb_word,
+  loc:cat:arg_st:[ @np(Ind) ],
+  rels:[arg2:Ind]).
 
 subjlos_verb(Case,Relation) :=
  (subjlos_verb,
-  loc:(cat:subcat:[ @np(Case,_Ind) ],
-       cont:nucleus:Relation)).
+  loc:cat:arg_st:[ @np(Case,_Ind) ],
+  rels:hd:Relation).
 
+% kennen, helfen verbs with at least two arguments and a nominative
+bi_or_more_val_verb *>
+ (%non_scopal_verb_word,
+  loc:cat:arg_st:[ @np(nom,Ind1), @xp(Ind2) |_ ],
+  rels:[(arg1:Ind1,
+         arg2:Ind2)]).
 
-trans_verb *>
- (%verb,
-  loc:(cat:subcat:[ @np(nom,Ind1), @np(acc,Ind2) |_ ],
-       cont:nucleus:(arg1:Ind1,
-                     arg2:Ind2))).
-
+% kennen
 strict_trans_verb *>
- (%trans_verb,
-  loc:cat:subcat:[ _, _ ]).
+ (%trans_verb = bi_or_more_val_verb
+  loc:cat:arg_st:[ _, @np(acc,_) ]).
 
 trans_verb(Relation) :=
  (strict_trans_verb,
-  loc:cont:nucleus:Relation).
-
+  rels:hd:Relation).
 
 ditrans_verb *>
- (%trans_verb,
-  loc:(cat:subcat:[ _, _, @np(dat,Ind3) ],
-       cont:nucleus:arg3:Ind3)).
+ (%trans_verb = bi_or_more_val_verb
+  loc:cat:arg_st:[ _, @np(dat,_),@np(acc,Ind3)  ],
+  rels:[arg3:Ind3]).
 
 ditrans_verb(Relation) :=
  (ditrans_verb,
-  loc:cont:nucleus:Relation).
+  rels:hd:Relation).
+
+glauben_denken_verb *>
+ (%intrans_verb,
+  loc:cat:arg_st:[ _,
+                   (loc:(cat:(head:(comp,
+                                    cform:dass),
+                              spr:[],
+                              comps:[]),
+                         cont:ltop:Larg)) ],
+  rels:[arg2:Harg],
+  hcons:[(qeq,
+          harg:Harg,
+          larg:Larg)]).
 
 
-
+glauben_denken_verb(Relation) :=
+ (glauben_denken_verb,
+  rels:hd:Relation).
 
 preposition_word *>
 (%word,
- loc:(cat:(head:(prep,
-                 initial:plus),
-           subcat:[ (@np,
-                     nonloc:slash:[]) ] ))).
+ %non_scopal_le
+ loc:cat:(head:(prep,
+                initial:plus),
+%          spr:[],
+          arg_st:[ @np ] )).
 
 comp_preposition *>
  (%preposition_word,
-  loc:(cat:(head:case:Cas,
-            subcat:[loc:(cat:head:case:Cas,
-                         cont:Cont) ] ),
-       cont:Cont)).
+  %transparent_head_le % Shares IND and LTOP with argument.
+  loc:cat:(head:case:Case,
+           arg_st:[loc:cat:head:case:Case])).
 
 comp_prep(PForm) :=
  (comp_preposition,
   loc:cat:head:pform:PForm).
 
+isect_modifier *>
+ loc:(cat:head:(scopal:minus,
+                mod:loc:cont:ind:Ind),
+      cont:ind:Ind).
 
 n_modifier *>
-(loc:(cat:head:mod: @nbar(Ind),
-      cont:nucleus:ind:Ind)).
+ loc:cat:head:mod: @nbar.
 
-isect_n_modifier *>
-(%n_modifier,
- loc:(cat:head:mod:loc:cont:nucleus:restr:Restr,
-      cont:nucleus:restr:tl:Restr)).
-
-n_modifier_word *>
- (%word,
-  loc:(cat:(head:mod:loc:cont:qstore:[Q],
-            subcat:Subcat),
-       cont:qstore:[Q|collectQStores(Subcat)])).
-     
+% Das LBL wird vom Adjunkt im Schema beigesteuert.
+% Adjektive und Adverbien
+isect_modifier_le *>
+(%non_scopal_le,
+ %isect_modifier
+ loc:cont:ind:Ind,
+ rels:[arg1:Ind]).
+ 
 attr_adjective_word *>
  (%n_modifier_word,
-  loc:cat:head:attr_adj).
+  loc:cat:(head:attr_adj,
+           spr:[])).
 
 % klug
 simple_attr_adj *>
  (%intersective_adj
-  loc:(cat:subcat:[],
-       cont:nucleus:(ind:Ind,
-                     restr:hd:arg1:Ind))).
+  loc:cat:arg_st:[]).
 
 attr_adj(Relation) :=
  (simple_attr_adj,
-  loc:cont:nucleus:restr:hd:Relation).
+  rels:hd:Relation).
 
 % treu
 attr_np_adj *>
  (%intersective_adj
-  loc:(cat:subcat:[@np(Ind2)],
-       cont:nucleus:(ind:Ind,
-                     restr:hd:(arg1:Ind,
-                               arg2:Ind2)))).
- 
+  loc:cat:arg_st:[@np(Ind2)],
+  rels:hd:arg2:Ind2).
+
 attr_adj_np(Relation,Case) :=
  (attr_np_adj,
-  loc:(cat:subcat:[@np(Case,_Ind2)],
-       cont:nucleus:restr:hd:Relation)).
+  loc:cat:arg_st:[@np(Case,_Ind2)],
+  rels:hd:Relation).
+
+
+scopal_modifier_le *>
+  (%ltop_lbl_le
+   loc:(cat:head:(mod:loc:cont:ltop:VLTop,
+                  scopal:plus),
+        cont:ltop:LTop),
+   rels:[(lbl:LTop,
+          arg1:Arg1)],
+   hcons:[(qeq,
+           harg:Arg1,
+           larg:VLTop)]).
 
 % mutmaßlich
 scopal_adj *>
- (loc:(cat:head:mod:loc:cont:nucleus:restr:Restr,
-       cont:nucleus:restr:[psoa_arg:Restr])).
+ (%saturated_word
+  %attr_adjective_word
+  %scopal_modifier_le
+  loc:(cat:head:mod:loc:cont:ind:Ind,
+       cont:ind:Ind)).
 
 scopal_attr_adj(Relation) :=
  (scopal_adj,
-  loc:cont:nucleus:restr:[Relation]).
+  rels:[Relation]).
+
+v_modifier *>
+ loc:cat:head:mod:loc:cat:head:(adj_or_verb,
+                                initial:minus).
+
+adv_word *>
+ loc:cat:head:adv.
+
+% wahrscheinlich
+scopal_adv(Relation) :=
+ (scopal_adv_word,
+  rels:[Relation]).   
+
+isect_adv(Relation) :=
+ (isect_adv_word,
+  rels:[Relation]).
 
 mod_preposition *>
  (%preposition_word,
-  loc:cat:head:mod_prep).
+  loc:(cat:(head:mod:loc:cont:ind:Ind,
+            arg_st:[ @np(Ind2) ] ),
+       cont:ind:Ind),
+  rels:[(arg1:Ind,
+         arg2:Ind2)]).
 
 noun_mod_preposition *>
  (%mod_preposition
   %isect_n_modifier_word
-  loc:(cat:(head:(pre_modifier:minus,
-                  mod:loc:cont:nucleus:ind:Ind),
-            subcat:[ @np(Ind2) ] ),
-       cont:nucleus:(ind:Ind,
-                     restr:hd:(arg1:Ind,
-                               arg2:Ind2)))).
- 
+  loc:cat:head:pre_modifier:minus).
+
 location_noun_mod_prep *>
  (%noun_mod_preposition
-  loc:cat:subcat:[ @np(dat,_) ] ).
+  loc:cat:arg_st:[ @np(dat,_) ] ).
 
 location_noun_mod_prep(Relation) :=
  (location_noun_mod_prep,
-  loc:cont:nucleus:restr:hd:Relation).
-
-
-
-
-
-v_modifier_word *>
-  (%word,
-   loc:cat:head:(pre_modifier:plus,
-                 mod:loc:cat:head:(verb,
-                                   initial:minus))).
-
-
-isect_v_modifier_word *>
-  (%v_modifier_word,
-   loc:(cat:head:mod:loc:cont:nucleus:Cont,
-       cont:nucleus:(und,
-                     arg1:Cont,
-                     arg2:arg1:Cont))).
-
-scopal_v_modifier_word *>
- (%v_modifier_word,
-  loc:(cat:head:mod:loc:cont:nucleus:Cont,
-       cont:nucleus:arg1:Cont)).
-
-
-adverb_word *>
- (%v_modifier_word
-  loc:(cat:(head:(adv,
-                  mod:loc:cont:qstore:QStore)),
-       cont:qstore:QStore)).
-
-
-scopal_adv(Relation) :=
- (scopal_adverb,
-  loc:cont:nucleus:Relation).
-
-
-intersect_adv(Relation) :=
- (intersective_adverb,
-  loc:cont:nucleus:arg2:Relation).
-
-temp_adv(Relation) :=
-  @intersect_adv(Relation).
-
-
+  rels:hd:Relation).
 
 location_verb_mod_prep *>
-  loc:cat:subcat:[ @np(dat,_Ind2) ].
+ (%verb_mod_preposition
+  loc:cat:arg_st:[ @np(dat,_Ind2) ]).
 
 location_verb_mod_prep(Relation) :=
  (location_verb_mod_prep,
-  loc:cont:nucleus:arg2:Relation).
+  rels:hd:Relation).
 
 
-% Komplementierer und das Verb in Erststellung
 complementizer_like_sign *>
- (%spr_saturated_word
-  loc:(cat:(head:(dsl:none,
-                  initial:plus),
-            subcat:[ (loc:(cat:(head:(verb,
-                                      vform:fin,
-                                      initial:minus),
-                                subcat:[]),
-                           cont:(nucleus:Nuc,
-                                 qstore:QStore)),
-                         trace:minus) ]),
-       cont:(nucleus:arg3:Nuc,
-             qstore:QStore))).
+ (%transparent_head_le
+  %spr_saturated_le
+  loc:cat:(head:initial:plus,
+           % Die Verwendung von COMPS statt ARG-ST ist ein interessanter Trick:
+           % Wenn die V1-Regel syntaktisch ist, gilt das Argumentrealisierungsprinzip nicht.
+           % Die Beschränkungen müssen aber auch für vorangestellte Verben in COMPS landen.
+           % Für Wörter sorgt dann das Argumentrealisierungsprinzip dafür, dass die COMPS-Information
+           % identisch mit der ARG-ST ist.
+           comps:[(loc:cat:(head:(verb,
+                                  vform:fin,
+                                  initial:minus),
+                            spr:[],
+                            comps:[]),
+                   trace:minus) ] )).
 
-complementizer_word *> 
- (%spr_saturated_word
-  %complementizer_like_word
-  loc:(cat:(head:comp,
-            subcat:hd:loc:cat:head:dsl:none),
-       cont:nucleus:assertion)).
-
+complementizer_word *>
+ (%complementizer_like_sign
+  loc:cat:(head:comp,
+           arg_st:[loc:cat:head:dsl:none])).
 
 complementizer(CForm) :=
  (complementizer_word,
   loc:cat:head:cform:CForm).
-
-
-
-
-
-
 
 
 
