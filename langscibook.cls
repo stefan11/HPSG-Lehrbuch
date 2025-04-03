@@ -777,7 +777,18 @@ luatexbase.add_to_callback('show_warning_message', be_quiet, 'stop show warning 
         }
     \fi%umathcode
     %% Provides \setmathfont
-    \usepackage{unicode-math}
+%    \usepackage{unicode-math}
+
+% St. Mü. 01.04.2025 inserted newtxmath since otherwise the brackets are bold.
+%else newtxmath
+    %% Deprecated:
+%    \PassOptionsToPackage{no-math}{fontspec} % must appear before metalogo or any fontspec stuff;
+                                % deactivates fontspec's math settings, which is necessary to let
+                                % newtxmath do the job
+
+% St. Mü. 01.04.2025 inserted newtxmath since otherwise the brackets are bold.
+\usepackage{fontspec}
+
 
     \usepackage{metalogo}\newcommand{\xelatex}{\XeLaTeX\xspace}
 
@@ -796,10 +807,11 @@ luatexbase.add_to_callback('show_warning_message', be_quiet, 'stop show warning 
     ItalicFont = Arimo-Italic.ttf,
     BoldItalicFont = Arimo-BoldItalic.ttf
     ]{Arimo-Regular.ttf}
-    
-    \setmathfont[AutoFakeBold]{LibertinusMath-Regular.otf}
-    \setmathfont[range={cal},StylisticSet=1]{XITSMath-Regular.otf}
-    \setmathfont[range={bfcal},StylisticSet=1]{XITSMath-Bold.otf}
+
+% no thanks St.Mü.01.04.2025    
+    % \setmathfont[AutoFakeBold]{LibertinusMath-Regular.otf}
+    % \setmathfont[range={cal},StylisticSet=1]{XITSMath-Regular.otf}
+    % \setmathfont[range={bfcal},StylisticSet=1]{XITSMath-Bold.otf}
 
     \ifbool{oldstylenumbers}{
     \defaultfontfeatures[LibertinusSerif-Semibold.otf,LibertinusSerif-Italic.otf,LibertinusSerif-SemiboldItalic.otf,LibertinusSerif-Regular.otf]{SmallCapsFeatures={Numbers=OldStyle}}
@@ -819,6 +831,23 @@ luatexbase.add_to_callback('show_warning_message', be_quiet, 'stop show warning 
         SmallCapsFeatures = {FakeSlant=0},
       ]
       {LibertinusSerif-Regular.otf}
+
+
+% Get old thinner brackets back for AVMs
+% St.Mü. 01.04.2025
+            \usepackage[libertine]{newtxmath}
+            %% following http://tex.stackexchange.com/questions/297328/xelatex-does-not-load-newtxmath-with-linuxlibertine-sometimes
+            %% due to a bug in XeTeX. This also seems to fix an issue with \url in footnotes.
+    %% Unfortunately, this is NOT extensively tested!
+            \usepackage{xpatch}
+            \xpretocmd{\textsuperscript}
+            {{\sbox0{$\textstyle x$}}}
+            {}{}
+            \AtBeginDocument{%
+            \DeclareSymbolFont{operators}{\encodingdefault}{\familydefault}{m}{n}%
+            \SetSymbolFont{operators}{bold}{\encodingdefault}{\familydefault}{b}{n}%
+            }
+
 
     % Improve the appearance of numbers in tables and the TOC 
     % In those places, they should come out monospaced, unlike in main text.
