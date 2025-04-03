@@ -192,19 +192,14 @@ dass ---> @complementizer(dass).
 
 
 empty
-   (word,
-    phon:[],
+   (trace,
     loc:(Loc,
          cat:head:(verb,
                    initial:minus,
                    dsl:Loc)),
     nonloc:slash:[],
-    rels:[],
-    hcons:[],
     trace:vm).
 
-
-% Die Spezifikation der Valenz sollte nicht nötig sein. Sie ist wegen PVP auch falsch.
 empty 
    (trace,
     loc:Loc,

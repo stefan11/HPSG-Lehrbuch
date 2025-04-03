@@ -49,11 +49,15 @@ mrs := bot & [
 
 
 phrase := sign & [
- non_head_dtrs list,
- dtrs          list ].
+ dtrs list ].
 
 headed_phrase := phrase & [
   head_dtr sign ].
+
+head_non_head_phrase := headed_phrase & [
+  non_head_dtr sign ].
+
+
 
 ; V2 and relative clauses
 filler_phrase := phrase.
@@ -63,19 +67,19 @@ head_non_complement_phrase := headed_phrase.
 head_non_filler_phrase     := headed_phrase.
 head_non_specifier_phrase  := headed_phrase.
 
-head_adjunct_phrase    := head_non_complement_phrase & head_non_filler_phrase     & head_non_specifier_phrase.
-head_complement_phrase := head_non_adjunct_phrase    & head_non_filler_phrase     & head_non_specifier_phrase.
-head_filler_phrase     := head_non_adjunct_phrase    & head_non_complement_phrase & head_non_specifier_phrase & filler_phrase.
-head_specifier_phrase  := head_non_adjunct_phrase    & head_non_filler_phrase     & head_non_complement_phrase.
+head_adjunct_phrase    := head_non_head_phrase & head_non_complement_phrase & head_non_filler_phrase     & head_non_specifier_phrase.
+head_complement_phrase := head_non_head_phrase & head_non_adjunct_phrase    & head_non_filler_phrase     & head_non_specifier_phrase.
+head_filler_phrase     := head_non_head_phrase & head_non_adjunct_phrase    & head_non_complement_phrase & head_non_specifier_phrase & filler_phrase.
+head_specifier_phrase  := head_non_head_phrase & head_non_adjunct_phrase    & head_non_filler_phrase     & head_non_complement_phrase.
 
 
-non_headed_phrase := phrase.
+;non_headed_phrase := phrase.
 
-coord_phrase := non_headed_phrase.
+coord_phrase := phrase.
 
-verb_initial_rule := non_headed_phrase & complementizer_like_sign.
+verb_initial_rule := phrase & complementizer_like_sign.
 
-rc := filler_phrase & non_headed_phrase & isect_n_modifier.
+rc := filler_phrase & isect_n_modifier.
 
 lexical_sign := sign.
 
@@ -136,7 +140,7 @@ nominal_pronoun := noun_word & pronoun.
 
 proper_noun  := saturated_word & noun_word & empty_rel_word.
 
-pers_pronoun := nominal_pronoun & empty_rel_word.
+pers_pronoun := nominal_pronoun & empty_rel_word & non_scopal_non_relational_le.
 
 rel_pronoun := pronoun.
 
@@ -242,7 +246,7 @@ complementizer_like_sign := spr_saturated_sign & overt_sign.
 
 complementizer_word := complementizer_like_sign & transparent_non_scopal_non_relational_le & overt_word.
 
-conj_word := relational_arg0_word & non_scopal_le.
+conj_word := relational_arg0_word & non_scopal_le & overt_word & empty_rel_word.
 
 head := bot & [
    mod  none_or_sign,
