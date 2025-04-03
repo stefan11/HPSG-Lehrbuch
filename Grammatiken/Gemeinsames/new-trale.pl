@@ -43,7 +43,7 @@
 
 % this shows a warning if a unification in macro expansion did not succeed
 % may be useful for debugging
-% :- ale_flag(adderrs,_,on).
+:- ale_flag(adderrs,_,on).
 
 
 % this shows the input of lexical rules as daughters
