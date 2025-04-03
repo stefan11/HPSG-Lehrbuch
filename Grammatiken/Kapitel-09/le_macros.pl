@@ -78,7 +78,7 @@ possessive *>
        cont:ind:(Ind,
                  index)),
 %        ltop:LTop,
-  rels:[_,                      % Die erste Relation kommt vom Obertyp.
+  rels:[def_q,
         (poss_rel,
             lbl:NLTop,
             arg0:event,
