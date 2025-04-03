@@ -213,7 +213,7 @@ complementizer_like_sign := spr_saturated_sign & overt_sign.
 
 complementizer_word := complementizer_like_sign & transparent_non_scopal_non_relational_le & overt_word.
 
-conj_word := relational_arg0_word & non_scopal_le.
+conj_word := relational_arg0_word & non_scopal_le & overt_word.
 
 head := bot & [
    mod  none_or_sign,

@@ -132,12 +132,12 @@ verb_initial_rule *>
                               ltop:LTop))]),
        cont:(ind:Ind,
              ltop:LTop)),
-  nonloc:slash:Slash,
+  nonloc:Nonloc,
   non_head_dtrs:[(loc:(Loc,
                        cat:head:(verb,
                                  vform:fin,
                                  initial:minus)),
-                  nonloc:slash:Slash,
+                  nonloc:Nonloc,
                   trace:minus,
                   % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
                   phrase:minus)]).
