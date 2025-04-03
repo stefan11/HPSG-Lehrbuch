@@ -176,3 +176,9 @@ head_non_adjunct_phrase *> (lex:minus).
 % kombiniert werden könnten.
 (phon:[],
  loc:cat:head:verb) *> loc:cat:spr:[].
+
+head_specifier_phrase *>
+             dtrs:[(loc:cat:head:det,   % speed + Regelberechnung
+                    trace:minus         % speed: steht eigentlich im Lexikon
+                    ),loc:cat:head:noun].        % speed + Regelberechnung
+

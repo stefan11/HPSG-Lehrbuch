@@ -161,15 +161,48 @@ headed_phrase *> phrase:plus.
 % Damit hat die Konjunktion auch den DSL-Wert none und kann
 % dann nicht mehr Tochter der V1-Regel sein.
 
+
+% Linearisierungsregeln: Wenn der Initial-Wert plus ist, steht die Kopf-Tochter vor der
+% Nicht-Kopf-Tochter, sonst danach.
+head_complement_phrase *> (head_dtr:HD,
+                            non_head_dtrs:[NHD],
+                            ( head_dtr:loc:cat:head:initial:plus,
+                              dtrs:[HD,NHD]
+                            ; head_dtr:loc:cat:head:initial:minus,
+                              dtrs:[NHD,HD]
+                            )).
+
+% Wenn der Pre-Modifier-Wert plus ist, steht die Adjunkt-Tochter vor der
+% Kopf-Tochter, sonst danach.
+head_adjunct_phrase *> (head_dtr:HD,
+                           non_head_dtrs:[NHD],
+                           ( non_head_dtrs:[loc:cat:head:pre_modifier:minus],
+                               dtrs:[HD,NHD]
+                           ; non_head_dtrs:[loc:cat:head:pre_modifier:plus],
+                               dtrs:[NHD,HD]
+                           )).
+
+% Der Spezifikator steht vor dem Kopf.
+head_specifier_phrase *>
+             (dtrs:[NonHeadDtr,HeadDtr],
+              head_dtr:HeadDtr,
+              non_head_dtrs:[NonHeadDtr]).
+
+% Der Filler steht vor dem Kopf.
+head_filler_phrase *> (dtrs:[NonHeadDtr,HeadDtr],
+                       head_dtr:HeadDtr,
+                       non_head_dtrs:[NonHeadDtr]).
+
+
 head_filler_phrase *>
    (nonloc:slash:[],
     v2:plus,
-    head_dtr:(loc:cat:(head:(verb,
-                             initial:plus),
-                       spr:[],
-                       comps:[]),
-              nonloc:slash:[Slash]),
-       non_head_dtrs:[loc:Slash]).
+    dtrs:[loc:Slash,
+          (loc:cat:(head:(verb,
+                          initial:plus),
+                    spr:[],
+                    comps:[]),
+           nonloc:slash:[Slash])]).
 
 %%
 head_non_filler_phrase *>

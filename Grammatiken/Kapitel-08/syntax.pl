@@ -148,7 +148,45 @@ verb_initial_rule *>
            phon:ne_list)) *> head_dtr:loc:cat:head:dsl:none.
 
 
+% Da coord_phrase nicht Untertyp von headed_phrase ist,
+% ist der PHRASE-Wert unterspezifiziert.
+
+% [Ihn kennt und schläft] er.
+% Ist dennoch ausgeschlossen, da die obige Implikation
+% dafür sorgt, daß der DSL-Wert von `ihn kennt' none ist.
+% Damit hat die Konjunktion auch den DSL-Wert none und kann
+% dann nicht mehr Tochter der V1-Regel sein.
+
 headed_phrase *> phrase:plus.
+
+
+
+% Linearisierungsregeln: Wenn der Initial-Wert plus ist, steht die Kopf-Tochter vor der
+% Nicht-Kopf-Tochter, sonst danach.
+head_complement_phrase *> (head_dtr:HD,
+                            non_head_dtrs:[NHD],
+                            ( head_dtr:loc:cat:head:initial:plus,
+                              dtrs:[HD,NHD]
+                            ; head_dtr:loc:cat:head:initial:minus,
+                              dtrs:[NHD,HD]
+                            )).
+
+% Wenn der Pre-Modifier-Wert plus ist, steht die Adjunkt-Tochter vor der
+% Kopf-Tochter, sonst danach.
+head_adjunct_phrase *> (head_dtr:HD,
+                           non_head_dtrs:[NHD],
+                           ( non_head_dtrs:[loc:cat:head:pre_modifier:minus],
+                               dtrs:[HD,NHD]
+                           ; non_head_dtrs:[loc:cat:head:pre_modifier:plus],
+                               dtrs:[NHD,HD]
+                           )).
+
+% Der Spezifikator steht vor dem Kopf.
+head_specifier_phrase *>
+             (dtrs:[NonHeadDtr,HeadDtr],
+              head_dtr:HeadDtr,
+              non_head_dtrs:[NonHeadDtr]).
+
 
 
 root :=

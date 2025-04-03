@@ -14,19 +14,21 @@
 % Diese Datei kann ignoriert werden, sie hilft nur dem Parser
 % und wird aus technischen Gründen gebraucht.
 
+% Wenn man hier die INITIAL und PRE_MODIFIER-Werte nicht angeben würde,
+% würde man jeweils nur eine Regel brauchen. Die Regelnamen sind aber
+% beim Debuggen der Grammatik ganz nützlich, so dass ich weiterhin mit
+% Regel-Paaren arbeite. Oder?
+
 h_comp rule (head_complement_phrase,
-             loc:cat:head:initial:plus,
              dtrs:[HeadDtr,NonHeadDtr],
-             head_dtr:HeadDtr,
-             non_head_dtrs:[NonHeadDtr])
+             head_dtr:loc:cat:head:initial:plus)
   ===>
 cat> HeadDtr,
 cat> NonHeadDtr.
 
 comp_h rule (head_complement_phrase,
-             loc:cat:head:initial:minus,
              dtrs:[NonHeadDtr,HeadDtr],
-             head_dtr:HeadDtr,
+             head_dtr:loc:cat:head:initial:minus,
              non_head_dtrs:[(NonHeadDtr,
                              @argument_sign   % speed + Regelberechnung
                             )])
@@ -36,35 +38,27 @@ cat> HeadDtr.
 
 
 spr_h rule (head_specifier_phrase,
-             dtrs:[NonHeadDtr,HeadDtr],
-             head_dtr:(HeadDtr,
-                       loc:cat:head:noun        % speed + Regelberechnung
-                      ),
-             non_head_dtrs:[(NonHeadDtr,
-                             loc:cat:head:det,   % speed + Regelberechnung
-                             trace:minus         % speed: steht eigentlich im Lexikon
-                            )])
+             dtrs:[NonHeadDtr,HeadDtr])
   ===>
 cat>      NonHeadDtr,
 sem_head> HeadDtr.
 
+
 adj_h rule (head_adjunct_phrase,
              dtrs:[NonHeadDtr,HeadDtr],
-             head_dtr:HeadDtr,
-             non_head_dtrs:[(NonHeadDtr,
-                             loc:cat:head:pre_modifier:plus)])
+             non_head_dtrs:[loc:cat:head:pre_modifier:plus])
   ===>
 cat> NonHeadDtr,
 cat> HeadDtr.
 
 h_adj rule (head_adjunct_phrase,
              dtrs:[HeadDtr,NonHeadDtr],
-             head_dtr:HeadDtr,
-             non_head_dtrs:[(NonHeadDtr,
-                             loc:cat:head:pre_modifier:minus)])
+             non_head_dtrs:[loc:cat:head:pre_modifier:minus])
   ===>
 cat> HeadDtr,
 cat> NonHeadDtr.
+
+
 
 % Das ist eine unär verzweigende Regel und keine Lexikonregel,
 % da sie auch auf koordinierte Verben angewendet werden kann.
