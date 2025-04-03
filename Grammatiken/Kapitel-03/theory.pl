@@ -35,7 +35,7 @@ signature(signature).
 :- [syntax].
 
 % load constraints on `phonology'
-:- [phonology].
+:- ['../Gemeinsames/phonology'].
 
 
 % load relational constraints for rules
