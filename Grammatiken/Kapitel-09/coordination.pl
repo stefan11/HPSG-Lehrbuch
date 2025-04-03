@@ -30,9 +30,7 @@ conj_word *>
                                  ind:RI)),
                       nonloc:Nonloc,
                       trace:minus)]),
-     nonloc:slash:[],
-     rels:[(und_rel,
-            lhandle:LH,
+     rels:[(lhandle:LH,
             rhandle:(RH,
                      =\=LH),  % Wenn zwei Verben zu V1-Verben werden, haben sie LBL und IND
                               % innerhalb ihrer DSL-Werte. Bei der Koordinatoin werden diese

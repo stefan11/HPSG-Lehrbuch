@@ -19,7 +19,11 @@
 % Koordination von verbalen Projektionen
 
 conj_word *>
-   (loc:cat:(head:(coord,
+   (%relational_arg0_word,
+    %non_scopal_le,
+    %overt_word,
+    %empty_rel_word
+    loc:cat:(head:(coord,
                    spec:(loc:(cat:Cat,
                               cont:(ltop:LH,
                                     ind:LI)),
@@ -30,9 +34,7 @@ conj_word *>
                                  ind:RI)),
                       nonloc:Nonloc,
                       trace:minus)]),
-     nonloc:slash:[],
-     rels:[(und_rel,
-            lhandle:LH,
+     rels:[(lhandle:LH,
             rhandle:(RH,
                      =\=LH),  % Wenn zwei Verben zu V1-Verben werden, haben sie LBL und IND
                               % innerhalb ihrer DSL-Werte. Bei der Koordinatoin werden diese
@@ -51,9 +53,9 @@ conj_word(Relation) :=
 und ---> @conj_word(und_rel).
 
 coord_phrase *>
-  non_head_dtrs:[(phon:ne_list,
-                  trace:minus),
-                 trace:minus].
+  dtrs:[(phon:ne_list,
+         trace:minus),
+        trace:minus].
 
 % Unklar warum bei EFD-Berechnungt 4 x conj y phrasen lizenziert werden.
 %coord_phrase *>
@@ -65,18 +67,16 @@ x_conj_y_coord_phrase :=
    loc:(cat:Cat,
         cont:Cont),
    nonloc:Nonloc,
-   non_head_dtrs:[(Spec,
-                   loc:cat:Cat,
-                   nonloc:Nonloc),
-                  (loc:(cat:(head:(coord,
-                                   spec:Spec),
-                             comps:[]),
-                        cont:Cont))]).
+   dtrs:[(Spec,
+          loc:cat:Cat,
+          nonloc:Nonloc),
+         (loc:(cat:(head:(coord,
+                          spec:Spec),
+                    comps:[]),
+               cont:Cont))]).
 
 x_conj_y rule (@x_conj_y_coord_phrase,
-                  dtrs:Dtrs,
-                  non_head_dtrs:(Dtrs,
-                                 [Dtr1,Dtr2]))
+                  dtrs:[Dtr1,Dtr2])
   ===>
 cat> Dtr1,
 cat> Dtr2.
