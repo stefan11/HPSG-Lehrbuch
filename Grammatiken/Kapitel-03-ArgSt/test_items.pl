@@ -8,4 +8,7 @@ t(5,"Mann schläft.",@decl,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinz
 t(6,"der Mann kennt",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
 t(7,"die Tochter des Mannes",@root,1,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
 t(8,"die Tochter Mannes",@root,0,'Kapitel 4: Valenz, Kopfmerkmale, Kopfmerkmalsprinzip, Kopf-Komplement-Strukturen, Kopf-Spezifikator-Strukturen').
+t(9,"der kleine Affe",@root,1,'Kapitel 3: Valenz und Grammatikregeln').
+t(10,"Der Käse in der Speisekammer stinkt.",@decl,1,'Kapitel 3: Valenz und Grammatikregeln').
+t(11,"Der Käse in stinkt.",@decl,0,'Kapitel 3: Valenz und Grammatikregeln').
 

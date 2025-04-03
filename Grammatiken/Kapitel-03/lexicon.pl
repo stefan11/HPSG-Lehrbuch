@@ -12,12 +12,13 @@
 
 das ---> (word,
   p_o_s:det,
+  mod:none,
   spr:[],
   comps:[] ).
 
-
 der ---> (word,
   p_o_s:det,
+  mod:none,
   spr:[],
   comps:[] ).
 
@@ -25,30 +26,59 @@ der ---> (word,
 % dem Mann
 dem ---> (word,
   p_o_s:det,
+  mod:none,
   spr:[],
   comps:[] ).
 
 % den Mann
 den ---> (word,
   p_o_s:det,
+  mod:none,
   spr:[],
   comps:[] ).
 
 
 des ---> (word,
   p_o_s:det,
+  mod:none,
   spr:[],
   comps:[] ).
 
 die ---> (word,
   p_o_s:det,
+  mod:none,
   spr:[],
   comps:[] ).
 
+kleine ---> (word,
+  p_o_s:adj,
+  mod:(p_o_s:noun,
+       spr:[_],
+       comps:[]),
+  spr:[],
+  comps:[]).
 
+in ---> (word,
+  p_o_s:prep,
+  mod:(p_o_s:noun,
+       spr:[_],
+       comps:[]),
+  spr:[],
+  comps:[(p_o_s:noun,
+          spr:[],
+          comps:[])]).
+
+affe ---> (word,
+  p_o_s:noun,
+  mod:none,
+  spr:[(p_o_s:det,
+          spr:[],
+          comps:[])],
+  comps:[] ).
 
 mann ---> (word,
   p_o_s:noun,
+  mod:none,
   spr:[(p_o_s:det,
           spr:[],
           comps:[])],
@@ -57,6 +87,7 @@ mann ---> (word,
 
 mannes ---> (word,
   p_o_s:noun,
+  mod:none,
   spr:[(p_o_s:det,
         spr:[],
         comps:[])],
@@ -64,6 +95,7 @@ mannes ---> (word,
 
 frau ---> (word,
   p_o_s:noun,
+  mod:none,
   spr:[(p_o_s:det,
         spr:[],
         comps:[])],
@@ -71,6 +103,7 @@ frau ---> (word,
 
 tochter ---> (word,
   p_o_s:noun,
+  mod:none,
   spr:[(p_o_s:det,
         spr:[],
         comps:[])],
@@ -80,6 +113,7 @@ tochter ---> (word,
 
 buch ---> (word,
   p_o_s:noun,
+  mod:none,
   spr:[(p_o_s:det,
         spr:[],
         comps:[])],
@@ -87,35 +121,65 @@ buch ---> (word,
 
 buches ---> (word,
   p_o_s:noun,
+  mod:none,
   spr:[(p_o_s:det,
         spr:[],
         comps:[])],
   comps:[ ] ).
 
 
+käse ---> (word,
+  p_o_s:noun,
+  mod:none,
+  spr:[(p_o_s:det,
+        comps:[])],
+  comps:[] ).
+
+
+speisekammer ---> (word,
+  p_o_s:noun,
+  mod:none,
+  spr:[(p_o_s:det,
+        comps:[])],
+  comps:[] ).
+
+
 er ---> (word,
   p_o_s:noun,
+  mod:none,
   spr:[],
   comps:[]).
 
 ihm ---> (word,
   p_o_s:noun,
+  mod:none,
   spr:[],
   comps:[]).
 
 aicke ---> (word,
   p_o_s:noun,
+  mod:none,
   spr:[],
   comps:[]).
 
 conny ---> (word,
   p_o_s:noun,
+  mod:none,
   spr:[],
   comps:[]).
 
 
 schläft ---> (word,
   p_o_s:verb,
+  mod:none,
+  spr:[],
+  comps:[(p_o_s:noun,
+          spr:[],
+          comps:[]) ] ).
+
+stinkt ---> (word,
+  p_o_s:verb,
+  mod:none,
   spr:[],
   comps:[(p_o_s:noun,
           spr:[],
@@ -123,6 +187,7 @@ schläft ---> (word,
 
 graut ---> (word,
   p_o_s:verb,
+  mod:none,
   spr:[],
   comps:[(p_o_s:noun,
           spr:[],
@@ -130,6 +195,7 @@ graut ---> (word,
 
 jagt ---> (word,
   p_o_s:verb,
+  mod:none,
   spr:[],
   comps:[ (p_o_s:noun,
            spr:[],
@@ -140,6 +206,7 @@ jagt ---> (word,
 
 kennt ---> (word,
   p_o_s:verb,
+  mod:none,
   spr:[],
   comps:[ (p_o_s:noun,
            spr:[],
@@ -150,6 +217,7 @@ kennt ---> (word,
 
 gab ---> (word,
   p_o_s:verb,
+  mod:none,
   spr:[],
   comps:[ (p_o_s:noun,
            spr:[],
@@ -164,6 +232,7 @@ gab ---> (word,
 
 gibt ---> (word,
   p_o_s:verb,
+  mod:none,
   spr:[],
   comps:[ (p_o_s:noun,
            spr:[],
@@ -178,6 +247,7 @@ gibt ---> (word,
 
 denkt ---> (word,
   p_o_s:verb,
+  mod:none,
   spr:[],
   comps:[ (p_o_s:noun,
            spr:[],
@@ -189,10 +259,12 @@ denkt ---> (word,
 
 an ---> (word,
   p_o_s:prep,
+  mod:none,
   spr:[],
   comps:[(p_o_s:noun,
           spr:[],
           comps:[]) ] ).
+
 
 
 

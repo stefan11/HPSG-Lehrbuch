@@ -87,15 +87,20 @@ bot
             scopal_adv_word
           scopal_v_modifier_le
             &scopal_adv_word
-      phrase non_head_dtrs:list dtrs:list
+      phrase dtrs:list
         non_headed_phrase
         headed_phrase head_dtr:sign
           head_non_specifier_phrase
-            head_complement_phrase
-            head_adjunct_phrase
+            glbtype25
+              head_adjunct_phrase
+              head_complement_phrase
+          head_non_head_phrase non_head_dtr:sign
+            glbtype24
+              &head_adjunct_phrase
+              head_specifier_phrase
+            &glbtype25
           head_non_complement_phrase
-            head_specifier_phrase
-            &head_adjunct_phrase
+            &glbtype24
       n_modifier
         glbtype5
           isect_n_modifier

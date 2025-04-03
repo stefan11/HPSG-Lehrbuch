@@ -130,17 +130,22 @@ bot
         complementizer_like_sign
           verb_initial_rule
           &complementizer_word
-      phrase non_head_dtrs:list dtrs:list
-        non_headed_phrase
-          &verb_initial_rule
-          coord_phrase
+      phrase dtrs:list
+        &verb_initial_rule
         headed_phrase head_dtr:sign
           head_non_specifier_phrase
-            head_complement_phrase
-            head_adjunct_phrase
+            glbtype34
+              head_adjunct_phrase
+              head_complement_phrase
+          head_non_head_phrase non_head_dtr:sign
+            glbtype33
+              &head_adjunct_phrase
+              head_specifier_phrase
+            &glbtype34
           head_non_complement_phrase
-            head_specifier_phrase
-            &head_adjunct_phrase
+            &glbtype33
+        non_headed_phrase
+          coord_phrase
       n_modifier
         glbtype8
           isect_n_modifier_le

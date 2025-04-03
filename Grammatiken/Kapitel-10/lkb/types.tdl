@@ -58,7 +58,6 @@ head_non_head_phrase := headed_phrase & [
   non_head_dtr sign ].
 
 
-
 ; V2 and relative clauses
 filler_phrase := phrase.
 
