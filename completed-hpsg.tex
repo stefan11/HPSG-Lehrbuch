@@ -33,10 +33,10 @@
 
 % load memoize before german.sty
 
-\usepackage{nomemoize} 
-%\usepackage{memoize} % The figures have been created with an earlier version of texlive. Recreating
+%\usepackage{nomemoize} 
+\usepackage{memoize} % The figures have been created with an earlier version of texlive. Recreating
                      % them changes the layout of the pages, so we have to rely on them. Unless ... 16.03.2023
-\mmzset{readonly}
+%\mmzset{readonly}
 % see below for further settings
 
 \input{localhyphenation.tex} % has to be loaded before german.sty
@@ -80,7 +80,7 @@
 %\bibliography{germanic}
 \bibliography{bib-abbr,biblio-xdata-en,biblio}
 
-\includeonly{chapters/00-hpsg-vorwort,chapters/01-hpsg-einleitung,chapters/02-hpsg-formalismus,chapters/03-hpsg-valenz-psg,chapters/04-hpsg-komplementation,chapters/05-hpsg-semantik,chapters/06-hpsg-lexikon,chapters/07-hpsg-topologie}
+\includeonly{title-toc,chapters/00-hpsg-vorwort,chapters/01-hpsg-einleitung,chapters/02-hpsg-formalismus,chapters/03-hpsg-valenz-psg,chapters/04-hpsg-komplementation,chapters/05-hpsg-semantik,chapters/06-hpsg-lexikon,chapters/07-hpsg-topologie}
 
 % \include{chapters/06-hpsg-lexikon}
 % \include{chapters/07-hpsg-topologie}
