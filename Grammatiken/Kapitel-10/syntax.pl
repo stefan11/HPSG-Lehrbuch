@@ -26,14 +26,14 @@ headed_phrase *>
 head_complement_phrase *>
    (loc:cat:comps:append(Comps1,Comps2),                       % = Comps1 + Comps2
     head_dtr:loc:cat:comps:append(Comps1,[NonHeadDtr|Comps2]), % = Comps1 + [NonHeadDtr] + Comps2
-    non_head_dtr:NonHeadDtr).
+    non_head_dtrs:[NonHeadDtr]).
 
 
 head_specifier_phrase *>
    (loc:cat:spr:Spr,
     head_dtr:loc:cat:(spr:[NonHeadDtr|Spr],
-                      comps:[]),
-    non_head_dtr:NonHeadDtr).
+                  comps:[]),
+    non_head_dtrs:[NonHeadDtr]).
 
 head_non_complement_phrase *>
    (loc:cat:comps:Comps,
@@ -46,9 +46,9 @@ head_non_specifier_phrase *>
 
 head_adjunct_phrase *>
    (head_dtr:HD,
-    non_head_dtr:loc:cat:(head:mod:HD,
-                          spr:[],
-                          comps:[])).
+    non_head_dtrs:[loc:cat:(head:mod:HD,
+                            spr:[],
+                            comps:[])]).
        
 
 % for headed structures the head daughter is appended to the non-head daughters to give a list of all daughters.
@@ -57,7 +57,7 @@ head_adjunct_phrase *>
 
 %headed_phrase *>
 %   head_dtr:HD,
-%   non_head_dtr:NHDtrs,
+%   non_head_dtrs:NHDtrs,
 %   dtrs:[HD|NHDtrs].
 
 
@@ -85,7 +85,7 @@ headed_phrase *>
           gtop:GTop),
     head_dtr:cont:(ind:Ind,
                    gtop:GTop),
-    non_head_dtr:cont:gtop:GTop).
+    non_head_dtrs:[cont:gtop:GTop]).
 */
 
 headed_phrase *>
@@ -102,19 +102,19 @@ head_specifier_phrase *>
 
 head_adjunct_phrase *>
    (loc:cont:ltop:LTop,
-    non_head_dtr:loc:cont:ltop:LTop).
+    non_head_dtrs:[loc:cont:ltop:LTop]).
 
 % Wegen „ein scheinbar schwieriges Beispiel“ kann sich „schwieriges“ nicht im Lexikon den LTop-Wert
 % von „Beispiel“ nehmen, denn der LTop-Wert von „Beispiel“ muss mit dem von „scheinbar schwieriges“ gleichgesetzt werden.
 (head_adjunct_phrase,
- non_head_dtr:loc:cat:head:scopal:minus) *>
+ non_head_dtrs:[loc:cat:head:scopal:minus]) *>
  (head_dtr:loc:cont:ltop:LTop,
-  non_head_dtr:loc:cont:ltop:LTop).
+  non_head_dtrs:[loc:cont:ltop:LTop]).
 
 (headed_phrase,
- non_head_dtr:loc:cat:head:spec:sign) *>
+ non_head_dtrs:[loc:cat:head:spec:sign]) *>
  (head_dtr:Spec,
-  non_head_dtr:loc:cat:head:spec:Spec).
+  non_head_dtrs:[loc:cat:head:spec:Spec]).
 
 
 % die Verbbewegungsanalyse
@@ -132,15 +132,15 @@ verb_initial_rule *>
                               ltop:LTop))]),
        cont:(ind:Ind,
              ltop:LTop)),
-  nonloc:Nonloc,
-  dtrs:[(loc:(Loc,
-              cat:head:(verb,
-                        vform:fin,
-                        initial:minus)),
-         nonloc:Nonloc,
-         trace:minus,
-         % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
-         phrase:minus)]).
+  nonloc:slash:Slash,
+  non_head_dtrs:[(loc:(Loc,
+                       cat:head:(verb,
+                                 vform:fin,
+                                 initial:minus)),
+                  nonloc:slash:Slash,
+                  trace:minus,
+                  % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
+                  phrase:minus)]).
 
 
 % * Er schläft schläft.
@@ -165,7 +165,7 @@ headed_phrase *> phrase:plus.
 % Linearisierungsregeln: Wenn der Initial-Wert plus ist, steht die Kopf-Tochter vor der
 % Nicht-Kopf-Tochter, sonst danach.
 head_complement_phrase *> (head_dtr:HD,
-                            non_head_dtr:NHD,
+                            non_head_dtrs:[NHD],
                             ( head_dtr:loc:cat:head:initial:plus,
                               dtrs:[HD,NHD]
                             ; head_dtr:loc:cat:head:initial:minus,
@@ -175,10 +175,10 @@ head_complement_phrase *> (head_dtr:HD,
 % Wenn der Pre-Modifier-Wert plus ist, steht die Adjunkt-Tochter vor der
 % Kopf-Tochter, sonst danach.
 head_adjunct_phrase *> (head_dtr:HD,
-                           non_head_dtr:NHD,
-                           ( non_head_dtr:loc:cat:head:pre_modifier:minus,
+                           non_head_dtrs:[NHD],
+                           ( non_head_dtrs:[loc:cat:head:pre_modifier:minus],
                                dtrs:[HD,NHD]
-                           ; non_head_dtr:loc:cat:head:pre_modifier:plus,
+                           ; non_head_dtrs:[loc:cat:head:pre_modifier:plus],
                                dtrs:[NHD,HD]
                            )).
 
@@ -186,12 +186,12 @@ head_adjunct_phrase *> (head_dtr:HD,
 head_specifier_phrase *>
              (dtrs:[NonHeadDtr,HeadDtr],
               head_dtr:HeadDtr,
-              non_head_dtr:NonHeadDtr).
+              non_head_dtrs:[NonHeadDtr]).
 
 % Der Filler steht vor dem Kopf.
 head_filler_phrase *> (dtrs:[NonHeadDtr,HeadDtr],
                        head_dtr:HeadDtr,
-                       non_head_dtr:NonHeadDtr).
+                       non_head_dtrs:[NonHeadDtr]).
 
 % Relativsätze (unheaded) und V2-Sätze mit Kopf.
 filler_phrase *>
@@ -207,8 +207,7 @@ filler_phrase *>
 
 head_filler_phrase *>
    (v2:plus,
-    dtrs:[nonloc:rel:[], % Sonst hätte „In der schläft er.“ zwei Lösungen
-          loc:cat:head:initial:plus]).
+    head_dtr:loc:cat:head:initial:plus).
 
 %%
 head_non_filler_phrase *>
@@ -216,7 +215,8 @@ head_non_filler_phrase *>
                   list_with_zero_or_one_element), % The ordering of the two constraints is important.
                                                   % If list_with ... is stated first, rule computation does not terminate.
                                                   % This seems to be a bug. (St. Mü. 01.04.2025)
-    dtrs:[nonloc:slash:Slash1,nonloc:slash:Slash2]).
+       head_dtr:nonloc:slash:Slash1,
+       non_head_dtrs:[nonloc:slash:Slash2]).
 
 %% Der Kopf kann nicht extrahiert werden.
 %% Ein Problem stellt hierbei das Verb in PVP-Konstellationen
@@ -228,7 +228,7 @@ headed_phrase *>
 
 % Adjunkte sind Extraktionsinseln
 (headed_phrase,
- non_head_dtr:trace:extraction) *>
+ non_head_dtrs:[trace:extraction]) *>
       (head_dtr:loc:cat:head:mod:none).
 
 
@@ -256,12 +256,12 @@ headed_phrase *>
 % vor.
    
 %(head_complement_phrase,
-% non_head_dtr:trace:extraction) *> loc:cat:comps:[].
+% non_head_dtrs:[trace:extraction]) *> loc:cat:comps:[].
 
 % Wenn die Nicht-Kopftochter eine Extraktionsspur ist, ist die gesamte
 % Phrase maximal.
 (head_complement_phrase,
- non_head_dtr:trace:extraction) *> max_:plus.
+ non_head_dtrs:[trace:extraction]) *> max_:plus.
 
 % Maximale Phrasen können keine Köpfe in Kopf-Argumentstrukturen sein, da sie ja maximal sind.
 % Durch die beiden Beschränkungen wird Maximalität erneut und ohne Bezug auf SUBCAT definiert.
@@ -273,7 +273,7 @@ headed_phrase *>
   (nonloc:rel:(list_with_zero_or_one_element,
                append(Rel1,Rel2)),
        head_dtr:nonloc:rel:Rel1,
-       non_head_dtr:nonloc:rel:Rel2).
+       non_head_dtrs:[nonloc:rel:Rel2]).
 
 % Relativsätze
 rc *>
@@ -286,7 +286,7 @@ rc *>
        cont:(ind:Ind,
              ltop:LTop)),
   nonloc:rel:[],
-  dtrs:[nonloc:rel:[Ind],
+  dtrs:[(nonloc:rel:[Ind]),
         (loc:(cat:head:initial:minus,
               cont:ltop:LTop),
          nonloc:rel:[],

@@ -49,9 +49,9 @@ conj_word(Relation) :=
 und ---> @conj_word(und_rel).
 
 coord_phrase *>
-  dtrs:[(phon:ne_list,
-         trace:minus),
-        trace:minus].
+  non_head_dtrs:[(phon:ne_list,
+                  trace:minus),
+                 trace:minus].
 
 % Unklar warum bei EFD-Berechnungt 4 x conj y phrasen lizenziert werden.
 %coord_phrase *>
@@ -63,16 +63,18 @@ x_conj_y_coord_phrase :=
    loc:(cat:Cat,
         cont:Cont),
    nonloc:Nonloc,
-   dtrs:[(Spec,
-          loc:cat:Cat,
-          nonloc:Nonloc),
-         (loc:(cat:(head:(coord,
-                          spec:Spec),
-                    comps:[]),
-               cont:Cont))]).
+   non_head_dtrs:[(Spec,
+                   loc:cat:Cat,
+                   nonloc:Nonloc),
+                  (loc:(cat:(head:(coord,
+                                   spec:Spec),
+                             comps:[]),
+                        cont:Cont))]).
 
 x_conj_y rule (@x_conj_y_coord_phrase,
-                  dtrs:[Dtr1,Dtr2])
+                  dtrs:Dtrs,
+                  non_head_dtrs:(Dtrs,
+                                 [Dtr1,Dtr2]))
   ===>
 cat> Dtr1,
 cat> Dtr2.

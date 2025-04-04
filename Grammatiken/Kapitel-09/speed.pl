@@ -31,8 +31,8 @@
 
 head_filler_phrase *>
    (v2:plus,
-    non_head_dtr:phon:ne_list).  % keine Spuren (TRACE-) bzw. leere Elemente (Determinator).
-                                 % Evtl. bei Vorfeldellipse ändern.
+    non_head_dtrs:[phon:ne_list]).  % keine Spuren (TRACE-) bzw. leere Elemente (Determinator).
+                                    % Evtl. bei Vorfeldellipse ändern.
 
 %head_filler_phrase *> loc:cat:head:dsl:none.
    
@@ -47,7 +47,7 @@ phrase *> trace:minus.
 
 
 (head_adjunct_phrase,
- non_head_dtr:trace:extraction) *> head_dtr:lex:plus. % to avoid spurious ambiguities
+ non_head_dtrs:[trace:extraction]) *> head_dtr:lex:plus. % to avoid spurious ambiguities
 
 
 
@@ -73,7 +73,7 @@ argument_sign :=
 % [ [ er _ ] _ ]
 (head_complement_phrase,
  loc:cat:head:initial:minus) *>
-  non_head_dtr:loc:cat:head:dsl:none.
+  (non_head_dtrs:[loc:cat:head:dsl:none]).
 
 */
 
@@ -92,7 +92,7 @@ fun not_type(+,-).
 % Folgendes schließt finite Verben als Argumente (der Verbspur) aus, da
 % sie in diesem Fragment nicht vorkommen.
 (head_complement_phrase,
- loc:cat:head:initial:minus) *> non_head_dtr:loc:cat:head: @not(verb).
+ loc:cat:head:initial:minus) *> non_head_dtrs:[loc:cat:head: @not(verb)].
 
 
 
@@ -103,11 +103,11 @@ fun not_type(+,-).
 % als Adjunkt auftreten.
 
 head_adjunct_phrase *>
-  non_head_dtr:loc:cat:head:dsl:none.
+  (non_head_dtrs:[loc:cat:head:dsl:none]).
 
 % allgemeiner
 %head_non_complement_phrase *>
-%  non_head_dtr:loc:cat:head:dsl:none.
+%  (non_head_dtrs:[loc:cat:head:dsl:none]).
 
 
 
@@ -122,8 +122,8 @@ head_adjunct_phrase *>
 % Extraktion aus NPen ist ebenfalls ausgeschlossen, was empirisch nicht korrekt ist.
 
 (head_adjunct_phrase,
- non_head_dtr:trace:extraction) *> loc:cat:head:(verb,
-                                                 initial:minus).
+ non_head_dtrs:[trace:extraction]) *> loc:cat:head:(verb,
+                                                    initial:minus).
 
 % Wahrscheinlich kann Verbspur mit Extraktionsspur kombiniert werden, diese wird dann mit
 % extrahiertem Adverb kombiniert. Das sollte nicht gehen, weil es eine Restriktion in der Anzahl der
@@ -131,7 +131,7 @@ head_adjunct_phrase *>
 % Reihenfolge wie in syntax.pl angegeben verwendet wird.
 %
 %(head_adjunct_phrase,
-% non_head_dtr:trace:extraction) *> nonloc:slash:[].
+% non_head_dtrs:[trace:extraction]) *> nonloc:slash:[].
 
 
 
@@ -144,12 +144,12 @@ head_adjunct_phrase *>
 % Das ist wichtig für die Regelberechnung.
 
 (head_adjunct_phrase,
- head_dtr:loc:cat:head:verb) *> non_head_dtr:loc:cat:head:pre_modifier:plus.
+ head_dtr:loc:cat:head:verb) *> (non_head_dtrs:[loc:cat:head:pre_modifier:plus]).
 
 % Adjunkte werden immer als direkte Töchter des Verbs eingeführt,
 % da sonst unechte Mehrdeutigkeiten entstünden.
 (head_adjunct_phrase,
- non_head_dtr:trace:extraction) *> head_dtr:lex:plus.
+ non_head_dtrs:[trace:extraction]) *> (head_dtr:lex:plus).
 
 % Das wird später im Zusammenhang mit dem Verbalkomplex benötigt.
 % Jetzt ist es aus Effizienzgründen schon in der Grammatik.
@@ -165,7 +165,7 @@ head_non_adjunct_phrase *> lex:minus.
 %   [ _   [ oft _ ]]
 
 (head_adjunct_phrase,
- head_dtr:head_complement_phrase) *> head_dtr:non_head_dtr:trace:minus.
+ head_dtr:head_complement_phrase) *> head_dtr:non_head_dtrs:[trace:minus].
 
 
 

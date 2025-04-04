@@ -17,7 +17,7 @@
 h_comp rule (head_complement_phrase,
              dtrs:[HeadDtr,NonHeadDtr],
              head_dtr:HeadDtr,
-             non_head_dtr:NonHeadDtr)
+             non_head_dtrs:[NonHeadDtr])
   ===>
 cat> HeadDtr,
 cat> NonHeadDtr.
@@ -25,7 +25,7 @@ cat> NonHeadDtr.
 comp_h rule (head_complement_phrase,
              dtrs:[NonHeadDtr,HeadDtr],
              head_dtr:HeadDtr,
-             non_head_dtr:NonHeadDtr)
+             non_head_dtrs:[NonHeadDtr])
   ===>
 cat> NonHeadDtr,
 cat> HeadDtr.
@@ -34,7 +34,7 @@ cat> HeadDtr.
 spr_h rule (head_specifier_phrase,
              dtrs:[NonHeadDtr,HeadDtr],
              head_dtr:HeadDtr,
-             non_head_dtr:NonHeadDtr)
+             non_head_dtrs:[NonHeadDtr])
   ===>
 cat> NonHeadDtr,
 cat> HeadDtr.
@@ -42,7 +42,7 @@ cat> HeadDtr.
 adj_h rule (head_adjunct_phrase,
              dtrs:[NonHeadDtr,HeadDtr],
              head_dtr:HeadDtr,
-             non_head_dtr:NonHeadDtr)
+             non_head_dtrs:[NonHeadDtr])
   ===>
 cat> NonHeadDtr,
 cat> HeadDtr.
@@ -50,7 +50,7 @@ cat> HeadDtr.
 adj_h rule (head_adjunct_phrase,
              dtrs:[HeadDtr,NonHeadDtr],
              head_dtr:HeadDtr,
-             non_head_dtr:NonHeadDtr)
+             non_head_dtrs:[NonHeadDtr])
   ===>
 cat> HeadDtr,
 cat> NonHeadDtr.

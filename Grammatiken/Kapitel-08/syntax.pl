@@ -26,14 +26,14 @@ headed_phrase *>
 head_complement_phrase *>
    (loc:cat:comps:append(Comps1,Comps2),                       % = Comps1 + Comps2
     head_dtr:loc:cat:comps:append(Comps1,[NonHeadDtr|Comps2]), % = Comps1 + [NonHeadDtr] + Comps2
-    non_head_dtr:NonHeadDtr).
+    non_head_dtrs:[NonHeadDtr]).
 
 
 head_specifier_phrase *>
    (loc:cat:spr:Spr,
     head_dtr:loc:cat:(spr:[NonHeadDtr|Spr],
                   comps:[]),
-    non_head_dtr:NonHeadDtr).
+    non_head_dtrs:[NonHeadDtr]).
 
 head_non_complement_phrase *>
    (loc:cat:comps:Comps,
@@ -46,9 +46,9 @@ head_non_specifier_phrase *>
 
 head_adjunct_phrase *>
    (head_dtr:HD,
-    non_head_dtr:loc:cat:(head:mod:HD,
-                          spr:[],
-                          comps:[])).
+    non_head_dtrs:[loc:cat:(head:mod:HD,
+                            spr:[],
+                            comps:[])]).
        
 
 % for headed structures the head daughter is appended to the non-head daughters to give a list of all daughters.
@@ -57,7 +57,7 @@ head_adjunct_phrase *>
 
 %headed_phrase *>
 %   head_dtr:HD,
-%   non_head_dtr:NHDtrs,
+%   non_head_dtrs:NHDtrs,
 %   dtrs:[HD|NHDtrs].
 
 
@@ -85,7 +85,7 @@ headed_phrase *>
           gtop:GTop),
     head_dtr:cont:(ind:Ind,
                    gtop:GTop),
-    non_head_dtr:cont:gtop:GTop).
+    non_head_dtrs:[cont:gtop:GTop]).
 */
 
 headed_phrase *>
@@ -102,19 +102,19 @@ head_specifier_phrase *>
 
 head_adjunct_phrase *>
    (loc:cont:ltop:LTop,
-    non_head_dtr:loc:cont:ltop:LTop).
+    non_head_dtrs:[loc:cont:ltop:LTop]).
 
 % Wegen „ein scheinbar schwieriges Beispiel“ kann sich „schwieriges“ nicht im Lexikon den LTop-Wert
 % von „Beispiel“ nehmen, denn der LTop-Wert von „Beispiel“ muss mit dem von „scheinbar schwieriges“ gleichgesetzt werden.
 (head_adjunct_phrase,
- non_head_dtr:loc:cat:head:scopal:minus) *>
+ non_head_dtrs:[loc:cat:head:scopal:minus]) *>
  (head_dtr:loc:cont:ltop:LTop,
-  non_head_dtr:loc:cont:ltop:LTop).
+  non_head_dtrs:[loc:cont:ltop:LTop]).
 
 (headed_phrase,
- non_head_dtr:loc:cat:head:spec:sign) *>
+ non_head_dtrs:[loc:cat:head:spec:sign]) *>
  (head_dtr:Spec,
-  non_head_dtr:loc:cat:head:spec:Spec).
+  non_head_dtrs:[loc:cat:head:spec:Spec]).
 
 
 % die Verbbewegungsanalyse
@@ -132,13 +132,13 @@ verb_initial_rule *>
                               ltop:LTop))]),
        cont:(ind:Ind,
              ltop:LTop)),
-  dtrs:[(loc:(Loc,
-              cat:head:(verb,
-                        vform:fin,
-                        initial:minus)),
-         trace:minus,
-         % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
-         phrase:minus)]).
+  non_head_dtrs:[(loc:(Loc,
+                       cat:head:(verb,
+                                 vform:fin,
+                                 initial:minus)),
+                  trace:minus,
+                  % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
+                  phrase:minus)]).
 
 
 % * Er schläft schläft.
@@ -164,7 +164,7 @@ headed_phrase *> phrase:plus.
 % Linearisierungsregeln: Wenn der Initial-Wert plus ist, steht die Kopf-Tochter vor der
 % Nicht-Kopf-Tochter, sonst danach.
 head_complement_phrase *> (head_dtr:HD,
-                            non_head_dtr:NHD,
+                            non_head_dtrs:[NHD],
                             ( head_dtr:loc:cat:head:initial:plus,
                               dtrs:[HD,NHD]
                             ; head_dtr:loc:cat:head:initial:minus,
@@ -174,10 +174,10 @@ head_complement_phrase *> (head_dtr:HD,
 % Wenn der Pre-Modifier-Wert plus ist, steht die Adjunkt-Tochter vor der
 % Kopf-Tochter, sonst danach.
 head_adjunct_phrase *> (head_dtr:HD,
-                           non_head_dtr:NHD,
-                           ( non_head_dtr:loc:cat:head:pre_modifier:minus,
+                           non_head_dtrs:[NHD],
+                           ( non_head_dtrs:[loc:cat:head:pre_modifier:minus],
                                dtrs:[HD,NHD]
-                           ; non_head_dtr:loc:cat:head:pre_modifier:plus,
+                           ; non_head_dtrs:[loc:cat:head:pre_modifier:plus],
                                dtrs:[NHD,HD]
                            )).
 
@@ -185,7 +185,7 @@ head_adjunct_phrase *> (head_dtr:HD,
 head_specifier_phrase *>
              (dtrs:[NonHeadDtr,HeadDtr],
               head_dtr:HeadDtr,
-              non_head_dtr:NonHeadDtr).
+              non_head_dtrs:[NonHeadDtr]).
 
 
 
