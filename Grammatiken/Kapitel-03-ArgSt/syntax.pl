@@ -13,21 +13,37 @@
 
 head_complement_phrase *>
    (p_o_s:POS,
+    mod:Mod,
     spr:Spr,
     comps:Comps,
     head_dtr:(p_o_s:POS,
+              mod:Mod,
               spr:Spr,
               comps:append(Comps,[NonHeadDtr])),
     non_head_dtrs:[NonHeadDtr]).
 
 head_specifier_phrase *>
    (p_o_s:POS,
+    mod:Mod,
     spr:Spr,
     comps:Comps,
     head_dtr:(p_o_s:POS,
+              mod:Mod,
               spr:[NonHeadDtr|Spr],
               comps:(Comps,[])),
     non_head_dtrs:[NonHeadDtr]).
+
+head_adjunct_phrase *>
+   (mod:Mod,
+    spr:Spr,
+    comps:Comps,
+    head_dtr:(HD,
+              mod:Mod,
+              spr:Spr,
+              comps:Comps),
+    non_head_dtrs:[(mod:HD,
+                    spr:[],
+                    comps:[])]).
 
 % Argumentrealisierungsprinzip
 word *> (spr:Spr,
@@ -43,6 +59,7 @@ word *> (spr:Spr,
 % Die SPR-Liste von (finiten) Verben ist leer.
 (word,
  p_o_s:verb) *> spr:[]. 
+
 
 
 root macro

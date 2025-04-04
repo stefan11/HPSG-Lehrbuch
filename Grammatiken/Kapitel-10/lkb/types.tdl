@@ -55,6 +55,14 @@ phrase := sign & [
 headed_phrase := phrase & [
   head_dtr sign ].
 
+<<<<<<< HEAD
+=======
+head_non_head_phrase := headed_phrase & [
+  non_head_dtr sign ].
+
+
+
+>>>>>>> parent of 5d85def (non-head-dtrs -> non-head-dtr und DTRS für Phrasen, deren Abfolge eh fest ist.)
 ; V2 and relative clauses
 filler_phrase := phrase.
 

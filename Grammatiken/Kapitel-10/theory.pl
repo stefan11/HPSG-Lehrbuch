@@ -27,9 +27,6 @@ root_symbol(@root).
 decl_symbol(@decl).
 que_symbol(@interrog).
 
-% load tokenization rules for parsing ordinary strings and atoms
-:- ['../Gemeinsames/tokenization'].
-
 % specify signature file
 signature(signature).
 

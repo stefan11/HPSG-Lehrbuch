@@ -33,6 +33,10 @@ loc <<< nonloc.
 nonloc <<< rels.
 rels   <<< hcons.
 
+% load tokenization rules for parsing ordinary strings and atoms
+:- ['../Gemeinsames/tokenization'].
+
+
 % use ghostview for drawing signatures
 % für Linux
 %graphviz_option(ps,gv).

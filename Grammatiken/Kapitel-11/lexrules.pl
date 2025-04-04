@@ -1,8 +1,8 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: lexrules.pl,v $
-%%  $Revision: 1.11 $
-%%      $Date: 2007/03/05 11:26:28 $
+%%  $Revision: 1.4 $
+%%      $Date: 2005/03/03 15:11:24 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
@@ -12,59 +12,24 @@
 :- multifile '*>'/2.
 :- discontiguous '*>'/2.
 
-
-
-
-% Die semantisch richtige Version, die einen Interrogativoperator
-% für V1-Sätze und einen Assertationsoperator für V2-Sätze einführt.
+% Diese Datei wird nicht mehr geladen, da die Verbbewegung in der Syntax gemacht wird.
 
 verb_initial_lr *>
-( %word
-  synsem:(loc:cat:(head:(verb,
-                         vform:fin),
-                   subcat:[loc:cat:head:dsl:Loc]),
-          nonloc:Nonloc,
-          trace:Trace),
-  dtrs:[( word,
-          synsem:(loc:(Loc,
-                       cat:head:(verb,
-                                 vform:fin,
-                                 initial:minus)),
-                  nonloc:Nonloc,
-                  trace:Trace))]).
+( %complementizer_like_word
+  loc:cat:(head:(verb,
+                 vform:fin),
+           comps:[loc:cat:head:dsl:Loc]),
+  dtrs:[(word,
+         loc:(Loc,
+              cat:head:(verb,
+                        vform:fin,
+                        initial:minus)))]).
 
 
-% Sätze mit Verb in Erststellung können Imperativsätze oder auch Interrogativsätze sein.
-% Die beiden folgenden Sätze unterscheiden sich nur hinsichtlich ihrer Flexion:
-%
-%     Gib   Du mir das Buch!
-%     Gibst Du mir das Buch?
-%
-% Die genaue Auflösung der Relation erfolgt erst in der Grammatik für Kapitel 16,
-% da dort erst eine Morphologiekomponente eingeführt wird.
-
-% Konditionalsätze werden ignoriert.
-
-
-(verb_initial_lr,
- synsem:loc:cat:subcat:[nonloc:slash:[]])      *> synsem:loc:cont:nucleus:imperative_or_interrogative.
-
-% Hier spielt das Element in SLASH eine entscheidende Rolle.
-% Ist es eine Interrogativphrase, muß ein entsprechender Operator angenommen
-% werden. Da die vorliegende Grammatik keine Interrogativpronomina enthält,
-% wird die Fallunterscheidung nicht gemacht.
-(verb_initial_lr,
- synsem:loc:cat:subcat:[nonloc:slash:ne_list]) *> synsem:loc:cont:nucleus:assertion_or_imperative.
-
-verb_initial_lr ##
+verb_initial_lr lex_rule
   Dtr
 **>
 ( verb_initial_lr,
   dtrs:[Dtr])
 morphs
   X becomes X.
-
-
-
-
-

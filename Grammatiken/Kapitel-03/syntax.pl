@@ -13,22 +13,36 @@
 
 head_complement_phrase *>
    (p_o_s:POS,
+    mod:Mod,
     spr:Spr,
     comps:Comps,
     head_dtr:(p_o_s:POS,
+              mod:Mod,
               spr:Spr,
               comps:append(Comps,[NonHeadDtr])),
     non_head_dtrs:[NonHeadDtr]).
 
 head_specifier_phrase *>
    (p_o_s:POS,
+    mod:Mod,
     spr:Spr,
     comps:Comps,
     head_dtr:(p_o_s:POS,
+              mod:Mod,
               spr:[NonHeadDtr|Spr],
               comps:(Comps,[])),
     non_head_dtrs:[NonHeadDtr]).
 
+head_adjunct_phrase *>
+   (mod:
+    spr:Spr,
+    comps:Comps,
+    head_dtr:(HD,
+              spr:Spr,
+              comps:Comps),
+    non_head_dtrs:[(mod:HD,
+                    spr:[],
+                    comps:[])]).
 
 
 
