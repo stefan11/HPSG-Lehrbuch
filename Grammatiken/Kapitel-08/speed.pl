@@ -49,7 +49,7 @@ argument_sign :=
 % [ [ er _ ] _ ]
 (head_argument_phrase,
  loc:cat:head:initial:minus) *>
-  (non_head_dtrs:[loc:cat:head:dsl:none]).
+  (non_head_dtr:loc:cat:head:dsl:none).
 
 */
 
@@ -68,7 +68,7 @@ fun not_type(+,-).
 % Folgendes schließt finite Verben als Argumente (der Verbspur) aus, da
 % sie in diesem Fragment nicht vorkommen.
 (head_complement_phrase,
- loc:cat:head:initial:minus) *> non_head_dtrs:[loc:cat:head: @not(verb)].
+ loc:cat:head:initial:minus) *> non_head_dtr:loc:cat:head: @not(verb).
 
 
 
@@ -79,7 +79,7 @@ fun not_type(+,-).
 % als Adjunkt auftreten.
 
 head_adjunct_phrase *>
-  (non_head_dtrs:[loc:cat:head:dsl:none]).
+  non_head_dtr:loc:cat:head:dsl:none.
 
 
 % Hierdurch wird das leere Verb bei Initialstellung als Kopf ausgeschlossen.
@@ -88,7 +88,7 @@ head_adjunct_phrase *>
 % Siehe auch Kapitel-10/speed.pl
 
 (head_adjunct_phrase,
- head_dtr:loc:cat:head:verb) *> (non_head_dtrs:[loc:cat:head:pre_modifier:plus]).
+ head_dtr:loc:cat:head:verb) *> non_head_dtr:loc:cat:head:pre_modifier:plus.
 
 
 % Entweder in rules.pl spr_h nur für nomina und Determinatoren spezifizieren, oder hier sagen, dass

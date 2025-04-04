@@ -296,6 +296,14 @@ schläft ---> (word,
           spr:[],
           comps:[]) ] ).
 
+stinkt ---> (word,
+  head:(verb,
+        vform:fin),
+  arg_st:[(head:(noun,
+                case:nom),
+          spr:[],
+          comps:[]) ] ).
+
 graut ---> (word,
   head:(verb,
         vform:fin),

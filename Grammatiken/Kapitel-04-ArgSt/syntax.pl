@@ -25,13 +25,13 @@ headed_phrase *>
 head_complement_phrase *>
    (comps:Comps,
     head_dtr:comps:append(Comps,[NonHeadDtr]),
-    non_head_dtrs:[NonHeadDtr]).
+    non_head_dtr:NonHeadDtr).
 
 head_specifier_phrase *>
    (spr:Spr,
     head_dtr:(spr:[NonHeadDtr|Spr],
               comps:[]),
-    non_head_dtrs:[NonHeadDtr]).
+    non_head_dtr:NonHeadDtr).
 
 head_non_complement_phrase *>
    (comps:Comps,
@@ -45,9 +45,9 @@ head_non_specifier_phrase *>
 
 head_adjunct_phrase *>
    (head_dtr:HD,
-    non_head_dtrs:[(head:mod:HD,
-                    spr:[],
-                    comps:[])]).
+    non_head_dtr:(head:mod:HD,
+                  spr:[],
+                  comps:[])).
 
 % Argumentrealisierungsprinzip
 word *> (spr:Spr,

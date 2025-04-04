@@ -29,9 +29,9 @@ cat> NonHeadDtr.
 comp_h rule (head_complement_phrase,
              dtrs:[NonHeadDtr,HeadDtr],
              head_dtr:loc:cat:head:initial:minus,
-             non_head_dtrs:[(NonHeadDtr,
+             non_head_dtr:(NonHeadDtr,
                              @argument_sign   % speed + Regelberechnung
-                            )])
+                            ))
   ===>
 cat> NonHeadDtr,
 cat> HeadDtr.
@@ -45,7 +45,7 @@ sem_head> HeadDtr.
 
 adj_h rule (head_adjunct_phrase,
              dtrs:[NonHeadDtr,HeadDtr],
-             non_head_dtrs:[loc:cat:head:pre_modifier:plus])
+             non_head_dtr:loc:cat:head:pre_modifier:plus)
   ===>
 cat> NonHeadDtr,
 cat> HeadDtr.
@@ -54,7 +54,7 @@ cat> HeadDtr.
 
 h_adj rule (head_adjunct_phrase,
              dtrs:[HeadDtr,NonHeadDtr],
-             non_head_dtrs:[loc:cat:head:pre_modifier:minus])
+             non_head_dtr:loc:cat:head:pre_modifier:minus)
   ===>
 cat> HeadDtr,
 cat> NonHeadDtr.
@@ -71,7 +71,6 @@ cat> HeadDtr.
 % Das ist eine unär verzweigende Regel und keine Lexikonregel,
 % da sie auch auf koordinierte Verben angewendet werden kann.
 v1 rule (verb_initial_rule,
-         dtrs:[NonHeadDtr],
-         non_head_dtrs:[NonHeadDtr])
+         dtrs:[NonHeadDtr])
   ===>
 cat>     NonHeadDtr.

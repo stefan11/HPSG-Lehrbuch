@@ -39,18 +39,20 @@ mrs := bot & [
 
 
 phrase := sign & [
- non_head_dtrs list,
- dtrs          list ].
+ dtrs list ].
 
 headed_phrase := phrase & [
   head_dtr sign ].
 
+head_non_head_phrase := headed_phrase & [
+  non_head_dtr sign ].
+
 head_non_specifier_phrase  := headed_phrase.
 head_non_complement_phrase := headed_phrase.
 
-head_specifier_phrase  := head_non_complement_phrase.
-head_complement_phrase := head_non_specifier_phrase.
-head_adjunct_phrase    := head_non_complement_phrase & head_non_specifier_phrase.
+head_specifier_phrase  := head_non_head_phrase & head_non_complement_phrase.
+head_complement_phrase := head_non_head_phrase & head_non_specifier_phrase.
+head_adjunct_phrase    := head_non_head_phrase & head_non_complement_phrase & head_non_specifier_phrase.
 
 non_headed_phrase := phrase.
 

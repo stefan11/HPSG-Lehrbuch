@@ -48,25 +48,23 @@ conj_word(Relation) :=
 und ---> @conj_word(und_rel).
 
 coord_phrase *>
-  non_head_dtrs:[(phon:ne_list,
-                  trace:minus),
-                 trace:minus].
+  dtrs:[(phon:ne_list,
+         trace:minus),
+        trace:minus].
 
 x_conj_y_coord_phrase :=
   (coord_phrase,
    loc:(cat:Cat,
         cont:Cont),
-   non_head_dtrs:[(Spec,
-                   loc:cat:Cat),
-                  (loc:(cat:(head:(coord,
-                                   spec:Spec),
-                             comps:[]),
-                        cont:Cont))]).
+   dtrs:[(Spec,
+          loc:cat:Cat),
+         (loc:(cat:(head:(coord,
+                          spec:Spec),
+                    comps:[]),
+               cont:Cont))]).
 
 x_conj_y rule (@x_conj_y_coord_phrase,
-                  dtrs:Dtrs,
-                  non_head_dtrs:(Dtrs,
-                                 [Dtr1,Dtr2]))
+                  dtrs:[Dtr1,Dtr2])
   ===>
 cat> Dtr1,
 cat> Dtr2.
