@@ -124,7 +124,7 @@ und Abschnitt~\ref{sec-Linking}
 zeigt, wie man die Verbindung zwischen den Argumenten eines Kopfes und dem semantischen Beitrag des
 Kopfes herstellen kann, \dash, es wird gezeigt, wie die semantischen Rollen einer Relation gefüllt
 werden können. Abschnitt~\ref{sec-Komposition} erklärt, wie einfache kompositionale Semantik
-funktioniert und Abschnitt~\ref{sec-Skopus} schließlich beschäftigt sich mit Quantorenskopus und
+funktioniert und Abschnitt~\ref{Abschnitt-Skopus} schließlich beschäftigt sich mit Quantorenskopus und
 diversen interessanten Phänomenen, die für das Verständnis des technischen Apparats notwendig sind.
 
 
@@ -908,6 +908,7 @@ dtrs  \ibox{1} \\
 Liste, die dann eine Verkettung aller \relswe und das Ergebnis der relationalen Beschränkung
 \texttt{collect-rels} ist. Formal kann man das wie folgt aufschreiben:
 \ea
+\label{constraint-collect-rels}
 \texttt{collect-rels}([],[]).\\
 \texttt{collect-rels}([\textsc{cont|rels} Rels1|Dtrs],Rels) :=\\
 \flushright \texttt{collect-rels}(Dtrs,Rels2), \texttt{append}(Rels1,Rels2,Rels).
@@ -928,7 +929,7 @@ Töchter ist dann die leere Liste und die erste Klausel kann angewendet werden.
 
 
 \section{Quantoren, Skopus und Unterspezifikation}
-\label{sec-Skopus}
+\label{Abschnitt-Skopus}
 
 Damit sind die wichtigsten Aspekte geklärt. Im Prinzip verfügt man an dieser Stelle über das nötige
 Wissen für das Verständnis der kommenden Kapitel. Der nun folgenden Abschnitt wird etwas technisch,
@@ -2365,7 +2366,7 @@ sm edges, for tree={l sep= 4ex}
 Die Struktur unterscheidet sich nicht von der, die man für Sätze mit einem semantische einfachen
 Verb -- wie zum Beispiel \emph{kennen} in \emph{alle Kinder kennt} -- annehmen würde. Der einzige
 Unterschied liegt in der Bedeutung der involvierten Wörter.  Wie in den
-Abschnitten~\ref{sec-Komposition} und~\ref{sec-Skopus} gezeigt, werden die Relationen und
+Abschnitten~\ref{sec-Komposition} und~\ref{Abschnitt-Skopus} gezeigt, werden die Relationen und
 Handle"=Constraints der einzelnen Wörter nach oben gereicht. 
 
 Für den Satz (\ref{ex-wieder-alle}) -- hier als (\mex{1}) wiederholt -- führt Egg die folgenden Lesarten auf:
