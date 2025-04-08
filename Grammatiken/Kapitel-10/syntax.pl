@@ -133,14 +133,14 @@ verb_initial_rule *>
        cont:(ind:Ind,
              ltop:LTop)),
   nonloc:slash:Slash,
-  non_head_dtrs:[(loc:(Loc,
-                       cat:head:(verb,
-                                 vform:fin,
-                                 initial:minus)),
-                  nonloc:slash:Slash,
-                  trace:minus,
-                  % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
-                  phrase:minus)]).
+  dtrs:[(loc:(Loc,
+              cat:head:(verb,
+                        vform:fin,
+                        initial:minus)),
+         nonloc:slash:Slash,
+         trace:minus,
+         % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
+         phrase:minus)]).
 
 
 % * Er schläft schläft.
@@ -275,18 +275,22 @@ headed_phrase *>
        head_dtr:nonloc:rel:Rel1,
        non_head_dtrs:[nonloc:rel:Rel2]).
 
-% Relativsätze
+% Relativsätze Laut ERG 2025-04-04 wird das LTOP aus NONLOC|REL mit dem LTOP des modifizierten
+% Nomens geteilt.  Dadurch kann das Possessivpronomen in Relativsätzen konjunktiv mit dem
+% modifizierten Nomen verknüpft werden. "Der Mann, dessen Kind schläft, lacht."
 rc *>
  (%isect_n_modifier,
   %filler_phrase
   loc:(cat:(head:(relativizer,
-                  mod:loc:cont:ind:Ind),
+                  mod:loc:cont:(ind:Ind,
+                                ltop:LTop)),
             spr:[],
             comps:[]),
        cont:(ind:Ind,
              ltop:LTop)),
   nonloc:rel:[],
-  dtrs:[(nonloc:rel:[Ind]),
+  dtrs:[(nonloc:rel:[(ind:Ind,
+                      ltop:LTop)]),
         (loc:(cat:head:initial:minus,
               cont:ltop:LTop),
          nonloc:rel:[],

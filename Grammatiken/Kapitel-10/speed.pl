@@ -103,7 +103,7 @@ fun not_type(+,-).
 % als Adjunkt auftreten.
 
 head_adjunct_phrase *>
-  (non_head_dtrs:[loc:cat:head:dsl:none]).
+  non_head_dtrs:[loc:cat:head:dsl:none].
 
 % allgemeiner
 %head_non_complement_phrase *>
@@ -122,8 +122,8 @@ head_adjunct_phrase *>
 % Extraktion aus NPen ist ebenfalls ausgeschlossen, was empirisch nicht korrekt ist.
 
 (head_adjunct_phrase,
- non_head_dtrs:[trace:extraction]) *> (loc:cat:head:(verb,
-                                                     initial:minus)).
+ non_head_dtrs:[trace:extraction]) *> loc:cat:head:(verb,
+                                                    initial:minus).
 
 % Wahrscheinlich kann Verbspur mit Extraktionsspur kombiniert werden, diese wird dann mit
 % extrahiertem Adverb kombiniert. Das sollte nicht gehen, weil es eine Restriktion in der Anzahl der
@@ -144,17 +144,17 @@ head_adjunct_phrase *>
 % Das ist wichtig für die Regelberechnung.
 
 (head_adjunct_phrase,
- head_dtr:loc:cat:head:verb) *> (non_head_dtrs:[loc:cat:head:pre_modifier:plus]).
+ head_dtr:loc:cat:head:verb) *> non_head_dtrs:[loc:cat:head:pre_modifier:plus].
 
 % Adjunkte werden immer als direkte Töchter des Verbs eingeführt,
 % da sonst unechte Mehrdeutigkeiten entstünden.
 (head_adjunct_phrase,
- non_head_dtrs:[trace:extraction]) *> (head_dtr:lex:plus).
+ non_head_dtrs:[trace:extraction]) *> head_dtr:lex:plus.
 
 % Das wird später im Zusammenhang mit dem Verbalkomplex benötigt.
 % Jetzt ist es aus Effizienzgründen schon in der Grammatik.
 % Siehe speed.pl.
-head_non_adjunct_phrase *> (lex:minus).
+head_non_adjunct_phrase *> lex:minus.
 
 % Achtung: Oft gibt er nicht dem Mann das Buch.
 
@@ -165,7 +165,7 @@ head_non_adjunct_phrase *> (lex:minus).
 %   [ _   [ oft _ ]]
 
 (head_adjunct_phrase,
- head_dtr:head_complement_phrase) *> (head_dtr:non_head_dtrs:[trace:minus]).
+ head_dtr:head_complement_phrase) *> head_dtr:non_head_dtrs:[trace:minus].
 
 
 
@@ -190,7 +190,7 @@ head_specifier_phrase *>
 % Die Relativphrase kann aber nur aus dem Relativpronomen selbst oder aus einer PP bestehen.
 
 head_adjunct_phrase *>
-  (non_head_dtrs:[nonloc:rel:[]]).
+  non_head_dtrs:[nonloc:rel:[]].
 
 % Das stimmt nicht für zu-Infinitive wie in
 % das Buch, das zu lesen ich ihm empfohlen habe

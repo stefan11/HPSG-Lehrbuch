@@ -41,12 +41,10 @@ cat := bot & [
   comps  list,
   arg_st list ].
 
-
 mrs := bot & [
   gtop handle,
   ltop handle,
   ind  event_or_index ].
-
 
 phrase := sign & [
  non_head_dtrs list,
@@ -55,14 +53,6 @@ phrase := sign & [
 headed_phrase := phrase & [
   head_dtr sign ].
 
-<<<<<<< HEAD
-=======
-head_non_head_phrase := headed_phrase & [
-  non_head_dtr sign ].
-
-
-
->>>>>>> parent of 5d85def (non-head-dtrs -> non-head-dtr und DTRS für Phrasen, deren Abfolge eh fest ist.)
 ; V2 and relative clauses
 filler_phrase := phrase.
 
@@ -144,7 +134,7 @@ nominal_pronoun := noun_word & pronoun.
 
 proper_noun  := saturated_word & noun_word & empty_rel_word.
 
-pers_pronoun := nominal_pronoun & empty_rel_word.
+pers_pronoun := nominal_pronoun & empty_rel_word & non_scopal_non_relational_le.
 
 rel_pronoun := pronoun.
 
@@ -246,11 +236,11 @@ scopal_adv_word := scopal_v_modifier_le & adv_word.
 
 isect_adv_word := isect_v_modifier_le & adv_word.
 
-complementizer_like_sign := spr_saturated_sign & overt_sign.
+complementizer_like_sign := spr_saturated_sign & overt_sign & empty_rel_word.
 
 complementizer_word := complementizer_like_sign & transparent_non_scopal_non_relational_le & overt_word.
 
-conj_word := relational_arg0_word & non_scopal_le.
+conj_word := relational_arg0_word & non_scopal_le & empty_rel_word & overt_word.
 
 head := bot & [
    mod  none_or_sign,

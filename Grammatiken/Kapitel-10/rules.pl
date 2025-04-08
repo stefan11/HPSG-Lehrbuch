@@ -73,15 +73,13 @@ cat> HeadDtr.
 % Das ist eine unär verzweigende Regel und keine Lexikonregel,
 % da sie auch auf koordinierte Verben angewendet werden kann.
 v1 rule (verb_initial_rule,
-         dtrs:[NonHeadDtr],
-         non_head_dtrs:[NonHeadDtr])
+         dtrs:[Dtr])
   ===>
-cat>     NonHeadDtr.
+cat>     Dtr.
 
 
 rc rule (rc,
-       dtrs:[Filler,Clause],
-       non_head_dtrs:[Filler,Clause])
+         dtrs:[Filler,Clause])
   ===>
 cat> Filler,
 cat> Clause.

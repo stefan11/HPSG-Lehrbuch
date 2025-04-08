@@ -36,7 +36,7 @@ empty_rel_sign *>
 rel_pronoun *>
  (%overt_word,
   loc:cont:ind:Ind,
-  nonloc:rel:[Ind]).
+  nonloc:rel:[ind:Ind]).
 
 % complementizer_like_sign erbt hiervon.
 % V1-Regel und Komplementierer.
@@ -80,19 +80,28 @@ det(Case,Numerus,Genus,Quant) :=
  determiner,
  rels:hd:Quant).
 
+% Sowohl für normale Possessiva als auch für possessive Relativpronomina.
 possessive *>
  (%determiner_word
-  loc:(cat:head:spec:loc:cont:(ind:Ind2,
-                               ltop:NLTop),
-       cont:ind:Ind),
-%        ltop:LTop,
+  loc:(cat:head:spec:loc:cont:ind:Ind2,
+       cont:(ind:Ind,
+             ltop:LTop)),
   rels:[def_q,
         (poss_rel,
-            lbl:NLTop,
+            lbl:LTop,
             arg0:event,
             arg1:Ind,
             arg2:Ind2)]).
 
+% sein Affe: Der LTOP ist mit dem LTOP des Nomens identisch.  Bei possessiven Relativpronomina wie
+% in Der Affe, dessen Kind schläft, lacht.  wird der LTOP-Wert nicht mit dem des Nomens
+% identifiziert, sondern mit dem des Relativsatzes und dann mit dem des modifizierten Nomens. Siehe unten.
+% Idee aus ERG 2025-04-04
+simple_possessive *>
+ (%possessive,
+  loc:(cat:head:spec:loc:cont:ltop:NLTop,
+       cont:ltop:NLTop)).
+ 
 possessive(Case,NNumerus,NGenus,Person,Numerus,Genus) :=
  (@determiner(Case,NNumerus,NGenus),
   simple_possessive,
@@ -265,6 +274,12 @@ rel_pronoun(Case,Person,Numerus,Genus) :=
  (nominal_rel_pronoun,
   @pronoun(Case,Person,Numerus,Genus)).
 
+% LTOP wird hochgereicht und dann mit dem des modifizeirten Nomens identfiziert.
+% ERG 2025-04-04
+possessive_rel_pronoun *>
+ (%possessive
+  loc:cont:ltop:LTop,
+  nonloc:rel:[ltop:LTop]).
 
 % dessen Kind, dessen Blume, dessen Roman referiert auf Maskulinum/Neutrum
 % deren Kind, deren Blume, deren Roman refereirt auf Femininum oder Plural
