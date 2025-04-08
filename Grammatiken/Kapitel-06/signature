@@ -8,12 +8,12 @@ bot
   string
   relation lbl:handle
     arg3_relation arg3:event_or_index
-      glbtype17
+      glbtype18
         arg023_relation
         arg0123_relation
           geben_rel
     arg2_relation arg2:event_or_index
-      glbtype18
+      glbtype19
         arg12_relation
           treu_rel
           in_rel
@@ -26,12 +26,12 @@ bot
           glauben_rel
           denken_an_rel
       arg02_relation
-        &glbtype17
+        &glbtype18
         &arg012_relation
         tochter_rel
         grauen_rel
     arg1_relation arg1:event_or_index
-      &glbtype18
+      &glbtype19
       arg01_relation
         &arg012_relation
         schlafen_rel
@@ -118,7 +118,7 @@ bot
         &glbtype2
         &glbtype5
         non_scopal_le
-          glbtype16
+          glbtype17
             glbtype9
               pers_pronoun
               det_noun_word
@@ -145,16 +145,18 @@ bot
             glbtype13
               &simple_attr_adj
               &pers_pronoun
-            glbtype15
+            glbtype16
+              glbtype15
+                comp_preposition
+                complementizer_word
               &pers_pronoun
-              comp_preposition
             preposition_word
               &comp_preposition
               &mod_preposition
           non_scopal_non_relational_le
-            &glbtype15
+            &glbtype16
             transparent_head_le
-              &comp_preposition
+              &glbtype15
         ltop_lbl_le
           glbtype14
             glbtype12
@@ -179,7 +181,7 @@ bot
             &scopal_v_modifier_le
         word
           &glbtype14
-          &glbtype16
+          &glbtype17
           noun_word
             glbtype8
               &pers_pronoun
@@ -209,23 +211,23 @@ bot
     index per:per
   head mod:none_or_sign spec:none_or_sign scopal:bool
     intro_case_head case:case
-      glbtype19
-        glbtype22
+      glbtype20
+        glbtype23
           comp_prep pform:pform
           noun
         attr_adj
-      glbtype20
-        &glbtype22
+      glbtype21
+        &glbtype23
         &det
     non_modifier_head mod:none
-      &glbtype20
-      glbtype21
-        &glbtype22
+      &glbtype21
+      glbtype22
+        &glbtype23
         comp cform:cform
         verb vform:vform
     non_spec_head spec:none
-      &glbtype19
-      &glbtype21
+      &glbtype20
+      &glbtype22
       prep
         &comp_prep
         mod_prep
@@ -253,7 +255,7 @@ bot
   cat head:head spr:list comps:list arg_st:list
   case
     nom_or_gen_or_acc
-      glbtype23
+      glbtype24
         gen
         acc
       nom_or_acc
@@ -265,7 +267,7 @@ bot
         &acc
         dat
     gen_or_dat_or_acc
-      &glbtype23
+      &glbtype24
       &dat_or_acc
       gen_or_dat
         &gen

@@ -175,6 +175,9 @@ scopal_v_modifier_le := scopal_modifier_le & v_modifier.
 adv_word := saturated_word & v_modifier.
 scopal_adv_word := scopal_v_modifier_le & adv_word.
 
+complementizer_word := word & transparent_head_le.
+
+
 head := bot & [
    mod  none_or_sign,
    spec none_or_sign,

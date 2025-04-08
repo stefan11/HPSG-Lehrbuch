@@ -267,7 +267,7 @@ np_pp_verb(PForm,Case,Relation) :=
 subjlos_verb *>
  (%non_scopal_verb_word,
   cat:arg_st:[ @np(Ind) ],
-  cont:rels:hd:arg2:Ind).
+  cont:rels:[arg2:Ind]).
 
 subjlos_verb(Case,Relation) :=
  (subjlos_verb,
@@ -439,22 +439,19 @@ location_noun_mod_prep(Relation) :=
  (location_noun_mod_prep,
   cont:rels:hd:Relation).
 
-
-complementizer(CForm) :=
- (word,
-  cat:(head:(comp,
-             cform:CForm),
+complementizer_word *>
+ (%word,
+  %transparent_head_le IND und LTOP geteilt.
+  cat:(head:comp,
        spr:[],
        arg_st:[(cat:(head:(verb,
                            vform:fin),
                      spr:[],
-                     comps:[]),
-                cont:(ltop:LTop,
-                      ind:Ind)) ] ),
-   cont:(ltop:LTop,
-         ind:Ind,
-         rels:[],
-         hcons:[])).
+                     comps:[])) ] )).
+
+complementizer(CForm) :=
+ (complementizer_word,
+  cat:head:cform:CForm).
 
 
 
