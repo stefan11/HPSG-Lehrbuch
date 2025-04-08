@@ -79,7 +79,7 @@ fun not_type(+,-).
 % als Adjunkt auftreten.
 
 head_adjunct_phrase *>
-  (non_head_dtrs:[loc:cat:head:dsl:none]).
+  non_head_dtrs:[loc:cat:head:dsl:none].
 
 
 % Hierdurch wird das leere Verb bei Initialstellung als Kopf ausgeschlossen.
@@ -88,7 +88,7 @@ head_adjunct_phrase *>
 % Siehe auch Kapitel-10/speed.pl
 
 (head_adjunct_phrase,
- head_dtr:loc:cat:head:verb) *> (non_head_dtrs:[loc:cat:head:pre_modifier:plus]).
+ head_dtr:loc:cat:head:verb) *> non_head_dtrs:[loc:cat:head:pre_modifier:plus].
 
 
 % Entweder in rules.pl spr_h nur für nomina und Determinatoren spezifizieren, oder hier sagen, dass

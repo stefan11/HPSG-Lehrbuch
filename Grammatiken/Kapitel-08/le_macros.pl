@@ -276,7 +276,7 @@ np_pp_verb(PForm,Case,Relation) :=
 subjlos_verb *>
  (%non_scopal_verb_word,
   loc:cat:arg_st:[ @np(Ind) ],
-  rels:hd:arg2:Ind).
+  rels:[arg2:Ind]).
 
 subjlos_verb(Case,Relation) :=
  (subjlos_verb,
@@ -287,8 +287,8 @@ subjlos_verb(Case,Relation) :=
 bi_or_more_val_verb *>
  (%non_scopal_verb_word,
   loc:cat:arg_st:[ @np(nom,Ind1), @xp(Ind2) |_ ],
-  rels:hd:(arg1:Ind1,
-           arg2:Ind2)).
+  rels:[(arg1:Ind1,
+         arg2:Ind2)]).
 
 % kennen
 strict_trans_verb *>

@@ -32,7 +32,7 @@ head_complement_phrase *>
 head_specifier_phrase *>
    (loc:cat:spr:Spr,
     head_dtr:loc:cat:(spr:[NonHeadDtr|Spr],
-                  comps:[]),
+                      comps:[]),
     non_head_dtrs:[NonHeadDtr]).
 
 head_non_complement_phrase *>
@@ -132,13 +132,13 @@ verb_initial_rule *>
                               ltop:LTop))]),
        cont:(ind:Ind,
              ltop:LTop)),
-  non_head_dtrs:[(loc:(Loc,
-                       cat:head:(verb,
-                                 vform:fin,
-                                 initial:minus)),
-                  trace:minus,
-                  % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
-                  phrase:minus)]).
+  dtrs:[(loc:(Loc,
+              cat:head:(verb,
+                        vform:fin,
+                        initial:minus)),
+         trace:minus,
+         % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
+         phrase:minus)]).
 
 
 % * Er schläft schläft.

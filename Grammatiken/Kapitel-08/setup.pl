@@ -4,6 +4,9 @@
 hidden_feat(dtrs).          % hide the dtrs attribute (shown by tree)
 hidden_feat(head_dtr).      % hide the dtrs attribute (shown by tree)
 hidden_feat(non_head_dtrs). % hide the dtrs attribute (shown by tree)
+hidden_feat(trace).
+hidden_feat(phrase).
+
 
 
 >>> phon.        % phon shall be shown first
