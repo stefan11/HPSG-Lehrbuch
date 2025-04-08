@@ -19,7 +19,7 @@ grammar_version('Lehrbuchgrammatik Kapitel 4').
 
 
 % Load phonology and tree output
-:- ['../Gemeinsames/phonology'].
+:- [phonology].
 
 :- [setup].
 
