@@ -41,7 +41,11 @@ Die Funktion der Phrasenstrukturregeln wird von Merkmalbeschreibungen übernomme
 Man trennt zwischen unmittelbarer Dominanz\is{Dominanz!unmittelbare} (ID) und linearer Präzedenz\is{Präzedenz} (LP).
 Die Dominanzinformation wird mittels \textsc{dtr}"=Merkmalen (Kopf"|tochter und Nicht-Kopf"|töchter)
 repräsentiert, Information über Präzedenz ist implizit in \phon enthalten.
-In diesem Kapitel beschäftigen wir uns nur mit der Dominanz. Zu Abfolgebeschränkungen
+In diesem Kapitel beschäftigen wir uns nur mit der Dominanz. In einigen Versionen der
+HPSG gibt es Listen von Töchtern, die in der Reihenfolge angeordnet sind, wie sie auch in den
+entsprechenden Wortgruppen vorkommen. Ich verwende hier ein \dtrs"=Merkmal und auch das
+\dom"=Merkmal, das im Abschnitt~\ref{sec-Reape-Linearisierung} noch genauer besprochen werden wird enthält die Töchter in
+geordneter Reihenfolge. In diesem Kapitel beschäftigen wir uns im Wesentlichen mit der Dominanz. Zu Abfolgebeschränkungen
 wird im Kapitel~\ref{Kapitel-Konstituentenreihenfolge} mehr gesagt.
 (\mex{1}) zeigt die Repräsentation der \phonwe in einer Merkmalbeschreibung, die dem Baum in
 Abbildung~\vref{fig-dem-Eichhörnchen} entspricht.
@@ -71,9 +75,20 @@ Die Kopf"|tochter ist immer die Tochter, die den Kopf enthält. In einer Struktu
 da \emph{Bild} der Kopf ist. Es kann im Prinzip mehrere Nicht"=Kopf"|töchter geben. 
 Würde man wie in Abbildung~\vref{fig-Aicke-dem-Affen-den-Stock-gibt-flat} flache Strukturen
 für einen Satz mit einem ditransitiven finiten Verb annehmen, hätte man \zb drei Nicht"=Kopf"|töchter.\isfeat{non-head-dtrs}
-Auch binär verzweigende Strukturen ohne Kopf sind sinnvoll (siehe Kapitel~\ref{Kapitel-rs} zur Analyse
-von Relativsätzen).
 
+Wie oben schon gesagt, ist in (\mex{0}) keine Information zur Abfolge der Kopftochter und der
+Nicht-Kopftochter enthalten. Die \dtrsl enthält die Töchter in Abfolge, in der sie auch in einer
+Phrase vorkommen. Für das Eichhörnchen"=Beispiel ergibt sich Folgendes:
+\ea
+\onems{ 
+  phon      \phonliste{ dem Eichhörnchen }\\[1mm]
+  head-dtr  \ibox{1} \\
+  non-head-dtrs  \nliste{ \ibox{2} }\\
+  dtrs  \liste{ \ibox{2} \onems{ phon \phonliste{ dem } }, \ibox{1} \onems{ phon \phonliste{ Eichhörnchen } } }\\
+}
+\z
+
+\noindent
 Die Regelschemata (\ref{regelschema-psg-comps}) und (\ref{regelschema-psg-spr}) aus dem vorigen Kapitel -- hier der Übersichtlichkeit
 halber als (\mex{1}) wiederholt -- kann man analog in Merkmalbeschreibungen ausdrücken.
 \ea

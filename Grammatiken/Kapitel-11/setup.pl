@@ -76,9 +76,9 @@ graphviz_option(svg,'sleep 0.1; open').
 :- scope_mrs.
 
 
-ind_path([loc,cont,ind]).
-gtop_path([loc,cont,gtop]).
-cont_path([loc,cont]).
+ind_path([synsem,loc,cont,ind]).
+gtop_path([synsem,loc,cont,gtop]).
+cont_path([synsem,loc,cont]).
 liszt_path([rels]).
 hcons_path([hcons]).
 

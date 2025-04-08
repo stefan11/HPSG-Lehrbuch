@@ -229,7 +229,7 @@ headed_phrase *>
 % Adjunkte sind Extraktionsinseln
 (headed_phrase,
  non_head_dtrs:[synsem:trace:extraction]) *>
-      (head_dtr:synsem:loc:cat:head:mod:none).
+      head_dtr:synsem:loc:cat:head:mod:none.
 
 
 % Das entspricht auch der Analyse von Frey 2004 und Fanselow 2003. Die gehen davon
@@ -275,18 +275,22 @@ headed_phrase *>
        head_dtr:synsem:nonloc:rel:Rel1,
        non_head_dtrs:[synsem:nonloc:rel:Rel2]).
 
-% Relativsätze
+% Relativsätze Laut ERG 2025-04-04 wird das LTOP aus NONLOC|REL mit dem LTOP des modifizierten
+% Nomens geteilt.  Dadurch kann das Possessivpronomen in Relativsätzen konjunktiv mit dem
+% modifizierten Nomen verknüpft werden. "Der Mann, dessen Kind schläft, lacht."
 rc *>
  (%isect_n_modifier,
   %filler_phrase
   synsem:(loc:(cat:(head:(relativizer,
-                          mod:loc:cont:ind:Ind),
+                          mod:loc:cont:(ltop:LTop,
+                                        ind:Ind)),
                     spr:[],
                     comps:[]),
                cont:(ind:Ind,
                      ltop:LTop)),
           nonloc:rel:[]),
-  dtrs:[synsem:nonloc:rel:[Ind],
+  dtrs:[synsem:nonloc:rel:[(ltop:LTop,
+                            ind:Ind)],
         synsem:(loc:(cat:head:initial:minus,
                      cont:ltop:LTop),
                 nonloc:rel:[],

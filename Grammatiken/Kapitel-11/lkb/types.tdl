@@ -241,7 +241,7 @@ scopal_adv_word := scopal_v_modifier_le & adv_word.
 
 isect_adv_word := isect_v_modifier_le & adv_word.
 
-complementizer_like_sign := spr_saturated_sign & overt_sign.
+complementizer_like_sign := spr_saturated_sign & overt_sign & empty_rel_sign.
 
 complementizer_word := complementizer_like_sign & transparent_non_scopal_non_relational_le & overt_word.
 

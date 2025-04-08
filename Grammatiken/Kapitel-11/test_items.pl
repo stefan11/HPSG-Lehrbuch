@@ -55,4 +55,4 @@ t(52,"die Speisekammer, in der er schläft",@root,1,'Kapitel 10: Relativsätze')
 t(53,"der, der schläft, Affe",@root,0,'Kapitel 10: Relativsätze').
 t(54,"der Affe, schläft der, kennt das Kind.",@decl,0,'Kapitel 10: Relativsätze').
 t(55,"die Speisekammer, der Affe in der schläft",@root,0,'Kapitel 10: Relativsätze').
-t(56,"der Affe, dessen Stock er dem Kind gibt",@root,1,'Kapitel 10: Relativsätze').
+t(56,"Der Affe, dessen Kind schläft, lacht.",@decl,1,'Kapitel 10: Relativsätze').

@@ -132,12 +132,12 @@ verb_initial_rule *>
                               ltop:LTop))]),
        cont:(ind:Ind,
              ltop:LTop)),
-  nonloc:slash:Slash,
+  nonloc:Nonloc,
   dtrs:[(loc:(Loc,
               cat:head:(verb,
                         vform:fin,
                         initial:minus)),
-         nonloc:slash:Slash,
+         nonloc:Nonloc,
          trace:minus,
          % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
          phrase:minus)]).
@@ -229,7 +229,7 @@ headed_phrase *>
 % Adjunkte sind Extraktionsinseln
 (headed_phrase,
  non_head_dtrs:[trace:extraction]) *>
-      (head_dtr:loc:cat:head:mod:none).
+      head_dtr:loc:cat:head:mod:none.
 
 
 % Das entspricht auch der Analyse von Frey 2004 und Fanselow 2003. Die gehen davon
