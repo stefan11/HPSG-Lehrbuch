@@ -90,14 +90,6 @@ phrase *>
   (cont:hcons:append(HCons1,HCons2),
    dtrs:[cont:hcons:HCons1,cont:hcons:HCons2]).
 
-/* GTop wird nciht wirklich gebraucht. 
-headed_phrase *>
-   (cont:(ind:Ind,
-          gtop:GTop),
-    head_dtr:cont:(ind:Ind,
-                   gtop:GTop),
-    non_head_dtrs:[cont:gtop:GTop]).
-*/
 
 headed_phrase *>
    (cont:ind:Ind,
