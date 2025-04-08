@@ -128,19 +128,17 @@ verb_initial_rule *>
                  vform:fin),
             spr:[],
             comps:[loc:(cat:head:dsl:Loc,
-                        cont:(ind:Ind,
-                              ltop:LTop))]),
-       cont:(ind:Ind,
-             ltop:LTop)),
+                        cont:Cont)]),
+       cont:Cont),
   nonloc:Nonloc,
-  non_head_dtrs:[(loc:(Loc,
-                       cat:head:(verb,
-                                 vform:fin,
-                                 initial:minus)),
-                  nonloc:Nonloc,
-                  trace:minus,
-                  % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
-                  phrase:minus)]).
+  dtrs:[(loc:(Loc,
+              cat:head:(verb,
+                        vform:fin,
+                        initial:minus)),
+         nonloc:Nonloc,
+         trace:minus,
+         % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
+         phrase:minus)]).
 
 
 % * Er schläft schläft.
