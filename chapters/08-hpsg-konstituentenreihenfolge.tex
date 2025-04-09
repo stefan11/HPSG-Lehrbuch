@@ -847,7 +847,7 @@ wird also zu (\mex{1}) erweitert:
 Die Verbspur für \emph{kennt} hat dann die folgende Form:
 
 \eas
-\label{le-verbspur-kennt-ohne-dsl}
+\label{le-verbspur-kennt-ohne-dsl}%
 Verbspur für \emph{kennt}:\\\samepage
 \ms{
 phon & \phonliste{}\\
@@ -1015,7 +1015,9 @@ Lexikonregel für Verb in Erststellung (mit semantischem Beitrag):\\
 loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
                                                      initial & $-$\\
                                              }\\
-                  }
+                  }\\
+%rels & \ibox{2}\\
+%hcons & \ibox{3}
 } $\mapsto$\\
 \flushright\onems{
 loc \ms{ cat & \ms{ head & \ms[verb]{ vform & fin\\
@@ -1023,20 +1025,21 @@ loc \ms{ cat & \ms{ head & \ms[verb]{ vform & fin\\
                                       dsl     & none }\\
                     comps & \sliste{ \onems{ loc \onems{ cat \onems{ head|dsl \ibox{1}\\
                                                                      comps \eliste }\\
-                                                         cont|hook \ibox{2} }\\
+                                                         cont \ibox{2} }\\
                                               }}\\
                   }\\
-            cont & \ms{ hook  & \ibox{2}\\
-                        rels  & \eliste\\
-                        hcons & \eliste\\ }
-             }
+            cont & \ibox{2}}\\
+%rels  & \eliste\\
+%hcons & \eliste\\ 
 }
 \zs
 \medskip
 % bug
 
 \noindent
-Der \hook enthält jeweils den \ltop und den Index.
+Der \contw enthält jeweils den \ltop und den Index (die Ereignisvariable). Nach Konvention werden
+alle nicht erwähnten Werte vom Input der Regel zum Output übertragen, so dass \rels- und
+\hcons"=Wert des Eingabeverbs auch bei der Ausgabe der Lexikonregel vorhanden sind.
 
 Bei der Kombination des Verbs in Erststellung mit der Projektion der Verbspur wird also der semantische
 Beitrag von der Verbspurprojektion übernommen und wegen des Semantikprinzips
@@ -1063,47 +1066,49 @@ in (\ref{lr-verb-movement2}).
 % 				[\trace$_j$]]]]]
 % \end{forest}
 \oneline{%
-\begin{forest}
+\begin{tikzpicture}[remember picture]
+\begin{forestintikzpicture}
 sm edges
-[V\ms{cont \ms{ltop & \subnode{ltop5}{\ibox{1}} h1\\
-               rels & \nliste{ \ldots, h1:k(j, r) }}}, baseline
-	[V\ms{cont  & \ms{ltop & \subnode{ltop4}{\ibox{1}} h1\\
-                          rels & \eliste }\\
-              comps & \sliste{ \ibox{2} dsl|cont \subnode{dsl0}{\ibox{3}} }}
-		[V\ms{cont \subnode{c1}{\ibox{3}} \ms{ltop & h1\\
-                                                      rels & \nliste{ h1:k(j, r) } }}, tier=np,edge label={node[midway,right]{V1-LR}}
-			[kennt$_j$]]]
-	[\ibox{2} V\ms{dsl|cont \subnode{dsl1}{\ibox{3}}\\
-              cont \ms{ltop & \subnode{ltop3}{\ibox{1}} h1\\
-                       rels & \nliste{ \ldots, h1:k(j, r) }}}
-		[NP{[\textit{nom}]}, tier=np
-			[jemand]]
-		[V\ms{dsl|cont \subnode{dsl2}{\ibox{3}},\\
-                      cont \ms{ltop & \subnode{ltop2}{\ibox{1}} h1\\
-                               rels & \nliste{ \ldots, h1:k(j, r) }}}
-			[NP{[\textit{acc}]}
-				[den Roman, roof]]
-			[V\ms{dsl|cont \subnode{dsl3}{\ibox{3}}\\
-                              cont \subnode{cont-trace}{\ibox{3}}\ms{ltop & \subnode{ltop1}{\ibox{1}} h1\\
-                                                                     rels & \nliste{ h1:k(j, r) } }}
-				[\trace$_j$]]]]]
-\end{forest}
-% \begin{tikzpicture}[overlay,remember picture,<->] 
-% %\draw[gray] (-6,-10) to[grid with coordinates] (9,1);
-% % Lexical rule
-% \draw[brown] plot [smooth] coordinates {(c1.north) (-3.8,-3.6) (-3,-3.6) (-1.6, -3.6) (dsl0.south west)};
-% \draw[blue]  plot [smooth] coordinates {(dsl0.north) (-1,-1.5) (1,-1.2) (dsl1.north west)};
-% % DSL percolates down from clause to trace.
-% \draw[red]   plot [smooth] coordinates {(dsl1.east) (6,-1.0) (6.5,-2.5) (dsl2.east)};
-% \draw[red]   plot [smooth] coordinates {(dsl2.east) (8,-3) (8.5,-4.5) (dsl3.east)};
-% % LTOP is projected upwards from trace to complete verbal projection
-% \draw[green] plot [smooth] coordinates {(ltop2.north east) (8.5,-3) (9,-4.5) (ltop1.north east)};
-% \draw[green] plot [smooth] coordinates {(ltop3.north east) (6,-1.5) (6.5,-3) (ltop2.north east)};
-% % LTOP von V1 übernommen aus COMPS
-% \draw[blue] plot [smooth] coordinates {(ltop4.north east) (0,-1.1) (3,-1.4) (ltop3.north)};
-% % LTOP is projected from V1 head to complete V1 clause
-% \draw[green] plot [smooth] coordinates {(ltop4.135) (-3,.4) (ltop5.135)};
-% \end{tikzpicture}
+[V\ms{cont \ms{ltop & \subnode[inner sep=0pt]{ltop5}{\ibox{1}} h1,\\
+                   rels & \nliste{ \ldots, h1:k(j, r) }}}, baseline
+            [V\ms{cont  & \ms{ltop & \subnode[inner sep=0pt]{ltop4}{\ibox{1}} h1,\\
+                              rels & \eliste }\\
+                  comps & \sliste{ \ibox{2} dsl|cont \subnode[inner sep=0pt]{dsl0}{\ibox{3}} }}
+                    [V\ms{cont \subnode[inner sep=0pt]{c1}{\ibox{3}} \ms{ltop & h1,\\
+                                                          rels & \nliste{ h1:k(j, r) } }}, tier=np,edge label={node[midway,right]{V1-LR}}
+                            [kennt$_j$]]]
+            [\ibox{2} V\ms{dsl|cont \subnode[inner sep=0pt]{dsl1}{\ibox{3}},\\
+                  cont \ms{ltop & \subnode[inner sep=0pt]{ltop3}{\ibox{1}} h1,\\
+                           rels & \nliste{ \ldots, h1:k(j, r) }}}
+                    [NP{[\textit{nom}]}, tier=np
+                            [jemand]]
+                    [V\ms{dsl|cont \subnode[inner sep=0pt]{dsl2}{\ibox{3}},\\
+                          cont \ms{ltop & \subnode[inner sep=0pt]{ltop2}{\ibox{1}} h1,\\
+                                   rels & \nliste{ \ldots, h1:k(j, r) }}}
+                            [NP{[\textit{acc}]}
+                                    [den Roman, roof]]
+                            [V\ms{dsl|cont \subnode[inner sep=0pt]{dsl3}{\ibox{3}},\\
+                                  cont \subnode[inner sep=0pt]{cont-trace}{\ibox{3}}\ms{ltop \subnode[inner sep=0pt]{ltop1}{\ibox{1}} h1,\\
+                                                                         rels \nliste{ h1:k(j, r) } }}
+                                    [\trace$_j$]]]]]
+\begin{scope}[overlay,<->,shorten >=2pt, shorten <=2pt]
+%\draw[gray] (-6,-10) to[grid with coordinates] (9,1);
+% Lexical rule
+\draw[brown] plot [smooth] coordinates {(c1.north) (-3.8,-3.6) (-3,-3.6) (-1.6, -3.6) (dsl0.south west)};
+\draw[blue]  plot [smooth] coordinates {(dsl0.north) (-1,-1.5) (1,-1.2) (dsl1.north west)};
+% DSL percolates down from clause to trace.
+\draw[red]   plot [smooth] coordinates {(dsl1.east) (6,-1.0) (6.5,-2.5) (dsl2.east)};
+\draw[red]   plot [smooth] coordinates {(dsl2.east) (8,-3) (8.5,-4.5) (dsl3.east)};
+% LTOP is projected upwards from trace to complete verbal projection
+\draw[green] plot [smooth] coordinates {(ltop2.north east) (8.5,-3) (9,-4.5) (ltop1.north east)};
+\draw[green] plot [smooth] coordinates {(ltop3.north east) (6,-1.5) (6.5,-3) (ltop2.north east)};
+% LTOP von V1 übernommen aus COMPS
+\draw[blue] plot [smooth] coordinates {(ltop4.north east) (0,-1.1) (3,-1.4) (ltop3.north)};
+% LTOP is projected from V1 head to complete V1 clause
+\draw[green] plot [smooth] coordinates {(ltop4.135) (-3,.4) (ltop5.135)};
+\end{scope}
+\end{forestintikzpicture}
+\end{tikzpicture}
 }
 \caption{\label{verb-movement-sem}Veranschaulichung der Analyse von \emph{Kennt jemand den Roman?}}
 \end{figure}
