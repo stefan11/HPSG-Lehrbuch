@@ -52,8 +52,6 @@ head_specifier_phrase  := head_non_complement_phrase.
 head_complement_phrase := head_non_specifier_phrase.
 head_adjunct_phrase    := head_non_complement_phrase & head_non_specifier_phrase.
 
-non_headed_phrase := phrase.
-
 lexical_sign := sign.
 
 ; empty HCONS

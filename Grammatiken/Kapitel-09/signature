@@ -136,39 +136,47 @@ bot
           &glbtype19
           saturated_word
             &glbtype17
-      phrase non_head_dtrs:list dtrs:list
-        non_headed_phrase
-          &verb_initial_rule
-          coord_phrase
+      phrase dtrs:list
+        &verb_initial_rule
         headed_phrase head_dtr:sign
-          head_non_specifier_phrase
-            glbtype40
-              head_complement_phrase
-              head_adjunct_phrase
-            glbtype41
-              head_filler_phrase
-              &head_adjunct_phrase
-            glbtype42
-              &head_complement_phrase
-              &head_filler_phrase
-          head_non_filler_phrase
-            &glbtype40
+          headed_flexible_order_phrase non_head_dtrs:list
             glbtype43
-              head_specifier_phrase
-              &head_adjunct_phrase
-            glbtype44
-              &head_complement_phrase
-              &head_specifier_phrase
-          head_non_complement_phrase
-            &glbtype41
+              glbtype40
+                head_complement_phrase
+                head_adjunct_phrase
+              glbtype41
+                head_filler_phrase
+                &head_adjunct_phrase
+              glbtype42
+                &head_complement_phrase
+                &head_filler_phrase
+            glbtype46
+              &glbtype40
+              glbtype44
+                head_specifier_phrase
+                &head_adjunct_phrase
+              glbtype45
+                &head_complement_phrase
+                &head_specifier_phrase
+            glbtype48
+              &glbtype41
+              &glbtype44
+              glbtype47
+                &head_filler_phrase
+                &head_specifier_phrase
+            glbtype49
+              &glbtype42
+              &glbtype45
+              &glbtype47
+          head_non_specifier_phrase
             &glbtype43
-            glbtype45
-              &head_filler_phrase
-              &head_specifier_phrase
+          head_non_filler_phrase
+            &glbtype46
+          head_non_complement_phrase
+            &glbtype48
           head_non_adjunct_phrase
-            &glbtype42
-            &glbtype44
-            &glbtype45
+            &glbtype49
+        coord_phrase
       overt_sign
         &glbtype20
         overt_word
