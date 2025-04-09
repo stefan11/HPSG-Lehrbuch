@@ -83,7 +83,7 @@ affe   ---> @noun(nom_or_acc,mas,sg,affe_rel).
 
 affens ---> @noun(dat,mas,sg,affe_rel).
 
-affen  ---> @noun(dat,mas,sg,affe_rel).
+affen  ---> @noun(dat_or_acc,mas,sg,affe_rel).
 
 beispiel ---> @noun(nom_or_dat_or_acc,neu,sg,beispiel_rel).
 
