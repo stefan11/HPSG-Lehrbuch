@@ -1,0 +1,86 @@
+%% -*- coding:utf-8 -*-
+\documentclass[output=book
+               ,smallfont
+%                ,series=tbls,
+%		,modfonts
+%		,nonflat
+%		,multiauthors
+%	        ,collection
+%	        ,collectionchapter
+%	        ,collectiontoclongg
+ 	        ,biblatex  
+                ,decapbib
+                ,booklanguage=german
+%                ,babelshorthands
+%                ,showindex
+                ,newtxmath
+%                ,colorlinks, citecolor=brown % for drafts
+%                ,draftmode
+% 	        ,coverus
+                ,uniformtopskip
+		  ]{langscibook} 
+
+
+
+\usepackage{ifthen}
+\provideboolean{draft}
+\setboolean{draft}{false}
+
+%\newtoggle{draft}\togglefalse{draft}
+\newtoggle{draft}\toggletrue{draft}
+%\newtoggle{finished}\togglefalse{finished}
+
+
+
+% load memoize before german.sty
+
+%\usepackage{nomemoize} 
+\usepackage{memoize} 
+% Figures are created while compiling with check-hpsg-lehrbuch.
+% Sometimes trees are broken during first compile. To be on the safe side,
+% we set things to be readonly here in main.tex
+%\mmzset{readonly}
+% see below for further settings
+
+\input{localhyphenation.tex} % has to be loaded before german.sty
+\input{localmetadata.tex}
+\input{localpackages.tex}
+\input{localcommands.tex}
+
+\input{locallangscifixes.tex}
+
+
+%\newcommand{\NOTE}[1]{}
+\newcommand{\NOTE}[1]{\marginpar{#1}}
+
+\mmzset{
+  prefix={hpsg.memo.dir/},
+}
+
+%\usepackage{nohyperref}
+
+% \renewcommand{\itd}[1]{}
+% \renewcommand{\itdobl}[1]{}
+% \renewcommand{\itdopt}[1]{}
+
+% \renewcommand{\addpages}{}
+% \renewcommand{\addsource}{}
+% \renewcommand{\addglosses}{}
+
+
+%\bibliography{germanic}
+\bibliography{bib-abbr,biblio-xdata-de,biblio}
+
+%\PassOptionsToPackage{draft}{hyperref}
+
+% complains about \href being defined
+% Doesn't make a difference in speed. 24.03.2025
+% \usepackage{nohyperref}
+
+\input hpsg-lehrbuch-include
+
+\end{document}
+
+%%% Local Variables:
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:
