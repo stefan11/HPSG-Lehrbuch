@@ -65,15 +65,29 @@ signature(signature).
 :- ['../Gemeinsames/common.pl'].
 
 
-examples(['  Der Affe schläft.',
-          '  Der angeblich kleine Affe schläft.',
-          '  Der mutmaßliche Affe schläft.',
-          '  der Affe wahrscheinlich schläft.',
-          '  der Affe das Kind kennt',
-          '  der Affe an das Kind denkt',
-          '  Jede Tochter eines Mitarbeiters schläft.',
-          '* Affe schläft.',
-          '* Der Affe kennt.']).
+examples(['* der Tofu der Speisekammer in',
+          '  dass das Kind dem Affen den Stock gibt',
+          '  dass das Kind den Stock dem Affen gibt',
+          '  Schläft er?',
+          '  Lacht das Kind oft?',
+          '  Lacht das Kind oft nicht?',
+          '  Lacht das Kind nicht oft?',
+          '  Kennt ein Kind den Roman?',
+          '  Kennt den Roman ein Kind?',
+          '* Aicke schläft schläft.',
+          '* Den Roman kennt und schläft er',
+          '  Kennt und liebt das Kind den Roman?',
+          '  Kennt und liebt den Roman das Kind?',
+          '  dass das Kind dem Affen den Stock morgen gibt',
+          '  dass das Kind dem Affen morgen den Stock gibt',
+          '  dass das Kind morgen dem Affen den Stock gibt',
+          '  dass morgen das Kind dem Affen den Stock gibt',
+          '  Mann der',
+          '  der Speisekammer in',
+          '  das Kind kluge',
+          '* die in der Speisekammer Wurst',
+          '* dass Aicke den Stock gibt ihm',
+          '* dass das Kind den Roman']).
 
 
 
