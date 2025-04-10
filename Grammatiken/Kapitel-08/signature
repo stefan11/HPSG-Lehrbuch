@@ -132,16 +132,21 @@ bot
           &complementizer_word
       phrase_or_phrasal_lex_rule dtrs:list
         &verb_initial_rule
-        phrase non_head_dtrs:list
+        phrase
           non_headed_phrase
             coord_phrase
           headed_phrase head_dtr:sign
+            headed_flexible_order_phrase non_head_dtrs:list
+              glbtype33
+                head_adjunct_phrase
+                head_specifier_phrase
+              glbtype34
+                &head_adjunct_phrase
+                head_complement_phrase
             head_non_specifier_phrase
-              head_complement_phrase
-              head_adjunct_phrase
+              &glbtype34
             head_non_complement_phrase
-              head_specifier_phrase
-              &head_adjunct_phrase
+              &glbtype33
       n_modifier
         glbtype8
           isect_n_modifier_le

@@ -43,14 +43,22 @@ mrs := bot & [
   rels  list,
   hcons list ].
 
-; phrases and the verb_initial_rule The principles of RELS and HCONS computation hold for phrases
-; but not for verb_initial_rule, since RELS and HCONS are threaded through the verb trace.
 phrase_or_phrasal_lex_rule := sign & [
  dtrs          list ].
 
-phrase := phrase_or_phrasal_lex_rule & [
- non_head_dtrs list,
- dtrs          list ].
+phrase := phrase_or_phrasal_lex_rule.
+
+headed_phrase := phrase & [
+  head_dtr sign ].
+
+; all phrases that have non-head-dtrs. The elements in head-dtr and non-head-dtr are not
+; (necessarily) ordered in surface order. Only dtrs are. So head-dtr and non-head-dtrs can be used
+; as pointers to daughters. In principle, there could be phrases without a head-dtr that have
+; unordered dtrs. But the only unheaded-phrases in the current grammar are relative clauses (rc),
+; verbinitial lexical rule-like unary projections and coordination rules.
+headed_flexible_order_phrase := headed_phrase & [
+ non_head_dtrs list ].
+
 
 headed_phrase := phrase & [
   head_dtr sign ].
@@ -58,9 +66,9 @@ headed_phrase := phrase & [
 head_non_specifier_phrase  := headed_phrase.
 head_non_complement_phrase := headed_phrase.
 
-head_specifier_phrase  := head_non_complement_phrase.
-head_complement_phrase := head_non_specifier_phrase.
-head_adjunct_phrase    := head_non_complement_phrase & head_non_specifier_phrase.
+head_specifier_phrase  := headed_flexible_order_phrase & head_non_complement_phrase.
+head_complement_phrase := headed_flexible_order_phrase & head_non_specifier_phrase.
+head_adjunct_phrase    := headed_flexible_order_phrase & head_non_complement_phrase & head_non_specifier_phrase.
 
 non_headed_phrase := phrase.
 
