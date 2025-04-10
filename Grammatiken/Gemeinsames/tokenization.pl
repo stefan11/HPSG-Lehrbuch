@@ -52,7 +52,7 @@ tokenize_sentence_string_act([LastChar],[],Desc) :-
    ;  Desc = bot
    )
    ;
-   LastChar==exclam,
+   LastChar==exclamation,
    !,
    (  current_predicate(imp_symbol/1) 
    -> imp_symbol(Desc)
