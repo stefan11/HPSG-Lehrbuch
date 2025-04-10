@@ -33,7 +33,7 @@ ne_list := list & [
 none_or_local := bot.
 local := none_or_local & [
   cat  cat,
-  cont mrs ].
+  cont hook ].
 
 cat := bot & [
   head   head,
@@ -42,7 +42,7 @@ cat := bot & [
   arg_st list ].
 
 
-mrs := bot & [
+hook := bot & [
   gtop handle,
   ltop handle,
   ind  event_or_index ].

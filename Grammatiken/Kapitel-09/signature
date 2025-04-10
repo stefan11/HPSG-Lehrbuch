@@ -289,8 +289,7 @@ bot
           &arg0_ltop_lbl_le
   none_or_local
     &none
-    local cat:cat cont:mrs
-  mrs gtop:handle ltop:handle ind:event_or_index
+    local cat:cat cont:hook
   minus_or_extraction_or_vm
     extraction_or_minus
       minus
@@ -307,6 +306,7 @@ bot
   intro_gen_num gen:genus num:num
     det
     index per:per
+  hook gtop:handle ltop:handle ind:event_or_index
   head mod:none_or_sign spec:none_or_sign scopal:bool initial:bool dsl:none_or_local
     intro_case_head case:case
       glbtype29
