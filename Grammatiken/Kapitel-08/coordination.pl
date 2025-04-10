@@ -29,14 +29,7 @@ conj_word *>
                                   ind:RI)),
                        trace:minus)]),
          cont:rels:[(lhandle:LH,
-                     rhandle:(RH,
-                              =\=LH), % Wenn zwei Verben zu V1-Verben werden, haben sie LBL und IND
-                                % innerhalb ihrer DSL-Werte. Bei der Koordinatoin werden diese
-                                % identifiziert. Der Dominanzgraph ist dann nciht wohlgeformt. Man
-                                % kann die Analyse schon hier durch eine Ungleichheitsbedingung
-                                % ausschließen. Hätte man den KEY in CONT, würden die beiden KEYs
-                                % nicht kompatibel sein. Ausnahme: Schläft und schläft Aicke? Für
-                                % diesen Fall hilft nur die Ungleichheitsbedingung.
+                     rhandle:RH,
                      lindex:LI,
                      rindex:RI)]).
 
@@ -46,14 +39,23 @@ conj_word(Relation) :=
 
 und ---> @conj_word(und_rel).
 
+% spped und Regelberechnung
 coord_phrase *>
   dtrs:[(phon:ne_list,
          trace:minus),
         trace:minus].
 
-x_conj_y_coord_phrase :=
-  (coord_phrase,
-   loc:(cat:Cat,
+% Ohne diese Einschränkung könnten zwei V1-Verben koordiniert werden, es sollen aber erst die
+% Verbletztverben koordiniert werden und dann die V1-Regel angewendet werden. Würde man das nicht
+% machen, käme eine nicht wohlgeformte MRS heraus, denn die hooks der beiden Verben würden
+% identifiziert, weil die CAT-Werte identifiziert werden und in denen ist der DSL drin und damit
+% auch CONT.
+(head_complement_phrase,
+ dtrs:hd:loc:cat:head:coord) *> dtrs:tl:hd: @not(verb_initial_rule).
+
+
+coord_phrase *>
+  (loc:(cat:Cat,
         cont:(ltop:LTop,
               ind:Ind)),
    dtrs:[(Spec,
@@ -64,7 +66,7 @@ x_conj_y_coord_phrase :=
                cont:(ltop:LTop,
                      ind:Ind)))]).
 
-x_conj_y rule (@x_conj_y_coord_phrase,
+x_conj_y rule (coord_phrase,
                   dtrs:[Dtr1,Dtr2])
   ===>
 cat> Dtr1,

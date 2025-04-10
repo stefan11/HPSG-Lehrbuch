@@ -35,10 +35,14 @@ jeder ---> @det(gen_or_dat,sg,fem,every_q).
 
 jeder ---> @det(nom,sg,mas,every_q).
 
+jedem ---> @det(dat,sg,mas,every_q).
+
 
 ein ---> @det(nom,sg,mas_or_neu,exists_q).
 
 ein ---> @det(acc,sg,neu,exists_q).
+
+einen ---> @det(acc,sg,mas,exists_q).
 
 eines ---> @det(gen,sg,mas_or_neu,exists_q).
 

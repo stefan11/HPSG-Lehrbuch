@@ -22,7 +22,7 @@ phonology
 forall Word ---> FS do
  FS = phon:[(a_ Word)].
 
-phrase *>
+phrase_or_lexical_rule *>
           (phon:P,
            dtrs:Dtrs) goal collect_phonologies(Dtrs,P).
 

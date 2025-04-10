@@ -31,14 +31,7 @@ conj_word *>
                       nonloc:Nonloc,
                       trace:minus)]),
      rels:[(lhandle:LH,
-            rhandle:(RH,
-                     =\=LH),  % Wenn zwei Verben zu V1-Verben werden, haben sie LBL und IND
-                              % innerhalb ihrer DSL-Werte. Bei der Koordinatoin werden diese
-                              % identifiziert. Der Dominanzgraph ist dann nciht wohlgeformt. Man
-                              % kann die Analyse schon hier durch eine Ungleichheitsbedingung
-                              % ausschließen. Hätte man den KEY in CONT, würden die beiden KEYs
-                              % nicht kompatibel sein. Ausnahme: Schläft und schläft Aicke? Für
-                              % diesen Fall hilft nur die Ungleichheitsbedingung.
+            rhandle:RH,
             lindex:LI,
             rindex:RI)]).
 
@@ -55,7 +48,15 @@ coord_phrase *>
 
 % Unklar warum bei EFD-Berechnungt 4 x conj y phrasen lizenziert werden.
 %coord_phrase *>
-%  non_head_dtrs:[phon:ne_list,phon:ne_list].
+%  dtrs:[phon:ne_list,phon:ne_list].
+
+% Ohne diese Einschränkung könnten zwei V1-Verben koordiniert werden, es sollen aber erst die
+% Verbletztverben koordiniert werden und dann die V1-Regel angewendet werden. Würde man das nicht
+% machen, käme eine nicht wohlgeformte MRS heraus, denn die hooks der beiden Verben würden
+% identifiziert, weil die CAT-Werte identifiziert werden und in denen ist der DSL drin und damit
+% auch CONT.
+(head_complement_phrase,
+ dtrs:hd:loc:cat:head:coord) *> dtrs:tl:hd: @not(verb_initial_rule).
 
 
 x_conj_y_coord_phrase :=

@@ -32,6 +32,16 @@ bot
         grauen_rel
     arg1_relation arg1:event_or_index
       &glbtype38
+      s_type
+        imperative_or_interrogative
+          interrogative_rel
+          imperative_rel
+        assertion_or_interrogative
+          &interrogative_rel
+          assertion_rel
+        assertion_or_imperative
+          &imperative_rel
+          &assertion_rel
       arg01_relation
         &arg012_relation
         schlafen_rel
@@ -136,47 +146,48 @@ bot
           &glbtype19
           saturated_word
             &glbtype17
-      phrase dtrs:list
+      phrase_or_lexical_rule dtrs:list
         &verb_initial_rule
-        headed_phrase head_dtr:sign
-          headed_flexible_order_phrase non_head_dtrs:list
-            glbtype43
-              glbtype40
-                head_complement_phrase
-                head_adjunct_phrase
-              glbtype41
-                head_filler_phrase
-                &head_adjunct_phrase
-              glbtype42
-                &head_complement_phrase
-                &head_filler_phrase
-            glbtype46
-              &glbtype40
-              glbtype44
-                head_specifier_phrase
-                &head_adjunct_phrase
-              glbtype45
-                &head_complement_phrase
-                &head_specifier_phrase
-            glbtype48
-              &glbtype41
-              &glbtype44
-              glbtype47
-                &head_filler_phrase
-                &head_specifier_phrase
-            glbtype49
-              &glbtype42
-              &glbtype45
-              &glbtype47
-          head_non_specifier_phrase
-            &glbtype43
-          head_non_filler_phrase
-            &glbtype46
-          head_non_complement_phrase
-            &glbtype48
-          head_non_adjunct_phrase
-            &glbtype49
-        coord_phrase
+        phrase
+          headed_phrase head_dtr:sign
+            headed_flexible_order_phrase non_head_dtrs:list
+              glbtype43
+                glbtype40
+                  head_complement_phrase
+                  head_adjunct_phrase
+                glbtype41
+                  head_filler_phrase
+                  &head_adjunct_phrase
+                glbtype42
+                  &head_complement_phrase
+                  &head_filler_phrase
+              glbtype46
+                &glbtype40
+                glbtype44
+                  head_specifier_phrase
+                  &head_adjunct_phrase
+                glbtype45
+                  &head_complement_phrase
+                  &head_specifier_phrase
+              glbtype48
+                &glbtype41
+                &glbtype44
+                glbtype47
+                  &head_filler_phrase
+                  &head_specifier_phrase
+              glbtype49
+                &glbtype42
+                &glbtype45
+                &glbtype47
+            head_non_specifier_phrase
+              &glbtype43
+            head_non_filler_phrase
+              &glbtype46
+            head_non_complement_phrase
+              &glbtype48
+            head_non_adjunct_phrase
+              &glbtype49
+          coord_phrase
       overt_sign
         &glbtype20
         overt_word
@@ -306,7 +317,7 @@ bot
   intro_gen_num gen:genus num:num
     det
     index per:per
-  hook gtop:handle ltop:handle ind:event_or_index
+  hook ltop:handle ind:event_or_index key:relation
   head mod:none_or_sign spec:none_or_sign scopal:bool initial:bool dsl:none_or_local
     intro_case_head case:case
       glbtype29

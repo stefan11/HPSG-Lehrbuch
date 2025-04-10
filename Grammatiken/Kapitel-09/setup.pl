@@ -77,7 +77,8 @@ graphviz_option(svg,'sleep 0.1; open').
 
 
 ind_path([loc,cont,ind]).
-gtop_path([loc,cont,gtop]).
+% No GTOP today. Wird nicht mehr gebraucht. Bei MRS-Ausgabe wird das oberste LTOP genommen. Das ist das des Satztyps und damit fertig.
+gtop_path([loc,cont,ltop]).
 cont_path([loc,cont]).
 liszt_path([rels]).
 hcons_path([hcons]).

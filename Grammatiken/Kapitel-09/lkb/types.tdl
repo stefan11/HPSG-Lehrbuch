@@ -43,13 +43,16 @@ cat := bot & [
 
 
 hook := bot & [
-  gtop handle,
+;  gtop handle, not needed anymore
   ltop handle,
-  ind  event_or_index ].
+  ind  event_or_index,
+  key  relation ].
 
 
-phrase := sign & [
+phrase_or_lexical_rule := sign & [
  dtrs          list ].
+
+phrase := phrase_or_lexical_rule.
 
 headed_phrase := phrase & [
   head_dtr sign ].
@@ -76,7 +79,7 @@ head_specifier_phrase  := headed_flexible_order_phrase & head_non_adjunct_phrase
 
 coord_phrase := phrase.
 
-verb_initial_rule := phrase & complementizer_like_sign.
+verb_initial_rule := phrase_or_lexical_rule & complementizer_like_sign.
 
 
 lexical_sign := sign.
@@ -397,6 +400,19 @@ conjunction_rel := arg0_relation & [
   rindex event_or_index].
 
 und_rel := conjunction_rel.
+
+
+; Für Satztypen
+s_type := arg1_relation.
+assertion_or_imperative     := s_type.
+assertion_or_interrogative  := s_type.      ; Flexion = ind_conj -> assertion_or_interrogative
+imperative_or_interrogative := s_type.
+
+interrogative_rel := assertion_or_interrogative  & imperative_or_interrogative.
+imperative_rel    := imperative_or_interrogative & assertion_or_imperative.
+
+assertion_rel  := assertion_or_imperative & assertion_or_interrogative.
+
 
 event_or_index := bot.
 

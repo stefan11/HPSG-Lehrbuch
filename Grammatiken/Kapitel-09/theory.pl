@@ -26,6 +26,7 @@ grammar_version('Lehrbuchgrammatik Kapitel 4').
 root_symbol(@root).
 decl_symbol(@decl).
 que_symbol(@interrog).
+imp_symbol(@imp).
 
 % load tokenization rules for parsing ordinary strings and atoms
 :- ['../Gemeinsames/tokenization'].

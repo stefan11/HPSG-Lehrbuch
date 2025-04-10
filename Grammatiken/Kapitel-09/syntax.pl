@@ -89,14 +89,13 @@ headed_phrase *>
 */
 
 headed_phrase *>
-   (loc:cont:ind:Ind,
-    head_dtr:loc:cont:ind:Ind).
+   (loc:cont:(ind:Ind,
+              key:Key),
+    head_dtr:loc:cont:(ind:Ind,
+                       key:Key)).
 
-head_complement_phrase *>
-   (loc:cont:ltop:LTop,
-    head_dtr:loc:cont:ltop:LTop).
-
-head_specifier_phrase *>
+% head_complement_phrase, head_specifier_phrase, head_filler_phrase
+head_non_adjunct_phrase *>
    (loc:cont:ltop:LTop,
     head_dtr:loc:cont:ltop:LTop).
 
@@ -128,9 +127,20 @@ verb_initial_rule *>
                  vform:fin),
             spr:[],
             comps:[loc:(cat:head:dsl:Loc,
-                        cont:Cont)]),
-       cont:Cont),
+                        cont:(ind:Ind,
+                              ltop:VLbl))]),
+       cont:(ind:Ind,
+             ltop:ALbl,
+             key:Key)),
   nonloc:Nonloc,
+  rels:[(%assertion_rel,
+         Key,
+         lbl:ALbl,
+%         arg0:Ind,
+         arg1:ArgLbl)|Rels],
+  hcons:[(qeq,
+          harg:ArgLbl,
+          larg:VLbl)|HCons],
   dtrs:[(loc:(Loc,
               cat:head:(verb,
                         vform:fin,
@@ -138,7 +148,9 @@ verb_initial_rule *>
          nonloc:Nonloc,
          trace:minus,
          % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
-         phrase:minus)]).
+         phrase:minus,
+         rels:Rels,
+         hcons:HCons)]).
 
 
 % * Er schläft schläft.
@@ -158,6 +170,29 @@ headed_phrase *> phrase:plus.
 % dafür sorgt, daß der DSL-Wert von `ihn kennt' none ist.
 % Damit hat die Konjunktion auch den DSL-Wert none und kann
 % dann nicht mehr Tochter der V1-Regel sein.
+
+% Sätze mit Verb in Erststellung können Imperativsätze oder auch Interrogativsätze sein.
+% Die beiden folgenden Sätze unterscheiden sich nur hinsichtlich ihrer Flexion:
+%
+%     Gib   Du mir das Buch!
+%     Gibst Du mir das Buch?
+%
+% Die genaue Auflösung der Relation erfolgt erst in der Grammatik für Kapitel 16,
+% da dort erst eine Morphologiekomponente eingeführt wird.
+
+% Konditionalsätze werden ignoriert.
+
+
+(verb_initial_rule,
+ loc:cat:comps:[nonloc:slash:[]])      *> rels:hd:imperative_or_interrogative.
+
+% Hier spielt das Element in SLASH eine entscheidende Rolle.
+% Ist es eine Interrogativphrase, muß ein entsprechender Operator angenommen
+% werden. Da die vorliegende Grammatik keine Interrogativpronomina enthält,
+% wird die Fallunterscheidung nicht gemacht.
+(verb_initial_rule,
+ loc:cat:comps:[nonloc:slash:ne_list]) *> rels:hd:assertion_or_imperative.
+
 
 
 % Linearisierungsregeln: Wenn der Initial-Wert plus ist, steht die Kopf-Tochter vor der
@@ -210,6 +245,8 @@ head_non_filler_phrase *>
                                                   % This seems to be a bug. (St. Mü. 01.04.2025)
        head_dtr:nonloc:slash:Slash1,
        non_head_dtrs:[nonloc:slash:Slash2]).
+
+head_non_filler_phrase *> v2:minus.
 
 %% Der Kopf kann nicht extrahiert werden.
 %% Ein Problem stellt hierbei das Verb in PVP-Konstellationen
@@ -275,9 +312,18 @@ initial_fin_verb :=
                 initial:plus,
                 vform:fin)).
 
-
+% interrogative
 interrog :=
- @initial_fin_verb.
+ (@initial_fin_verb,
+  loc:cont:key:interrogative_rel).
 
+% assertion
 decl :=
- @initial_fin_verb.
+ (@initial_fin_verb,
+  loc:cont:key:assertion_rel,
+  v2:plus).
+
+% imparative = v1 oder v2 mit Ausrufezeichen
+imp :=
+ (@initial_fin_verb,
+  loc:cont:key:imperative_rel).
