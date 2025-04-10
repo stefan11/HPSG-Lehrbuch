@@ -88,7 +88,7 @@ bot
     pl
   none_or_sign
     none
-    sign phon:list loc:local rels:list hcons:list trace:minus_or_vm phrase:bool
+    sign phon:list loc:local trace:minus_or_vm phrase:bool
       v_modifier
         glbtype3
           isect_v_modifier_le
@@ -130,17 +130,18 @@ bot
         complementizer_like_sign
           verb_initial_rule
           &complementizer_word
-      phrase non_head_dtrs:list dtrs:list
-        non_headed_phrase
-          &verb_initial_rule
-          coord_phrase
-        headed_phrase head_dtr:sign
-          head_non_specifier_phrase
-            head_complement_phrase
-            head_adjunct_phrase
-          head_non_complement_phrase
-            head_specifier_phrase
-            &head_adjunct_phrase
+      phrase_or_phrasal_lex_rule dtrs:list
+        &verb_initial_rule
+        phrase non_head_dtrs:list
+          non_headed_phrase
+            coord_phrase
+          headed_phrase head_dtr:sign
+            head_non_specifier_phrase
+              head_complement_phrase
+              head_adjunct_phrase
+            head_non_complement_phrase
+              head_specifier_phrase
+              &head_adjunct_phrase
       n_modifier
         glbtype8
           isect_n_modifier_le
@@ -240,7 +241,7 @@ bot
   none_or_local
     &none
     local cat:cat cont:mrs
-  mrs gtop:handle ltop:handle ind:event_or_index
+  mrs gtop:handle ltop:handle ind:event_or_index rels:list hcons:list
   minus_or_vm
     minus
     vm

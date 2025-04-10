@@ -180,6 +180,4 @@ empty
          cat:head:(verb,
                    initial:minus,
                    dsl:Loc)),
-    rels:[],
-    hcons:[],
     trace:vm).

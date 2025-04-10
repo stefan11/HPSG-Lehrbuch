@@ -70,8 +70,8 @@ graphviz_option(svg,'sleep 0.1; open').
 ind_path([loc,cont,ind]).
 gtop_path([loc,cont,gtop]).
 cont_path([loc,cont]).
-liszt_path([rels]).
-hcons_path([hcons]).
+liszt_path([loc,cont,rels]).
+hcons_path([loc,cont,hcons]).
 
 outscoped_feat(larg).
 sc_arg_feat(harg).

@@ -15,8 +15,6 @@ none := none_or_sign & none_or_local.
 sign := none_or_sign & [
  phon list,
  loc  local,
- rels  list,
- hcons list,
  trace minus_or_vm,
  phrase bool ].
 
@@ -41,10 +39,16 @@ cat := bot & [
 mrs := bot & [
   gtop handle,
   ltop handle,
-  ind  event_or_index ].
+  ind  event_or_index,
+  rels  list,
+  hcons list ].
 
+; phrases and the verb_initial_rule The principles of RELS and HCONS computation hold for phrases
+; but not for verb_initial_rule, since RELS and HCONS are threaded through the verb trace.
+phrase_or_phrasal_lex_rule := sign & [
+ dtrs          list ].
 
-phrase := sign & [
+phrase := phrase_or_phrasal_lex_rule & [
  non_head_dtrs list,
  dtrs          list ].
 
@@ -62,7 +66,7 @@ non_headed_phrase := phrase.
 
 coord_phrase := non_headed_phrase.
 
-verb_initial_rule := non_headed_phrase & complementizer_like_sign.
+verb_initial_rule := phrase_or_phrasal_lex_rule & complementizer_like_sign.
 
 
 lexical_sign := sign.

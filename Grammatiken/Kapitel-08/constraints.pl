@@ -59,7 +59,7 @@ undelayed_collect_rels([],[]) if true.
 % Dtrs sind die restlichen Töchter.
 % Für die Dtrs werden die Relationen in Rels2 zusammengesammelt.
 % append verknüpft Rels1 und Rels2 zum Ergebnis Rels.
-undelayed_collect_rels([rels:Rels1|Dtrs],Rels) if collect_rels(Dtrs,Rels2),
+undelayed_collect_rels([loc:cont:rels:Rels1|Dtrs],Rels) if collect_rels(Dtrs,Rels2),
                                                   append(Rels1,Rels2,Rels).
 
 
@@ -83,7 +83,7 @@ collect_hcons(X,Y) if
 
 
 undelayed_collect_hcons([],[]) if true.
-undelayed_collect_hcons([hcons:Hcons1|Dtrs],Hcons) if collect_hcons(Dtrs,Hcons2),
+undelayed_collect_hcons([loc:cont:hcons:Hcons1|Dtrs],Hcons) if collect_hcons(Dtrs,Hcons2),
                                                                append(Hcons1,Hcons2,Hcons).
 
 
