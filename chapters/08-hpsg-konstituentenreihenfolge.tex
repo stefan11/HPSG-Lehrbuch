@@ -647,7 +647,7 @@ der Kopf ist. Diese wird auch Komplementierer\is{Komplementierer} genannt.
 
 Ähnliche Ansätze gibt es auch in der kategorialgrammatischen GPSG"=Variante von \citet[\page
 110]{Jacobs86a}, innerhalb der Lexical Functional Grammar \citep{Berman96a-u} und innerhalb der HPSG
-\parencites{KW91a}{Oliva92a}{Netter92}{Frank94}{Kiss95a}{Feldhaus97}{Meurers2000b}{Mueller2005c,MuellerGS}).\addpages
+\label{Seite-V1-via-Lexikonregel}\parencites{KW91a}{Oliva92a}{Netter92}{Frank94}{Kiss95a}{Feldhaus97}{Meurers2000b}{Mueller2005c,MuellerGS}).\addpages
 
 Die Annahme der Verbletztstellung\label{page-verbletzt} als Grundstellung wird durch folgende Beobachtungen
 motiviert:\footnote{
@@ -757,8 +757,8 @@ Zur Verdeutlichung soll die Analyse des Satzes in (\ref{bsp-kennt-jemand-den-Rom
 \ex Kennt$_i$ jemand den Roman \_$_i$?\label{bsp-kennt-jemand-den-Roman}
 \zl
 Für die Spur in (\mex{0}b) könnte man den folgenden Lexikoneintrag annehmen:
-\ea
-Verbspur für \emph{kennt}:\\\samepage
+\eas
+Verbspur für \emph{kennt}:\\
 \ms{
 phon & \phonliste{}\\
 cat  & \ms{ head & \ms[verb]{ vform & fin\\
@@ -775,7 +775,7 @@ cont & \ms{
                        arg2 & \ibox{2}\\
                      } } }\\
 }
-\z
+\zs
 Dieser Lexikoneintrag unterscheidet sich vom normalen Verb \emph{kennt} nur in seinem \phonw.
 
 Die syntaktischen Aspekte der Analyse von (\ref{bsp-kennt-jemand-den-Roman}) sind in Abbildung~\vref{verb-movement-syn-simple}
@@ -854,7 +854,7 @@ phon & \phonliste{}\\
 loc  & \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin\\
                                           ini   & $-$\\
                                         }\\
-                        comps & \sliste{ \npnom\ind{1}, \npacc\ind{2} }\\
+                        comps & \nliste{ \npnom\ind{1}, \npacc\ind{2} }\\
                       }\\
             cont & \ms{
        ltop & \ibox{3}\\
@@ -906,7 +906,7 @@ loc  & \ibox{1} \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin\\
                                                    ini   & $-$\\
                                                    dsl   & \ibox{1}\\
                                         }\\
-                        comps & \sliste{ \npnom\ind{2}, \npacc\ind{3} }\\
+                        comps & \nliste{ \npnom\ind{2}, \npacc\ind{3} }\\
                       }\\
             cont & \ms{
        ltop & \ibox{4}\\
@@ -925,31 +925,45 @@ verfügbar, und das Verb in Erststellung kann sicherstellen, dass die Projektion
 \is{Spur!Verb-|)}
 
 Der spezielle Lexikoneintrag für die Verberststellung wird durch die folgende
-Lexikonregel\is{Lexikonregel!Verberststellung|(} lizenziert:
+Regel\is{Lexikonregel!Verberststellung|(} lizenziert:\footnote{
+Im Kapitel~\ref{Abschnitt-Lexikonregeln} wurde erklärt, dass man Lexikonregeln auch so formalisieren
+kann, dass das Eingabeelement eine Tochter ist. In früheren Publikationen habe ich -- vielen
+vorausgehenden Veröffentlichungen folgend (siehe S.\,\pageref{Seite-V1-via-Lexikonregel}) -- die
+Verberstregel immer als Lexikonregel erklärt und in einer Fußnote darauf hingewiesen, dass es sich
+eigentlich um eine unäre Regel handelt. Es ist nötig, eine syntaktische Regel zu verwenden, da als
+Tochter das Ergebnis einer Koordination vorkommen kann:
+\ea
+Kirby kennt und liebt diese Band.
+\z
+Für die Analyse von (i) muss die Verberstregel auf \emph{kennt und liebt} angewendet
+werden. Lexikonregeln können immer nur auf Lexikonelemente (Stämme oder Wörter) angewendet werden,
+\emph{kennt und liebt} ist aber eine Wortgruppe. In diesem Buch werde ich also die Verberstregel
+gleich als unäre Regel bzw.\ unäres Schema erklären, damit der Text auch synchron mit der
+Computerimplementation ist. 
+}
 \eas
 \label{lr-verb-movement}%
-Lexikonregel für Verb in Erststellung (vorläufige Version):\\
+Regel für Verb in Erststellung (vorläufige Version):\\
+\type{verb-initial-rule} \impl\\
 \ms{
-loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
-                                                     initial & $-$\\
-                                             }\\
-                  }\\
-} $\mapsto$\\
-\flushright\ms{
 loc$|$cat & \ms{ head & \ms[verb]{vform & fin\\
                                           initial & $+$\\
                                           dsl     & none\\
                                  }\\
                  comps & \sliste{ \onems{ loc$|$cat \onems{ head|dsl \ibox{1}\\
                                                             comps \eliste }}}\\
-                         }
+                         }\\
+dtrs & \liste{ \ms{
+loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
+                                                     initial & $-$\\
+                                             }\\
+                  }\\
+} }
 }
 \zs
-\medskip
-% bug Und warum ist nach flushright so viel Platz nach unten?
 
 \noindent
-Das durch diese Lexikonregel lizenzierte Verb selegiert eine maximale Projektion der Verbspur,
+Das durch diese Regel lizenzierte Verb selegiert eine maximale Projektion der Verbspur,
 die dieselben lokalen Eigenschaften wie das Eingabeverb hat. Das wird durch die
 Koindizierung des \localw{}es des Eingabeverbs und des \dslw{}es der selegierten
 Verbalprojektion erreicht. Eingabe für die Regel können nur finite Verben in Endstellung
@@ -969,7 +983,7 @@ Die Analyse von (\ref{bsp-kennt-jemand-den-Roman}) zeigt Abbildung~\vref{verb-mo
 sm edges
 [S
   [{V[\comps \sliste{ \ibox{1} }]} 
-    [{V[\comps \ibox{2} ]},tier=np,edge label={node[midway,right]{V1-LR}} 
+    [{V[\comps \ibox{2} ]},tier=np,edge label={node[midway,right]{V1-R}} 
        [kennt$_j$] ] ]
     [{\ibox{1} V\feattab{\textsc{dsl|comps} \ibox{2},\\
                  \comps \eliste}}
@@ -982,12 +996,12 @@ sm edges
 \end{forest}
 \caption{\label{verb-movement-syn}Veranschaulichung der Analyse von \emph{Kennt jemand den Roman?}}
 \end{figure}
-V1-LR steht für die Verberst"=Lexikonregel.
+V1-R steht für die Verberst"=Regel.
 
 
-Die Lexikonregel in (\mex{0}) lizenziert ein Verb, das einen Satz (\iboxt{1} in
-Abbildung~\ref{verb-movement-syn}) selegiert. Der \dslw dieses Satzes entspricht dem \locw des
-Eingabeverbs für die Lexikonregel. Teil des \dslwes ist auch die Valenzinformation, die in
+Die Regel in (\mex{0}) lizenziert ein Verb, das einen Satz (\iboxt{1} in
+Abbildung~\ref{verb-movement-syn}) selegiert. Der \dslw dieses Satzes entspricht dem \locw der in
+die Regel eingesetzten Tochter. Teil des \dslwes ist auch die Valenzinformation, die in
 Abbildung~\ref{verb-movement-syn} dargestellt ist \iboxb{2}. Da \dsl ein Kopfmerkmal ist, ist der
 \dslw der VP mit dem der Verbspur identisch, und da der \locw der Verbspur mit dem \dslw
 identifiziert ist, ist auch die \comps"=Information des Verbs \emph{kennen} in der Spur
@@ -995,7 +1009,7 @@ verfügbar. Die Kombination der Spur mit ihren Argumenten erfolgt genau so, wie 
 Verben der Fall wäre.
 
 
-In der Lexikonregel in (\ref{lr-verb-movement}) wurde noch nichts zur Semantik gesagt. Man geht im allgemeinen davon aus, dass
+In der Regel in (\ref{lr-verb-movement}) wurde noch nichts zur Semantik gesagt. Man geht im allgemeinen davon aus, dass
 die Verbspur in Verberstsätzen auch semantisch für das Verb in Erststellung steht und
 dass Verberstsätze entsprechend ihren Verbletztgegenstücken interpretiert werden. Dies
 wird dadurch modelliert, dass man den semantischen Beitrag parallel zur Valenzinformation
@@ -1004,78 +1018,56 @@ Bei der Kombination mit Argumenten sorgt das Semantikprinzip dafür,
 dass die Information über den \textsc{index}"=Wert (die Ereignisvariable) und der \ltopw entlang der Kopfprojektion im Baum nach
 oben gereicht wird. Im letzten Projektionsschritt in Abbildung~\ref{verb-movement-syn}
 ist das Verb in Erststellung der Kopf und deshalb wird auch der semantische Beitrag
-dieses Verbs projiziert. In der Lexikonregel (\mex{1}) für das Verb in Erststellung wird
+dieses Verbs projiziert. In der Regel (\mex{1}) für das Verb in Erststellung wird
 der semantische Beitrag der Projektion der Spur in Endstellung \iboxb{2} mit
 dem \hookw des Verbs in Erststellung identifiziert:
 
 \eas
 \label{lr-verb-movement2}%
-Lexikonregel für Verb in Erststellung (mit semantischem Beitrag):\\
+Regel für Verb in Erststellung (mit semantischem Beitrag, vorläufig):\\
+\type{verb-initial-rule} \impl\\
 \ms{
-loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
-                                                     initial & $-$\\
-                                             }\\
-                  }\\
-%rels & \ibox{2}\\
-%hcons & \ibox{3}
-} $\mapsto$\\
-\flushright\onems{
-loc \ms{ cat & \ms{ head & \ms[verb]{ vform & fin\\
+loc & \ms{ cat & \ms{ head & \ms[verb]{ vform & fin\\
                                       initial & $+$\\
                                       dsl     & none }\\
-                    comps & \sliste{ \onems{ loc \onems{ cat \onems{ head|dsl \ibox{1}\\
-                                                                     comps \eliste }\\
-                                                         cont \ibox{2} }\\
+                    comps & \sliste{ \onems{ loc \ms{ cat & \onems{ head|dsl \ibox{1}\\
+                                                                    comps \eliste }\\
+                                                      cont & \ms{ ind & \ibox{2}\\
+                                                                  ltop & \ibox{3}} }\\
                                               }}\\
                   }\\
-            cont & \ibox{2}}\\
-%rels  & \eliste\\
-%hcons & \eliste\\ 
+            cont & \ms{ ind & \ibox{2}\\
+                        ltop & \ibox{3}\\
+                        rels & \eliste\\
+                        hcons & \eliste} }\\
+dtrs & \liste{ \ms{
+               loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
+                                                           initial & $-$\\
+                                                         }\\
+                                 }}}
 }
 \zs
-\medskip
-% bug
+% \medskip
+% bug medskip is necessary when \flushright is used
 
 \noindent
-Der \contw enthält jeweils den \ltop und den Index (die Ereignisvariable). Nach Konvention werden
-alle nicht erwähnten Werte vom Input der Regel zum Output übertragen, so dass \rels- und
-\hcons"=Wert des Eingabeverbs auch bei der Ausgabe der Lexikonregel vorhanden sind.
-
-Bei der Kombination des Verbs in Erststellung mit der Projektion der Verbspur wird also der semantische
-Beitrag von der Verbspurprojektion übernommen und wegen des Semantikprinzips
-zum Beitrag der gesamten Konstruktion. Abbildung~\vref{verb-movement-sem} zeigt die semantischen
-Aspekte der Verbbewegungsanalyse mit der Spur in (\ref{le-verbspur-kennt}) und der Lexikonregel
-in (\ref{lr-verb-movement2}).
+Bei der Kombination des Verbs in Erststellung mit der Projektion der Verbspur wird der \ltopw und
+der Index von der Verbspurprojektion übernommen und wegen des Semantikprinzips dann weiter nach oben
+gereicht und so zum Beitrag der gesamten Konstruktion. Abbildung~\vref{verb-movement-sem} zeigt die
+semantischen Aspekte der Verbbewegungsanalyse mit der Spur in (\ref{le-verbspur-kennt}) und der
+Verberstregel in (\ref{lr-verb-movement2}).
 \begin{figure}
-% \begin{forest}
-% sm edges
-% [V{[\textsc{cont} \subnode{c1}{\ibox{2}}\,]}, baseline
-% 	[V{[\textsc{cont} \subnode{c2}{\ibox{2}}\,]}
-% 		[V{[\textsc{cont} \subnode{c3}{\ibox{1}} [\ltop h1, \rels \nliste{ h1:kennen(j, roman) } ]]}, tier=np,edge label={node[midway,right]{V1-LR}}
-% 			[kennt$_j$]]]
-% 	[V\feattab{\textsc{dsl}|\textsc{cont} \subnode{c4}{\ibox{1}},\\
-%                    \textsc{cont} \subnode{c5}{\ibox{2}}\,}
-% 		[NP{[\textit{nom}]}, tier=np
-% 			[jemand]]
-% 		[V\feattab{\textsc{dsl}|\textsc{cont} \subnode{c6}{\ibox{1}},\\
-%                            \textsc{cont} \subnode{c7}{\ibox{2}}\,}
-% 			[NP{[\textit{acc}]}
-% 				[den Roman, roof]]
-% 			[V\feattab{\textsc{dsl}|\textsc{cont} \subnode{c8}{\ibox{1}},\\
-%                                    \textsc{cont} \subnode{c9}{\ibox{2}} $=$ \ibox{1}\,}
-% 				[\trace$_j$]]]]]
-% \end{forest}
 \oneline{%
 \begin{tikzpicture}[remember picture]
 \begin{forestintikzpicture}
-sm edges
-[V\ms{cont \ms{ltop & \subnode[inner sep=0pt]{ltop5}{\ibox{1}} h1,\\
+sm edges, for tree={l sep+=\baselineskip}
+[V\ms{cont \ms{ltop & \subnode[inner sep=0pt]{ltop5}{\ibox{1}} h1\\
                    rels & \nliste{ \ldots, h1:k(j, r) }}}, baseline
-            [V\ms{cont  & \ms{ltop & \subnode[inner sep=0pt]{ltop4}{\ibox{1}} h1,\\
+            [V\ms{cont  & \ms{ltop & \subnode[inner sep=0pt]{ltop4}{\ibox{1}} h1\\
                               rels & \eliste }\\
                   comps & \sliste{ \ibox{2} dsl|cont \subnode[inner sep=0pt]{dsl0}{\ibox{3}} }}
-                    [V\ms{cont \subnode[inner sep=0pt]{c1}{\ibox{3}} \ms{ltop & h1,\\
-                                                          rels & \nliste{ h1:k(j, r) } }}, tier=np,edge label={node[midway,right]{V1-LR}}
+                    [V\ms{cont \subnode[inner sep=0pt]{c1}{\ibox{3}} \ms{ltop & h1\\
+                                                          rels & \nliste{ h1:k(j, r) } }}, tier=np,edge label={node[midway,right]{V1-R}}
                             [kennt$_j$]]]
             [\ibox{2} V\ms{dsl|cont \subnode[inner sep=0pt]{dsl1}{\ibox{3}},\\
                   cont \ms{ltop & \subnode[inner sep=0pt]{ltop3}{\ibox{1}} h1,\\
@@ -1083,39 +1075,51 @@ sm edges
                     [NP{[\textit{nom}]}, tier=np
                             [jemand]]
                     [V\ms{dsl|cont \subnode[inner sep=0pt]{dsl2}{\ibox{3}},\\
-                          cont \ms{ltop & \subnode[inner sep=0pt]{ltop2}{\ibox{1}} h1,\\
+                          cont \ms{ltop & \subnode[inner sep=0pt]{ltop2}{\ibox{1}} h1\\
                                    rels & \nliste{ \ldots, h1:k(j, r) }}}
                             [NP{[\textit{acc}]}
                                     [den Roman, roof]]
                             [V\ms{dsl|cont \subnode[inner sep=0pt]{dsl3}{\ibox{3}},\\
-                                  cont \subnode[inner sep=0pt]{cont-trace}{\ibox{3}}\ms{ltop \subnode[inner sep=0pt]{ltop1}{\ibox{1}} h1,\\
-                                                                         rels \nliste{ h1:k(j, r) } }}
+                                  cont \subnode[inner sep=0pt]{cont-trace}{\ibox{3}}\ms{ltop & \subnode[inner sep=0pt]{ltop1}{\ibox{1}} h1\\
+                                                                                        rels & \nliste{ h1:k(j, r) } }}
                                     [\trace$_j$]]]]]
+%
+% use mark=* after smooth to see the dots that are used, mark=none disables the drawing
+%
+% The following does not draw the first and the last mark
+% \draw[blue] plot [smooth,mark=*,mark indices={2,3}] coordinates {(ltop4.80) (0,-1.4) (2.4,-1.6) (ltop3.north)};
+%
+% alternative:
+%\filldraw[red] (0,-1.4) circle [radius=2pt] (2.4,-1.6) circle [radius=2pt];
+%
 \begin{scope}[overlay,<->,shorten >=2pt, shorten <=2pt]
 %\draw[gray] (-6,-10) to[grid with coordinates] (9,1);
 % Lexical rule
-\draw[brown] plot [smooth] coordinates {(c1.north) (-3.8,-3.6) (-3,-3.6) (-1.6, -3.6) (dsl0.south west)};
-\draw[blue]  plot [smooth] coordinates {(dsl0.north) (-1,-1.5) (1,-1.2) (dsl1.north west)};
+\draw[brown] plot [smooth,mark=none,mark indices={2,3,4}] coordinates {(c1.north) (-3.3,-4) (-2.8,-3.8) (-1.6, -3.8) (dsl0.south west)};
+% [3] links zu [3] rechts
+\draw[blue]  plot [smooth] coordinates {(dsl0.north) (-0.8,-2) (1,-1.9) (dsl1.north west)};
 % DSL percolates down from clause to trace.
-\draw[red]   plot [smooth] coordinates {(dsl1.east) (6,-1.0) (6.5,-2.5) (dsl2.east)};
-\draw[red]   plot [smooth] coordinates {(dsl2.east) (8,-3) (8.5,-4.5) (dsl3.east)};
+\draw[red]   plot [smooth] coordinates {(dsl1.east) (5.2,-1.0) (6.4,-2.6) (dsl2.east)};
+\draw[red]   plot [smooth] coordinates {(dsl2.east) (7.3,-3) (8,-4.5) (dsl3.east)};
 % LTOP is projected upwards from trace to complete verbal projection
-\draw[green] plot [smooth] coordinates {(ltop2.north east) (8.5,-3) (9,-4.5) (ltop1.north east)};
-\draw[green] plot [smooth] coordinates {(ltop3.north east) (6,-1.5) (6.5,-3) (ltop2.north east)};
+\draw[green] plot [smooth] coordinates {(ltop2.45) (7,-3.5) (7.5,-5) (ltop1.45)};
+\draw[green] plot [smooth] coordinates {(ltop3.60) (5,-1.5) (6,-3) (ltop2.55)};
 % LTOP von V1 übernommen aus COMPS
-\draw[blue] plot [smooth] coordinates {(ltop4.north east) (0,-1.1) (3,-1.4) (ltop3.north)};
+% [1] links zu [1] rechts 
+\draw[blue] plot [smooth,mark=none,mark indices={2,3}] coordinates {(ltop4.80) (0,-1.2) (2.4,-1.4) (ltop3.north)};
 % LTOP is projected from V1 head to complete V1 clause
-\draw[green] plot [smooth] coordinates {(ltop4.135) (-3,.4) (ltop5.135)};
+\draw[green] plot [smooth,mark=none,mark indices={2}] coordinates {(ltop4.135) (-2.6,.2) (ltop5.135)};
 \end{scope}
 \end{forestintikzpicture}
 \end{tikzpicture}
 }
-\caption{\label{verb-movement-sem}Veranschaulichung der Analyse von \emph{Kennt jemand den Roman?}}
+\caption{\label{verb-movement-sem}Veranschaulichung der Analyse von \emph{Kennt jemand den Roman?}:
+  Braun = Verberstregel, Blau = Selektion, Grün = Semantikprinzip, Rot = Kopfmerkmalsprinzip}
 \end{figure}
 Rein technisch müsste das \textit{h1} des Eingabeverbs für die V1"=Regel in Abbildung~\ref{verb-movement-sem} auch \iboxt{1} sein, denn
 der \contw des Eingabeverbs ist ja identisch mit dem der Verbspur. Ich habe das aus
 Darstellungsgründen jedoch weggelassen, damit man besser sehen kann, welchen Weg die
-\ltop"=Information nimmt. Durch die Lexikonregel wird aus dem Verb, wie es in Letztstellung
+\ltop"=Information nimmt. Durch die Verberstregel wird aus dem Verb, wie es in Letztstellung
 vorkommen würde, ein V1"=Verb. Dieses selegiert eine Verbspur und in \dsl ist der \contw des
 ursprünglichen Verbs \iboxb{3} enthalten. Das Komplement des Verbs in Initialstellung \iboxb{2} wird
 mit der Verbalprojektion identifiziert, wodurch der \dslw der Verbalprojektion dann den \contw des
@@ -1148,33 +1152,33 @@ sm edges, for tree={l sep+=2\baselineskip}
                           hcons & \eliste }\\
               comps & \sliste{ \ibox{2} dsl|cont \subnode{dsl0}{\ibox{3}} }}
 		[V\ms{cont \subnode{c1}{\ibox{3}} \onems{ltop \type{h1}\\
-                                                         rels  \nliste{ h1:k(j, r) }\\
-                                                         hcons  \eliste}}, tier=np,edge label={node[midway,right]{V1-LR}}
+                                                         rels  \nliste{ h1:k(j, r) }\\[1mm]
+                                                         hcons  \eliste}}, tier=np,edge label={node[midway,right]{V1-R}}
 			[kennt$_j$]]]
 	[\ibox{2} V\ms{dsl|cont \subnode{dsl1}{\ibox{3}}\\
               cont \ms{ltop & \subnode{ltop3}{\ibox{1}} h2\\
-                       rels & \nliste{ \ldots, h2:n(h3), h1:k(j, r) }\\
+                       rels & \nliste{ \ldots, h2:n(h3), h1:k(j, r) }\\[1mm]
                        hcons & \nliste{ \ldots, h3 \qeq h1 }}}
 		[NP{[\textit{nom}]}, tier=np
 			[jemand]]
 		[V\ms{dsl|cont \subnode{dsl2}{\ibox{3}},\\
                       cont \ms{ltop & \subnode{ltop2}{\ibox{1}} h2\\
-                               rels & \nliste{ \ldots, h2:n(h3), h1:k(j, r) }\\
+                               rels & \nliste{ \ldots, h2:n(h3), h1:k(j, r) }\\[1mm]
                                hcons & \nliste{ \ldots, h3 \qeq h1 }}}, s sep+=2em
 			[NP{[\textit{acc}]}%,fit=band
 				[den Roman, roof]]
                         [V\ms{dsl|cont \subnode{dsl3}{\ibox{3}},\\
                               cont \subnode{cont-trace}{\ibox{3}}\ms{ltop & \subnode{ltop1}{\ibox{1}} h2\\
-                                                                     rels & \nliste{ h2:n(h3), h1:k(j, r) }\\
+                                                                     rels & \nliste{ h2:n(h3), h1:k(j, r) }\\[1mm]
                                                                      hcons & \nliste{ h3 \qeq h1 }
                                                                    }}
-                          [Adv\ms{cont \ms{ltop & \subnode{ltop1}{\ibox{1}} h2,\\
-                                           rels & \nliste{ h2:n(h3) }\\
+                          [Adv\ms{cont \ms{ltop & \subnode{ltop1}{\ibox{1}} h2\\
+                                           rels & \nliste{ h2:n(h3) }\\[1mm]
                                            hcons & \nliste{ h3 \qeq h1 } } }
                              [nicht]]
 			  [V\ms{dsl|cont \subnode{dsl3}{\ibox{3}},\\
                                 cont \subnode{cont-trace}{\ibox{3}}\onems{ltop \type{h1}\\
-                                                                          rels \nliste{ h1:k(j, r) }\\
+                                                                          rels \nliste{ h1:k(j, r) }\\[1mm]
                                                                           hcons \eliste }}
 				[\trace$_j$]]]]]]
 \end{forest}}
@@ -1254,7 +1258,7 @@ loc  & \ibox{1} \ms{ cat$|$head$|$dsl   & \ibox{1}\\
                    }\\
 }
 \zs
-Dies mag auf den ersten Blick verwundern, doch wenn man sich das Zusammenspiel der Lexikonregel
+Dies mag auf den ersten Blick verwundern, doch wenn man sich das Zusammenspiel der Verberstregel
 (\ref{lr-verb-movement2}) und die Perkolation des \textsc{dsl}"=Merkmals im Baum genau ansieht, wird
 man erkennen, dass der \dslw der Verbprojektion und somit der \localw der Verbspur durch den
 \localw des Eingabeverbs bestimmt ist. In Abbildung~\ref{verb-movement-syn} und~\ref{verb-movement-sem}
@@ -1268,14 +1272,14 @@ Initialstellung selegierten Projektion angegeben werden muss.
 Diese Analyse der Verbstellung ist die komplexeste Analyse im vorliegenden Buch. Wenn man sie verstanden
 hat, braucht man nichts mehr zu fürchten. Die wichtigsten Punkte seien hier noch einmal zusammengefasst:
 \begin{itemize}
-\item Eine Lexikonregel lizenziert für jedes finite Verb einen besonderen Lexikoneintrag.
+\item Eine Verberstregel lizenziert für jedes finite Verb eine besondere Form des Verbs.
 \item Dieser Lexikoneintrag steht in Initialstellung und verlangt als Argument eine vollständige Projektion
       einer Verbspur.
-\item Die Projektion der Verbspur muss einen \dslw haben, der dem \localw des Eingabeverbs für die Lexikonregel
+\item Die Projektion der Verbspur muss einen \dslw haben, der dem \localw der Tochter in der Verberstregel
       entspricht.
 \item Da \dsl ein Kopfmerkmal ist, ist der selegierte \dslw auch an der Spur präsent.
 \item Da der \dslw der Spur mit deren \localw identisch ist, ist der \localw der Spur also
-      auch mit dem \localw des Eingabeverbs der Lexikonregel identisch.
+      auch mit dem \localw der Tochter in der Verberstregel identisch.
 \end{itemize}
 
 \noindent
@@ -1316,7 +1320,7 @@ sm edges, for tree={l sep=+2\baselineskip}
     [den Stock, roof]]
   [{\ibox{2} NP[\type{dat}]}
     [dem Affen, roof]]
-  [{V[\type{fin}, \comps \sliste{ \ibox{1}, \ibox{2}, \ibox{3} }] }
+  [{V[\type{fin}, \comps \nliste{ \ibox{1}, \ibox{2}, \ibox{3} }] }
     [gibt]]]
 \end{forest}
 \caption{\label{abb-uszkoreit-pollard}Analyse von \emph{Aicke den Stock dem Affen gibt} mit flachen Strukturen}
@@ -1449,7 +1453,7 @@ dom & \liste{ \ms[word]{ phon   & \ibox{1} \\
 \itdopt{zyklische Strukturen}
 Dabei sind unter dem Merkmal \synsem\isfeat{synsem}
 sowohl syntaktische als auch semantische Informationen zusammengefasst.
-Zu \textsc{synsem} siehe auch Kapitel~\ref{Kapitel-lokalitaet}.
+Zu \textsc{synsem} siehe auch Kapitel~\ref{Kapitel-Lokalität}.
 
 In Kopf"=Argument- und Kopf"=Adjunkt"=Strukturen werden Adjunkt- und Komplementtöchter in diese Liste eingesetzt 
 und relativ zum Kopf angeordnet. Das sieht formal wie folgt aus:\footnote{
