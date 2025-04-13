@@ -123,7 +123,7 @@ werden. Abschnitt~\ref{sec-index} beschäftigt sich mit dem semantischen Beitrag
 und Abschnitt~\ref{sec-Linking}
 zeigt, wie man die Verbindung zwischen den Argumenten eines Kopfes und dem semantischen Beitrag des
 Kopfes herstellen kann, \dash, es wird gezeigt, wie die semantischen Rollen einer Relation gefüllt
-werden können. Abschnitt~\ref{sec-Komposition} erklärt, wie einfache kompositionale Semantik
+werden können. Abschnitt~\ref{Abschnitt-Komposition} erklärt, wie einfache kompositionale Semantik
 funktioniert und Abschnitt~\ref{Abschnitt-Skopus} schließlich beschäftigt sich mit Quantorenskopus und
 diversen interessanten Phänomenen, die für das Verständnis des technischen Apparats notwendig sind.
 
@@ -828,7 +828,7 @@ anderen mit dem Kopf kombiniert werden. Dabei werden die entsprechenden semantis
 und die Variablen gebunden. Im nächsten Abschnitt wird das genauer erklärt.
 
 \section{Komposition}
-\label{sec-Komposition}
+\label{Abschnitt-Komposition}\label{Semantik-Adjektivmodifikation}
 
 Damit sind wir jetzt so weit, dass wir uns mit einfachen kompositionalen Strukturen beschäftigen
 können. Die Analyse von (\mex{1}) zeigt Abbildung~\ref{fig-Der-kleine-Affe-schläft}.
@@ -869,21 +869,27 @@ des obersten Knotens enthalten sind.
 Die Weitergabe des semantischen Index ist einfach. Das entsprechende Prinzip lässt sich wie folgt als Implikation
 aufschreiben:
 \ea
+\label{Semantik-Index-headed-phrase}
 \type{headed-phrase} \impl\\
 \ms{
 cont|ind & \ibox{1}\\
 head-dtr|cont|ind & \ibox{1}\\
 }
 \z
-\itdopt{Gibt es für nicht(schlafen(e)) bei nicht ein Event? h1:nicht(e1,h2), h2:schlafen(e2,x) oder
-  h1:nicht(h2), h2:schlafen(e2,x)
-}
+% \itdopt{Gibt es für nicht(schlafen(e)) bei nicht ein Event? h1:nicht(e1,h2), h2:schlafen(e2,x) oder
+%   h1:nicht(h2), h2:schlafen(e2,x)
+% In ERG gibt es bei nicht und bei often Events. Die werden aber nirgends gebraucht, soweit ich
+% sehen kann.
+% Bei often gibt es ein ARG0-Event, das nicht benutzt wird und ein ARG1-Event, das mit dem
+% modifizierten Nomen geteilt ist. 2025-04-13.
+% }
 Die Implikation in (\mex{0}) sagt, dass in Strukturen mit Kopftochter, der Index der Kopftochter mit
 dem der Mutter identisch ist. So wird die Ereignisvariable von Verben ($e$ in Abbildung~\ref{fig-Der-kleine-Affe-schläft}) nach oben gegeben und der
 referentielle Index von Nomen ($x$ in Abbildung~\ref{fig-Der-kleine-Affe-schläft}) auch.
 
 Die Relationen sammelt die folgende Beschränkung für Zeichen vom Typ \type{phrase} ein:
 \ea
+\label{constraint-RELS}
 \type{phrase} \impl\\
 \onems{
 cont|rels  \ibox{1} $\oplus$ \ibox{2}\\
@@ -1245,7 +1251,7 @@ sm edges
 \caption{\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft}Analyse des Beispiels \emph{Jede Tochter
     eines Mitarbeiters schläft.}}
 \end{figure}
-Wie im Abschnitt~\ref{sec-Komposition} erklärt werden die Relationen einfach durch Listenverkettung von den
+Wie im Abschnitt~\ref{Abschnitt-Komposition} erklärt werden die Relationen einfach durch Listenverkettung von den
 Töchtern zum Mutterknoten hochgereicht. Genauso funktioniert das für die Handle"=Constraints:
 \ea
 \type{phrase} \impl\\
@@ -1297,6 +1303,8 @@ Formalisieren lässt sich das Prinzip wie folgt:
 \ms{ head-dtr & \ibox{1}\\
      non-head-dtrs & \liste{ [\textsc{head|spec} \ibox{1}] } }
 \z
+
+
 
 \subsection{Eigennamen, Pronomen, Possessivpronomen}
 
@@ -1541,6 +1549,7 @@ Man beachte, dass der Index des Possessivpronomens sich vom Index der \nbar unte
 das Pronomen kombiniert wird.
 
 \subsection{\emph{mutmaßliche Mörder}}
+\label{Abschnitt-Semantik-Adjektivmodifikation-mutmaßlich}
 
 Bisher waren die Regeln zur semantischen Komposition sehr einfach. Es wurden einfach die \relslen
 verknüpft und die \ltopwe identifiziert. Damit kann man die Verhältnisse in (\mex{1}) aber nicht erfassen.
@@ -1636,6 +1645,8 @@ Prädikats. Bei intersektiven Adjektiven wie \emph{klein} sind beide Handels ide
 auch da der \ltopw von der Adjunkttochter genommen werden kann. Die folgende Beschränkung gilt also
 zusätzlich zu den bereits beschrieben Beschränkungen für Kopf"=Adjunkt"=Strukturen:
 \ea
+%Beschränkung für Kopf"=Adjunkt"=Strukturen (wird im Abschnitt~\ref{Abschnitt-scheinbar-einfache-Beispiele} verworfen):
+\label{Beschränkung-Semantik-Kopf-Adjunkt-Strukturen}
 \type{head-adjunct-phrase} \impl
   \ms{ cont|ltop & \ibox{1}\\
        non-head-dtrs & \liste{ \ms{ cont|ltop & \ibox{1} } }\\
@@ -1755,7 +1766,7 @@ Lesarten, die in (\ref{ex-Prädikatenlogik-alle-Affen-glauben-dass-ein-Einhorn-s
 \end{figure}
 
 \subsection{\emph{scheinbar einfache Beispiele}}
-\label{sec-scheinbar-einfaches-Beispiel}
+\label{Abschnitt-scheinbar-einfache-Beispiele}
 
 Beispiele wie die in (\mex{1}) sind scheinbar einfach:
 \ea
@@ -1828,14 +1839,12 @@ werden.
 \ea
 \label{ex-scopal-ltop}
 \avm{
-[ non-head-dtrs < [ cat|head|scopal & minus ] > ]} \impl
-\flushright 
+[ non-head-dtrs < [ cat|head|scopal & minus ] > ]} \impl\\
+\hfill 
 \avm{[ head-dtr|cont|ltop & \1\\
   non-head-dtrs < [ cont|ltop & \1 ] > ]
 }
 \z
-% bug
-\medskip
 
 \noindent
 Das bedeutet, dass die Handels von \emph{einfach} und \emph{Beispiel} nicht im
@@ -1861,10 +1870,98 @@ ein mutmaßlicher brutaler Mörder
 ein brutaler mutmaßlicher Mörder
 }
 \zl
-
-
-Damit ist die Einführung in die Minimal Recursion Semantics abgeschlossen. Es freut mich, dass Sie
+Damit ist die Behandlung von Skopus und Unterspezifikation in Minimal Recursion Semantics abgeschlossen. Es freut mich, dass Sie
 die Warnung zu Beginn dieses Abschnitts ignoriert und auch diesen technischen Teil gelesen haben.
+
+
+\subsection{Das Semantikprinzip}
+\label{Abschnitt-Semantikprinzip}
+
+An dieser Stelle möchte ich noch das Semantikprinzip formulieren, \dash alle Beschränkungen, die für
+die Semantik relevant sind, noch einmal zusammenstellen: In Abschnitt~\ref{Abschnitt-Komposition} über Komposition wurde schon
+festgehalten, dass der \textsc{index} einer Projektion (der referentielle Index bzw.\ die
+Ereignisvariable) immer vom Kopf kommt. Das war in früheren Versionen der HPSG, die noch mit
+Situationssemantik gearbeitet haben, anders \citep{ps2}. Bei diesen Arbeiten wurde davon
+ausgegangen, dass die gesamte Bedeutung von der Adjunkttochter kam. Im hier verfolgten Ansatz kann
+das nicht sein, denn aus Verben abgeleitete Adjektive müssen eine Ereignisvariable als
+\textsc{index}"=Wert haben.
+\ea
+das [oft den Roman lesende] Kind
+\z
+Die entsprechende Implikation wurde schon als (\ref{Semantik-Index-headed-phrase}) formuliert und
+sei hier der Übersichtlichkeit halber noch einmal wiederholt:
+\ea
+\label{Semantik-Index-headed-phrase2}\label{Semantikprinzip-IND}
+\type{headed-phrase} \impl\\
+\ms{
+cont|ind & \ibox{1}\\
+head-dtr|cont|ind & \ibox{1}\\
+}
+\z
+Es gilt noch die Verteilung der \ltopwe zu regeln. Bei allen Projektionen, die keine
+Kopf"=Adjunkt"=Strukturen sind, wird der \ltopw vom Kopf beigesteuert. Wie wir im Abschnitt~\ref{Abschnitt-Semantik-Adjektivmodifikation-mutmaßlich}
+über \emph{mutmaßliche Mörder} gesehen haben, kann in Kopf"=Adjunkt"=Phrasen das \ltop nicht vom
+Kopf, sondern muss vom Adjunkt kommen, denn \emph{mutmaßlich} bettet \emph{Mörder} ja ein. Die
+entsprechende Beschränkung wurde schon in (\ref{Beschränkung-Semantik-Kopf-Adjunkt-Strukturen}
+angegeben und ist hier als (\mex{1}b) wiederholt:
+
+\eal
+\label{Semantikprinzip-LTOP}
+\ex \type{head-non-adjunct-phrase} \impl\\
+\ms{
+cont|ltop & \ibox{1}\\
+head-dtr|cont|ltop & \ibox{1}\\
+}
+\ex
+\label{Beschränkung-Semantik-Kopf-Adjunkt-Strukturen2} 
+\type{head-adjunct-phrase} \impl\\
+  \ms{ cont|ltop & \ibox{1}\\
+       non-head-dtrs & \liste{ \ms{ cont|ltop & \ibox{1} } }\\
+     }
+
+\zl 
+Zusammen sagen diese beiden Beschränkungen, dass in Strukturen mit Kopf, die keine
+Kopf"=Adjunkt"=Strukturen sind, der \ltopw vom Kopf kommt und in Strukturen, die
+Kopf"=Adjunkt"=Strukturen sind, kommt er vom Adjunkt.
+
+Damit ist geklärt, wie sich der \ltop"=Wert der Mutter, es muss aber auch die Bestimmung des
+\ltopwes der Töchter geregelt werden. Normalerweise kann so etwas lexikalisch geregelt werden: Eine
+Tochter identifiziert ihren \ltopw mit dem der anderen. Ein Adjunkt kann das zum Beispiel über
+den \modw machen und den \ltopw des zu modifizierenden Kopfes mit dem eigenen gleichsetzen. Wie
+\citet{Kasper97a} aber schon im Rahmen der Situationssemantik gezeigt hat, würde das zu
+Komplikationen bei der Behandlung scheinbar einfacher Beispiele führen. Deshalb wird der \ltopw von
+Adjunkten quasi verzögert ermittelt, nämlich erst dann, wenn das Adjunkt mit allen eventuell noch
+hinzugekommenen Konstituenten als Adjunkttochter verwendet wird.
+
+Die entsprechende Beschränkung wurde im vorigen Abschnitt formuliert und sei der Vollständigkeit
+halber hier noch einmal wiederholt:
+\ea
+\label{ex-scopal-ltop2}
+\avm{
+[ non-head-dtrs < [ cat|head|scopal & minus ] > ]} \impl\\
+\hfill 
+\avm{[ head-dtr|cont|ltop & \1\\
+  non-head-dtrs < [ cont|ltop & \1 ] > ]
+}
+\z
+Nur wenn das Adjunkt nicht skopal ist, werden die \ltopwe identifiziert. In allen anderen Fällen
+sind die \ltopwe verschieden und das sollen sie auch sein. Für diese Fälle ist keine weiter
+Beschränkung nötig.
+
+Der letzte Bestandteil der Bedeutungsermittlung ist das Zusammensammeln der Relationen und
+Skopusbeschränkungen. Zusammengefasst ist das in (\mex{1}) gezeigt:
+\ea
+Berechnung von \rels und \hcons:\\
+\type{phrase} \impl\\
+\onems{
+cont \ms{ rels  & \upshape\texttt{collect-rels}(\ibox{1})\\
+          hcons & \upshape\texttt{collect-hcons}(\ibox{1})}\\ 
+dtrs  \ibox{1} \\
+}
+\z
+
+
+
 
 % Fragen:
 %
@@ -1887,7 +1984,7 @@ Semantik zu haben scheint. Ich habe im Abschnitt~\ref{Abschnitt-phrasale-Valenz}
 phrasalen Ansätze im Bereich Valenz nicht funktionieren, da sie zum Beispiel die Voranstellung von
 Teilphrasen oder auch die Interaktion mit der Morphologie nicht erklären können. Dennoch gibt es
 Phänomene, die am besten über ihre phrasale Konfiguration beschrieben werden können. Eine solche
-Konstruktion ist zum Beispiel die NPN"=Konstruktion \citep{Matsuyama2004a,Jackendoff2008a,Bargmann2015a}.
+Konstruktion ist zum Beispiel die NPN"=Konstruktion \parencites{Matsuyama2004a,Jackendoff2008a,Bargmann2015a}[Kapitel~6.2]{Bargmann2023a-u}.
 \ea
 student after student after student
 \z
@@ -2009,11 +2106,13 @@ Das entsprechend ausbuchstabierte Schema für artikellose Nominalphrasen im Plur
 }
 \zs
 
+\noindent
 Die Beschränkungen zur Berechnung des \relswes und des \hconswes müssen entsprechend so angepasst
 werden, dass der \relsw und der \hconsw under \ccont berücksichtigt wird. Außerdem gibt es innerhalb
 von \ccont noch einen Index und ein \ltop, da phrasale Schemata ja auch ein neues \ltop und einen
 neuen Index einführen können. Der \indw und der \ltopw wird also aus \ccont übernommen:   
-\ea
+\eas
+\label{Semantikprinzip-CCONT}%
 Berechnung der Semantik von Phrasen:\\
 \type{phrase} \impl\\
 \ms{
@@ -2028,12 +2127,13 @@ c-cont & \ms{ ind   & \ibox{1}\\
               hcons & \ibox{5}}\\
 dtrs & \ibox{3} \\
 }
-\z
+\zs
 Bei den Schemata, die in den vorigen  Kapiteln vorgestellt wurden, ist die Liste der Relationen und
-der Skopus"=Beschränkungen innerhalb des \ccontwes die leere Liste. Index und \ltop sind mit denen
-des semantischen Kopfes identisch (der Adjunkttochter in Kopf"=Adjunkt"=Strukturen und dem des
-syntaktischen Kopfes in allen anderen Strukturen).
-\itdopt{stimmt das?}
+der Skopus"=Beschränkungen innerhalb des \ccontwes die leere Liste. In den Implikationen in (\ref{Semantikprinzip-IND})
+und (\ref{Semantikprinzip-LTOP}) muss man \cont einfach durch \ccont ersetzen. Der semantische Beitrag dieser Phrasen
+steht dann in \ccont und von da wird er, wie in (\ref{Semantikprinzip-CCONT}) beschrieben zum \contw
+der gesamten Phrase. Im restlichen Buch werde ich \ccont nicht verwenden, weshalb ich weiter auf das
+im Abschnitt~\ref{Abschnitt-Semantikprinzip} vorgestellte Semantikprinzip Bezug nehmen werde.
 
 
 
@@ -2077,6 +2177,7 @@ type hierarchy
 \end{forest}
 \caption{Typhierarchie von \citet[\page 308]{CFPS2005a}}\label{fig-skopal-intesaktiv-MRS-Paper}
 \end{figure}
+\itdopt{font by avm ist fett}
 \textsc{hook} ist bei \citeauthor{CFPS2005a} ein Merkmal, dessen Wert eine Merkmalbeschreibung mit
 \textsc{index}, \ltop und weiteren Merkmalen ist, die nach oben hochgereicht werden. \gtop steht für
 global top. Alle Quantoren und Relationen müssen unter dem \gtop-Label sein. Da man es eigentlich
@@ -2366,7 +2467,7 @@ sm edges, for tree={l sep= 4ex}
 Die Struktur unterscheidet sich nicht von der, die man für Sätze mit einem semantische einfachen
 Verb -- wie zum Beispiel \emph{kennen} in \emph{alle Kinder kennt} -- annehmen würde. Der einzige
 Unterschied liegt in der Bedeutung der involvierten Wörter.  Wie in den
-Abschnitten~\ref{sec-Komposition} und~\ref{Abschnitt-Skopus} gezeigt, werden die Relationen und
+Abschnitten~\ref{Abschnitt-Komposition} und~\ref{Abschnitt-Skopus} gezeigt, werden die Relationen und
 Handle"=Constraints der einzelnen Wörter nach oben gereicht. 
 
 Für den Satz (\ref{ex-wieder-alle}) -- hier als (\mex{1}) wiederholt -- führt Egg die folgenden Lesarten auf:
@@ -2489,7 +2590,7 @@ Lexikoneintrag für \emph{wieder}:\\
                      arg1 & \ibox{5}] >\\
            hcons & < [\type{qeq}\\
                       harg & \ibox{5}\\
-                      larg & \ibox{2} ] > \+ outscope-realized(\ibox{1}) ] ]
+                      larg & \ibox{2} ] > \+ \texttt{outscope-realized(\ibox{1})} ] ]
 }
 \zs
 \itdopt{Runde Klammern sind zu groß.}
