@@ -11,6 +11,7 @@
 
 
 :- multifile '*>'/2.
+:- discontiguous '*>'/2.
 
 :- multifile ':='/2.
 :- discontiguous ':='/2.
@@ -133,7 +134,7 @@ verb_initial_rule *>
              ltop:ALbl,
              key:Key)),
   nonloc:Nonloc,
-  rels:[(%assertion_rel,
+  rels:[(% assertion_or_conditional_or_imperative_or_interrogative,
          Key,
          lbl:ALbl,
 %         arg0:Ind,
@@ -152,6 +153,23 @@ verb_initial_rule *>
          rels:Rels,
          hcons:HCons)]).
 
+% [einen Mann _i] und schläft kann koordiniert werden.
+% dabei muss "einen Mann" irgendwo in der COMPS-Liste von _i auftreten.
+% Bei der Koordination wird die COMPS-Liste von [einen Mann _i] mit der von schläft identifiziert.
+% Damit ist die COMPS-Liste der Spur < NP[nom], NP[acc] > und die zweite NP durch "einen Mann" realisiert.
+% Die Spur hat diese Info auch in DSL. Weil schläft aber als Verbletztverb noch einen offenen DSL-Wert hat,
+% kann es mit [ein Mannen _i] koordiniert werden. Das Ergebnis ist eine Projektion mit einer einstelligen
+% Valenz und einem zweistelligen DSL-Wert. Diese kann nie verwendet werden, denn entweder ist das Verb hinten
+% overt, dann passt der DSL-Wert nicht, oder die Spur identifiziert LOC mit DSL. Dann wird auch in
+% [ein Mann _i] und schläft der LOC-Wert mit DSL identifiziert, was aber nicht möglich ist, weil DSL zweistellig,
+% die koordinierte Phrase aber einstellig ist.
+
+%[V1 [coord_phrase [ X [ und Y]]
+
+(verb_initial_rule,
+ dtrs:[coord_phrase]) *> dtrs:hd:dtrs:[phrase:minus,              % X
+                                       dtrs:tl:hd:phrase:minus].  % Y
+
 
 % * Er schläft schläft.
 %
@@ -160,6 +178,7 @@ verb_initial_rule *>
            phon:ne_list)) *> head_dtr:loc:cat:head:dsl:none.
 
 
+% Muss headed_phrase sein, weil Koordination von zwei lexikalischen Verben keine Phrase sein soll.
 headed_phrase *> phrase:plus.
 
 % Da coord_phrase nicht Untertyp von headed_phrase ist,
@@ -187,11 +206,17 @@ headed_phrase *> phrase:plus.
  loc:cat:comps:[nonloc:slash:[]])      *> rels:hd:imperative_or_interrogative.
 
 % Hier spielt das Element in SLASH eine entscheidende Rolle.
-% Ist es eine Interrogativphrase, muß ein entsprechender Operator angenommen
+% Ist es eine Interrogativphrase, muss ein entsprechender Operator angenommen
 % werden. Da die vorliegende Grammatik keine Interrogativpronomina enthält,
 % wird die Fallunterscheidung nicht gemacht.
+% Jetzt gib ihm das Buch!
+% Du kommst morgen?
+% Du kommst morgen.
+%
+% Alles außer Konditional: Kämest Du morgen, könnten wir ...
+%
 (verb_initial_rule,
- loc:cat:comps:[nonloc:slash:ne_list]) *> rels:hd:assertion_or_imperative.
+ loc:cat:comps:[nonloc:slash:ne_list]) *> rels:hd:assertion_or_imperative_or_interrogative.
 
 
 
@@ -253,13 +278,13 @@ head_non_filler_phrase *> v2:minus.
 %% dar (siehe Müller, 1999)
 %% "Helfen wird er ihm morgen."
 headed_phrase *>
-   (head_dtr:trace:minus_or_vm).
+   head_dtr:trace:minus_or_vm.
 
 
 % Adjunkte sind Extraktionsinseln
 (headed_phrase,
  non_head_dtrs:[trace:extraction]) *>
-      (head_dtr:loc:cat:head:mod:none).
+      head_dtr:loc:cat:head:mod:none.
 
 
 % Das entspricht auch der Analyse von Frey 2004 und Fanselow 2003. Die gehen davon

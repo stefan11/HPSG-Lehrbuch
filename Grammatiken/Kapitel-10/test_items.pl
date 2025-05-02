@@ -50,9 +50,26 @@ t(47,"Oft lacht er.",@decl,1,'Kapitel 9: Vorfeldbesetzung').
 t(48,"Oft lacht er nicht.",@decl,2,'Kapitel 9: Vorfeldbesetzung').
 t(49,"Oft gibt er nicht dem Affen den Stock.",@decl,2,'Kapitel 9: Vorfeldbesetzung').
 t(50,"Er den Stock gibt dem Affen.",@decl,0,'Kapitel 9: Vorfeldbesetzung').
+t(51,"Der Affe nimmt den Stock und lacht.",@decl,1,'Kapitel 9: Vorfeldbesetzung').
 t(51,"Der Affe, der schläft, kennt das Kind.",@decl,1,'Kapitel 10: Relativsätze').
 t(52,"die Speisekammer, in der er schläft",@root,1,'Kapitel 10: Relativsätze').
+% Relativsatz als Prämodifier
 t(53,"der, der schläft, Affe",@root,0,'Kapitel 10: Relativsätze').
-t(54,"der Affe, schläft der, kennt das Kind.",@decl,0,'Kapitel 10: Relativsätze').
+% Relativphrase nach dem finiten Satz
+t(54,"Der Affe, schläft der, kennt das Kind.",@decl,0,'Kapitel 10: Relativsätze').
+% komplexe Relativphrase mit Relativwort in der postnominalen PP.
 t(55,"die Speisekammer, der Affe in der schläft",@root,0,'Kapitel 10: Relativsätze').
-t(56,"Der Affe, dessen Kind schläft, lacht.",@decl,1,'Kapitel 10: Relativsätze').
+t(56,"Ein Affe, dessen Kind schläft, lacht.",@decl,1,'Kapitel 10: Relativsätze').
+% Wenn REL nicht nach oben gereicht wird, kann "der Affe" einfach als Relativphrase verwendet werden.
+t(57,"Der Affe, der Affe schläft, lacht",@root,0,'Kapitel 10: Relativsätze').
+% Relativsatz mit Verbspur statt mit overtem Verb
+t(58,"Der Affe, der den Stock, lacht",@root,0,'Kapitel 10: Relativsätze').
+t(59,"Der Affe, dessen Stock und dessen Roman ich kenne, schläft.",@decl,1,'Kapitel 10: Relativsätze').
+t(60,"Der Affe, von dessen Kind er ein Bild kennt, lacht.",@decl,1,'Kapitel 10: Relativsätze').
+
+t(59,"Ein Affe nimmt einen Stock und ein Affe lacht.",@decl,1,''). 
+t(60,"Der Affe kennt den Stock und ein Kind lacht.",@decl,1,'').
+
+% Satztyp:
+% Ein Affe nimmt einen Stock und ein Affe lacht.
+% Klaus ist ein Idiot und warum merkt das außer mir niemand?

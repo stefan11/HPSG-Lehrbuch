@@ -103,7 +103,7 @@ fun not_type(+,-).
 % als Adjunkt auftreten.
 
 head_adjunct_phrase *>
-  (non_head_dtrs:[loc:cat:head:dsl:none]).
+  non_head_dtrs:[loc:cat:head:dsl:none].
 
 % allgemeiner
 %head_non_complement_phrase *>
@@ -144,12 +144,12 @@ head_adjunct_phrase *>
 % Das ist wichtig für die Regelberechnung.
 
 (head_adjunct_phrase,
- head_dtr:loc:cat:head:verb) *> (non_head_dtrs:[loc:cat:head:pre_modifier:plus]).
+ head_dtr:loc:cat:head:verb) *> non_head_dtrs:[loc:cat:head:pre_modifier:plus].
 
 % Adjunkte werden immer als direkte Töchter des Verbs eingeführt,
 % da sonst unechte Mehrdeutigkeiten entstünden.
 (head_adjunct_phrase,
- non_head_dtrs:[trace:extraction]) *> (head_dtr:lex:plus).
+ non_head_dtrs:[trace:extraction]) *> head_dtr:lex:plus.
 
 % Das wird später im Zusammenhang mit dem Verbalkomplex benötigt.
 % Jetzt ist es aus Effizienzgründen schon in der Grammatik.

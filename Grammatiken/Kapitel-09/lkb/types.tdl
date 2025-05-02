@@ -403,10 +403,10 @@ und_rel := conjunction_rel.
 
 
 ; Für Satztypen
-s_type := arg1_relation.
-assertion_or_imperative     := s_type.
-assertion_or_interrogative  := s_type.      ; Flexion = ind_conj -> assertion_or_interrogative
-imperative_or_interrogative := s_type.
+assertion_or_imperative_or_interrogative := arg1_relation.
+assertion_or_imperative     := assertion_or_imperative_or_interrogative.
+assertion_or_interrogative  := assertion_or_imperative_or_interrogative.      ; Flexion = ind_conj -> assertion_or_interrogative
+imperative_or_interrogative := assertion_or_imperative_or_interrogative.
 
 interrogative_rel := assertion_or_interrogative  & imperative_or_interrogative.
 imperative_rel    := imperative_or_interrogative & assertion_or_imperative.

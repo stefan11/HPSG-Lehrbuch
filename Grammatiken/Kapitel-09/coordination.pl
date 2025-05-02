@@ -59,7 +59,7 @@ coord_phrase *>
  dtrs:hd:loc:cat:head:coord) *> dtrs:tl:hd: @not(verb_initial_rule).
 
 
-x_conj_y_coord_phrase :=
+coord_phrase *>
   (coord_phrase,
    loc:(cat:Cat,
         cont:Cont),
@@ -72,8 +72,10 @@ x_conj_y_coord_phrase :=
                     comps:[]),
                cont:Cont))]).
 
-x_conj_y rule (@x_conj_y_coord_phrase,
+x_conj_y rule (coord_phrase,
                   dtrs:[Dtr1,Dtr2])
   ===>
 cat> Dtr1,
 cat> Dtr2.
+
+

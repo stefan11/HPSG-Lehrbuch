@@ -412,9 +412,10 @@ comp_preposition *>
   synsem:loc:cat:(head:case:Case,
                   arg_st:[loc:cat:head:case:Case])).
 
-comp_prep(PForm) :=
+comp_prep(PForm,Case) :=
  (comp_preposition,
-  synsem:loc:cat:head:pform:PForm).
+  synsem:loc:cat:head:(pform:PForm,
+                       case:Case)).
 
 isect_modifier *>
  synsem:loc:(cat:head:(scopal:minus,

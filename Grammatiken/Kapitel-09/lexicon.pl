@@ -49,6 +49,7 @@ eines ---> @det(gen,sg,mas_or_neu,exists_q).
 % Syntaktische Eigenschaften erst, dann semantische sein = mas, ihr = fem
 sein   ---> @possessive(nom_or_acc,sg,neu,third,sg,mas_or_neu).
 sein   ---> @possessive(nom,       sg,mas,third,sg,mas_or_neu).
+seinen ---> @possessive(acc,       sg,mas,third,sg,mas_or_neu).
 seine  ---> @possessive(nom_or_acc,sg,fem,third,sg,mas_or_neu).
 seiner ---> @possessive(gen_or_dat,sg,fem,third,sg,mas_or_neu).
 
@@ -71,7 +72,7 @@ affe   ---> @noun(nom_or_acc,mas,sg,affe_rel).
 
 affens ---> @noun(dat,mas,sg,affe_rel).
 
-affen  ---> @noun(dat,mas,sg,affe_rel).
+affen  ---> @noun(dat_or_acc,mas,sg,affe_rel).
 
 beispiel ---> @noun(nom_or_dat_or_acc,neu,sg,beispiel_rel).
 
@@ -155,7 +156,7 @@ gibt  ---> @ditrans_verb(geben_rel).
 denkt ---> @np_pp_verb(an_pform,acc,denken_an_rel).
 
 
-an ---> @comp_prep(an_pform).
+an ---> @comp_prep(an_pform,acc).
 
 in ---> @location_noun_mod_prep(in_rel).
 

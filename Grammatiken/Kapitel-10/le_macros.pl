@@ -219,14 +219,25 @@ noun(Case,Genus,Numerus,Relation) :=
                  gen:Genus)),
   rels:[Relation]).
 
-
+% keine Extraktion des Genitivs, aber Extraktion der PP
+% Kasuszuweisung nur unter Adjazenz.
+%   ein Bild des Affen
+% * dessen ich ein Bild gemalt habe
+%   ein Bild von dem Affen
+% * von dem ich eine Bild gemalt habe
 relational_noun *>
  (%det_noun_word
-  loc:cat:arg_st:tl:[loc:(cat:(head:(noun,
-                                     case:gen),
-                               spr:[],
-                               comps:[]),
-                          cont:ind:Ind2) ],
+  loc:cat:arg_st:tl:[((loc:(cat:(head:(noun,
+                                       case:gen),
+                                 spr:[],
+                                 comps:[]),
+                            cont:ind:Ind2),
+                       nonloc:slash:[])
+                     ;(loc:(cat:(head:(prep,
+                                       case:dat),
+                                 spr:[],
+                                 comps:[]),
+                            cont:ind:Ind2)))],
   rels:hd:arg2:Ind2).
 
 
@@ -274,7 +285,7 @@ rel_pronoun(Case,Person,Numerus,Genus) :=
  (nominal_rel_pronoun,
   @pronoun(Case,Person,Numerus,Genus)).
 
-% LTOP wird hochgereicht und dann mit dem des modifizeirten Nomens identfiziert.
+% LTOP wird hochgereicht und dann mit dem des modifizierten Nomens identfiziert.
 % ERG 2025-04-04
 possessive_rel_pronoun *>
  (%possessive
@@ -410,14 +421,20 @@ comp_preposition *>
   loc:cat:(head:case:Case,
            arg_st:[loc:cat:head:case:Case])).
 
-comp_prep(PForm) :=
+comp_prep(PForm,Case) :=
  (comp_preposition,
-  loc:cat:head:pform:PForm).
+  loc:cat:head:(pform:PForm,
+                case:Case)).
 
+/* falsch, denn modifizierende Adjektive haben eine Ereignisvariable:
+der mit dem Stock spielende Affe
 isect_modifier *>
  loc:(cat:head:(scopal:minus,
                 mod:loc:cont:ind:Ind),
       cont:ind:Ind).
+*/
+isect_modifier *>
+ loc:cat:head:scopal:minus.
 
 n_modifier *>
  loc:cat:head:mod: @nbar.
@@ -427,7 +444,7 @@ n_modifier *>
 isect_modifier_le *>
 (%non_scopal_le,
  %isect_modifier
- loc:cont:ind:Ind,
+ loc:cat:head:mod:loc:cont:ind:Ind,
  rels:[arg1:Ind]).
  
 attr_adjective_word *>

@@ -92,11 +92,8 @@ headed_phrase *>
    (loc:cont:ind:Ind,
     head_dtr:loc:cont:ind:Ind).
 
-head_complement_phrase *>
-   (loc:cont:ltop:LTop,
-    head_dtr:loc:cont:ltop:LTop).
-
-head_specifier_phrase *>
+% head_complement_phrase, head_specifier_phrase, head_filler_phrase
+head_non_adjunct_phrase *>
    (loc:cont:ltop:LTop,
     head_dtr:loc:cont:ltop:LTop).
 
@@ -152,6 +149,8 @@ verb_initial_rule *>
 
 headed_phrase *> phrase:plus.
 
+word *> phrase:minus.
+
 % Da coord_phrase nicht Untertyp von headed_phrase ist,
 % ist der PHRASE-Wert unterspezifiziert.
 
@@ -160,6 +159,34 @@ headed_phrase *> phrase:plus.
 % dafür sorgt, daß der DSL-Wert von `ihn kennt' none ist.
 % Damit hat die Konjunktion auch den DSL-Wert none und kann
 % dann nicht mehr Tochter der V1-Regel sein.
+
+% Sätze mit Verb in Erststellung können Imperativsätze oder auch Interrogativsätze sein.
+% Die beiden folgenden Sätze unterscheiden sich nur hinsichtlich ihrer Flexion:
+%
+%     Gib   Du mir das Buch!
+%     Gibst Du mir das Buch?
+%
+% Die genaue Auflösung der Relation erfolgt erst in der Grammatik für Kapitel 16,
+% da dort erst eine Morphologiekomponente eingeführt wird.
+
+% Konditionalsätze werden ignoriert.
+
+
+(verb_initial_rule,
+ loc:cat:comps:[nonloc:slash:[]])      *> loc:cont:ind:mode:imperative_or_interrogative.
+
+% Hier spielt das Element in SLASH eine entscheidende Rolle.
+% Ist es eine Interrogativphrase, muss ein entsprechender Operator angenommen
+% werden. Da die vorliegende Grammatik keine Interrogativpronomina enthält,
+% wird die Fallunterscheidung nicht gemacht.
+% Jetzt gib ihm das Buch!
+% Du kommst morgen?
+% Du kommst morgen.
+%
+% Alles außer Konditional: Kämest Du morgen, könnten wir ...
+%
+(verb_initial_rule,
+ loc:cat:comps:[nonloc:slash:ne_list]) *> loc:cont:ind:mode:assertion_or_imperative_or_interrogative.
 
 
 % Linearisierungsregeln: Wenn der Initial-Wert plus ist, steht die Kopf-Tochter vor der
@@ -286,13 +313,15 @@ rc *>
                                 ltop:LTop)),
             spr:[],
             comps:[]),
-       cont:(ind:Ind,
-             ltop:LTop)),
+       cont:Cont),
+%      (ind:Ind,
+%             ltop:LTop)),
   nonloc:rel:[],
   dtrs:[(nonloc:rel:[(ind:Ind,
                       ltop:LTop)]),
         (loc:(cat:head:initial:minus,
-              cont:ltop:LTop),
+              cont:(Cont,
+                    ltop:LTop)),
          nonloc:rel:[],
                                 % Der finite Satz selbst darf nicht extrahiert werden.
                                 % Das könnte man auch durch loc:Loc, Loc =/= Slash erzwingen.
@@ -312,9 +341,21 @@ initial_fin_verb :=
                 initial:plus,
                 vform:fin)).
 
-
+% interrogative
 interrog :=
- @initial_fin_verb.
+ (@initial_fin_verb,
+  loc:cont:ind:mode:interrogative).
 
+% Funktioniert nicht, weil das oberste Element eine Konjunktion sein kann:
+% Paul ist ein Idiot und warum merkt das außer mir niemand?
+
+% assertion
 decl :=
- @initial_fin_verb.
+ (@initial_fin_verb,
+  loc:cont:ind:mode:assertion,
+  v2:plus).
+
+% imparative = v1 oder v2 mit Ausrufezeichen
+imp :=
+ (@initial_fin_verb,
+  loc:cont:ind:mode:imperative).

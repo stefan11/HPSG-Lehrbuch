@@ -8,32 +8,37 @@ bot
   string
   relation lbl:handle
     arg3_relation arg3:event_or_index
-      glbtype77
+      glbtype69
         arg023_relation
         arg0123_relation
           geben_rel
     arg2_relation arg2:event_or_index
-      glbtype78
+      glbtype70
         arg12_relation
           treu_rel
           in_rel
         arg012_relation
           &arg0123_relation
+          singen_rel
           poss_rel
+          nehmen_rel
           lieben_rel
+          lesen_rel
           kennen_rel
           jagen_rel
           glauben_rel
           denken_an_rel
       arg02_relation
-        &glbtype77
+        &glbtype69
         &arg012_relation
         tochter_rel
         grauen_rel
+        bild_rel
     arg1_relation arg1:event_or_index
-      &glbtype78
+      &glbtype70
       arg01_relation
         &arg012_relation
+        spielen_rel
         schlafen_rel
         lachen_rel
         bellen_rel
@@ -51,12 +56,21 @@ bot
     arg0_relation arg0:event_or_index
       &arg02_relation
       &arg01_relation
+      conjunction_rel lindex:event_or_index rindex:event_or_index
+        und_rel
+          und_v_rel
+          und_n_rel
+        conjunction_v_rel arg0:event lhandle:handle rhandle:handle
+          &und_v_rel
+        conjunction_n_rel arg0:index
+          &und_n_rel
       wurst_rel
       tofu_rel
       stock_rel
       speisekammer_rel
       roman_rel
       quant_rel rstr:handle body:handle
+        udef_q
         proper_q
         pronoun_q
         exists_q
@@ -69,11 +83,11 @@ bot
       mann_rel
       kind_rel
       frau_rel
+      fahrrad_rel
       einhorn_rel
-      conjunction_rel lhandle:handle rhandle:handle lindex:event_or_index rindex:event_or_index
-        und_rel
       buch_rel
       beispiel_rel
+      ball_rel
       affe_rel
   qeq harg:handle larg:handle
   pform
@@ -242,7 +256,6 @@ bot
                 &glbtype14
                 glbtype31
                   glbtype46
-                    conj_word
                     &det_noun_word
                     non_scopal_verb_word
                       non_scopal_intrans_verb
@@ -256,6 +269,7 @@ bot
                           strict_trans_verb
                           ditrans_verb
                       subjlos_verb
+                  conj_word
                   verb_word
                     intrans_verb
                       &non_scopal_intrans_verb
@@ -393,8 +407,18 @@ bot
         &glbtype39
   none_or_local
     &none
-    local cat:cat cont:mrs
-  mrs gtop:handle ltop:handle ind:event_or_index
+    local cat:cat cont:hook
+  mode
+    assertion_or_imperative_or_interrogative
+      imperative_or_interrogative
+        interrogative
+        imperative
+      assertion_or_interrogative
+        &interrogative
+        assertion
+      assertion_or_imperative
+        &imperative
+        &assertion
   minus_or_extraction_or_vm
     extraction_or_minus
       minus
@@ -411,32 +435,33 @@ bot
   intro_gen_num gen:genus num:num
     det
     index per:per
+  hook ltop:handle ind:event_or_index
   head mod:none_or_sign spec:none_or_sign scopal:bool initial:bool dsl:none_or_local
     intro_case_head case:case
-      glbtype69
-        glbtype70
-          glbtype76
+      glbtype71
+        glbtype72
+          glbtype78
             comp_prep pform:pform
             noun
           attr_adj
-        glbtype71
-          &glbtype76
+        glbtype73
+          &glbtype78
           &det
     non_modifier_head mod:none
-      glbtype73
-        &glbtype71
-        glbtype75
-          &glbtype76
+      glbtype75
+        &glbtype73
+        glbtype77
+          &glbtype78
           comp cform:cform
         coord initial:plus
-      glbtype74
-        &glbtype75
+      glbtype76
+        &glbtype77
         verb vform:vform
     non_dsl_head dsl:none
-      &glbtype69
-      glbtype72
-        &glbtype70
-        &glbtype75
+      &glbtype71
+      glbtype74
+        &glbtype72
+        &glbtype77
         adj
           &attr_adj
         prep
@@ -449,10 +474,10 @@ bot
           post_modifier_head pre_modifier:minus
             relativizer
           adv
-      &glbtype73
+      &glbtype75
     non_spec_head spec:none
-      &glbtype72
       &glbtype74
+      &glbtype76
       adj_or_verb
         &verb
         &adj
@@ -469,7 +494,7 @@ bot
   event_or_index
     &index
     handle
-    event
+    event mode:mode
   cform
     dass
   cat head:head spr:list comps:list arg_st:list

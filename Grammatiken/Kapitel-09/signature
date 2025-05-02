@@ -32,7 +32,7 @@ bot
         grauen_rel
     arg1_relation arg1:event_or_index
       &glbtype38
-      s_type
+      assertion_or_imperative_or_interrogative
         imperative_or_interrogative
           interrogative_rel
           imperative_rel

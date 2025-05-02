@@ -20,7 +20,6 @@ kapitel08.tgz: clean
 kapitel09.tgz: clean
 	tar -X tar-exclude -czvf kapitel09.tgz Gemeinsames Kapitel-09*
 
-
 kapitel10.tgz: clean
 	tar -X tar-exclude -czvf kapitel10.tgz Gemeinsames Kapitel-10*
 
@@ -51,9 +50,9 @@ kapitel18.tgz: clean
 kapitel19.tgz: clean
 	tar -X tar-exclude -czvf kapitel19.tgz Gemeinsames Kapitel-19*
 
-#kapitel11.tgz kapitel12.tgz kapitel13.tgz kapitel14.tgz kapitel15.tgz kapitel16.tgz kapitel17.tgz kapitel18.tgz kapitel19.tgz
+#kapitel12.tgz kapitel13.tgz kapitel14.tgz kapitel15.tgz kapitel16.tgz kapitel17.tgz kapitel18.tgz kapitel19.tgz
 
-public: alle-grammatiken.tgz kapitel03.tgz kapitel04.tgz kapitel05.tgz kapitel06.tgz kapitel08.tgz kapitel09.tgz kapitel10.tgz 
+public: alle-grammatiken.tgz kapitel03.tgz kapitel04.tgz kapitel05.tgz kapitel06.tgz kapitel08.tgz kapitel09.tgz kapitel10.tgz kapitel11.tgz 
 	cp -p $? /Users/stefan/public_html/Pub/Einfuehrung/
 
 o-public: knoppix o-copy

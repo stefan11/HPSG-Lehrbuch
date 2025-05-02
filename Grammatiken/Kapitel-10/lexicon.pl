@@ -40,11 +40,16 @@ ein ---> @det(nom,sg,mas_or_neu,exists_q).
 
 ein ---> @det(acc,sg,neu,exists_q).
 
+eine ---> @det(nom_or_acc,sg,fem,exists_q).
+
+einen ---> @det(acc,sg,mas,exists_q).
+
 eines ---> @det(gen,sg,mas_or_neu,exists_q).
 
 % Syntaktische Eigenschaften erst, dann semantische sein = mas, ihr = fem
 sein   ---> @possessive(nom_or_acc,sg,neu,third,sg,mas_or_neu).
 sein   ---> @possessive(nom,       sg,mas,third,sg,mas_or_neu).
+seinen ---> @possessive(acc,       sg,mas,third,sg,mas_or_neu).
 seine  ---> @possessive(nom_or_acc,sg,fem,third,sg,mas_or_neu).
 seiner ---> @possessive(gen_or_dat,sg,fem,third,sg,mas_or_neu).
 
@@ -83,9 +88,13 @@ affe   ---> @noun(nom_or_acc,mas,sg,affe_rel).
 
 affens ---> @noun(dat,mas,sg,affe_rel).
 
-affen  ---> @noun(dat,mas,sg,affe_rel).
+affen  ---> @noun(dat_or_acc,mas,sg,affe_rel).
+
+ball ---> @noun(nom_or_dat_or_acc,mas,sg,ball_rel).
 
 beispiel ---> @noun(nom_or_dat_or_acc,neu,sg,beispiel_rel).
+
+bild   ---> @relational_noun(nom_or_dat_or_acc,neu,sg,bild_rel).
 
 buch   ---> @noun(nom_or_dat_or_acc,neu,sg,buch_rel).
 
@@ -94,6 +103,8 @@ buches ---> @noun(gen,neu,sg,buch_rel).
 einhorn ---> @noun(nom_or_dat_or_acc,neu,sg,einhorn_rel).
 
 einhorns ---> @noun(gen,neu,sg,einhorn_rel).
+
+fahrrad  ---> @noun(nom_or_dat_or_acc,neu,sg,fahrrad_rel).
 
 frau ---> @noun(case,fem,sg,frau_rel).
 
@@ -132,6 +143,8 @@ tofus ---> @noun(gen,mas,sg,tofu_rel).
 wurst ---> @noun(case,fem,sg,wurst_rel).
 
 
+ich ---> @pers_pronoun(nom,first,sg,mas).
+
 er  ---> @pers_pronoun(nom,third,sg,mas).
 
 ihm ---> @pers_pronoun(dat,third,sg,mas).
@@ -149,15 +162,20 @@ lacht   ---> @intrans_verb(lachen_rel).
 
 schläft ---> @intrans_verb(schlafen_rel).
 
+spielt ---> @intrans_verb(spielen_rel).
+
 graut   ---> @subjlos_verb(dat,grauen_rel).
 
 
 jagt  ---> @trans_verb(jagen_rel).
 
+kenne ---> @trans_verb(kennen_rel).
+
 kennt ---> @trans_verb(kennen_rel).
 
 liebt ---> @trans_verb(lieben_rel).
 
+nimmt ---> @trans_verb(nehmen_rel).
 
 gab   ---> @ditrans_verb(geben_rel).
 
@@ -167,7 +185,9 @@ gibt  ---> @ditrans_verb(geben_rel).
 denkt ---> @np_pp_verb(an_pform,acc,denken_an_rel).
 
 
-an ---> @comp_prep(an_pform).
+an  ---> @comp_prep(an_pform,acc).
+von ---> @comp_prep(an_pform,dat).
+
 
 in ---> @location_noun_mod_prep(in_rel).
 in ---> @location_verb_mod_prep(in_rel).

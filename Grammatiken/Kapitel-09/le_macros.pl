@@ -355,9 +355,10 @@ comp_preposition *>
   loc:cat:(head:case:Case,
            arg_st:[loc:cat:head:case:Case])).
 
-comp_prep(PForm) :=
+comp_prep(PForm,Case) :=
  (comp_preposition,
-  loc:cat:head:pform:PForm).
+  loc:cat:head:(pform:PForm,
+                case:Case)).
 
 
 n_modifier *>

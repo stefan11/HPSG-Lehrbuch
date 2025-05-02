@@ -218,6 +218,15 @@ head_non_filler_phrase *>
                                                   % This seems to be a bug. (St. Mü. 01.04.2025)
     dtrs:[synsem:nonloc:slash:Slash1,synsem:nonloc:slash:Slash2]).
 
+head_non_filler_phrase *>
+   (synsem:nonloc:rel:(append(Rel1,Rel2),
+                       list_with_zero_or_one_element), % The ordering of the two constraints is important.
+                                                       % If list_with ... is stated first, rule computation does not terminate.
+                                                       % This seems to be a bug. (St. Mü. 01.04.2025)
+       head_dtr:synsem:nonloc:rel:Rel1,
+       non_head_dtrs:[synsem:nonloc:rel:Rel2]).
+
+
 %% Der Kopf kann nicht extrahiert werden.
 %% Ein Problem stellt hierbei das Verb in PVP-Konstellationen
 %% dar (siehe Müller, 1999)
