@@ -143,7 +143,7 @@ gibt  ---> @ditrans_verb(geben_rel).
 denkt ---> @np_pp_verb(an_pform,acc,denken_an_rel).
 
 
-an ---> @comp_prep(an_pform).
+an ---> @comp_prep(an_pform,acc).
 
 in ---> @location_noun_mod_prep(in_rel).
 
