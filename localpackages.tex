@@ -39,7 +39,7 @@
 
 \tikzset{mrs/.style={remember picture,from south line to,->,dashed}}
 \tikzset{scoped mrs/.style={remember picture,from south line to,bezier bounding box}}
-
+\tikzset{mrs free start/.style={remember picture,->,dashed}}
 
 % \justify to switch of \raggedright in translations
 %\usepackage{ragged2e}
@@ -171,7 +171,7 @@
 %\selectlanguage{ngerman}
 
 
-\usepackage{./styles/merkmalstruktur,./styles/makros.2020,./styles/my-xspace,./styles/abbrev,./styles/article-ex,./styles/additional-langsci-index-shortcuts,
+\usepackage{./styles/merkmalstruktur,./styles/makros.2020,./styles/abbrev,./styles/article-ex,./styles/additional-langsci-index-shortcuts,
 ./styles/de-date,./styles/my-theorems,styles/mycommands}
 
 \usepackage{langsci-avm}
@@ -319,3 +319,7 @@ Figure~\ref{#1}\vpageref[]{#1} and Figure~\ref{#2} \vpageref{#2}}}%
 
 % main mit Paket 1:33 ohne 1:08 min. Schade.
 %\usepackage[ngerman]{selnolig}
+
+
+% \xspace funktioniert nicht mit \comps \ibox
+\usepackage{my-xspace}

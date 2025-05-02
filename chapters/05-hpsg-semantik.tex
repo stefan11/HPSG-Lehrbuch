@@ -105,7 +105,16 @@ man dann aber auch für Sätze wie (\ref{ex-Jede-Tochter-eines-Mitarbeiters-schl
 Mehrdeutigkeiten multiplizieren. Mehrdeutigkeiten in Nominalphrasen multiplizieren sich mit
 Mehrdeutigkeiten wie denen, die in (\mex{0}a) vorliegen. Auch ist es so, dass es bei gleichzeitigem
 Vorliegen mehrerer Quantoren in verschiedenen NPen im Satz unglaublich viele Lesarten geben kann, die
-letztendlich nur Expert*innen anhand sorgfältig konstruierter Kontexte unterscheiden können. Wenn
+letztendlich nur Expert*innen anhand sorgfältig konstruierter Kontexte unterscheiden
+können. \citet[\page 196]{ADKMNT2003a} geben das folgende Beispiel, das ungefähr zweihundert Lesarten haben soll:
+\ea
+Many people feel that most sentences exhibit too few quantifier scope ambiguities for much effort to be devoted
+to this problem, but a casual inspection of several sentences from any text should convince almost everyone
+otherwise.\footnote{%
+  Aus dem Haupttext von \citew[\page 57]{Hobbs1983a-u}.
+}
+\z
+Wenn
 man also eine Semantikrepräsentation hat, die genau die Skopusbeziehungen unterspezifiziert lässt, dann kann
 man, so wie das Menschen tun \citep{FBF2002a-u,Dwivedi2013a-u,Frances2024a-u}, 
 die Bedeutung komprimiert verpackt lassen und sie erst dann
@@ -138,13 +147,15 @@ lieben? Was bedeutet das Wort \emph{Tasse}? Muss das Objekt, auf das wir uns bez
 Form haben? Einen Henkel? Warum ist ein Eimer etwas Anderes als eine Tasse? Was macht eine Zitrone
 aus? Dass sie gelb ist und sauer? Ist eine grüne Zitrone keine Zitrone \citep{Braisby90}? All das sind spannende
 Fragen, mit denen sich Semantiker*innen auch beschäftigen \citep{Rosch1973b-u}. Hier spielen sie aber keine Rolle, denn
-man kann sich damit behelfen, dass man dem Bündel an Eigenschaften einfach einen Namen gibt: Für die Bedeutung von \emph{lieben} verwendet man die
-Relation \relation{lieben} und für die von \emph{Zitrone} die Relation \relation{zitrone}. Man muss
-dann immer noch klären, wofür \relation{zitrone} genau steht, aber für die Interaktion mit der
-Syntax ist die Repräsentation über Relationen mit Argumenten ausreichend. Die Bezeichnungen für die
-Relationen sind willkürlich gewählt. Für das Deutsche nimmt man die Nennform. Das ist bei Verben der
-Infinitiv ohne \emph{zu} und bei Nomen die Nominativ"=Singular"=Form. Dass es sinnvoll ist, von der
-Flexionsform von Wörtern zu abstrahieren zeigen die folgenden Sätze:
+man kann sich damit behelfen, dass man dem Bündel an Eigenschaften einfach einen Namen gibt: Für die
+Bedeutung von \emph{lieben} verwendet man die Relation \relation{lieben} und für die von
+\emph{Zitrone} die Relation \relation{zitrone}. Man muss dann immer noch klären, wofür
+\relation{zitrone} genau steht, aber für die Interaktion mit der Syntax ist die Repräsentation über
+Relationen mit Argumenten ausreichend. Die Bezeichnungen für die Relationen sind willkürlich
+gewählt. Für das Deutsche nimmt man die Nennform. Das ist bei Verben der Infinitiv ohne \emph{zu}
+und bei Nomen die Nominativ"=Singular"=Form. Dass es sinnvoll ist, von der Flexionsform von Wörtern
+zu abstrahieren, zeigen die folgenden Sätze: 
+% Lohnstein1996: 66--67 zur '-Notation
 \eal
 \label{ex-Alle-Delfine}
 \ex Jeder Delfin liebt ein Känguru.
@@ -963,6 +974,7 @@ Person ein Mörder ist. \relation{mutmaßlich}(x) $\wedge$ \relation{mörder}(x)
 angemessene Bedeutungsrepräsentation. 
 
 \subsection{Quantoren}
+\label{Abschnitt-Quantoren}
 
 Auf S.\,\pageref{ex-Alle-Kinder-schlafen} wurden bereits die Sätze
 (\ref{ex-Alle-Kinder-schlafen})--(\ref{ex-Das-Kind-schläft}) besprochen und etwas zu deren Bedeutung
@@ -1022,7 +1034,7 @@ der Allquantor ist im Body des Existenzquantors. Für die Wohlgeformtheit der Au
 dass es keine ungebundenen Variablen gibt. Das heißt, dass zum Beispiel kein $z$ irgendwo in
 (\mex{0}) vorkommen kann, da es keinen dazugehörigen Quantor gibt. Auch $x$ und $y$ dürfen nur im
 Bereich der jeweiligen Quantoren vorkommen. Zum Beispiel ist (\mex{1}) nicht wohlgeformt, weil das
-$x$ von schlafen(x) außerhalb des Skopus des Allquantors ist.
+$x$ von schlafen(x) außerhalb des Skopus des Allquantors ist, der x einführt und binden muss.
 \ea
 exist\_q(y, every\_q(x, tochter(x,y), mitarbeiter(y)),  schlafen(x))
 \z
@@ -1042,13 +1054,14 @@ Liste zusammensammeln. Für das einfache Beispiel in (\ref{ex-every-kind-schlafe
 \label{ex-every-kind-schlafen-handles}
 h1:every\_q(x, h2, h3), h2:kind(x), h3:schlafen(x))
 \z
-h1, h2 und h3 sind die Labels der Relationen. Sie werden auch Handel genannt.
+h1, h2 und h3 sind die Labels der Relationen. Sie werden auch Handle genannt.
 
 Wie würde man mit Modifikation in Nominalgruppen umgehen? Unser Beispiel in (\ref{ex-Alle-Kinder-schlafen-zwei}) erweitert um das
 Adjektiv \emph{kleinen} zeigt (\mex{1}):
 \eal
 \ex Alle kleinen Kinder schlafen.
-\ex $\forall$x (\relation{klein}(x) $\wedge$ \relation{kind}(x)) $\to$ \relation{schlafen}(x)
+\ex\label{ex-Aussagenlogik-Alle kleinen Kinder schlafen}
+$\forall$x (\relation{klein}(x) $\wedge$ \relation{kind}(x)) $\to$ \relation{schlafen}(x)
 \ex Für jede Entität x in unserem Diskursuniversum, für die gilt, dass sie klein und ein Kind ist, gilt auch,
 dass sie schläft.
 \zl
@@ -1064,8 +1077,108 @@ Für (\mex{0}a) ergibt sich also:
 \label{ex-every-klein-kind-schlafen}
 h1:every\_q(x, h2, h3), h2:klein(x), h2:kind(x), h3:schlafen(x)
 \z
-Das Label von klein(x) und kind(x) ist h2. Dieses Handle ist mit der Restriktion von every\_q identifiziert.
-\noindent
+Das Label von klein(x) und kind(x) ist h2. Dieses Handle ist mit der Restriktion von every\_q
+identifiziert. Grafisch lassen sich die Dominanzbeziehungen wie in Abbildung~\ref{fig-Alle
+  kleinen Kinder schlafen-geskopte-MRS} darstellen.
+
+\begin{figure}
+\begin{tikzpicture}[scoped mrs]
+\node(every)    at (2,6)   {h1:every\_q(\subnode{x}{x}, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(kind)     at (0.5,4) {h2:klein(x), h2:kind(x)};
+\node(schlafen) at (4,4)   {h3:schlafen(x)};
+%
+\draw (h2) to (kind);
+\draw (h3) to (schlafen);
+\end{tikzpicture}
+\caption{Visualisierung des Ausdruckes in (\ref{ex-every-klein-kind-schlafen}) für \emph{Alle kleinen Kinder schlafen.}}\label{fig-Alle
+  kleinen Kinder schlafen-geskopte-MRS}
+\end{figure}
+Damit wurde (\ref{ex-Aussagenlogik-Alle kleinen Kinder schlafen}) erst mal nur anders
+aufgeschrieben. Das Ziel ist jedoch eine Möglichkeit zur unterspezifizierten Beschreibung solcher
+Dominanzstrukturen zu finden. Wie bei (\ref{ex-Quantoren-Mitarbeiter-Tochter}) zu sehen war, kann
+sich die Reihenfolge der Quantoren unterscheiden. Einmal ist every innerhalb der Klammer von exist
+und einmal exist innerhalb der Klammer von every. Wie gleich gezeigt werden wird, kann man die
+verschiedenen Lesarten kompakt repräsentieren, wenn man die Restriktion eines Quantors nicht genau
+festlegt, sondern lediglich angibt, dass das zum Determinator gehörende Nomen im Bereich des
+Quantors liegt. Zum Beispiel hat der Satz (\mex{1}a) die MRS in (\mex{1}b):
+\eal
+\ex Alle Kinder schlafen.
+\ex \textmrs{ h0, \{ h1:every\_q(x, h2, h3), h4:kind(x),
+              h5:schlafen(x) \}, \{ h2 \qeq h4 \}  }
+\zl
+Die MRS besteht aus einer Multimenge von Relationen und einer Multimenge von Handle"=Constraints.
+Das Handle von kind(x) ist nicht h2 wie in (\ref{ex-every-klein-kind-schlafen}), sondern
+h4 und es gibt eine Beschränkung, die besagt, dass h2 \qeq h4. \qeq steht für \emph{quantifier
+  equal}. h2 \qeq h4 bedeutet, dass h2 mit h4 gleich ist, außer dass andere Quantoren noch
+dazwischen eingefügt werden dürfen. Details und Beispiele folgen sofort. Vorher sollen die Dominanzverhältnisse
+noch visualisiert werden. Abbildung~\ref{fig-Alle Kinder schlafen-MRS} zeigt die grafische
+Repräsentation für (\mex{0}b). 
+\begin{figure}
+\begin{tikzpicture}[mrs]
+\node(every)  at (2,6) {h1:every\_q(\subnode{x}{x}, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(kind) at (0.5,4)  {h4:kind(x)};
+\node(schlafen)    at (4,4) {h5:schlafen(x)};
+%
+\draw (h2) to (kind);
+%\draw[color=RED] (x) to (schlafen);
+\end{tikzpicture}
+\caption{MRS für \emph{Alle Kinder schlafen.}}\label{fig-Alle Kinder schlafen-MRS}
+\end{figure}
+In der Grammatik wird immer lediglich gesagt, dass der semantische Beitrag des Nomens von den
+Restriktionen des Quantors dominiert wird. Im Fall von Abbildung~\ref{fig-Alle Kinder schlafen-MRS}
+bedeutet das, dass kind(x) innerhalb der Restriktion von every\_q auftreten muss. Die
+Dominanzbeziehung wird immer durch gestrichelte Pfeile dargestellt. Aus h3 ausgehend
+zu h5 gibt es überhaupt keine Verbindung. Diese ergibt sich aber implizit daraus, dass die Variable
+x von schlafen(x) durch einen Quantor gebunden sein muss. Diese Anforderung ist in
+Abbildung~\ref{fig-Alle Kinder schlafen-MRS-Variable} durch den roten Pfeil von der
+Variable (x) zu dem Ausdruck, in dem sie vorkommt (schlafen(x)), dargestellt.
+
+\begin{figure}
+\begin{tikzpicture}[mrs]
+\node(every)  at (2,6) {h1:every\_q(\subnode{x}{x}, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(kind) at (0.5,4)  {h4:kind(x)};
+\node(schlafen)    at (4,4) {h5:schlafen(x)};
+%
+\draw (h2) to (kind);
+\draw[color=RED] (x) to (schlafen);
+\end{tikzpicture}
+\caption{Dominanzverhältnisse für \emph{Alle Kinder schlafen.} mit roter
+  Dominanzkante für Variablenbindung}\label{fig-Alle Kinder schlafen-MRS-Variable}
+\end{figure}
+Da in Abbildung~\ref{fig-Alle Kinder schlafen-MRS-Variable} h2 entweder mit einem anderen Quantor
+oder mit h4 gleichgesetzt werden muss, h5 also nicht bei h2 eingesetzt werden kann, aber irgendwie
+vom Allquantor und x dominiert sein muss, muss h3 h5 dominieren. Es ergibt sich also
+Abbildung~\ref{fig-Alle Kinder schlafen-MRS-Restriktion-und-Body}.
+\begin{figure}
+\begin{tikzpicture}[mrs]
+\node(every)  at (2,6) {h1:every\_q(\subnode{x}{x}, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(kind) at (0.5,4)  {h4:kind(x)};
+\node(schlafen)    at (4,4) {h5:schlafen(x)};
+%
+\draw (h2) to (kind);
+\draw (h3) to (schlafen);
+\end{tikzpicture}
+\caption{Dominanzverhältnisse für \emph{Alle Kinder schlafen.}}\label{fig-Alle Kinder schlafen-MRS-Restriktion-und-Body}
+\end{figure}
+Da es in Abbildung~\ref{fig-Alle Kinder schlafen-MRS-Restriktion-und-Body} nur einen Quantor und
+insgesamt auch nur zwei durch h2 und h3 dominierte Elemente gibt, kann es auch nur eine Auflösung
+der Dominanzbedingungen geben und man bekommt letztendlich die Lösung in Abbildung~\ref{fig-Alle Kinder
+  schlafen-scoped MRS}, die genau dem entspricht, was schon in Abbildung~\ref{fig-Alle kleinen
+  Kinder schlafen-geskopte-MRS} zu sehen war. 
+
+\begin{figure}
+\begin{tikzpicture}[scoped mrs]
+\node(every)  at (2,6) {h1:every\_q(\subnode{x}{x}, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(kind) at (0.5,4)  {h4:kind(x)};
+\node(schlafen)    at (4,4) {h5:schlafen(x)};
+%
+\draw (h2) to (kind);
+\draw (h3) to (schlafen);
+\end{tikzpicture}
+\caption{Geskopte MRS für \emph{Alle Kinder schlafen.}}\label{fig-Alle Kinder
+  schlafen-scoped MRS}
+\end{figure}
+
 Nun sind alle Vorarbeiten erledigt und wir können uns den harten Fällen zuwenden. Die beiden
 Ausdrücke in (\ref{ex-Quantoren-Mitarbeiter-Tochter}) sollen mit einer Formel repräsentiert
 werden. (\mex{1}) zeigt die entsprechende MRS:
@@ -1075,58 +1188,96 @@ werden. (\mex{1}) zeigt die entsprechende MRS:
              h5:exist\_q(y, h6, h7), \hphantom{\textlangle~}h8:mitarbeiter(y), h9:schlafen(x) \},\\
 \hphantom{\textlangle~}\{ h2 \qeq h4, h6 \qeq h8 \}  }
 \z
-Die MRS besteht aus einer Multimenge von Relationen und einer Multimenge von Handle"=Constraints.
 Der Trick ist, dass die Slots in der Repräsentation für die Quantoren nicht direkt mit den Labels
 von anderen Relationen belegt werden, sondern mithilfe von \qeq-Ausdrücken festgelegt wird, dass das
 Element auf der rechten Seite der \qeq-Gleichung irgendwie von dem Element auf der linken Seite der
-Gleichung dominiert werden muss. \qeq steht für \emph{quantifier equal}, was man verstehen kann als:
-Das Handle auf der rechten Seite wird mit dem auf der linken identifiziert, wobei aber noch
-Quantoren dazwischentreten können. Abbildung~\ref{fig-Jede Tochter eines Mitarbeiters schläft-MRS}
-illustriert die Dominanzverhältnisse.
+Gleichung dominiert werden muss. Genauer bedeutet das: Das Handle auf der rechten Seite wird mit dem
+auf der linken identifiziert, wobei aber noch Quantoren dazwischentreten können. Genauer: Wenn h
+\qeq l gilt, dann muss entweder h = l sein, oder es muss eine Folge Q$_1$, \ldots, Q$_n$ von
+Quantoren geben, für die gilt, dass h identisch mit dem Label von Q$_1$ ist und l identisch mit dem
+Body-Argument von Q$_n$ und für alle Paare in der Folge Q$_m$, Q$_{m+1}$ ist das Label von Q$_{m+1}$
+identisch mit dem Body-Argument des Quantors \citep[\page 297]{MRS}.  
+
+
+Abbildung~\ref{fig-Jede Tochter eines Mitarbeiters schläft-MRS-Variable}
+illustriert die Dominanzverhältnisse für die MRS in (\ref{ex-Jede Tochter eines Mitarbeiters
+  schläft-MRS}). Dabei entsprechen die schwarzen Pfeile wieder den \qeq-Beschränkungen der MRS und die
+roten denen, die sich daraus ergeben, dass Variablen wie x und y durch einen Quantor gebunden sein
+müssen. Es muss also eine Dominanzbeziehung zwischen dem Quantor, der die Variable einführt, und
+allen Ausdrücken, in denen die Variable vorkommt, geben.
 \begin{figure}
-\begin{tikzpicture}[node distance=3.8cm,mrs]
-\node(tochter) at (0,0){h4:tochter(x,y)};
-\node(exist-q)[above left  of=tochter]{h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
-\node(every-q)[above right of=tochter]{h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
-\node(mitarbeiter)[left of=tochter]{h8:mitarbeiter(y)};
-\node(schlafen)[right of=tochter]{h9:schlafen(x)};
-\draw (h7) to (tochter);
+\begin{tikzpicture}[mrs]
+\node(exists)  at (-2,6) {h5:exist\_q(\subnode{y}{y}, \subnode{h6}{h6}, \subnode{h7}{h7})};
+\node(tochter) at (0.5,4)  {h4:tochter(x,y)};
+\node(every)   at (2,6)  {h1:every\_q(\subnode{x}{x}, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(mitarbeiter) at (-3,4) {h8:mitarbeiter(y)};
+\node(schlafen)    at (4,4) {h9:schlafen(x)};
+%
+\draw[color=RED] (y) to (tochter);
 \draw (h2) to (tochter);
 \draw (h6) to (mitarbeiter);
-\draw (h3) to (schlafen);
+\draw[color=RED] (x) to (schlafen);
 \end{tikzpicture}
-\caption{Dominanzverhältnisse für \emph{Jede Tochter eines Mitarbeiters schläft.}}\label{fig-Jede Tochter eines Mitarbeiters schläft-MRS}
+\caption{Dominanzverhältnisse für \emph{Jede Tochter eines Mitarbeiters schläft.} mit roten
+  Dominanzkanten für Variablenbindung}\label{fig-Jede Tochter eines Mitarbeiters schläft-MRS-Variable}
 \end{figure}
-Die Restriktion des Allquantors ist h2 und h2 dominiert h4. Über den Body des Allquantors h3 wurde
-nichts gesagt, aber da h2 schon belegt ist und die Variable von schlafen x ist, muss schlafen von h3
-dominiert werden. Analog funktioniert das mit dem Existenzquantor: h6 dominiert die
-mitarbeiter-Relation und da y ein Argument von tochter ist und der Existenzquantor sich auf y
-bezieht, muss tochter von h7 dominiert werden. In Abbildung~\ref{fig-Jede Tochter eines Mitarbeiters
+Zum Beispiel kommt y in h8:mitarbeiter(y) und h4:tochter(x,y) vor. Da h8 von h6 dominiert wird, ist
+dieses Vorkommen von y gebunden, aber das y in tochter(x,y) muss ebenfalls gebunden werden. Das wird
+durch die rote Kante von y zu h4:tochter(x,y) erzwungen. 
+
+Zwischen h6 und h8 können nur Quantoren treten, so dass das y in h4 nur dadurch gebunden werden
+kann, dass h4 von h7 dominiert ist. Das heißt, entweder wird h4 direkt bei h7 eingestöpselt oder
+Quantoren treten noch dazwischen. Es ergibt sich also eine Dominanzkante von h7 zu h4 und analog
+auch von h3 zu h9. Diese sind in Abbildung~\ref{fig-Jede Tochter eines Mitarbeiters schläft-MRS}
+gezeigt.\footnote{%
+  MRSen werden in dieser Form von Utool \citep{KT2005a-u} für das Grammatikfragment, das zu diesem Buch gehört,
+  grafisch angezeigt.
+} Im Folgenden werden die Dominanzkanten, die es aufgrund von Quantorenbindung gibt, nicht mehr
+farblich gekennzeichnet.
+\begin{figure}
+\begin{tikzpicture}[mrs]
+\node(exists)  at (-2,6) {h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+\node(tochter) at (0.5,4)  {h4:tochter(x,y)};
+\node(every)   at (2,6)  {h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(mitarbeiter) at (-3,4) {h8:mitarbeiter(y)};
+\node(schlafen)    at (4,4) {h9:schlafen(x)};
+\draw[color=RED] (h7) to (tochter);
+\draw (h2) to (tochter);
+\draw (h6) to (mitarbeiter);
+\draw[color=RED] (h3) to (schlafen);
+\end{tikzpicture}
+\caption{Dominanzverhältnisse für \emph{Jede Tochter eines Mitarbeiters schläft.} mit roten
+  Dominanzkanten für Variablenbindung, die von der Restriktion der Quantoren ausgehen}\label{fig-Jede Tochter eines Mitarbeiters schläft-MRS}
+\end{figure}
+
+In Abbildung~\ref{fig-Jede Tochter eines Mitarbeiters
   schläft-MRS} ist nicht festgelegt, ob der Allquantor über dem Existenzquantor steht oder
 andersherum. Entweder h2 wird mit h5
 identifiziert und h3 mit h9 oder h6 wird direkt mit h8 identifiziert und h7 mit h1. Die Abbildungen~\ref{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Allquantor} und~\ref{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Existenzquantor} zeigen die entsprechend geskopten MRSen.
 \begin{figure}
-\begin{tikzpicture}[node distance=3.8cm,scoped mrs]
-\node(tochter) at (0,0){h4:tochter(x,y)};
-\node(exist-q)[above left  of=tochter]{h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
-\node(every-q)[above right of=tochter]{h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
-\node(mitarbeiter)[left of=tochter]{h8:mitarbeiter(y)};
-\node(schlafen)[right of=tochter]{h9:schlafen(x)};
+\begin{tikzpicture}[scoped mrs]
+%\draw (-5,-1) to[grid with coordinates] (5,3);
+\node(exists)  at (-2,2) {h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+\node(tochter) at (0.5,0)  {h4:tochter(x,y)};
+\node(every)   at (2,2)  {h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(mitarbeiter) at (-3,0) {h8:mitarbeiter(y)};
+\node(schlafen)    at (4,0) {h9:schlafen(x)};
 \draw (h7) to (tochter);
-\draw (h2) .. controls +(0,-2.5) and +(0,2).. (exist-q.north);
+\draw (h2) .. controls +(-.5,-3) and +(.5,2).. (exists.north);
 \draw (h6) to (mitarbeiter);
 \draw (h3) to (schlafen);
 \end{tikzpicture}
 \caption{Skopusaufgelöste MRS mit weitem Skopus für den Allquantor}\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Allquantor}
 \end{figure}
 \begin{figure}
-\begin{tikzpicture}[node distance=3.8cm,scoped mrs]
-\node(tochter) at (0,0){h4:tochter(x,y)};
-\node(exist-q)[above left  of=tochter]{h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
-\node(every-q)[above right of=tochter]{h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
-\node(mitarbeiter)[left of=tochter]{h8:mitarbeiter(y)};
-\node(schlafen)[right of=tochter]{h9:schlafen(x)};
-\draw   (h7) .. controls +(0,-1) and +(0,2).. (every-q.north);
+\begin{tikzpicture}[scoped mrs]
+%\draw (-5,-1) to[grid with coordinates] (5,3);
+\node(exists)  at (-2,2) {h5:exist\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+\node(tochter) at (0.5,0)  {h4:tochter(x,y)};
+\node(every)   at (2,2)  {h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(mitarbeiter) at (-3,0) {h8:mitarbeiter(y)};
+\node(schlafen)    at (4,0) {h9:schlafen(x)};
+\draw   (h7) .. controls +(.5,-1.5) and +(-1.5,2).. (every.north);
 \draw   (h2) to (tochter);
 \draw   (h6) to (mitarbeiter);
 \draw   (h3) to (schlafen);
@@ -1202,7 +1353,7 @@ cont & \ms{
 \emph{jede} ist ein Determinator, der selbst keine Argumente braucht, also eine leere \spr- und
 \compsl hat. Der Allquantor wird in der \relsl eingeführt. \argzero ist das Merkmal für die
 Variable. Außerdem gibt es je ein Merkmal für die Restriktion und den Body. Für die Restriktion
-wurde oben angenommen, dass sie in einer \qeq\vspace{-2pt}\hspace{-.5ex}\hyp Relation zum Handel der \nbar steht. Das Nomen kann
+wurde oben angenommen, dass sie in einer \qeq\vspace{-2pt}\hspace{-.5ex}\hyp Relation zum Handle der \nbar steht. Das Nomen kann
 zwar über die \sprl auf den Determinator zugreifen, aber andersrum ist das nicht
 möglich. Determinatoren sind vollständig und somit ist ein Zugriff auf das Nomen über Valenzmerkmale
 nicht möglich. Man behilft sich deshalb mit einem Trick: Analog zum \modm nimmt man ein
@@ -1323,23 +1474,23 @@ cat & \ms{ head & noun\\
            comps & \eliste\\
          }\\
 cont & \ms{
-       ltop & \ibox{1}\\
-       ind  & \ibox{2} \ms{
+%       ltop & \ibox{1}\\
+       ind  & \ibox{1} \ms{
                        per & 3\\
                        num & sg\\
                        }\\ 
        rels & \liste{ \ms[proper\_q]{
-                      arg0 & \ibox{2}\\ 
-                      rstr & \ibox{3}\\ 
+                      arg0 & \ibox{1}\\ 
+                      rstr & \ibox{2}\\ 
 %                      body &\\
                       }, \ms[named\_rel]{
-                         lbl & \ibox{1}\\
-                         arg0 & \ibox{2}\\
+                         lbl & \ibox{3}\\
+                         arg0 & \ibox{1}\\
                          name & "`Aicke"'~~\\
                          } }\\
        hcons & \liste{ \ms[qeq]{
-                       harg & \ibox{3}\\
-                       larg & \ibox{1}\\
+                       harg & \ibox{2}\\
+                       larg & \ibox{3}\\
                        }
                }\\
        }
@@ -1359,18 +1510,18 @@ cat & \ms{ head & noun\\
            comps & \eliste\\
          }\\
 cont & \ms{
-       ltop & \ibox{1}\\
-       ind  & \ibox{2} \ms{
+%       ltop & \ibox{1}\\
+       ind  & \ibox{1} \ms{
                        per & 3\\
                        num & sg\\
                        }\\ 
        rels & \liste{ \ms[proper\_q]{
-                      arg0 & \ibox{2}\\ 
-                      rstr & \ibox{1}\\ 
+                      arg0 & \ibox{1}\\ 
+                      rstr & \ibox{2}\\ 
 %                      body &\\
                       }, \ms[named\_rel]{
-                         lbl & \ibox{1}\\
-                         arg0 & \ibox{2}\\
+                         lbl & \ibox{2}\\
+                         arg0 & \ibox{1}\\
                          name & "`Aicke"'\\
                          } }\\
        hcons & \eliste\\
@@ -1485,7 +1636,7 @@ Individuenkonstanten in der Prädikatenlogik eben auch der Fall ist.
 % \hphantom{\textlangle~}\{ h2 \qeq h4, h6 \qeq h8 \}  }
 % \z
 % Das Possessivpronomen verhält sich wie ein definiter Artikel und die Restriktion des entsprechenden
-% Quantors def\_q h2 ist \qeq mit dem Handle der besitzen"=Relation h4, das mit dem Handel von
+% Quantors def\_q h2 ist \qeq mit dem Handle der besitzen"=Relation h4, das mit dem Handle von
 % \emph{Buch} identifiziert ist. Außerdem gibt es den Quantor für das feminine Pronomen, das sich auf
 % die Besitzende bezieht und das \argone der besitzen"=Relation und das Argument der zum Quantor gehörenden pronoun\_rel ist.
 
@@ -1496,7 +1647,9 @@ ihr Buch
 \z
 Den Lexikoneintrag für \emph{ihr} zeigt (\mex{1}):
 \eas
-Lexikoneintrag für \emph{ihr}:\\
+\label{Lexikoneintrag Possessivpronomen}%
+\label{le-Possessivpronomen}%
+Lexikoneintrag für das Possessivpronomen \emph{ihr}:\\
 \ms{ 
   cat & \ms{ head  & \ms[det]{
                      case & nom\\
@@ -1508,25 +1661,25 @@ Lexikoneintrag für \emph{ihr}:\\
              comps & \eliste \\
            } \\
   cont &  \ms{
-       ltop & \ibox{3}\\
-       ind  & \ibox{4} \ms{
+%       ltop & \ibox{3}\\
+       ind  & \ibox{3} \ms{
                        per & 3\\
                        num & sg\\
                        gen & fem\\
                       }\\ 
        rels & \liste{ \ms[def\_q]{
                       arg0 & \ibox{2}\\ 
-                      rstr & \ibox{5}\\ 
+                      rstr & \ibox{4}\\ 
 %                      body &\\
                       }, \ms[besitzen\_rel]{
                             lbl  & \ibox{1}\\     % pronoun_q(x,h, h) h1:pronoun_rel(x),
                                 % h1:besitzen(x,y) ^ h1:buch(y)
 %                           arg0 & event\\
-                            arg1 & \ibox{4}\\
+                            arg1 & \ibox{3}\\
                             arg2 & \ibox{2}
                       } }\\
        hcons & \liste{ \ms[qeq]{
-                       harg & \ibox{5}\\
+                       harg & \ibox{4}\\
                        larg & \ibox{1}\\
                        }
                }\\
@@ -1537,12 +1690,13 @@ Lexikoneintrag für \emph{ihr}:\\
 % def_implicit_q_rel := def_q_rel & implicit_q_rel.
 Kombiniert man \emph{ihr} mit \emph{Buch} erhält man die folgende MRS:
 \ea
-\textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1,y,x), h4:buch(x) \},\\
+\label{MRS ihr Buch}
+\textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1,i1,x), h4:buch(x) \},\\
 \hphantom{\textlangle~}\{ h2 \qeq h4 \}  }
 \z
 Das Possessivpronomen verhält sich wie ein definiter Artikel und die Restriktion des entsprechenden
-Quantors def\_q h2 ist \qeq mit dem Handle der besitzen"=Relation h4, das mit dem Handel von
-\emph{Buch} identifiziert ist. Die Rolle des/der Besitzenden wird durch den pronominalen Index $y$ gefüllt.
+Quantors def\_q h2 ist \qeq mit dem Handle der besitzen"=Relation h4, das mit dem Handle von
+\emph{Buch} identifiziert ist. Die Rolle des/der Besitzenden wird durch den pronominalen Index $i1$ gefüllt.
 
 
 Man beachte, dass der Index des Possessivpronomens sich vom Index der \nbar unterscheidet, mit der
@@ -1641,7 +1795,7 @@ cont & \ms{ ltop & \ibox{3}\\
 
 Wie man an (\ref{mrs-potentielle-Mörder}) sehen kann muss der \ltopw einer Kopf"=Adjunkt"=Struktur
 durch die Adjunkttochter bestimmt werden, denn \ltop ist das Label des jeweils einbettenden
-Prädikats. Bei intersektiven Adjektiven wie \emph{klein} sind beide Handels identifiziert, weshalb
+Prädikats. Bei intersektiven Adjektiven wie \emph{klein} sind beide Handles identifiziert, weshalb
 auch da der \ltopw von der Adjunkttochter genommen werden kann. Die folgende Beschränkung gilt also
 zusätzlich zu den bereits beschrieben Beschränkungen für Kopf"=Adjunkt"=Strukturen:
 \ea
@@ -1649,7 +1803,7 @@ zusätzlich zu den bereits beschrieben Beschränkungen für Kopf"=Adjunkt"=Struk
 \label{Beschränkung-Semantik-Kopf-Adjunkt-Strukturen}
 \type{head-adjunct-phrase} \impl
   \ms{ cont|ltop & \ibox{1}\\
-       non-head-dtrs & \liste{ \ms{ cont|ltop & \ibox{1} } }\\
+       non-head-dtrs & \sliste{ [cont|ltop \ibox{1} ] }\\
      }
 \z
 
@@ -1749,11 +1903,11 @@ Lesarten, die in (\ref{ex-Prädikatenlogik-alle-Affen-glauben-dass-ein-Einhorn-s
 \begin{tikzpicture}[mrs]
 %\draw (-5,10) to[grid with coordinates] (5,-.5);
 \node(schlafen) at (0,0) {h11:schlafen(y)};
-\node(glauben)  at (-2,2){h5:glauben(x, \subnode{h6}{h6})};
-\node(affe)     at (-4,4){h4:affe(x)};
-\node(einhorn)  at (0,4) {h10:einhorn(y)};
-\node(every-q)  at (-4,6){h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
-\node(exists-q) at (2,6) {h7:exists\_q(y, \subnode{h8}{h8}, \subnode{h9}{h9})};
+\node(glauben)  at (-2,1){h5:glauben(x, \subnode{h6}{h6})};
+\node(affe)     at (-4,2){h4:affe(x)};
+\node(einhorn)  at (0,2) {h10:einhorn(y)};
+\node(every-q)  at (-4,3){h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+\node(exists-q) at (2,3) {h7:exists\_q(y, \subnode{h8}{h8}, \subnode{h9}{h9})};
 
 \draw (h2) to (affe);
 \draw (h3) to (glauben);
@@ -1847,7 +2001,7 @@ werden.
 \z
 
 \noindent
-Das bedeutet, dass die Handels von \emph{einfach} und \emph{Beispiel} nicht im
+Das bedeutet, dass die Handles von \emph{einfach} und \emph{Beispiel} nicht im
 Lexikoneintrag von \emph{einfaches} gleichgesetzt werden, dass aber die \ltopwe von \emph{scheinbar
   einfaches} und \emph{Beispiel} durch das Kopf"=Adjunkt"=Schema identifiziert werden. Damit ergibt
 sich die richtige MRS in (\ref{mrs-ein-scheinbar-einfaches-Beispiel}), weil der \ltopw von
@@ -1873,6 +2027,384 @@ ein brutaler mutmaßlicher Mörder
 Damit ist die Behandlung von Skopus und Unterspezifikation in Minimal Recursion Semantics abgeschlossen. Es freut mich, dass Sie
 die Warnung zu Beginn dieses Abschnitts ignoriert und auch diesen technischen Teil gelesen haben.
 
+\subsection{Wohlgeformtheitsbedingungen für MRSen}
+\label{sec-Wohlgeformtheitsbedingungen für MRSen}
+\label{Abschnitt-Semantik-possessive-Relativpronomina}
+
+Wie \citet*{FucKolNieTha2004a} festgestellt haben, sind die MRS die in einer großen Grammatik für
+das Englische \citep{CF2000a-u} erzeugt werden, überwiegend so genannte Netze\is{Netz}. Bei ihren
+Experimenten haben sie festgestellt, dass die MRSen, die keine Netze waren, fehlerhaft
+waren. \citet*{FKT2005a} haben das bestätigt und Dan Flickinger hat die entsprechenden Regeln
+korrigiert. Alex Lascarides und Ann Copestake haben eine MRS konstruiert, die linguistisch sinnvoll ist, aber
+kein Netz \citep[Abschnitt~4.3]{FKT2005a}. Prinzipiell kann es solche MRSen also geben, aber die entsprechende MRS kann man
+umformulieren, so dass auch für den entsprechenden Satz eine MRS angegeben werden kann, die ein Netz
+ist. \citet{ADKMNT2003a} haben nun gezeigt, dass man Dominanzgraphen, die Netze sind, wesentlich effizienter
+verarbeiten kann als das für den allgemeinen Fall möglich wäre. Es ist also sinnvoll, diese
+zusätzliche Beschränkung für MRSen zu verwenden. Die von der in diesem Buch entwickelten Grammatik
+erzeugten MRSen sind immer Netze. Ich werde im Folgenden erklären, was es heißt, ein Netz zu sein
+und werde ein Beispiel diskutieren, in dem die Netzeigenschaft erst nicht gegeben war. 
+
+Es folgt eine Definition für \emph{Netz}:\footnote{
+  Die Original"=Definition von \citet[\page 133]{FKT2005a} lautet wie folgt:
+\begin{quote}
+We say that an MRS structure is an (MRS-) net if and only if every fragment
+in its graph satisfies the following two conditions:
+1. There is exactly one node without outgoing dominance edges. All other
+nodes in the fragment have at least one outgoing dominance edge.
+2. If a node X has two (or more) outgoing dominance edges, say, to Y and Z,
+then Y and Z are connected by a hypernormal path (see below) that does not
+visit the node X itself.
+\end{quote}
+Ich vermute, dass sich 1.\ lediglich auf Quantoren"=Fragmente beziehen sollte, denn sie schreiben: "`This is also the case for the nuclear fragments l11, l12, . . . , that have no outgoing
+dominance edges at all. The only fragment with nodes that have more than one outgoing dominance
+edges is the top fragment."' Das bedeutet, dass l0 und l11 in Abbildung~\ref{Abbildung 1 von
+  FKT2005a} auch Fragmente im Sinne der Definition
+sind. l0 hat aber keinen Knoten ohne ausgehende Dominanzkante und die nuklearen Fragmente haben nur
+einen Knoten und für diesen gibt es nur eingehende Kanten. In Abbildung~\ref{fig-alle-Affen-glauben-dass-ein-Einhorn-schläft} gibt es
+h5:glauben(x,h6). h5:glauben(x,h6) hat eine ausgehende Dominanzkante, nämlich h6, aber es gibt eben
+auch keinen Knoten, aus dem keine Dominanzkante austritt. Aber selbst wenn man 1.\ auf Fragmente mit
+Quantoren beschränken würde, wäre eine solche Definition nicht sinnvoll, denn wenn der Skopus eines
+Quantors bekannt ist, zum Beispiel, weil in einer Sprache Quantoren, die links stehen, immer Skopus
+über Quantoren, die rechts stehen haben, dann kann man auch Restriktionen für den Body von Quantoren
+formulieren.  
+\itdopt{check}
+}
+\begin{definition}
+Eine MRS ist ein Netz, gdw.\ jedes Fragment aus dem Dominanzgraph der MRS die folgenden beiden
+Bedingungen erfüllt:
+\begin{enumerate}
+\item Es gibt in jedem Fragment höchstens einen Knoten ohne austretende Dominanzkante.
+\item Wenn ein Knoten X zwei (oder mehr) ausgehende Dominanzkanten hat, dann jeweils zwei dieser
+  Dominanzkanten über einen hypernormalen Pfad verbunden, der nicht über X verläuft.
+\end{enumerate}
+\end{definition}
+Der Quantor+Variable selbst bildet in dieser Definition auch einen Knoten des Fragments (zum
+Beispiel l8:each$_z$ in Abbildung~\ref{Abbildung 1 von FKT2005a}). 
+Von diesem
+Knoten gehen alle Verbindungen zu Ausdrücken ab, die die Variable enthalten, die der Quantor
+einführt (in der Abbildung in rot, das z in l14). Der zweite Teil der Definition bedeutet, dass es,
+wenn aus einem Knoten zwei Kanten hinausgehen, irgendwie eine andere Verbindung zwischen diesen
+Knoten geben muss, so dass die Dominanzbeziehungen letztendlich in einer Weise aufgelöst werden
+können, so dass nur ein Label in X eingestöpselt werden muss. 
+
+Ein \emph{hypernormaler Pfad} in einem Graph ist ein ungerichteter Pfad, in dem es keine zwei
+Dominanzkanten gibt, die beim selben Knoten beginnen. \citet{FKT2005a} geben die beiden Beispiele
+links in Abbildung~\ref{Abbildung hypernormaler Graph} für hypernormale Pfade und rechts ein Beispiel für einen nicht hypernormalen Pfad.
+\begin{figure}
+\hfill
+\begin{tikzpicture}[mrs]
+%\draw (-5,10) to[grid with coordinates] (5,-.5);
+
+\node(x) at (0,6)  {X};
+\node(y) at (-1,5) {Y};
+\node(z) at (0,1)  {Z};
+\node(y1) at (-1,4) {Y1};
+\node(y2) at (-1,3) {Y2};
+\node(y3) at (-1,2) {Y3};
+\draw (x) to (y);
+\draw (x) to (z);
+\draw[solid] (y) to (y1);
+\draw (y1) to (y2);
+\draw (y2) to (y3);
+\draw[solid] (y3) to (z);
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}[mrs free start]
+%\draw (-5,10) to[grid with coordinates] (5,-.5);
+
+\node(x) at (0,6)  {X};
+\node(y) at (-1,5) {Y};
+\node(z) at (2,5)  {Z};
+\node(y1) at (-.5,4) {Y1};
+\node(y2) at (0,5) {Y2};
+\node(y3) at (1,6) {Y3};
+\draw (x.south) to (y);
+\draw (x.south) to (z);
+\draw (y) to (y1);
+\draw (y2.south) to (y1);
+\draw[solid] (y3.south) to (y2);
+\draw[solid] (y3.south) to (z);
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}[mrs free start]
+%\draw (-5,10) to[grid with coordinates] (5,-.5);
+
+\node(x) at (0,6)  {X};
+\node(y) at (-1,3) {Y};
+\node(z) at (2,4)  {Z};
+\node(y1) at (0,4) {Y1};
+\node(y2) at (1,6) {Y2};
+\node(y3) at (2,5) {Y3};
+\draw (x.south) to (y);
+\draw (x.south) to (z);
+\draw[solid] (y1) to (y);
+\draw (y2.south) to (y1);
+\draw (y2) to (y3);
+\draw[solid] (y3.south) to (z);
+\end{tikzpicture}
+\hfill\mbox{}
+\caption{Zwei hypernormale Pfade und ein nicht hypernormaler Pfad von Y nach Z ohne X}\label{Abbildung hypernormaler Graph}
+\end{figure}
+\itdopt{Punkte für Knoten hinzufügen, check}
+
+Im linken Graph könnte man die Dominanzkante von X zu Z einfach weglassen, denn man gelangt auch
+über Y1, Y2 und Y3 zu Z. Genauso kann man beim zweiten Graph Y3 irgendwo unterhalb von X einstöpseln
+und damit den doppelten Austritt aus X im Prinzip beseitigen. Beim dritten Graph hilft die
+Verbindung zwischen Y und Z nicht, da sie auch zwei aus Y2 ausgehende Dominanzkanten hat. Setzt man
+Y2 irgendwo ein, bleibt das Problem bestehen, dass man Knoten mit zwei ausgehenden Dominanzkanten
+hat.
+\itdopt{check}
+
+Abbildung~\ref{Abbildung 1 von FKT2005a} zeigt einen Dominanzgraphen für das englische Beispiel in
+(\mex{1}):
+\ea
+Each section is also suitable as s single day tour.
+\z
+Im obersten Fragment mit l0 gehen aus h1 drei Dominanzkanten aus. Die MRS ist ein Netz, weil es
+zwischen l2, l5 und l8 jeweils hypernormale Pfade gibt, die nicht über l1 verlaufen: l2, l12, h6, l5
+und l5, l14, l8 und l2, l12, h6, l5, l14, l8. 
+\begin{figure}
+\oneline{%
+\begin{tikzpicture}[mrs free start]
+%\draw (-5,10) to[grid with coordinates] (5,-.5);
+
+\node(l0) at (0,6)  {l0:proposition};
+\node(h1) at (0,5) {h1};
+\node(l2) at (-5,4)  {l2:udef$_x$};
+\node(h3) at (-6,3) {h3};
+\node(h4) at (-4,3) {h4};
+\node(l5) at (0,4) {l5:a$_y$};
+\node(h6) at (-1,3) {h6};
+\node(h7) at (1,3) {h7};
+\node(l8) at (4,4) {l8:each$_z$};
+\node(h9) at (3,3) {h9};
+\node(h10) at (5,3) {h10};
+\node(l11) at (-6,2) {l11:single$_x$ \& day$_x$};
+\node(l12) at (-1,2) {l12:tour$_x$ \& compound$_{x,y}$};
+\node(l13) at (3,2) {l13:section$_z$};
+\node(l14) at (1,1) {l14:suitable$_z$ \& also \& as$_y$};
+ \draw[solid] (l0) to (h1);
+ \draw[color=RED] (h1) to (l2);
+ \draw[color=RED] (h1) to (l5);
+ \draw[color=RED] (h1) to (l8);
+ \draw[solid] (l2.south) to (h3);
+ \draw[solid] (l2.south) to (h4);
+ \draw[solid] (l5.south) to (h6);
+ \draw[solid] (l5.south) to (h7);
+ \draw[solid] (l8.south) to (h9);
+ \draw[solid] (l8.south) to (h10);
+ \draw (h3) to (l11);
+ \draw (h6) to (l12);
+ \draw (h9) to (l13);
+
+ \draw[color=RED] (l2.east) to (l12.north);
+ \draw[color=RED] plot [smooth] coordinates {(l5.east) (2,3.5) (l14.north)};
+ \draw[color=RED] (l8.west) to (l14.north);
+
+\end{tikzpicture}}
+\caption{Dominanzgraph für \emph{Each section is also suitable as s single day tour.} nach
+  \citet{FKT2005a}. Die roten Kanten sind Kanten, die sich implizit aus Variablenbindungen oder
+  Bedingungen für die oberste Handle ergeben.}\label{Abbildung 1 von FKT2005a}
+\end{figure}
+
+Nach der Einführung der Wohlgeformtheitsbedingungen können wir uns noch ein Beispiel ansehen, das im
+Rahmen des hier entwickelten Grammatikfragments interessant ist. Wenn man das Relativpronomen
+\emph{dessen} in (\mex{1}b) so wie das Relativpronomen in (\ref{Lexikoneintrag Possessivpronomen})
+auf S.~\pageref{Lexikoneintrag Possessivpronomen} analysiert, bekommt man eine fehlerhafte MRS. Im
+Folgenden soll das anhand der beiden Beispiele in (\mex{1}) besprochen werden:
+\eal
+\ex\label{ex-Sein Kind schläft} 
+Sein Kind schläft.
+\ex\label{ex-Ein Affe dessen Kind schläft}
+Ein Affe, dessen Kind schläft, lacht.
+\zl
+Das Possessivpronomen \emph{ihr} führt einen Quantor für die Variable von Kind ein und eine
+\relation{besitzen}"=Relation. Die MRS für \emph{ihr Buch} wurde bereits auf S.\,\pageref{MRS ihr
+  Buch} angegeben. (\mex{1}) zeigt eine ähnliche MRS, die zusätzlich die Relation für \emph{schläft} enthält:
+\ea
+\label{MRS ihr Buch-2}
+\textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1, i1, x), h4:kind(x), h5:schlafen(e2, x) \},\\
+\hphantom{\textlangle~}\{ h2 \qeq h4 \}  }
+\z
+Die Situation mit dem possessiven Relativpronomen liegt anders, weil die Variable des Besitzenden
+mit dem Bezugsnomen des Relativsatzes identifiziert wird. Die MRS für (\mex{-1}b) ist:
+\ea
+\label{MRS EIn Affe dessen Kind schläft lacht}
+\textmrs{ h0, \{ h1:exist\_q(x, h2, h3), h4:affe(x), h5:def\_q(y, h6, h7), ??:besitzen(e1, x, y),
+  h8:kind(y), h4:schlafen(e2, y), h9:lachen(e3, x) \},\\
+\hphantom{\textlangle~}\{ h2 \qeq h4, h6 \qeq h8  \}  }
+\z
+Das Handle von \emph{schlafen} ist das \ltop des Relativsatzes und wird deshalb mit dem \ltop des
+modifizierten Nomens identifiziert (\type{h4}, siehe Analyse der Adjektive im Abschnitt~\ref{Abschnitt-Semantik-Adjektivmodifikation-mutmaßlich}). Der Unterschied zwischen (\ref{ex-Sein Kind
+  schläft}) und (\ref{ex-Ein Affe dessen Kind schläft}) ist aber, dass in (\ref{ex-Sein Kind
+  schläft}) ein Pronomen vorliegt, das einen eigenen Referenten einführt, wohingegen in (\ref{ex-Ein
+  Affe dessen Kind schläft}) die Rolle des Besitzenden von $x$ gefüllt ist, \dash von einer
+Variable, die durch den Quantor des modifizierten Nomens gebunden wird. Das bedeutet, dass das
+Handle von \relation{besitzen} nicht wie bei \emph{ihr} mit dem Handle des Nomens \emph{Kind}
+identisch sein kann, denn wenn es das wäre, bekäme man einen Dominanzgraphen wie er in Abbildung~\ref{Abbildung dessen Kind-falsch}
+dargestellt ist.
+\begin{figure}
+\begin{tikzpicture}[mrs]
+%\draw (-5,10) to[grid with coordinates] (5,-.5);
+
+\node(exists-q) at (0,6) {h1:exists\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+
+\node(affe)     at (-2,4) {h4:affe(x), h4:schlafen(y)};
+
+\node(def-q)    at (-5,6){h5:def\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+
+\node(kind)     at (-7,4){h8:besitzen(x,y), h8:kind(y)};
+
+\node(lachen)   at (2,4){h9:lachen(x)};
+
+\draw (h2) to (affe);
+\draw (h6) to (kind);
+%\draw (h3) to (lachen);
+%\draw (h7) to (affe);
+% h9 und h8 sind nicht hypernomal mit h1 verbunden.
+\end{tikzpicture}
+
+\caption{Falsche MRS für \emph{Ein Affe, dessen Kind schläft, lacht.}}\label{Abbildung dessen Kind-falsch}
+\end{figure}
+
+Wie in Abschnitt~\ref{Abschnitt-Quantoren} erklärt, müssen alle Vorkommen von Variablen irgendwie von
+ihrem Quantor gebunden werden. Das heißt für y, dass h4:schlafen(y) entweder von h6 oder h7 dominiert
+werden muss. Da h6 aber bereits belegt ist, muss h4 irgendwo unterhalb von h7 sein. Das funktioniert
+für y in der obigen MRS gut, aber für x funktioniert es nicht, denn x kommt in h7, h4 und h9 vor und
+es gibt nur zwei Plätze: h2 und h3.
+\begin{figure}
+\begin{tikzpicture}[mrs]
+%\draw (-5,10) to[grid with coordinates] (5,-.5);
+
+\node(exists-q) at (0,6) {h1:exists\_q(\subnode{x}{x}, \subnode{h2}{h2}, \subnode{h3}{h3})};
+
+\node(affe)     at (-2,4) {h4:affe(x), h4:schlafen(y)};
+
+\node(def-q)    at (-5,6){h5:def\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+
+\node(kind)     at (-7,4){h8:besitzen(x,y), h8:kind(y)};
+
+\node(lachen)   at (2,4){h9:lachen(x)};
+
+\draw (h2) to (affe);
+\draw (h6) to (kind);
+\draw (h7) to (affe);
+\draw[red] (x) to (lachen);
+\draw[red] (x) to (kind);
+
+\end{tikzpicture}
+\caption{Falsche MRS für \emph{Ein Affe, dessen Kind schläft, lacht.}: Es gibt keinen hypernormalen
+  Pfad von h8 zu h9, der nicht über h1 führt.}\label{Abbildung dessen Kind-falsche-MRS}
+\end{figure}
+Wenn man versucht, den Existenzquantor in h7 einzustöpseln ergibt sich eine Konfiguration, in der
+die Variable x in h8:besitzen(x,y) ungebunden ist (Abbildung~\ref{Abbildung dessen Kind-falsch}). h3 müsste sowohl mit h9:lachen(x) als auch mit
+h8:besitzen(x,y) verbunden sein, was technisch ausgeschlossen ist, da man nur ein Label in h3
+einstöpseln kann.
+
+\begin{figure}
+\begin{tikzpicture}[scoped mrs]
+%\draw (-5,10) to[grid with coordinates] (5,-.5);
+
+\node(exists-q) at (0,6) {h1:exists\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+
+\node(affe)     at (-2,4) {h4:affe(x), h4:schlafen(y)};
+
+\node(def-q)    at (-5,6){h5:def\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+
+\node(kind)     at (-7,4){h8:besitzen(x,y), h8:kind(y)};
+
+\node(lachen)   at (2,4){h9:lachen(x)};
+
+\draw (h2) to (affe);
+\draw (h6) to (kind);
+\draw (h3) to (lachen);
+\draw (h7) .. controls +(0,-1) and +(0,2).. (exists-q);
+
+\end{tikzpicture}
+
+\caption{Falsche MRS für \emph{Ein Affe, dessen Kind schläft, lacht.}: x in besitzen(x,y) ist ungebunden.}\label{Abbildung dessen Kind-falsch}
+\end{figure}
+
+Es gibt zwar prinzipiell zumindest eine Lösung für das Dominanzproblem, nämlich die, in der h2 einen
+Quantor dominiert, der sowohl h4 als auch h8 dominiert, so dass h3 für h9 bleibt (siehe
+Abbildung~\ref{Abbildung dessen Kind-falsch-geskopt}), aber es ist natürlich nicht im Sinne der
+Unterspezifikationsanalysen, dass man zwei Quantoren hat, die prinzipiell beliebig skopen können
+sollten, aber durch ungünstige Verteilungen von Variablen nur eine Abfolge der Quantoren zulassen.
+
+\begin{figure}
+\begin{tikzpicture}[node distance=3.8cm,scoped mrs]
+%\draw (-5,10) to[grid with coordinates] (5,-.5);
+
+\node(exists-q) at (0,6) {h1:exists\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+
+\node(affe)     at (-2,4) {h4:affe(x), h4:schlafen(y)};
+
+\node(def-q)    at (-5,6){h5:def\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+
+\node(kind)     at (-7,4){h8:besitzen(x,y), h8:kind(y)};
+
+\node(lachen)   at (2,4){h9:lachen(x)};
+
+\draw (h2) .. controls +(0,-2.5) and +(0,2).. (def-q.north);
+\draw (h6) to (kind);
+\draw (h3) to (lachen);
+\draw (h7) to (affe);
+
+\end{tikzpicture}
+
+\caption{Mögliche geskopte MRS für die fehlerhafte MRS von \emph{Ein Affe, dessen Kind schläft,
+    lacht.} in Abbildung~\ref{Abbildung dessen Kind-falsche-MRS}. besitzen(x, y) sollte nicht mit im
+Body des Definitheitsquantors sein.}\label{Abbildung dessen Kind-falsch-geskopt}
+\end{figure}
+
+
+% ein Affe, dessen Kind schläft, lacht.
+% <h1,e2:assertion,
+% {
+%  h3:exist_q(arg0:x4:third:sg:mas,rstr:h5,body:h6)
+%  h7:affe_rel(arg0:x4)
+%  h8:def_q(arg0:x9:third:sg:neu,rstr:h10,body:h11)
+%  h12:poss_rel(arg0:e13:mode,arg1:x4,arg2:x9)
+%  h12:kind_rel(arg0:x9)
+%  h7:schlafen_rel(arg0:e14:mode,arg1:x9)
+%  h15:lachen_rel(arg0:e2,arg1:x4)
+% }
+% {
+%  h5  =q h7
+%  h10 =q h12
+% } >
+%
+% * ERROR: A semantic error occurred while decoding the graph.The dominance children h12 and h15 of the root h3 are not hypernormally connected with each other.
+% Die müssten beide in h6, aber es gibt nur einen Platz.
+
+Das Problem lässt sich lösen, indem man \relation{besitzen} der Restriktion zuordnet, die ohnehin schon zwei
+Variablen enthält. Das ist h4, denn affe(x) wird ja durch den Relativsatz mit schlafen(y)
+modifiziert. Die korrekte ungeskopte MRS mit den zusätzlichen Links für die Variablen x und y zeigt Abbildung~\ref{Abbildung dessen Kind}.
+\begin{figure}
+\begin{tikzpicture}[node distance=3.8cm,mrs]
+%\draw (-5,10) to[grid with coordinates] (5,-.5);
+
+\node(exists-q) at (1,6) {h1:exists\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+
+\node(affe) at (-2,4) {h4:affe(x), h4:schlafen(y), h4:besitzen(x,y)};
+
+\node(every-q)  at (-4,6){h5:def\_q(y, \subnode{h6}{h6}, \subnode{h7}{h7})};
+
+\node(kind)     at (-7,4){h8:kind(y)};
+
+\node(lachen)   at (3,4){h9:lachen(x)};
+
+\draw (h2) to (affe);
+\draw (h6) to (kind);
+\draw (h3) to (lachen);
+\draw (h7) to (affe);
+\end{tikzpicture}
+\caption{Korrekte MRS für \emph{Ein Affe, dessen Kind schläft, lacht.}}\label{Abbildung dessen Kind}
+\end{figure}
+Im Kapitel~\ref{Abschnitt-rs-sem-Analyse} wird die Analyse vorgestellt, die die korrekte MRS liefert. 
+
+Damit sind die schwierigen Themen Quantorenskopus und Unterspezifikation behandelt. Im kommenden
+Abschnitt werden alle Teile der kompositionalen Semantik zum Semantikprinzip zusammengestellt.
 
 \subsection{Das Semantikprinzip}
 \label{Abschnitt-Semantikprinzip}
@@ -1916,7 +2448,7 @@ head-dtr|cont|ltop & \ibox{1}\\
 \label{Beschränkung-Semantik-Kopf-Adjunkt-Strukturen2} 
 \type{head-adjunct-phrase} \impl\\
   \ms{ cont|ltop & \ibox{1}\\
-       non-head-dtrs & \liste{ \ms{ cont|ltop & \ibox{1} } }\\
+       non-head-dtrs & \sliste{ [cont|ltop \ibox{1} ] }\\
      }
 
 \zl 
@@ -1936,7 +2468,7 @@ hinzugekommenen Konstituenten als Adjunkttochter verwendet wird.
 Die entsprechende Beschränkung wurde im vorigen Abschnitt formuliert und sei der Vollständigkeit
 halber hier noch einmal wiederholt:
 \ea
-\label{ex-scopal-ltop2}
+\label{ex-scopal-ltop2}\label{Semantikprinzip-nicht-skopaleTochter-LTOP}
 \avm{
 [ non-head-dtrs < [ cat|head|scopal & minus ] > ]} \impl\\
 \hfill 
@@ -2193,7 +2725,7 @@ Dabei gibt es aber einige Probleme: Erstens muss man bei Annahme dieser Typen s�
 in Frage kommenden Dominanzschemata verdoppeln. Es muss intersektive und skopale
 Kopf"=Adjunkt"=Schemata geben. Zweitens sind immer beide Typen anwendbar, sobald es in der \relsl
 von \textsc{dtrs1} mindestens eine skopale Relation gibt und in der \hconsl mindestens eine
-\qeq-Relation. Das liegt daran, dass Handels und Labels alle immer miteinander kompatibel sind. Alle
+\qeq-Relation. Das liegt daran, dass Handles und Labels alle immer miteinander kompatibel sind. Alle
 sind vom Typ \type{handle} und können somit immer geteilt werden. Die
 entstehenden MRSen sind dann unter Umständen nicht wohlgeformt, aber man hätte wohl lieber eine
 Grammatik, die bei intersektiver Modfikation auch nur die Struktur für intersektive Modifikation
