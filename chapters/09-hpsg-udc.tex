@@ -233,8 +233,8 @@ nonloc & nonloc\\
 Der \nonlocw ist selbst noch weiter strukturiert:
 \ea
 \ms[nonloc]{
- que & \type{list~of~conts} \\
- rel & \type{list~of~conts} \\
+ que & \type{list~of~hooks} \\
+ rel & \type{list~of~hooks} \\
  slash & \type{list~of~local~structures} \\ %\\
  %extra & \ms[list~of~local~structures]{} \\
 }
@@ -346,19 +346,18 @@ Das Kopf"=Füller"=Schema lizenziert den obersten Knoten in Abbildung~\ref{abb-d
 \begin{schema}[Kopf"=Füller"=Schema]
 \label{hf-schemaa}\is{Schema!Kopf"=Füller"=}%
 \type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
-\ms{ 
-nonloc$|$slash &   \eliste\\
-head-dtr      & \onems{ loc$|$cat \onems{ head \ms[verb]{vform & fin\\
+\onems{ 
+nonloc$|$slash  \eliste\\
+dtrs \liste{ \onems{ loc \ibox{1}\\
+                                           nonloc$|$slash \liste{} \\
+                                 }, \onems{ loc$|$cat \onems{ head \ms[verb]{vform & fin\\
                                                                  initial & $+$\\
                                                                 }\\
                                                   comps \liste{}\\
                                                }\\
                              nonloc$|$slash   \sliste{ \ibox{1} }\\
-                        }\\
-non-head-dtrs & \liste{ \onems{ loc \ibox{1}\\
-                                           nonloc$|$slash \liste{} \\
-                                 }}\\
-   }
+                        }}\\
+}
 \end{schema}
 Dieses Schema kombiniert einen finiten Satz mit Verb in Verberststellung (\textsc{initial}+) und einem Element in \textsc{slash}
 mit einer Nicht-Kopf"|tochter, deren \textsc{local}"=Wert identisch mit diesem \textsc{slash}"=Element ist.
@@ -425,6 +424,7 @@ head-dtr$|$nonloc$|$slash \sliste{ \ibox{1} }\\
 non-head-dtrs             \sliste{ [ loc \ibox{1} ] }\\
    }
 \zs
+\itdopt{Anpassen}
 
 \noindent
 In\is{Spur!Extraktionsspur|(} (\ref{le-spur-acc-o-kennen}) wurde eine Spur für das Akkusativobjekt von \emph{kennen} angegeben.
@@ -432,8 +432,8 @@ Genau wie bei der Analyse der Verbbewegung ist es jedoch nicht nötig, verschied
 Eigenschaften im Lexikon zu haben. Ein allgemeiner Eintrag wie der in (\mex{1}) ist ausreichend:
 
 \eas
-\label{le-extraktionsspur}%
-Extraktionsspur: \\
+\label{le-Extraktionsspur}%
+Extraktionsspur (vorläufig): \\
 \onems[word]{
  phon   \phonliste{} \\
  loc    \ibox{1} \\
@@ -563,7 +563,86 @@ solche Sprachen und geben entsprechende Literaturverweise. Da in HPSG"=Analysen 
 weitergegeben wird, können alle Knoten in der Mitte einer Fernabhängigkeit auf die Elemente, die in
 Fernabhängigkeiten eine Rolle spielen, zugreifen.
 
+\section{MRS und Fernabhängigkeiten}
+\label{Abschnitt MRS und Fernabhängigkeiten}
 
+Es gibt ein grundlegendes Problem damit, dass die Relationen, die von Lexikonelementen beigetragen
+werden, innerhalb von \cont in einer Liste gesammelt werden. \cont ist Teil von \local und da der
+\localw zwischen Füller und Spur geteilt wird, bedeutet das, dass alle Relationen, die vom Füller
+beigetragen werden auch an der Stelle der Spur vorhanden sind. So sind in der Analyse von (\mex{1})
+alle Relationen von \emph{der Affe, der immer wieder für große Erheiterung sorgt} auch innerhalb der
+Spur im Mittelfeld präsent.
+\ea
+{}[Der Affe, der immer wieder für große Erheiterung sorgt,]$_i$ hüpft \_$_i$ von Ast zu Ast.
+\z
+Also auch die Relation für \emph{Erheiterung}. Im Kapitel~\ref{Kapitel-Lokalität} werden Bemühungen
+besprochen, die Information, auf die man zugreifen kann, lokal zu halten. Die hier besprochene
+Verfügbarkeit von semantischer Information widerspricht diesem Bestreben fundamental. Außerdem
+würden die Relationen auch von der Spur eingesammelt und nach oben gereicht, so dass sie in der
+Repräsentation für die Bedeutung des gesamten Satzes doppelt enthalten wären. Das würde dazu führen,
+dass man Quantoren, die sich auf dieselbe Variable beziehen, doppelt hätte.
+
+Das Ergebnis dieser Überlegungen ist, dass \rels und \hcons außerhalb der in Fernabhängigkeiten
+geteilten Information repräsentiert werden müssen, so dass sie zwischen Spur und Füller nicht
+geteilt werden. Was dann in \cont verbleibt ist der \ltopw und der Index. Das entspricht genau dem,
+was \citet[\page 305, 307]{CFPS2005a} als Wert von \textsc{hook} annehmen. Entlang der Kopfpfade
+werden also unter \cont der Index projiziert, das \ltop\hyp Label kann von einem Adjunkt kommen,
+wenn es ein skopendes Adjunkt ist. \rels und \hcons werden einfach immer von allen Töchtern eingesammelt.
+
+Die entsprechend angepasste Extraktionsspur zeigt (\mex{1}):
+\eas
+\label{le-Extraktionsspur2}%
+Extraktionsspur: \\
+\onems[word]{
+ phon   \phonliste{} \\
+ loc    \ibox{1} \\
+ nonloc$|$slash  \sliste{ \ibox{1} } \\ 
+ rels \eliste\\
+ hcons \eliste\\
+}
+\zs
+Man muss einfach sagen, dass die Spur weder Relationen noch Skopusbeschränkungen
+beiträgt.\footnote{%
+Interessanterweise tritt dieses Problem bei Ansätzen ohne Spuren nicht auf. Das liegt daran, dass
+die Information über Argumente verwendet wird, um Fernabhängigkeiten einzuführen, aber die
+Relationen im \contw der Argumente bleiben für die Berechnung des semantischen Beitrags von Phrasen
+unberücksichtigt. Zu spurenlosen Ansätzen siehe Abschnitt~\ref{Abschnitt-Argumentrealisierungsprinzip-BMS}.}
+Das Gleiche gilt für die Verbspur aus Kapitel~\ref{Abschnitt-V1} von Seite~\pageref{le-verbspur}.
+
+Die angepasste Lexikonregel zeigt (\mex{1}):
+\eas
+\label{lr-verb-movement3}%
+Regel für Verb in Erststellung (mit semantischem Beitrag, vorläufig):\\
+\type{verb-initial-rule} \impl\\
+\ms{
+loc & \ms{ cat & \ms{ head & \ms[verb]{ vform & fin\\
+                                      initial & $+$\\
+                                      dsl     & none }\\
+                    comps & \sliste{ \onems{ loc \ms{ cat & \onems{ head|dsl \ibox{1}\\
+                                                                    comps \eliste }\\
+                                                      cont & \ibox{2}}\\
+                                              }}\\
+                  }\\
+            cont & \ibox{2}}\\
+dtrs & \liste{ \ms{
+               loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
+                                                           initial & $-$\\
+                                                         }\\
+                                 }}}\\
+}
+\zs
+Da die Regel eine normale Phrase ist, werden \rels und \hcons von den Töchtern zusammengesammelt
+(siehe S.\,\pageref{constraint-RELS}). Da es nur eine Tochter gibt, ist die \relsl und die \hconsl der Mutter mit der
+der Tochter identisch, entspricht also dem Verb in Letztstellung. \rels und \hcons werden nicht über \dsl bei der Verbspur verfügbar
+gemacht. Es reicht, wenn die Ereignisvariable des Verbs und das entsprechende Handle (\ltop) an der Spur
+vorhanden sind. Im Zusammenbau der Projektion der Verbspur kann sich das \ltop ändern, wenn ein
+skopales Adjunkt hinzugefügt wird (siehe Abbildung~\ref{verb-movement-adjunkt-sem} auf
+S.\,\pageref{verb-movement-adjunkt-sem}). Deshalb wird der \contw des Verbs in Erststellung von der
+Projektion der Verbspur übernommen. Nach der Modifikation der Merkmalsgeometrie besteht der \contw
+ja nur noch aus \textsc{index} und \ltop.
+
+Im folgenden Anhang zeige ich noch, wie sich der Satztyp bestimmen lässt. Dazu muss die
+Verberstregel noch einmal geändert werden.
 
 \section{Anhang 1: Der semantische Beitrag von V1- bzw. V2-Sätzen}
 \label{sec-semantik-v1-v2}
@@ -635,64 +714,64 @@ Die Verberstlexikonregel von Seite~\pageref{lr-verb-movement2} muss entsprechend
 Die neue Version in (\mex{1}) bettet den semantischen Beitrag der Projektion der Verbspur \iboxb{2}
 unter eine zusätzliche Relation ein.
 \eas
-\label{lr-verb-movement3}
-Lexikonregel\is{Lexikonregel!Verberststellung} für Verb in Erststellung:\\
-\begin{tabular}[t]{@{}l@{}}
+\label{lr-verb-movement4}%
+Regel für Verb in Erststellung (mit Satztypinformation):\\
+\type{verb-initial-rule} \impl\\
 \ms{
-loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
-                                             initial & $-$\\
-                                          }\\
-                  }\\
-} $\mapsto$\\*
-\onems{
-loc \onems{ cat  \ms{ head & \ms[verb]{ vform & fin\\
-                                        initial & $+$\\
-                                        dsl     & none\\
-                                      }\\
-                           comps & \sliste{ \onems{ loc \onems{ cat \onems{ head \ms[verb]{
-                                                                             dsl & \ibox{1}\\
-                                                                             }\\
-                                                                      comps \eliste\\
-                                                                    }\\
-                                                           cont \ibox{2}\\
-                                                         }\\
+loc & \ms{ cat & \ms{ head & \ms[verb]{ vform & fin\\
+                                      initial & $+$\\
+                                      dsl     & none }\\
+                    comps & \sliste{ \onems{ loc \ms{ cat & \onems{ head|dsl \ibox{1}\\
+                                                                    comps \eliste }\\
+                                                      cont & \ms{ ind & \ibox{2}\\
+                                                                  ltop & \ibox{3}}}
                                               }}\\
-                         }\\
-                   cont \ms{
-                        soa-rel & \ibox{2}\\
-                        }\\
-             }\\
+                  }}\\
+c-cont & \ms{ ind  & \ibox{2}\\ 
+              ltop & \ibox{4}\\
+%              key  & 
+              rels & \liste{ \ms{ lbl  & \ibox{4} \\
+                                  arg1 & \ibox{5}}}\\[3mm]
+              hcons & \liste{ \ms[qeq]{
+                              harg & \ibox{5}\\
+                              ltop & \ibox{3} }}}\\
+dtrs & \liste{ \ms{
+               loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
+                                                           initial & $-$\\
+                                                         }\\
+                                 }}}\\
 }
-\end{tabular}
 \zs
-Der genaue Typ der Relation ist jedoch unterspezifiziert und wird in Abhängigkeit vom
+Über den konstruktionellen Beitrag (\ccont) wird die Satztyp"=Relation in die \relsl der Mutter
+eingefügt. Der genaue Typ der Relation ist jedoch unterspezifiziert und in (\mex{0}) nicht
+angegeben. Allerdings ist festgelegt, dass das Argument der Satztyp"=Relation \iboxb{5} den \ltopw
+der Projektion der Verbspur im Skopus hat (\ibox{5} \qeq \ibox{3}). Das Label der Satztyp"=Relation
+\iboxb{4} ist auch der \ltopw in \ccont und somit der \ltopw der Mutter.
+
+Welcher Satztyp vorliegt wird in Abhängigkeit vom
 \slashw der Projektion der Verbspur festgelegt. Das wird durch die folgenden Implikationen geregelt:
 
 \eas
-Verberstsätze:\istype{verb-initial-lr}\\
-\onems[verb-initial-lr]{
+Verberstsätze:\istype{verb-initial-rule}\\
+\onems[verb-initial-rule]{
 loc$|$cat$|$comps \sliste{ [ nonloc$|$slash \eliste ] }\\
 } \impl\\
-\ms{
-loc$|$cont \type{conditional\_or\_imperative\_or\_interrogative}\\
+\hfill\ms{
+rels & \nliste{ \type{conditional\_or\_imperative\_or\_interrogative} }\\
 }
 \zs
 
 \eas
 \label{impl-v2}%
-Verbzweitsätze:\istype{verb-initial-lr}\\
-\onems[verb-initial-lr]{
+Verbzweitsätze:\istype{verb-initial-rule}\\
+\onems[verb-initial-rule]{
 loc$|$cat$|$comps \sliste{ [ nonloc$|$slash \sliste{ [ ] } ] }\\
 } \impl\\
-\ms{
-loc$|$cont \type{assertion\_or\_imperative\_or\_interrogative}\\
+\hfill\ms{
+rels & \nliste{ \type{assertion\_or\_imperative\_or\_interrogative} }\\
 }
 \zs
-(\mex{-1}) und (\mex{0}) beziehen sich auf den Typ der Lexikonregel (\type{verb-initial-lr}).
-Dieser ist in (\ref{lr-verb-movement3}) nicht sichtbar, aber in Kapitel~\ref{sec-lr}
-auf Seite~\pageref{pageref-lr-mit-dtr} wurde erklärt, dass die Notation in (\ref{lr-verb-movement3})
-als Variante einer Lexikonregel gesehen werden kann, die durch eine typisierte Merkmalstruktur
-modelliert wird. \type{verb-initial-lr} ist dann der Typ der entsprechenden Struktur.
+(\mex{-1}) und (\mex{0}) beziehen sich auf den Typ der Verberstregel (\type{verb-initial-rule}).
 Die Implikationen in (\mex{-1}) und (\mex{0}) unterscheiden sich im Hinblick auf den \slashw
 des Elements in der \compsl. Ist dieser die leere Liste, so kann das Verb nur in der ersten
 Position realisiert werden.\footnote{
@@ -716,11 +795,12 @@ Die dritte Möglichkeit wurde von
   \slashw für das \emph{es} in der Valenzliste mit dem \localw geteilt wird, so dass eine Extraktion
   des \emph{es} die einzige Möglichkeit ist. Die germanischen Sprachen unterscheiden sich darin, ob
   diese Expletivpronomina ins Vorfeld gestellt werden müssen oder ob sie auch in Subjektspositionen
-  vorkommen können. Zu den Details siehe \citew[Kapitel~8]{MuellerGermanic}.
+  vorkommen können. Die letzte Möglichkeit ist mit der hier vorgestellten Satztypbestimmung
+  kompatibel. Zu den Details siehe \citew[Kapitel~8]{MuellerGermanic}.
 }
 Der semantische Beitrag muss also vom Typ \type{conditional}, \type{imperative}
 oder \type{interrogative} sein. Der Typ \type{conditional\_or\_imperative\_or\_interrogative} ist
-ein Obertyp dieser drei Typen, und man muss weiter Information wie zum Beispiel Information über
+ein Obertyp dieser drei Typen, und man muss weitere Information wie zum Beispiel Information über
 die Flexion\is{Flexion} des Verbs (Imperativ oder nicht, Verknüpfung mit anderen Sätzen, Intonation\is{Intonation}) heranziehen,
 um den genauen Typ der Relation zu bestimmen.
 
@@ -736,8 +816,62 @@ lässt sich nur unter Bezug auf die Intonation bestimmen:
 \ex Peter kommt morgen.
 \zl
 
-\noindent
-Der aufmerksame Leser wird sich fragen, wie man den korrekten Bedeutungsbeitrag für die Sätze in
+Abbildung~\ref{Verbbewegung-Adjunkt-sem-Satztyp} zeigt die Analyse mit Projektion der
+\rels"=Information vom Verb in Initialstellung und dem semantischen Beitrag für den Satztyp.
+\begin{figure}
+\oneline{%
+\begin{forest}
+sm edges, for tree={l sep+=2\baselineskip}
+[V\onems{cont|ltop \subnode{ltop5}{\ibox{1}} \type{h4}\\
+         rels \nliste{ h4:imp\_int(h5), \ldots, h2:n(h3), h1:k(j, r) }\\
+         hcons \nliste{ h5 \qeq h2, \ldots, h3 \qeq h1 }}, baseline
+	[V\onems{cont|ltop \subnode{ltop4}{\ibox{1}} \type{h4}\\
+                 comps \sliste{ \ibox{2} dsl|cont \subnode{dsl0}{\ibox{3}} }\\
+                 rels  \nliste{ h4:imp\_int(h5) }\\
+                 hcons \nliste{ h5 \qeq h2 }}
+		[V\ms{cont  \subnode{c1}{\ibox{3}} \ltop \type{h1}\\
+                      rels  \nliste{ h1:k(j, r) }\\
+                      hcons \eliste}, tier=np,edge label={node[midway,right]{V1-R}}
+			[kennt$_j$]]]
+	[\ibox{2} V\ms{dsl|cont \subnode{dsl1}{\ibox{3}}\\
+                       cont|ltop \subnode{ltop3}{\ibox{1}} \type{h2}\\
+                       rels  \nliste{ \ldots, h2:n(h3), h1:k(j, r) }\\
+                       hcons \nliste{ \ldots, h3 \qeq h1 }}
+		[NP{[\textit{nom}]}, tier=np
+			[jemand]]
+		[V\ms{dsl|cont \subnode{dsl2}{\ibox{3}},\\
+                      cont|ltop \subnode{ltop2}{\ibox{1}} \type{h2}\\
+                      rels  \nliste{ \ldots, h2:n(h3), h1:k(j, r) }\\
+                      hcons \nliste{ \ldots, h3 \qeq h1 }}, s sep+=2em
+			[NP{[\textit{acc}]}%,fit=band
+				[den Roman, roof]]
+                        [V\onems{dsl|cont \subnode{dsl3}{\ibox{3}},\\
+                                 cont  \subnode{cont-trace}{\ibox{3}} \ltop \subnode{ltop1}{\ibox{1}} \type{h2}\\
+                                 rels  \nliste{ h2:n(h3), h1:k(j, r) }\\
+                                 hcons \nliste{ h3 \qeq h1 } }
+                          [Adv\onems{cont|ltop  \subnode{ltop1}{\ibox{1}} \type{h2}\\
+                                     rels  \nliste{ h2:n(h3) }\\
+                                     hcons \nliste{ h3 \qeq h1 } }
+                             [nicht]]
+			  [V\onems{dsl|cont \subnode{dsl3}{\ibox{3}},\\
+                                   cont \subnode{cont-trace}{\ibox{3}} ltop \type{h1}\\
+                                   rels \nliste{ h1:k(j, r) }\\
+                                   hcons \eliste }
+				[\trace$_j$]]]]]]
+\end{forest}}
+\caption{\label{Verbbewegung-Adjunkt-sem-Satztyp}Veranschaulichung semantischer Aspekte der Analyse
+  von \emph{Kennt jemand den Roman nicht?} inklusive Satztyp}
+\end{figure}
+Eine ähnliche Abbildung ohne Satztyp"=Information wurde schon auf
+S.\,\pageref{verb-movement-adjunkt-sem} besprochen. Die Abbildung hier unterscheidet sich von der
+aus Kapitel~\ref{Abschnitt-V1} in der Repräsentation von \rels und \hcons und in der zusätzlichen Information
+bzgl.\ Satztyp. Wie man sieht, ist der oberste \ltopw in Abbildung~\ref{Verbbewegung-Adjunkt-sem-Satztyp} h4, das Handle der Satztyp"=Relation. h5, das Argument der Satztyp"=Relation ist \qeq zu h2, dem
+Handle der Negation. Die Negation hat das Argument h3, das \qeq zu h1, dem Handle von \emph{kennen}
+ist. Es ist also alles bestens verbunden. Wenn h4 das oberste Handle der gesamten MRS ist, ist klar,
+dass Quantoren unterhalb der Satztyp"=Relation skopen müssen.
+\itdopt{zeige MRS}
+
+Die aufmerksame Leser*in wird sich fragen, wie man den korrekten Bedeutungsbeitrag für die Sätze in
 (\ref{bsp-hat-er-gegessen}) bekommt. Die Analyse des Fragesatzes ist einfach: Das optionale Argument
 von \emph{essen} wird nicht realisiert. In (\ref{bsp-hat-er-gegessen}a) liegt ein ganz normaler Verberstsatz
 vor. Da es sich nicht um einen Konditionalsatz handelt, da keine Imperativmorphologie vorliegt
@@ -749,7 +883,7 @@ in Erststellung. Deshalb sind die Bedingungen der Beschränkung in \pref{impl-v2
 der semantische Beitrag muss demzufolge \type{assertion\_or\_imperative\_or\_in\-ter\-rog\-a\-tive} sein.
 Da weder Imperativmorphologie noch Frageintonation vorliegt, ist nur die Relation \type{assertion}
 angebracht. Das Element in \slasch wird dann entweder durch ein spezielles Dominanzschema für
-die Vorfeldellipse abgebunden \citep{Mueller2004e} oder ein leeres Element im Vorfeld fungiert als Füller in einer 
+die Vorfeldellipse abgebunden \citep{Mueller2004e,VMY2024a} oder ein leeres Element im Vorfeld fungiert als Füller in einer 
 Füller"=Kopf"=Struktur.
 \is{Satztyp|)} 
 
@@ -900,7 +1034,7 @@ eine Syntax, in der nur die Reihenfolge sichtbarer Elemente eine Rolle spielt un
 abstrakte syntaktische Objekte wie \zb leere funktionale Köpfe nicht vorkommen (S.\,89).
 
 
-\citet{Kathol2001a} definiert die Satztypen mit Bezug auf die Domänenelemente.
+\citet[\page 58, 60]{Kathol2001a} definiert die Satztypen mit Bezug auf die Domänenelemente.
 Er nimmt an, dass alle Satztypen Untertypen der folgenden drei Typen sind:
 \eal
 \label{clause-types}
@@ -928,7 +1062,16 @@ Die Beschränkung für den ersten Typ besagt, dass das finite Verb an erster Ste
 die für den zweiten Typ sagt, dass es ein Element im Feld \type{1} geben muss und dass das
 finite Verb unmittelbar anschließend im Feld \type{2} steht. Für Sätze vom Typ
 \type{subord-clause} muss gelten, dass im Feld \type{2} (der linken Satzklammer) kein finites
-Verb steht. Das finite Verb muss in solchen Sätzen also in einem anderen Feld stehen. Da das
+Verb steht.\footnote{%
+  \citet[\page 60]{Kathol2001a} ordnet das \emph{w}"=Wort in (i) in die linke Satzklammer ein.
+\ea
+was Hugo liest
+\z
+Relativsätze und Interrogativnebensätze sind meiner Meinung nach parallel zu V2"=Sätzen zu
+analysieren (siehe S.\,\pageref{Seite-Relativsätze-Interrogativnebensätze}). Eine extrahierte Phrase
+wird gefolgt von einem Satz, in dem sie fehlt. Die extrahierte Phrase steht im Vorfeld. In
+V2"=Sätzen genauso wie in Verbletztsätzen.
+} Das finite Verb muss in solchen Sätzen also in einem anderen Feld stehen. Da das
 finite Verb aber nur in einer der beiden Satzklammern stehen kann, bleibt nur die rechte Satzklammer
 -- also das Feld~\type{4} -- übrig.
 
@@ -968,7 +1111,7 @@ where={> O_={tier}{max}}{l*=1.5}{},
 \draw (polar.south) -- (r-pol-int.north);
 \draw (decl.south) -- (r-decl.north);
 \end{forest}
-\caption{\label{fig-clausal-types}Satztypen nach \citew{Kathol2001a}}
+\caption{\label{fig-clausal-types}Satztypen nach \citew[\page 62]{Kathol2001a}}
 \end{figure}
 \itdopt{Überschneidungen vermeiden.}
 Die Boxen stehen hier für sogenannte Partitionen\is{Partition}, \dash, linguistische Objekte müssen
@@ -1173,7 +1316,7 @@ gegenüber der linearisierungsbasierten Analyse der Vorzug zu geben.%
 
 
 \subsection{Lexikalische Einführung von Fernabhängigkeiten}
-\label{sec-lex-intro-udc}
+\label{sec-lex-intro-udc}\label{Abschnitt-Argumentrealisierungsprinzip-BMS}
 
 \mbox{}\citet*{BMS2001a}\is{Extraktion|(} entwickeln eine Analyse der Fernabhängigkeiten, bei der
 die Information über die Fernabhängigkeit im Lexikon eingeführt wird. Es gibt
@@ -1191,7 +1334,7 @@ Von dieser Liste gibt es schließlich eine Abbildung auf die \textsc{subj}\isfea
 \textsc{comps}\isfeat{comps}"=Liste. \subj entspricht dem im vorliegenden Buch verwendeten \sprm.
 
 \eas
-Argument Realization \citep*[\page 12]{BMS2001a}\\
+Argumentrealisierungsprinzip \citep*[\page 12]{BMS2001a}\\
 \type{word} \impl \ms{
 subj  & \ibox{1} \\
 comps & \ibox{2} $\ominus$ list\textup{(}`gap-ss'\textup{ )}\\
@@ -1287,7 +1430,7 @@ werden ausgelassen.
 %% von Kathol, der einfach auf"|tretende Muster klassifiziert.
 
 Darüber hinaus gibt es das Problem, dass man normalerweise davon ausgeht, dass Elemente in Valenzlisten
-Objekte vom Typ \type{synsem} sind (siehe Kapitel~\ref{Kapitel-lokalitaet} zur Lokalität der Selektion)
+Objekte vom Typ \type{synsem} sind (siehe Kapitel~\ref{Kapitel-Lokalität} zur Lokalität der Selektion)
 und dass deshalb im Lexikon phonologische Information abhängiger Elemente nicht zur Verfügung steht,
 da \phon nicht Teil der in \type{synsem}"=Objekten enthaltenen Information ist. Man kann also nicht
 erkennen, ob ein unbetonbares Pronomen\is{Pronomen!Linearisierung} vor dem zu extrahierenden Element steht oder nicht, was für

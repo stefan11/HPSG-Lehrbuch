@@ -96,8 +96,6 @@
 
 \usepackage{soul}
 
-%\usepackage{./styles/mycommands}% \spacebr
-
 
 \usepackage{langsci-gb4e}
 
@@ -322,4 +320,11 @@ Figure~\ref{#1}\vpageref[]{#1} and Figure~\ref{#2} \vpageref{#2}}}%
 
 
 % \xspace funktioniert nicht mit \comps \ibox
-\usepackage{my-xspace}
+% remove loading xspace from langscibook.cls
+%\usepackage{my-xspace}
+
+%\xspace funktioniert nicht mit \comps \ibox
+% nur wenn \mbox{} in \ibox zu Beginn aufgerufen wird.
+% is loaded in langscibook.cls
+%\usepackage{xspace}
+\xspaceaddexceptions{\ind \hyp " \ |}
