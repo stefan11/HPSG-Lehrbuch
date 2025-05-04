@@ -1,6 +1,6 @@
 
 % feature hiding and ordering
-hidden_feat(dtrs).          % hide the dtrs attribute (shown by tree)
+% hidden_feat(dtrs).          % hide the dtrs attribute (shown by tree)
 %hidden_feat(head_dtr).      % hide the dtrs attribute (shown by tree)
 %hidden_feat(non_head_dtrs). % hide the dtrs attribute (shown by tree)
 
@@ -10,7 +10,8 @@ phon   <<< head.
 head   <<< spr.
 spr    <<< comps.
 comps  <<< head_dtr.
-
+head_dtr <<< non_head_dtrs.
+non_head_dtrs <<< dtrs.
 
 % use ghostview for drawing signatures
 % für Linux

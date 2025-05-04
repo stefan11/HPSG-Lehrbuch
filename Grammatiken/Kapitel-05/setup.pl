@@ -12,6 +12,9 @@ hidden_feat(non_head_dtrs). % hide the dtrs attribute (shown by tree)
 head   <<< spr.
 spr    <<< comps.
 comps  <<< arg_st.
+comps  <<< head_dtr.
+head_dtr <<< non_head_dtrs.
+non_head_dtrs <<< dtrs.
 
 %gtop <<< ltop.
 ltop <<< ind.

@@ -64,6 +64,10 @@ signature(signature).
 examples(['  Der Affe schläft.',
           '  der Affe das Kind kennt',
           '  der Affe an das Kind denkt',
+          '  Ihm graut.',
+          '  die Tochter des Mannes',
+          '  der kleine Affe',
+          '  der Tofu in der Speisekammer',
           '* Affe schläft.',
           '* Der Affe kennt.']).
 

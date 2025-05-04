@@ -62,9 +62,7 @@ examples(['  Der Affe schläft.',
           '  der Affe wahrscheinlich schläft.',
           '  der Affe das Kind kennt',
           '  der Affe an das Kind denkt',
-          '  Jede Tochter eines Mitarbeiters schläft.',
-          '* Affe schläft.',
-          '* Der Affe kennt.']).
+          '  Jede Tochter eines Mitarbeiters schläft.']).
 
 
 
