@@ -92,8 +92,11 @@ headed_phrase *>
    (loc:cont:ind:Ind,
     head_dtr:loc:cont:ind:Ind).
 
-% head_complement_phrase, head_specifier_phrase
-head_non_adjunct_phrase *>
+head_complement_phrase *>
+   (loc:cont:ltop:LTop,
+    head_dtr:loc:cont:ltop:LTop).
+
+head_specifier_phrase *>
    (loc:cont:ltop:LTop,
     head_dtr:loc:cont:ltop:LTop).
 
@@ -140,36 +143,12 @@ verb_initial_rule *>
               phrase:minus)]).
 
 
-% [einen Mann _i] und schläft kann koordiniert werden.
-% dabei muss "einen Mann" irgendwo in der COMPS-Liste von _i auftreten.
-% Bei der Koordination wird die COMPS-Liste von [einen Mann _i] mit der von schläft identifiziert.
-% Damit ist die COMPS-Liste der Spur < NP[nom], NP[acc] > und die zweite NP durch "einen Mann" realisiert.
-% Die Spur hat diese Info auch in DSL. Weil schläft aber als Verbletztverb noch einen offenen DSL-Wert hat,
-% kann es mit [ein Mannen _i] koordiniert werden. Das Ergebnis ist eine Projektion mit einer einstelligen
-% Valenz und einem zweistelligen DSL-Wert. Diese kann nie verwendet werden, denn entweder ist das Verb hinten
-% overt, dann passt der DSL-Wert nicht, oder die Spur identifiziert LOC mit DSL. Dann wird auch in
-% [ein Mann _i] und schläft der LOC-Wert mit DSL identifiziert, was aber nicht möglich ist, weil DSL zweistellig,
-% die koordinierte Phrase aber einstellig ist.
-
-%[V1 [coord_phrase [ X [ und Y]]
-
-% Schließt auch
-% Den Roman kennt und schläft er
-% aus, wenn Verbletztverben DSL none sind.
-
-(verb_initial_rule,
- dtrs:[coord_phrase]) *> dtrs:hd:dtrs:[phrase:minus,              % X
-                                       dtrs:tl:hd:phrase:minus].  % Y
-
-/*
-% alt für zyklische Verbspur.
 % * Er schläft schläft.
 %
 (headed_phrase,
  head_dtr:(word,
            phon:ne_list)) *> head_dtr:loc:cat:head:dsl:none.
 
-*/
 
 % Da coord_phrase nicht Untertyp von headed_phrase ist,
 % ist der PHRASE-Wert unterspezifiziert.

@@ -84,6 +84,8 @@ einhorn ---> @noun(nom_or_dat_or_acc,neu,sg,einhorn_rel).
 
 einhorns ---> @noun(gen,neu,sg,einhorn_rel).
 
+film ---> @noun(nom_or_dat_or_acc,mas,sg,film_rel).
+
 frau ---> @noun(case,fem,sg,frau_rel).
 
 kind   ---> @noun(nom_or_dat_or_acc,neu,sg,kind_rel).
@@ -138,6 +140,8 @@ lacht   ---> @intrans_verb(lachen_rel).
 
 schläft ---> @intrans_verb(schlafen_rel).
 
+spielt  ---> @intrans_verb(spielen_rel).
+
 graut   ---> @subjlos_verb(dat,grauen_rel).
 
 
@@ -146,6 +150,8 @@ jagt  ---> @trans_verb(jagen_rel).
 kennt ---> @trans_verb(kennen_rel).
 
 liebt ---> @trans_verb(lieben_rel).
+
+nimmt ---> @trans_verb(nehmen_rel).
 
 
 gab   ---> @ditrans_verb(geben_rel).
@@ -177,7 +183,8 @@ oft ---> @isect_adv(oft_rel).
 
 dass ---> @complementizer(dass).
 
-
+/*
+% Die alte zyklische Verbspur. Im Prinzip bräuchte man nicht mal die Information darüber, dass es ein Verb und final ist.
 empty
    (trace,
     loc:(Loc,
@@ -186,6 +193,21 @@ empty
                    dsl:Loc)),
     nonloc:slash:[],
     trace:vm).
+*/
+
+empty
+   (trace,
+    loc:(cat:(head:(verb,
+                    initial:minus,
+                    dsl:(cat:(spr:Spr,
+                              comps:Comps),
+                         cont:Cont)),
+              spr:Spr,
+              comps:Comps),
+         cont:Cont),
+    nonloc:slash:[],
+    trace:vm).
+
 
 empty 
    (trace,

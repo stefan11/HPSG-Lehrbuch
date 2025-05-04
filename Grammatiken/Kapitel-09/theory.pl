@@ -50,6 +50,9 @@ signature(signature).
 % load lexical items and grammar rules for coordination
 :- [coordination].
 
+% Nur zum Spielen noch da.
+%:- ['old-constraints-head-movement'].
+
 % load some constraints that are not linguistically necessary,
 % but good for performance/termination
 :- [speed].

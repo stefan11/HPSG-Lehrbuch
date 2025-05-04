@@ -90,10 +90,8 @@ headed_phrase *>
 */
 
 headed_phrase *>
-   (loc:cont:(ind:Ind,
-              key:Key),
-    head_dtr:loc:cont:(ind:Ind,
-                       key:Key)).
+   (loc:cont:ind:Ind,
+    head_dtr:loc:cont:ind:Ind).
 
 % head_complement_phrase, head_specifier_phrase, head_filler_phrase
 head_non_adjunct_phrase *>
@@ -124,24 +122,16 @@ head_adjunct_phrase *>
 % Siehe auch coordination.pl.
 verb_initial_rule *>
 ( %complementizer_like_sign
+  %phrase
   loc:(cat:(head:(verb,
-                 vform:fin),
+                  vform:fin),
             spr:[],
             comps:[loc:(cat:head:dsl:Loc,
                         cont:(ind:Ind,
-                              ltop:VLbl))]),
+                              ltop:LTop))]),
        cont:(ind:Ind,
-             ltop:ALbl,
-             key:Key)),
+             ltop:LTop)),
   nonloc:Nonloc,
-  rels:[(% assertion_or_conditional_or_imperative_or_interrogative,
-         Key,
-         lbl:ALbl,
-%         arg0:Ind,
-         arg1:ArgLbl)|Rels],
-  hcons:[(qeq,
-          harg:ArgLbl,
-          larg:VLbl)|HCons],
   dtrs:[(loc:(Loc,
               cat:head:(verb,
                         vform:fin,
@@ -149,9 +139,7 @@ verb_initial_rule *>
          nonloc:Nonloc,
          trace:minus,
          % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
-         phrase:minus,
-         rels:Rels,
-         hcons:HCons)]).
+         phrase:minus)]).
 
 % [einen Mann _i] und schläft kann koordiniert werden.
 % dabei muss "einen Mann" irgendwo in der COMPS-Liste von _i auftreten.
@@ -170,12 +158,6 @@ verb_initial_rule *>
  dtrs:[coord_phrase]) *> dtrs:hd:dtrs:[phrase:minus,              % X
                                        dtrs:tl:hd:phrase:minus].  % Y
 
-
-% * Er schläft schläft.
-%
-(headed_phrase,
- head_dtr:(word,
-           phon:ne_list)) *> head_dtr:loc:cat:head:dsl:none.
 
 
 % Muss headed_phrase sein, weil Koordination von zwei lexikalischen Verben keine Phrase sein soll.
@@ -203,7 +185,7 @@ headed_phrase *> phrase:plus.
 
 
 (verb_initial_rule,
- loc:cat:comps:[nonloc:slash:[]])      *> rels:hd:imperative_or_interrogative.
+ loc:cat:comps:[nonloc:slash:[]])      *> loc:cont:ind:mode:imperative_or_interrogative.
 
 % Hier spielt das Element in SLASH eine entscheidende Rolle.
 % Ist es eine Interrogativphrase, muss ein entsprechender Operator angenommen
@@ -216,7 +198,7 @@ headed_phrase *> phrase:plus.
 % Alles außer Konditional: Kämest Du morgen, könnten wir ...
 %
 (verb_initial_rule,
- loc:cat:comps:[nonloc:slash:ne_list]) *> rels:hd:assertion_or_imperative_or_interrogative.
+ loc:cat:comps:[nonloc:slash:ne_list]) *> loc:cont:ind:mode:assertion_or_imperative_or_interrogative.
 
 
 
@@ -340,15 +322,15 @@ initial_fin_verb :=
 % interrogative
 interrog :=
  (@initial_fin_verb,
-  loc:cont:key:interrogative_rel).
+  loc:cont:ind:mode:interrogative).
 
 % assertion
 decl :=
  (@initial_fin_verb,
-  loc:cont:key:assertion_rel,
+  loc:cont:ind:mode:assertion,
   v2:plus).
 
 % imparative = v1 oder v2 mit Ausrufezeichen
 imp :=
  (@initial_fin_verb,
-  loc:cont:key:imperative_rel).
+  loc:cont:ind:mode:imperative).

@@ -15,14 +15,8 @@ none := none_or_sign & none_or_local.
 sign := none_or_sign & [
  phon list,
  loc  local,
- nonloc nonloc,
- v2     bool,
- rels  list,
- hcons list,
- trace minus_or_extraction_or_vm,
- lex    bool,
- phrase bool,
- max_   bool ].
+ trace minus_or_vm,
+ phrase bool ].
 
 list := bot.
 e_list := list.
@@ -33,7 +27,7 @@ ne_list := list & [
 none_or_local := bot.
 local := none_or_local & [
   cat  cat,
-  cont hook ].
+  cont mrs ].
 
 cat := bot & [
   head   head,
@@ -42,42 +36,37 @@ cat := bot & [
   arg_st list ].
 
 
-hook := bot & [
-;  gtop handle, not needed anymore
+mrs := bot & [
+  gtop handle,
   ltop handle,
-  ind  event_or_index ].
+  ind  event_or_index,
+  rels  list,
+  hcons list ].
 
+; phrases and the verb_initial_rule The principles of RELS and HCONS computation hold for phrases
+; but not for verb_initial_rule, since RELS and HCONS are threaded through the verb trace.
+phrase_or_phrasal_lex_rule := sign & [
+ dtrs          list ].
 
-phrase := sign & [
- dtrs list ].
+phrase := phrase_or_phrasal_lex_rule & [
+ non_head_dtrs list,
+ dtrs          list ].
 
 headed_phrase := phrase & [
   head_dtr sign ].
 
-
-; all phrases that have non-head-dtrs. The elements in head-dtr and non-head-dtr are not
-; (necessarily) ordered in surface order. Only dtrs are. So head-dtr and non-head-dtrs can be used
-; as pointers to daughters. In principle, there could be phrases without a head-dtr that have
-; unordered dtrs. But the only unheaded-phrases in the current grammar are relative clauses (rc),
-; verbinitial lexical rule-like unary projections and coordination rules.
-headed_flexible_order_phrase := headed_phrase & [
- non_head_dtrs list ].
-
-
-head_non_adjunct_phrase    := headed_phrase.
-head_non_complement_phrase := headed_phrase.
-head_non_filler_phrase     := headed_phrase.
 head_non_specifier_phrase  := headed_phrase.
+head_non_complement_phrase := headed_phrase.
 
-head_adjunct_phrase    := headed_flexible_order_phrase & head_non_complement_phrase & head_non_filler_phrase     & head_non_specifier_phrase.
-head_complement_phrase := headed_flexible_order_phrase & head_non_adjunct_phrase    & head_non_filler_phrase     & head_non_specifier_phrase.
-head_filler_phrase     := headed_flexible_order_phrase & head_non_adjunct_phrase    & head_non_complement_phrase & head_non_specifier_phrase.
-head_specifier_phrase  := headed_flexible_order_phrase & head_non_adjunct_phrase    & head_non_filler_phrase     & head_non_complement_phrase.
+head_specifier_phrase  := head_non_complement_phrase.
+head_complement_phrase := head_non_specifier_phrase.
+head_adjunct_phrase    := head_non_complement_phrase & head_non_specifier_phrase.
 
+non_headed_phrase := phrase.
 
-coord_phrase := phrase.
+coord_phrase := non_headed_phrase.
 
-verb_initial_rule := phrase & complementizer_like_sign.
+verb_initial_rule := phrase_or_phrasal_lex_rule & complementizer_like_sign.
 
 
 lexical_sign := sign.
@@ -105,10 +94,6 @@ arg0_ltop_lbl_le := arg0_le & ltop_lbl_le.
 
 word := lexical_sign.
 
-overt_sign := sign.
-overt_word := overt_sign & word.
-trace      := word & non_scopal_non_relational_le.
-
 spr_saturated_sign := sign.
 
 ; inheritance superflous since the empty specifier follows from an empty ARG-ST list.
@@ -118,16 +103,16 @@ relational_word  := word & ltop_lbl_le.
 
 relational_arg0_word := relational_word & arg0_ltop_lbl_le.
 
-determiner_word := saturated_word & overt_word.
+determiner_word := saturated_word.
 
 determiner := determiner_word.
 possessive := determiner_word.
 
-noun_word := overt_word.
+noun_word := word.
 
-pers_pronoun := saturated_word & noun_word & non_scopal_non_relational_le.
+pers_pronoun := saturated_word   & noun_word & non_scopal_non_relational_le.
 
-proper_noun  := saturated_word & noun_word.
+proper_noun  := saturated_word   & noun_word.
 
 
 ; noun with a determiner
@@ -139,7 +124,7 @@ simple_noun  := det_noun_word.
 ; noun with a determiner and a genitive NP.
 relational_noun := det_noun_word.
 
-verb_word    := relational_arg0_word & overt_word.
+verb_word    := relational_arg0_word.
 
 non_scopal_verb_word := verb_word & non_scopal_le.
 
@@ -163,7 +148,7 @@ ditrans_verb      := trans_verb.
 
 glauben_denken_verb := intrans_verb.
 
-preposition_word := overt_word & non_scopal_le.
+preposition_word := word & non_scopal_le.
 comp_preposition := preposition_word & transparent_non_scopal_non_relational_le.
 mod_preposition  := preposition_word & relational_word.
 
@@ -172,7 +157,7 @@ noun_mod_preposition := mod_preposition & isect_n_modifier_word.
 location_noun_mod_prep := noun_mod_preposition.
 
 
-n_modifier_word := n_modifier & relational_word & overt_word.
+n_modifier_word := n_modifier & relational_word.
 
 
 isect_n_modifier_word := isect_n_modifier_le & n_modifier_word.
@@ -205,7 +190,7 @@ isect_v_modifier_le := isect_modifier_le & v_modifier.
 ; Adverbien, Präpositionen
 v_modifier := sign.
 
-v_modifier_word := v_modifier & relational_word & overt_word.
+v_modifier_word := v_modifier & relational_word.
 
 scopal_modifier_le := ltop_lbl_le.
 
@@ -216,11 +201,11 @@ scopal_adv_word := scopal_v_modifier_le & adv_word.
 
 isect_adv_word := isect_v_modifier_le & adv_word.
 
-complementizer_like_sign := spr_saturated_sign & overt_sign.
+complementizer_like_sign := spr_saturated_sign.
 
-complementizer_word := complementizer_like_sign & transparent_non_scopal_non_relational_le & overt_word.
+complementizer_word := complementizer_like_sign & transparent_non_scopal_non_relational_le & word.
 
-conj_word := relational_arg0_word & overt_word.
+conj_word := relational_arg0_word & non_scopal_le.
 
 head := bot & [
    mod  none_or_sign,
@@ -305,7 +290,6 @@ affe_rel         := arg0_relation.
 beispiel_rel     := arg0_relation.
 buch_rel         := arg0_relation.
 einhorn_rel      := arg0_relation.
-film_rel         := arg0_relation.
 frau_rel         := arg0_relation.
 kind_rel         := arg0_relation.
 mann_rel         := arg0_relation.
@@ -316,6 +300,7 @@ speisekammer_rel := arg0_relation.
 stock_rel        := arg0_relation.
 tofu_rel         := arg0_relation.
 wurst_rel        := arg0_relation.
+
 
 named_rel := arg0_relation & [
   name string ].
@@ -328,7 +313,6 @@ quant_rel := arg0_relation & [
   rstr handle,
   body handle ].
 
-udef_q    := quant_rel.
 def_q     := quant_rel.
 every_q   := quant_rel.
 exists_q  := quant_rel.
@@ -373,16 +357,11 @@ wahrscheinlich_rel := arg1_relation.
 bellen_rel   := arg01_relation.
 lachen_rel   := arg01_relation.
 schlafen_rel := arg01_relation.
-spielen_rel  := arg01_relation.
 
 
 jagen_rel     := arg012_relation.
 kennen_rel    := arg012_relation.
-lesen_rel     := arg012_relation.
 lieben_rel    := arg012_relation.
-nehmen_rel    := arg012_relation.
-singen_rel    := arg012_relation.
-
 denken_an_rel := arg012_relation.
 glauben_rel   := arg012_relation.
 
@@ -399,41 +378,16 @@ tochter_rel := arg02_relation.
 
 
 conjunction_rel := arg0_relation & [
+  lhandle handle,
+  rhandle handle,
   lindex event_or_index,
   rindex event_or_index].
 
-conjunction_n_rel := conjunction_rel & [
-  arg0 index ].
-
-conjunction_v_rel := conjunction_rel & [
-  arg0 event,
-  lhandle handle,
-  rhandle handle].
-
 und_rel := conjunction_rel.
-
-und_n_rel := conjunction_n_rel & und_rel.
-und_v_rel := conjunction_v_rel & und_rel.
-
 
 event_or_index := bot.
 
-; Für Satztypen
-mode := bot.
-
-assertion_or_imperative_or_interrogative := mode.
-assertion_or_imperative     := assertion_or_imperative_or_interrogative.
-assertion_or_interrogative  := assertion_or_imperative_or_interrogative.      ; Flexion = ind_conj -> assertion_or_interrogative
-imperative_or_interrogative := assertion_or_imperative_or_interrogative.
-
-interrogative := assertion_or_interrogative  & imperative_or_interrogative.
-imperative    := imperative_or_interrogative & assertion_or_imperative.
-
-assertion  := assertion_or_imperative & assertion_or_interrogative.
-
-
-event := event_or_index  & [
-  mode mode ].
+event := event_or_index.
 
 index := event_or_index & intro_gen_num & [
   per per ].
@@ -444,9 +398,6 @@ qeq := bot & [
   harg handle,
   larg handle ].
 
-nonloc := bot & [
-;  rel   list,
-  slash list ].
 
 case := bot.
 
@@ -507,15 +458,9 @@ intro_gen_num := bot & [
 bool := bot.
 
 plus   := bool.
+minus  := bool & minus_or_vm.
 
-minus_or_extraction_or_vm := bot.
-
-extraction_or_minus := minus_or_extraction_or_vm.
-extraction_or_vm    := minus_or_extraction_or_vm.
-minus_or_vm         := minus_or_extraction_or_vm.
-
-extraction := extraction_or_minus & extraction_or_vm.
-minus      := extraction_or_minus & minus_or_vm          & bool.
-vm         := extraction_or_vm    & minus_or_vm.
+minus_or_vm := bot.
+vm := minus_or_vm.
 
 

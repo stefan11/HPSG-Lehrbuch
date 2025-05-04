@@ -67,7 +67,7 @@ affe   ---> @noun(nom_or_acc,mas,sg,affe_rel).
 
 affens ---> @noun(dat,mas,sg,affe_rel).
 
-affen  ---> @noun(dat_or_acc,mas,sg,affe_rel).
+affen  ---> @noun(dat,mas,sg,affe_rel).
 
 beispiel ---> @noun(nom_or_dat_or_acc,neu,sg,beispiel_rel).
 
@@ -78,6 +78,8 @@ buches ---> @noun(gen,neu,sg,buch_rel).
 einhorn ---> @noun(nom_or_dat_or_acc,neu,sg,einhorn_rel).
 
 einhorns ---> @noun(gen,neu,sg,einhorn_rel).
+
+film ---> @noun(nom_or_dat_or_acc,mas,sg,film_rel).
 
 frau ---> @noun(case,fem,sg,frau_rel).
 
@@ -133,6 +135,8 @@ lacht   ---> @intrans_verb(lachen_rel).
 
 schläft ---> @intrans_verb(schlafen_rel).
 
+spielt  ---> @intrans_verb(spielen_rel).
+
 graut   ---> @subjlos_verb(dat,grauen_rel).
 
 
@@ -151,7 +155,7 @@ gibt  ---> @ditrans_verb(geben_rel).
 denkt ---> @np_pp_verb(an_pform,acc,denken_an_rel).
 
 
-an ---> @comp_prep(an_pform,acc).
+an ---> @comp_prep(an_pform).
 
 in ---> @location_noun_mod_prep(in_rel).
 
@@ -172,6 +176,8 @@ oft ---> @isect_adv(oft_rel).
 
 dass ---> @complementizer(dass).
 
+/*
+% Die alte zyklische Verbspur. Im Prinzip bräuchte man nicht mal die Information darüber, dass es ein Verb und final ist.
 
 empty
    (word,
@@ -180,4 +186,19 @@ empty
          cat:head:(verb,
                    initial:minus,
                    dsl:Loc)),
+    trace:vm).
+
+*/
+
+empty
+   (word,
+    phon:[],
+    loc:(cat:(head:(verb,
+                    initial:minus,
+                    dsl:(cat:(spr:Spr,
+                              comps:Comps),
+                         cont:Cont)),
+              spr:Spr,
+              comps:Comps),
+         cont:Cont),
     trace:vm).

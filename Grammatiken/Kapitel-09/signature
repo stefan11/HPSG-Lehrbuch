@@ -8,42 +8,36 @@ bot
   string
   relation lbl:handle
     arg3_relation arg3:event_or_index
-      glbtype37
+      glbtype29
         arg023_relation
         arg0123_relation
           geben_rel
     arg2_relation arg2:event_or_index
-      glbtype38
+      glbtype30
         arg12_relation
           treu_rel
           in_rel
         arg012_relation
           &arg0123_relation
+          singen_rel
           poss_rel
+          nehmen_rel
           lieben_rel
+          lesen_rel
           kennen_rel
           jagen_rel
           glauben_rel
           denken_an_rel
       arg02_relation
-        &glbtype37
+        &glbtype29
         &arg012_relation
         tochter_rel
         grauen_rel
     arg1_relation arg1:event_or_index
-      &glbtype38
-      assertion_or_imperative_or_interrogative
-        imperative_or_interrogative
-          interrogative_rel
-          imperative_rel
-        assertion_or_interrogative
-          &interrogative_rel
-          assertion_rel
-        assertion_or_imperative
-          &imperative_rel
-          &assertion_rel
+      &glbtype30
       arg01_relation
         &arg012_relation
+        spielen_rel
         schlafen_rel
         lachen_rel
         bellen_rel
@@ -61,12 +55,21 @@ bot
     arg0_relation arg0:event_or_index
       &arg02_relation
       &arg01_relation
+      conjunction_rel lindex:event_or_index rindex:event_or_index
+        und_rel
+          und_v_rel
+          und_n_rel
+        conjunction_v_rel arg0:event lhandle:handle rhandle:handle
+          &und_v_rel
+        conjunction_n_rel arg0:index
+          &und_n_rel
       wurst_rel
       tofu_rel
       stock_rel
       speisekammer_rel
       roman_rel
       quant_rel rstr:handle body:handle
+        udef_q
         proper_q
         exists_q
         every_q
@@ -77,9 +80,8 @@ bot
       mann_rel
       kind_rel
       frau_rel
+      film_rel
       einhorn_rel
-      conjunction_rel lhandle:handle rhandle:handle lindex:event_or_index rindex:event_or_index
-        und_rel
       buch_rel
       beispiel_rel
       affe_rel
@@ -146,48 +148,47 @@ bot
           &glbtype19
           saturated_word
             &glbtype17
-      phrase_or_lexical_rule dtrs:list
+      phrase dtrs:list
         &verb_initial_rule
-        phrase
-          headed_phrase head_dtr:sign
-            headed_flexible_order_phrase non_head_dtrs:list
-              glbtype43
-                glbtype40
-                  head_complement_phrase
-                  head_adjunct_phrase
-                glbtype41
-                  head_filler_phrase
-                  &head_adjunct_phrase
-                glbtype42
-                  &head_complement_phrase
-                  &head_filler_phrase
-              glbtype46
-                &glbtype40
-                glbtype44
-                  head_specifier_phrase
-                  &head_adjunct_phrase
-                glbtype45
-                  &head_complement_phrase
-                  &head_specifier_phrase
-              glbtype48
-                &glbtype41
-                &glbtype44
-                glbtype47
-                  &head_filler_phrase
-                  &head_specifier_phrase
-              glbtype49
-                &glbtype42
-                &glbtype45
-                &glbtype47
-            head_non_specifier_phrase
-              &glbtype43
-            head_non_filler_phrase
-              &glbtype46
-            head_non_complement_phrase
-              &glbtype48
-            head_non_adjunct_phrase
-              &glbtype49
-          coord_phrase
+        headed_phrase head_dtr:sign
+          headed_flexible_order_phrase non_head_dtrs:list
+            glbtype43
+              glbtype40
+                head_complement_phrase
+                head_adjunct_phrase
+              glbtype41
+                head_filler_phrase
+                &head_adjunct_phrase
+              glbtype42
+                &head_complement_phrase
+                &head_filler_phrase
+            glbtype46
+              &glbtype40
+              glbtype44
+                head_specifier_phrase
+                &head_adjunct_phrase
+              glbtype45
+                &head_complement_phrase
+                &head_specifier_phrase
+            glbtype48
+              &glbtype41
+              &glbtype44
+              glbtype47
+                &head_filler_phrase
+                &head_specifier_phrase
+            glbtype49
+              &glbtype42
+              &glbtype45
+              &glbtype47
+          head_non_specifier_phrase
+            &glbtype43
+          head_non_filler_phrase
+            &glbtype46
+          head_non_complement_phrase
+            &glbtype48
+          head_non_adjunct_phrase
+            &glbtype49
+        coord_phrase
       overt_sign
         &glbtype20
         overt_word
@@ -197,7 +198,6 @@ bot
               &scopal_v_modifier_le
             glbtype12
               glbtype13
-                conj_word
                 det_noun_word
                   simple_noun
                   relational_noun
@@ -213,6 +213,7 @@ bot
                       strict_trans_verb
                       ditrans_verb
                   subjlos_verb
+              conj_word
               verb_word
                 intrans_verb
                   &non_scopal_intrans_verb
@@ -301,6 +302,17 @@ bot
   none_or_local
     &none
     local cat:cat cont:hook
+  mode
+    assertion_or_imperative_or_interrogative
+      imperative_or_interrogative
+        interrogative
+        imperative
+      assertion_or_interrogative
+        &interrogative
+        assertion
+      assertion_or_imperative
+        &imperative
+        &assertion
   minus_or_extraction_or_vm
     extraction_or_minus
       minus
@@ -317,33 +329,33 @@ bot
   intro_gen_num gen:genus num:num
     det
     index per:per
-  hook ltop:handle ind:event_or_index key:relation
+  hook ltop:handle ind:event_or_index
   head mod:none_or_sign spec:none_or_sign scopal:bool initial:bool dsl:none_or_local
     intro_case_head case:case
-      glbtype29
-        glbtype30
-          glbtype36
+      glbtype31
+        glbtype32
+          glbtype38
             comp_prep pform:pform
             noun
           attr_adj
-        glbtype31
-          &glbtype36
+        glbtype33
+          &glbtype38
           &det
     non_modifier_head mod:none
-      glbtype33
-        &glbtype31
-        glbtype35
-          &glbtype36
+      glbtype35
+        &glbtype33
+        glbtype37
+          &glbtype38
           comp cform:cform
         coord initial:plus
-      glbtype34
-        &glbtype35
+      glbtype36
+        &glbtype37
         verb vform:vform
     non_dsl_head dsl:none
-      &glbtype29
-      glbtype32
-        &glbtype30
-        &glbtype35
+      &glbtype31
+      glbtype34
+        &glbtype32
+        &glbtype37
         adj
           &attr_adj
         prep
@@ -354,10 +366,10 @@ bot
           pre_modifier_head pre_modifier:plus
             &attr_adj
           adv
-      &glbtype33
+      &glbtype35
     non_spec_head spec:none
-      &glbtype32
       &glbtype34
+      &glbtype36
       adj_or_verb
         &verb
         &adj
@@ -371,7 +383,7 @@ bot
     fem_or_mas
       &mas
       &fem
-  event_or_index
+  event_or_index mode:mode
     &index
     handle
     event

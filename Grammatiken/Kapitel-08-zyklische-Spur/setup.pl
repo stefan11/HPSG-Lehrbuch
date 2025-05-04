@@ -4,16 +4,9 @@
 hidden_feat(dtrs).          % hide the dtrs attribute (shown by tree)
 hidden_feat(head_dtr).      % hide the dtrs attribute (shown by tree)
 hidden_feat(non_head_dtrs). % hide the dtrs attribute (shown by tree)
-
-
-% Binäres Merkmal, das aus Effizenzgründen verwendet wird.
-% Sieht nicht gut aus in Demos ... =;-)
 hidden_feat(trace).
-hidden_feat(phrase).    % V1 ist eine unäre Projektion, keine Lexikonregel
-                        % Koordinationen von Wörtern dürfen Töchter sein, echte Phrasen nicht.
-                        % Da das Merkmal im Buch nicht eingeführt wurde, wird es nciht angezeigt.
+hidden_feat(phrase).
 
-hidden_feat(max_).
 
 
 >>> phon.        % phon shall be shown first
@@ -25,13 +18,11 @@ comps  <<< arg_st.
 
 %gtop <<< ltop.
 ltop <<< ind.
+ind  <<< rels.
+rels <<< hcons.
 
 arg0 <<< rstr.
 rstr <<< body.
-
-loc <<< nonloc.
-nonloc <<< rels.
-rels   <<< hcons.
 
 % use ghostview for drawing signatures
 % für Linux
@@ -77,17 +68,10 @@ graphviz_option(svg,'sleep 0.1; open').
 
 
 ind_path([loc,cont,ind]).
-% Just use h1 and add a qeq to the local top. This does not have any effect in Utool.
-% gtop_path(implicit).
-
-% Just print h1 and do not do anything else.
-gtop_path(none).
-
-ltop_path([loc,cont,ltop]).
-
+gtop_path([loc,cont,gtop]).
 cont_path([loc,cont]).
-liszt_path([rels]).
-hcons_path([hcons]).
+liszt_path([loc,cont,rels]).
+hcons_path([loc,cont,hcons]).
 
 outscoped_feat(larg).
 sc_arg_feat(harg).

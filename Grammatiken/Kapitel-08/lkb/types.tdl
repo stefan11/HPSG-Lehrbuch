@@ -43,6 +43,8 @@ mrs := bot & [
   rels  list,
   hcons list ].
 
+; phrases and the verb_initial_rule The principles of RELS and HCONS computation hold for phrases
+; but not for verb_initial_rule, since RELS and HCONS are threaded through the verb trace.
 phrase_or_phrasal_lex_rule := sign & [
  dtrs          list ].
 
@@ -60,19 +62,17 @@ headed_flexible_order_phrase := headed_phrase & [
  non_head_dtrs list ].
 
 
-headed_phrase := phrase & [
-  head_dtr sign ].
-
+head_non_adjunct_phrase    := headed_phrase.
 head_non_specifier_phrase  := headed_phrase.
 head_non_complement_phrase := headed_phrase.
 
-head_specifier_phrase  := headed_flexible_order_phrase & head_non_complement_phrase.
-head_complement_phrase := headed_flexible_order_phrase & head_non_specifier_phrase.
 head_adjunct_phrase    := headed_flexible_order_phrase & head_non_complement_phrase & head_non_specifier_phrase.
+head_complement_phrase := headed_flexible_order_phrase & head_non_adjunct_phrase & head_non_specifier_phrase.
+head_specifier_phrase  := headed_flexible_order_phrase & head_non_adjunct_phrase & head_non_complement_phrase.
 
 non_headed_phrase := phrase.
 
-coord_phrase := non_headed_phrase.
+coord_phrase := phrase.
 
 verb_initial_rule := phrase_or_phrasal_lex_rule & complementizer_like_sign.
 
@@ -213,7 +213,7 @@ complementizer_like_sign := spr_saturated_sign.
 
 complementizer_word := complementizer_like_sign & transparent_non_scopal_non_relational_le & word.
 
-conj_word := relational_arg0_word & non_scopal_le.
+conj_word := relational_arg0_word.
 
 head := bot & [
    mod  none_or_sign,
@@ -298,6 +298,7 @@ affe_rel         := arg0_relation.
 beispiel_rel     := arg0_relation.
 buch_rel         := arg0_relation.
 einhorn_rel      := arg0_relation.
+film_rel         := arg0_relation.
 frau_rel         := arg0_relation.
 kind_rel         := arg0_relation.
 mann_rel         := arg0_relation.
@@ -321,6 +322,7 @@ quant_rel := arg0_relation & [
   rstr handle,
   body handle ].
 
+udef_q    := quant_rel.
 def_q     := quant_rel.
 every_q   := quant_rel.
 exists_q  := quant_rel.
@@ -365,6 +367,7 @@ wahrscheinlich_rel := arg1_relation.
 bellen_rel   := arg01_relation.
 lachen_rel   := arg01_relation.
 schlafen_rel := arg01_relation.
+spielen_rel  := arg01_relation.
 
 
 jagen_rel     := arg012_relation.
@@ -386,12 +389,22 @@ tochter_rel := arg02_relation.
 
 
 conjunction_rel := arg0_relation & [
-  lhandle handle,
-  rhandle handle,
   lindex event_or_index,
   rindex event_or_index].
 
+conjunction_n_rel := conjunction_rel & [
+  arg0 index ].
+
+conjunction_v_rel := conjunction_rel & [
+  arg0 event,
+  lhandle handle,
+  rhandle handle].
+
 und_rel := conjunction_rel.
+
+und_n_rel := conjunction_n_rel & und_rel.
+und_v_rel := conjunction_v_rel & und_rel.
+
 
 event_or_index := bot.
 

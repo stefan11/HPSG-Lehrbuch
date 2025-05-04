@@ -83,6 +83,7 @@ bot
       mann_rel
       kind_rel
       frau_rel
+      film_rel
       fahrrad_rel
       einhorn_rel
       buch_rel

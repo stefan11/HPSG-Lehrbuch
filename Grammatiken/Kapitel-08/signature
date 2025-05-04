@@ -34,6 +34,7 @@ bot
       &glbtype23
       arg01_relation
         &arg012_relation
+        spielen_rel
         schlafen_rel
         lachen_rel
         bellen_rel
@@ -51,12 +52,21 @@ bot
     arg0_relation arg0:event_or_index
       &arg02_relation
       &arg01_relation
+      conjunction_rel lindex:event_or_index rindex:event_or_index
+        und_rel
+          und_v_rel
+          und_n_rel
+        conjunction_v_rel arg0:event lhandle:handle rhandle:handle
+          &und_v_rel
+        conjunction_n_rel arg0:index
+          &und_n_rel
       wurst_rel
       tofu_rel
       stock_rel
       speisekammer_rel
       roman_rel
       quant_rel rstr:handle body:handle
+        udef_q
         proper_q
         exists_q
         every_q
@@ -67,9 +77,8 @@ bot
       mann_rel
       kind_rel
       frau_rel
+      film_rel
       einhorn_rel
-      conjunction_rel lhandle:handle rhandle:handle lindex:event_or_index rindex:event_or_index
-        und_rel
       buch_rel
       beispiel_rel
       affe_rel
@@ -134,19 +143,24 @@ bot
         &verb_initial_rule
         phrase
           non_headed_phrase
-            coord_phrase
           headed_phrase head_dtr:sign
             headed_flexible_order_phrase non_head_dtrs:list
               glbtype33
-                head_adjunct_phrase
                 head_specifier_phrase
+                head_adjunct_phrase
               glbtype34
-                &head_adjunct_phrase
                 head_complement_phrase
+                &head_adjunct_phrase
+              glbtype35
+                &head_complement_phrase
+                &head_specifier_phrase
             head_non_specifier_phrase
               &glbtype34
             head_non_complement_phrase
               &glbtype33
+            head_non_adjunct_phrase
+              &glbtype35
+          coord_phrase
       n_modifier
         glbtype8
           isect_n_modifier_le
@@ -177,7 +191,6 @@ bot
                 &glbtype6
                 &isect_n_modifier_word
               glbtype12
-                conj_word
                 &det_noun_word
                 non_scopal_verb_word
                   non_scopal_intrans_verb
@@ -219,6 +232,7 @@ bot
                   &non_scopal_intrans_verb
                   glauben_denken_verb
                 &non_scopal_verb_word
+              conj_word
           scopal_modifier_le
             glbtype1
               &glbtype2

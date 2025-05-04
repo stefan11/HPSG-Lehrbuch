@@ -259,7 +259,8 @@ verb_word *>
   %arg0_ltop_lbl_le
   loc:(cat:(head:(verb,
                   vform:fin,
-                  initial:minus),
+                  initial:minus,
+                  dsl:none),
             spr:[]),
        cont:ind:event)).
 

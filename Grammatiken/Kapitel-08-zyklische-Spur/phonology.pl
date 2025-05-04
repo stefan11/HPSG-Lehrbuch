@@ -22,7 +22,8 @@ phonology
 forall Word ---> FS do
  FS = phon:[(a_ Word)].
 
-phrase *>
+% Strukturen mit Töchtern
+phrase_or_phrasal_lex_rule *>
           (phon:P,
            dtrs:Dtrs) goal collect_phonologies(Dtrs,P).
 

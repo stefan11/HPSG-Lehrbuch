@@ -20,6 +20,8 @@
 
 % Koordination von verbalen Projektionen
 
+% Wenn Verbletztverben nichts in DSL haben, kann man bei Koordination DSL gleich ausschließen.
+
 conj_word *>
    (%relational_arg0_word,
     %nö non_scopal_le,
@@ -31,9 +33,10 @@ conj_word *>
                                      ind:LInd)),
                           nonloc:Nonloc)),
               spr:[],
-              arg_st:[(loc:(cat:Cat,
-                            cont:(ltop:(RHandle,
-                                        =\=LHandle), % ohne das loopt Ein Affe nimmt einen Stock und ein Affe lacht.
+              arg_st:[(loc:(cat:(Cat,
+                                 head:dsl:none),  % auskommentieren bei zyklischer Verbspur.
+                            cont:(ltop:RHandle,
+                                       % =\=LHandle), % ohne das loopt Ein Affe nimmt einen Stock und ein Affe lacht.
                                   ind:RInd)),
                        nonloc:Nonloc,
                        trace:minus)]),
@@ -47,7 +50,7 @@ rels:[(lhandle:LH,
             rhandle:(RH,
                      =\=LH),  % Wenn zwei Verben zu V1-Verben werden, haben sie LBL und IND
                               % innerhalb ihrer DSL-Werte. Bei der Koordinatoin werden diese
-                              % identifiziert. Der Dominanzgraph ist dann nciht wohlgeformt. Man
+                              % identifiziert. Der Dominanzgraph ist dann nicht wohlgeformt. Man
                               % kann die Analyse schon hier durch eine Ungleichheitsbedingung
                               % ausschließen. Hätte man den KEY in CONT, würden die beiden KEYs
                               % nicht kompatibel sein. Ausnahme: Schläft und schläft Aicke? Für
@@ -130,7 +133,7 @@ coord_phrase *>
 
 % Unklar warum bei EFD-Berechnungt 4 x conj y phrasen lizenziert werden.
 %coord_phrase *>
-%  non_head_dtrs:[phon:ne_list,phon:ne_list].
+%  dtrs:[phon:ne_list,phon:ne_list].
 
 % Ohne diese Einschränkung könnten zwei V1-Verben koordiniert werden, es sollen aber erst die
 % Verbletztverben koordiniert werden und dann die V1-Regel angewendet werden. Würde man das nicht
@@ -143,8 +146,7 @@ coord_phrase *>
 %coord_phrase *> dtrs:hd: @not(verb_initial_rule).
 
 coord_phrase *>
-  (coord_phrase,
-   loc:(cat:Cat,
+  (loc:(cat:Cat,
         cont:Cont),
    nonloc:Nonloc,
    dtrs:[(Spec,

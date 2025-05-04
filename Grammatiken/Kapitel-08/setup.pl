@@ -68,7 +68,13 @@ graphviz_option(svg,'sleep 0.1; open').
 
 
 ind_path([loc,cont,ind]).
-gtop_path([loc,cont,gtop]).
+% Just use h1 and add a qeq to the local top. This does not have any effect in Utool.
+% gtop_path(implicit).
+
+% Just print h1 and do not do anything else.
+gtop_path(none).
+
+ltop_path([loc,cont,ltop]).
 cont_path([loc,cont]).
 liszt_path([loc,cont,rels]).
 hcons_path([loc,cont,hcons]).

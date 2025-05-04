@@ -15,25 +15,104 @@
 :- multifile rule/2.
 :- multifile '*>'/2.
 :- discontiguous '*>'/2.
+:- multifile if/2.
+:- multifile fun/1.
 
 % Koordination von verbalen Projektionen
 
+% Wenn Verbletztverben nichts in DSL haben, kann man bei Koordination DSL gleich ausschließen.
+
 conj_word *>
-   (loc:cat:(head:(coord,
+   (%relational_arg0_word,
+    %nö non_scopal_le,
+    %overt_word,
+    %empty_rel_word
+    loc:cat:(head:(coord,
                    spec:(loc:(cat:Cat,
-                              cont:(ltop:LH,
-                                    ind:LI)),
+                              cont:(ltop:LHandle,
+                                    ind:LInd)),
                          nonloc:Nonloc)),
              spr:[],
-             arg_st:[(loc:(cat:Cat,
-                           cont:(ltop:RH,
-                                 ind:RI)),
+             arg_st:[(loc:(cat:(Cat,
+                                head:dsl:none),  % auskommentieren bei zyklischer Verbspur.
+                           cont:(ltop:RHandle,
+                                      % =\=LHandle\), % ohne das loopt Ein Affe nimmt einen Stock und ein Affe lacht.
+                                 ind:RInd)),
                       nonloc:Nonloc,
                       trace:minus)]),
-     rels:[(lhandle:LH,
-            rhandle:RH,
+     rels:coord_sem(LInd,RInd,LHandle,RHandle,HCons),
+     hcons:HCons).
+
+
+/*
+rels:[(lhandle:LH,
+            rhandle:(RH,
+                     =\=LH),  % Wenn zwei Verben zu V1-Verben werden, haben sie LBL und IND
+                              % innerhalb ihrer DSL-Werte. Bei der Koordinatoin werden diese
+                              % identifiziert. Der Dominanzgraph ist dann nicht wohlgeformt. Man
+                              % kann die Analyse schon hier durch eine Ungleichheitsbedingung
+                              % ausschließen. Hätte man den KEY in CONT, würden die beiden KEYs
+                              % nicht kompatibel sein. Ausnahme: Schläft und schläft Aicke? Für
+                              % diesen Fall hilft nur die Ungleichheitsbedingung.
             lindex:LI,
             rindex:RI)]).
+
+*/
+
+fun coord_sem(+,+,+,+,-,+).
+%coord_sem(Ind1,Ind2,LHandle,RHandle,Rels,HCons)
+
+coord_sem(Ind1,Ind2,LHandle,RHandle,Rels,HCons) if
+  when((Ind1=(index;event),
+        Ind2=(index;event))
+      ,undelayed_coord_sem(Ind1,Ind2,LHandle,RHandle,Rels,HCons)).
+
+
+% What about scope of the quantifiers in the coordinated NP?
+%
+% Alle Studenten lesen ein Buch und eine Zeitung.
+%
+% exists x buch(x) exists y Zeitung(y) alle studenten lesen x+y.
+%
+% exists x buch(x) alle studenten exists y Zeitung(y) lesen x+y.
+
+% The nominal case with `and' we get a plural Index
+undelayed_coord_sem(Ind1,(index,
+                          Ind2),_LHandle,_RHandle,
+         [(%und_rel
+           lbl:ConjHandle,
+           arg0:(Ind0,
+                 per:third,
+                 num:pl),
+           lindex:Ind1,
+           rindex:Ind2
+% In the case of nouns, it is not the handle of the noun that is plugged in here.          
+%           ,l_handle:LHandle,
+%           r_handle:RHandle
+          ),
+          (udef_q,        
+           lbl:_QHandle,
+           arg0:Ind0,
+           rstr:Restr)          
+          ],
+         [(qeq,
+           harg:Restr,
+           larg:ConjHandle)]) if true.
+
+undelayed_coord_sem(Ind1,(event,
+                          Ind2),LHandle,RHandle,
+         [(%und_rel,
+           %lbl:ConjHandle,
+           arg0:(%Ind0,
+                 event),
+           lindex:Ind1,
+           rindex:Ind2,
+           lhandle:LHandle,
+           rhandle:RHandle)
+          ],
+         []) if true.
+
+
 
 conj_word(Relation) :=
   (conj_word,
@@ -58,10 +137,10 @@ coord_phrase *>
 (head_complement_phrase,
  dtrs:hd:loc:cat:head:coord) *> dtrs:tl:hd: @not(verb_initial_rule).
 
+%coord_phrase *> dtrs:hd: @not(verb_initial_rule).
 
 coord_phrase *>
-  (coord_phrase,
-   loc:(cat:Cat,
+  (loc:(cat:Cat,
         cont:Cont),
    nonloc:Nonloc,
    dtrs:[(Spec,
@@ -77,5 +156,3 @@ x_conj_y rule (coord_phrase,
   ===>
 cat> Dtr1,
 cat> Dtr2.
-
-

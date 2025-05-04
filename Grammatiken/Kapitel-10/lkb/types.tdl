@@ -336,6 +336,7 @@ beispiel_rel     := arg0_relation.
 buch_rel         := arg0_relation.
 einhorn_rel      := arg0_relation.
 fahrrad_rel      := arg0_relation.
+film_rel         := arg0_relation.
 frau_rel         := arg0_relation.
 kind_rel         := arg0_relation.
 mann_rel         := arg0_relation.
@@ -457,6 +458,7 @@ event_or_index := bot.
 event := event_or_index & [
   mode mode ].
 
+; Für Satztypen
 mode := bot.
 
 assertion_or_imperative_or_interrogative := mode.

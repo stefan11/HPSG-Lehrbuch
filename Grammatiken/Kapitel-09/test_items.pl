@@ -34,19 +34,37 @@ t(31,"Aicke schläft schläft.",@decl,0,'Kapitel 8: Argument- und Adjunktstellun
 t(32,"Den Roman kennt und schläft er",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
 t(33,"Kennt und liebt das Kind den Roman?",@interrog,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
 t(34,"Kennt und liebt den Roman das Kind?",@interrog,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(35,"dass das Kind dem Affen den Stock morgen gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(36,"dass das Kind dem Affen morgen den Stock gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(37,"dass das Kind morgen dem Affen den Stock gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(38,"dass morgen das Kind dem Affen den Stock gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(39,"Mann der",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(40,"der Speisekammer in",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(41,"das Kind kluge",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(42,"die in der Speisekammer Wurst",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(43,"dass Aicke den Stock gibt ihm",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(44,"dass das Kind den Roman",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
-t(45,"Den Roman kennt er.",@decl,1,'Kapitel 9: Vorfeldbesetzung').
-t(46,"Er lacht oft.",@decl,1,'Kapitel 9: Vorfeldbesetzung').
-t(47,"Oft lacht er.",@decl,1,'Kapitel 9: Vorfeldbesetzung').
-t(48,"Oft lacht er nicht.",@decl,2,'Kapitel 9: Vorfeldbesetzung').
-t(49,"Oft gibt er nicht dem Affen den Stock.",@decl,2,'Kapitel 9: Vorfeldbesetzung').
-t(50,"Er den Stock gibt dem Affen.",@decl,0,'Kapitel 9: Vorfeldbesetzung').
+t(35,"Kennt sie den Film und den Roman?",@interrog,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+% Grammatiken mit zyklischer Spur lassen Folgendes zu:
+% Koordination eines Verbletztverbs als Verbspur mit [den Stock _]
+% Valenz der beiden Konjunkte muss gleich sein. Verb muss lexikalisch sein, weil sonst DSL zu none werden würde.
+t(36,"Kennt der Affe lacht und den Stock?",@interrog,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+% parallel
+t(37,"Gibt der Affe lacht und dem Kind den Stock?",@interrog,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+
+% Spielt das Kind [spielt und lacht]. mit [spielt und lacht] statt Spur.
+t(38,"Spielt das Kind spielt und lacht?",@interrog,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+
+t(39,"dass das Kind dem Affen den Stock morgen gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(40,"dass das Kind dem Affen morgen den Stock gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(41,"dass das Kind morgen dem Affen den Stock gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(42,"dass morgen das Kind dem Affen den Stock gibt",@root,1,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(43,"Mann der",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(44,"der Speisekammer in",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(45,"das Kind kluge",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(46,"die in der Speisekammer Wurst",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(47,"dass Aicke den Stock gibt ihm",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(48,"dass das Kind den Roman",@root,0,'Kapitel 8: Argument- und Adjunktstellung im Mittelfeld und Verbbewegung').
+t(49,"Den Roman kennt er.",@decl,1,'Kapitel 9: Vorfeldbesetzung').
+t(50,"Er lacht oft.",@decl,1,'Kapitel 9: Vorfeldbesetzung').
+t(51,"Oft lacht er.",@decl,1,'Kapitel 9: Vorfeldbesetzung').
+t(52,"Oft lacht er nicht.",@decl,2,'Kapitel 9: Vorfeldbesetzung').
+t(53,"Oft gibt er nicht dem Affen den Stock.",@decl,2,'Kapitel 9: Vorfeldbesetzung').
+% Vorfeld kann nur einmal besetzt werden
+t(54,"Er den Stock gibt dem Affen.",@decl,0,'Kapitel 9: Vorfeldbesetzung').
+% Nur eine Lesart: [den Stock _i und lacht] muss ausgeschlossen werden.
+t(55,"Der Affe nimmt den Stock und lacht.",@decl,1,'Kapitel 9: Vorfeldbesetzung').
+% Satztyp:
+t(56,"Ein Affe nimmt einen Stock und das Kind lacht.",@decl,1,'Kapitel 9: Vorfeldbesetzung'). 
+% Klaus ist ein Idiot und warum merkt das außer mir niemand?
+
