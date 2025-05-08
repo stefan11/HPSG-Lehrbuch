@@ -1,0 +1,59 @@
+%%% HACK HACK HACK
+
+\NewDocumentEnvironment{forestintikzpicture}{+b}{%
+  \let\forest@node@typeset@@\forestintikzpicture@node@typeset@@
+  \let\forest@Pointanchor\forestintikzpicture@Pointanchor
+  \forestset{begin draw/.code={}, end draw/.code={}}%
+  \begin{forest}#1\end{forest}%
+}{}
+
+\def\forestintikzpicture@node@typeset@@{%
+  \forestoget{name}\forest@nodename
+  \edef\forest@temp@nodeformat{\forestove{node format}}%
+  \gdef\forest@smuggle{}%
+  \setbox0=\hbox{%
+    %\tikzset{every picture/.style={}}%
+    %\forest@unmarknextpictureposition
+    \begin{scope}[%
+      /forest/copy command key={/tikz/anchor}{/tikz/forest@orig@anchor},
+      anchor/.style={%
+        /forest/TeX={\forestanchortotikzanchor{##1}\forest@temp@anchor},
+        forest@orig@anchor/.expand once=\forest@temp@anchor
+      }]
+      %\global\cslet{pgf@sys@pdf@mark@pos@\pgfpictureid}\pgfutil@undefined
+      \pgfpositionnodelater{\forest@positionnodelater@save}%
+      \forest@temp@nodeformat
+      \pgfinterruptpath
+      \pgfpointanchor{\forest@pgf@notyetpositioned\forest@nodename}{forestcomputenodeboundary}%
+      \endpgfinterruptpath
+    \end{scope}%
+  }%
+  \setbox\forestove{@box}=\box\forest@box % smuggle the box
+  \forestolet{@boundary}\forest@global@boundary
+  \forest@smuggle % ... and the rest
+}
+
+\def\forestintikzpicture@Pointanchor#1#2{% #1 = node id, #2 = anchor
+  \def\forest@pa@temp@name{name}%
+  \forestOifdefined{#1}{@box}{%
+    \forestOget{#1}{@box}\forest@temp
+    \ifdefempty\forest@temp{}{%
+      \def\forest@pa@temp@name{later@name}%
+    }%
+  }{}%
+  %\forest@unmarknextpictureposition
+  %\setbox0\hbox{%
+    %\begin{pgfpicture}%
+      \if\relax\forestOve{#1}{#2}\relax
+        \pgfpointanchor{\forestOve{#1}{\forest@pa@temp@name}}{center}%
+      \else
+        \pgfpointanchor{\forestOve{#1}{\forest@pa@temp@name}}{\forestOve{#1}{#2}}%
+      \fi
+      \xdef\forest@global@marshal{%
+        \noexpand\global\noexpand\pgf@x=\the\pgf@x\relax
+        \noexpand\global\noexpand\pgf@y=\the\pgf@y\relax\relax
+      }%
+    %\end{pgfpicture}%
+  %}%
+  \forest@global@marshal
+}

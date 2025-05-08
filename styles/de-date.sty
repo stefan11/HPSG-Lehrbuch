@@ -5,44 +5,46 @@
 \newcommand{\urlchecked}[3]{#1.#2.#3}
 
 % DD.MM.YY
-\def\mytoday{\two@digits{\number\day}.\two@digits{\number\month}.\number\year}
+\newcommand{\mytoday}{\two@digits{\number\day}.\two@digits{\number\month}.\number\year}
 
 
 % Bibligraphie
 
-\def\Nr{Nr.\,}
-\def\bibappeared{erschienen }
-\def\bibAppeared{Erschienen }
-\def\toappear{erscheint}
-\def\toappeara{erscheint a}
-\def\toappearb{erscheint b}
-\def\toappearc{erscheint c}
-\def\inPreparation{In Vorbereitung}
-\def\inPreparationa{In Vorbereitung a}
-\def\inPreparationb{In Vorbereitung b}
-\def\inPreparationc{In Vorbereitung c}
-\def\original{original\xspace}
-\def\jetzt{jetzt\xspace}
+\newcommand{\Nr}{Nr.\,}
+\newcommand{\bibappeared}{erschienen }
+\newcommand{\bibAppeared}{Erschienen }
+\newcommand{\toappear}{erscheint}
+\newcommand{\toappeara}{erscheint a}
+\newcommand{\toappearb}{erscheint b}
+\newcommand{\toappearc}{erscheint c}
+\newcommand{\inPreparation}{In Vorbereitung}
+\newcommand{\inPreparationa}{In Vorbereitung a}
+\newcommand{\inPreparationb}{In Vorbereitung b}
+\newcommand{\inPreparationc}{In Vorbereitung c}
+\newcommand{\original}{original\xspace}
+\newcommand{\jetzt}{jetzt\xspace}
 
-\def\inprint{Im Druck}
+\newcommand{\inprint}{Im Druck}
+\newcommand{\inpress}{Im Druck}
 
 \def\2nd{2.\,}
-\def\unchangedEdition{unver"anderte Auf"|lage}
-\def\Edition{Auf"|lage\xspace}
+\newcommand{\unchangedEdition}{unver"anderte Auf"|lage}
+\newcommand{\Edition}{Auf"|lage\xspace}
 
-\RequirePackage{my-xspace}
-\def\reprint{Neudruck:\xspace}
-\def\reprintas{Neudruck als:\xspace}
-\def\reprintin{Neudruck in:\xspace}
-\def\reprintfrom{Neudruck von:\xspace}
+% xspace fails on \comps \ibox
+%\RequirePackage{my-xspace}
+\newcommand{\reprint}{Neudruck:\xspace}
+\newcommand{\reprintas}{Neudruck als:\xspace}
+\newcommand{\reprintin}{Neudruck in:\xspace}
+\newcommand{\reprintfrom}{Neudruck von:\xspace}
 
-\def\submitted{eingereicht}
+\newcommand{\submitted}{eingereicht}
 
-\def\underRevision{Revise and resubmit}
+\newcommand{\underRevision}{Revise and resubmit}
 
-\def\publishedAs{Veröffentlicht als}
-\def\republishedAs{Wieder veröffentlicht als\xspace}
+\newcommand{\publishedAs}{Veröffentlicht als}
+\newcommand{\republishedAs}{Wiederveröffentlicht als\xspace}
 
 
-\newcommand{\transaltionOf}{Übersetzung von}
+\newcommand{\translationOf}{Übersetzung von}
 \newcommand{\translatedBy}{Übersetzt von\xspace}
