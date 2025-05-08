@@ -873,13 +873,14 @@ loc  & \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin\\
 Unter \textsc{local} steht nun alle Information, die in lokalen Kontexten eine Rolle spielt.
 Diese Information wird zwischen Spur und Verb geteilt. Bisher ist es jedoch noch nicht möglich,
 eine entsprechende Strukturteilung vorzunehmen, denn das Verb \emph{kennt} kann ja nur
-die Eigenschaften der Projektion der Spur selegieren und die \compsl der selegierten
+die Eigenschaften der Projektion der Spur (dem gesamten Satz mit leerem Verb) selegieren und die \compsl der selegierten
 Projektion ist die leere Liste, was uns wieder zu dem Problem mit (\ref{bsp-kennt-gibt}) bringt. Man
 muss also sicherstellen, dass die gesamte Information über die Verbspur am obersten Knoten
 ihrer Projektion verfügbar ist. Das kann man erreichen, indem man ein entsprechendes Kopfmerkmal
-einführt, dessen Wert genau dem \localw der Spur entspricht. Dieses Merkmal wird \textsc{dsl}
-genannt. Es steht für \emph{double slash} und wurde so genannt, weil es eine ähnliche
-Funktion wie das \slashm hat, mit dem wir uns im nächsten Kapitel beschäftigen werden.\footnote{
+einführt, dessen Wert eine \local"=Objekt ist, das alle relevanten Eigenschaften (Valenz und
+Semantik) mit der Spur teilt. Dieses Merkmal wird \textsc{dsl} genannt. Es steht für \emph{double
+  slash} und wurde so genannt, weil es eine ähnliche Funktion wie das \slashm hat, mit dem wir uns
+im nächsten Kapitel beschäftigen werden.\footnote{% 
   Das Merkmal \dsl wurde von \citet*{Jacobson87} zur Beschreibung von Kopfbewegung 
   für englische\il{Englisch} invertierte Strukturen eingeführt. \citet{Borsley89}
   hat diese Idee aufgegriffen, innerhalb der HPSG"=Theorie umgesetzt und 
@@ -897,28 +898,31 @@ Funktion wie das \slashm hat, mit dem wir uns im nächsten Kapitel beschäftigen
 
 \eas
 \label{le-verbspur-kennt}%
-Verbspur für \emph{kennt}:\\
+Verbspur für \emph{kennt} mit \dslm für die Projektion von Valenz und semantischen Eigenschaften:\\
 \samepage
 \ms{
 phon & \phonliste{}\\
-loc  & \ibox{1} \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin\\
-                                                   ini   & $-$\\
-                                                   dsl   & \ibox{1}\\
-                                        }\\
-                        comps & \nliste{ \npnom\ind{2}, \npacc\ind{3} }\\
+loc  & \ms{ cat  & \ms{ head & \onems[verb]{ vform \type{fin}\\
+                                                      ini   $-$\\
+                                                      dsl   \ms{ cat & \ms{ spr   & \ibox{1}\\ 
+                                                                            comps & \ibox{2}\\
+                                                                         }\\
+                                                                 cont & \ibox{3}}}\\
+                                 spr   & \ibox{1}\\
+                                 comps & \ibox{2} \nliste{ \npnom\ind{4}, \npacc\ind{5} }\\
                       }\\
-            cont & \ms{
-       ltop & \ibox{4}\\
-       ind  & \ibox{5}\\
-       rels & \liste{ \ms[kennen]{
-                       lbl & \ibox{4}\\
-                       arg0 & \ibox{5}\\
-                       arg1 & \ibox{2}\\
-                       arg2 & \ibox{3}\\
-                     } } } }\\
+            cont & \ibox{3} \ms{
+              ltop & \ibox{6}\\
+              ind  & \ibox{7}\\
+              rels & \liste{ \ms[kennen]{
+                             lbl & \ibox{6}\\
+                             arg0 & \ibox{7}\\
+                             arg1 & \ibox{4}\\
+                             arg2 & \ibox{5}\\
+                           } } } }\\
 }
 \zs
-Durch die Teilung des \localw{}es mit dem \dslw in (\mex{0}) ist die Information
+Durch die Teilung der Werte innerhalb von \dslw mit denen der Verbspur in (\mex{0}) ist die Information
 über syntaktische und semantische Information der Verbspur auch an ihrer Maximalprojektion
 verfügbar, und das Verb in Erststellung kann sicherstellen, dass die Projektion der Spur zu ihm passt.
 \is{Spur!Verb-|)}
@@ -1002,10 +1006,10 @@ Die Regel in (\mex{0}) lizenziert ein Verb, das einen Satz (\iboxt{1} in
 Abbildung~\ref{verb-movement-syn}) selegiert. Der \dslw dieses Satzes entspricht dem \locw der in
 die Regel eingesetzten Tochter. Teil des \dslwes ist auch die Valenzinformation, die in
 Abbildung~\ref{verb-movement-syn} dargestellt ist \iboxb{2}. Da \dsl ein Kopfmerkmal ist, ist der
-\dslw der VP mit dem der Verbspur identisch, und da der \locw der Verbspur mit dem \dslw
-identifiziert ist, ist auch die \comps"=Information des Verbs \emph{kennen} in der Spur
-verfügbar. Die Kombination der Spur mit ihren Argumenten erfolgt genau so, wie das bei normalen
-Verben der Fall wäre.
+\dslw der VP mit dem der Verbspur identisch, und da die Information über Valenz und Semantik im
+\locw der Verbspur mit der im \dslw identifiziert ist, ist auch die \comps"=Information des Verbs
+\emph{kennen} in der Spur verfügbar. Die Kombination der Spur mit ihren Argumenten erfolgt genau so,
+wie das bei normalen Verben der Fall wäre.
 
 
 In der Regel in (\ref{lr-verb-movement}) wurde noch nichts zur Semantik gesagt. Man geht im allgemeinen davon aus, dass
@@ -1018,8 +1022,8 @@ dass die Information über den \textsc{index}"=Wert (die Ereignisvariable) und d
 oben gereicht wird. Im letzten Projektionsschritt in Abbildung~\ref{verb-movement-syn}
 ist das Verb in Erststellung der Kopf und deshalb wird auch der semantische Beitrag
 dieses Verbs projiziert. In der Regel (\mex{1}) für das Verb in Erststellung wird
-der semantische Beitrag der Projektion der Spur in Endstellung \iboxb{2} mit
-dem \hookw des Verbs in Erststellung identifiziert:
+der semantische Beitrag der Projektion der Spur in Endstellung (\textsc{ind} \ibox{2}, \ltop \ibox{3}) mit
+den entsprechenden Werten des Verbs in Erststellung identifiziert:
 
 \eas
 \label{lr-verb-movement2}%
@@ -1124,12 +1128,22 @@ ursprünglichen Verbs \iboxb{3} enthalten. Das Komplement des Verbs in Initialst
 mit der Verbalprojektion identifiziert, wodurch der \dslw der Verbalprojektion dann den \contw des
 Verbletztverbs \iboxb{3} enthält. Da \dsl ein Kopfmerkmal ist, wird der \dslw mit anderen
 Kopfmerkmalen entlang des Kopfpfades weitergegeben, so dass er auch an der Verbspur vorhanden
-ist. Da der \dslw mit dem \localw der Spur (\ref{le-verbspur-kennt}) identifiziert wird, ist \ibox{3} auch identisch mit dem
-\contw der Verbspur. Das heißt, dass die Relation \relation{kennen}(jemand, roman) auch Element der
+ist. Da Valenz und semantische Information im \dslw mit den entsprechenden Werten der Spur (\ref{le-verbspur-kennt}) identifiziert wird, ist \ibox{3} auch identisch mit dem
+\contw der Verbspur. Das heißt, dass die Relation kennen(jemand, roman) auch Element der
 \relsl der Verbspur ist. Das Handel dieser Relation ist -- wie beim ursprünglichen Verb auch --
 h1. Nach Semantikprinzip wird der \ltopw den Kopfpfad entlang nach oben gegeben und das V1"=Verb
 übernimmt den \ltopw von seinem Komplement. Da das V1"=Verb der Kopf des gesamten Satze ist, wird
-der \ltopw des V1"=Verbs dann zum \ltopw des gesamten Satzes.
+der \ltopw des V1"=Verbs dann zum \ltopw des gesamten Satzes. Man beachte, dass das Verb in
+Erststellung keine Relationen über \rels beisteuert. Das ist wichtig, denn die Relationen kommen vom
+Satzende. Würde auch das Verb in Erststellung Relationen beisteuern, wären diese doppelt in der
+\relsl: einmal vom Verb in Erststellung und einmal von der Verbspur in Letztstellung.\footnote{
+  Das wird im Kapitel~\ref{Abschnitt MRS und Fernabhängigkeiten} revidiert. Für die Analyse von
+  Fernabhängigkeiten ist es nicht sinnvoll, das Merkmal \rels innerhalb von \cont zu haben, wenn man
+  Spuren verwendet, weil die Relationen dann sowohl im Vorfeld als auch an der Stelle der Spur in
+  die \relsl aufgenommen werden. In der revidierten Version der Verbbewegungsregel kommen die
+  Relationen vom Verb in Erststellung und die Verbspur und die Extraktionsspur führen selbst keine
+  Relationen ein.
+}
 
 Die Analyse in Abbildung~\ref{verb-movement-sem} mag etwas kompliziert erscheinen, da die semantische
 Information einerseits über \dsl vom Verb in Verberststellung zur Verbspur und andererseits wieder von
@@ -1198,8 +1212,37 @@ kann der Beitrag des Verbs in Initialstellung noch in sein Gegenteil verkehrt we
 
 
 Es wäre unbefriedigend, wenn man für jedes Verb eine spezielle Spur haben müsste. Das ist aber 
-zum Glück nicht nötig, da eine ganz allgemeine Spur der Form in (\mex{1}) für die Analyse
-von Sätzen mit Verbbewegung ausreicht.
+zum Glück nicht nötig, da eine allgemeine Spur der Form in (\mex{1}) für die Analyse
+von Sätzen mit Verbbewegung ausreicht.\footnote{%
+  In früheren Arbeiten \parencites{Mueller2005c}[408]{MuellerOrder2024} habe ich eine zyklische Spur
+  verwendet, in der der \localw mit dem \dslw
+\itdopt{Seite für lB}
+  identifiziert wurde. Das bedeutet so viel wie: Ich fehle mir selbst. Diese Analyse wurde von
+  \citet[207]{Meurers2000b} vorgeschlagen. Sie ist sehr elegant, aber leider nicht mit der Analyse
+  der Koordination verträglich, die ich hier verwende. Sie Abschnitt~\ref{sec-Verbbewegung mit zyklischen Strukturen} für eine Diskussion.
+}
+\eas
+Verbspur:\\
+\ms{
+phon & \eliste\\
+loc & \ms{ cat & \ms{ head & \onems[verb]{
+                             vform \type{fin}\\
+                             ini   $-$\\
+                             dsl   \ms{ cat & \ms{ spr   & \ibox{1}\\ 
+                                                     comps & \ibox{2}\\
+                                                   }\\
+                                          cont & \ibox{3}\\
+                                        }}\\
+                      spr & \ibox{1}\\
+                      comps & \ibox{2}\\
+                    }\\
+          cont & \ibox{3}\\
+        }\\
+}
+\zs
+(\mex{1}) ist ein Lexikoneintrag für ein Element, das nicht ausgesprochen wird. Es hat die Wortart
+Verb, ist finit und muss in Letztstellung stehen (\textsc{ini}$-$). \sprw, \compsw und \contw wird mit dem
+Wert in \dsl geteilt.
 
 Diese Analyse der Verbstellung ist die komplexeste Analyse im vorliegenden Buch. Wenn man sie verstanden
 hat, braucht man nichts mehr zu fürchten. Die wichtigsten Punkte seien hier noch einmal zusammengefasst:
@@ -1233,6 +1276,7 @@ Alternative HPSG"=Ansätze werden ausführlich in \citew{Mueller2004b} und in
 \citew{Mueller2005c,Mueller2005d,MuellerGS} diskutiert. Hier seien nur einige Punkte kurz erwähnt.
 
 \subsubsection{Verbbewegung mit zyklischen Strukturen}
+\label{sec-Verbbewegung mit zyklischen Strukturen}
 
 \citet[207]{Meurers2000b} hat eine zyklische Verbspur bzw.\ sogar noch viel allgemeiner eine Spur
 für Kopfbewegung vorgeschlagen:
