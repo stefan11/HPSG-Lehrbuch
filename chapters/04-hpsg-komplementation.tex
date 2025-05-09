@@ -211,7 +211,7 @@ und \compsw sowie den Typ der jeweiligen Teilstruktur:
 \onems[head-complement-phrase~]{
       phon    \phonliste{ die Nuss gibt }\\
 %      spr \liste{}\\
-      comps \ibox{1} \liste{ NP[\nom], NP[\acc]} \\
+      comps \ibox{1} \liste{ NP[\nom], NP[\dat]} \\
       head-dtr \onems{ phon \phonliste{ gibt }\\
 %                                     spr \liste{}\\
                                      comps \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
@@ -219,6 +219,7 @@ und \compsw sowie den Typ der jeweiligen Teilstruktur:
       non-head-dtrs \liste{ \ibox{2} \onems[head-specifier-phrase~]{ 
                                                   phon  \phonliste{ die Nuss }\\
                                                   p-o-s \type{noun}\\
+                                                  % acc
 %                                                  spr \liste{}\\
 %                                                  comps \liste{} \\
                                                   head-dtr \ldots \\
@@ -304,13 +305,16 @@ tikz={\draw[<->] ($(fin1.south west)+(\offsetup,0)$) to ($(fin2.north west)+(\of
 }
 \caption{\label{fig-projektion-head-feat}Projektion der Kopfmerkmale des Verbs}
 \end{figure}
+\itdopt{mit subnode machen}
 Die Verbform\isfeat{vform} ist bisher noch gar nicht in Merkmalbeschreibungen enthalten gewesen.
 Eine mögliche Merkmalsgeometrie zeigt (\mex{1}).
 \ea
       \ms{ phon   & list~of~phoneme strings\\
            p-o-s  & p-o-s \\
            vform  & vform \\ 
-           comps & list~of~signs\\
+           spr    & list~of~signs\\
+           comps  & list~of~signs\\
+           arg-st & list~of~signs\\
          }\\
 \z
 Diese Struktur ist für das, was erreicht werden soll, aber wenig geeignet.
@@ -327,7 +331,9 @@ Erklärung der Distributionseigenschaften\label{page-kopf-merkmal} der Gesamtpro
                   p-o-s & p-o-s\\
                   vform & vform\\
                   } \\
-           comps & list~of~signs\\
+           spr    & list~of~signs\\
+           comps  & list~of~signs\\
+           arg-st & list~of~signs\\
          }
 \z
 Nun ist es aber so, dass Köpfe je nach ihrer Wortart ganz verschiedene Eigenschaften
@@ -367,15 +373,20 @@ vform & vform\\
 Der Lexikoneintrag für \emph{gibt}, der auf Seite~\pageref{le-gibt-1}
 angegeben wurde, kann jetzt wie folgt präzisiert werden:
 \ea
-\textit{gibt\/}:\\
+\emph{gibt}:\\
 \ms[word]{ 
      phon   & \phonliste{ gibt }\\[1mm]
      head   & \ms[verb]{ vform & fin \\} \\
-     comps & \liste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] } \\
+%     spr    & \eliste\\
+%     comps  & 
+     arg-st & \liste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] } \\
 }
 \z
-Ein Lexikoneintrag enthält also phonologische Information, Informationen über die Kopfeigenschaften (\emph{part of speech}, Verbform, \ldots)
-und Valenzinformation (eine Liste von Merkmalbeschreibungen).
+Ein Lexikoneintrag enthält also phonologische Information, Informationen über die Kopfeigenschaften
+(\emph{part of speech}, Verbform, \ldots) und die Argumentstruktur (eine Liste von
+Merkmalbeschreibungen). Diese wird dann auf die Valenzmerkmale \spr und \comps verteilt. Für Verben
+ist \spr die leere Liste, weshalb die \compsl der \argstl entspricht. (Das wird im
+Kapitel~\ref{sec-subj-merkmal} revidiert werden.)
 
 Bis jetzt gibt es in der hier dargestellten Theorie noch nichts, was sicherstellen
 würde, dass die Information, die in Lexikoneinträgen unter \textsc{head} repräsentiert
@@ -434,6 +445,7 @@ type hierarchy
 \end{forest}}
 \caption{\label{fig-type-sign}Typhierarchie für \type{sign}: alle Untertypen von \type{headed"=phrase} erben Beschränkungen.}
 \end{figure}
+\itdopt{non-headed-phrase entfernen}
 \type{word} und \type{phrase} sind Unterklassen sprachlicher Zeichen.
 Phrasen kann man unterteilen in Phrasen ohne Kopf (\type{non"=headed"=phrase})
 und Phrasen mit Kopf (\type{headed"=phrase}). Auch für Phrasen vom Typ
@@ -639,8 +651,9 @@ ergeben, dass man die Determinatoren als letztes Element in Nominalstrukturen mi
 alle [[großen Seeelefanten] und [grauen Eichhörnchen]]\\
 \z
 Der Quantor \emph{alle} bezieht sich auf \emph{großen Seeelefanten und grauen Eichhörnchen}. Würde
-man erst \emph{alle} mit \emph{große Seeelefanten} verbinden, hätte man mit \emph{grauen
-  Eichhörnchen} einen unintegrierbaren Rest. Geht man davon aus, dass Wörter oder Wortgruppen mit
+man erst \emph{alle} mit \emph{großen Seeelefanten} verbinden, hätte man mit \emph{grauen
+  Eichhörnchen} einen unintegrierbaren Rest, denn \emph{alle großen Seeelefanten} ist Nominativ oder
+Akkusativ und \emph{grauen Eichhörnchen} wäre Dativ. Geht man davon aus, dass Wörter oder Wortgruppen mit
 der gleichen Valenz koordiniert werden können, sind Beispiele (\mex{0}) automatisch erklärt: Sowohl
 \emph{großen Seeelefanten} als auch \emph{grauen Eichhörnchen} verlangen einen Determinator und die
 Koordination aus beiden Wortgruppen dann auch.

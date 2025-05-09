@@ -108,6 +108,11 @@ werden könnten, \dash, wenn es sich bei den Vorfeldbesetzungen um lokale Umstel
 Allerdings gibt es Daten, die zeigen, dass es sich bei der Vorfeldbesetzung nicht um eine lokale Umstellung handeln kann.
 So gehören in (\mex{1}) die Konstituenten im \vf zu einem tief eingebetteten Kopf:
 \eal
+\ex 
+Wer$_i$ wohl    meint   er, dass \_$_i$ ihm seine Arbeit hier bezahlen werde?\footnote{
+Das Beispiel ist von \citet[\page 321]{Paul1919a}, der zwei Seiten mit natürlich vorkommenden
+Beispielen von Extraktion aus \emph{dass}"=Sätzen bespricht.
+}
 \ex\label{bsp-um-zwei-millionen}
 {}[Um zwei Millionen Mark]$_i$ soll er versucht haben, [eine Versicherung \_$_i$ zu betrügen].\footnote{
          taz, 04.05.2001, S.\,20.
@@ -126,7 +131,6 @@ So gehören in (\mex{1}) die Konstituenten im \vf zu einem tief eingebetteten Ko
 \emph{um zwei Millionen Mark} gehört zu \emph{betrügen} und nicht zu einem der Verben \emph{soll}, \emph{versucht}
 oder \emph{haben}. Da sich die Verbalphrase \emph{eine Versicherung zu betrügen} im Nachfeld befindet, kann
 also \emph{um zwei Millionen Mark} nicht aufgrund einer Umstellung vorn realisiert worden sein.
-\itdopt{Paul zitieren}
 
 Deshalb werden Verbzweitsätze in den meisten Grammatiken für das Deutsche zu Verberstsätzen in Beziehung gesetzt.
 Die Stelle, an der die Vorfeldkonstituente stehen würde, wird meist durch einen `\_' gekennzeichnet. Man nennt
@@ -710,46 +714,63 @@ in \slasch enthalten ist, kann die Kombination aus Verb und Verbspurprojektion n
 führen, da Elemente in \slasch abgebunden werden müssen. Ist nichts in \slasch enthalten, kann auch nichts
 vor das Finitum gestellt werden, und das Verb kann also nur in einem Verberstsatz verwendet werden.
 
-Die Verberstlexikonregel von Seite~\pageref{lr-verb-movement2} muss entsprechend modifiziert werden.
-Die neue Version in (\mex{1}) bettet den semantischen Beitrag der Projektion der Verbspur \iboxb{2}
-unter eine zusätzliche Relation ein.
-\eas
-\label{lr-verb-movement4}%
-Regel für Verb in Erststellung (mit Satztypinformation):\\
-\type{verb-initial-rule} \impl\\
-\ms{
-loc & \ms{ cat & \ms{ head & \ms[verb]{ vform & fin\\
-                                      initial & $+$\\
-                                      dsl     & none }\\
-                    comps & \sliste{ \onems{ loc \ms{ cat & \onems{ head|dsl \ibox{1}\\
-                                                                    comps \eliste }\\
-                                                      cont & \ms{ ind & \ibox{2}\\
-                                                                  ltop & \ibox{3}}}
-                                              }}\\
-                  }}\\
-c-cont & \ms{ ind  & \ibox{2}\\ 
-              ltop & \ibox{4}\\
-%              key  & 
-              rels & \liste{ \ms{ lbl  & \ibox{4} \\
-                                  arg1 & \ibox{5}}}\\[3mm]
-              hcons & \liste{ \ms[qeq]{
-                              harg & \ibox{5}\\
-                              ltop & \ibox{3} }}}\\
-dtrs & \liste{ \ms{
-               loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
-                                                           initial & $-$\\
-                                                         }\\
-                                 }}}\\
-}
-\zs
-Über den konstruktionellen Beitrag (\ccont) wird die Satztyp"=Relation in die \relsl der Mutter
-eingefügt. Der genaue Typ der Relation ist jedoch unterspezifiziert und in (\mex{0}) nicht
-angegeben. Allerdings ist festgelegt, dass das Argument der Satztyp"=Relation \iboxb{5} den \ltopw
-der Projektion der Verbspur im Skopus hat (\ibox{5} \qeq \ibox{3}). Das Label der Satztyp"=Relation
-\iboxb{4} ist auch der \ltopw in \ccont und somit der \ltopw der Mutter.
+Es gibt zwei Ansätze in der HPSG, den Satztyp in der Semantik darzustellen. Man kann entweder eine
+Relation wie \relation{proposition}, \relation{assertion}, \relation{question},
+\relation{imperative}, \relation{directive}, \relation{outcome}, \relation{message} oder dergleichen verwenden
+\parencites[378, 380]{GSag2000a-u}[59]{Kathol2001a}[Abschnitt~6.1.4]{mrs}{MuellerSatztypen} oder
+man verwendet ein Merkmal innerhalb des \indexwes von Verben und Verbalprojektionen
+\parencites[107]{SagW99a-u}[144, 170]{Kathol2000a}.
 
-Welcher Satztyp vorliegt wird in Abhängigkeit vom
-\slashw der Projektion der Verbspur festgelegt. Das wird durch die folgenden Implikationen geregelt:
+%Kathol2000a Komm ist nur ein Wort, also müssen Zeichen kreuzklassifiziert werden, nicht Phrasen.
+
+Verwendet man Relationen, so bekommt man für Sätze wie (\mex{1}a) Repräsentationen wie (\mex{1}b)
+oder abgekürzt (\mex{1}c):
+\eal
+\ex Der Affe schläft.
+\ex assertion(\iota x affe(x) \wedge{} schlafen(x))
+\ex assertion(schlafen(affe))
+\zl
+Bei Koordinationen ist aber unklar, was das Ergebnis ist:
+\eal
+\ex Der Affe schläft und das Kind lacht.
+\ex assertion(und(e1, schlafen(e2, affe), lachen(e3, kind)))
+\ex und(e1, assertion(schlafen(e2, affe)), assertion(lachen(e3, kind)))
+\zl
+e1 ist eine Ereignisvariable für das komplexe Ereignis, das aus e2 und e3 besteht.
+Ist die Aussage nun, dass sowohl der Affe schläft als auch das Kind lacht? Oder gibt es zwei konjunktiv
+verknüpfte Aussagen, nämlich zum einen die Aussage, dass der Affe schläft, und zum anderen die
+Aussage, dass das Kind lacht? Eigentlich möchte man sagen, dass die Koordination der beiden
+Verbzweitsätze eine Aussage ist, also (\mex{0}b), aber dann gibt es Koordinationen von Sätzen mit
+verschiedenen Satztypen:
+\eal
+\ex Gib Du mir die 10€ und dann kaufe ich das Eis.
+\ex XY ist so ein Idiot und warum merke nur ich das?
+\zl
+Bei solchen Sätzen scheinen also Koordinationen nach dem Muster (\mex{-1}c) vorzuliegen. Da man also
+prinzipiell beide Möglichkeiten benötigt, wäre (\mex{-1}) mehrdeutig. Um dieses Problem kann man
+sich herummogeln, indem man den Satztyp zu einem Wert von \textsc{mode} macht. Wenn man zwei Verben
+koordiniert, bekommt man ein komplexes Ereignis, das selbst wieder einen \modew hat. Für (\mex{-1}a)
+gibt es nur eine Möglichkeit: Das Ergebnis der Koordination ist ein komplexes Ereignis mit dem
+\modew \type{assertion}. Die Teilsätze haben den \modew \type{assertion} und die gesamte Koordination auch.
+
+\ea
+und(e1:assertion, schlafen(e2:assertion, affe), lachen(e3:assertion, kind))
+\z
+Die Bestimmung des Satztyps bei Koordination von Sätzen mit verschiedenen Satztypen muss erst mal
+offen bleiben. Man könnte einen kombinierten Typ berechnen oder den des jeweils letzten Konjunkts
+nehmen, aber das bleibt Gegenstand weiterer Forschung und ist unabhängig davon, wie die Satztypen
+repräsentiert werden, ein Problem.
+
+Es gibt verschiedene Ansätze für die Bestimmung von Satztypen. \citet{Kathol2000a,Kathol2001a}
+schlägt vor, einfach die Reihenfolge von den im Satz vorkommenden Konstituenten zu betrachten, wie
+das in topologischen Feldern normalerweise gemacht wird. Dieser Ansatz wird im
+Abschnitt~\ref{sec-satztypen-kathol} besprochen. Die Alternative ist, dass man auf Strukturen Bezug
+nimmt. Beim Zusammenbau der Strukturen kann man morphologische Information (Verben sind für den
+Imperativ mitunter speziell morphologisch markiert: \emph{gib}, \emph{lies}), Information über die
+Intonation (Frage vs.\ Aussage) und über die Stellung (Verberst, Verbletzt, Verbzweit) berücksichtigen.
+
+Zum Beispiel kann man am \slashw der Projektion der Verbspur sehen, ob ein Verbzweitsatz oder ein
+Verberstsatz vorliegt. Das wird in den folgenden Implikationen ausgenutzt:
 
 \eas
 Verberstsätze:\istype{verb-initial-rule}\\
@@ -757,7 +778,7 @@ Verberstsätze:\istype{verb-initial-rule}\\
 loc$|$cat$|$comps \sliste{ [ nonloc$|$slash \eliste ] }\\
 } \impl\\
 \hfill\ms{
-rels & \nliste{ \type{conditional\_or\_imperative\_or\_interrogative} }\\
+loc|cont|ind|mode & conditional\_or\_imperative\_or\_interrogative \\
 }
 \zs
 
@@ -768,7 +789,7 @@ Verbzweitsätze:\istype{verb-initial-rule}\\
 loc$|$cat$|$comps \sliste{ [ nonloc$|$slash \sliste{ [ ] } ] }\\
 } \impl\\
 \hfill\ms{
-rels & \nliste{ \type{assertion\_or\_imperative\_or\_interrogative} }\\
+loc|cont|ind|mode & assertion\_or\_imperative\_or\_interrogative\\
 }
 \zs
 (\mex{-1}) und (\mex{0}) beziehen sich auf den Typ der Verberstregel (\type{verb-initial-rule}).
@@ -816,75 +837,79 @@ lässt sich nur unter Bezug auf die Intonation bestimmen:
 \ex Peter kommt morgen.
 \zl
 
-Abbildung~\ref{Verbbewegung-Adjunkt-sem-Satztyp} zeigt die Analyse mit Projektion der
-\rels"=Information vom Verb in Initialstellung und dem semantischen Beitrag für den Satztyp.
-\begin{figure}
-\oneline{%
-\begin{forest}
-sm edges, for tree={l sep+=2\baselineskip}
-[V\onems{cont|ltop \subnode{ltop5}{\ibox{1}} \type{h4}\\
-         rels \nliste{ h4:imp\_int(h5), \ldots, h2:n(h3), h1:k(j, r) }\\
-         hcons \nliste{ h5 \qeq h2, \ldots, h3 \qeq h1 }}, baseline
-	[V\onems{cont|ltop \subnode{ltop4}{\ibox{1}} \type{h4}\\
-                 comps \sliste{ \ibox{2} dsl|cont \subnode{dsl0}{\ibox{3}} }\\
-                 rels  \nliste{ h4:imp\_int(h5) }\\
-                 hcons \nliste{ h5 \qeq h2 }}
-		[V\ms{cont  \subnode{c1}{\ibox{3}} \ltop \type{h1}\\
-                      rels  \nliste{ h1:k(j, r) }\\
-                      hcons \eliste}, tier=np,edge label={node[midway,right]{V1-R}}
-			[kennt$_j$]]]
-	[\ibox{2} V\ms{dsl|cont \subnode{dsl1}{\ibox{3}}\\
-                       cont|ltop \subnode{ltop3}{\ibox{1}} \type{h2}\\
-                       rels  \nliste{ \ldots, h2:n(h3), h1:k(j, r) }\\
-                       hcons \nliste{ \ldots, h3 \qeq h1 }}
-		[NP{[\textit{nom}]}, tier=np
-			[jemand]]
-		[V\ms{dsl|cont \subnode{dsl2}{\ibox{3}},\\
-                      cont|ltop \subnode{ltop2}{\ibox{1}} \type{h2}\\
-                      rels  \nliste{ \ldots, h2:n(h3), h1:k(j, r) }\\
-                      hcons \nliste{ \ldots, h3 \qeq h1 }}, s sep+=2em
-			[NP{[\textit{acc}]}%,fit=band
-				[den Roman, roof]]
-                        [V\onems{dsl|cont \subnode{dsl3}{\ibox{3}},\\
-                                 cont  \subnode{cont-trace}{\ibox{3}} \ltop \subnode{ltop1}{\ibox{1}} \type{h2}\\
-                                 rels  \nliste{ h2:n(h3), h1:k(j, r) }\\
-                                 hcons \nliste{ h3 \qeq h1 } }
-                          [Adv\onems{cont|ltop  \subnode{ltop1}{\ibox{1}} \type{h2}\\
-                                     rels  \nliste{ h2:n(h3) }\\
-                                     hcons \nliste{ h3 \qeq h1 } }
-                             [nicht]]
-			  [V\onems{dsl|cont \subnode{dsl3}{\ibox{3}},\\
-                                   cont \subnode{cont-trace}{\ibox{3}} ltop \type{h1}\\
-                                   rels \nliste{ h1:k(j, r) }\\
-                                   hcons \eliste }
-				[\trace$_j$]]]]]]
-\end{forest}}
-\caption{\label{Verbbewegung-Adjunkt-sem-Satztyp}Veranschaulichung semantischer Aspekte der Analyse
-  von \emph{Kennt jemand den Roman nicht?} inklusive Satztyp}
-\end{figure}
-Eine ähnliche Abbildung ohne Satztyp"=Information wurde schon auf
-S.\,\pageref{verb-movement-adjunkt-sem} besprochen. Die Abbildung hier unterscheidet sich von der
-aus Kapitel~\ref{Abschnitt-V1} in der Repräsentation von \rels und \hcons und in der zusätzlichen Information
-bzgl.\ Satztyp. Wie man sieht, ist der oberste \ltopw in Abbildung~\ref{Verbbewegung-Adjunkt-sem-Satztyp} h4, das Handle der Satztyp"=Relation. h5, das Argument der Satztyp"=Relation ist \qeq zu h2, dem
-Handle der Negation. Die Negation hat das Argument h3, das \qeq zu h1, dem Handle von \emph{kennen}
-ist. Es ist also alles bestens verbunden. Wenn h4 das oberste Handle der gesamten MRS ist, ist klar,
-dass Quantoren unterhalb der Satztyp"=Relation skopen müssen.
-\itdopt{zeige MRS}
+Bei Verbletztsätzen kann die Konjunktion, die eine Projektion des Verbletztverbs selegiert, den
+Satzmodus festlegen. 
+
+% Abbildung~\ref{Verbbewegung-Adjunkt-sem-Satztyp} zeigt die Analyse mit Projektion der
+% \rels"=Information vom Verb in Initialstellung und dem semantischen Beitrag für den Satztyp.
+% \begin{figure}
+% \oneline{%
+% \begin{forest}
+% sm edges, for tree={l sep+=2\baselineskip}
+% [V\onems{cont|ltop \subnode{ltop5}{\ibox{1}} \type{h4}\\
+%          rels \nliste{ h4:imp\_int(h5), \ldots, h2:n(h3), h1:k(j, r) }\\
+%          hcons \nliste{ h5 \qeq h2, \ldots, h3 \qeq h1 }}, baseline
+% 	[V\onems{cont|ltop \subnode{ltop4}{\ibox{1}} \type{h4}\\
+%                  comps \sliste{ \ibox{2} dsl|cont \subnode{dsl0}{\ibox{3}} }\\
+%                  rels  \nliste{ h4:imp\_int(h5) }\\
+%                  hcons \nliste{ h5 \qeq h2 }}
+% 		[V\ms{cont  \subnode{c1}{\ibox{3}} \ltop \type{h1}\\
+%                       rels  \nliste{ h1:k(j, r) }\\
+%                       hcons \eliste}, tier=np,edge label={node[midway,right]{V1-R}}
+% 			[kennt$_j$]]]
+% 	[\ibox{2} V\ms{dsl|cont \subnode{dsl1}{\ibox{3}}\\
+%                        cont|ltop \subnode{ltop3}{\ibox{1}} \type{h2}\\
+%                        rels  \nliste{ \ldots, h2:n(h3), h1:k(j, r) }\\
+%                        hcons \nliste{ \ldots, h3 \qeq h1 }}
+% 		[NP{[\textit{nom}]}, tier=np
+% 			[jemand]]
+% 		[V\ms{dsl|cont \subnode{dsl2}{\ibox{3}},\\
+%                       cont|ltop \subnode{ltop2}{\ibox{1}} \type{h2}\\
+%                       rels  \nliste{ \ldots, h2:n(h3), h1:k(j, r) }\\
+%                       hcons \nliste{ \ldots, h3 \qeq h1 }}, s sep+=2em
+% 			[NP{[\textit{acc}]}%,fit=band
+% 				[den Roman, roof]]
+%                         [V\onems{dsl|cont \subnode{dsl3}{\ibox{3}},\\
+%                                  cont  \subnode{cont-trace}{\ibox{3}} \ltop \subnode{ltop1}{\ibox{1}} \type{h2}\\
+%                                  rels  \nliste{ h2:n(h3), h1:k(j, r) }\\
+%                                  hcons \nliste{ h3 \qeq h1 } }
+%                           [Adv\onems{cont|ltop  \subnode{ltop1}{\ibox{1}} \type{h2}\\
+%                                      rels  \nliste{ h2:n(h3) }\\
+%                                      hcons \nliste{ h3 \qeq h1 } }
+%                              [nicht]]
+% 			  [V\onems{dsl|cont \subnode{dsl3}{\ibox{3}},\\
+%                                    cont \subnode{cont-trace}{\ibox{3}} ltop \type{h1}\\
+%                                    rels \nliste{ h1:k(j, r) }\\
+%                                    hcons \eliste }
+% 				[\trace$_j$]]]]]]
+% \end{forest}}
+% \caption{\label{Verbbewegung-Adjunkt-sem-Satztyp}Veranschaulichung semantischer Aspekte der Analyse
+%   von \emph{Kennt jemand den Roman nicht?} inklusive Satztyp}
+% \end{figure}
+% Eine ähnliche Abbildung ohne Satztyp"=Information wurde schon auf
+% S.\,\pageref{verb-movement-adjunkt-sem} besprochen. Die Abbildung hier unterscheidet sich von der
+% aus Kapitel~\ref{Abschnitt-V1} in der Repräsentation von \rels und \hcons und in der zusätzlichen Information
+% bzgl.\ Satztyp. Wie man sieht, ist der oberste \ltopw in Abbildung~\ref{Verbbewegung-Adjunkt-sem-Satztyp} h4, das Handle der Satztyp"=Relation. h5, das Argument der Satztyp"=Relation ist \qeq zu h2, dem
+% Handle der Negation. Die Negation hat das Argument h3, das \qeq zu h1, dem Handle von \emph{kennen}
+% ist. Es ist also alles bestens verbunden. Wenn h4 das oberste Handle der gesamten MRS ist, ist klar,
+% dass Quantoren unterhalb der Satztyp"=Relation skopen müssen.
+% \itdopt{zeige MRS}
+
 
 Die aufmerksame Leser*in wird sich fragen, wie man den korrekten Bedeutungsbeitrag für die Sätze in
 (\ref{bsp-hat-er-gegessen}) bekommt. Die Analyse des Fragesatzes ist einfach: Das optionale Argument
 von \emph{essen} wird nicht realisiert. In (\ref{bsp-hat-er-gegessen}a) liegt ein ganz normaler Verberstsatz
 vor. Da es sich nicht um einen Konditionalsatz handelt, da keine Imperativmorphologie vorliegt
 und da der Satz mit Fragesatzintonation gesprochen wird, handelt es sich um einen Fragesatz,
-\dash, nur der Typ \type{interrogative} kommt als semantischer Beitrag in Frage. In der Analyse von
+\dash, nur der Typ \type{interrogative} kommt als \modew in Frage. In der Analyse von
 (\ref{bsp-hat-er-gegessen}b) wird der Lexikoneintrag mit dem Akkusativobjekt verwendet. Das Akkusativobjekt
 wird durch eine Spur realisiert und befindet sich dann in der \slashl des Arguments des Verbs
 in Erststellung. Deshalb sind die Bedingungen der Beschränkung in \pref{impl-v2} erfüllt, und
-der semantische Beitrag muss demzufolge \type{assertion\_or\_imperative\_or\_in\-ter\-rog\-a\-tive} sein.
-Da weder Imperativmorphologie noch Frageintonation vorliegt, ist nur die Relation \type{assertion}
+der \modew muss demzufolge \type{assertion\_or\_imperative\_or\_in\-ter\-rog\-a\-tive} sein.
+Da weder Imperativmorphologie noch Frageintonation vorliegt, ist nur der \modew \type{assertion}
 angebracht. Das Element in \slasch wird dann entweder durch ein spezielles Dominanzschema für
-die Vorfeldellipse abgebunden \citep{Mueller2004e,VMY2024a} oder ein leeres Element im Vorfeld fungiert als Füller in einer 
-Füller"=Kopf"=Struktur.
+die Vorfeldellipse abgebunden \citep{Mueller2004e,VMY2024a} oder ein leeres Element im Vorfeld
+fungiert als Füller in einer Füller"=Kopf"=Struktur.
 \is{Satztyp|)} 
 
 

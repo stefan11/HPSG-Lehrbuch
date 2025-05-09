@@ -182,10 +182,14 @@ Für die Bedeutungsrepräsentation wird von der konkreten Realisierung im Satz a
 In der Prädikatenlogik\is{Prädikatenlogik} wird \zb dem Satz (\mex{1}a) die Repräsentation (\mex{1}b) zugeordnet.
 \eal
 \ex Aicke liebt Conny.
-\ex \relation{lieben}(e, Aicke$'$, Conny$'$)
+\ex lieben$'$(e, Aicke$'$, Conny$'$)
+\ex lieben(e, Aicke, Conny)
 \zl
 Das kleine $e$ steht dabei für das Ereignis. Das $e$ wird auch Ereignisvariable
-genannt. \relation{Aicke} und \relation{Conny} sind sogenannte Individuenkonstanten. Dieselbe Bedeutung kann aber auch durch den Passivsatz in (\mex{1}) ausgedrückt werden.
+genannt. \relation{Aicke} und \relation{Conny} sind sogenannte Individuenkonstanten. Aus
+Platzgründen oder, wenn keine Verwechslungsgefahr besteht, lasse ich die Striche auch wie in (\mex{0}c) mitunter weg. 
+
+Dieselbe Bedeutung kann aber auch durch den Passivsatz in (\mex{1}) ausgedrückt werden.
 \ea
 Conny wird von Aicke geliebt.
 \z
@@ -197,11 +201,11 @@ gesprochen wird. Das ist sinnvoll, denn man kann in einer Wohnung den Satz \emph
 in Bezug auf eine ganze Stadt oder die ganze Welt bestimmen wollen, so wäre der Satz wohl falsch,
 denn ein Kind ist immer irgendwo wach.
 In Diskursuniversen gibt es Individuen (Personen, Objekte, abstrakte Konzepte), auf
-die man sich beziehen kann. \relation{tochter}(x, y) drückt aus, dass zwischen x und y die
+die man sich beziehen kann. \relationunmarked{tochter}(x, y) drückt aus, dass zwischen x und y die
 \relation{tochter}"=Relation besteht, \dash, dass x die Tochter von y im betreffenden
-Diskursuniversum ist. Mit \relation{fahrrad}(x) kann man ausdrücken, dass das Objekt x die
+Diskursuniversum ist. Mit \relationunmarked{fahrrad}(x) kann man ausdrücken, dass das Objekt x die
 Eigenschaft hat, ein Fahrrad zu sein. Auch für Adjektive gibt es Relationen. Relationen lassen sich
-mit logischen Operatoren verknüpfen: \relation{gelb}(x) $\wedge$ \relation{fahrrad}(x) steht für
+mit logischen Operatoren verknüpfen: \relationunmarked{gelb}(x) $\wedge$ \relationunmarked{fahrrad}(x) steht für
 etwas, das gelb und ein Fahrrad ist, also ein gelbes Fahrrad.
 
 Abbildung~\ref{fig-Diskursuniversum-Konstanten} zeigt ein Diskursuniversum mit verschiedenen
@@ -233,31 +237,6 @@ sie ihr einen Namen geben.
 		\draw[fill=fugreen, draw=black] (4,2) circle (0.1);
 		\draw[fill=fugreen, draw=black] (7,4) circle (0.1);
 	\end{tikzpicture}
-% \begin{pspicture}(0,0)(8,5)
-% %\psgrid
-% \psframe(0,0)(8,5)
-% \rput[Bl](2.6,1.2){%
-% \rnode{Aicke}{Aicke}}
-% \rput[Bl](1,3){%
-% \rnode{sweety}{sweety}}
-% \rput[Bl](4,3){%
-% \rnode{Conny}{Conny}}
-% \rput[Bl](2,.5){%
-% \rnode{Kirby}{Kirby}}
-
-% \cnode[fillcolor=fugreen,fillstyle=solid](1,1){0.1}{KirbyDot}
-% \cnode[fillcolor=fugreen,fillstyle=solid](2,2){0.1}{AickeDot}
-% \cnode[fillcolor=fugreen,fillstyle=solid](4,2){0.1}{NonameDot}
-% \cnode[fillcolor=fugreen,fillstyle=solid](3,3){0.1}{ConnyDot}
-% \cnode[fillcolor=fugreen,fillstyle=solid](7,4){0.1}{NoName2Dot}
-% %
-% %\psellipse(4,2)(3,1.5)
-% %\anodeconnect[l]{modell}[r]{phen}%
-% \ncline[nodesepA=2pt,nodesepB=0pt]{Kirby}{KirbyDot}
-% \ncline[nodesepA=2pt,nodesepB=0pt]{Aicke}{AickeDot}
-% \ncline[nodesepA=2pt,nodesepB=0pt]{sweety}{AickeDot}
-% \ncline[nodesepA=2pt,nodesepB=0pt]{Conny}{ConnyDot}
-% \end{pspicture}
 \caption{Diskursuniversum mit Individuen, denen Individuenkonstanten zugeordnet sind}\label{fig-Diskursuniversum-Konstanten}
 \end{figure}
 
@@ -275,20 +254,6 @@ Abbildung~\ref{fig-Diskursuniversum-blond} zeigt die Menge der blonden Individue
 		\node[anchor=west] at (3,0.5) {blond};
 		\draw (2.3,0.9) -- (3,0.7);
 	\end{tikzpicture}
-% \begin{pspicture}(0,0)(8,5)
-% %\psgrid
-% \psframe(0,0)(8,5)
-% \pscircle[fillcolor=fugreen,fillstyle=solid](1,1){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](2,2){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](4,2){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](3,3){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](7,4){0.1}
-% \rput[Bl](3,0.5){%
-% \rnode{blond}{blond}}
-% %
-% \cnode(1.5,1.5){1}{blondSet}
-% \ncline[nodesepA=0pt,nodesepB=2pt]{blondSet}{blond}
-% \end{pspicture}
 \caption{Diskursuniversum mit der Menge der blonden Individuen}\label{fig-Diskursuniversum-blond}
 \end{figure}
 
@@ -320,34 +285,6 @@ Menge der blonden Kinder entspricht.
 		\node[anchor=west] at (5,3) {Kind};
 		\draw (4.1,3) -- (5,3);
 	\end{tikzpicture}}
-% \begin{pspicture}(0,0)(8,5)
-% %\psgrid
-% \psframe(0,0)(8,5)
-% \rput[Bl](5,3){%
-% \rnode{Kind}{Kind}}
-% %
-% \cnode(3,2){1.5}{KindSet}
-% \ncline[nodesepA=0pt,nodesepB=2pt]{KindSet}{Kind}
-% \rput[Bl](0.5,3.5){%
-% \rnode{blond}{blond}}
-% %
-% \cnode(1.5,1.5){1}{blondSet}
-% \ncline[nodesepA=0pt,nodesepB=2pt]{blondSet}{blond}
-% \psclip
-% {%
-% \pscircle(3,2){1.5}
-% }
-% \pscircle[fillstyle=hlines](1.5,1.5){1}
-% \endpsclip
-% \pscircle[fillcolor=fugreen,fillstyle=solid](1,1){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](2,2){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](4,2){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](3,3){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](7,4){0.1}
-% %
-% %\psellipse(4,2)(3,1.5)
-% %\anodeconnect[l]{modell}[r]{phen}%
-% \end{pspicture}
 \caption{Diskursuniversum mit Menge von blonden Individuen und von Individuen mit der Eigenschaft,
   Kind zu sein, und der Schnittmenge der blonden Kinder}\label{fig-Diskursuniversum-blond-Kind}
 \end{figure}
@@ -390,38 +327,6 @@ Da es im Diskursuniversum ein blondes Kind gibt und dieses schläft, ist auch de
 		\node[anchor=west] at (3,4.4) {schlafen};
 		\draw (2.8,3.8) -- (3,4.3);
 	\end{tikzpicture}}
-% \begin{pspicture}(0,0)(8,5)
-% %\psgrid
-% \psframe(0,0)(8,5)
-% \rput[Bl](5,3){%
-% \rnode{Kind}{Kind}}
-% %
-% \cnode(3,2){1.5}{KindSet}
-% \ncline[nodesepA=0pt,nodesepB=2pt]{KindSet}{Kind}
-% \rput[Bl](0.5,3.5){%
-% \rnode{blond}{blond}}
-% %
-% \cnode(1.5,1.5){1}{blondSet}
-% \ncline[nodesepA=0pt,nodesepB=2pt]{blondSet}{blond}
-% \psclip
-% {%
-% \pscircle(3,2){1.5}
-% }
-% \pscircle[fillstyle=hlines](1.5,1.5){1}
-% \endpsclip
-% \pscircle[fillcolor=fugreen,fillstyle=solid](1,1){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](2,2){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](4,2){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](3,3){0.1}
-% \pscircle[fillcolor=fugreen,fillstyle=solid](7,4){0.1}
-% %
-% \rput*[refpoint]{45}(2.5,-1){\psellipse(2.5,2.5)(1.8,0.9)}
-% \rput[Bl](4.5,4){%
-% \rnode{schlafen}{schlafen}}
-% \psline(4.3,4.1)(3.8,3.8)
-% \ncline[nodesepA=0pt,nodesepB=2pt]{schlafenSet}{schlafen}
-% %\anodeconnect[l]{modell}[r]{phen}%
-% \end{pspicture}
 \caption{Diskursuniversum mit Schnittmenge aus blonden, schlafenden und Kind-seienden Individuen}\label{fig-Diskursuniversum-blond-Kind-schlafen}
 \end{figure}
 
@@ -445,7 +350,7 @@ wahr sind, bekommt man jeweils die Aussagen in b.
 \label{ex-Das-Kind-schläft}
 \ex Das Kind schläft.
 \ex Es gibt ein (bestimmtes) Kind und für dieses Kind gilt, dass es schläft.
-\ex \blau{$\iota$}x kind(x) \blau{$\wedge$} schlafen(x)
+\ex \blau{$\iota$}x kind(x) \blau{$\wedge$} schlafen(x)\todostefan{Quelle iota und erklären}
 \zl
 Mit Hilfe logischer Symbole für die Quantoren kann man diese Bedeutung wie in c repräsentieren. Da
 die Bedeutung von \emph{kind} und \emph{schlafen} bekannt ist, kann man die Bedeutung der
@@ -512,7 +417,7 @@ vorgeschlagen. Statt Proto"=Agens und Proto"=Patiens verwenden sie die Rollen Ac
 
 Ich folge hier den Autor*innen des MRS"=Papiers und verwende für die Ereignisvariablen und die
 wichtigsten Variablen von Nomina und Adjektiven \argzero und für weitere Argumente dann \argone,
-\argtwo usw. Für \relation{schlafen}(e, x), \relation{helfen}(e, x, y) und \relation{kind}(x) ergeben sich zum Beispiel die folgenden Strukturen:
+\argtwo usw. Für \relationunmarked{schlafen}(e, x), \relationunmarked{helfen}(e, x, y) und \relationunmarked{kind}(x) ergeben sich zum Beispiel die folgenden Strukturen:
 \eal
 \ex
 \ms[schlafen~]{ 
@@ -618,8 +523,8 @@ einzeln verhalten würden.\is{Koordination|)}
 Nominale Objekte führen einen Index (\textsc{ind}\isfeat{ind}) ein. Dieser Index entspricht einer Variable in
 der Prädikatenlogik, also den x und y, die weiter oben verwendet wurden. Relationen, die die Menge
 der Objekte im Diskursuniversum einschränken, auf die sich der referentielle Index bezieht, werden
-in der \relsl\isfeat{rels} repräsentiert. Mit \relation{buch}(x) bezieht man sich auf ein \emph{x} mit der
-Eigenschaft, Buch zu sein. Mit den beiden Relationen \relation{buch}(x) und \relation{interessant}(x)
+in der \relsl\isfeat{rels} repräsentiert. Mit \relationunmarked{buch}(x) bezieht man sich auf ein \emph{x} mit der
+Eigenschaft, Buch zu sein. Mit den beiden Relationen \relationunmarked{buch}(x) und \relationunmarked{interessant}(x)
 bezieht man sich auf eine Teilmenge der Bücher, nämlich genau auf die, die interessant sind.
 Der Wert von \rels ist eine Liste der jeweiligen Relationen, die die Referenzmenge eines Indexes einschränken.\footnote{
 %  Bei \citet[\page26]{ps2} ist der Wert von \textsc{restrictions} eine Menge\is{Menge}.
@@ -830,7 +735,7 @@ Zur Einordnung hier noch eine kurze Bemerkung zum \isi{$\lambda$-Kalkül}. Leser
 Semantik beschäftigt haben, kennen bestimmt $\lambda$"=Ausdrücke der Art in (\mex{1}). Manche
 fürchten sie eventuell sogar.
 \ea
-$\lambda$z $\lambda$y $\lambda$x geben(x, y, z)
+$\lambda$z $\lambda$y $\lambda$x geben(x, y, z)\todostefan{geben mit prime? unten in Bäumen?}
 \z
 Die gute Nachricht ist: In den meisten HPSG"=Varianten braucht man keine Lambdas. Die Lambdas sind
 die Argumente in der \argstl bzw.\ in den Valenzlisten. So, wie die Lambdas in (\mex{0}) eins nach
@@ -970,7 +875,7 @@ werden im nächsten Unterabschnitt eingeführt und dann können mit dem eingefü
 knifflige Probleme gelöst werden, die mit dem, was bisher behandelt wurde, nicht analysierbar waren. Zum
 Beispiel sind Wortgruppen wie \emph{mutmaßlicher Mörder} nicht so zu analysieren wie
 \emph{skrupelloser Mörder}, denn bei einem mutmaßlichen Mörder ist es keineswegs sicher, dass die
-Person ein Mörder ist. \relation{mutmaßlich}(x) $\wedge$ \relation{mörder}(x) wäre also keine
+Person ein Mörder ist. \relationunmarked{mutmaßlich}(x) $\wedge$ \relationunmarked{mörder}(x) wäre also keine
 angemessene Bedeutungsrepräsentation. 
 
 \subsection{Quantoren}
@@ -982,7 +887,7 @@ gesagt. Das Beispiel (\ref{ex-Alle-Kinder-schlafen}) sei hier der Übersichtlich
 \eal
 \label{ex-Alle-Kinder-schlafen-zwei}
 \ex Alle Kinder schlafen.
-\ex $\forall$x \relation{kind}(x) $\to$ \relation{schlafen}(x)
+\ex $\forall$x \relationunmarked{kind}(x) $\to$ \relationunmarked{schlafen}(x)
 \ex Für jede Entität x in unserem Diskursuniversum, für die gilt, dass sie ein Kind ist, gilt auch,
 dass sie schläft.
 \zl
@@ -1004,14 +909,14 @@ Jede Tochter eines Mitarbeiters schläft.
 \z
 Dieses Beispiel hat die beiden Lesarten in (\mex{1}) und (\mex{1}):
 \eal
-\ex $\forall$x ($\exists$y \relation{mitarbeiter}(y) $\wedge$ \relation{tochter}(x,y)) $\to$
-\relation{schlafen}(x)
+\ex $\forall$x ($\exists$y \relationunmarked{mitarbeiter}(y) $\wedge$ \relationunmarked{tochter}(x,y)) $\to$
+\relationunmarked{schlafen}(x)
 \ex Für jede Entität x in unserem Diskursuniversum für die gilt, dass es im Diskursuniversum eine Entität y gibt, die
 Mitarbeiter ist und deren Tochter x ist, gilt auch, dass sie (x) schläft.
 \zl
 \eal
-\ex $\exists$y \relation{mitarbeiter}(y) $\wedge$ ($\forall$x \relation{tochter}(x,y) $\to$
-\relation{schlafen}(x))
+\ex $\exists$y \relationunmarked{mitarbeiter}(y) $\wedge$ ($\forall$x \relationunmarked{tochter}(x,y) $\to$
+\relationunmarked{schlafen}(x))
 \ex Es gibt im Diskursuniversum eine Entität y, für die gilt, dass sie ein Mitarbeiter ist und dass für alle Entitäten
 x im Diskursuniversum, für die gilt, dass sie die Tochter von y sind, auch gilt, dass sie schlafen.
 \zl
@@ -1034,7 +939,8 @@ der Allquantor ist im Body des Existenzquantors. Für die Wohlgeformtheit der Au
 dass es keine ungebundenen Variablen gibt. Das heißt, dass zum Beispiel kein $z$ irgendwo in
 (\mex{0}) vorkommen kann, da es keinen dazugehörigen Quantor gibt. Auch $x$ und $y$ dürfen nur im
 Bereich der jeweiligen Quantoren vorkommen. Zum Beispiel ist (\mex{1}) nicht wohlgeformt, weil das
-$x$ von schlafen(x) außerhalb des Skopus des Allquantors ist, der x einführt und binden muss.
+$x$ von schlafen(x) außerhalb des Skopus des Allquantors ist, der x einführt und binden muss. Siehe
+auch \citew[131]{Kratzer95a}.
 \ea
 exist\_q(y, every\_q(x, tochter(x,y), mitarbeiter(y)),  schlafen(x))
 \z
@@ -1061,7 +967,7 @@ Adjektiv \emph{kleinen} zeigt (\mex{1}):
 \eal
 \ex Alle kleinen Kinder schlafen.
 \ex\label{ex-Aussagenlogik-Alle kleinen Kinder schlafen}
-$\forall$x (\relation{klein}(x) $\wedge$ \relation{kind}(x)) $\to$ \relation{schlafen}(x)
+$\forall$x (\relationunmarked{klein}(x) $\wedge$ \relationunmarked{kind}(x)) $\to$ \relationunmarked{schlafen}(x)
 \ex Für jede Entität x in unserem Diskursuniversum, für die gilt, dass sie klein und ein Kind ist, gilt auch,
 dass sie schläft.
 \zl
@@ -1341,7 +1247,7 @@ cont & \ms{
                       arg0 & \ibox{2}\\ 
                       rstr & \ibox{3}\\ 
 %                      body &\\
-                      } }\\
+                      } }\\[5mm]
        hcons & \liste{ \ms[qeq]{
                        harg & \ibox{3}\\
                        larg & \ibox{1}\\
@@ -1352,16 +1258,31 @@ cont & \ms{
 \zs
 \emph{jede} ist ein Determinator, der selbst keine Argumente braucht, also eine leere \spr- und
 \compsl hat. Der Allquantor wird in der \relsl eingeführt. \argzero ist das Merkmal für die
-Variable. Außerdem gibt es je ein Merkmal für die Restriktion und den Body. Für die Restriktion
-wurde oben angenommen, dass sie in einer \qeq\vspace{-2pt}\hspace{-.5ex}\hyp Relation zum Handle der \nbar steht. Das Nomen kann
+Variable. Der Wert von \argzero, also die Variable, ist \ibox{2}. Außerdem gibt es je ein Merkmal
+für die Restriktion (\restr) und den Body (\body). Die komplette Struktur für den Quantor ist also
+die in (\mex{1}a), aber da der Wert von \body nie durch Quantoren restringiert wird, muss man \body
+in (\mex{0}) auch nicht angeben.
+\eal
+\ex \ms[every\_q]{
+                      arg0 & \ibox{2}\\ 
+                      rstr & \ibox{3}\\ 
+                      body & \etag\\
+                      }
+\ex every\_q(\ibox{2}, \ibox{3}, \etag)
+\zl
+Für die Restriktion
+wurde oben angenommen, dass sie in einer \qeq\vspace{-2pt}\hspace{-.5ex}\hyp Relation zum Handle der
+\nbar steht. Das Nomen kann
 zwar über die \sprl auf den Determinator zugreifen, aber andersrum ist das nicht
 möglich. Determinatoren sind vollständig und somit ist ein Zugriff auf das Nomen über Valenzmerkmale
 nicht möglich. Man behilft sich deshalb mit einem Trick: Analog zum \modm nimmt man ein
 \textsc{spec}"=Merkmal an \citep[\page 50--51]{ps2}. \textsc{spec} steht für \emph{specified}. Der Wert des \specms ist
-entweder vom Typ \type{none} oder vom Typ \type{sign}. Über den \specw kann man auf den \ltopw und
-den Index des Nomens zugreifen, das mit einem Determinator kombiniert wird. So wird es möglich
-aufzuschreiben, dass die Restriktion des Allquantors \qeq\vspace{-2pt} mit dem \ltopw der \nbar
-ist. Das \textsc{h} in \textsc{harg} steht dabei für \emph{hole}, also die Stelle, in die etwas
+entweder vom Typ \type{none} oder vom Typ \type{sign}. Über den \specw kann man auf den \ltopw \iboxb{1} und
+den Index des Nomens \iboxb{2} zugreifen, das mit einem Determinator kombiniert wird. So wird es möglich
+aufzuschreiben, dass die Variable des Allquantors mit dem referentiellen Index des Nomens \iboxb{2}
+übereinstimmt und dass die Restriktion des Allquantors \qeq\vspace{-0pt} mit dem \ltopw der \nbar
+ist (\,\ibox{3} \qeq~\ibox{1}\,). Die entsprechende \qeq"=Beschränkung steht in der \hconsl, der Liste
+der Handle Constraints. Das \textsc{h} in \textsc{harg} steht dabei für \emph{hole}, also die Stelle, in die etwas
 eingestöpselt werden kann, und das \textsc{l} in \textsc{larg} steht für \emph{label}. Für unser
 Beispiel \emph{jede Tochter} bedeutet das, dass \type{tochter\_rel} in die Restriktion von
 \emph{every\_q} eingestöpselt werden kann oder irgendein Quantor, der \type{tochter\_rel}
@@ -1369,6 +1290,7 @@ dominiert. Der \textsc{body}"=Wert des Quantors wird einfach nicht angegeben. Da
 Unterspezifikation: Irgendein Handle einer anderen Relation oder eines anderen Quantors kann dort
 eingefügt werden, Hauptsache zum Schluss sind alle Variablen im Bereich eines Quantors und keins der
 Handle"=Constraints ist verletzt.
+\todostefan{Jakob: Wahrscheinlich wäre für mich  sehr hilfreich eine Tabelle zu haben, wo die Begriffe aus der MRS den Merkmalen in der AVM Gegenübergestellt werden.}
 
 Abbildung~\ref{fig-Jede-Tochter-eines-Mitarbeiters-schläft} zeigt die Analyse unseres Beispiels.
 \begin{figure}
@@ -1418,9 +1340,10 @@ aber das stimmt nicht ganz. Das \modm ähnelt den Valenzmerkmalen. Es gibt das K
 in dem der \modw der Nichtkopftochter mit der Kopftochter identifiziert wird. Das \specm wird dazu
 benötigt, von innerhalb der Nicht"=Kopftochter bei Bedarf auf Eigenschaften der Kopftochter
 zugreifen zu können. In der hier vorgestellten Grammatik scheint es so zu sein, dass diese Situation nur
-für Determinatoren vorliegt und also nur für Determinatoren ein \specm annehmen und dieses in
-Kopf"=Spezifikator"=Strukturen mit der Kopftochter identifizieren. Es gibt aber auch in
-Präpositionalphrasen die Möglichkeit einen Spezifikator zu haben. Die Duden"=Grammatik \citeyearpar[\S 1300]{Duden2005} gibt Beispiele wie die in (\mex{1}):
+für Determinatoren vorliegt und man also nur für Determinatoren ein \specm annehmen und dieses in
+Kopf"=Spezifikator"=Strukturen mit der Kopftochter identifizieren muss. Also das Nomen selegiert den
+Determinator via \spr und der Determinator selegiert das Nomen über \spec. Es gibt aber auch in
+Präpositionalphrasen die Möglichkeit einen Spezifikator, also ein Element in \spr, zu haben. Die Duden"=Grammatik \citeyearpar[\S 1300]{Duden2005} gibt Beispiele wie die in (\mex{1}):
 \eal
 \ex {}[[Einen Schritt] vor dem Abgrund] blieb er stehen.\label{Beispiel-Schritt-vor-dem-Abgrund}
 \ex {}[[Kurz] nach dem Start] fiel die Klimaanlage aus.
@@ -1428,7 +1351,7 @@ Präpositionalphrasen die Möglichkeit einen Spezifikator zu haben. Die Duden"=G
 \ex {}[[Mitten] im Urwald] stießen die Forscher auf einen alten Tempel.
 \zl
 Präpositionen können durch eine Nominalphrase oder eine Adjektivphrase spezifiziert werden. Wie bei
-Determinatoren auch, darf es nur ein spezifizierendes Element geben:
+Nomen auch, darf es nur ein spezifizierendes Element geben:
 \eal
 \ex[*]{
 [\sub{PP} einen Schritt [\sub{PP} kurz [\sub{PP} vor dem Abgrund]]]
@@ -1437,9 +1360,11 @@ Determinatoren auch, darf es nur ein spezifizierendes Element geben:
 [\sub{PP} kurz [\sub{PP} einen Schritt [\sub{PP} vor dem Abgrund]]]
 }
 \zl
-Es ist also sinnvoll, diese zusätzlichen Elemente als Spezifikatoren zu analysieren.
-Somit muss man also Kopf"=Spezifikator"=Strukturen mit Zugriff des Spezifikators auf den Kopf von
-solchen ohne Zugriff unterscheiden. Das kann man mithilfe das folgenden Prinzips:
+Es ist also sinnvoll, diese zusätzlichen Elemente als Spezifikatoren zu analysieren und via \spr zu
+selegieren. Die Spezifikatoren in PPen müssen aber die Projektion der Präposition nicht sehen
+können, brauchen also kein \specm. Somit muss man also Kopf"=Spezifikator"=Strukturen mit Zugriff
+des Spezifikators auf den Kopf von solchen ohne Zugriff unterscheiden. Das kann man mithilfe das
+folgenden Prinzips: 
 
 \begin{prinzip-break}[Spezifikatorprinzip (\textsc{spec}-Principle)] 
 \label{prinzip-spec}\is{Prinzip!Spezifikator-}
@@ -1450,9 +1375,10 @@ der Kopf"|tochter.
 \end{prinzip-break}
 Formalisieren lässt sich das Prinzip wie folgt:
 \ea
+\resizebox{.998\linewidth}{!}{%
 \ms{ non-head-dtrs & \liste{ [\textsc{head|spec} \type{sign}] } } \impl
 \ms{ head-dtr & \ibox{1}\\
-     non-head-dtrs & \liste{ [\textsc{head|spec} \ibox{1}] } }
+           non-head-dtrs & \liste{ [\textsc{head|spec} \ibox{1}] } }}
 \z
 
 
@@ -1721,7 +1647,7 @@ Gewalt provoziere immer Gegengewalt und: "`Soldaten sind potentielle Mörder."'\
 Die Formel in (\mex{1}) wäre für die Repräsentation des Prädikates im Satz (\mex{2}) angemessen, für
 die Prädikation in (\mex{0}) ist sie es nicht.
 \ea
-\relation{mörder}(x)
+\relationunmarked{mörder}(x)
 \z
 \ea
 Soldaten sind Mörder.\footnote{
@@ -1833,9 +1759,9 @@ Affen glauben, dass es schläft. Und dann kann es sein, dass es für jeden Affen
 dem er glaubt, dass es schläft. (\mex{1}) zeigt die drei Lesarten im Überblick:
 \eal
 \label{ex-Prädikatenlogik-alle-Affen-glauben-dass-ein-Einhorn-schläft}
-\ex $\forall$x \relation{affe}(x) $\to$ \relation{glauben}($\exists$y \relation{einhorn}(y) $\wedge$ schlafen(y))
-\ex $\exists$y \relation{einhorn}(y) $\wedge$ ($\forall$x \relation{affe}(x) $\to$ \relation{glauben}(schlafen(y)))
-\ex $\forall$x \relation{affe}(x) $\to$ ($\exists$y \relation{einhorn}(y) $\wedge$ \relation{glauben}(schlafen(y)))
+\ex $\forall$x \relationunmarked{affe}(x) $\to$ \relationunmarked{glauben}($\exists$y \relationunmarked{einhorn}(y) $\wedge$ schlafen(y))
+\ex $\exists$y \relationunmarked{einhorn}(y) $\wedge$ ($\forall$x \relationunmarked{affe}(x) $\to$ \relationunmarked{glauben}(schlafen(y)))
+\ex $\forall$x \relationunmarked{affe}(x) $\to$ ($\exists$y \relationunmarked{einhorn}(y) $\wedge$ \relationunmarked{glauben}(schlafen(y)))
 \zl
 In der hier verwendeten Notation mit den Quantoren als dreistelliger Relation sieht das wie folgt aus:
 \eal
@@ -2139,7 +2065,7 @@ links in Abbildung~\ref{Abbildung hypernormaler Graph} für hypernormale Pfade u
 \draw (x.south) to (z);
 \draw[solid] (y1) to (y);
 \draw (y2.south) to (y1);
-\draw (y2) to (y3);
+\draw (y2.south) to (y3);
 \draw[solid] (y3.south) to (z);
 \end{tikzpicture}
 \hfill\mbox{}
@@ -2455,6 +2381,8 @@ head-dtr|cont|ltop & \ibox{1}\\
 Zusammen sagen diese beiden Beschränkungen, dass in Strukturen mit Kopf, die keine
 Kopf"=Adjunkt"=Strukturen sind, der \ltopw vom Kopf kommt und in Strukturen, die
 Kopf"=Adjunkt"=Strukturen sind, kommt er vom Adjunkt.
+
+\itdopt{Typhierarchie mit head-non-adjunct-phrase}
 
 Damit ist geklärt, wie sich der \ltop"=Wert der Mutter, es muss aber auch die Bestimmung des
 \ltopwes der Töchter geregelt werden. Normalerweise kann so etwas lexikalisch geregelt werden: Eine
@@ -2791,7 +2719,7 @@ sie geöffnet hat.
 Die verschiedenen Lesarten werden dadurch erklärt, dass man das Prädikat \relation{öffnen} in
 mindestens zwei Teilprädikate zerlegt. \citet{Egg99a} schlägt die Zerlegung in CAUSE\is{CAUSE} und \relation{offen} vor:
 \ea
-CAUSE(x, \relation{offen}(y))
+CAUSE(x, \relationunmarked{offen}(y))
 \z
 Das heißt, es gibt einen CAUSE"=Operator, der Skopus über die Relation \relation{offen} hat. Mit
 einer solchen Zerlegung kann man dann die verschiedenen Bezüge von \emph{wieder} erklären: In der
@@ -2878,8 +2806,8 @@ Die beiden besprochenen Lesarten unterscheiden sich im Skopus des Allquantors. D
 Max alle Fenster selbst öffnet, entspricht der Lesart mit weitem Skopus in
 (\mex{1}a), die in der einige bereits offen sein können, entspricht der in (\mex{1}b):
 \eal
-\ex $\forall$x \relation{fenster}(x) $\to$ CAUSE(\relation{max}, \relation{offen}(x))
-\ex CAUSE(\relation{max}, $\forall$x \relation{fenster}(x) $\to$ \relation{offen}(x))
+\ex $\forall$x \relationunmarked{fenster}(x) $\to$ CAUSE(\relationunmarked{max}, \relationunmarked{offen}(x))
+\ex CAUSE(\relationunmarked{max}, $\forall$x \relationunmarked{fenster}(x) $\to$ \relationunmarked{offen}(x))
 \zl
 Diese beiden Lesarten kann man unterspezifiziert in einem Dominanzgraphen wie ihn Abbildung~\ref{Abbildung-Max-alle-Fenster-oeffnete}
 zeigt repräsentieren.
@@ -3009,11 +2937,11 @@ dass Max wieder alle Fenster öffnete
 \z
 \begin{enumerate}
 \item Max öffnete jedes Fenster und er hat das mit jedem Fenster schon einmal gemacht 
-      (\relation{wieder}($\forall$(CAUSE(offen))); repetitiv)
+      (\relationunmarked{wieder}($\forall$(CAUSE(offen))); repetitiv)
 \item Max bewirkte, dass jedes Fenster offen war, und er hat das schon einmal gemacht
-      (\relation{wieder}(CAUSE($\forall$(offen))); repetitiv)
+      (\relationunmarked{wieder}(CAUSE($\forall$(offen))); repetitiv)
 \item Alle Fenster waren zu einem früheren Zeitpunkt gemeinsam offen, und Max stellte diesen Zustand wieder her
-      (CAUSE(\relation{wieder}($\forall$(offen))); restitutiv)
+      (CAUSE(\relationunmarked{wieder}($\forall$(offen))); restitutiv)
 \end{enumerate}
 %% In allen drei Lesarten hat \emph{wieder} Skopus über den Allquantor. Die Lesarten für (\ref{ex-alle-wieder}) -- hier als (\mex{1}) wiederholt -- unterscheiden sich nur im Skopus von \emph{wieder} und Allquantor.
 %% \ea
@@ -3024,11 +2952,11 @@ dass Max wieder alle Fenster öffnete
 %%
 %% \begin{enumerate}
 %% \item 
-%%       ($\forall$ < \relation{wieder} < CAUSE < offen; repetitiv)
+%%       ($\forall$ < \relationunmarked{wieder} < CAUSE < offen; repetitiv)
 %% \item 
-%%       ($\forall$ < CAUSE < \relation{wieder} < offen; restitutiv)
+%%       ($\forall$ < CAUSE < \relationunmarked{wieder} < offen; restitutiv)
 %% \item 
-%%       (CAUSE  < $\forall$ < \relation{wieder} < offen; restitutiv)
+%%       (CAUSE  < $\forall$ < \relationunmarked{wieder} < offen; restitutiv)
 %% \end{enumerate}
 
 \noindent
