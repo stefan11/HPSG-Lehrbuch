@@ -55,7 +55,10 @@ kapitel19.tgz: clean
 public: alle-grammatiken.tgz kapitel03.tgz kapitel04.tgz kapitel05.tgz kapitel06.tgz kapitel08.tgz kapitel09.tgz kapitel10.tgz kapitel11.tgz 
 	cp -p $? /Users/stefan/public_html/Pub/Einfuehrung/
 
-o-public: knoppix o-copy
+o-public: alle-grammatiken.tgz kapitel03.tgz kapitel04.tgz kapitel05.tgz kapitel06.tgz kapitel08.tgz kapitel09.tgz kapitel10.tgz kapitel11.tgz 
+	scp -p $? hpsg.hu-berlin.de:/home/stefan/public_html/Pub/Einfuehrung/
+
+old-o-public: knoppix o-copy
 
 o-copy: alle-grammatiken.tgz kapitel3.tgz kapitel4.tgz  kapitel5.tgz kapitel6.tgz kapitel7.tgz kapitel9.tgz kapitel10.tgz kapitel11.tgz kapitel12.tgz kapitel13.tgz kapitel14.tgz kapitel15.tgz kapitel16.tgz kapitel17.tgz kapitel18.tgz kapitel19.tgz
 	scp -p $? www.cl.uni-bremen.de:/home/stefan/public_html/Pub/Einfuehrung/

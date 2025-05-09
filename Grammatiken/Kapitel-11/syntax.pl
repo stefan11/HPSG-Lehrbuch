@@ -32,7 +32,7 @@ head_complement_phrase *>
 head_specifier_phrase *>
    (synsem:loc:cat:spr:Spr,
     head_dtr:synsem:loc:cat:(spr:[NonHeadDtr|Spr],
-                             comps:[]),
+                  comps:[]),
     non_head_dtrs:[synsem:NonHeadDtr]).
 
 head_non_complement_phrase *>
@@ -57,7 +57,7 @@ head_adjunct_phrase *>
 
 %headed_phrase *>
 %   head_dtr:HD,
-%   non_head_dtrs:[NHDtrs],
+%   non_head_dtrs:NHDtrs,
 %   dtrs:[HD|NHDtrs].
 
 
@@ -92,11 +92,8 @@ headed_phrase *>
    (synsem:loc:cont:ind:Ind,
     head_dtr:synsem:loc:cont:ind:Ind).
 
-head_complement_phrase *>
-   (synsem:loc:cont:ltop:LTop,
-    head_dtr:synsem:loc:cont:ltop:LTop).
-
-head_specifier_phrase *>
+% head_complement_phrase, head_specifier_phrase, head_filler_phrase
+head_non_adjunct_phrase *>
    (synsem:loc:cont:ltop:LTop,
     head_dtr:synsem:loc:cont:ltop:LTop).
 
@@ -143,14 +140,30 @@ verb_initial_rule *>
                 phrase:minus)]).
 
 
-% * Er schläft schläft.
-%
-(headed_phrase,
- head_dtr:(word,
-           phon:ne_list)) *> head_dtr:synsem:loc:cat:head:dsl:none.
+% [einen Mann _i] und schläft kann koordiniert werden.
+% dabei muss "einen Mann" irgendwo in der COMPS-Liste von _i auftreten.
+% Bei der Koordination wird die COMPS-Liste von [einen Mann _i] mit der von schläft identifiziert.
+% Damit ist die COMPS-Liste der Spur < NP[nom], NP[acc] > und die zweite NP durch "einen Mann" realisiert.
+% Die Spur hat diese Info auch in DSL. Weil schläft aber als Verbletztverb noch einen offenen DSL-Wert hat,
+% kann es mit [ein Mannen _i] koordiniert werden. Das Ergebnis ist eine Projektion mit einer einstelligen
+% Valenz und einem zweistelligen DSL-Wert. Diese kann nie verwendet werden, denn entweder ist das Verb hinten
+% overt, dann passt der DSL-Wert nicht, oder die Spur identifiziert LOC mit DSL. Dann wird auch in
+% [ein Mann _i] und schläft der LOC-Wert mit DSL identifiziert, was aber nicht möglich ist, weil DSL zweistellig,
+% die koordinierte Phrase aber einstellig ist.
+
+%[V1 [coord_phrase [ X [ und Y]]
+
+% Auch * [[Den Roman kennt] und [schläft]] er.
+
+(verb_initial_rule,
+ dtrs:[coord_phrase]) *> dtrs:hd:dtrs:[synsem:phrase:minus,              % X
+                                       dtrs:tl:hd:synsem:phrase:minus].  % Y
+
 
 
 headed_phrase *> synsem:phrase:plus.
+
+word *> synsem:phrase:minus.
 
 % Da coord_phrase nicht Untertyp von headed_phrase ist,
 % ist der PHRASE-Wert unterspezifiziert.
@@ -160,6 +173,34 @@ headed_phrase *> synsem:phrase:plus.
 % dafür sorgt, daß der DSL-Wert von `ihn kennt' none ist.
 % Damit hat die Konjunktion auch den DSL-Wert none und kann
 % dann nicht mehr Tochter der V1-Regel sein.
+
+% Sätze mit Verb in Erststellung können Imperativsätze oder auch Interrogativsätze sein.
+% Die beiden folgenden Sätze unterscheiden sich nur hinsichtlich ihrer Flexion:
+%
+%     Gib   Du mir das Buch!
+%     Gibst Du mir das Buch?
+%
+% Die genaue Auflösung der Relation erfolgt erst in der Grammatik für Kapitel 16,
+% da dort erst eine Morphologiekomponente eingeführt wird.
+
+% Konditionalsätze werden ignoriert.
+
+
+(verb_initial_rule,
+ synsem:loc:cat:comps:[nonloc:slash:[]])      *> synsem:loc:cont:ind:mode:imperative_or_interrogative.
+
+% Hier spielt das Element in SLASH eine entscheidende Rolle.
+% Ist es eine Interrogativphrase, muss ein entsprechender Operator angenommen
+% werden. Da die vorliegende Grammatik keine Interrogativpronomina enthält,
+% wird die Fallunterscheidung nicht gemacht.
+% Jetzt gib ihm das Buch!
+% Du kommst morgen?
+% Du kommst morgen.
+%
+% Alles außer Konditional: Kämest Du morgen, könnten wir ...
+%
+(verb_initial_rule,
+ synsem:loc:cat:comps:[nonloc:slash:ne_list]) *> synsem:loc:cont:ind:mode:assertion_or_imperative_or_interrogative.
 
 
 % Linearisierungsregeln: Wenn der Initial-Wert plus ist, steht die Kopf-Tochter vor der
@@ -207,25 +248,16 @@ filler_phrase *>
 
 head_filler_phrase *>
    (v2:plus,
-    dtrs:[synsem:nonloc:rel:[], % Sonst hätte „In der schläft er.“ zwei Lösungen
-          synsem:loc:cat:head:initial:plus]).
+    head_dtr:synsem:loc:cat:head:initial:plus).
 
 %%
 head_non_filler_phrase *>
    (synsem:nonloc:slash:(append(Slash1,Slash2),
                          list_with_zero_or_one_element), % The ordering of the two constraints is important.
-                                                  % If list_with ... is stated first, rule computation does not terminate.
-                                                  % This seems to be a bug. (St. Mü. 01.04.2025)
-    dtrs:[synsem:nonloc:slash:Slash1,synsem:nonloc:slash:Slash2]).
-
-head_non_filler_phrase *>
-   (synsem:nonloc:rel:(append(Rel1,Rel2),
-                       list_with_zero_or_one_element), % The ordering of the two constraints is important.
-                                                       % If list_with ... is stated first, rule computation does not terminate.
-                                                       % This seems to be a bug. (St. Mü. 01.04.2025)
-       head_dtr:synsem:nonloc:rel:Rel1,
-       non_head_dtrs:[synsem:nonloc:rel:Rel2]).
-
+                                                         % If list_with ... is stated first, rule computation does not terminate.
+                                                         % This seems to be a bug. (St. Mü. 01.04.2025)
+       head_dtr:synsem:nonloc:slash:Slash1,
+       non_head_dtrs:[synsem:nonloc:slash:Slash2]).
 
 %% Der Kopf kann nicht extrahiert werden.
 %% Ein Problem stellt hierbei das Verb in PVP-Konstellationen
@@ -265,7 +297,7 @@ headed_phrase *>
 % vor.
    
 %(head_complement_phrase,
-% non_head_dtrs:[trace:extraction]) *> synsem:loc:cat:comps:[].
+% non_head_dtrs:[trace:extraction]) *> loc:cat:comps:[].
 
 % Wenn die Nicht-Kopftochter eine Extraktionsspur ist, ist die gesamte
 % Phrase maximal.
@@ -291,17 +323,19 @@ rc *>
  (%isect_n_modifier,
   %filler_phrase
   synsem:(loc:(cat:(head:(relativizer,
-                          mod:loc:cont:(ltop:LTop,
-                                        ind:Ind)),
+                          mod:loc:cont:(ind:Ind,
+                                        ltop:LTop)),
                     spr:[],
                     comps:[]),
-               cont:(ind:Ind,
-                     ltop:LTop)),
+               cont:Cont),
+%      (ind:Ind,
+%             ltop:LTop),
           nonloc:rel:[]),
-  dtrs:[synsem:nonloc:rel:[(ltop:LTop,
-                            ind:Ind)],
+  dtrs:[synsem:nonloc:rel:[(ind:Ind,
+                            ltop:LTop)],
         synsem:(loc:(cat:head:initial:minus,
-                     cont:ltop:LTop),
+                     cont:(Cont,
+                           ltop:LTop)),
                 nonloc:rel:[],
                                 % Der finite Satz selbst darf nicht extrahiert werden.
                                 % Das könnte man auch durch loc:Loc, Loc =/= Slash erzwingen.
@@ -310,10 +344,10 @@ rc *>
 
 
 root :=
- (synsem:(loc:cat:(head:dsl:none,
-                   spr:[],
-                   comps:[]),
-          nonloc:slash:[])).
+ synsem:(loc:cat:(head:dsl:none,
+                  spr:[],
+                  comps:[]),
+         nonloc:slash:[]).
 
 initial_fin_verb :=
  (@root,
@@ -321,9 +355,21 @@ initial_fin_verb :=
                        initial:plus,
                        vform:fin)).
 
-
+% interrogative
 interrog :=
- @initial_fin_verb.
+ (@initial_fin_verb,
+  synsem:loc:cont:ind:mode:interrogative).
 
+% Funktioniert nicht, weil das oberste Element eine Konjunktion sein kann:
+% Paul ist ein Idiot und warum merkt das außer mir niemand?
+
+% assertion
 decl :=
- @initial_fin_verb.
+ (@initial_fin_verb,
+  synsem:loc:cont:ind:mode:assertion,
+  v2:plus).
+
+% imparative = v1 oder v2 mit Ausrufezeichen
+imp :=
+ (@initial_fin_verb,
+  synsem:loc:cont:ind:mode:imperative).

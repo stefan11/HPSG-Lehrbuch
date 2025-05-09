@@ -48,7 +48,7 @@ signature(signature).
 :- [coordination].
 
 % Nur zum Spielen noch da.
-:- ['old-constraints-head-movement'].
+%:- ['old-constraints-head-movement'].
 
 
 % load some constraints that are not linguistically necessary,

@@ -30,7 +30,7 @@ comp_h rule (head_complement_phrase,
              dtrs:[NonHeadDtr,HeadDtr],
              head_dtr:synsem:loc:cat:head:initial:minus,
              non_head_dtrs:[(NonHeadDtr,
-                             synsem: @argument_sign % speed + Regelberechnung
+                             @argument_sign   % speed + Regelberechnung
                             )])
   ===>
 cat> NonHeadDtr,
@@ -73,9 +73,9 @@ cat> HeadDtr.
 % Das ist eine unär verzweigende Regel und keine Lexikonregel,
 % da sie auch auf koordinierte Verben angewendet werden kann.
 v1 rule (verb_initial_rule,
-         dtrs:[NonHeadDtr])
+         dtrs:[Dtr])
   ===>
-cat>     NonHeadDtr.
+cat>     Dtr.
 
 
 rc rule (rc,

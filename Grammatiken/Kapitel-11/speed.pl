@@ -32,7 +32,7 @@
 head_filler_phrase *>
    (v2:plus,
     non_head_dtrs:[phon:ne_list]).  % keine Spuren (TRACE-) bzw. leere Elemente (Determinator).
-                                 % Evtl. bei Vorfeldellipse ändern.
+                                    % Evtl. bei Vorfeldellipse ändern.
 
 %head_filler_phrase *> loc:cat:head:dsl:none.
    
@@ -53,16 +53,16 @@ phrase *> synsem:trace:minus.
 
 % Bedingung, die in rules.pl für kopffinale Regel verwendet wird.
 argument_sign :=
- (loc:cat:(head:(% Linguistisch ist es nicht notwendig, aber TRALE rechnet
+ (synsem:loc:cat:(head:(% Linguistisch ist es nicht notwendig, aber TRALE rechnet
                  % die leeren Elemente aus und hängt sich dabei auf, wenn
                  % man nicht Spuren per Hand ausschließt.
-                 dsl:none,
+                        dsl:none,
                  
-                 mod:none,      % keine Adjunkte: Adjektive ^ Adverbien
-                 spec:none      % keine Determinierer
-                ),
-           spr:[],
-           comps:[])).
+                        mod:none, % keine Adjunkte: Adjektive ^ Adverbien
+                        spec:none % keine Determinierer
+                       ),
+                  spr:[],
+                  comps:[])).
 
 % Das könnte man auch wie folgt als Implikation definieren:
 %
@@ -73,7 +73,7 @@ argument_sign :=
 % [ [ er _ ] _ ]
 (head_complement_phrase,
  loc:cat:head:initial:minus) *>
-  (non_head_dtrs:[synsem:loc:cat:head:dsl:none]).
+  (non_head_dtrs:[loc:cat:head:dsl:none]).
 
 */
 
@@ -107,7 +107,7 @@ head_adjunct_phrase *>
 
 % allgemeiner
 %head_non_complement_phrase *>
-%  (non_head_dtrs:[synsem:loc:cat:head:dsl:none]).
+%  (non_head_dtrs:[loc:cat:head:dsl:none]).
 
 
 
@@ -131,7 +131,7 @@ head_adjunct_phrase *>
 % Reihenfolge wie in syntax.pl angegeben verwendet wird.
 %
 %(head_adjunct_phrase,
-% non_head_dtrs:[synsem:trace:extraction]) *> synsem:nonloc:slash:[].
+% non_head_dtrs:[trace:extraction]) *> nonloc:slash:[].
 
 
 
@@ -180,8 +180,8 @@ head_non_adjunct_phrase *> synsem:lex:minus.
 
 head_specifier_phrase *>
              dtrs:[synsem:(loc:cat:head:det,   % speed + Regelberechnung
-                            trace:minus),        % speed: steht eigentlich im Lexikon
-                   synsem:loc:cat:head:noun].        % speed + Regelberechnung
+                           trace:minus),       % speed: steht eigentlich im Lexikon
+                   synsem:loc:cat:head:noun].  % speed + Regelberechnung
 
 
 % Relativsätze

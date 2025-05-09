@@ -80,7 +80,6 @@ det(Case,Numerus,Genus,Quant) :=
  determiner,
  rels:hd:Quant).
 
-
 % Sowohl für normale Possessiva als auch für possessive Relativpronomina.
 possessive *>
  (%determiner_word
@@ -102,8 +101,7 @@ simple_possessive *>
  (%possessive,
   synsem:loc:(cat:head:spec:loc:cont:ltop:NLTop,
               cont:ltop:NLTop)).
-
-
+ 
 possessive(Case,NNumerus,NGenus,Person,Numerus,Genus) :=
  (@determiner(Case,NNumerus,NGenus),
   simple_possessive,
@@ -196,7 +194,7 @@ det_noun_word *>
   %relational_arg0_word,  % enthält auch lbl:LTop
   synsem:loc:(cat:(head:case:Case,
                    spr:[_],
-                   % Das erste Element der ARG-ST-Liste ist der Determinator.
+                                % Das erste Element der ARG-ST-Liste ist der Determinator.
                    arg_st:hd:loc:cat:(head:(det,
                                             case:Case,
                                             num:Numerus,
@@ -221,15 +219,26 @@ noun(Case,Genus,Numerus,Relation) :=
                         gen:Genus)),
   rels:[Relation]).
 
-
+% keine Extraktion des Genitivs, aber Extraktion der PP
+% Kasuszuweisung nur unter Adjazenz.
+%   ein Bild des Affen
+% * dessen ich ein Bild gemalt habe
+%   ein Bild von dem Affen
+% * von dem ich eine Bild gemalt habe
 relational_noun *>
  (%det_noun_word
-  synsem:loc:cat:arg_st:tl:[loc:(cat:(head:(noun,
-                                            case:gen),
-                                      spr:[],
-                                      comps:[]),
-                                 cont:ind:Ind2) ],
-  rels:hd:arg2:Ind2).
+  synsem:loc:cat:arg_st:tl:[((loc:(cat:(head:(noun,
+                                              case:gen),
+                                        spr:[],
+                                        comps:[]),
+                                   cont:ind:Ind2),
+                              nonloc:slash:[])
+                            ;(loc:(cat:(head:(prep,
+                                              case:dat),
+                                        spr:[],
+                                        comps:[]),
+                                   cont:ind:Ind2)))],
+   rels:hd:arg2:Ind2).
 
 
 relational_noun(Case,Genus,Numerus,Relation) :=
@@ -276,7 +285,7 @@ rel_pronoun(Case,Person,Numerus,Genus) :=
  (nominal_rel_pronoun,
   @pronoun(Case,Person,Numerus,Genus)).
 
-% LTOP wird hochgereicht und dann mit dem des modifizeirten Nomens identfiziert.
+% LTOP wird hochgereicht und dann mit dem des modifizierten Nomens identfiziert.
 % ERG 2025-04-04
 possessive_rel_pronoun *>
  (%possessive
@@ -316,7 +325,8 @@ verb_word *>
   %arg0_ltop_lbl_le
   synsem:loc:(cat:(head:(verb,
                          vform:fin,
-                         initial:minus),
+                         initial:minus,
+                         dsl:none),
                    spr:[]),
               cont:ind:event)).
 
@@ -403,7 +413,7 @@ preposition_word *>
  %non_scopal_le
  synsem:loc:cat:(head:(prep,
                        initial:plus),
-      %          spr:[],
+                                %          spr:[],
                  arg_st:[ @np ] )).
 
 comp_preposition *>
@@ -417,10 +427,15 @@ comp_prep(PForm,Case) :=
   synsem:loc:cat:head:(pform:PForm,
                        case:Case)).
 
+/* falsch, denn modifizierende Adjektive haben eine Ereignisvariable:
+der mit dem Stock spielende Affe
 isect_modifier *>
- synsem:loc:(cat:head:(scopal:minus,
-                       mod:loc:cont:ind:Ind),
-             cont:ind:Ind).
+ loc:(cat:head:(scopal:minus,
+                mod:loc:cont:ind:Ind),
+      cont:ind:Ind).
+*/
+isect_modifier *>
+ synsem:loc:cat:head:scopal:minus.
 
 n_modifier *>
  synsem:loc:cat:head:mod: @nbar.
@@ -430,7 +445,7 @@ n_modifier *>
 isect_modifier_le *>
 (%non_scopal_le,
  %isect_modifier
- synsem:loc:cont:ind:Ind,
+ synsem:loc:cat:head:mod:loc:cont:ind:Ind,
  rels:[arg1:Ind]).
  
 attr_adjective_word *>
@@ -537,12 +552,12 @@ complementizer_like_sign *>
            % Die Beschränkungen müssen aber auch für vorangestellte Verben in COMPS landen.
            % Für Wörter sorgt dann das Argumentrealisierungsprinzip dafür, dass die COMPS-Information
            % identisch mit der ARG-ST ist.
-                  comps:[(loc:cat:(head:(verb,
-                                         vform:fin,
-                                         initial:minus),
-                                   spr:[],
-                                   comps:[]),
-                          trace:minus) ] )).
+           comps:[(loc:cat:(head:(verb,
+                                  vform:fin,
+                                  initial:minus),
+                            spr:[],
+                            comps:[]),
+                   trace:minus) ] )).
 
 complementizer_word *>
  (%complementizer_like_sign

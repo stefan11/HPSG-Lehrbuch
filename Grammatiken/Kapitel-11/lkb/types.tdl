@@ -32,10 +32,11 @@ synsem := none_or_synsem & [
  phrase bool,
  max_   bool].
 
+
 none_or_local := bot.
 local := none_or_local & [
   cat  cat,
-  cont mrs ].
+  cont hook ].
 
 cat := bot & [
   head   head,
@@ -43,12 +44,9 @@ cat := bot & [
   comps  list,
   arg_st list ].
 
-
-mrs := bot & [
-  gtop handle,
+hook := bot & [
   ltop handle,
   ind  event_or_index ].
-
 
 phrase := sign & [
  dtrs list ].
@@ -249,7 +247,7 @@ complementizer_like_sign := spr_saturated_sign & overt_sign & empty_rel_sign.
 
 complementizer_word := complementizer_like_sign & transparent_non_scopal_non_relational_le & overt_word.
 
-conj_word := relational_arg0_word & non_scopal_le & overt_word & empty_rel_word.
+conj_word := relational_arg0_word & empty_rel_word & overt_word.
 
 head := bot & [
    mod  none_or_synsem,
@@ -336,9 +334,12 @@ arg0_relation := relation & [
 
 
 affe_rel         := arg0_relation.
+ball_rel         := arg0_relation.
 beispiel_rel     := arg0_relation.
 buch_rel         := arg0_relation.
 einhorn_rel      := arg0_relation.
+fahrrad_rel      := arg0_relation.
+film_rel         := arg0_relation.
 frau_rel         := arg0_relation.
 kind_rel         := arg0_relation.
 mann_rel         := arg0_relation.
@@ -363,6 +364,7 @@ quant_rel := arg0_relation & [
   rstr handle,
   body handle ].
 
+udef_q    := quant_rel.
 def_q     := quant_rel.
 every_q   := quant_rel.
 exists_q  := quant_rel.
@@ -408,11 +410,16 @@ wahrscheinlich_rel := arg1_relation.
 bellen_rel   := arg01_relation.
 lachen_rel   := arg01_relation.
 schlafen_rel := arg01_relation.
+spielen_rel  := arg01_relation.
 
 
 jagen_rel     := arg012_relation.
 kennen_rel    := arg012_relation.
+lesen_rel     := arg012_relation.
 lieben_rel    := arg012_relation.
+nehmen_rel    := arg012_relation.
+singen_rel    := arg012_relation.
+
 denken_an_rel := arg012_relation.
 glauben_rel   := arg012_relation.
 
@@ -425,20 +432,48 @@ grauen_rel := arg02_relation.
 
 poss_rel := arg012_relation.
 
+bild_rel := arg02_relation.
+
 tochter_rel := arg02_relation.
 
 
 conjunction_rel := arg0_relation & [
-  lhandle handle,
-  rhandle handle,
   lindex event_or_index,
   rindex event_or_index].
 
+conjunction_n_rel := conjunction_rel & [
+  arg0 index ].
+
+conjunction_v_rel := conjunction_rel & [
+  arg0 event,
+  lhandle handle,
+  rhandle handle].
+
 und_rel := conjunction_rel.
+
+und_n_rel := conjunction_n_rel & und_rel.
+und_v_rel := conjunction_v_rel & und_rel.
+
+
 
 event_or_index := bot.
 
-event := event_or_index.
+event := event_or_index & [
+  mode mode ].
+
+; Für Satztypen
+mode := bot.
+
+assertion_or_imperative_or_interrogative := mode.
+assertion_or_imperative     := assertion_or_imperative_or_interrogative.
+assertion_or_interrogative  := assertion_or_imperative_or_interrogative.      ; Flexion = ind_conj -> assertion_or_interrogative
+imperative_or_interrogative := assertion_or_imperative_or_interrogative.
+
+interrogative := assertion_or_interrogative  & imperative_or_interrogative.
+imperative    := imperative_or_interrogative & assertion_or_imperative.
+
+assertion  := assertion_or_imperative & assertion_or_interrogative.
+
 
 index := event_or_index & intro_gen_num & [
   per per ].

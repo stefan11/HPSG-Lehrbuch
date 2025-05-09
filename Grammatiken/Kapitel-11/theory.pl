@@ -26,9 +26,7 @@ grammar_version('Lehrbuchgrammatik Kapitel 4').
 root_symbol(@root).
 decl_symbol(@decl).
 que_symbol(@interrog).
-
-% load tokenization rules for parsing ordinary strings and atoms
-:- ['../Gemeinsames/tokenization'].
+imp_symbol(@imp).
 
 % specify signature file
 signature(signature).
@@ -49,6 +47,10 @@ signature(signature).
 % load lexical items and grammar rules for coordination
 :- [coordination].
 
+% Nur zum Spielen noch da.
+%:- ['old-constraints-head-movement'].
+
+
 % load some constraints that are not linguistically necessary,
 % but good for performance/termination
 :- [speed].
@@ -65,15 +67,11 @@ signature(signature).
 :- ['../Gemeinsames/common.pl'].
 
 
-examples(['  Der Affe schläft.',
-          '  Der angeblich kleine Affe schläft.',
-          '  Der mutmaßliche Affe schläft.',
-          '  der Affe wahrscheinlich schläft.',
-          '  der Affe das Kind kennt',
-          '  der Affe an das Kind denkt',
-          '  Jede Tochter eines Mitarbeiters schläft.',
-          '* Affe schläft.',
-          '* Der Affe kennt.']).
+examples(['  Der Affe, der schläft, kennt das Kind.',
+          '  Ein Affe, dessen Kind schläft, lacht.',
+          '  Der Affe, von dessen Kind er ein Bild kennt, lacht.',
+          '* der, der schläft, Affe',
+          '* Der Affe, schläft der, kennt das Kind.']).
 
 
 
