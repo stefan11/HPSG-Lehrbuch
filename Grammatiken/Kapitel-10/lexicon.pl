@@ -85,9 +85,7 @@ schwierige   ---> @attr_adj(schwierig_rel).
 
 
 affe   ---> @noun(nom_or_acc,mas,sg,affe_rel).
-
-affens ---> @noun(dat,mas,sg,affe_rel).
-
+affens ---> @noun(gen,       mas,sg,affe_rel).
 affen  ---> @noun(dat_or_acc,mas,sg,affe_rel).
 
 ball ---> @noun(nom_or_dat_or_acc,mas,sg,ball_rel).

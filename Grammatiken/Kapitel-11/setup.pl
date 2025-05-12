@@ -30,7 +30,8 @@ arg0 <<< rstr.
 rstr <<< body.
 
 loc <<< nonloc.
-nonloc <<< rels.
+
+synsem <<< rels.
 rels   <<< hcons.
 
 arg0   <<< lindex.
