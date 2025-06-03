@@ -1,8 +1,9 @@
 % -*-  coding:utf-8; mode:trale-prolog   -*-
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: theory.pl,v $
-%%  $Revision: 1.8 $
-%%      $Date: 2007/03/05 11:26:28 $
+%%  $Revision: 1.12 $
+%%      $Date: 2007/03/05 11:26:29 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
@@ -14,30 +15,27 @@
     abort).
 
 % für [incr TSDB()]
-grammar_version('Lehrbuchgrammatik Kapitel 14').
+grammar_version('Lehrbuchgrammatik Kapitel 4').
+
+
+% Load phonology and tree output
+:- [phonology].
 
 :- [setup].
 
 root_symbol(@root).
 decl_symbol(@decl).
 que_symbol(@interrog).
-
-% load tokenization rules for parsing ordinary strings and atoms
-:- ['../Gemeinsames/tokenization'].
+imp_symbol(@imp).
 
 % specify signature file
 signature(signature).
 
-% load lexicon
-:- [lexicon].
-
-
-% load lexical macros
+% macros for the lexicon
 :- [le_macros].
 
-
-% load lexical rules
-%:- [lexrules].
+% load lexicon
+:- [lexicon].
 
 % load phrase structure rules
 :- [rules].
@@ -45,12 +43,18 @@ signature(signature).
 % load phrase structure macros
 :- [syntax].
 
+
 % load lexical items and grammar rules for coordination
 :- [coordination].
 
+% Nur zum Spielen noch da.
+%:- ['old-constraints-head-movement'].
+
+
 % load some constraints that are not linguistically necessary,
-% but good for performance
+% but good for performance/termination
 :- [speed].
+
 
 % load relational constraints for rules
 :- [constraints].
@@ -58,14 +62,15 @@ signature(signature).
 % load a test sequence
 :- [test_items].
 
+
 % load a sequence that is executed after the grammar is loaded
 :- ['../Gemeinsames/common.pl'].
 
-%phenomenon('Kapitel 13: Kongruenz').
 
-examples(['  Die Frau liebt den Mann.',
-          '  Die Frau liebt der Mann.',
-          '  Die Frau liebt das Kind.',
-          '* Den Mann liebt den Mann.']).
+examples(['  Das Kind kennt den Affen.',
+          '  Das Kind kennt der Affe.',
+          '  Das Kind kennt das Mädchen.',
+          '* Den Affen kennt den Affen.']).
+
 
 

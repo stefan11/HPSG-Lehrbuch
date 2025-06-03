@@ -1,198 +1,219 @@
+;; -*-  coding:utf-8   -*-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;   $RCSfile: types.tdl,v $
 ;;  $Revision: 1.2 $
-;;      $Date: 2007/03/05 11:26:28 $
+;;      $Date: 2007/03/05 11:26:29 $
 ;;     Author: Stefan Mueller, Universität Bremen
 ;;    Purpose: 
 ;;   Language: TDL
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-sign := bot &
- [ phon list,
-   synsem synsem ].
+sign := bot & [
+ phon list,
+ synsem synsem,
+ v2     bool,
+ rels  list,
+ hcons list ].
 
-list :< bot.
-e_list :< list.
+list := bot.
+e_list := list.
 ne_list := list & [
   hd bot,
   tl list ].
 
-
-none_or_synsem :< bot.
-
+none_or_synsem := bot.
 none   := none_or_synsem & none_or_local.
+
 synsem := none_or_synsem & [
-  loc    local,
-  nonloc nonloc,
-  v2     bool,
-  trace  minus_or_extraction_or_vm,
-  lex    bool,
-  phrase bool,
-  max_   bool  ].
+ loc  local,
+ nonloc nonloc,
+ trace minus_or_extraction_or_vm,
+ lex    bool,
+ phrase bool,
+ max_   bool].
 
 
-none_or_local :< bot.
+none_or_local := bot.
 local := none_or_local & [
-  cat cat,
-  cont cont ].
+  cat  cat,
+  cont hook ].
 
 cat := bot & [
   head   head,
   spr    list,
-  subcat list ].
+  comps  list,
+  arg_st list ].
 
-bool :< bot.
+hook := bot & [
+  ltop handle,
+  ind  event_or_index ].
 
-plus   :< bool.
-;minus  :< bool.
-
-minus_or_extraction_or_vm :< bot.
-
-extraction_or_minus :< minus_or_extraction_or_vm.
-extraction_or_vm    :< minus_or_extraction_or_vm.
-minus_or_vm         :< minus_or_extraction_or_vm.
-
-extraction := extraction_or_minus & extraction_or_vm.
-minus      := extraction_or_minus & minus_or_vm          & bool.
-vm         := extraction_or_vm    & minus_or_vm.
-
-
-
-intro_complex_sign := sign &
- [ dtrs list ].
-
-
-cont := bot & [
-  nucleus nucleus,
-  qstore  list ].
-
-
-phrase := intro_complex_sign & [
- non_head_dtrs list ].
-
+phrase := sign & [
+ dtrs list ].
 
 headed_phrase := phrase & [
   head_dtr sign ].
 
-head_non_adjunct_phrase   :< headed_phrase.
-head_non_argument_phrase  :< headed_phrase.
-head_non_filler_phrase    :< headed_phrase.
-head_non_specifier_phrase :< headed_phrase.
+; all phrases that have non-head-dtrs. The elements in head-dtr and non-head-dtr are not
+; (necessarily) ordered in surface order. Only dtrs are. So head-dtr and non-head-dtrs can be used
+; as pointers to daughters. In principle, there could be phrases without a head-dtr that have
+; unordered dtrs. But the only unheaded-phrases in the current grammar are relative clauses (rc),
+; verbinitial lexical rule-like unary projections and coordination rules.
+headed_flexible_order_phrase := headed_phrase & [
+ non_head_dtrs list ].
 
-head_adjunct_phrase   := head_non_argument_phrase & head_non_filler_phrase   & head_non_specifier_phrase.
-head_argument_phrase  := head_non_adjunct_phrase  & head_non_filler_phrase   & head_non_specifier_phrase.
-head_filler_phrase    := head_non_adjunct_phrase  & head_non_argument_phrase & head_non_specifier_phrase.
-head_specifier_phrase := head_non_adjunct_phrase  & head_non_filler_phrase   & head_non_argument_phrase.
+; V2 and relative clauses
+filler_phrase := phrase.
 
-non_headed_phrase :< phrase.
+head_non_adjunct_phrase    := headed_phrase.
+head_non_complement_phrase := headed_phrase.
+head_non_filler_phrase     := headed_phrase.
+head_non_specifier_phrase  := headed_phrase.
 
-coord_phrase :< non_headed_phrase.
-
-rc := non_headed_phrase & isect_n_modifier.
-
-word :< sign.
-
-; Wörter, die mit Lexikonregeln abgeleitet wurden
-; Alle Lexikonregeln sind Untertypen von complex_word
-complex_word :=
-  intro_complex_sign &
-  word.
-
-; verb_initial_lr := complex_word & complementizer_like_word.
-
-verb_initial_rule := non_headed_phrase & complementizer_like_sign.
+head_adjunct_phrase    := headed_flexible_order_phrase & head_non_complement_phrase & head_non_filler_phrase     & head_non_specifier_phrase.
+head_complement_phrase := headed_flexible_order_phrase & head_non_adjunct_phrase    & head_non_filler_phrase     & head_non_specifier_phrase.
+head_filler_phrase     := headed_flexible_order_phrase & head_non_adjunct_phrase    & head_non_complement_phrase & head_non_specifier_phrase & filler_phrase.
+head_specifier_phrase  := headed_flexible_order_phrase & head_non_adjunct_phrase    & head_non_filler_phrase     & head_non_complement_phrase.
 
 
-; Wörter, die im Lexikon aufgelistet sind.
-simple_word :< word.
+coord_phrase := phrase.
 
-non_slashed_word :< simple_word.
-overt_word       :< non_slashed_word.
+verb_initial_rule := phrase & complementizer_like_sign.
 
-non_rel_sign :< sign.
-non_rel_word := non_rel_sign & simple_word.
+rc := filler_phrase & isect_n_modifier.
 
-non_overt_word :< non_rel_word.
+lexical_sign := sign.
 
-trace      :< non_overt_word.
+; empty HCONS
+non_scopal_le := lexical_sign.
+
+; empty RELS
+non_relational_le := lexical_sign.
+
+non_scopal_non_relational_le := non_scopal_le & non_relational_le.
+
+; lexical elements which do not contribute anything but share
+; LTOP and IND with their only element in their ARG-ST.
+; complement prepositions and some complementizers.
+transparent_head_le := lexical_sign.
+
+transparent_non_scopal_non_relational_le := transparent_head_le & non_scopal_non_relational_le.
+
+arg0_le := lexical_sign.
+
+ltop_lbl_le := lexical_sign.
+
+arg0_ltop_lbl_le := arg0_le & ltop_lbl_le.
+
+word := lexical_sign.
+
+empty_rel_sign := sign.
+empty_rel_word := empty_rel_sign & word.
+
+empty_slash_sign := sign.
+empty_slash_word := empty_slash_sign & word.
+
+overt_sign := sign.
+overt_word := overt_sign & word.
+
+non_overt_word := empty_rel_word.
+
+trace      := non_overt_word & non_scopal_non_relational_le.
+
 ; leere Determinatoren und Nomina
-empty      := non_overt_word & non_slashed_word.
+empty      := non_overt_word & empty_slash_word.
 
-sc_saturated_word  :< word.
-spr_saturated_sign :< sign.          ; V1-LR (complex) und Komplementierer (simple)
+spr_saturated_sign := sign.
 
-spr_saturated_word := spr_saturated_sign & word.
+; inheritance superflous since the empty specifier follows from an empty ARG-ST list.
+saturated_word   := word & spr_saturated_sign.
 
-saturated_word   := spr_saturated_word & sc_saturated_word.
+relational_word  := word & ltop_lbl_le.
 
+relational_arg0_word := relational_word & arg0_ltop_lbl_le.
 
-complementizer_like_sign := spr_saturated_sign & non_rel_sign.
+determiner_word := saturated_word.
 
-complementizer_word := complementizer_like_sign & overt_word.
-
-determiner_word :< saturated_word.
-
-determiner := determiner_word & non_rel_word & non_slashed_word.
-possessive :< determiner_word.
+determiner := determiner_word & empty_rel_word.
+possessive := determiner_word.
 
 overt_determiner := determiner & overt_word.
 empty_determiner := determiner & empty.
 
-simple_possessive      := possessive & non_rel_word.
+simple_possessive      := possessive & empty_rel_word.
 possessive_rel_pronoun := possessive & rel_pronoun.
 
-
-; Leere Nomina werden hier vorerst ignoriert.
-noun_word :< overt_word.
+noun_word := overt_word.
 
 pronoun := saturated_word & overt_word.
 
+; damit is also a pronoun, but not a nominal pronoun
 nominal_pronoun := noun_word & pronoun.
 
-pers_pronoun := nominal_pronoun  & non_rel_word.
+proper_noun  := saturated_word & noun_word & empty_rel_word.
 
-rel_pronoun :< overt_word.
+pers_pronoun := nominal_pronoun & empty_rel_word & non_scopal_non_relational_le.
 
-nominal_rel_pronoun  := nominal_pronoun & rel_pronoun.
+rel_pronoun := pronoun.
 
-simple_noun  := noun_word & sc_saturated_word & non_rel_word.
+; all rel_pronouns apart from possessives
+; womit, worüber, der, die, das
+non_relational_rel_pronoun := rel_pronoun & non_scopal_non_relational_le.
+
+nominal_rel_pronoun  := nominal_pronoun & non_relational_rel_pronoun.
+
+; noun with a determiner
+det_noun_word := noun_word & non_scopal_le & relational_arg0_word & empty_rel_word.
+
+; noun with a determiner and nothing else.
+simple_noun  := det_noun_word.
+
+; noun with a determiner and a genitive NP.
+relational_noun := det_noun_word.
+
+verb_word    := relational_arg0_word & overt_word & empty_rel_word.
+
+non_scopal_verb_word := verb_word & non_scopal_le.
+
+subjlos_verb := non_scopal_verb_word.
+intrans_verb := verb_word.
+
+non_scopal_intrans_verb := intrans_verb & non_scopal_verb_word.
+
+strict_intrans_verb := non_scopal_intrans_verb.
+np_np_dat_verb      := non_scopal_intrans_verb & bi_or_more_val_verb.
+np_pp_verb          := non_scopal_intrans_verb & bi_or_more_val_verb.
+
+; helfen, kennen, geben
+bi_or_more_val_verb := non_scopal_verb_word.
+
+; kennen, geben
+trans_verb := bi_or_more_val_verb.
+
+strict_trans_verb := trans_verb.
+ditrans_verb      := trans_verb.
+
+glauben_denken_verb := intrans_verb.
+
+preposition_word := overt_word & non_scopal_le & empty_rel_word.
+comp_preposition := preposition_word & transparent_non_scopal_non_relational_le.
+mod_preposition  := preposition_word & relational_word.
+
+noun_mod_preposition := mod_preposition & isect_n_modifier_le.
+verb_mod_preposition := mod_preposition & isect_v_modifier_le.
+
+location_noun_mod_prep := noun_mod_preposition.
+location_verb_mod_prep := verb_mod_preposition.
 
 
-verb_word    := spr_saturated_word & overt_word & non_rel_word.
-
-subjlos_verb :< verb_word.
-intrans_verb :< verb_word.
-
-strict_intrans_verb :< intrans_verb.
-np_np_verb          :< intrans_verb.
-np_pp_verb          :< intrans_verb.
-
-trans_verb :< verb_word.
-
-strict_trans_verb :< trans_verb.
-ditrans_verb      :< trans_verb.
-
-preposition_word := spr_saturated_word & overt_word & non_rel_word.
-comp_preposition :< preposition_word.
-mod_preposition  :< preposition_word.
-
-noun_mod_preposition := mod_preposition & isect_n_modifier_word.
-verb_mod_preposition := mod_preposition & isect_v_modifier_word.
+n_modifier_word := n_modifier & relational_word & overt_word & empty_rel_word.
 
 
-location_noun_mod_prep :< noun_mod_preposition.
-location_verb_mod_prep :< verb_mod_preposition.
+isect_n_modifier_word := isect_n_modifier_le & n_modifier_word.
 
+intersective_adj := isect_n_modifier_word.
 
-n_modifier_word := n_modifier & overt_word & non_rel_word.
-
-
-isect_n_modifier_word := isect_n_modifier & n_modifier_word.
-
-intersective_adj :< isect_n_modifier_word.
-
-
-attr_adjective_word := n_modifier_word & spr_saturated_word.
+attr_adjective_word := n_modifier_word.
 
 
 ; klug
@@ -202,39 +223,49 @@ simple_attr_adj := saturated_word & attr_adjective_word & intersective_adj.
 attr_np_adj     := attr_adjective_word & intersective_adj. 
 
 ; mutmaßlich              
-scopal_adj := saturated_word & attr_adjective_word.
+scopal_adj := saturated_word & attr_adjective_word & scopal_modifier_le.
 
 
 
 ; Adjektive, Präpositionen, Nomina, aber auch Relativsätze (=phrasal)
-n_modifier :< sign.
+n_modifier := sign.
 
-isect_n_modifier :< n_modifier.
+isect_modifier := sign.
 
+isect_n_modifier := n_modifier & isect_modifier.
 
-v_modifier_word := overt_word & spr_saturated_word & non_rel_word.
+isect_modifier_le := isect_modifier & non_scopal_le.
 
-isect_v_modifier_word  :< v_modifier_word.
-scopal_v_modifier_word :< v_modifier_word.
+isect_n_modifier_le := isect_modifier_le & n_modifier.
+isect_v_modifier_le := isect_modifier_le & v_modifier.
 
+; Adverbien, Präpositionen
+v_modifier := sign.
 
-adverb_word := saturated_word & v_modifier_word.
-
-scopal_adverb       := adverb_word & scopal_v_modifier_word.
-
-intersective_adverb := adverb_word & isect_v_modifier_word.
-
+v_modifier_word := v_modifier & relational_word & overt_word & empty_rel_word.
 
 
+scopal_modifier_le := ltop_lbl_le.
 
+scopal_v_modifier_le := scopal_modifier_le & v_modifier_word.
 
+adv_word := saturated_word & v_modifier_word.
+scopal_adv_word := scopal_v_modifier_le & adv_word.
 
-head := bot &
- [ mod     none_or_synsem,
-   spec    none_or_synsem,
+isect_adv_word := isect_v_modifier_le & adv_word.
+
+complementizer_like_sign := spr_saturated_sign & overt_sign & empty_rel_sign.
+
+complementizer_word := complementizer_like_sign & transparent_non_scopal_non_relational_le & overt_word.
+
+conj_word := relational_arg0_word & empty_rel_word & overt_word.
+
+head := bot & [
+   mod  none_or_synsem,
+   spec none_or_synsem,
+   scopal bool,
    initial bool,
    dsl     none_or_local ].
-
 
 non_modifier_head := head & [
   mod none ].
@@ -255,6 +286,7 @@ pre_modifier_head := modifier_head & [
 post_modifier_head := modifier_head & [
   pre_modifier minus ].
 
+
 ; prep steht für Prä- und Postpositionen, der initial-Wert wird in le_macros.pl festgelegt
 prep := non_spec_head & non_dsl_head.
 
@@ -264,137 +296,195 @@ comp_prep := prep & intro_case_head & non_modifier_head &
 ; kann nach Nomina und vor Verben stehen, siehe le_macros.pl
 mod_prep := prep & modifier_head.
 
-intro_case_head := non_dsl_head &
+intro_case_head := head &
  [ case case ]. 
 
-
-
-det  := intro_case_head & intro_gen_num & non_modifier_head & [
+det := intro_case_head & intro_gen_num & non_modifier_head & non_dsl_head & [
   dtype dtype ].
        
-; Es gibt auch modifizierende Nomina, die werden hier aber ignoriert.
-noun := intro_case_head & non_modifier_head & non_spec_head & [
-  initial plus ].
+noun := intro_case_head & non_modifier_head & non_spec_head & non_dsl_head.
 
+adj_or_verb := non_spec_head.
 
-verb := non_modifier_head & non_spec_head &
+verb := non_modifier_head & adj_or_verb &
  [ vform vform ].
 
+adj := adj_or_verb & non_dsl_head.
+attr_adj := intro_case_head & adj & pre_modifier_head.
 
-attr_adj := intro_case_head & pre_modifier_head.
-
-adv  := pre_modifier_head & [
-  initial      minus ].
-
-comp := non_dsl_head & non_modifier_head & non_spec_head & [
+comp := non_spec_head & non_modifier_head & non_dsl_head & [
   cform cform ].
 
 coord := non_dsl_head & non_modifier_head & [
   initial plus ].
 
-relativizer :< post_modifier_head.
+relativizer := post_modifier_head.
 
-string :< bot.
+; adverbs may be pre- or post-modifiers
+adv := modifier_head.
 
+cform := bot.
 
+dass := cform.
 
-cform :< bot.
+string := bot.
 
-daß_cform :< cform.
+pform := bot.
 
-pform :< bot.
-
-an_pform  :< pform.
-
-
-vform  :< bot.
-fin    :< vform.
+an_pform  := pform.
 
 
-nucleus :< bot.
-quantifier := nucleus & [
-  restind nominal_obj ].
-
-def       :< quantifier.
-all       :< quantifier.
-ein       :< quantifier.
-
-abstr_rel :< quantifier.
-
-nominal_obj := nucleus & [
-  ind   index,
-  restr list ].
+vform  := bot.
+fin    := vform.
 
 
-relation := nucleus & index_or_relation.
+relation := bot & [
+  lbl handle ].
+
+arg0_relation := relation & [
+  arg0 event_or_index ].
 
 
-arg1_rel  := relation & [
-  arg1 index_or_relation ].
+affe_rel         := arg0_relation.
+ball_rel         := arg0_relation.
+beamter_rel      := arg0_relation.
+beispiel_rel     := arg0_relation.
+buch_rel         := arg0_relation.
+einhorn_rel      := arg0_relation.
+fahrrad_rel      := arg0_relation.
+film_rel         := arg0_relation.
+frau_rel         := arg0_relation.
+kind_rel         := arg0_relation.
+mann_rel         := arg0_relation.
+mädchen_rel      := arg0_relation.
+mitarbeiter_rel  := arg0_relation.
+mörder_rel       := arg0_relation.
+roman_rel        := arg0_relation.
+speisekammer_rel := arg0_relation.
+stock_rel        := arg0_relation.
+tofu_rel         := arg0_relation.
+wurst_rel        := arg0_relation.
 
-arg2_rel := relation & [
-  arg2 index_or_relation ].
+pronoun_rel      := arg0_relation.
 
-arg3_rel := relation & [
-  arg3 index_or_relation ].
-
-
-arg12_rel  := arg1_rel  & arg2_rel.
-
-arg13_rel  := arg1_rel  & arg3_rel.
-
-arg23_rel  := arg2_rel  & arg3_rel.
-
-arg123_rel := arg12_rel & arg13_rel.
+named_rel := arg0_relation & [
+  name string ].
 
 
-beamter :< arg1_rel.
-buch    :< arg1_rel.
-frau    :< arg1_rel.
-kind    :< arg1_rel.
-mädchen :< arg1_rel.
-mann    :< arg1_rel.
-mörder  :< arg1_rel.
-speisekammer :< arg1_rel.
-wurst   :< arg1_rel.
+morgen_rel := arg1_relation.
+oft_rel    := arg1_relation.
 
-groß        :< arg1_rel.
-interessant :< arg1_rel.
-klug        :< arg1_rel.
-schön       :< arg1_rel.
+quant_rel := arg0_relation & [
+  rstr handle,
+  body handle ].
 
-bellen :< arg1_rel.
-lachen :< arg1_rel.
-schlafen :< arg1_rel.
+udef_q    := quant_rel.
+def_q     := quant_rel.
+every_q   := quant_rel.
+exists_q  := quant_rel.
+pronoun_q := quant_rel.
+proper_q  := quant_rel.
 
-nicht :< arg1_rel.
-oft   :< arg1_rel.
+arg1_relation := relation & [
+  arg1 event_or_index ].
 
-morgen :< arg1_rel.
+arg2_relation := relation & [
+  arg2 event_or_index ].
 
-helfen    :< arg12_rel.
-jagen     :< arg12_rel.
-kennen    :< arg12_rel.
-lieben    :< arg12_rel.
-denken_an :< arg12_rel.
+arg3_relation := relation & [
+  arg3 event_or_index ].
 
-treu      :< arg12_rel.
 
-in        :< arg12_rel.
+arg01_relation := arg0_relation & arg1_relation.
 
-und       :< arg12_rel.
+arg02_relation := arg0_relation & arg2_relation.
 
-geben :<  arg123_rel.
+arg012_relation := arg01_relation & arg02_relation.
 
-grauen :< arg2_rel.
+arg0123_relation := arg012_relation & arg3_relation.
 
-besitzen :< arg23_rel.
+arg023_relation := arg02_relation & arg3_relation.
+
+arg12_relation := arg1_relation & arg2_relation.
+
+groß_rel        := arg1_relation.
+interessant_rel := arg1_relation.
+klein_rel       := arg1_relation.
+klug_rel        := arg1_relation.
+schön_rel       := arg1_relation.
+schwierig_rel   := arg1_relation.
+
+treu_rel := arg12_relation.
+
+angeblich_rel      := arg1_relation.
+mutmaßlich_rel     := arg1_relation.
+nicht_rel          := arg1_relation.
+wahrscheinlich_rel := arg1_relation.
+
+
+bellen_rel   := arg01_relation.
+lachen_rel   := arg01_relation.
+schlafen_rel := arg01_relation.
+spielen_rel  := arg01_relation.
+
+
+jagen_rel     := arg012_relation.
+kennen_rel    := arg012_relation.
+lesen_rel     := arg012_relation.
+lieben_rel    := arg012_relation.
+nehmen_rel    := arg012_relation.
+singen_rel    := arg012_relation.
+
+helfen_rel    := arg012_relation.
+
+denken_an_rel := arg012_relation.
+glauben_rel   := arg012_relation.
+
+
+in_rel        := arg12_relation.
+
+geben_rel :=  arg0123_relation.
+
+grauen_rel := arg02_relation.
+
+poss_rel := arg012_relation.
+
+bild_rel := arg02_relation.
+
+tochter_rel := arg02_relation.
+
+
+conjunction_rel := arg0_relation & [
+  lindex event_or_index,
+  rindex event_or_index].
+
+conjunction_n_rel := conjunction_rel & [
+  arg0 index ].
+
+conjunction_v_rel := conjunction_rel & [
+  arg0 event,
+  lhandle handle,
+  rhandle handle].
+
+und_rel := conjunction_rel.
+
+und_n_rel := conjunction_n_rel & und_rel.
+und_v_rel := conjunction_v_rel & und_rel.
+
+
+
+event_or_index := bot.
+
+event := event_or_index & [
+  mode mode ].
 
 ; Für Satztypen
-s_type :< arg3_rel.
-assertion_or_imperative     :< s_type.
-assertion_or_interrogative  :< s_type.      ; Flexion = ind_conj -> assertion_or_interrogative
-imperative_or_interrogative :< s_type.
+mode := bot.
+
+assertion_or_imperative_or_interrogative := mode.
+assertion_or_imperative     := assertion_or_imperative_or_interrogative.
+assertion_or_interrogative  := assertion_or_imperative_or_interrogative.      ; Flexion = ind_conj -> assertion_or_interrogative
+imperative_or_interrogative := assertion_or_imperative_or_interrogative.
 
 interrogative := assertion_or_interrogative  & imperative_or_interrogative.
 imperative    := imperative_or_interrogative & assertion_or_imperative.
@@ -402,88 +492,91 @@ imperative    := imperative_or_interrogative & assertion_or_imperative.
 assertion  := assertion_or_imperative & assertion_or_interrogative.
 
 
-psoa_rel := relation & [
-  psoa_arg list ].
-
-
-mutmaßlich :< psoa_rel.
-
-
-index_or_relation :< bot.
-index := index_or_relation & intro_gen_num & [
+index := event_or_index & intro_gen_num & [
   per per ].
 
+handle := event_or_index.
+
+qeq := bot & [
+  harg handle,
+  larg handle ].
 
 nonloc := bot & [
   rel   list,
   slash list ].
 
+case := bot.
 
-
-case :< bot.
-
-nom_or_dat_or_acc :< case.
+nom_or_dat_or_acc := case.
 
 ; Plural
-nom_or_gen_or_acc :< case.
+nom_or_gen_or_acc := case.
 
 ; Endung `n' in Singular Junggesellen
-gen_or_dat_or_acc :< case.
+gen_or_dat_or_acc := case.
 
 nom_or_acc := nom_or_gen_or_acc & nom_or_dat_or_acc.
 dat_or_acc := gen_or_dat_or_acc & nom_or_dat_or_acc.
-gen_or_dat :< gen_or_dat_or_acc.
+gen_or_dat := gen_or_dat_or_acc.
 
-nom :< nom_or_acc.
+nom := nom_or_acc.
 gen := gen_or_dat & nom_or_gen_or_acc.
 dat := gen_or_dat & dat_or_acc.
 acc := nom_or_acc & dat_or_acc.
 
 
-genus :< bot.
+genus := bot.
 
 ; Beamte
-fem_or_mas :< genus.
+fem_or_mas := genus.
 
 ; Index von Mädchen, Weib, ...
-fem_or_neu :< genus.
+fem_or_neu := genus.
 
 ; ein
-mas_or_neu :< genus.
+mas_or_neu := genus.
        
 fem := fem_or_mas & fem_or_neu.
 mas := fem_or_mas & mas_or_neu.
 neu := fem_or_neu & mas_or_neu.
 
-per :< bot.
+per := bot.
 
-first_or_third :< per.
+first_or_third := per.
 
 ; Stamm 2:  ich fange vs. du fängst, er fängt
-second_or_third :< per.
+second_or_third := per.
 
-first  :< first_or_third.
-second :< second_or_third.
+first  := first_or_third.
+second := second_or_third.
 third  := first_or_third & second_or_third.
 
 
-num :< bot.
-sg  :< num.
-pl  :< num.
+num := bot.
+sg  := num.
+pl  := num.
 
-
-dtype  :< bot.
-weak   :< dtype.
-strong :< dtype.
-
+dtype  := bot.
+weak   := dtype.
+strong := dtype.
 
 
 intro_gen_num := bot & [
   gen genus,
   num num ].
 
+bool := bot.
 
+plus   := bool.
 
+minus_or_extraction_or_vm := bot.
 
+extraction_or_minus := minus_or_extraction_or_vm.
+extraction_or_vm    := minus_or_extraction_or_vm.
+minus_or_vm         := minus_or_extraction_or_vm.
+
+extraction := extraction_or_minus & extraction_or_vm.
+minus      := extraction_or_minus & minus_or_vm          & bool.
+vm         := extraction_or_vm    & minus_or_vm.
 
 

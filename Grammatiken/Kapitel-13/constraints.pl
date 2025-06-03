@@ -1,14 +1,13 @@
 % -*-trale-prolog-*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: constraints.pl,v $
-%%  $Revision: 1.5 $
-%%      $Date: 2006/02/26 18:08:11 $
+%%  $Revision: 1.3 $
+%%      $Date: 2006/02/26 18:08:12 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
 %%   Language: Trale
 %      System: TRALE 2.7.5 (release ) under Sicstus 3.10.1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 :- multifile if/2.
@@ -17,7 +16,6 @@
 :- multifile fun/1.
 :- discontiguous fun/1.
 
-:- multifile macro/2.
 
 
 % *****************************
@@ -42,33 +40,59 @@ undelayed_append([],L,L) if true.
 undelayed_append([H|T1],L,[H|T2]) if append(T1,L,T2).
 
 
-fun del(+,+,-).
-del(X,Y,Z) if 
-   when( (Y=(e_list;ne_list);
-          Z=(e_list;ne_list)) 
-       , undelayed_del(X,Y,Z)
-       ).
+% Beschränkung, die alle RELS-Elemente sammelt.
+fun collect_rels(+,-).
+%collect_rels(Dtrs,Rels)
 
-undelayed_del(El,[El|L],L) if true.
-undelayed_del(El,[H|T1],[H|T2]) if del(El,T1,T2).
-
-
-
-% Beschränkung, die alle QStore-Elemente sammelt.
-fun collectQStores(+,-).
-%collectQStores(Subcat,Stores)
-
-collectQStores(X,Y) if
+collect_rels(X,Y) if
   when( (X=(e_list;ne_list);
          Y=(e_list;ne_list)) 
-       , undelayed_collectQStores(X,Y)
+       , undelayed_collect_rels(X,Y)
        ).
 
 
-undelayed_collectQStores([],[]) if true.
-undelayed_collectQStores([loc:cont:qstore:QStore|T1],Result) if
-   collectQStores(T1,T2),
-   append(QStore,T2,Result).
+
+% Leere Liste, also keine Relationen
+undelayed_collect_rels([],[]) if true.
+
+% Rels1 sind die Relationen der ersten Tochter.
+% Dtrs sind die restlichen Töchter.
+% Für die Dtrs werden die Relationen in Rels2 zusammengesammelt.
+% append verknüpft Rels1 und Rels2 zum Ergebnis Rels.
+undelayed_collect_rels([rels:Rels1|Dtrs],Rels) if collect_rels(Dtrs,Rels2),
+                                                  append(Rels1,Rels2,Rels).
+
+
+
+
+% Es gibt nur zwei Fälle: eine oder zwei Töchter
+%undelayed_collect_rels([rels:Rels],Rels) if true.
+%undelayed_collect_rels([rels:Rels1,rels:Rels2],Rels) if append(Rels1,Rels2,Rels).
+
+
+
+% Beschränkung, die alle HCONS-Elemente sammelt.
+fun collect_hcons(+,-).
+%collect_hcons(Dtrs,Hcons)
+
+collect_hcons(X,Y) if
+  when( (X=(e_list;ne_list);
+         Y=(e_list;ne_list)) 
+       , undelayed_collect_hcons(X,Y)
+       ).
+
+
+undelayed_collect_hcons([],[]) if true.
+undelayed_collect_hcons([hcons:Hcons1|Dtrs],Hcons) if collect_hcons(Dtrs,Hcons2),
+                                                               append(Hcons1,Hcons2,Hcons).
+
+
+
+
+% Es gibt nur zwei Fälle: eine oder zwei Töchter
+%undelayed_collect_hcons([hcons:Hcons],Hcons) if true.
+%undelayed_collect_hcons([hcons:Hcons1,hcons:Hcons2],Hcons) if append(Hcons1,Hcons2,Hcons).
+
 
 
 fun list_with_zero_or_one_element(-).
@@ -81,13 +105,8 @@ undelayed_list_with_zero_or_one_element([]) if true.
 undelayed_list_with_zero_or_one_element([_]) if true.
 
 
-
-% Hey, Negation!
-
-%% Type negation - delay until type T and then die.
-not(Type) macro not_type(a_ Type).
-fun not_type(+,-).
-( not_type((a_ Type),FS) if
-      when(FS=Type,
-           prolog(fail)) ) :-
-        type(Type).
+/*
+fun list_with_zero_or_one_element(-).
+list_with_zero_or_one_element([]) if true.
+list_with_zero_or_one_element([_]) if true.
+*/
