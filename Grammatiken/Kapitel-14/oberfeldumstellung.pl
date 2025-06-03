@@ -1,4 +1,4 @@
-% -*-trale-prolog-*-
+% -*- coding:utf-8; trale-prolog -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: oberfeldumstellung.pl,v $
 %%  $Revision: 1.5 $
@@ -15,25 +15,21 @@
 % Diese Regel wird für Oberfeldumstellung benötigt, die im Buch
 % nicht besprochen wird. Siehe Müller, 1999.
 
-% Testen mit:   daß er das Buch wird lesen müssen
-%               daß er das Buch wird haben lesen müssen
+% Testen mit:   dass er das Buch wird lesen müssen
+%               dass er das Buch wird haben lesen müssen
 
 
-h_cl ## (head_cluster_phrase,
-            @head_initial,                                  % nur für Regelausgabe
-            synsem:loc:cat:head:initial:minus,
-            head_dtr:(HeadDtr,
-                      synsem:trace:minus_or_vm),
-            non_head_dtrs:[(NonHeadDtr,
-                            synsem:loc:cat:head:flip:plus)])
+h_cl rule (head_cluster_phrase,
+           non_head_dtrs:hd:synsem:loc:cat:head:flip:plus,
+           dtrs:[HeadDtr,NonHeadDtr])
   ===>
 cat> HeadDtr,
 cat> NonHeadDtr.
 
 
-
-dürfen ~~> @modal_flip_verb(dürfen).
-können ~~> @modal_flip_verb(können).
-müssen ~~> @modal_flip_verb(müssen).
-sollen ~~> @modal_flip_verb(sollen).
-wollen ~~> @modal_flip_verb(wollen).
+% dass er das Lied hat singen dürfen
+dürfen ---> @modal_flip_verb(dürfen_rel).
+können ---> @modal_flip_verb(können_rel).
+müssen ---> @modal_flip_verb(müssen_rel).
+sollen ---> @modal_flip_verb(sollen_rel).
+wollen ---> @modal_flip_verb(wollen_rel).

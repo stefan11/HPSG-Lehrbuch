@@ -122,18 +122,18 @@ dass der Typ \type{index} sein muss.
 die einen Determinator verlangen, zusätzlich zu (\mex{0}) relevant ist:
 \ea
 Alle Nomina, die einen Determinator verlangen (\type{det-noun-root}):\\
-\avm{
-[ cat &  [ spr    & < [] >\\
-           arg-st & < Det >]\\
-  cont & [ ind|per & 3 ]]
-}
+\ms{
+  cat &  \ms{ spr    & \nliste{ [] }\\
+              arg-st & \nliste{ Det } }\\
+  cont & \ms{ ind|per & 3 }}
 \z
 Mit dem \argstw ist schon viel über die Valenz eines Lexikonelements ausgesagt. Das
 Argumentrealisierungsprinzip (siehe (\ref{Prinzip-Argumentrealisierung-einfach}) auf
 S.\,\pageref{Prinzip-Argumentrealisierung-einfach}) verteilt die Elemente der \argstl auf die
 Valenzmerkmale \spr und \comps. Für die Nomina muss sichergestellt sein, dass der Determinator auf
 der \sprl und nicht auf der \compsl landet. Dazu muss man im Lexikoneintrag für Nomina festlegen,
-dass die \sprl ein Element enthält. Es folgt dann, dass die \argstl so zerlegt wird, dass das erste
+dass die \sprl ein Element enthält. [] in der \sprl in (\mex{0}) steht für eine ganz allgemeine
+Merkmalbeschreibung. Es folgt dann, dass die \argstl so zerlegt wird, dass das erste
 Element in die \sprl kommt und die restlichen Argumente auf die \compsl. Bei Nomen wie \emph{Buch}
 gibt es nur ein Element in der \argstl, also ist die \compsl dann leer. 
 
@@ -199,9 +199,7 @@ zu (\mex{-1}) die folgenden Eigenschaften:
 \ms{ cat & \ms{ arg-st & \sliste{ [ cont$|$ind \ibox{1} ] } $\oplus$ \etag\\
               } \\
      cont & \ms{
-            rels & \ms{
-                   arg1 & \ibox{1} \\
-                   } }\\
+            rels & \sliste{ [ \argone \ibox{1} ] } }
 }
 \z
 Das $\oplus$ \etag bedeutet, dass man die einstellige Liste mit etwas vernüpfen kann. Wofür \etag
@@ -212,12 +210,10 @@ Alle mindestens zweistelligen Verben mit \argone und \argtwo haben zusätzlich
 zu (\mex{-2}) und (\mex{0}) die folgenden Eigenschaften:
 \ea
 \label{bsp-linking-arg2}%
-\ms{ cat & \ms{ arg-st & \sliste{ [ ], [ cont$|$ind \ibox{2} ] } $\oplus$ \etag\\ 
+\ms{ cat & \ms{ arg-st & \sliste{ [ ], [ cont$|$ind \ibox{1} ] } $\oplus$ \etag\\ 
               } \\
      cont & \ms{
-            rels & \ms{
-                   arg2 & \ibox{2} \\
-                   } }\\
+            rels & \nliste{ [ \argtwo \ibox{1} ] } }
 }
 \z
 Für mindestens dreistellige Verben braucht man eine analoge Beschränkung. 
@@ -429,7 +425,7 @@ Lexikonregel für persönliches Passiv nach \citet{Kiss92}:\\
             arg-st & \liste{ NP[\type{nom}], NP[\type{acc}]$_{\ibox{1}}$ } $\oplus$ \ibox{2} \\
           } \\
 } $\mapsto$ \\
-\onems[word]{
+\hfill\onems[word]{
   cat \ms{ head   & \ms{ vform & passiv-part } \\
            arg-st & \liste{ NP[\type{nom}]$_{\ibox{1}}$ } $\oplus$ \ibox{2} \\
          } \\
@@ -465,10 +461,10 @@ der Passivregel auf den Verbstamm \stem{schlag} klarmachen:
 cat & \onems{ arg-st     \liste{ NP[\type{nom}]\ind{1}, NP[\type{acc}]\ind{2} } \\
        }\\
 cont & \onems{
-       rels \ms[schlagen]{
+       rels \liste{ \ms[schlagen]{
             arg1       & \ibox{1}\\
             arg2 & \ibox{2}\\
-            }
+            } }
       }\\ 
 }
 %\flushright sieht doof aus
@@ -478,10 +474,10 @@ cont & \onems{
 cat  & \onems{ arg-st      \liste{ NP[\type{nom}]\ind{2} } \\
        }\\
 cont & \onems{
-       rels \ms[schlagen]{
-            arg1 & \ibox{1}\\
-            arg2 & \ibox{2}\\
-            }
+       rels \liste{ \ms[schlagen]{
+                    arg1 & \ibox{1}\\
+                    arg2 & \ibox{2}\\
+                  } }
       }\\ 
 }
 \zl
@@ -524,12 +520,12 @@ Die entsprechende Veränderung kann man einfach in die Regel in (\ref{passiv-lr-
 phon $f\iboxb{1}$\\
 cat \ms{ head & \ms{ vform & passiv-part \\
                    } \\
-         comps & \liste{ NP[\type{nom}]$_{\ibox{2}}$ } $\oplus$ \ibox{3} \\
+         arg-st & \liste{ NP[\type{nom}]$_{\ibox{2}}$ } $\oplus$ \ibox{3} \\
         } \\
 lex-dtr \onems[stem]{
            phon  \ibox{1}\\
            cat  \ms{ head & verb \\ 
-                       comps & \liste{ NP[\type{nom}], NP[\type{acc}]$_{\ibox{2}}$ } $\oplus$ \ibox{3} \\
+                     arg-st & \liste{ NP[\type{nom}], NP[\type{acc}]$_{\ibox{2}}$ } $\oplus$ \ibox{3} \\
                      } \\
      }\\
 }

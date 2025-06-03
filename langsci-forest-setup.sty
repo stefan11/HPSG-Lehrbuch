@@ -436,4 +436,8 @@ instance/.style={edge=dotted}
   }},
 }
 
+% to add lines in hierarchies that leave in the south and go into north
+% can be used in connection with "auto name" for types and then \draw (type1) to (type2);
+% Example picture of Haugereid's hierarchy in GT book. 24.05.2025
+\tikzset{from south line to north/.style={to path=(\tikztostart.south)--(\tikztotarget.north)\tikztonodes}}
 

@@ -93,6 +93,18 @@ $%
 }%
 }
 
+
+
+% I do not remember, why there was a tabular environment. Seems to be overkill. 14.03.2025
+\newcommand{\liste}[1]{%
+\mbox{%
+$%
+\left\langle\mbox{\upshape\normalfont#1}\right\rangle%
+$%
+}%\\[2pt]%
+}
+
+% Some lists have a newline after an element. 24.05.2025 (09-cxg.tex in Grammatical theory)
 \newcommand{\tabularliste}[1]{%
 \mbox{%
 $%
@@ -111,14 +123,6 @@ $%
 % }%
 % }
 
-% I do not remember, why there was a tabular environment. Seems to be overkill. 14.03.2025
-\newcommand{\liste}[1]{%
-\mbox{%
-$%
-\left\langle\mbox{\upshape\normalfont#1}\right\rangle%
-$%
-}%\\[2pt]%
-}
 
 
 \newcommand{\phonliste}[1]{%

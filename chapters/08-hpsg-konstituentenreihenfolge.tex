@@ -267,31 +267,31 @@ verzweigenden Strukturen mit Kopf gibt es somit zwei Möglichkeiten für die Ano
 Konstituenten in der nach Reihenfolge geordneten \dtrsl:
 \begin{itemize}
 \item \begin{tabular}[t]{@{}ll@{}}
-der Kopf kommt zuerst:                                   & Beispiel:\\
+Kopf kommt zuerst:                                   & Beispiel:\\
 %
 \ms{
 head-dtr & \ibox{1}\\
-non-head-dtrs & \liste{ \ibox{2} } \\
-dtrs & \liste{ \ibox{1}, \ibox{2} }
+non-head-dtrs & \nliste{ \ibox{2} } \\
+dtrs & \nliste{ \ibox{1}, \ibox{2} }
 }&%
-\ms{
-head-dtr & \ibox{1} \upshape[\phon \phonliste{ schläft }]\\
-non-head-dtrs & \nliste{ \ibox{2} [\phon \phonliste{ Karl }]} \\
-dtrs & \liste{ \ibox{1}, \ibox{2} }
+\onems{
+head-dtr \ibox{1}\\
+non-head-dtrs \nliste{ \ibox{2} } \\
+dtrs \nliste{ \ibox{1} [\phon \phonliste{ schläft }], \ibox{2} [\phon \phonliste{ Aicke }]}
 }\\
 \end{tabular}
 \item \begin{tabular}[t]{@{}ll@{}}
-der Kopf kommt zum Schluss:                            & Beispiel:\\
+Kopf kommt zum Schluss:                            & Beispiel:\\
 %
 \ms{
 head-dtr & \ibox{1}\\
-non-head-dtrs & \liste{ \ibox{2} } \\
-dtrs & \liste{ \ibox{2}, \ibox{1} }
+non-head-dtrs & \nliste{ \ibox{2} } \\
+dtrs & \nliste{ \ibox{2}, \ibox{1} }
 }&%
-\ms{
-head-dtr & \ibox{1} \upshape[\phon \phonliste{ schläft }]\\
-non-head-dtrs & \nliste{ \ibox{2} [\phon \phonliste{ Karl }] } \\
-dtrs & \liste{ \ibox{2}, \ibox{1} }
+\onems{
+head-dtr \ibox{1}\\
+non-head-dtrs \nliste{ \ibox{2}  } \\
+dtrs \nliste{ \ibox{2} [\phon \phonliste{ Aicke }], \ibox{1} [\phon \phonliste{ schläft }] }
 }\\
 \end{tabular}
 \end{itemize}
@@ -357,12 +357,9 @@ Mit den bisher formulierten Beschränkungen kann man also auch Phrasen wie die i
 {}dass [er [es [gibt ihm]]]
 }
 \zl
-In (\mex{-1}a) steht die Präposition \emph{in} rechts der Nominalphrase, obwohl sie eigentlich links von
-ihr stehen müsste, und in (\mex{-1}b) handelt es sich um einen Verbletztsatz, in dem aber \emph{gibt} und \emph{ihm}
-vertauscht sind, \dash, eigentlich müsste das Verb an letzter Stelle stehen. In (\mex{0}a) steht das Verb vor
-dem Adjunkt, obwohl es danach stehen müsste, in (\mex{0}b) folgt das Adjektiv dem Nomen,
-obwohl es ihm vorangehen müsste, und in (\mex{0}c) schließlich steht die PP vor dem Nomen, obwohl
-PPen, die ein Nomen modifizieren, diesem innerhalb von NPen folgen.
+In (\mex{0}a) steht die Präposition \emph{in} rechts der Nominalphrase, obwohl sie eigentlich links von
+ihr stehen müsste, und in (\mex{0}b) handelt es sich um einen Verbletztsatz, in dem aber \emph{gibt} und \emph{ihm}
+vertauscht sind, \dash, eigentlich müsste das Verb an letzter Stelle stehen. 
 
 Linearisierungsregeln sagen etwas über die Reihenfolge von zwei beschriebenen Objekten aus.
 Es gibt verschiedene Arten von Linearisierungsregeln: Manche nehmen nur Bezug auf Merkmale der jeweiligen
@@ -371,14 +368,14 @@ wieder andere mischen beides.
 Wenn man für alle Köpfe ein Merkmal \textsc{initial}\isfeat{initial} annimmt, dann kann man Köpfe,
 die ihren Argumenten vorangehen, den \initialw `+' geben und Köpfen, die ihren Argumenten folgen,
 den Wert `--'. Die Linearisierungsregeln in (\mex{1}) sorgen dann dafür, dass ungrammatische
-Abfolgen wie die in (\mex{-1}a,b) ausgeschlossen sind.
+Abfolgen wie die in (\mex{0}a,b) ausgeschlossen sind.
 \eal
-\ex\label{lp-ini-Komplement} Head[\initial+] $<$ Komplement
-\ex Komplement $<$ Head[\initial --]
+\ex\label{lp-ini-Komplement} Head[\initial+] $<$ Complement
+\ex Complement $<$ Head[\initial --]
 \zl
 Präpositionen haben den \initialw `+', und Regel (\mex{0}a) erzwingt somit die Anordnung des präpositionalen
 Kopfes vor dem nominalen Argument. Verben in Letztstellung haben den \initialw `--'. (\mex{0}b) schließt
-also die Abfolge in (\mex{-2}b) aus.
+also die Abfolge in (\mex{-1}b) aus.
 
 Die Konsequenz der Linearisierungsregel in (\ref{lp-ini-Komplement}) ist, dass jetzt nur noch die beiden 
 Kopf"=Komplement"=Strukturen durch die Grammatik lizenziert werden, die durch (\mex{1}a) und
@@ -579,8 +576,8 @@ Für das Nomen \emph{Zerstörung} wird der folgende \catw angenommen:
 \ea
 \ms{ head & \ms[noun]{ initial & $+$\\
                      }\\
-     spr & \sliste{ Det }\\
-           comps & \sliste{ NP[\gen], PP[\type{durch}] }\\[2mm]
+     spr & \nliste{ Det }\\
+           comps & \sliste{ NP[\gen], PP[\type{durch}] }\\
          }
 \z
 Das Kopf"=Komplement"=Schema lizenziert die Phrasen  \emph{Zerstörung der Stadt}
@@ -816,7 +813,8 @@ wäre. Auch muss sichergestellt werden, dass die Verbalprojektion, mit der \emph
 wird, genau die zu \emph{kennt} gehörige Verbspur enthält. Könnte sie nämlich die Verbspur
 enthalten, die zu \emph{gibt} gehört, so würde man Sätze wie (\mex{1}b) analysieren können: 
 \eal
-\ex[]{ Gibt [Aicke dem Affen den Stock \_$_{gibt}$].  } \ex[*]{
+\ex[]{ Gibt [Aicke dem Affen den Stock \_$_{gibt}$].  } 
+\ex[*]{
 \label{bsp-kennt-gibt}
 Kennt [Aicke dem Affen den Stock \_$_{gibt}$].
 }

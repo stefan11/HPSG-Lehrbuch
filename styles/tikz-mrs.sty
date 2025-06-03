@@ -1,0 +1,23 @@
+
+% for MRS
+\usetikzlibrary{tikzmark}
+
+% for bezier curves (bounding box) for scoped MRSes
+\usetikzlibrary{bbox}
+
+% This is a style, that causes \draw to always start at the south of a node.
+% It is used in MRSes. Handles are defined with \subnode (\subnode{h3}{h3} and instead of drawing
+% from h3.south we can then draw from h3.
+% invoced by:
+% \begin{tikzpicture}[remember picture,->,dashed,from south line to]
+% 
+\tikzset{from south line to/.style={to path=(\tikztostart.south)--(\tikztotarget)\tikztonodes}}
+
+\newcounter{mrstikz}
+\AddToHook{env/tikzpicture/before}{\stepcounter{mrstikz}\tikzset{tikzmark prefix=mrs-tikz\themrstikz}}
+
+\tikzset{mrs/.style={remember picture,from south line to,->,dashed}}
+\tikzset{scoped mrs/.style={remember picture,from south line to,bezier bounding box}}
+\tikzset{mrs free start/.style={remember picture,->,dashed}}
+
+

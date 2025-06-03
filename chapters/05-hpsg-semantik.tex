@@ -35,7 +35,7 @@ Englische von \citet*{CFPS2005a} ausgearbeitet wurden. Für Details, die in dies
 offen geblieben sind, habe ich die implementierte Grammatik von Dan Flickinger konsultiert
 \parencites{Flickinger2000a,FCS2000a}. Die ersten drei Auf"|lagen dieses Buches haben noch
 Situationssemantik verwendet. Leser*innen, die die Ansätze vergleichen möchten, können also frühere
-Auflagen konsultieren.
+Auflagen konsultieren.\todostefan{zitieren: \citep{Ginzburg2012a-u,LGC-Grammar-in-Dialog}}
 
 Dieses Buch ist ein Syntax"=Buch. Syntax ist ein komplexes System und die Beschäftigung damit
 faszinierend. Allerdings ist Syntax allein im wahrsten Sinne des Wortes sinnlos. Die (Morpho-)Syntax wird nur gebraucht, um eine
@@ -106,7 +106,10 @@ Mehrdeutigkeiten multiplizieren. Mehrdeutigkeiten in Nominalphrasen multiplizier
 Mehrdeutigkeiten wie denen, die in (\mex{0}a) vorliegen. Auch ist es so, dass es bei gleichzeitigem
 Vorliegen mehrerer Quantoren in verschiedenen NPen im Satz unglaublich viele Lesarten geben kann, die
 letztendlich nur Expert*innen anhand sorgfältig konstruierter Kontexte unterscheiden
-können. \citet[\page 196]{ADKMNT2003a} geben das folgende Beispiel, das ungefähr zweihundert Lesarten haben soll:
+können. 
+% Jakob Mache: Intonation macht Sachen evtl. eindeutig.
+% Stefan: Ja, schon, aber im folgenden Beispiel hilft das nicht viel. Es gibt die Fälle mit extremer Interaktion.
+\citet[\page 196]{ADKMNT2003a} geben das folgende Beispiel, das ungefähr zweihundert Lesarten haben soll:
 \ea
 Many people feel that most sentences exhibit too few quantifier scope ambiguities for much effort to be devoted
 to this problem, but a casual inspection of several sentences from any text should convince almost everyone
@@ -170,7 +173,8 @@ Relationen können verschiedene Stelligkeiten haben. Je nach Ansatz werden Relat
 \relation{lieben} aus, dann sind nur der bzw.\ die Liebende und der/die/das Geliebte Argumente der
 \relation{lieben}"=Relation. Die Alternative ist, dass man annimmt, dass ein lieben"=Ereignis
 beschrieben wird und das Ereignis in Relation zu Liebendem und Geliebtem steht. Ich gehe hier von
-Letzterem aus. Somit ergeben sich die folgenden Stelligkeiten:
+Letzterem aus. Somit ergeben sich die folgenden Stelligkeiten:\todostefan{Jakob: Relationen als Beispiel
+  angeben sterben(e,Aicke)}
 \begin{itemize}
 \item einstellig:  \relation{regnen}   (\emph{Es regnet.}) 
 \item zweistellig: \relation{sterben}  (\emph{Aicke stirbt.})
@@ -187,7 +191,7 @@ In der Prädikatenlogik\is{Prädikatenlogik} wird \zb dem Satz (\mex{1}a) die Re
 \zl
 Das kleine $e$ steht dabei für das Ereignis. Das $e$ wird auch Ereignisvariable
 genannt. \relation{Aicke} und \relation{Conny} sind sogenannte Individuenkonstanten. Aus
-Platzgründen oder, wenn keine Verwechslungsgefahr besteht, lasse ich die Striche auch wie in (\mex{0}c) mitunter weg. 
+Platzgründen oder wenn keine Verwechslungsgefahr besteht, lasse ich die Striche auch wie in (\mex{0}c) mitunter weg. 
 
 Dieselbe Bedeutung kann aber auch durch den Passivsatz in (\mex{1}) ausgedrückt werden.
 \ea
@@ -337,7 +341,7 @@ Wenn man sich überlegt, was in einem Diskursuniversum der Fall sein muss, damit
 wahr sind, bekommt man jeweils die Aussagen in b.
 \eal
 \label{ex-Alle-Kinder-schlafen}
-\ex Alle Kinder schlafen.
+\ex\label{ex-Alle-Kinder-schlafen-Satz} Alle Kinder schlafen.
 \ex Für alle x, für die gilt, dass sie Kind sind, gilt auch, dass sie schlafen.
 \ex \blau{$\forall$}x kind(x) \blau{$\to$} schlafen(x)
 \zl
@@ -357,6 +361,14 @@ die Bedeutung von \emph{kind} und \emph{schlafen} bekannt ist, kann man die Bede
 Determinatoren bestimmen: Alles, was nicht von \emph{Kind} oder \emph{schlafen} beigesteuert wurde,
 muss von den Determinatoren kommen. Das ist in (\mex{-2})--(\mex{0}) blau hervorgehoben.
 
+Ich habe hier dargelegt, was gegeben sein muss, damit ein Satz in einem gegebenen Diskursuniversum
+wahr wird. Man kann aber Sätze auch so verstehen, dass sie Diskursuniversen beschreiben. Der Satz in
+(\ref{ex-Alle-Kinder-schlafen-Satz}) beschreibt all die Situationen, in denen alle Kinder
+schlafen. Auch kann man nicht unbedingt überprüfen, ob ein Satz wahr ist, \zb wenn er Aussagen über
+die Vergangenheit oder Zukunft enthält. Aber wir können uns überlegen, was der Fall sein müsste
+bzw.\ gewesen sein müsste, damit der Satz wahr ist. So können wir auch über Einhörner reden, obwohl
+es diese nicht gibt, und wir verstehen Märchen und können darüber sprechen, was Menschen denken oder
+glauben. Zu Einhörnern und \emph{glauben} siehe auch Abschnitt~\ref{Abschnitt glauben und Einhörner}.
 
 Bisher habe ich Relationen so dargestellt, wie das in der Prädikatenlogik üblich ist: Relationsname
 und dann in Klammern eine Folge von logischen Argumenten der Relation. In HPSG gibt es aber nur
@@ -604,7 +616,7 @@ Lexikoneintrag für \emph{er}:\\
            } \\
 }
 \zs
-Die Liste der Relationen ist die leere Liste sein, da wir, wenn wir einen Satz wie (\mex{1}) äußern, nur
+Die Liste der Relationen ist die leere Liste, da wir, wenn wir einen Satz wie (\mex{1}) äußern, nur
 wissen, dass wir von einem Individuum sprechen, auf das wir uns entweder deiktisch beziehen oder das
 im bisherigen Diskurs mit einem Nomen in der dritten Person Singular maskulin erwähnt wurde.
 \ea
@@ -728,14 +740,15 @@ Der Lexikoneintrag für das Wort \emph{geben} bzw.\ den Stamm \stem{geb} hat das
 % \end{forest}
 
 
-Zu Linking"=Theorien im Rahmen der HPSG siehe \citew{Davis96a-u} und \citew{Wechsler95a-u}.
+Zu Linking"=Theorien im Rahmen der HPSG siehe \citew{Davis96a-u} und \citew{Wechsler95a-u} bzw.\ für
+einen Überblick \citew{HPSGHandbookLinking}.
 \is{Linking|)}
 
 Zur Einordnung hier noch eine kurze Bemerkung zum \isi{$\lambda$-Kalkül}. Leser*innen, die sich schon mit
 Semantik beschäftigt haben, kennen bestimmt $\lambda$"=Ausdrücke der Art in (\mex{1}). Manche
 fürchten sie eventuell sogar.
 \ea
-$\lambda$z $\lambda$y $\lambda$x geben(x, y, z)\todostefan{geben mit prime? unten in Bäumen?}
+$\lambda$z $\lambda$y $\lambda$x geben(x, y, z)
 \z
 Die gute Nachricht ist: In den meisten HPSG"=Varianten braucht man keine Lambdas. Die Lambdas sind
 die Argumente in der \argstl bzw.\ in den Valenzlisten. So, wie die Lambdas in (\mex{0}) eins nach
@@ -828,25 +841,28 @@ dtrs  \ibox{1} \\
 \z
 \texttt{collect-rels} geht dabei durch die Liste der Töchter und hängt den jeweiligen \relsw an eine
 Liste, die dann eine Verkettung aller \relswe und das Ergebnis der relationalen Beschränkung
-\texttt{collect-rels} ist. Formal kann man das wie folgt aufschreiben:
+\texttt{collect-rels} ist. Formal kann man das wie folgt aufschreiben:\todostefan{Boxen statt Variablennamen?}
 \ea
 \label{constraint-collect-rels}
 \texttt{collect-rels}([],[]).\\
-\texttt{collect-rels}([\textsc{cont|rels} Rels1|Dtrs],Rels) :=\\
-\flushright \texttt{collect-rels}(Dtrs,Rels2), \texttt{append}(Rels1,Rels2,Rels).
+\texttt{collect-rels}([[\textsc{cont|rels} Rels1]|Dtrs],Rels) :=\\
+\hfill \texttt{collect-rels}(Dtrs,Rels2), \texttt{append}(Rels1,Rels2,Rels).
 \z
 \medskip
 \texttt{collect-rels} liefert für eine leere Tochter"=Liste die leere Liste an Relationen zurück
-(erste Klausel). Wenn es Elemente in der Liste der Töchter gibt, wird der Wert von
+(erste Klausel). Wenn es Elemente in der Liste der Töchter gibt, wird die Tochterliste in zwei Teile
+geteilt: die erste Tochter [\textsc{cont|rels} Rels1] und eine eventuell leere Liste weiterer
+Töchter Dtrs. Etwas unschön ist hier, dass der Operator, der Listen zerteilt, aussieht wie der
+senkrechte Strich, der zum Aufschreiben von Pfaden verwendet wird. Dann wird der Wert von
 \textsc{cont|rels}, nämlich Rels1 mit den Relationen, die aus den restlichen Töchtern
 zusammengesammelt werden (Rels2) mittels \texttt{append} zur Gesamtliste der Relationen (Rels)
 verknüpft. Die zweite Klausel zerteilt also ein großes Problem (beliebig viele Töchter in einer
 Liste) in ein kleines Problem (die erste Tochter) und einen Rest (weniger Töchter). Das kleine
 Problem wird gelöst (Rels1 wird bestimmt) und danach wird das restliche Problem auf dieselbe Weise
 gelöst. Das Verfahren endet, wenn alle Töchter abgearbeitet sind. Die Liste der zu bearbeitenden
-Töchter ist dann die leere Liste und die erste Klausel kann angewendet werden.
-
-
+Töchter ist dann die leere Liste und die erste Klausel kann angewendet werden. Beschränkungen, die
+sich selbst für die Lösung von gleichartigen Teilproblemen aufrufen, werden auch
+rekursiv\is{Rekursion} genannt.  
 
 
 
@@ -897,8 +913,13 @@ dann leichter in Merkmal"=Wert"=Paare übertragbar ist:
 \label{ex-every-kind-schlafen}
 every\_q(x, kind(x), schlafen(x))
 \z
-In dieser Darstellung ist ein Quantor eine dreistellige Relation zwischen einer Variable ($x$),
-einer Restriktion (kind(x)) und einem Body (schlafen(x)). Das ist noch recht übersichtlich und es
+In dieser Darstellung ist ein Quantor eine dreistellige Relation zwischen einer Variable (x),
+einer Restriktion (kind(x)) und einem Body (schlafen(x)).\footnote{%
+  \citet[89--90]{Heim2011a-u}, \citet[7]{Diesing92a} und \citet[130]{Kratzer95a} sprechen von
+  \emph{restrictive clause} und \emph{nuclear scope}. \citet[287]{mrs} vermeiden den Begriff \emph{scope}
+  bewusst und benutzen stattdessen \emph{body}, da es noch ein allgemeineres Verständnis von Skopus
+  gibt und sie Verwirrung vermeiden wollen.%
+} Das ist noch recht übersichtlich und es
 ist leicht zu sehen, wie man das mit Merkmal"=Wert"=Paaren ausdrücken kann. Komplizierter wird es,
 wenn mehrere Quantoren involviert sind. Auf S.\,\pageref{ex-Jede-Tochter-eines-Mitarbeiters-schläft} wurde bereits das Beispiel
 (\ref{ex-Jede-Tochter-eines-Mitarbeiters-schläft}) besprochen, das hier noch einmal als (\mex{1})
@@ -907,14 +928,17 @@ wiederholt ist:
 \label{ex-Jede-Tochter-eines-Mitarbeiters-schläft-zwei}
 Jede Tochter eines Mitarbeiters schläft.
 \z
-Dieses Beispiel hat die beiden Lesarten in (\mex{1}) und (\mex{1}):
+\todostefan{Jakob Mache: Jede =\= all.}
+Dieses Beispiel hat die beiden Lesarten in (\mex{1}) und (\mex{2}):
 \eal
+\label{ex-Jede Tochter eines Mitarbeiters schläft. weiter Skopus Allquantor}
 \ex $\forall$x ($\exists$y \relationunmarked{mitarbeiter}(y) $\wedge$ \relationunmarked{tochter}(x,y)) $\to$
 \relationunmarked{schlafen}(x)
 \ex Für jede Entität x in unserem Diskursuniversum für die gilt, dass es im Diskursuniversum eine Entität y gibt, die
 Mitarbeiter ist und deren Tochter x ist, gilt auch, dass sie (x) schläft.
 \zl
 \eal
+\label{ex-Jede Tochter eines Mitarbeiters schläft. weiter Skopus Existenzquantor}
 \ex $\exists$y \relationunmarked{mitarbeiter}(y) $\wedge$ ($\forall$x \relationunmarked{tochter}(x,y) $\to$
 \relationunmarked{schlafen}(x))
 \ex Es gibt im Diskursuniversum eine Entität y, für die gilt, dass sie ein Mitarbeiter ist und dass für alle Entitäten
@@ -958,7 +982,7 @@ ausgeklammert. Man kann die Relationen, wie das im restlichen Kapitel schon gema
 Liste zusammensammeln. Für das einfache Beispiel in (\ref{ex-every-kind-schlafen}) ergibt sich:
 \ea
 \label{ex-every-kind-schlafen-handles}
-h1:every\_q(x, h2, h3), h2:kind(x), h3:schlafen(x))
+h1:every\_q(x, h2, h3), h2:kind(x), h3:schlafen(x)
 \z
 h1, h2 und h3 sind die Labels der Relationen. Sie werden auch Handle genannt.
 
@@ -971,8 +995,13 @@ $\forall$x (\relationunmarked{klein}(x) $\wedge$ \relationunmarked{kind}(x)) $\t
 \ex Für jede Entität x in unserem Diskursuniversum, für die gilt, dass sie klein und ein Kind ist, gilt auch,
 dass sie schläft.
 \zl
-Man könnte h2:kind(x) in (\mex{-1}) durch h2:und( h4:klein(x), h5:kind(x))
-ersetzen. \citet[\page 284]{CFPS2005a} haben diese Möglichkeit erwogen, sie dann aber verworfen, weil es bei
+Man könnte h2:kind(x) in (\mex{-1}) durch h2:und(h4:klein(x), h5:kind(x))
+ersetzen:
+\ea
+Explizite Konjunktion von Relationen mit \relation{und}:\\
+h1:every\_q(x, h2, h3), h2:und(h4:klein(x), h5:kind(x)), h3:schlafen(x)
+\z
+\citet[\page 284]{CFPS2005a} haben diese Möglichkeit erwogen, sie dann aber verworfen, weil es bei
 Modifikationen durch mehrere Attribute verschiedene Klammerungsmöglichkeiten gibt, ohne dass es
 wirkliche Bedeutungsunterschiede gäbe. Stattdessen schlagen die Autor*innen das vor, was wir schon
 in den vorangegangenen Abschnitten umgesetzt haben. Die Relationen werden in einer Liste
@@ -1102,7 +1131,7 @@ auf der linken identifiziert, wobei aber noch Quantoren dazwischentreten können
 \qeq l gilt, dann muss entweder h = l sein, oder es muss eine Folge Q$_1$, \ldots, Q$_n$ von
 Quantoren geben, für die gilt, dass h identisch mit dem Label von Q$_1$ ist und l identisch mit dem
 Body-Argument von Q$_n$ und für alle Paare in der Folge Q$_m$, Q$_{m+1}$ ist das Label von Q$_{m+1}$
-identisch mit dem Body-Argument des Quantors \citep[\page 297]{MRS}.  
+identisch mit dem Body-Argument des Quantors Q$_m$ \citep[\page 297]{MRS}.  
 
 
 Abbildung~\ref{fig-Jede Tochter eines Mitarbeiters schläft-MRS-Variable}
@@ -1173,7 +1202,7 @@ identifiziert und h3 mit h9 oder h6 wird direkt mit h8 identifiziert und h7 mit 
 \draw (h6) to (mitarbeiter);
 \draw (h3) to (schlafen);
 \end{tikzpicture}
-\caption{Skopusaufgelöste MRS mit weitem Skopus für den Allquantor}\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Allquantor}
+\caption{Skopusaufgelöste MRS mit weitem Skopus für den Allquantor, siehe (\ref{ex-Jede Tochter eines Mitarbeiters schläft. weiter Skopus Allquantor})}\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Allquantor}
 \end{figure}
 \begin{figure}
 \begin{tikzpicture}[scoped mrs]
@@ -1188,7 +1217,7 @@ identifiziert und h3 mit h9 oder h6 wird direkt mit h8 identifiziert und h7 mit 
 \draw   (h6) to (mitarbeiter);
 \draw   (h3) to (schlafen);
 \end{tikzpicture}
-\caption{Skopusaufgelöste MRS mit weitem Skopus für den Existenzquantor}\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Existenzquantor}
+\caption{Skopusaufgelöste MRS mit weitem Skopus für den Existenzquantor, siehe (\ref{ex-Jede Tochter eines Mitarbeiters schläft. weiter Skopus Existenzquantor})}\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Existenzquantor}
 \end{figure}
 Die Skopus-aufgelösten MRSen entsprechen genau den beiden Lesarten aus (\ref{ex-Quantoren-Mitarbeiter-Tochter}).
 
@@ -1208,7 +1237,10 @@ cat & \ms{ head & \ms[noun]{
          }\\
 cont & \ms{
        ltop & \ibox{2}\\
-       ind  & \ibox{3}\\
+       ind  & \ibox{3} \ms[ref]{
+                       per & 3\\
+                       gen & fem\\
+                       }\\
        rels & \liste{ \ms[tochter\_rel]{
                       lbl  & \ibox{2}\\ 
                       arg0 & \ibox{3}\\ 
@@ -1239,8 +1271,7 @@ cat & \ms{ head & \ms[det~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~]{
                                  ind  & \ibox{2}\\
                                }
                   }\\
-           spr   & \eliste\\
-           comps & \eliste\\
+           arg-st & \eliste\\
          }\\
 cont & \ms{
        rels & \liste{ \ms[every\_q]{
@@ -1339,7 +1370,8 @@ Zum \specw gibt es noch etwas zu erklären. Ich hatte gesagt, dass das \specm an
 aber das stimmt nicht ganz. Das \modm ähnelt den Valenzmerkmalen. Es gibt das Kopf"=Adjunkt"=Schema,
 in dem der \modw der Nichtkopftochter mit der Kopftochter identifiziert wird. Das \specm wird dazu
 benötigt, von innerhalb der Nicht"=Kopftochter bei Bedarf auf Eigenschaften der Kopftochter
-zugreifen zu können. In der hier vorgestellten Grammatik scheint es so zu sein, dass diese Situation nur
+zugreifen zu können, obwohl die Nicht"=Kopftochter vom Kopf selegiert wird. Also für eine
+gegenseitige Selektion. In der hier vorgestellten Grammatik scheint es so zu sein, dass diese Situation nur
 für Determinatoren vorliegt und man also nur für Determinatoren ein \specm annehmen und dieses in
 Kopf"=Spezifikator"=Strukturen mit der Kopftochter identifizieren muss. Also das Nomen selegiert den
 Determinator via \spr und der Determinator selegiert das Nomen über \spec. Es gibt aber auch in
@@ -1363,8 +1395,8 @@ Nomen auch, darf es nur ein spezifizierendes Element geben:
 Es ist also sinnvoll, diese zusätzlichen Elemente als Spezifikatoren zu analysieren und via \spr zu
 selegieren. Die Spezifikatoren in PPen müssen aber die Projektion der Präposition nicht sehen
 können, brauchen also kein \specm. Somit muss man also Kopf"=Spezifikator"=Strukturen mit Zugriff
-des Spezifikators auf den Kopf von solchen ohne Zugriff unterscheiden. Das kann man mithilfe das
-folgenden Prinzips: 
+des Spezifikators auf den Kopf (Det–\nbar) von solchen ohne Zugriff (AP oder PP mit \pbar)
+unterscheiden. Das kann man mithilfe das folgenden Prinzips: 
 
 \begin{prinzip-break}[Spezifikatorprinzip (\textsc{spec}-Principle)] 
 \label{prinzip-spec}\is{Prinzip!Spezifikator-}
@@ -1375,10 +1407,9 @@ der Kopf"|tochter.
 \end{prinzip-break}
 Formalisieren lässt sich das Prinzip wie folgt:
 \ea
-\resizebox{.998\linewidth}{!}{%
-\ms{ non-head-dtrs & \liste{ [\textsc{head|spec} \type{sign}] } } \impl
-\ms{ head-dtr & \ibox{1}\\
-           non-head-dtrs & \liste{ [\textsc{head|spec} \ibox{1}] } }}
+\ms{ non-head-dtrs & \liste{ [\textsc{cat|head|spec} \type{sign}] } } \impl\\
+\hfill\onems{ head-dtr \ibox{1}\\
+              non-head-dtrs \nliste{ [\textsc{cat|head|spec} \ibox{1}] } }
 \z
 
 
@@ -1396,8 +1427,7 @@ Eigennamen \emph{Aicke}:
 Lexikoneintrag für \emph{Aicke}:\\
 \ms{
 cat & \ms{ head & noun\\
-           spr   & \eliste\\
-           comps & \eliste\\
+           arg-st & \eliste\\
          }\\
 cont & \ms{
 %       ltop & \ibox{1}\\
@@ -1432,8 +1462,7 @@ skopen. Das kann man ausschließen, indem man die named\_rel direkt bei proper\_
 Lexikoneintrag für \emph{Aicke}:\\
 \ms{
 cat & \ms{ head & noun\\
-           spr   & \eliste\\
-           comps & \eliste\\
+           arg-st & \eliste\\
          }\\
 cont & \ms{
 %       ltop & \ibox{1}\\
@@ -1583,8 +1612,7 @@ Lexikoneintrag für das Possessivpronomen \emph{ihr}:\\
                                              ind  & \ibox{2}\\
                                            }}\\
                      }\\
-             spr   & \eliste\\
-             comps & \eliste \\
+             arg-st & \eliste\\
            } \\
   cont &  \ms{
 %       ltop & \ibox{3}\\
@@ -1617,7 +1645,7 @@ Lexikoneintrag für das Possessivpronomen \emph{ihr}:\\
 Kombiniert man \emph{ihr} mit \emph{Buch} erhält man die folgende MRS:
 \ea
 \label{MRS ihr Buch}
-\textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1,i1,x), h4:buch(x) \},\\
+\textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1, i1, x), h4:buch(x) \},\\
 \hphantom{\textlangle~}\{ h2 \qeq h4 \}  }
 \z
 Das Possessivpronomen verhält sich wie ein definiter Artikel und die Restriktion des entsprechenden
@@ -1688,10 +1716,10 @@ In (\mex{0}) wird der \ltopw des modifizierten Nomens mit dem \ltopw des Adjekti
 identifiziert. Für die potentiellen Mörder wäre das falsch, denn sie sind nicht potentiell und
 Mörder (\mex{1}b), stattdessen muss das \emph{potentiell} den \emph{Mörder} wie in (\mex{1}c) einschließen.
 \eal
-\ex \textmrs{ h0, \{ h1:klein(x), h1:mörder(x) \}, \{  \}  }
-\ex \textmrs{ h0, \{ h1:potentiell(x), h1:mörder(x) \}, \{  \}  }
+\ex \textmrs{ h1, \{ h1:klein(x), h1:mörder(x) \}, \{  \}  }
+\ex \textmrs{ h1, \{ h1:potentiell(x), h1:mörder(x) \}, \{  \}  }
 \ex\label{mrs-potentielle-Mörder}
-\textmrs{ h0, \{ h1:potentiell(h2), h2:mörder(x) \}, \{  \}  }
+\textmrs{ h1, \{ h1:potentiell(h2), h2:mörder(x) \}, \{  \}  }
 \zl
 
 Für das Adjektiv \emph{potentielle} ergibt sich:
@@ -1703,15 +1731,15 @@ cat & \ms{ head & \ms[adj]{
                                         spr  & \nliste{ Det }\\
                                         comps & \eliste }\\
                              cont & \ms{ ltop & \ibox{1}\\
-                                         ind  & \ibox{2}\\
+%                                         ind  & \ibox{2}\\
                                        }}}\\
            spr & \eliste\\
            comps & \eliste\\
          }\\
-cont & \ms{ ltop & \ibox{3}\\
+cont & \ms{ ltop & \ibox{2}\\
 %            ind  & \ibox{2}\\
             rels & \liste{ \ms[potentiell]{
-                           lbl  & \ibox{3}\\
+                           lbl  & \ibox{2}\\
                            arg1 & \ibox{1}\\
                            } }\\
             hcons & \eliste\\
@@ -1747,6 +1775,7 @@ muss also die komplette \nbar kennen und deren \ltopw für ein Handle"=Constrain
 des Determinators verwenden. 
 
 \subsection{\emph{glauben} und Einhörner}
+\label{Abschnitt glauben und Einhörner}
 
 Im letzten Abschnitt ging es um Adjunkte, die Skopus über Elemente haben können, die sie
 modifizieren, aber auch bei Komplementen kann das der Fall sein. Der folgende Satz hat drei Lesarten:
@@ -1885,12 +1914,19 @@ sich ergebende MRS wäre auch noch inkonsistent:
 \textmrs{ h0, \{ h1:exist\_q(x, h2, h3), h4:scheinbar(h5), h4:einfach(x), h4:beispiel(x) \},\\
     \hphantom{\textlangle~}\{ h2 \qeq h4, h5 \qeq h4 \}  }
 \z
-Da h5 \qeq h4 gilt und h4 aber auch das Label von h4:scheinbar(h5) ist, dominiert scheinbar sich
-selbst, eine unzulässige Konfiguration.
+Da h5 \qeq h4 gilt und h4 aber auch das Label von h4:scheinbar(h5) ist, dominiert h5 in h4:scheinbar(h5) sich
+selbst, eine unzulässige Konfiguration. Die Gleichsetzung der \ltopwe von \relation{scheinbar},
+\relation{einfach} und \relation{beispiel} kommt in der bisherigen Analyse dadurch zustande, dass
+intersektive Adjektive ihren \ltopw mit dem des modifizierten Nomens teilen (h4:einfach(x),
+h4:beispiel(x)). Da \emph{scheinbar einfaches} als intersektives Adjunkt zu \emph{Beispiel} fungiert
+muss der \ltopw von \emph{scheinbar einfaches} mit dem von \emph{Beispiel} identifiziert werden. Der
+\ltopw von \emph{scheinbar einfaches} ist aber identisch mit dem von \emph{scheibar}, so dass dann
+letztendlich alle drei Relationen denselben \ltopw haben.
 
 Die Lösung für das Problem besteht darin, dass der \ltopw eines intersektiven Adjektivs nicht mehr
 im Lexikoneintrag mit dem des modifizierten Nomens identifiziert wird \citep[Section~6.3]{CFPS2005a}. 
 \eas
+\label{le-kleinen-sem}%
 Lexikoneintrag für \emph{kleinen}:\\% (vorläufig):\\
 \ms{
 cat & \ms{ head & \ms[adj]{
@@ -1919,7 +1955,7 @@ werden.
 \ea
 \label{ex-scopal-ltop}
 \avm{
-[ non-head-dtrs < [ cat|head|scopal & minus ] > ]} \impl\\
+[ non-head-dtrs < [ cat|head|scopal & minus ] > ]} \impl\\[2mm]
 \hfill 
 \avm{[ head-dtr|cont|ltop & \1\\
   non-head-dtrs < [ cont|ltop & \1 ] > ]
@@ -2398,7 +2434,8 @@ halber hier noch einmal wiederholt:
 \ea
 \label{ex-scopal-ltop2}\label{Semantikprinzip-nicht-skopaleTochter-LTOP}
 \avm{
-[ non-head-dtrs < [ cat|head|scopal & minus ] > ]} \impl\\
+[\type{head-adjunct-phrase}\\
+ non-head-dtrs < [ cat|head|scopal & minus ] > ]} \impl\\[2mm]
 \hfill 
 \avm{[ head-dtr|cont|ltop & \1\\
   non-head-dtrs < [ cont|ltop & \1 ] > ]
@@ -3131,7 +3168,7 @@ Die Interpretation semantischer Repräsentationen konnten hier nur knapp angeris
 werden. \citet{Lohnstein2011a} gibt eine ausführlichere Einführung in Aussagenlogik, Prädikatenlogik
 und die Interpretation entsprechender Ausdrücke.
 
-\citet{KR2024a} geben einen Überblick über Semantik im Rahmen der HPSG. \citet{DKW2024a}
+\citet{KR2024a} geben einen Überblick über Semantik im Rahmen der HPSG. \citet{HPSGHandbookLinking}
 beschäftigen sich mit Argumentstruktur und Linking.
 
 Der Artikel von

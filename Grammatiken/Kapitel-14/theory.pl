@@ -1,7 +1,8 @@
 % -*-  coding:utf-8; mode:trale-prolog   -*-
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   $RCSfile: theory.pl,v $
-%%  $Revision: 1.14 $
+%%  $Revision: 1.12 $
 %%      $Date: 2007/03/05 11:26:29 $
 %%     Author: Stefan Mueller (Stefan.Mueller@cl.uni-bremen.de)
 %%    Purpose: Eine kleine Spielzeuggrammatik für die Lehre
@@ -14,45 +15,52 @@
     abort).
 
 % für [incr TSDB()]
-grammar_version('Lehrbuchgrammatik Kapitel 15').
+grammar_version('Lehrbuchgrammatik Kapitel 4').
 
+
+% Load phonology and tree output
+:- [phonology].
+
+:- [setup].
 
 root_symbol(@root).
 decl_symbol(@decl).
 que_symbol(@interrog).
-
-% load tokenization rules for parsing ordinary strings and atoms
-:- ['../Gemeinsames/tokenization'].
+imp_symbol(@imp).
 
 % specify signature file
 signature(signature).
 
+% macros for the lexicon
+:- [le_macros].
+
 % load lexicon
 :- [lexicon].
 
-
-% load lexical macros
-:- [le_macros].
-
-
-% load lexical rules
-:- [lexrules].
-
 % load lexical rule for multiple frontings
-:- ['mehrfache-vorfeldbesetzung'].
+%:- ['mehrfache-vorfeldbesetzung'].
 
 % load phrase structure rules
 :- [rules].
 
 % load phrase structure rules for Oberfeldumstellung
-%:- [oberfeldumstellung].
+:- [oberfeldumstellung].
 
 % load phrase structure macros
 :- [syntax].
 
+
+% load lexical items and grammar rules for coordination
+:- [coordination].
+
+% Nur zum Spielen noch da.
+%:- ['old-constraints-head-movement'].
+
+
 % load some constraints that are not linguistically necessary,
-% but good for performance
+% but good for performance/termination
 :- [speed].
+
 
 % load relational constraints for rules
 :- [constraints].
@@ -60,25 +68,15 @@ signature(signature).
 % load a test sequence
 :- [test_items].
 
+
 % load a sequence that is executed after the grammar is loaded
 :- ['../Gemeinsames/common.pl'].
 
 
-examples(['  daß er lachen muß',
-          '  Lachen muß er.',
-          '  Dem Kind erzählen muß er die Geschichte.',
-          '  Eine Geschichte erzählen muß er dem Kind.']).
+examples(['  dass Aicke lachen muss',
+          '  Lachen muß Aicke.',
+          '  Dem Kind erzählen muss Aicke die Geschichte.',
+          '  Eine Geschichte erzählen muss Aicke dem Kind.']).
 
 
-% Beispiele für Vorträge
-demo :-
-        parse_print_all([kennt,er,ihn],@interrog),
-        parse_print_all([den,mann,kennt,er],@decl),
-        parse_print_all([daß,er,ihn,lesen,wird],@root),
-        parse_print_all([daß,ihn,der,mann,lesen,wird],@root),
-        parse_print_all([das,buch,lesen,wird,er,nicht],@decl),
-        parse_print_all([lesen,wird,er,nicht,das,buch],@decl),
-        parse_print_all([der,frau,das,buch,gibt,er,nicht],@decl),
-        parse_print_all([der,frau,den,aufsatz,will,er,geben],@decl).
 
-            
