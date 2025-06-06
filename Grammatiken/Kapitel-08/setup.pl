@@ -20,6 +20,7 @@ comps  <<< arg_st.
 ltop <<< ind.
 ind  <<< rels.
 rels <<< hcons.
+hcons  <<< dtrs.
 
 arg0 <<< rstr.
 rstr <<< body.

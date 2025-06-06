@@ -33,6 +33,7 @@ loc <<< nonloc.
 
 synsem <<< rels.
 rels   <<< hcons.
+hcons  <<< dtrs.
 
 arg0   <<< lindex.
 lindex <<< rindex.

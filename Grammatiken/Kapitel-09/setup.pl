@@ -32,6 +32,7 @@ rstr <<< body.
 loc <<< nonloc.
 nonloc <<< rels.
 rels   <<< hcons.
+hcons  <<< dtrs.
 
 % use ghostview for drawing signatures
 % für Linux

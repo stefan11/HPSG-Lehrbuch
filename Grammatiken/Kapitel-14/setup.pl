@@ -34,6 +34,7 @@ nonloc <<< lex.
 
 synsem <<< rels.
 rels   <<< hcons.
+hcons  <<< dtrs.
 
 arg0   <<< lindex.
 lindex <<< rindex.
