@@ -791,7 +791,8 @@ luatexbase.add_to_callback('show_warning_message', be_quiet, 'stop show warning 
 \usepackage{fontspec}
 
 
-    \usepackage{metalogo}\newcommand{\xelatex}{\XeLaTeX\xspace}
+%    \usepackage{metalogo}\newcommand{\xelatex}{\XeLaTeX\xspace}
+    \usepackage{hologo}\newcommand{\lualatex}{\hologo{LuaLaTeX}\xspace}
 
     \setmonofont[
     %   Ligatures={TeX},% not supported by ttf
@@ -1373,7 +1374,7 @@ Open reviewing:
 \@openreviewer \\
 \fi
 Fonts: Libertinus, Arimo, DejaVu Sans Mono\lsAdditionalFontsImprint\\
-Typesetting software: \XeLaTeX
+Typesetting software: \lualatex
 
 \bigskip
 

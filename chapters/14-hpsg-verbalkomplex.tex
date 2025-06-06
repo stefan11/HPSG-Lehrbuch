@@ -61,7 +61,7 @@ dass niemand [[[das Buch lesen] können] wird]
 \z
 Mit solchen Strukturen ist jedoch innerhalb der HPSG"=Theorie
 die Abfolge der Verben in (\ref{ex-of}) schwer zu erklären,
-da das Hilfsverb \emph{wird} zwischen Bestandteilen der Verbphrase steht.
+da das Hilfsverb \emph{wird} zwischen Bestandteilen der Verbphrase \emph{das Buch lesen} steht.
 \ea
 \label{ex-of}
 dass niemand das Buch wird lesen können
@@ -124,7 +124,8 @@ gleichzeitig miteinander und mit ihren Komplementen kombiniert werden,
 so wäre die Koordination in (\mex{0}) nicht als symmetrische Koordination zu erklären.\footnote{
         Es existiert zur Zeit keine umfassende Analyse für Koordinationsphänomene. Es ist also
         nicht völlig auszuschließen, dass (\mex{0}) auch mit einer flachen Struktur zu erklären ist.
-        Mit einem strukturierten Verbalkomplex ist (\mex{0}) jedenfalls unproblematisch.%
+        Mit einem strukturierten Verbalkomplex ist (\mex{0}) jedenfalls unproblematisch. Zur
+        Koordination in HPSG siehe \citew{AC2024a}.%
 }
 Geht man dagegen von Strukturen wie (\ref{ex-struktur-lesen-koennen-wird}) aus, bilden \emph{lieben wollen}
 und \emph{lieben müssen} in (\mex{0}) jeweils eigene Konstituenten, die dann auch mit einer Konjunktion
@@ -133,8 +134,7 @@ verknüpft werden können. Die gesamte Wortgruppe \emph{lieben wollen oder liebe
 \is{Koordination|)}
 
 
-Das folgende Schema, das eine Abwandlung des von
-Hinrichs und Nakazawa vorgeschlagenen ist, lizenziert die Prädikatskomplexe\is{Schema!Prädikatskomplex-}:
+Das folgende Schema, das eine Abwandlung des von \citeauthor{HN94a} vorgeschlagenen ist, lizenziert die Prädikatskomplexe\is{Schema!Prädikatskomplex-}:
 \begin{samepage}
 \begin{schema}[Prädikatskomplexschema]
 \label{schema-vk}
@@ -143,17 +143,17 @@ Hinrichs und Nakazawa vorgeschlagenen ist, lizenziert die Prädikatskomplexe\is{
  synsem & \onems{ loc$|$cat$|$comps \ibox{1} \\ 
                 } \\
  head-dtr & \onems{ synsem$|$loc$|$cat$|$comps \ibox{1} $\oplus$ \sliste{ \ibox{2} }\\ } \\
- nonhead-dtrs & \sliste{ [ \synsem  \ibox{2} ]                     } \\
+ non-head-dtrs & \sliste{ [ \synsem  \ibox{2} ]                     } \\
 }
 \end{schema}
 \end{samepage}
 %
 Dieses Schema entspricht dem Kopf"=Argument"=Schema, das wir bis zum Kapitel~\ref{Kapitel-Konstituentenreihenfolge}
-benutzt haben, bzw.\ der angepaßten Version auf Seite~\pageref{schema-head-arg}.
-Im Kapitel~\ref{Kapitel-Konstituentenreihenfolge} wurde das \emph{append} durch \emph{delete}
+benutzt haben, bzw.\ der angepassten Version auf Seite~\pageref{schema-head-arg}.
+Im Kapitel~\ref{Kapitel-Konstituentenreihenfolge} wurde das \emph{append} ($\oplus$) durch zwei appends
 ersetzt, um die relativ freie Anordnung von Konstituenten im Mittelfeld erklären zu können.
-Bei der Verbalkomplexbildung ist Reihenfolge der Abbindung von verbalen Argumenten strikt: Es wird
-immer mit dem letzten Argument begonnen. Deshalb wird im Prädikatskomplexschema \emph{append} ($\oplus$)
+Bei der Verbalkomplexbildung ist die Reihenfolge der Abbindung von verbalen Argumenten strikt: Es wird
+immer mit dem letzten Argument begonnen. Deshalb wird im Prädikatskomplexschema nur ein \emph{append} 
 verwendet. Das Kopf"=Argument"=Schema wird auf Seite~\pageref{schema-bin} noch so revidiert,
 dass es korrekt mit dem Schema~\ref{schema-vk} und den entsprechenden Lexikoneinträgen für komplexbildende
 Verben interagiert.
@@ -179,7 +179,7 @@ wird im Kapitel~\ref{sec-subj-merkmal} revidiert.%
 %vorangestellt wurde, auch mit einem separat repräsentierten Subjekt problemlos analysierbar.%
 }
 \eas
-\label{le-wird}
+\label{le-wird}%
 \emph{wird} (Futur-Hilfsverb):\\
 \ms[cat]{
  head   & \type{verb}\\*
@@ -203,9 +203,9 @@ wird im Kapitel~\ref{sec-subj-merkmal} revidiert.%
 }, \dash einen Infinitiv ohne \emph{zu}. Bevor das \lexm erklärt wird, soll der Aufbau der \compsl
 des Hilfsverbs anhand eines Beispiels erklärt werden:
 Im Satz (\mex{1}) übernimmt \emph{wird} die Teilspezifikationen der Argumente
-\emph{Karl} und \emph{mir} von \emph{helfen}. 
+\emph{Aicke} und \emph{dem Kind} von \emph{helfen}. 
 \ea
-dass Karl mir helfen wird
+dass Aicke dem Kind helfen wird
 \z
 Diese Übernahme erfolgt mit Hilfe der durch die Box \iboxt{1} ausgedrückten Strukturteilung.
 Die \textsc{comps}"=Liste von \emph{helfen wird} hat also die gleiche Form wie die 
@@ -295,20 +295,20 @@ nicht restringiert, da Prädikatskomplexe unter andere Verben eingebettet werden
 und mit diesen einen Prädikatskomplex bilden können, wie (\ref{ex-er-geholfen-haben-wird}) zeigt.
 \ea
 \label{ex-er-geholfen-haben-wird}
-dass er dem Mann [[geholfen haben] wird].
+dass Aicke dem Kind [[geholfen haben] wird]
 \z
 Will man unechte Mehrdeutigkeiten vermeiden, so muss man sicherstellen, dass Sätze wie (\mex{0}) nur auf die
 in (\mex{0}) dargestellte Weise und nicht auch wie in (\mex{1}) analysiert werden können.
 \ea
 \label{bsp-non-complex-forming}
-dass er dem Mann [geholfen [haben wird]].
+dass Aicke dem Kind [geholfen [haben wird]]
 \z
 Der Analyse in (\mex{-1}) ist gegenüber der in (\mex{0}) der Vorzug zu geben, da \emph{geholfen
 haben} als Konstituente vorangestellt werden kann, \emph{haben wird} bildet dagegen keine irgendwie
 nachweisbare Einheit.
 In der Analyse in (\mex{0}) wurde das verbale Argument von \emph{haben} zum Argument des Komplexes
 \emph{haben wird} angehoben. Der Komplex \emph{haben wird} wird mit \emph{geholfen} über das Prädikatskomplexschema
-kombiniert. Die Analyse in (\mex{0}) läßt sich ausschließen, wenn man in Lexikoneinträgen für Anhebungsprädikate
+kombiniert. Die Analyse in (\mex{0}) lässt sich ausschließen, wenn man in Lexikoneinträgen für Anhebungsprädikate
 die Art der Elemente, die angehoben werden können, beschränkt. Als zusätzliche Bedingung
 für (\ref{le-wird}) muss gelten, dass \iboxt{1} nur vollständig gesättigte
 % nicht prädikative 
@@ -329,10 +329,8 @@ Mit der hier angegebenen Beschränkung für angehobene Elemente wird
 \eas
 \label{constr-non-complex-forming}
 list\_of\_non\_c\_forming\_synsems(\eliste).\\\\
-list\_of\_non\_c\_forming\_synsems(\liste{ \onems{ loc$|$cat \onems{ %head$|$prd $-$\\
-                                                          comps \eliste\\
-                                                        }\\
-                                                lex $-$\\
+list\_of\_non\_c\_forming\_synsems(\liste{ \onems{ loc$|$cat|comps \eliste\\ %head$|$prd $-$\\
+                                                   lex $-$\\
                                                 } $|$ \textrm{Rest} }) :=\\\\
 \hfill        list\_of\_non\_c\_forming\_synsems(Rest).\\\\
 \zs
@@ -345,10 +343,11 @@ hat und wenn der Rest der Liste dieselbe Bedingung erfüllt.\footnote{\label{fn-
         da intransitive Verben -- wenn das Subjekt separat repräsentiert wird -- eine
         leere Valenzliste haben. Der \textsc{lex}"=Wert intransitiver Verben wird
         im Lexikon nicht spezifiziert. Sie können deshalb sowohl an Stellen auf"|treten,
-        an denen nur Phrasen erlaubt sind (in sogenannten inkohärenten Konstruktionen \citep{Bech55a})
+        an denen nur Phrasen erlaubt sind (in sogenannten inkohärenten Konstruktionen; \citealp{Bech55a})
         als auch an Stellen, an denen nur lexikalische Elemente erlaubt sind (in kohärenten Konstruktionen).
-        Das ist auch der Grund dafür, dass der \textsc{lex}"=Wert der Mutter in Prädikatskomplexstrukturen nicht als \textsc{lex}+ spezifiziert
-        ist, wie \zb bei \citet{HN94a,dKM2001a}, da Kombinationen aus Verben, die ein intransitives Verb einbetten,
+        Das ist auch der Grund dafür, dass der \textsc{lex}"=Wert der Mutter in
+        Prädikatskomplexstrukturen nicht als \textsc{lex}+ (oder \textsc{npcomp}$-$) spezifiziert
+        ist, wie \zb bei \citet[23]{HN94a} und \citet[177]{dKM2001a}, da Kombinationen aus Verben, die ein intransitives Verb einbetten,
         vollständig gesättigt sein können. Solche vollständig gesättigten Verbalkomplexe können dann eine
         inkohärente Konstruktion mit einem Matrixverb eingehen. Der \textsc{lex}"=Wert eines Verbalkomplexes
         wird also nur durch das übergeordnete Verb restringiert.%
@@ -356,8 +355,8 @@ hat und wenn der Rest der Liste dieselbe Bedingung erfüllt.\footnote{\label{fn-
 %% Das \textsc{prd}"=Merkmal wurde von \citet[\page64--67]{ps} zur Unterscheidung von prädikativen
 %% und nicht"=prädikativen Elementen eingeführt.
 
-Weiter unten wird erklärt, warum diese Beschränkung nicht nur für den Ausschluß
-unechter Mehrdeutigkeiten, sondern auch für den Ausschluß unmöglicher Vorfeldbesetzungen
+Weiter unten wird erklärt, warum diese Beschränkung nicht nur für den Ausschluss
+unechter Mehrdeutigkeiten, sondern auch für den Ausschluss unmöglicher Vorfeldbesetzungen
 eine Rolle spielt.
 
 Wie die Analyse von (\ref{ex-er-geholfen-haben-wird}) im Detail funktioniert, zeigt die Abbildung~\vref{abb-kombin1}.
@@ -428,7 +427,7 @@ das Buch, das lesen niemand wird
 \z
 Die Sätze in (\mex{-1}) können mit dem Kopf"=Argument"=Schema analysiert werden,
 da dieses eine Kombination der Elemente in der \compsl von \emph{wird} in beliebiger
-Reihenfolge zuläßt. Genauso gibt es eine Analyse für (\mex{0}): \emph{lesen} und \emph{niemand}
+Reihenfolge zulässt. Genauso gibt es eine Analyse für (\mex{0}): \emph{lesen} und \emph{niemand}
 werden mit \emph{wird} über das Kopf"=Argument"=Schema kombiniert. Eine Spur nimmt den Platz
 für das Relativpronomen in einer Kopf"=Argument"=Struktur ein, und das Relativsatzschema lizenziert
 dann den gesamten Relativsatz:
@@ -439,7 +438,7 @@ das Buch, [\sub{rc} das$_i$ [\sub{h-arg} \_$_i$ [\sub{h-arg} lesen [\sub{h-arg} 
 Es ist klar, dass einzelne Verben bzw.\ Verbalkomplexe nicht als Argumente in \kasen
 vorkommen sollen. Ein solches Vorkommen kann man dadurch ausschließen, dass man verlangt,
 dass die Argumente immer den \lexw $-$ haben. Schema~\ref{schema-bin} ist
-das entsprechend angepaßte Schema.\is{Schema!Kopf"=Argument"=}
+das entsprechend angepasste Schema.\is{Schema!Kopf"=Argument"=}
 
 \begin{samepage}
 \begin{schema}[Kopf-Argument-Schema (binär verzweigend, vorläufige Version)]
@@ -458,7 +457,7 @@ das entsprechend angepaßte Schema.\is{Schema!Kopf"=Argument"=}
 
 \noindent
 Der aufmerksame Leser wird sich fragen, was die Theorie in Bezug auf Sätze wie (\mex{1}) vorhersagt.%
-\NOTE{WS: Die Erklärung, warum (18) nicht geht, verstehe ich nicht. \emph{wird} kann doch keine anderen Argumente als \emph{lachen} haben, die müßte es ja von lachen übernehmen und da kommt es ja nicht ran.}
+\NOTE{WS: Die Erklärung, warum (18) nicht geht, verstehe ich nicht. \emph{wird} kann doch keine anderen Argumente als \emph{lachen} haben, die müsste es ja von lachen übernehmen und da kommt es ja nicht ran.}
 \ea[*]{
 dass lachen er wird
 }
@@ -483,9 +482,9 @@ soll sie in (\mex{1}b) als Binder der Fernabhängigkeit
 für die Vorfeldbesetzung auf"|treten:
 \eal
 \ex er ihr [[ein Märchen erzählen] muss]
-\ex Ein Märchen erzählen wird er ihr müssen.
+\ex {}[Ein Märchen erzählen] wird er ihr müssen.
 \zl
-Sätze wie in (\mex{0}b) sind aber unproblematisch, wenn man \textsc{lex} nicht wie \cite[\page 22]{ps2}
+Sätze wie in (\mex{0}b) sind aber unproblematisch, wenn man \textsc{lex} nicht wie \citet[\page 22]{ps2}
 unter \textsc{cat}, also innerhalb von \textsc{local}, sondern unter \textsc{synsem}, also außerhalb von
 \textsc{local}, repräsentiert \citep{Mueller96a,Mueller99a,Mueller2002b,Meurers99a}.
 Da ein Füller einer Fernabhängigkeit nur die Merkmale mit der Spur teilt, die unter \textsc{local} stehen,
@@ -503,7 +502,28 @@ zulässig.\footnote{
         geteilt. Alles andere (\textsc{phon}, \textsc{head-dtr}, \textsc{non-head-dtr}, \textsc{synsem$|$nonlocal},
         \textsc{synsem$|$lex}, \ldots) kann bei Spur und Füller verschiedene Werte haben. Dass die Theorie nicht übergeneriert,
         wird über allgemeine Beschränkungen zur Extraktion geregelt, die mit Bezug auf lokale Kontexte
-        spezifiziert werden.%
+        spezifiziert werden.
+
+        Man beachte, dass ein Strukturerhaltungsprinzip wie in der Transformationsgrammatik ohnehin
+        nicht sinnvoll ist, wie \citegen[95]{Haider90a} Beispiele in (i) zeigen:
+        \eal
+        \ex[]{
+        [Hunde füttern, die Hunger haben] würde wohl jeder.
+        }
+        \ex[*]{
+        daß wohl jeder [Hunde füttern, die Hunger haben] würde
+        }
+        \ex[]{
+        daß wohl jeder [Hunde, die Hunger haben] füttern würde
+        }
+        \ex[]{
+        daß wohl jeder Hunde füttern würde, die Hunger haben
+        }
+        \zl
+        Der Relativsatz \emph{die Hunger haben} ist in (i.a) innerhalb des Vorfelds extraponiert worden. Das
+        Vorfeld kann nicht als Gesamtheit an eine Stelle zurückverschoben werden (i.b). Grammatische Sätze
+        können nur gebildet werden, wenn der Relativsatz entweder nicht extraponiert wird (i.c) oder
+        wenn er ganz nach rechts hinausgestellt wird, wie in (i.d).
 }
 Abbildung~\vref{abb-seiner-tochter-erzaehlen} zeigt die Analyse von (\mex{1}).
 \ea
@@ -617,21 +637,22 @@ Die eingebetteten Prädikate werden in der Analyse ebenfalls über ein spezielle
 
 Die hier vorgestellte Theorie kommt ohne ein solches zusätzliches Merkmal aus.
 Das hat den Vorteil, dass man optionale Kohärenz als Spezialfall der Kohärenz analysieren
-kann, wie das von \citet{Kiss95a} vorgeschlagen wurde. Für Verben wie \emph{versprechen}
+kann, wie das von \citet[178]{Kiss95a} vorgeschlagen wurde. Für Verben wie \emph{versprechen}
 benötigt man dann nur noch einen Lexikoneintrag statt der zwei verschiedenen, die für
 die kohärente bzw.\ inkohärente Konstruktion benötigt wurden. Zu den Details der Analyse siehe
 Kapitel~\ref{sec-anhebung-anal}.
 
 Durch die Reduktion der Anzahl der Valenzmerkmale ist es außerdem möglich geworden,
 die Analyse der scheinbar mehrfachen Vorfeldbesetzung wesentlich zu vereinfachen.
-Für die Analyse von Sätzen wie (\ref{bsp-smvfb}) auf Seite~\pageref{bsp-smvfb} schlage ich in \citew{Mueller2005d}
+Für die Analyse von Sätzen wie (\ref{bsp-smvfb}) auf Seite~\pageref{bsp-smvfb} schlage ich in
+\citew{Mueller2005d,MuellerGS}\todostefan{Seitenzahlen für Buch}
 eine Lexikonregel vor, die zur Verbbewegungsregel in (\ref{lr-verb-movement2})
 völlig parallel ist. Bisherige Vorschläge von mir zur Behandlung der 
 scheinbar mehrfachen Vorfeldbesetzung \citep{Mueller2002f,Mueller2002c} haben
 noch ein spezielles Valenzmerkmal verwendet, wodurch die Parallelität der beiden
 Verbbewegungsregeln verdeckt blieb. Mit der hier verwendeten Merkmalsgeometrie kann
 die scheinbar mehrfache Vorfeldbesetzung als optional komplexbildende Variante
-der einfachen Verbbewegung verstanden werden \citep{Mueller2005d}.
+der einfachen Verbbewegung verstanden werden \citep[321]{Mueller2005d}.
 
 
 
@@ -700,7 +721,7 @@ mit einer ganz flachen Struktur zu analysieren.
 \emph{reparieren} und \emph{müssen} bzw.\ \emph{die Brille} und \emph{reparieren}
 stehen dabei nicht als Konstituente, sondern einzeln im Vorfeld.
 Wie die Linearisierungsbeschränkungen
-für solche Sätze aussehen, läßt er offen. Analysiert man Sätze wie (\mex{1}) mit total
+für solche Sätze aussehen, lässt er offen. Analysiert man Sätze wie (\mex{1}) mit total
 flachen Strukturen und mit drei Konstituenten im Vorfeld, kann man nicht erklären,
 wieso sich die Konstituenten vor dem finiten Verb genauso verhalten als gäbe es dort
 ein Mittelfeld\is{Feld!Mittel-}, eine rechte Satzklammer\is{Satzklammer} und ein Nachfeld\is{Nachfeld}.
@@ -731,7 +752,7 @@ Ein anderes Problem ergibt sich im Zusammenhang mit der Kasusvergabe:
 In \citew[\page93--94]{Mueller2002b} habe ich gezeigt, dass die Tatsache,
 dass \emph{den Wagen} in (\mex{1}) Akkusativ hat, nicht zu erklären wäre, wenn man annehmen würde,
 dass sich in (\mex{1}) zwei unabhängige Konstituenten im Vorfeld befinden.\footnote{
-  Siehe auch \citew{Mueller2005d}.%
+  Siehe auch \citew[306]{Mueller2005d}.%
 }
 \eal 
 \ex[]{
@@ -758,7 +779,7 @@ Zu reparieren wurde der Wagen versucht.
 \z
 Bei einer solchen Voranstellung ist der Nominativ von \emph{der Wagen} zwingend.
 Läge nun bei (\mex{-2}) eine Voranstellung des Infinitivs und der Nominalphrase 
-als einzelne Konstituente vor, so müßte auch hier ein Nominativ möglich sein, 
+als einzelne Konstituente vor, so müsste auch hier ein Nominativ möglich sein, 
 was nicht den beobachtbaren Fakten entspricht.
 \is{Vorfeldbesetzung|)}
 
@@ -769,7 +790,7 @@ was nicht den beobachtbaren Fakten entspricht.
 Im Prinzipien-und-Parameter-Framework\indexgb werden die im Abschnitt~\ref{sec-pvp} diskutierten
 Voranstellungen unvollständiger Projektionen
 oft als Restbewegung\is{Restbewegung} (\emph{Remnant Movement}) analysiert (siehe \zb G. \citealp{GMueller96a,GMueller98a}).
-\citet[\page281]{Haider93a}, \citet[Kapitel~4.2.5]{deKuthy2002a}, \citet[Abschnitt~2]{dKM2001a}\NOTE{Mehr zu den Einwänden} und \citet{Fanselow2002a} haben jedoch gezeigt, 
+\citet[\page281]{Haider93a}, \citet[Kapitel~4.2.5]{deKuthy2002a}, \citet[Abschnitt~2]{dKM2001a}\todostefan{Mehr zu den Einwänden} und \citet{Fanselow2002a} haben jedoch gezeigt, 
 dass Restbewegungsansätze mit empirischen Problemen zu kämpfen haben, 
 die Argumentkompositionsansätze wie der hier vorgestellte nicht haben.%
 \is{Verbalkomplex|)}
@@ -791,7 +812,7 @@ die Argumentkompositionsansätze wie der hier vorgestellte nicht haben.%
 
 \item Laden Sie die zu diesem Kapitel gehörende Grammatik von der Grammix"=CD
 (siehe Übung~\ref{uebung-grammix-kapitel4} auf Seite~\pageref{uebung-grammix-kapitel4}).
-Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluß eine Liste von Beispielen.
+Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluss eine Liste von Beispielen.
 Geben Sie diese Beispiele nach dem Prompt ein und wiederholen Sie die in diesem Kapitel besprochenen
 Aspekte.
 
@@ -801,11 +822,11 @@ Aspekte.
 
 \furtherreading{
 Die Analyse der Verbalkomplexe in der HPSG"=Theorie ist wesentlich von \citet{HN89b,HN89a,HN94a} geprägt
-worden. Hinrichs und Nakazawas Arbeiten gehen auf Arbeiten im Rahmen der
+worden. \citeauthor{HN89a}s Arbeiten gehen auf Arbeiten im Rahmen der
 Kategorialgrammatik\is{Kategorialgrammatik (CG)} zurück \citep{Geach70a}. Zum Deutschen gibt es
 Arbeiten von \citet{Kiss95a} und \citet{Meurers2000b}.
 
-Komplexe Prädikate im Deutschen (Verbalkomplexe und Resultativkonstruktionen werden in
+Komplexe Prädikate im Deutschen (Verbalkomplexe und Resultativkonstruktionen) werden in
 \citew{Mueller2002b} besprochen. Eine Übersicht über Arbeiten zu komplexen Prädikaten im
 Persischen, Französischen, Italienischen, Spanischen, Portugiesischen, Koreanischen und Deutschen bieten \citet{GS2021a}.
 }
