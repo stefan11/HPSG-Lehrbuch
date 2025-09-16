@@ -1355,6 +1355,7 @@ sm edges
 \caption{\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft}Analyse des Beispiels \emph{Jede Tochter
     eines Mitarbeiters schläft.}}
 \end{figure}
+\itdopt{Lexikoneintrag für schlafen fehlt noch.}
 Wie im Abschnitt~\ref{Abschnitt-Komposition} erklärt werden die Relationen einfach durch Listenverkettung von den
 Töchtern zum Mutterknoten hochgereicht. Genauso funktioniert das für die Handle"=Constraints:
 \ea
@@ -1808,7 +1809,7 @@ skopen kann. Das kann erreicht werden, indem man nicht \relation{schlafen} direk
 \ea
 \textmrs{ h0, \{ h1:every\_q(x, h2, h3), h4:affe(x), h5:glauben(e1, x, h6), h7:exist\_q(y, h8, h9), \\
              \hphantom{\textlangle~}h10:einhorn(y), h11:schlafen(e2, y) \},\\
-\hphantom{\textlangle~}\{ h2 \qeq h4, h6 \qeq h11, h9 \qeq h10 \}  }
+\hphantom{\textlangle~}\{ h2 \qeq h4, h6 \qeq h11, h8 \qeq h10 \}  }
 \z
 Den entsprechenden Lexikoneintrag für \emph{glauben} zeigt (\mex{1}):
 \eas
@@ -1820,8 +1821,10 @@ Lexikoneintrag für \emph{glauben}:\\
              arg-st & \liste{ NP[\type{nom}]\ind{1}, CP[\type{dass}, \ltop \ibox{2}]   } \\
            } \\
   cont &  \ms{
-          ind & \ibox{4} event\\
+          ind  & \ibox{4} event\\
+          ltop & \ibox{5}\\
           rels & \liste{ \ms[glauben\_rel]{ 
+                          lbl  & \ibox{5}\\
                           arg0 & \ibox{4}\\
                           arg1 & \ibox{1} \\
                           arg2 & \ibox{3} \\
@@ -2284,7 +2287,7 @@ einstöpseln kann.
 
 \end{tikzpicture}
 
-\caption{Falsche MRS für \emph{Ein Affe, dessen Kind schläft, lacht.}: x in besitzen(x,y) ist ungebunden.}\label{Abbildung dessen Kind-falsch}
+\caption{Falsche MRS für \emph{Ein Affe, dessen Kind schläft, lacht.}: x in besitzen(x,y) ist ungebunden.}\label{Abbildung dessen Kind-falsch-x-ungebunden}
 \end{figure}
 
 Es gibt zwar prinzipiell zumindest eine Lösung für das Dominanzproblem, nämlich die, in der h2 einen

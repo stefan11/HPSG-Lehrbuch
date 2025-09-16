@@ -28,9 +28,15 @@
                  \fi}
 \makeatother
 
+%\hfuzz=5.002pt
 \makeatletter
-\def\eas{\ifnum\@xnumdepth=0\begin{exe}[(34)]\else\begin{xlist}[iv.]\fi\ex\begin{tabular}[t]{@{}p{0.999\linewidth}@{}}\leavevmode}
+\def\eas{\let\oldhfuzz=\hfuzz\hfuzz=5pt\ifnum\@xnumdepth=0\begin{exe}[(34)]\else\begin{xlist}[iv.]\fi\ex\begin{tabular}[t]{@{}p{0.998\linewidth}@{}}\leavevmode\hfuzz=\oldhfuzz}
 \makeatother
+
+% 0.992 does not display black bars with lualatex 14.09.2025
+%\makeatletter
+%\def\eas{\ifnum\@xnumdepth=0\begin{exe}[(34)]\else\begin{xlist}[iv.]\fi\ex\begin{tabular}[t]{@{}p{0.999\linewidth}@{}}\leavevmode}
+%\makeatother
 
 
 

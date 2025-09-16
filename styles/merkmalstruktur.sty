@@ -228,7 +228,8 @@ $%
 \settowidth{\MyetagLength}{{$\scriptstyle 1$}}
 
 % empty box
-\newcommand{\etag}{\ibox{\rule{0ex}{1.1ex}\hspace{\MyetagLength}}\xspace}
+%\newcommand{\etag}{\ibox{\rule{0ex}{1.1ex}\hspace{\MyetagLength}}\xspace}
+\newcommand{\etag}{\ibox{\phantom{3}}\xspace}
 
 %\newcommand{\tbox}[1]{{\tiny\fbox{#1}}}
 \let\tbox=\iboxt

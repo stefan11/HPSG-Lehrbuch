@@ -570,7 +570,7 @@ Derivation}{derivation}\xspace}
 \newcommand{\indexlkb}{\is{Linguistic Knowledge Builder (LKB)}\xspace}
 
 \newcommand{\word}[1]{\emph{#1}\iw{#1}}
-\newcommand{\noword}[1]{\emph{*\,#1}\iw{#1@*\,#1}}
+\newcommand{\noword}[1]{\emph{*#1}\iw{#1@*\,#1}}
 
 %\newcommand{\construction}{"`construction"'\xspace}
 %\newcommand{\constructions}{"`constructions"'\xspace}
@@ -709,8 +709,16 @@ Derivation}{derivation}\xspace}
 \newcommand{\Construction}{Construction\xspace}
 \newcommand{\Constructions}{Constructions\xspace}
 
-\newcommand{\zuinf}{\emph{zu}\hyp infinitive\xspace}
+\iflanguage{german}{%
+\newcommand{\zuinf}{\emph{zu}\hyp Infinitiv\xspace}
+}{
+\newcommand{\zuinf}{\emph{zu}\hyp infinitive\xspace}}
+
+\iflanguage{german}{%
+\newcommand{\zuinfs}{\emph{zu}\hyp Infinitivs\xspace}
+}{
 \newcommand{\zuinfs}{\emph{zu}\hyp infinitives\xspace}
+}
 
 \newcommand{\andund}{\iflanguage{german}{und}{and}\xspace}
 

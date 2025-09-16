@@ -227,7 +227,9 @@ Die Datenstruktur in (\ref{geom-loc}) auf Seite~\pageref{geom-loc} wird also zu 
 \ms{
 phon & list~of~phoneme strings\\
 loc  & \ms{ cat  & \ms{ head   & head \\
+                        spr   & list of signs\\
                         comps & list of signs\\
+                        arg-st & list of signs\\
                       } \\
             cont & cont\\
           }\\
@@ -290,7 +292,8 @@ Spur für das Akkusativkomplement von \emph{kennen} (vorläufig):\\
 loc   & \ibox{1} \ms{ cat \ms{ head & \ms[noun]{
                                                      cas & acc\\
                                                      } \\
-                                              comps & \liste{}\\
+                                              spr   & \eliste\\
+                                              comps & \eliste\\
                                             } \\
                                    }\\
 nonloc & \ms{ slash & \sliste{ \ibox{1} } \\
@@ -357,6 +360,7 @@ dtrs \liste{ \onems{ loc \ibox{1}\\
                                  }, \onems{ loc$|$cat \onems{ head \ms[verb]{vform & fin\\
                                                                  initial & $+$\\
                                                                 }\\
+%                                                  spr   \liste{}\\   Kann nicht anders sein.
                                                   comps \liste{}\\
                                                }\\
                              nonloc$|$slash   \sliste{ \ibox{1} }\\
@@ -1386,6 +1390,7 @@ unter anderem die drei \compslen in (\mex{1}b--d):
 \zl
 Das Subjekt, das Dativ"=Objekt bzw.\ das Akkusativ"=Objekt ist in (\mex{0}b--d) extrahiert, wird
 also nicht von \textsc{deps} auf die \compsl übernommen.
+\itdopt{Diskussion der Extraktion von Adjunkten und Koordination hinzufügen.}
 
 \citet[\page147--148]{Nerbonne94a} argumentiert gegen die Verwendung von Spuren\is{leere Kategorie} und für
 die lexikalische Einführung von Fernabhängigkeiten, da man bei der Verwendung von Spuren
