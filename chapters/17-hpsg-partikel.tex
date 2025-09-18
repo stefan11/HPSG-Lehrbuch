@@ -542,13 +542,13 @@ da die Rektionsverhältnisse im Verbalkomplex adäquater
 mit dem Verb als Kopf erfasst werden können. Ich schlage deshalb vor,
 Partikeln wie \emph{los} und \anf als Modifikatoren\is{Modifikator} zu analysieren. Den Lexikoneintrag
 für \emph{los} zeigt (\mex{1}):\footnote{%
-Leere \hconslen lasse ich im Folgenden weg.}
+Leere \hconslen lasse ich im Folgenden weg. \textsc{synsem|loc} kürze ich mit `\ldots' ab.}
 
 \eas
 \label{le-los-asp}%
 \mbox{\emph{los} (Aspektmarker):}\\
 \ms{
-synsem|loc & \ms{ cat & \ms{ head & \ms[particle]{ mod  & \upshape V[\textsc{arg-st} \sliste{ NP[\str] }, \textsc{cont|ltop} \ibox{1}] \\
+\ldots & \ms{ cat & \ms{ head & \ms[particle]{ mod  & \upshape V[\textsc{arg-st} \sliste{ NP[\str] }, \textsc{cont|ltop} \ibox{1}] \\
 %                                                   subj & \eliste \\
                                                   } \\
 %                             comps  & \eliste\\
@@ -655,9 +655,8 @@ für den Stamm des intransitiven Verbs \emph{lachen}.
 \label{le-lachen}%
 \mbox{\stem{lach} (intransitives Verb):}\\
 \ms{
-synsem|loc & \ms{ cat & \ms{ %head   & verb \\
-                             arg-st & \liste{NP[\str]\ind{1}} \\[2mm]
-                           }\\
+\ldots & \ms{ cat & \ms{ %head   & verb \\
+                         arg-st & \nliste{ NP[\str]\ind{1} } }\\[2mm]
                   cont & \ms{ ltop & \ibox{2}\\
                               ind  & \ibox{3} event } }\\ 
 rels & \liste{ \ms[lachen]{ 
@@ -718,15 +717,15 @@ Abbildung~\vref{fig-loslachen-sem} zeigt einen Baum mit semantischer Information
 \begin{figure}
 \begin{forest}
 sm edges
-[V\feattab{\cont [\ltop \ibox{1}, \textsc{ind} \ibox{2} ]\\
-           \rels \nliste{ h1:beginnen(h2), h2:lachen(x) }}
-  [\ibox{3} Part\feattab{\textsc{mod} \ibox{4} [\cont|\ltop \ibox{5} h2 ],\\
+[V\feattab{\cont [\ltop \ibox{1}, \textsc{ind} \ibox{2} ],\\
+           \rels \nliste{ h1:beginnen(e1,h2), h2:lachen(e2,x) }}
+  [\ibox{3} Part\feattab{\textsc{mod} \ibox{4} [\cont|\ltop \ibox{5} h2],\\
                          \cont \ibox{6} [\ltop h1, \textsc{ind} e1],\\ 
                          \rels \nliste{ h1:beginnen(e1,h2) } } [los]]
   [V\feattab{ \comps \sliste{ \ldots{} \ibox{3} Part[\textsc{mod} \ibox{4}, \cont \ibox{6}] },\\
               \cont  \ibox{6} [\ltop \ibox{1} h1, \textsc{ind} \ibox{2} e1],\\
               \rels \nliste{ h2:lachen(e2,x) } }, l sep+=\baselineskip
-    [\ibox{4} V\feattab{\cont|\ltop \ibox{4} h2,\\
+    [\ibox{4} V\feattab{\cont|\ltop \ibox{5} h2,\\
                         \rels \nliste{ h2:lachen(e2,x) }},edge label={node[midway,right]{PV-LR}}
       [lach-]]]]
 \end{forest}
@@ -782,7 +781,7 @@ Merkmalsnamen aus Platzgründen abgekürzt sind.
 synsem|l \ms{ cat|arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2}}\,)  $\oplus$\\
                          & \liste{ \onems{ l \onems{ c|h \onems[particle]{ mod$|$l \ms{
                                                                   cat & \onems{ head   \type{verb} \\
-                                                                                comps \ibox{1}  \\
+                                                                                arg-st \ibox{1}  \\
                                                                           }\\
                                                                   cont & \ms{ ltop & \ibox{3}\\
                                                                               ind  & \ind{4} } } } \\
@@ -814,7 +813,7 @@ halber die Zahlen aus (\mex{0}) beibehalten habe:
 \emph{loslacht}:\\
 %\resizebox{\linewidth}{!}{%
 \onems{%
-synsem|l \onems{ cat|comps  \nliste{NP[\str]\ind{2}}\\
+synsem|l \onems{ cat|comps  \nliste{ NP[\str]\ind{2} }\\
                  cont  \ms{ ltop & \ibox{6}\\
                             ind  & \ibox{7} } }\\
 rels \liste{ \ms[beginnen]{ 
@@ -839,19 +838,18 @@ die Partikel lizenziert. Den Eintrag für die Partikel zeigt (\mex{1}):
 \label{le-an5}%
 \mbox{\emph{an$_5$} (Richtung):}\\
 \ms{
-cat & \ms{ head & \ms[particle]{ mod  & \upshape V[\argst \sliste{ NP[\str] }, \textsc{cont|ltop} \ibox{1}] \\[2mm]
+cat & \ms{ head & \ms[particle]{ mod  & \upshape V[\argst \sliste{ NP[\str] }, \ltop \ibox{1}, \textsc{ind} \ibox{2}] \\[2mm]
 %                                 subj & \sliste{ NP[\str]\ind{2} } \\
                               } \\
 %           comps & \eliste \\
-           arg-st & \sliste{ NP[\str]\ind{2} }\\
+           arg-st & \sliste{ NP[\str]\ind{3} }\\
          }\\
-cont & \ms{ ltop & \ibox{3}\\
-            ind  & \ibox{4} }\\
+cont & \ms{ ltop & \ibox{1} \\
+            ind  & \ibox{2} }\\
 rels & \liste{ \ms[gerichtet-auf~]{
-               lbl  & \ibox{3}\\ 
-               arg0 & \ibox{4}\\
-               arg1 & \ibox{1}\\
-               arg2 & \ibox{2} } } 
+               lbl  & \ibox{1}\\ 
+               arg0 & \ibox{2}\\
+               arg1 & \ibox{3} } } 
 }\iw{an$_5$|uu}
 \zs
 
@@ -867,8 +865,10 @@ Will man solche Sätze ausschließen, muss man verlangen, dass die \compsl leer 
 Argumente auf \subj gemappt werden. Dass Partikeln zusammen mit einem Argument im Vorfeld stehen
 können, zeigt das Beispiel (\ref{bsp-den-atem-an-haelt}) auf S.\,\pageref{bsp-den-atem-an-haelt}.
 
-Das zusätzliche Argument von \emph{an$_5$} ist an das Argument der Relation \emph{gerichtet-auf} gelinkt \iboxb{2}. Das andere Argument dieser
-Relation ist mit dem Label des Basisverbs identifiziert \iboxb{1}.
+Das zusätzliche Argument von \emph{an$_5$} ist an das Argument der Relation \emph{gerichtet-auf}
+gelinkt \iboxb{2}. Die Labels von \emph{gerichtet-auf} und dem modifizierten Verb sind identifiziert
+\iboxb{1}, weil die Modifikation intersektiv ist: Wenn man etwas anfährt, fährt man auch. Das
+\emph{an$_5$} ist eine Richtungsangabe. Das \argzero der Relation ist mit dem Ereignis des Basisverbs identifiziert \iboxb{2}.
 
 Die Argumentanziehung muss in der Partikelverblexikonregel vorangelegt sein.
 (\mex{1}) zeigt die angepasste Version der Lexikonregel in (\ref{lr-pv-prel}):
@@ -916,7 +916,7 @@ folgenden Lexikoneintrag:
 synsem|l \ms{ cat|arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2}}\,)  $\oplus$ \ibox{3} $\oplus$ \ibox{4}\\
                          & \liste{ \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \ms{
                                                                   cat & \onems{ head  \type{verb} \\
-                                                                                comps \ibox{1}  \\
+                                                                                arg-st \ibox{1}  \\
                                                                           }\\
                                                                   cont & \ms{ ltop & \ibox{5}\\
                                                                               ind  & \ind{6} } }\\
@@ -981,7 +981,9 @@ sm edges
 ein Argument bei \iboxb{1}. Das Verb \emph{anlachen} hat also zwei NP[\str] in seiner \compsl, \dash, es ist ein transitives Verb.
 
 Die Komposition der Bedeutung von \emph{anlachen} ist absolut analog zur Bedeutungskomposition
-für \emph{loslachen} in Abbildung~\vref{fig-loslachen-sem} und wird hier deshalb nicht separat diskutiert.
+für \emph{loslachen} in Abbildung~\vref{fig-loslachen-sem} und wird hier deshalb nicht separat
+diskutiert.
+\itdopt{Stimmt nicht, weil es intersektiv ist. Noch nachtragen.}
 Das Ergebnis der Kombination von \emph{lachen} mit den Tags in (\ref{le-lach-+particle}) und \emph{an$_5$} zeigt (\mex{1}).
 
 \eas
@@ -989,13 +991,12 @@ Das Ergebnis der Kombination von \emph{lachen} mit den Tags in (\ref{le-lach-+pa
 %\resizebox{\linewidth}{!}{%
 \onems{%
 synsem|l \onems{ cat|comps  \nliste{ NP[\str]\ind{2}, NP[\str]\ind{8} }\\
-                 cont  \ms{ ltop & \ibox{9}\\
-                            ind  & \ibox{10} } }\\
+                 cont  \ms{ ltop & \ibox{5}\\
+                            ind  & \ibox{6} } }\\
 rels \liste{ \ms[gerichtet-auf~~]{ 
-               lbl  & \ibox{9}\\
-               arg0 & \ibox{10}\\
-               arg1 & \ibox{5}\\
-               arg2 & \ibox{8} },
+               lbl  & \ibox{5}\\
+               arg0 & \ibox{6}\\
+               arg1 & \ibox{8} },
              \ms[lachen]{ 
                lbl  & \ibox{5} \\
                arg0 & \ibox{6} \\
