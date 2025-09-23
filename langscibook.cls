@@ -1628,6 +1628,7 @@ Storage and cataloguing done by \storageinstitution\\[3ex]
         datamodel=langsci,
 	%refsection=chapter,
 	maxbibnames=99,
+        sorting=nycot, % defined in langsci-unified.bbx
 	uniquename=false,
 	mincrossrefs=99,
 	maxcitenames=2,
