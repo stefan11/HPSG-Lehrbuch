@@ -1,3 +1,3 @@
 # HPSG-Lehrbuch
 
-Tested with texlive 2024 for compilation. See Makefile for steps.
+Tested with texlive 2025 and lualatex for compilation. See Makefile for steps.
