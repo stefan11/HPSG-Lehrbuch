@@ -27,7 +27,7 @@ von Partikelverben modelliert werden können.
 
 Die in diesem und im folgenden Kapitel entwickelte Analyse der Partikelverben stellt
 den Höhepunkt des Buches dar: Die Analysen aus vorangegangenen Kapiteln interagieren
-bei der Analyse der Partikelverben. Wir benötigen Adjunktion (Kapitel~\ref{Kapitel-adjunkte}),
+bei der Analyse der Partikelverben. Wir benötigen Adjunktion (Kapitel~\ref{sec-Kopf-Adjunkt-Strukturen}),
 Lexikonregeln (Kapitel~\ref{Kapitel-Lexikon}), die Verbstellung und Konstituentenstellung 
 (Kapitel~\ref{Kapitel-Konstituentenreihenfolge}), Vorfeldbesetzung (Kapitel~\ref{Kapitel-nla}),
 Kasuszuweisung (Kapitel~\ref{Kapitel-Kasus}),
@@ -384,26 +384,25 @@ nicht"=transparente Partikelverb \emph{vorhaben}.
 (\emph{vor}) \emph{hab-} (nicht-transparentes Partikelverb):\label{le-vorhaben}
 \\
 \ms{
-cat & \ms{
-%       head   & verb\\
-       arg-st & \liste{ NP[\type{str}]\ind{1}, NP[\type{str}]\ind{2}, Part[\type{vor}, \textsc{lex}+] } \\
-                                     } \\
-cont & \ms{ ltop & \ibox{3}\\
-            ind  & \ibox{4}\\
-            rels & \liste{ \ms[vorhaben]{
-                           lbl  & \ibox{3}\\
-                           arg0 & \ibox{4}\\
-                           arg1 & \ibox{1}\\
-                           arg2 & \ibox{2} } } }
+\ldots & \ms{ cat & \ms{
+                    head   & verb\\
+                    arg-st & \liste{ NP[\type{str}]\ind{1}, NP[\type{str}]\ind{2}, Part[\type{vor}, \textsc{lex}+] } } \\
+              cont & \ms{ ltop & \ibox{3}\\
+                          ind  & \ibox{4} event } }\\
+rels & \liste{ \ms[vorhaben]{
+               lbl  & \ibox{3}\\
+               arg0 & \ibox{4}\\
+               arg1 & \ibox{1}\\
+               arg2 & \ibox{2} } }
 }
 \zs
 
 \noindent
 Der semantische Beitrag des Partikelverbs wird nicht kompositional aus der Bedeutung
 des Verbs und der Partikel ermittelt, wenn diese im Satz kombiniert werden, sondern
-ist bereits im \contw des Stammeintrags repräsentiert. Die Form der Partikel,
+ist bereits in der \relsl des Stammeintrags repräsentiert. Die Form der Partikel,
 die mit einer flektierten Form des Stammes kombiniert werden muss, wird in der
-\compsl genau angegeben.
+\argstl genau angegeben.
 
 %% I follow \citet[\page 238]{Olsen99c} and 
 %% \citet[\page 44]{McIntyre2001a} in assuming that
@@ -429,7 +428,7 @@ sm edges
 \end{figure}
 Dabei wird \emph{vor} mit \emph{hat} mit dem Prädikatskomplexschema (siehe Seite~\pageref{schema-vk}) kombiniert.
 
-Da \emph{vorhat} finit ist, wird das Subjekt als Element der \compsl repräsentiert.
+Da \emph{vorhat} finit ist, wird das Subjekt auf die \compsl gemappt.
 Partikel und Verb werden in einer Struktur vom Typ \type{head-cluster-phrase} kombiniert.
 Das Akkusativobjekt und das Subjekt werden durch das Kopf"=Komplement"=Schema lizenziert.
 Da das Kopf"=Komplement"=Schema die Sättigung von Argumenten in beliebiger Reihenfolge zulässt,
@@ -440,8 +439,8 @@ können die beiden Abfolgen von Subjekt und Objekt in (\mex{1}) erklärt werden.
 \zl
 Da die Partikel \lex{}+\isfeat{lex} sein muss, kann das Kopf"=Komplement"=Schema nicht benutzt werden, um
 Anordnungen abzuleiten, bei denen die Partikel im Mittelfeld steht. Für solche Abfolgen gibt es zwar
-Belege \citep[\page 50]{Luedeling2001a}, bei entsprechenden Umstellungen gibt es aber spezielle informationsstrukturelle Effekte, so
-dass diese Strukturen anders als normale Umstellungen im Mittelfeld zu analysieren sind.
+Belege (siehe (\ref{ex-auf-im-osten-geht}) auf S.\,\pageref{ex-auf-im-osten-geht}), bei entsprechenden Umstellungen gibt es aber spezielle informationsstrukturelle Effekte, so
+dass diese Strukturen anders als normale Umstellungen im Mittelfeld zu analysieren sind \parencites[50]{Luedeling2001a}[295]{Mueller2002b}.
 
 
 Für den Satz in (\mex{1}), in dem das Verb in Initialstellung steht, nehme ich die Analyse in 
@@ -555,7 +554,7 @@ Leere \hconslen lasse ich im Folgenden weg. \textsc{synsem|loc} kürze ich mit `
                              arg-st & \eliste \\
                            }\\
                  cont & \ms{ ltop & \ibox{2}\\
-                             ind  & \ibox{3} } }\\ 
+                             ind  & \ibox{3} event } }\\ 
 rels & \liste{ \ms[beginnen]{ 
                lbl  & \ibox{2}\\
                arg0 & \ibox{3}\\
@@ -563,7 +562,7 @@ rels & \liste{ \ms[beginnen]{
 %hcons & \eliste 
 } 
 \zs\iw{los|uu}
-\itdopt{Should the event be shared or ltop?}
+
 \noindent
 Die Adjunktanalyse, die in Kapitel~\ref{sec-Kopf-Adjunkt-Strukturen} vorgestellt wurde,
 geht davon aus, dass Adjunkte den Kopf, den sie modifizieren, über das \modm selegieren.
@@ -586,7 +585,7 @@ Einen entsprechenden Lexikoneintrag lizenziert die folgende Lexikonregel:
 
 \eas
 \label{lr-pv-prel}%
-\mbox{Lexikonregel für produktive Partikelverbkombinationen (vorläufig):}\\*[2mm]
+\mbox{Lexikonregel für produktive Partikelverbkombinationen (vorläufig):}\\
 \onems[stem]{
            synsem \ibox{1} \onems{ loc$|$cat \ms{ head & \type{verb} \\ 
 %head & \ms{ subj & \liste{ NP[\type{str}] } \\
@@ -630,10 +629,10 @@ Die selegierte Partikel muss einen \modw haben, der mit dem \synsemw des Eingabe
 identisch ist \iboxb{1}. Der \contw des Ausgabeverbs wird vom \contw der selegierten
 Partikel \iboxb{3} übernommen. Der \contw der Partikel enthält \ltop- und \indw. \ltop entspricht
 dem Label der \relation{beginnen}"=Relation, so dass der \ltopw des Partikelverbs auf die
-\relation{beginnen}"=Relation verweist, die wiederum die Relation des Eingabeverbs als \argone hat.
+\relation{beginnen}"=Relation verweist, die wiederum das Label der Relation des Eingabeverbs als \argone hat.
 Es handelt sich hier praktisch um eine lexikalische Variante der Kopf"=Adjunkt"=Struktur.
 In der Lexikonregel in (\ref{lr-pv-prel}) wird der \modw der Partikel mit dem
-\synsemw des Verbs identifiziert. Dieser Aspekt der Analyse ist völlig parallel. Verschieden
+\synsemw des Eingabeverbs identifiziert. Dieser Aspekt der Analyse ist völlig parallel zum Kopf"=Adjunkt"=Schema. Verschieden
 sind aber die Selektionsverhältnisse: In Kopf"=Adjunkt"=Strukturen werden Adjunkte nicht selegiert.
 Bei den Partikelverben wird die Partikel dagegen vom Verb selegiert.%
 % In beiden Fällen wird
@@ -641,7 +640,7 @@ Bei den Partikelverben wird die Partikel dagegen vom Verb selegiert.%
 %und \iboxt{3} in der Lexikonregel (\ref{lr-pv-prel})).
 \footnote{
   Die Lexikonregel ähnelt der Lexikonregel, die \citet{NB94} für die Behandlung von Modifikatoren\is{Modifikator}
-  vorgeschlagen haben. Van Noord und Boumas Regel ist jedoch allgemeiner und soll statt
+  vorgeschlagen haben. Van Noord \& Boumas Regel ist jedoch allgemeiner und soll statt
   der Kopf"=Adjunkt"=Strukturen verwendet werden. Die Analyse ist auch unter der Bezeichnung
   "`Adjuncts-as-Complements"' bekannt. Zur Kritik an dieser Analyse siehe
   \citew{Cipollone2001a,Levine2003a}, \citew[Kapitel~3.6.1]{LH2006a} und \citew[Kapitel~4.3]{Mueller2002b}.%
@@ -653,9 +652,9 @@ für den Stamm des intransitiven Verbs \emph{lachen}.
 
 \eas
 \label{le-lachen}%
-\mbox{\stem{lach} (intransitives Verb):}\\
+\stem{lach} (intransitives Verb):\\
 \ms{
-\ldots & \ms{ cat & \ms{ %head   & verb \\
+\ldots & \ms{ cat & \ms{ head   & verb \\
                          arg-st & \nliste{ NP[\str]\ind{1} } }\\[2mm]
                   cont & \ms{ ltop & \ibox{2}\\
                               ind  & \ibox{3} event } }\\ 
@@ -777,9 +776,10 @@ Merkmalsnamen aus Platzgründen abgekürzt sind.
 \label{le-lach-+particle-prel}%
 \mbox{\stem{lach} (Selektion der Partikel, vorläufig):}\\
 %\resizebox{\linewidth}{!}{%
-\onems{%
-synsem|l \ms{ cat|arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2}}\,)  $\oplus$\\
-                         & \liste{ \onems{ l \onems{ c|h \onems[particle]{ mod$|$l \ms{
+\ms{%
+\ldots & \ms{ cat & \ms{ head & verb\\
+                         arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2}}\,)  $\oplus$\\
+                                & \liste{ \onems{ l \onems{ c|h \onems[particle]{ mod$|$l \ms{
                                                                   cat & \onems{ head   \type{verb} \\
                                                                                 arg-st \ibox{1}  \\
                                                                           }\\
@@ -787,9 +787,9 @@ synsem|l \ms{ cat|arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2}}\,)  $\o
                                                                               ind  & \ind{4} } } } \\
                                                 cont \ibox{5} \\
                                               }\\
-                                           lex + } } \\
-cont \ibox{5} }\\
-rels \liste{ \ms[lachen]{ 
+                                           lex + } } } \\
+               cont & \ibox{5} }\\
+rels & \liste{ \ms[lachen]{ 
                lbl  & \ibox{3} \\
                arg0 & \ibox{4} \\
                arg1 & \ibox{2} } }
@@ -812,11 +812,11 @@ halber die Zahlen aus (\mex{0}) beibehalten habe:
 \label{le-loslacht}%
 \emph{loslacht}:\\
 %\resizebox{\linewidth}{!}{%
-\onems{%
-synsem|l \onems{ cat|comps  \nliste{ NP[\str]\ind{2} }\\
+\ms{%
+\ldots & \onems{ cat|comps  \nliste{ NP[\str]\ind{2} }\\
                  cont  \ms{ ltop & \ibox{6}\\
                             ind  & \ibox{7} } }\\
-rels \liste{ \ms[beginnen]{ 
+rels & \liste{ \ms[beginnen]{ 
                lbl  & \ibox{6}\\
                arg0 & \ibox{7}\\
                arg1 & \ibox{3} },
@@ -831,13 +831,15 @@ Nach der Analyse von \emph{loslachen} wenden wir uns nun der etwas komplexeren A
 können sie auch zur Argumentstruktur des entstehenden lexikalischen Objekts
 beitragen. Dieser Beitrag zur Argumentstruktur erfolgt über Argumentanziehung,
 eine Technik, die im Kapitel~\ref{Kapitel-Verbalkomplex} für Verbalkomplexe vorgestellt
-wurde. Auf diese Weise lässt sich \emph{anlacht} parallel zu \emph{lachen sieht}
-analysieren. Das zusätzliche Argument des Partikelverbs \emph{anlachen} wird durch
-die Partikel lizenziert. Den Eintrag für die Partikel zeigt (\mex{1}):
+wurde. Auf diese Weise lässt sich \emph{anlacht} parallel zu \emph{schlafen sieht}
+analysieren: \emph{schlafen} ist wie \emph{an$_5$} einstellig und das eine Argument wird vom
+übergeordneten Verb angezogen. Das zusätzliche Argument des Partikelverbs \emph{anlachen} wird genau
+so durch die Partikel lizenziert. Den Eintrag für die Partikel zeigt (\mex{1}):
 \eas
 \label{le-an5}%
-\mbox{\emph{an$_5$} (Richtung):}\\
+\emph{an$_5$} (Richtung):\\
 \ms{
+\ldots & \ms{
 cat & \ms{ head & \ms[particle]{ mod  & \upshape V[\argst \sliste{ NP[\str] }, \ltop \ibox{1}, \textsc{ind} \ibox{2}] \\[2mm]
 %                                 subj & \sliste{ NP[\str]\ind{2} } \\
                               } \\
@@ -845,8 +847,8 @@ cat & \ms{ head & \ms[particle]{ mod  & \upshape V[\argst \sliste{ NP[\str] }, \
            arg-st & \sliste{ NP[\str]\ind{3} }\\
          }\\
 cont & \ms{ ltop & \ibox{1} \\
-            ind  & \ibox{2} }\\
-rels & \liste{ \ms[gerichtet-auf~]{
+            ind  & \ibox{2} } }\\
+rels & \liste{ \ms[gerichtet-auf~~]{
                lbl  & \ibox{1}\\ 
                arg0 & \ibox{2}\\
                arg1 & \ibox{3} } } 
@@ -866,7 +868,7 @@ Argumente auf \subj gemappt werden. Dass Partikeln zusammen mit einem Argument i
 können, zeigt das Beispiel (\ref{bsp-den-atem-an-haelt}) auf S.\,\pageref{bsp-den-atem-an-haelt}.
 
 Das zusätzliche Argument von \emph{an$_5$} ist an das Argument der Relation \emph{gerichtet-auf}
-gelinkt \iboxb{2}. Die Labels von \emph{gerichtet-auf} und dem modifizierten Verb sind identifiziert
+gelinkt \iboxb{3}. Die Labels von \emph{gerichtet-auf} und dem modifizierten Verb sind identifiziert
 \iboxb{1}, weil die Modifikation intersektiv ist: Wenn man etwas anfährt, fährt man auch. Das
 \emph{an$_5$} ist eine Richtungsangabe. Das \argzero der Relation ist mit dem Ereignis des Basisverbs identifiziert \iboxb{2}.
 
@@ -874,9 +876,9 @@ Die Argumentanziehung muss in der Partikelverblexikonregel vorangelegt sein.
 (\mex{1}) zeigt die angepasste Version der Lexikonregel in (\ref{lr-pv-prel}):
 \eas
 \label{lr-pv}%
-\mbox{Lexikonregel für produktive Partikelverbkombinationen:}\\*[2mm]
+\mbox{Lexikonregel für produktive Partikelverbkombinationen:}\\
 \onems[stem]{
-           synsem \ibox{1} \onems{ loc$|$cat \ms{ head & \type{verb} \\ 
+           synsem \ibox{1} \onems{ loc$|$cat \ms{ head & verb \\ 
 %head & \ms{ subj & \liste{ NP[\type{str}] } \\
 %                                                                  } \\
                                                   arg-st & \ibox{2}\\
@@ -902,19 +904,16 @@ Die Argumentanziehung muss in der Partikelverblexikonregel vorangelegt sein.
 
 \noindent
 Diese Regel unterscheidet sich von der in (\ref{lr-pv-prel}) dadurch, dass zusätzlich die Elemente
-in der \subjl \iboxb{3} und \compsl \iboxb{4} der Partikel  angezogen werden.\footnote{%
-In früheren Auflagen des Buches habe ich auch die Elemente der \compsl der Partikel übernommen. Das
-macht die Argumentanziehung von der Partikel parallel zu anderen Argumentanziehungen im
-Prädikatskomplex (vergleiche (\ref{le-sehen}) den Eintrag für das AcI-Verb \emph{sehen} auf Seite~\pageref{le-sehen}). Da aber die \compsl von Partikeln immer die leere Liste ist, ist das redundant.}
-Die Regel lizenziert bei der Eingabe des Stammes \stem{lach} 
+in der \subjl \iboxb{3} und \compsl \iboxb{4} der Partikel  angezogen werden. Die Regel lizenziert bei der Eingabe des Stammes \stem{lach} 
 folgenden Lexikoneintrag:
 \eas
 \label{le-lach-+particle}%
-\mbox{\stem{lach} (Selektion der Partikel):}\\
+\stem{lach} (Selektion der Partikel):\\
 %\resizebox{\linewidth}{!}{%
-\onems{%
-synsem|l \ms{ cat|arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2}}\,)  $\oplus$ \ibox{3} $\oplus$ \ibox{4}\\
-                         & \liste{ \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \ms{
+\ms{%
+\ldots & \ms{ cat & \ms{ head & verb\\
+                         arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2}}\,)  $\oplus$ \ibox{3} $\oplus$ \ibox{4}\\
+                                & \liste{ \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \ms{
                                                                   cat & \onems{ head  \type{verb} \\
                                                                                 arg-st \ibox{1}  \\
                                                                           }\\
@@ -924,9 +923,9 @@ synsem|l \ms{ cat|arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2}}\,)  $\o
                                                                comps \ibox{4}} \\
                                                 cont \ibox{7} \\
                                               }\\
-                                          lex + } } \\
-cont \ibox{7} }\\
-rels \liste{ \ms[lachen]{ 
+                                          lex + } } } \\
+              cont & \ibox{7} }\\
+rels & \liste{ \ms[lachen]{ 
                lbl  & \ibox{5} \\
                arg0 & \ibox{6} \\
                arg1 & \ibox{2} } }
@@ -935,30 +934,30 @@ rels \liste{ \ms[lachen]{
 \zs
 Dieser Lexikoneintrag ähnelt den Lexikoneinträgen für AcI-Verben (vergleiche (\ref{le-sehen}) den Eintrag für \emph{sehen} auf Seite~\pageref{le-sehen}): Der \subjw und \compsw
 des eingebetteten Elements wird in die
-\argstl des Matrixverbs eingefügt. In (\mex{0}) ist das \iboxt{3} $\oplus$ \iboxt{4}. Auf das Einsetzen des \compswes
-habe ich verzichtet, da \comps bei Partikeln ohnehin immer die leere Liste ist.
-Wie für andere Anhebungsverben muss für die Argumentstrukturliste gelten, dass sie -- vom letzten Element abgesehen
--- keine lexikalischen Elemente, \dash Elemente mit dem \lexw +, enthalten darf (siehe Seite~\pageref{constr-non-complex-forming}).
-Aus diesem Grund kann die Lexikonregel nicht auf ihre eigenen Ausgaben angewendet werden,
-da die Ausgabe der Lexikonregel ja ein lexikalisches Element in der \argstl enthält.
-Somit sind ungrammatische Sätze wie (\mex{1}) ausgeschlossen:
-\ea[*]{\iw{anloslacht@* anloslacht}
-weil Maria Karl anloslacht
-\label{bsp-anloslacht2}
-}
-\z
-Die Iteration mehrerer Partikeln ist auch dadurch ausgeschlossen, dass die Partikeln ein
-Verb modifizieren, das genau ein Element in der \compsl hat.
-Für die Analyse von \noword{anloslacht} müsste die Partikelverblexikonregel zweimal auf \stem{lach}
-angewendet werden. Bei der zweiten Regelanwendung würde aber die Valenzliste bereits zwei Elemente
-enthalten. \emph{an} verlangt aber, dass das Verb, mit dem es sich verbindet, genau ein Element in
-der \argstl hat, weshalb \emph{an} nicht mit einem entsprechenden Lexikoneintrag kombiniert und
-\noword{anloslacht} somit auch nicht gebildet werden kann.
+\argstl des Matrixverbs eingefügt. In (\mex{0}) ist das \iboxt{3} $\oplus$ \iboxt{4}. 
 
-Das heißt nicht, dass der hier vorgestellte Ansatz voraussagt, dass es keine Partikelverben
-gibt, die mit anderen Verben eine kohärente Konstruktion eingehen. Solche Verben gibt es
-natürlich, und ein Beispiel ist \emph{anfangen}. Diese Verben sind aber nicht über produktive
-Regeln wie die in (\ref{lr-pv}) abgeleitet, sondern wie \emph{vorhaben} einfach im Lexikon aufgeführt.
+% Wie für andere Anhebungsverben muss für die Argumentstrukturliste gelten, dass sie -- vom letzten Element abgesehen
+% -- keine lexikalischen Elemente, \dash Elemente mit dem \lexw +, enthalten darf (siehe Seite~\pageref{constr-non-complex-forming}).
+% Aus diesem Grund kann die Lexikonregel nicht auf ihre eigenen Ausgaben angewendet werden,
+% da die Ausgabe der Lexikonregel ja ein lexikalisches Element in der \argstl enthält.
+% Somit sind ungrammatische Sätze wie (\mex{1}) ausgeschlossen:
+% \ea[*]{\iw{anloslacht@* anloslacht}
+% weil Maria Karl anloslacht
+% \label{bsp-anloslacht2}
+% }
+% \z
+% Die Iteration mehrerer Partikeln ist auch dadurch ausgeschlossen, dass die Partikeln ein
+% Verb modifizieren, das genau ein Element in der \compsl hat.
+% Für die Analyse von \noword{anloslacht} müsste die Partikelverblexikonregel zweimal auf \stem{lach}
+% angewendet werden. Bei der zweiten Regelanwendung würde aber die Valenzliste bereits zwei Elemente
+% enthalten. \emph{an} verlangt aber, dass das Verb, mit dem es sich verbindet, genau ein Element in
+% der \argstl hat, weshalb \emph{an} nicht mit einem entsprechenden Lexikoneintrag kombiniert und
+% \noword{anloslacht} somit auch nicht gebildet werden kann.
+%
+% Das heißt nicht, dass der hier vorgestellte Ansatz voraussagt, dass es keine Partikelverben
+% gibt, die mit anderen Verben eine kohärente Konstruktion eingehen. Solche Verben gibt es
+% natürlich, und ein Beispiel ist \emph{anfangen}. Diese Verben sind aber nicht über produktive
+% Regeln wie die in (\ref{lr-pv}) abgeleitet, sondern wie \emph{vorhaben} einfach im Lexikon aufgeführt.
 
 Abbildung~\vref{fig-anlachen-val} zeigt die Valenzrepräsentationen in der Analyse
 der Kombination der Partikel \emph{an} mit einer finiten Form von \emph{lachen}.
@@ -966,34 +965,62 @@ der Kombination der Partikel \emph{an} mit einer finiten Form von \emph{lachen}.
 \begin{forest}
 sm edges
 [{V[\comps \ibox{1} $\oplus$ \ibox{2}]}
-  [\ibox{3} Part\feattab{\textsc{mod} \ibox{4}\\
-                         \subj \ibox{2} \sliste{ NP[\str] },\\
-                         \comps \eliste } [an]]
-  [{V[\comps \ibox{1} $\oplus$ \ibox{2} $\oplus$ \nliste{ \ibox{3} Part[\subj
-      \ibox{2}] }]}, l sep+=\baselineskip
-     [{\ibox{4} V[\comps \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}}
+  [\ibox{4} Part\feattab{\textsc{mod} \ibox{5}\\
+                         \subj \ibox{2} \eliste,\\
+                         \comps \ibox{3} \sliste{ NP[\str] } } [an]]
+  [{V[\comps \ibox{1} $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \nliste{ \ibox{4} Part[\subj
+      \ibox{2}, \comps \ibox{3}] }]}, l sep+=\baselineskip
+     [{\ibox{5} V[\comps \ibox{1} \sliste{ NP[\str] }]}, edge label={node[midway,right]{PV-LR}}
        [lach-]]]] 
 \end{forest}
 
 \caption{Kombination von \emph{an} und \emph{lachen} (Valenzinformation)}\label{fig-anlachen-val}
 \end{figure}
-\emph{an} enthält ein Element in \subj \iboxb{2}. Das Basisverb steuert
+\emph{an} enthält ein Element in \comps \iboxb{3}. Das Basisverb steuert
 ein Argument bei \iboxb{1}. Das Verb \emph{anlachen} hat also zwei NP[\str] in seiner \compsl, \dash, es ist ein transitives Verb.
 
-Die Komposition der Bedeutung von \emph{anlachen} ist absolut analog zur Bedeutungskomposition
-für \emph{loslachen} in Abbildung~\vref{fig-loslachen-sem} und wird hier deshalb nicht separat
-diskutiert.
-\itdopt{Stimmt nicht, weil es intersektiv ist. Noch nachtragen.}
-Das Ergebnis der Kombination von \emph{lachen} mit den Tags in (\ref{le-lach-+particle}) und \emph{an$_5$} zeigt (\mex{1}).
+Die Komposition der Bedeutung von \emph{anlachen} ist anders als die für \emph{loslachen} in
+Abbildung~\vref{fig-loslachen-sem}, da \emph{anlachen} intersektiv ist. Die Analyse zeigt Abbildung~\vref{fig-anlachen-sem}.
+\begin{figure}
+\oneline{%
+\begin{forest}
+sm edges
+[V\feattab{\cont [\ltop \ibox{1}, \textsc{ind} \ibox{2} ],\\
+           \rels \nliste{ h1:gerichtet-auf(e1,x1), h1:lachen(e1,x2) }}
+  [\ibox{3} Part\feattab{\textsc{mod} \ibox{4} [\ltop \ibox{5} h1, \textsc{ind} e1],\\
+                         \cont \ibox{6} [\ltop h2 = h1, \textsc{ind} e2 = e1],\\ 
+                         \rels \nliste{ h2:gerichtet-auf(e2,x1) } } [an]]
+  [V\feattab{ \comps \sliste{ \ldots{} \ibox{3} Part[\textsc{mod} \ibox{4}, \cont \ibox{6}] },\\
+              \cont  \ibox{6} [\ltop \ibox{1} h2, \textsc{ind} \ibox{2} e2],\\
+              \rels \nliste{ h1:lachen(e1,x2) } }, l sep+=\baselineskip
+    [\ibox{4} V\feattab{\cont|\ltop \ibox{5} h1,\\
+                        \rels \nliste{ h1:lachen(e2,x2) }},edge label={node[midway,right]{PV-LR}}
+      [lach-]]]]
+\end{forest}}
+\caption{Kombination von \emph{an$_5$} und \emph{lachen} (semantische Information)}\label{fig-anlachen-sem}
+\end{figure}
+Die Partikelverblexikonregel lizenziert ein Verb mit Partikel in der \argstl. Der semantische
+Beitrag des lizenzierten Elements ist identisch mit dem der Partikel \iboxb{6}. In der
+Head-Cluster-Struktur ist das Verb der Kopf, weshalb der semantische Beitrag vom Verb kommt (\ltop
+\ibox{1}, \textsc{ind} \ibox{2}\,) und somit dem Beitrag der Partikel entspricht. Da die Partikel
+sich wie ein intersektives Adjunkt verhält, werden der \ltop- und der \indw des modifizierten Verbs
+mit den entsprechenden Werten der Partikel identifiziert (h2 = h1, e2 = e1). In der Abbildung ist es
+wieder so dargestellt, dass nach der Kombination mit der Partikel bei den dominierenden Knoten nur
+noch h1 bzw.\ e1 geschrieben wird, aber natürlich müsste an allen Stellen in der Abbildung h1 und e1
+stehen. 
+
+Das Ergebnis der Kombination von \emph{lachen} mit den Tags in (\ref{le-lach-+particle}) und
+\emph{an$_5$} zeigt (\mex{1}), wobei sowohl syntaktische als auch semantische Eigenschaften
+wiedergegeben sind.
 
 \eas
 \emph{anlacht} (Kombination mit \emph{an$_5$}):\\
 %\resizebox{\linewidth}{!}{%
-\onems{%
-synsem|l \onems{ cat|comps  \nliste{ NP[\str]\ind{2}, NP[\str]\ind{8} }\\
+\ms{%
+\ldots & \onems{ cat|comps  \nliste{ NP[\str]\ind{2}, NP[\str]\ind{8} }\\
                  cont  \ms{ ltop & \ibox{5}\\
                             ind  & \ibox{6} } }\\
-rels \liste{ \ms[gerichtet-auf~~]{ 
+rels & \liste{ \ms[gerichtet-auf~~]{ 
                lbl  & \ibox{5}\\
                arg0 & \ibox{6}\\
                arg1 & \ibox{8} },
@@ -1036,10 +1063,10 @@ auf die Voranstellbarkeit des Basisverbs machen würde. Man würde dann nämlich
 zu (\mex{1}a) analysieren können:
 \eal
 \ex[]{
-Schlafen will er morgen.
+Schlafen will Conny morgen.
 }
 \ex[*]{
-Lachen will er los.
+Lachen will Conny los.
 }
 \zl
 Die Partikel \emph{los} wäre dann ein normales Adjunkt zum Simplexverb \emph{lachen},
@@ -1047,10 +1074,39 @@ und wie (\mex{0}a) zeigt, sind Verben in solchen Konfigurationen voranstellbar.
 
 Dieses Problem lässt sich leicht lösen,
 wenn man annimmt, dass Adjunkttöchter -- wie Komplementtöchter auch -- den \lexw\isfeat{lex} $-$ haben
-müssen, Partikel aber als \lex+ im Lexikon spezifiziert sind. Alle anderen Adjunkte
+müssen, Partikel aber als \lex{}+ im Lexikon spezifiziert sind. Alle anderen Adjunkte
 sind in Bezug auf ihren \lexw unterspezifiziert. Deshalb ist für Adjunkte wie \emph{gestern},
 die keine Argumente verlangen, keine Projektion nötig.\footnote{
         Vielen Dank an Detmar Meurers\aimention{Walt Detmar Meurers} für die Diskussion zu diesem Punkt.%
+}
+
+Die Iteration mehrerer Partikeln ist dadurch ausgeschlossen, dass die Partikeln ein
+Verb modifizieren, das genau ein Element in der \compsl hat.
+\ea[*]{\iw{anloslacht@* anloslacht}
+weil Maria Karl anloslacht
+\label{bsp-anloslacht2}
+}
+\z
+Für die Analyse von \noword{anloslacht} müsste die Partikelverblexikonregel zweimal auf \stem{lach}
+angewendet werden. Bei der zweiten Regelanwendung würde aber die Valenzliste bereits zwei Elemente
+enthalten. \emph{an$_5$} verlangt aber, dass das Verb, mit dem es sich verbindet, genau ein Element in
+der \argstl hat, weshalb \emph{an$_5$} nicht mit einem entsprechenden Lexikoneintrag kombiniert und
+\noword{anloslacht} somit auch nicht gebildet werden kann. Man beachte, dass nicht alle Partikeln
+verlangen, dass das Verb, mit dem sie kombiniert werden, einstellig ist. So erlaubt zum Beispiel
+\emph{vor} dreistellige Verben:
+\ea
+vater würde ihn mir zu xmas vorschenken\footnote{
+  \url{http://www.elitepvpers.com/forum/crossfire-trading/2138728-b-lt-colonel-gg-lm-mg3-gold-etc-6.html}. 20.02.2013.
+}
+\z
+Genauso ist dann die Bildung von \emph{vorausdrucken} möglich. Zu Problemen, die sich bei der
+Bildung von Verbzweitsätzen mit den Doppelpartikeln ergeben, siehe
+\citew[218]{Zifonun99a}. Letztendlich erlaubt eine entsprechend liberale Spezifikation des Eintrags
+von \emph{vor} auch die Iteration dieser Partikel, so dass Bildungen wie \emph{vorvorschenken}
+vorhergesagt würden. Diese sind noch nicht belegt. Man kann sich aber vorstellen, in welchen
+Situationen das Verb benutzt werden könnte: Wenn es in einer Familie üblich ist, im Dezember etwas
+vorzuschenken, dann könnten Geschenke im November vorvorgeschenkt werden.\footnote{
+  Herzliche Grüße an alle, die bei der Suche nach \emph{vorvorschenken} dieses Dokument finden.
 }
 
 

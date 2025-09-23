@@ -665,7 +665,7 @@ eliminiert. Die genauen Gründe hierfür sind gut in \citew[Kapitel~3.1]{Klenk20
 
 In HPSG"=Analysen nimmt man dagegen oft Lexikonregeln für Resultativkonstruktionen an
 \parencites{Wechsler97a,WN2001a,Verspoor97a}[Kapitel~6]{Mueller2002b,MWArgSt,MuellerLFGphrasal}.\footnote{
-  Siehe auch \citew[\page 45]{Wunderlich92a-u-kopiert} und
+  Siehe auch \citew[\page 45]{Wunderlich92a-u} und
   \citew[\page 120--126]{Wunderlich97c}
 zu einem äquivalenten Vorschlag in einem
   anderen theoretischen Rahmen.%
@@ -2198,13 +2198,13 @@ Verwendung wie in (\mex{1}b) lizenziert.
 cat & \ms{ head   & \ms[adj]{
                     mod & none\\
                     }\\
-           arg-st & \liste{ NP\ind{1} }\\
+           arg-st & \nliste{ NP\ind{1} }\\
          }\\
 cont & \ms{ ltop & \ibox{2}\\
-            ind  & \ibox{1}\\
+            ind  & \ibox{3} property\\
             rels & \liste{ \ms[reif]{
                            lbl  & \ibox{2}\\
-%                           arg0 & \ibox{3}\\
+                           arg0 & \ibox{3}\\
                            arg1 & \ibox{1}\\
                            } }\\
             hcons & \eliste }\\
@@ -2215,19 +2215,14 @@ cont & \ms{ ltop & \ibox{2}\\
 \ms{
 cat & \ms{ head   & \ms[adj]{
                     cas & nom $\vee$ acc\\
-                    mod & \normalfont{\nbar:} \ms{ ltop & \ibox{1} \\
-                                                   ind  & \ibox{2} \\
-                                                 } \\
-                    }\\
-           arg-st & \liste{ NP\ind{1} }\\
-         }\\
-cont & \ms{ ltop & \ibox{1}\\
-            ind  & \ibox{2}\\
+                    mod & \nbar\ind{2} }\\
+           arg-st & \nliste{ NP\ind{1} } }\\
+cont & \ms{ ltop & \ibox{2}\\
+            ind  & \ibox{3} property\\
             rels & \liste{ \ms[reif]{
                            lbl  & \ibox{1}\\
-%                           arg0 & \ibox{4}\\
-                           arg1 & \ibox{2}\\
-                          } }\\
+                           arg0 & \ibox{3}\\
+                           arg1 & \ibox{2} } }\\
             hcons & \eliste}\\
 }
 \end{tabular}

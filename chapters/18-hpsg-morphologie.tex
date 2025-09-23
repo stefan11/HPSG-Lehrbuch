@@ -166,7 +166,7 @@ und es wird plötzlich möglich, die Präteritummarkierung allein dem \infix{t} 
 Numerus"=Markierung\is{Numerus} ist nämlich im Präsens und im Präteritum gleich. Die Formen der zweiten Person unterscheiden sich
 lediglich in Bezug auf ein vorhandenes \emph{e}: \emph{lieb+st} vs.\ \emph{lieb+t+e+st}. Dieses
 eingefügte \emph{e} wird durch die Regel in (\mex{-1}) erklärt, da das Präteritumsmorph
-auf \emph{t} endet und die Person"=Numerus"=Markierung mit \emph{s} beginnt.\NOTE{liebt+t = liebte erklären}
+auf \emph{t} endet und die Person"=Numerus"=Markierung mit \emph{s} beginnt.\todostefan{liebt+t = liebte erklären}
 
 Neben den bisher diskutierten Fällen gibt es aber noch Verben wie \stem{geb}, die unregelmäßige
 Flexionsformen haben:
@@ -224,8 +224,8 @@ eine rein formale Markierung vorliegen, und die Pluralsemantik würde dann durch
 Betrachtet man die Konjugationsmuster in (\ref{verb-konjugation-praesens}) und (\ref{verb-konjugation-praeteritum}),
 sieht man, dass es hier einen Unterschied in der zeitlichen Lokalisierung des Ereignisses gibt.
 Da man diese auch negieren kann, wie (\mex{1}) zeigt, muss sich dieser Zeitbezug auch in der
-logischen Repräsentation des Verbs widerspiegeln.\NOTE{FB: Das versteht man nicht ohne weiteres. Was
-  hat die Negation damit zu tun?}
+logischen Repräsentation des Verbs widerspiegeln, das heißt, es muss eine eigene Relation für die
+Tempus-Information geben, nicht nur ein Merkmal bei einem Event oder Ähnliches. 
 \ea
 Sie lacht nicht, aber sie wird lachen.
 \z
@@ -253,7 +253,7 @@ Im\is{Flexion|(} Kapitel~\ref{Kapitel-Lexikon} haben wir bereits eine Lexikonreg
 flektierten Form in Verbindung setzt (S.\,\pageref{passive-lr-mit-phon}). Wie der \phonw aber genau berechnet
 wird, wurde bisher nicht erklärt. Betrachtet man die Präsensformen in (\ref{verb-konjugation-praesens}),
 so liegt \zb für die zweite Person Singular die folgende Spezifikation
-nahe:\is{Kongruenz|(}\NOTE{FB: list-of... muss man erklären}
+nahe:\is{Kongruenz|(}\todostefan{FB: list-of... muss man erklären}
 
 \eas
 \label{lr-verbal-inflection}%
@@ -269,7 +269,7 @@ synsem$|$loc \onems{ cat   \ibox{2} \onems{ head$|$vform  \type{fin} \\
 rels \liste{ \ms[present]{
                lbl & \ibox{3}\\
                arg0 & \ibox{4}\\
-               arg1 & \ibox{5} } } $\oplus$ \ibox{6}\\[2mm]
+               arg1 & \ibox{5} } } $\oplus$ \ibox{6}\\[8mm]
 %                                       arg2 & \ms[t-overlap]{
 %                                              arg1 & \ibox{4}\\
 %                                              arg2 & now\\
@@ -298,15 +298,17 @@ strukturellem Kasus einen Index mit der Person \emph{2} und dem Numerus \emph{sg
 Somit ist die Kongruenz zwischen Subjekt und einem Verb wie \emph{lachst} gewährleistet. Die Regel
 ist auch so formuliert, dass sie nicht auf das subjektlose Verb \emph{grauen} angewendet werden kann,
 denn \emph{grauen} hat kein Argument mit strukturellem Kasus. Die Unterteilung der \argstl in einen
-Anfang, der Elemente enthalten kann, die keine Nominalphrasen mit strukturellem Kasus sind, ist
+Anfang, der Elemente enthalten kann, die keine Nominalphrasen mit strukturellem Kasus sind (\type{list\_of\_not\_np\_str}), ist
 notwendig, um die im Kapitel~\ref{sec-remote-passive-hpsg} diskutierten Beispiele des Fernpassivs\is{Passiv!Fern-} mit
-Objektkontrollverben\is{Verb!Objektkontroll-} erfassen zu können.%
+Objektkontrollverben\is{Verb!Objektkontroll-} erfassen zu können (siehe auch
+S.\,\pageref{Kasusprinzip} zum Kasusprinzip).%
 \is{Kongruenz|)}
 
 Der \catw des Stammes und der \catw des Wortes sind identisch \iboxb{2}, aber der semantische
 Beitrag des Stammes wird unter die Tempus"=Information,\is{Tempus} die vom Suffix beigesteuert wird,
 eingebettet.\footnote{ 
-  Die Tempus"=Repräsentation ist eine Vereinfachung.%
+  Die Tempus"=Repräsentation ist eine Vereinfachung. Siehe \citew{Reichenbach47a-u} und darauf
+  aufbauende Arbeiten.%
 }
 
 %%\begin{comment}
@@ -470,11 +472,10 @@ Wendet man die Lexikonregel in (\ref{lr-verbal-inflection}) auf das Simplexverb
 \label{le-lachst}%
 \mbox{\emph{lachst}:}\\
 \ms{
-\ldots & \ms{ cat & \ms{ %head   & verb \\
-                             arg-st & \liste{ NP[\str]\ind{1}$_{2,sg}$ } \\[2mm]
-                           }\\
-                  cont & \ms{ ltop & \ibox{2}\\
-                              ind  & \ibox{3} event } }\\ 
+\ldots & \ms{ cat & \ms{ head   & verb \\
+                         arg-st & \liste{ NP[\str]\ind{1}$_{2,sg}$ } }\\
+              cont & \ms{ ltop & \ibox{2}\\
+                          ind  & \ibox{3} event } }\\ 
 rels & \liste{ \ms[present]{
                lbl & \ibox{2}\\
                arg0 & \ibox{3}\\
@@ -516,7 +517,7 @@ Die\is{Derivation|(} Behandlung der Derivation soll am Beispiel der \bard erklä
 \suffix{bar}"=Adjektiven wie \zb \emph{brennbar} gibt es produktiv gebildete \suffix{bar}"=Adjektive.
 Bei diesen Adjektiven wurde ein Verbstamm eines transitiven Verbs mit dem Suffix \suffix{bar} kombiniert.
 \eal
-\ex Er löst das Problem.
+\ex Der Delphin löst das Problem.
 \ex Das Problem ist lösbar.
 \ex Das Problem kann gelöst werden.
 \zl
@@ -530,13 +531,13 @@ aufgenommene Wörter anwendbar ist. So kann man \zb die Wörter \emph{mailbar} u
 bilden. Die dazugehörigen Verben \emph{mailen} und \emph{faxen} sind erst im vorigen Jahrhundert in
 die deutsche Sprache aufgenommen worden und sind also relativ neue Wörter.
 
-Die produktive Lexikonregel zur Bildung von \emph{bar}"=Adjektiven zeigt (\mex{1}) (siehe auch \citew{Riehemann98a}
+Die produktive Lexikonregel zur Bildung von \suffix{bar}"=Adjektiven zeigt (\mex{1}) (siehe auch \citew[68]{Riehemann98a}
 zu einer ähnlichen Regel).
 %\begin{figure}
 \eas
 \label{lr-bar-adj}%
 Lexikonregel für die Derivation von Adjektiven mit \bars:\\
-\resizebox{\linewidth}{!}{%
+\oneline{%
 \ms[reg-bar-adj-stem]{
 phon   & \ibox{1} $\oplus$ \phonliste{ bar }\\
 synsem & \onems{ loc  \ms{ cat  & \ms{ head   & adj\\ 
@@ -546,42 +547,52 @@ synsem & \onems{ loc  \ms{ cat  & \ms{ head   & adj\\
                                         ind  & \ibox{4} } } }\\
 rels & \liste{ \ms[modal-op]{
                lbl  & \ibox{3}\\
-               arg0 & \ibox{4}\\
-               arg1 & \ibox{5} } } $\oplus$ \ibox{6}\\
+%               arg0 & \ibox{4}\\
+               arg1 & \ibox{5} } } $\oplus$ \ibox{6}\\[6mm]
+hcons & \liste{ \ms[qeq]{
+                harg & \ibox{5}\\
+                larg & \ibox{7} } }\\[6mm]
 lex-dtr & \onems[stem]{
            phon   \ibox{1} \\
            synsem$|$loc \ms{ cat  & \ms{ head   & \ms[verb]{
-                                                  da & \sliste{ \ibox{7} }\\
+                                                  da & \sliste{ \ibox{8} }\\
                                                   }\\
-                                         arg-st & \sliste{ \ibox{7} NP[\str] } $\oplus$ \ibox{2} \upshape(\etag $\oplus$ \nliste{ NP[\str] } $\oplus$ \etag)\\
+                                         arg-st & \sliste{ \ibox{8} NP[\str] } $\oplus$ \ibox{2} \upshape(\etag $\oplus$ \nliste{ NP[\str] } $\oplus$ \etag)\\
                                        } \\
-                             cont & \ms{ ltop & \ibox{5} } }\\
+                             cont & \ms{ ltop & \ibox{7}\\
+                                         ind  & \ibox{4} } }\\
           rels \ibox{6} }\\
 }\is{Lexikonregel!bar-Derivation@\emph{-bar}-Derivation}%
 }
 \zs
 %\vspace{-\baselineskip}\end{figure}
-\itdopt{Was ist der Index des Adjektivs? Das Event des Verbs? Das schnell lesbare Buch. Igitt. Da
-  muss bar auf schnell les- angewendet werden.}
 Eingabe der Regel ist ein transitives Verb, \dash ein Verb mit zwei Nominalphrasen mit strukturellem Kasus.
-Die erste NP -- die auch das designierte Argument sein muss \iboxb{7} -- wird wie bei der Passivierung unterdrückt, 
+Die erste NP -- die auch das designierte Argument sein muss \iboxb{8} -- wird wie bei der Passivierung unterdrückt, 
 und die restliche \argstl \iboxb{2} wird zur \argstl des Adjektivs. Das Argumentrealisierungsprinzip
 sorgt dafür, dass die erste NP mit strukturellem Kasus auf der \argstl des Adjektivs zum Subjekt des
 durch die Regel lizenzierten Adjektivs wird. Das ist das direkte Objekt des Verbstamms.
-Der Bedeutungsbeitrag des Verbs (\ltop \ibox{5}\,) wird unter einen Modaloperator eingebettet.
-%\newpage
-%\noindent
+Der Bedeutungsbeitrag des Verbs (\ltop \ibox{7}\,) wird unter einen Modaloperator eingebettet
+(\,\ibox{5} \qeq \ibox{7}\,). Wie beim Einhorn-Beispiel mit \emph{glauben}, das im Kapitel~\ref
+besprochen wurde, gibt es zwei Lesarten für (\mex{1}):
+\ea
+mit einem Eichhorn vergleichbar
+\z
+Der Existenzquantor kann Skopus über den Modaloperator oder unter dem Modaloperator haben. Im ersten
+Fall muss es in der entsprechenden Welt ein Einhorn geben und im zweiten kann etwas mit einem
+Einhorn verglichen werden, ohne dass es eins gibt.\todostefan{Geht das nicht auch bei: Ich
+  vergleiche ihn mit einem Einhorn.?}
+
 Als Beispiel sei die Lexikonregel auf den Stamm \stem{lös} in (\mex{1})
 angewendet. Das Ergebnis der Regelanwendung zeigt (\mex{2}):
 \eas
 \stem{lös}:\\
 \ms{
-synsem|loc \ms{ cat & \ms{ head   & \ms[verb]{
+\ldots & \ms{ cat & \ms{ head   & \ms[verb]{
                                     da & \sliste{ \ibox{1} } }\\
                            arg-st & \nliste{ \ibox{1} NP[\str]\ind{2}, NP[\str]\ind{3}} }\\
                 cont & \ms{ ltop & \ibox{4}\\
                             ind  & \ibox{5} } }\\
-rels \liste{ \ms[lösen]{ 
+rels & \liste{ \ms[lösen]{ 
              lbl  & \ibox{4}\\ 
              arg0 & \ibox{5}\\
              arg1 & \ibox{2}\\
@@ -594,23 +605,26 @@ rels \liste{ \ms[lösen]{
 \label{le-lösbar}%
 \stem{lösbar} (inklusive Valenzmerkmalen und \subj):\\
 \ms{
-cat & \ms{ head & \ms[adj]{ subj & \sliste{ NP[\type{str}]\ind{3} } \\
+\ldots & \ms{ cat & \ms{ head & \ms[adj]{ subj & \sliste{ NP[\type{str}]\ind{3} } \\
                            } \\
            spr    & \eliste\\
            comps  & \eliste \\
            arg-st & \sliste{ NP[\type{str}]\ind{3} } \\
          }\\
 cont & \ms{ ltop & \ibox{6}\\
-            ind  & \ibox{7} }\\
+            ind  & \ibox{5} } }\\
 rels & \liste{ \ms[modal-op]{
                lbl  & \ibox{6}\\
-               arg0 & \ibox{7}\\
-               arg1 & \ibox{4} }, 
+%               arg0 & \ibox{7}\\
+               arg1 & \ibox{7} }, 
                \ms[lösen]{ 
                lbl  & \ibox{4}\\ 
                arg0 & \ibox{5}\\
                arg1 & \etag\\
-               arg2 & \ibox{3} } }
+               arg2 & \ibox{3} } }\\
+hcons & \liste{ \ms[qeq]{
+                harg & \ibox{7}\\
+                larg & \ibox{4} } }
 }\iw{lösbar|uu}
 \zs
 Die Agens"=Rolle von \emph{lösen} (\argone) ist nicht an ein Argument des
@@ -657,7 +671,7 @@ flektiert werden muss. In (\mex{1}b) liegt die maskuline Nominativ"=Singular"=Fo
 \subsection{Partikelverben}
 \label{morph-pv}
 
-Im folgenden diskutiere ich angebliche Klammerparadoxa, die im Zusammenhang mit der Analyse der
+Im Folgenden diskutiere ich angebliche Klammerparadoxa, die im Zusammenhang mit der Analyse der
 morphologischen Eigenschaften von Partikelverben von vielen Autor*innen diskutiert wurden
 \parencites[z.\,B.][\page165]{Bierwisch87a}[\page934]{SW94a}[\page46]{Stiebels96a}[104--105]{Luedeling2001a}. Es handelt sich
 dabei um Paradoxa, in denen sowohl morphologische als auch syntaktische und semantische Paradoxa vorzuliegen
@@ -665,7 +679,7 @@ scheinen. Würde es sich nur um ein semantisches Paradoxon handeln, so könnte m
 vorgeschlagenen Techniken verwenden, da aber andere Bereiche betroffen sind, ist eine grundlegendere Lösung
 des Problems nötig.
 
-Im folgenden sollen drei Fälle betrachtet werden: Der erste Fall stammt aus dem Bereich der
+Im Folgenden sollen drei Fälle betrachtet werden: Der erste Fall stammt aus dem Bereich der
 Flexion, die Fälle zwei und drei stammen aus dem Bereich der Derivation.
 
 \citet[\page163]{Bierwisch87a} diskutiert die beiden Analysen für \emph{auf"|hören}
@@ -718,12 +732,12 @@ wird, da sie sensitiv für die Eigenschaften des Stammes ist. Partizipien
 wie \emph{aufgehört} machen eine solche Analyse plausibel. Allerdings ist
 es so, dass der semantische Beitrag der Flexion sich auf den gesamten Beitrag
 des Partikelverbs bezieht und nicht nur auf den Beitrag des Basisverbs.
-In \citew{Mueller2002b} habe ich dargelegt, dass diese Beispiele nicht problematisch
+In \citew[277]{Mueller2003a} habe ich dargelegt, dass diese Beispiele nicht problematisch
 sind, da \emph{auf"|hören} nicht kompositional gebildet ist. Wenn die Partikel
 keine Bedeutung beisteuert und die Gesamtbedeutung bereits im Basisverb
 enthalten ist, dann entsteht das Problem gar nicht erst. Allerdings gibt
 es parallele Fälle mit kompositional gebildeten Partikelverben und für diese
-gilt es, das scheinbare Paradoxon aufzulösen. Ich werde im folgenden die
+gilt es, das scheinbare Paradoxon aufzulösen. Ich werde im Folgenden die
 Struktur~\ref{structures-pv}a annehmen und zeigen, dass die im Kapitel~\ref{Kapitel-partikel}
 entwickelte Analyse der Partikelverben aufs Beste mit der Analyse der
 Flexion und Derivation harmoniert.
@@ -736,7 +750,7 @@ Für die Struktur~\ref{structures-pv}a sprechen auch die Partizipformen:
 Die Partizipmarkierung \prefix{ge} und \suffix{t} stehen direkt links und rechts
 des Verbstammes, die Partikel muss links von \prefix{ge} stehen.
 Mit einer Struktur wie der in \ref{structures-pv}b müsste man erklären, wieso
-das \emph{ge} zwischen Partikel und Verb steht, da ja bei Annahme dieser
+das \prefix{ge} zwischen Partikel und Verb steht, da ja bei Annahme dieser
 Struktur \stem{auf"|hör} mit \prefix{ge} und \suffix{t} kombiniert würde.
 Auch gibt es eine Regel, die bei der Partizipbildung auf phonologische
 Eigenschaften des Verbs Bezug nimmt: Wenn die erste Silbe betont ist,
@@ -757,11 +771,11 @@ Das wird mit einer Struktur wie der in \ref{structures-pv}a direkt erfasst.
 
 Das zweite scheinbare Klammerparadoxon ist die \geen.\is{Nominalisierung}
 Die \geen ist die einzige diskontinuierliche Nominalderivation im Deutschen.
-Sie besteht aus dem Präfix \emph{Ge}- und dem Suffix \suffix{e}. 
-Deverbale \emph{Ge}- "~\emph{e}"=Nomina haben die Bedeutung `andauerndes/wiederholtes V-en'
+Sie besteht aus dem Präfix \prefix{Ge} und dem Suffix \suffix{e}. 
+Deverbale \prefix{Ge} "~\emph{e}"=Nomina haben die Bedeutung `andauerndes/wiederholtes V-en'
 und sind mit einer negativen Konnotation verbunden:
 \ea
-Sein Gepfeife ging ihm auf die Nerven.
+Sein Gepfeife ging Conny auf die Nerven.
 \z
 Die \geen ist auch bei Partikelverben möglich, und in der Literatur
 wurden die beiden Strukturen in Abbildung~\vref{structures-herumgerenne}
@@ -830,7 +844,7 @@ auch aus Gründen, die mit der Valenz\is{Valenz} von Verben zu tun haben, die
 Struktur in Abbildung~\ref{structures-anfahrbar}b zu brauchen scheint.
 
 In der Literatur sind sehr komplexe Verfahren wie \zb Umklammerung\is{Umklammerung} (`rebracketing')
-vorgeschlagen worden \parencites[\page165]{Bierwisch87a}[\page934]{SW94a}[\page46]{Stiebels96a}, um mit diesem scheinbaren Paradoxon fertig zu werden. Im folgenden
+vorgeschlagen worden \parencites[\page165]{Bierwisch87a}[\page934]{SW94a}[\page46]{Stiebels96a}, um mit diesem scheinbaren Paradoxon fertig zu werden. Im Folgenden
 soll gezeigt werden, dass dies nicht nötig ist und dass man aufbauend auf der
 im vorigen Kapitel vorgestellten Analyse der Partikelverben die Flexionsdaten
 und Derivationsdaten mit einer Struktur erklären kann, in der die Affixe
@@ -846,16 +860,16 @@ Flexionslexikonregel auf die Ausgabe der Partikelverblexikonregel (S.\,\pageref{
 anwendet. Diese Abbildung ähnelt der Abbildung~\vref{fig-loslachen-sem}, 
 die zur Erklärung der semantischen Kombination von Partikel und Verb benutzt wurde.
 Sie enthält zusätzlich jedoch noch Flexionsinformation.\footnote{Die oberste \relsl hätte eigentlich
-  eine andere Reihenfolge \relation{beginnen} muss am Anfang der Liste stehen, da die Liste mittels
+  eine andere Reihenfolge: \relation{beginnen} muss am Anfang der Liste stehen, da die Liste mittels
   \texttt{append} aus den Listen der Töchter gebildet wird. Der besseren Lesbarkeit halber, habe ich
   die Listenelemente anders angeordnet. Die Reihenfolge der Elemente ist nicht wichtig. Im
-  Originalaufsatz zu MRS wird auch eine Menge verwendet und Mengenelemente sind nicht geordnet.
+  Originalaufsatz zu MRS wird auch eine Menge bzw.\ Multimenge verwendet und Mengenelemente sind nicht geordnet \citep[293]{CFPS2005a}.
 }
 \begin{figure}
 \begin{forest}
 sm edges
 [V\feattab{\cont [\ltop \ibox{1}, \textsc{ind} \ibox{2} ],\\
-           \rels \nliste{ h1:present(h2), h2:beginnen(h3), h3:lachen(x) }}
+           \rels \nliste{ h1:present(h2), h2:beginnen(e1,h3), h3:lachen(e2,x) }}
   [\ibox{3} Part\feattab{\textsc{mod} \ibox{4} [\cont|\ltop \ibox{5} h3 ],\\
                          \cont \ibox{6} [\ltop h2, \textsc{ind} e1],\\ 
                          \rels \nliste{ h2:beginnen(e1,h3) } } [los]]
@@ -875,7 +889,7 @@ sm edges
 \end{figure}
 In der Ausgabe der Partikelverblexikonregel wird der \contw mit dem \contw der Partikel
 \iboxb{6} geteilt. Damit ist der \ltopw von \stem{lach} mit selegierter Partikel identisch mit dem
-\ltopw der Partikel, der die Bedeutung von Partikel + Verb repräsentiert (h2). Dieser \ltopw wird in der Ausgabe der Lexikonregel für die Verbflexion
+\ltopw der Partikel, der Teil der Bedeutung von Partikel + Verb ist (\ltop h2). Dieser \ltopw wird in der Ausgabe der Lexikonregel für die Verbflexion
 unter die \emph{present}"=Relation eingebettet. Die \emph{present}"=Relation und die
 \emph{lachen}"=Relation wird in \rels nach oben gegeben. Wenn die Partikel mit der
 flektierten Form des Stammes \stem{lach} kombiniert wird, wird die von der Partikel beigesteuerte Relation, die zu
@@ -902,8 +916,9 @@ in (\ref{le-lach-+particle}) auf Seite~\pageref{le-lach-+particle} ist in (\mex{
 \label{le-lachst-+particle}%
 \mbox{\emph{lachst} (Präsens + Selektion einer Partikel):}\\
 \ms{%
-\ldots & \ms{ cat|arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2} $_{2,sg}$}\,)  $\oplus$ \ibox{3} $\oplus$ \ibox{4}\\
-                         & \liste{ \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \ms{
+\ldots & \ms{ cat & \ms{ head   & verb\\
+                         arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2} $_{2,sg}$}\,)  $\oplus$ \ibox{3} $\oplus$ \ibox{4}\\
+                                & \liste{ \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \ms{
                                                                   cat & \onems{ head   \type{verb} \\
                                                                                 arg-st \ibox{1}  \\
                                                                           }\\
@@ -913,9 +928,9 @@ in (\ref{le-lach-+particle}) auf Seite~\pageref{le-lach-+particle} ist in (\mex{
                                                                comps \ibox{4}} \\
                                                 cont \ms{ ltop & \ibox{7}\\
                                                           ind  & \ibox{8} } }\\
-                                          lex + } } \\[10mm]
-            cont & \ms{ ltop & \ibox{9}\\
-                        ind  & \ibox{8} } }\\ 
+                                          lex + } } }\\\\[-2mm]
+              cont & \ms{ ltop & \ibox{9}\\
+                          ind  & \ibox{8} } }\\ 
 rels & \liste{ \ms[present]{
                lbl & \ibox{9}\\
                arg0 & \ibox{8}\\
@@ -929,7 +944,7 @@ rels & \liste{ \ms[present]{
 %\vspace{-\baselineskip}\end{figure}
 
 \noindent
-Obwohl der Bedeutungsbeitrag der Partikelverbkombination (\ltop \iboxb{7} und \textsc{ind} \ibox{8}) noch unterspezifiziert
+Obwohl der Bedeutungsbeitrag der Partikelverbkombination (\ltop \ibox{7} und \textsc{ind} \ibox{8}) noch unterspezifiziert
 ist, weil das Verb noch nicht mit der Partikel kombiniert wurde, kann man sich
 auf den Beitrag beziehen. Der Bedeutungsbeitrag für das gesamte Partikelverb wurde von der Partikel
 übernommen und ist der Beitrag des verbalen Stammes, der die Eingabe für die Flexionslexikonregel
@@ -1021,12 +1036,7 @@ for without any bracketing paradox.
 
 Die\is{Derivation!Nomen|(}
 Lexikonregel in (\mex{2}) lizenziert Nominalisierungen
-wie die in (\mex{1}):\footnote{
-  In dieser Regel werden die Argumente des Eingabeverbs ignoriert. Natürlich
-  gibt es vielfältige Möglichkeiten, diese zu realisieren, was in einem vollständigen
-  Ansatz auch berücksichtigt werden muss. Damit die Analyse der Nominalisierung von Partikelverben
-  funktioniert, müssen mindestens die komplexbildenden Argumente (die Verbpartikel) der \textsc{lex-dtr} übernommen werden. Dafür werden weiter unten noch Beispiele gegeben.%
-}
+wie die in (\mex{1}):
 \ea
 das Herumgerenne\footnote{
         taz, 01.02.1999, S.\,16.% %TAZ Nr. 5750 Seite 16 vom 01.02.1999
@@ -1035,12 +1045,12 @@ das Herumgerenne\footnote{
 \z
 
 \eas
-Lexikonregel für \geenen:\\
 \label{lr-gee-nom}%
+Lexikonregel für \geenen:\\
 \ms[ge-e-derived-noun-stem]{
 phon & f\textrm{(\,\phonliste{ ge }, \ibox{1}, \phonliste{ e }\,)}\\
 \ldots &  \ms{ cat  & \ms{ head   & noun\\
-                           arg-st & \upshape \nliste{ Det } $\oplus$ \texttt{sublist}(\ibox{2}) }\\
+                           arg-st & \upshape \nliste{ Det } $\oplus$ \texttt{realize-nomilization-args}(\ibox{2}) }\\
 %                          comps & \eliste\\
                cont & \ms{ ltop & \ibox{3}\\
                            ind  & \ibox{4} \ms{ per & 3\\
@@ -1053,7 +1063,7 @@ rels & \liste{%
        arg1 & \ibox{5} } } $\oplus$ \ibox{6}\\   
 lex-dtr & \onems[stem]{
            phon   \ibox{1} \\
-           synsem$|$loc \onems{ cat \ms{ head & \type{verb}\\
+           synsem$|$loc \onems{ cat \ms{ head   & verb\\
                                          arg-st & \ibox{2} }\\
                                 cont|ltop  \ibox{5} \\
                         }\\
@@ -1066,7 +1076,7 @@ lex-dtr & \onems[stem]{
 $f$ ist dabei wieder eine Funktion, die den \phonw des Eingabezeichens
 mit \gee kombiniert. 
 Das \suffix{e} ist optional, wenn das Eingabenomen -- wie \zb in \emph{Rumgeballer} --
-mit einer unbetonten\is{Betonung} Silbe \suff{er}, \suff{el}, \suff{en} endet.
+mit einer unbetonten\is{Betonung} Silbe in \suff{er}, \suff{el}, \suff{en} endet.
 % Gallmann phonologisch gesteuert =/= phonologisch bedingt
 Das Ergebnis der Regelanwendung ist ein nominaler Stamm. Dieser Stamm
 muss flektiert werden, damit er in der Syntax benutzt werden kann.\footnote{
@@ -1099,18 +1109,21 @@ spezifiziert ist. Pluralaffixe können deshalb nicht mit durch die Lexikonregel
 in  \pref{lr-gee-nom} lizenzierten Stämmen kombiniert werden. 
 Der referentielle Index \iboxb{4} ist identisch mit dem Wert des \argzero"=Merkmals
 der \relation{wiederholtes-ereignis}"=Relation. Diese Relation bettet den Bedeutungsbeitrag des
-eingebetteten Verbstamms (\ltop \ibox{5}) ein.
+eingebetteten Verbstamms (\ltop \ibox{5}\,) ein.
 
-In Nominalisierungen können Argumente von nominalisierten Verben im Genitiv realisiert werden, wenn
+In Nominalisierungen können Argumente von nominalisierten Verben nicht, im Genitiv oder als PP realisiert werden, wenn
 sie strukturellen Kasus haben.
 \eal
+\ex das Gesinge
 \ex das Gesinge Aickes
 \ex das Gesinge von Aicke
 \zl
-Die Realisierung dieser Argumente ist jedoch immer optional. In (\ref{lr-gee-nom}) wird deshalb nur
-eine Teilliste der Argumente des nominalisierten Verbs auf der \argstl des lizenzierten Nomens
-repräsentiert. Da die leere Liste auch eine Teilliste von Listen ist, ist es auch möglich,
-\emph{Gesinge} nur mit einem Determinator und ansonsten ohne Argumente zu verwenden.
+In (\ref{lr-gee-nom}) wird deshalb die Beschränkung \texttt{realize-nomilization-args} verwendet,
+die die Argumente des Verbs auf Argumente des Nomens abbildet. Dabei ist es auch möglich, dass kein
+Argument realisiert wird. Die Realisierung von selegierten Verbpartikeln ist obligatorisch, weil man
+sonst für \emph{Gesinge} zwei Analysen bekäme: die, bei der \emph{Gesinge} von \stem{sing}
+abgeleitet wurde, und die, wo die \geen auf \stem{sing} + Partikel angewendet und die Partikel nicht
+realisiert wurde.
 
 % das Grauen vor dem Henker -> auch subjektlose Verben koennen nominalisiert werden
 
@@ -1122,7 +1135,7 @@ zu dem bereits auf S.\,\pageref{le-lachen} diskutierten für \stem{lach}.
 \eas
 \stem{renn}:\\
 \ms{
-\ldots & \ms{ cat & \ms{ %head   & verb \\
+\ldots & \ms{ cat & \ms{ head   & verb \\
                          arg-st & \nliste{ NP[\str]\ind{1} } }\\[2mm]
                   cont & \ms{ ltop & \ibox{2}\\
                               ind  & \ibox{3} event } }\\ 
@@ -1132,7 +1145,6 @@ rels & \liste{ \ms[rennen]{
                arg1 & \ibox{1} } }
 }\iw{rennen|uu}
 \zs
-\itdopt{überall hinschreiben, dass es head|verb ist?}
 
 \noindent
 Das Ergebnis der Anwendung der Lexikonregel in (\ref{lr-gee-nom}) auf (\mex{0})
@@ -1143,7 +1155,7 @@ ist (\mex{1}).
 \stem{Gerenne}:\\
 \ms{
 \ldots & \ms{ cat  & \ms{ head   & noun\\
-                          arg-st & \nliste{ Det, NP[\str] } } \\
+                          arg-st & \nliste{ Det, NP[\str]\ind{1} } } \\
               cont & \ms{ ltop & \ibox{2}\\
                           ind  & \ibox{3} \ms{ per & 3\\
                                                num & sg\\
@@ -1156,13 +1168,12 @@ rels & \liste{%
        \ms[rennen]{ 
        lbl  & \ibox{4} \\
        arg0 & event \\
-       arg1 & \etag } } }\\
+       arg1 & \ibox{1} } } }\\
 \zs
 
 \noindent
-Die Agens"=Rolle von \emph{rennen} (\argone) ist nicht an ein Element in der Valenzrepräsentation
-des Nomens gelinkt, weshalb der Wert des \textsc{agens}"=Merkmals in (\mex{0}) 
-als leeres Kästchen visualisiert ist.
+Die Agens"=Rolle von \emph{rennen} (\argone) ist an die NP mit strukturellem Kasus gelinkt
+\iboxb{1}. Alternativ werden auch Formen von \emph{Gerenne} ohne NP-Argument bzw.\ mit einem PP-Argument lizenziert.
 % Jacobs94a -> definitheitsneutrale Variablen
 % The nominalization
 % rule has to take care of the existential quantification of this argument.
@@ -1186,9 +1197,10 @@ die hier von Interesse ist, fügt der Bedeutung des Basisverbs
 eine Komponente hinzu, in der enthalten ist, dass die Aktion
 des Basisverbs ziellos ist.
 (\mex{1}) zeigt den Lexikoneintrag für \emph{herum}.
-Der Eintrag ist ähnelt dem von \emph{los}, der auf Seite~\pageref{le-los-asp}
+Der Eintrag ähnelt dem von \emph{los}, der auf Seite~\pageref{le-los-asp}
 angegeben wurde. Allerdings ist \emph{herum} intersektiv: Wenn jemand herumrennt, rennt er und das
-Rennen ist ziellos. 
+Rennen ist ziellos. \ltop- und \indw des modifizierten Verbs sind also mit dem \ltop- und \indw der
+Partikel identisch.
 %
 \eas
 \label{le-herum-part}%
@@ -1259,8 +1271,8 @@ als auch die von \emph{Herumgerenne} wäre mit dem \emph{gerenne}, das eine Part
 selegiert, möglich). Über ihren \modw kann die Partikel auf den semantischen
 Beitrag des Verbs zugreifen (\ltop \ibox{5}, \textsc{ind} \ibox{6}\,)  und das Label
 und die Ereignisvariable der \relation{ziellos}"=Relation mit den Werten von \relation{rennen} identifizieren.
-Da der semantische Beitrag (\ltop h2) durch die Nominalisierungsregel unter \relation{wiederholtes-ereignis}
-eingebettet wird, ist die semantische Repräsentation für die gesamte Nominalisierung (\mex{1}), was genau dem erwünschten Resultat entspricht.
+Da der semantische Beitrag (\ltop h3) durch die Nominalisierungsregel unter \relation{wiederholtes-ereignis}
+eingebettet wird und da h3 mit h2 identifiziert wurde, ist die semantische Repräsentation für die gesamte Nominalisierung (\mex{1}), was genau dem erwünschten Resultat entspricht.
 \ea
 \textmrs{ h1, \{ h1:wiederholtes-ereignis(i1,h2), h2:ziellos(e1), h2:rennen(e1,x) \}, \{ \}}
 \z
@@ -1278,8 +1290,9 @@ da er vom Basisverb (\stem{lach} vs.\ \stem{renn}) kommt.
 \label{le-renn-+particle}%
 \stem{renn} (mit Selektion einer Partikel):\\
 \ms{%
-\ldots & \ms{ cat|arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2}}\,)  $\oplus$ \ibox{3} $\oplus$ \ibox{4}\\
-                         & \liste{ \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \ms{
+\ldots & \ms{ cat & \ms{ head & verb\\
+                         arg-st & \upshape (\,\ibox{1} \nliste{NP[\str]\ind{2}}\,)  $\oplus$ \ibox{3} $\oplus$ \ibox{4}\\
+                                & \liste{ \onems{ l \onems{ c \onems{ h \onems[particle]{ mod$|$l \ms{
                                                                   cat & \onems{ head  \type{verb} \\
                                                                                 arg-st \ibox{1}  \\
                                                                           }\\
@@ -1289,8 +1302,8 @@ da er vom Basisverb (\stem{lach} vs.\ \stem{renn}) kommt.
                                                                comps \ibox{4}} \\
                                                 cont \ibox{7} \\
                                               }\\
-                                          lex + } } \\
-            cont \ibox{7} }\\
+                                          lex + } } }\\
+              cont & \ibox{7} }\\
 rels & \liste{ \ms[rennen]{ 
                lbl  & \ibox{5} \\
                arg0 & \ibox{6} \\
@@ -1416,6 +1429,7 @@ resulting in \word{Totgeschlage} (`dead.beating').
 \fi
 \is{Derivation!Nomen|)}
 
+\noindent
 Nach der Behandlung von Flexion und \geen wende ich mich nun
 dem schwierigsten Fall zu: der \bard.
 
@@ -1468,8 +1482,8 @@ sm edges
 [{Adj[\argst \ibox{1}]}, l sep+=\baselineskip
 %\bard LR
   [{V[\begin{tabular}[t]{@{}l@{}}
-      \argst \ibox{2} (\ibox{3} $\oplus$ \ibox{4} $\oplus$ \ibox{5} $\oplus$ \nliste{ Part[\subj \ibox{4}, \comps \ibox{5}] })]\\
-                \hfill$\wedge$ \ibox{2} = \ibox{3} $\oplus$ \ibox{1} (\etag $\oplus$ \nliste{ NP[\str] } $\oplus$ \etag)
+      \argst \ibox{2} (\,\ibox{3} $\oplus$ \ibox{4} $\oplus$ \ibox{5} $\oplus$ \nliste{ Part[\subj \ibox{4}, \comps \ibox{5}] })]\\
+                \hfill$\wedge$ \ibox{2} = \ibox{3} $\oplus$ \ibox{1} (\,\etag $\oplus$ \nliste{ NP[\str] } $\oplus$ \etag{}\,)
 \end{tabular}}, l sep+=\baselineskip, edge label={node[midway,right]{\bard-LR}}
 %
 %PV LR
@@ -1479,7 +1493,7 @@ sm edges
 \caption{Anwendung der Lexikonregel für die \bard auf \stem{fahr} mit selegierter Partikel}\label{fig-p-fahrbar-val}
 \end{figure}
 Der \argstw des Eingabezeichens muss eine Liste sein, die zwei Nominalphrasen mit strukturellem Kasus
-enthält (\,\ibox{3} $\oplus$ \ibox{1} (\etag $\oplus$ \nliste{ NP[\str] } $\oplus$ \etag\,) wobei
+enthält (\,\ibox{3} $\oplus$ \ibox{1} (\,\etag $\oplus$ \nliste{ NP[\str] } $\oplus$ \etag{}\,) wobei
 \ibox{3} eine Liste mit einer NP mit strukturellem Kasus ist).
 Da der \argstw des Eingabezeichens für die \bard in Abbildung~\ref{fig-p-fahrbar-val} die
 Verknüpfung der \argstl des Basisverbs mit dem \subjw und dem \compsw der selegierten Partikel ist, können nur Partikeln, die eine
@@ -1500,8 +1514,8 @@ sm edges
         \argst \ibox{1} \sliste{ \ibox{7}, \ibox{6} } }, l sep+=\baselineskip
 %\bard LR
   [{V[\begin{tabular}[t]{@{}l@{}}
-      \argst \ibox{2} (\ibox{3} $\oplus$ \ibox{4} $\oplus$ \ibox{5} $\oplus$ \nliste{ \ibox{6} Part[\subj \ibox{4}, \comps \ibox{5}] })]\\
-                \hfill$\wedge$ \ibox{2} = \ibox{3} $\oplus$ \ibox{1} (\etag $\oplus$ \nliste{ NP[\str] } $\oplus$ \etag)
+      \argst \ibox{2} (\,\ibox{3} $\oplus$ \ibox{4} $\oplus$ \ibox{5} $\oplus$ \nliste{ \ibox{6} Part[\subj \ibox{4}, \comps \ibox{5}] })]\\
+                \hfill$\wedge$ \ibox{2} = \ibox{3} $\oplus$ \ibox{1} (\,\etag $\oplus$ \nliste{ NP[\str] } $\oplus$ \etag{}\,)
 \end{tabular}}, l sep+=\baselineskip, edge label={node[midway,right]{\bard-LR}}
 %
 %PV LR
@@ -1540,7 +1554,7 @@ Der Grund hierfür ist, dass \emph{los} keine Argumente einführt. Da \emph{los}
 Verben kombiniert werden kann, ist das Ergebnis einer solchen Kombination wieder ein intransitives Verb.
 Obwohl es eine Form \emph{fahrbare} gibt, die eine Partikel selegiert, kann diese nicht mit \emph{los}
 kombiniert werden, da die Beschränkung, die durch die Lexikonregel für die \bard eingeführt wurde
-(\,\ibox{2} = \ibox{3} $\oplus$ \ibox{1} (\etag $\oplus$ \nliste{ NP[\str] } $\oplus$ \etag)) 
+(\,\ibox{2} = \ibox{3} $\oplus$ \ibox{1} (\,\etag $\oplus$ \nliste{ NP[\str] } $\oplus$ \etag{}\,)) 
 verletzt wäre: \iboxt{2} würde nur zwei Elemente enthalten, nämlich das Subjekt von \stem{fahr} und
 die Partikel. Da \ibox{3} aber eine Liste mit einer NP mit strukturellem Kasus ist, muss \ibox{2}
 zwei NPen mit strukturellem Kasus enthalten.
@@ -1578,7 +1592,7 @@ Die Partikelverblexikonregel führt eine Partikel in die \argstl ein,
 die die Eingaberepräsentation über \textsc{mod} selegiert \iboxb{3}. In der Ausgabe der
 Lexikonregel wird der \contw \iboxb{7} mit dem \contw der Partikel in der \argstl identifiziert.
 Die Lexikonregel für die  \bard bettet den \ltopw aus diesem \contw (h3) unter einen Modaloperator \emph{modal-op} ein.
-Zu diesem Zeitpunkt ist keine Partikel vorhanden so dass man nicht weiß, wie \ltop- und \indw der
+Zu diesem Zeitpunkt ist keine Partikel vorhanden, so dass man nicht weiß, wie \ltop- und \indw der
 Partikel aussehen werden. Im nächsten Schritt wird die Partikel mit \emph{fahrbar} kombiniert.
 Die Partikel hat die Form eines Adjunkts, ihr \modw wird mit dem \synsemw
 des Stammes \stem{fahr} identifiziert, da das in der \compsl des abgeleiteten
@@ -1593,6 +1607,7 @@ Adjektivs \emph{anfahrbar} ist. Es ergibt sich also folgende MRS:
 \z
 \iw{\bars|)}
 
+\noindent
 Bevor wir uns im nächsten Abschnitt alternativen Analysen zuwenden, möchte
 ich kurz noch die Beispiele in (\mex{1}) diskutieren, die zeigen, dass Elemente, die von Partikelverben
 abgeleitet sind, weitere morphologische Veränderungen zulassen:
@@ -1612,13 +1627,14 @@ In (\mex{0}a) wurde \word{annehmbar} mit \prefix{un} präfigiert und in (\mex{0}
 dass das Schema, das die Partikel mit dem derivierten Nomen oder Adjektiv kombiniert,
 innerhalb der Morphologiekomponente angewendet wird bzw.\ Eingabe zu dieser Komponente sein
 kann. 
-\NOTE{FB: Aber wie würde das bei Dir gehen? Partikel+Nomen/adj. werden doch schon syntaktisch
+\itdopt{FB: Aber wie würde das bei Dir gehen? Partikel+Nomen/adj. werden doch schon syntaktisch
   kombiniert. Oder darf man den Mutterknoten in head-cluster-strukturen wieder in die Morphologie
   stecken, weil er LEX unterspezifiziert ist und es sich gar nicht um eine richtige syntaktische
-  Phrase handelt? Dazu müßtest Du vielleicht noch was sagen.}
-%Das kann man erreichen, indem man Strukturen vom Typ \type{head"=cluster"=phrase} nicht nur als
-%Untertypen von \type{phrase} sondern auch als Untertypen von \type{word} zuläßt. 
-% Hm. Irgendwie sollte un- aber an einen Stamm gehen, oder?
+  Phrase handelt? Dazu müßtest Du vielleicht noch was sagen.\\
+Ich:
+Das kann man erreichen, indem man Strukturen vom Typ \type{head"=cluster"=phrase} nicht nur als
+Untertypen von \type{phrase} sondern auch als Untertypen von \type{word} zulässt. 
+ Hm. Irgendwie sollte un- aber an einen Stamm gehen, oder?}
 Das Ergebnis der
 Kombination von Partikel und Adjektiv bzw.\ Nomen 
 %ist dann ein Wort und 
@@ -1653,7 +1669,7 @@ for compounds like those in (\mex{1}):\footnote{
 
 \section{Alternativen}
 
-Im folgenden sollen Kopf"=Affix"=Strukturen als Alternative zu Lexikonregeln diskutiert werden.
+Im Folgenden sollen Kopf"=Affix"=Strukturen als Alternative zu Lexikonregeln diskutiert werden.
 Abschnitt~\ref{sec-flex-mark} beschäftigt sich mit einer Analyse der Flexion als Kopf"=Marker"=Struktur.
 
 \subsection{Kopf-Affix-Strukturen vs.\ Lexikonregeln}
@@ -1715,7 +1731,7 @@ die jeweils nur für syntaktische bzw.\ morphologische Köpfe zutreffen.
 
 
 In vielen Fällen sind die Ansätze ineinander überführbar \parencites[\page168--169]{Koenig99a}[Kapitel~6.2.5.2]{Mueller2002b},
-es gibt jedoch ein paar Kleinigkeiten, in denen sie sich unterscheiden. Das soll im folgenden
+es gibt jedoch ein paar Kleinigkeiten, in denen sie sich unterscheiden. Das soll im Folgenden
 anhand der bereits diskutierten \bard diskutiert werden.
 Für die \bard könnte man zum Beispiel folgendes Suffix für \suffix{bar} annehmen:
 \eas
@@ -1730,7 +1746,7 @@ synsem$|$loc  \ms{ cat  & \ms{ head   & \ms[adj]{
                                     soa & \ibox{4}\\
                                    }\\
                          }\\
-}}\is{Morphem!-\emph{bar}-Derivation}%
+}}\is{Morphem!-\suffix{bar}-Derivation}%
 \zs
 Das \bars ist in der Struktur für den Stamm \emph{lesbar} der Kopf. Es verlangt als Argument ein transitives
 Verb, dessen Objekt \iboxb{2} es zu seinem Subjekt macht. Das logische Subjekt des transitiven Verbs wird unterdrückt.

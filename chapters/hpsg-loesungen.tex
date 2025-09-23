@@ -141,7 +141,7 @@ Differenzlisten erklären.
 
       \eal
       \ex er: \sliste{}
-      \ex seine (in \emph{seine Ankündigung}): \sliste{}
+      \ex ihre (in \emph{ihre Ankündigung}): \sliste{}
       \ex schnarcht: \sliste{ NP[\type{nom}] } 
       \ex denkt: \sliste{ NP[\type{nom}], (PP[\type{an},\type{akk}]) } $\vee$ \sliste{
         NP[\type{nom}], (CP[\type{dass}]) }
@@ -150,7 +150,7 @@ Differenzlisten erklären.
       \zl
 
 
-\section{Kopf-Argument-Strukturen}
+\section{Dominanzstrukturen und Prinzipien}
 
 \begin{enumerate}
 \item Zeichnen Sie einen Syntaxbaum für (\mex{1}):
@@ -186,32 +186,35 @@ sm edges
 \item 
 
 \eanoraggedright
-\onems[head-argument-phrase~]{
+\onems[head-complement-phrase~]{
       phon  \phonliste{ das Kind schläft }\\
       head  \ibox{1}\\
-      comps \ibox{2} \sliste{ } \\
+      spr   \ibox{2} \eliste\\
+      comps \ibox{3} \eliste \\
       head-dtr \onems[word]{ phon \phonliste{ schläft }\\
                                      head \ibox{1} \ms[verb]{vform & fin \\
                                                             }\\
-                                     comps \ibox{2}  $\oplus$ \sliste{ \ibox{3} } \\
+                                     spr \ibox{2} \eliste\\
+                                     comps \ibox{3}  $\oplus$ \sliste{ \ibox{4} } \\
                        } \\
-      non-head-dtrs \liste{ \ibox{3} \onems[head-argument-phrase~]{ 
+      non-head-dtrs \liste{ \ibox{4} \onems[head-specifier-phrase~]{ 
                                         phon \phonliste{ das Kind }\\
-                                        head \ibox{4} \ms[noun]{ cas & \ibox{5} nom\\
+                                        head \ibox{5} \ms[noun]{ cas & \ibox{6} nom\\
                                                       } \\
+                                        spr   \eliste\\
                                         comps   \eliste \\
                                         head-dtr \onems[word]{ 
                                                   phon \phonliste{ Kind }\\
-                                                  head \ibox{4} \\
-                                                  comps   \sliste{ \ibox{6} } \\
-                                                  }\\
-                                        non-head-dtrs \liste{ \ibox{6} \onems[word]{ 
+                                                  head \ibox{5} \\
+                                                  spr  \sliste{ \ibox{7} } \\
+                                                  comps \eliste }\\
+                                        non-head-dtrs \liste{ \ibox{7} \onems[word]{ 
                                                                 phon \phonliste{ das }\\
                                                                 head \ms[det]{
-                                                                      cas & \ibox{5} \\ 
+                                                                      cas & \ibox{6} \\ 
                                                                       }\\
-                                                                comps \eliste{ } \\
-                                                  } }\\
+                                                                spr \eliste\\
+                                                                comps \eliste } }\\
                                      }
                        }\\
 }
@@ -227,73 +230,93 @@ sm edges
 %% Wie kann man den semantischen Beitrag von \emph{lacht} repräsentieren? Geben Sie den
 %%   Lexikoneintrag für \emph{lacht} an und berücksichtigen Sie das Linking.
 
+\eas
+%\label{le-lachen}%
+\emph{lacht}:\\
+\ms{
+cat & \ms{ %head   & verb \\
+           arg-st & \nliste{ NP[\str]\ind{1} } }\\[2mm]
+cont & \ms{ ltop & \ibox{2}\\
+            ind  & \ibox{3} event\\ 
+            rels & \liste{ \ms[lachen]{ 
+                   lbl  & \ibox{2} \\
+                   arg0 & \ibox{3} \\
+                   arg1 & \ibox{1} } }\\
+            hcons & \eliste }}
+\zs
 
-
-\ea
-\onems[head-argument-phrase~]{
-      phon  \phonliste{ er lacht }\\
-      cat \ms{ head  \ibox{1}\\
-               comps \ibox{2} \sliste{ } \\
-             }\\
-      cont \ibox{3}\\
-      head-dtr \ms[word]{ phon & \phonliste{ lacht }\\
-                          cat & \ms{ head \ibox{1} \ms[verb]{vform & fin \\
-                                                            }\\
-                                     comps \ibox{2}  $\oplus$ \sliste{ \ibox{4} } \\
-                                   }\\
-                          cont & \ibox{3} \ms[lachen]{ agens & \ibox{5}\\
-                                          }\\
-                       } \\
-      non-head-dtrs \liste{ \ibox{4} \ms[word~]{ 
-                                        phon & \phonliste{ er }\\
-                                        cat & \ms{ head & \ms[noun]{ cas & nom\\
-                                                                   } \\
-                                                   comps &  \eliste \\
-                                                 }\\
-                                        cont & \ms{ ind & \ibox{5} \ms{ per & 3\\
-                                                                      num & sg\\
-                                                                      gen & mas\\
-                                                                    }\\
-                                                  restr & \eliste\\
-                                                }\\
-                                     }
-                       }\\
-}
-\z
-
- 
-
-\end{enumerate}
-
-
-\section{Spezifikation und Adjunktion}
-
-
-\begin{enumerate}
 \item
 
 \ea
-\ms
- { phon & \phonliste{ großem }\\
-   cat & \ms{ head & \ms[adj]
-                      { %prd & $-$ \\
-                        mod &  \textrm{$\overline{\mbox{\textrm{N}}}$:} \ms{ ind   & \ibox{1} \\
-                                                                     restr & \ibox{2} \\
-                                                                    } \\
-                      } \\
-               comps & \liste{} \\
-             } \\
-   cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
+\onems[head-complement-phrase~]{
+      phon  \phonliste{ er lacht }\\
+      cat \ms{ head  & \ibox{1}\\
+               spr   & \ibox{2} \eliste\\
+               comps & \ibox{3} \eliste \\
+             }\\
+      cont \ms{ ltop & \ibox{4}\\
+                ind  & \ibox{5}\\
+                rels & \liste{ \ms[lachen]{ 
+                               lbl  & \ibox{4}\\
+                               arg0 & \ibox{5}\\
+                               arg1 & \ibox{6} } }\\
+                hcons & \eliste } \\
+      head-dtr \ms[word]{ phon & \phonliste{ lacht }\\
+                          cat & \ms{ head & \ibox{1} \ms[verb]{vform & fin }\\
+                                     spr   & \ibox{2} \eliste\\
+                                     comps & \ibox{3}  $\oplus$ \sliste{ \ibox{7} } \\
+                                   }\\
+                          cont & \ms{ ltop & \ibox{4}\\
+                                      ind  & \ibox{5} event\\
+                                      rels & \liste{ \ms[lachen]{ 
+                                                     lbl  & \ibox{4}\\
+                                                     arg0 & \ibox{5}\\
+                                                     arg1 & \ibox{6} } }\\
+                                      hcons & \eliste } } \\
+      non-head-dtrs \liste{ \ibox{7} \ms[word~]{ 
+                                        phon & \phonliste{ er }\\
+                                        cat & \ms{ head  & \ms[noun]{ cas & nom } \\
+                                                   spr   & \eliste\\
+                                                   comps & \eliste \\
+                                                 }\\
+                                        cont & \ms{ ind & \ibox{6} \ms{ per & 3\\
+                                                                      num & sg\\
+                                                                      gen & mas\\
+                                                                    }\\
+                                                    rels & \eliste\\
+                                                    hcons & \eliste } } }
+}
+\z
+
+\item
+
+\eas
+\ms{
+phon & \phonliste{ großem }\\
+cat & \ms{ head & \ms[adj]{
+                  mod & \ms{ cat & \ms{ head & noun\\
+                                        spr  & \nliste{ Det }\\
+                                        comps & \eliste }\\
+                             cont & \ms{ %ltop & \ibox{1}\\
+                                         ind  & \ibox{1}\\
+                                       }}}\\
+           spr & \eliste\\
+           comps & \eliste\\
+         }\\
+cont & \ms{ ltop & \ibox{2}\\
+            ind  & \ibox{3} property\\
+            rels & \liste{ \ms[groß]{
+                           lbl  & \ibox{2}\\ 
+                           arg0 & \ibox{3}\\
+                           arg1 & \ibox{1} \ms{ per & 3 \\
                                    num & sg \\
                                    gen & mas $\vee$ neu \\
-                               } \\
-                     restr & \liste{ \ms[groß]{ 
-                                theme & \ibox{1} \\ 
-                               }} $\oplus$ \ibox{2}  \\
-              } \\
+                               }\\
+                           } }\\
+            hcons & \eliste\\
+          }\\
 }
-
-\z
+\zs
 
 \end{enumerate}
 
@@ -303,31 +326,23 @@ sm edges
 
 \begin{enumerate}
 \item
-\ea 
+\eas 
 \ms{
 cat & \ms{ head   & \ms[adj]{
                     mod & none\\
                     }\\
-           comps & \sliste{ NP[\nom]\ind{1} } $\oplus$ \ibox{2}\\
+           arg-st & \sliste{ NP[\nom]\ind{1} } $\oplus$ \etag\\
          }\\
-cont & \ibox{3}\\
-} $\mapsto$\\
-\ms{
+} $\mapsto$ \ms{
 cat & \ms{ head   & \ms[adj]{
-                    mod & \textrm{$\overline{\mbox{\textrm{N}}}$:} \ms{ ind   & \ibox{1} \\
-                                                                restr & \ibox{4} \\
-                                                              } \\
-                    }\\
-           comps & \ibox{2}\\
-         }\\
-cont & \ms{ ind & \ibox{1} \ms{ per & 3 \\
-%                                num & sg\\
-%                                gen & neu\\
-                              } \\
-            restr & \sliste{ \ibox{3} } $\oplus$ \ibox{4}  \\
-              } \\
-}
-\z
+                    mod & \nbar\ind{1} } } }
+\zs
+Per Konvention werden alle in der Ausgabe nicht erwähnten Werte von der Eingabe zur Ausgabe
+übertragen. Das heißt, dass der \argstw und der \contw unverändert übernommen werden. Wichtig ist
+bei der Lexikonregel der \modw in der Ausgabe und das Linking des modifizierten Nomens an das erste
+Element der \argstl. Da die \argstl und der \contw übernommen werden, ist auch in der Ausgabe der
+Lexikonregel das modifizierte Nomen an das \argone gelinkt.
+
 Der Kasus der NP im Eingabezeichen muss spezifiziert werden, da die Lexikonregel sonst auch auf
 subjektlose Adjektive anwendbar wäre:
 \eal
@@ -349,19 +364,19 @@ Ausgabezeichen dann stehen müssen, hängt von der gewählten Endung ab.
 
 \begin{enumerate}
 \item \eal
-\ex \field{Karl}{VF} \field{isst}{LS}.
-\ex \field{Der Mann}{VF} \field{liebt}{LS} \field{eine Frau}{MF}, \field{\field{den}{VF} \field{Peter}{MF} \field{kennt}{RS}}{NF}.
-\ex \field{Der Mann}{VF} \field{liebt}{LS} \field{eine Frau, \field{die}{VF} \field{Peter}{MF} \field{kennt}{RS}}{MF}.
+\ex \field{Aicke}{VF} \field{isst}{LS}.
+\ex \field{Der Delfin}{VF} \field{hilft}{LS} \field{dem Kind}{MF}, \field{\field{den}{VF} \field{jeder}{MF} \field{kennt}{RS}}{NF}.
+\ex \field{Der Delfin}{VF} \field{hilft}{LS} \field{dem Kind, \field{das}{VF} \field{jeder}{MF} \field{kennt}{RS}}{MF}.
 %\ex \field{Die Studenten}{VF} \field{behaupten}{LS}, \field{\field{nur wegen der Hitze}{MF} \field{einzuschlafen}{RS}}{MF}.
-\ex \field{Die Studenten}{VF} \field{haben}{LS} \field{behauptet}{RS}, \field{\field{nur wegen der Hitze}{MF} \field{einzuschlafen}{RS}}{NF}.
-\ex \field{\field{Dass}{LS} \field{Peter nicht}{MF} \field{kommt}{RS}}{VF}, \field{ärgert}{LS} \field{Klaus}{MF}.
-\ex \field{\field{Einen Mann}{MF} \field{küssen}{RS}, \field{\field{der}{VF} \field{ihr nicht}{MF} \field{gefällt}{RS}}{NF}}{VF}, \field{würde}{LS} \field{sie nie}{MF}.
+\ex \field{Die Kinder}{VF} \field{haben}{LS} \field{behauptet}{RS}, \field{\field{nur wegen der Hitze}{MF} \field{einzuschlafen}{RS}}{NF}.
+\ex \field{\field{Dass}{LS} \field{Aicke nicht}{MF} \field{kommt}{RS}}{VF}, \field{ärgert}{LS} \field{Conny}{MF}.
+\ex \field{\field{Einen Roman}{MF} \field{lesen}{RS}, \field{\field{der}{VF} \field{sie}{MF} \field{langweilt}{RS}}{NF}}{VF}, \field{würde}{LS} \field{sie nie}{MF}.
 \zl
 
 Zu (\mex{0}c): Theoretisch könnte hier auch eine Extraposition des Relativsatzes ins Nachfeld
-vorliegen. Da \emph{eine Frau, die Peter kennt} aber eine Konstituente ist, geht man davon aus, dass
+vorliegen. Da \emph{dem Kind, das jeder kennt} aber eine Konstituente ist, geht man davon aus, dass
 keine Umstellung des Relativsatzes stattgefunden hat, sondern dass die einfachere Struktur mit
-\emph{eine Frau, die Peter kennt} als kompletter NP im Mittelfeld vorliegt.
+\emph{dem Kind, das jeder kennt} als kompletter NP im Mittelfeld vorliegt.
 
 \end{enumerate}
 
@@ -401,9 +416,9 @@ sm edges
 [{C[\comps \eliste ] }
   [{C[\comps \sliste{ \ibox{1} } ] } [dass] ]
   [{\ibox{1} V[\comps \eliste ] }
-    [{\ibox{4} NP[\type{dat}]} [dem Clown, roof] ]
-    [{V[\comps \sliste{ \ibox{4} } ] } 
-       [{\ibox{3} NP[\type{acc}]} [drei Mark,roof] ]
+    [{\ibox{3} NP[\type{dat}]} [dem Clown, roof] ]
+    [{V[\comps \sliste{ \ibox{3} } ] } 
+       [{\ibox{4} NP[\type{acc}]} [drei Mark,roof] ]
        [{V[\comps \sliste{ \ibox{3}, \ibox{4} } ] }
           [{\ibox{2} NP[\type{nom}]} [Kurt-Martin] ]
           [{V[\comps \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } [gibt] ] ] ] ] ]
@@ -424,10 +439,10 @@ sm edges
           [{\ibox{2} NP[\type{nom}]}, tier=np [Kurt-Martin] ]
           [{V\feattab{\dsl \ibox{5},\\
                        \comps \sliste{ \ibox{2} } } } 
-            [{\ibox{4} NP[\type{acc}]} [drei Mark,roof] ]
+            [{\ibox{3} NP[\type{dat}]} [dem Clown,roof] ]
             [{V\feattab{\dsl \ibox{5},\\
-                         \comps \sliste{ \ibox{2}, \ibox{4} } } }
-              [{\ibox{3} NP[\type{dat}]} [dem Clown,roof] ]
+                         \comps \sliste{ \ibox{2}, \ibox{3} } } }
+              [{\ibox{4} NP[\type{acc}]} [drei Mark,roof] ]
               [{V\ibox{5}\feattab{\dsl \ibox{5},\\
                            \comps \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } } } [\trace{}] ] ] ] ] ]
 \end{forest}}
@@ -454,7 +469,7 @@ sm edges
            [V\feattab{\dsl \ibox{3},\\
                       \comps \sliste{ \ibox{4}, \ibox{5} },\\
                               \slasch \eliste }
-              [{\ibox{4} NP[\type{nom}]} [er] ]
+              [{\ibox{4} NP[\type{nom}]} [Kim] ]
               [V\ibox{3}\feattab{\dsl \ibox{3},\\
                                  \comps \sliste{ \ibox{4}, \ibox{5} },\\
                                  \slasch \eliste }  [\trace] ] ] ] ] ]
@@ -466,9 +481,11 @@ sm edges
 
 \section{Relativsätze}
 
+\itdopt{Welche Relativpronomina kennen Sie?}
+
 %% \item Skizzieren Sie die Analyse für die folgende Phrase:
 %% \ea
-%% die Blume, die allen gefällt
+%% die Blume, die alle lieben
 %% \z
 %% Gehen Sie auf die \slashwe und die \relwe ein.
 \begin{figure}[H]
@@ -495,16 +512,17 @@ sm edges
 \end{forest}
 \end{figure}
 
+\itdopt{Kongruenz: Mädchen}
 
 \section{Kasus}
 
 \eal
-\ex Der Junge (str) lacht.  
+\ex Der Vogel (str) singt.  
 \ex Mich (lex) friert.    
-\ex Er (str) zerstört das Auto (str).
+\ex Kim (str) zerstört das Auto (str).
 \ex Das (str) dauert ein ganzes Jahr (lex = semantischer Kasus).
-\ex Er (str) hat nur einen Tag (str) dafür gebraucht.
-\ex Er (str) denkt an den morgigen Tag (lex).
+\ex Sie (str) hat nur einen Tag (str) dafür gebraucht.
+\ex Conny (str) denkt an den morgigen Tag (lex).
 \zl
 
 \section{Der Verbalkomplex}
@@ -525,7 +543,7 @@ sm edges
                                  }}
      [\iboxt{6}~\onems{ loc \onems{ head  \ms[verb]{ vform & bse  \\
                                                 }  \\
-                                comps~\ibox{3} \sliste{ \ibox{2} NP[\textit{nom\/}] } \\
+                                comps~\ibox{3} \nliste{ \ibox{2} NP[\nom] } \\
                               }\\
                 } [singen]]
      [{\onems[cat]{ head~\ibox{4} \ms[verb]{ vform & bse \\
@@ -542,19 +560,49 @@ sm edges
 
 \section{Kohärenz, Inkohärenz, Anhebung und Kontrolle}
 
+\begin{enumerate}
+\item
+      \eal
+      \ex scheinen (Anhebung)
+      \ex anfangen (Anhebung, Phasenverb)
+      \ex versprechen (zwei Varianten: Kontrolle und Anhebung)
+      \ex drohen (zwei Varianten: Kontrolle und Anhebung)
+      \ex verbinden (weder noch)
+      \ex zwingen (Kontrolle)
+      \ex hören (Anhebung)
+      \zl
 
+\item
 \eanoraggedright
 \oneline{%
-\ms{
-cat & \ms{% head   & verb \\ 
-           comps & \ibox{1} $\oplus$ \sliste{ NP[\type{ldat}]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \sliste{ \textrm{V[\textit{inf}, \textsc{lex}+, \textsc{subj}~\ibox{1}, \textsc{comps}~\ibox{3} ]:\ibox{4}}}\\
-         }\\
-cont & \ms[scheinen]{
-        experiencer & \ibox{2} \\
-        soa & \ibox{4}\\
-       }\\
-}}\iw{scheinen|uu}
+\onems{
+\ldots \ms{ cat & \ms{% head   & verb \\ 
+                     arg-st & \ibox{1} $\oplus$ \sliste{ NP[\type{ldat}]\ind{2} } $\oplus$ \ibox{3}
+                     $\oplus$ \sliste{ V[\type{inf}, \textsc{lex}+, \textsc{subj}~\ibox{1},
+                       \textsc{comps}~\ibox{3}, \ltop \ibox{4}]} }\\
+              cont & \ms{ ltop & \ibox{5}\\
+                          ind  & \ibox{6} event } }\\
+\rels \liste{ \ms[scheinen]{
+                lbl  & \ibox{5}\\
+                arg0 & \ibox{6}\\
+                arg1 & \ibox{2}\\
+                arg2 & \ibox{7} } }\\
+hcons \liste{ \ms[qeq]{
+               harg & \ibox{7}\\
+               larg & \ibox{4} }  }
+}
+}\iw{scheinen|uu}
 \z
+\emph{scheinen} muss parallel zu \emph{glauben} behandelt werden, denn Quantoren können zwischen
+\emph{scheinen} und dem eingebetteten Verb skopen:
+\ea
+Ein Einhorn scheint sich zu nähern.
+\z
+(\mex{0}) hat zwei Lesarten: In der einen gibt es ein Einhorn, das sich zu nähern scheint, und in
+der anderen scheint sich irgend etwas zu nähern, aber es muss kein Einhorn geben. Durch die
+\qeq-Relation zwischen \ibox{7} und dem Label des eingebetteten Verbs \iboxb{4} wird das korrekt
+erfasst. Zur Semantik von \emph{glauben} siehe Abschnitt~\ref{Abschnitt glauben und Einhörner}.
+\end{enumerate}
 
 \section{Passiv}
 
@@ -573,8 +621,8 @@ cont & \ms[scheinen]{
   (\ref{lr-pv}) auf Seite~\pageref{lr-pv} lizenziert. Es wird keine zusätzliche Lexikonregel benötigt.
 
 \eas
-\label{le-vor}
-\mbox{\emph{vor}:}\\
+\label{le-vor}%
+\emph{vor}:\\
 \ms{
 cat & \ms{ head & \ms[particle]{ mod  & \textrm{V} \\
                                  subj & \eliste \\
@@ -582,7 +630,7 @@ cat & \ms{ head & \ms[particle]{ mod  & \textrm{V} \\
            comps & \eliste \\
          }
 }
-\zs\iw{los|uu}
+\zs\iw{vor|uu}
 
 Das \emph{vor} beschränkt anders als \emph{los} die Valenz des Verbs, mit dem es zusammengeht
 nicht. Somit kann es mit einstelligen (\emph{vorarbeiten}), zweistelligen (\emph{vorkochen}) und
@@ -594,8 +642,8 @@ vater würde ihn mir zu xmas vorschenken\footnote{
 \z
 
 \eas
-\label{le-kochen}
-\mbox{\stem{koch}:}\\
+\label{le-kochen}%
+\stem{koch}:\\
 \ms{ head   & verb \\
      comps & \liste{NP[\str], NP[\str]} \\[2mm]
 }
@@ -610,42 +658,40 @@ vater würde ihn mir zu xmas vorschenken\footnote{
 
 
 \begin{enumerate}
+
 \item
 
+
 \eas
-Lexikonregel für \emph{ung}"=Nominalisierung:\\
 \label{lr-ung-nom}%
+Lexikonregel für \emph{ung}"=Nominalisierung:\\
 \ms[ung-derived-noun-stem]{
 phon & \ibox{1} $\oplus$ \phonliste{ ung }\\
-synsem & \onems{ loc  \ms{ cat  & \ms{ head   & noun\\
-                                       spr & \sliste{ Det }\\
-%                                       comps & \eliste\\
-                                      } \\
-                            cont & \ms{ ind & \ibox{2} \ms{ per & 3\\
-                                                            %num & sg\\    nicht für den Stamm
-                                                            gen & fem\\
-                                                           }\\
-                                         restr & \liste{%
-                                                \ms[\ldots]{
-                                                        inst & \ibox{2}\\
-                                                        soa & \ibox{3}\\
-                                                }}\\   
-                                      }\\                                 
-                         }\\
-               }\\
+\ldots &  \ms{ cat  & \ms{ head   & noun\\
+                           arg-st & \upshape \nliste{ Det } $\oplus$ \texttt{realize-nomilization-args}(\ibox{2}) }\\
+%                          comps & \eliste\\
+               cont & \ms{ ltop & \ibox{3}\\
+                           ind  & \ibox{4} \ms{ per & 3\\
+                                                gen & fem } } }\\   
+rels & \liste{
+       \ms[\ldots]{
+       ltop & \ibox{3}\\
+       arg0 & \ibox{4}\\
+       arg1 & \ibox{5} } } $\oplus$ \ibox{6}\\   
 lex-dtr & \onems[stem]{
            phon   \ibox{1} \\
-           synsem$|$loc \onems{ cat$|$head \textit{verb}\\
-                                cont    \ibox{3} \\
+           synsem$|$loc \onems{ cat \ms{ head & \type{verb}\\
+                                         arg-st & \ibox{2} }\\
+                                cont|ltop  \ibox{5} \\
                         }\\
-           }\\
+           rels \ibox{6}
+           }
 }\is{Lexikonregel!ung Nominalisierung@{\em ung}-Nominalisierung}
 \zs
-
 Zur Semantik der \emph{ung}-Nominalisierung siehe \citew{ER2000a-u}.
 
 \item Die \suffix{ung}-Nominalisierungsregel wird auf den Stamm des Partikelverbs angewendet. Dieser
-  enthält bereits die Partikel in der \compsl. Es muss also nicht erst aus dem Simplex"=Verb
+  enthält bereits die Partikel in der \argstl. Es muss also nicht erst aus dem Simplex"=Verb
   \emph{treten} \noword{Tretung} gebildet werden, um dann \emph{Abtretung} bilden zu können.
 
 \end{enumerate}

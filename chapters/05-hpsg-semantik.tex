@@ -1415,7 +1415,7 @@ Formalisieren lässt sich das Prinzip wie folgt:
 
 
 
-\subsection{Eigennamen, Pronomen, Possessivpronomen}
+\subsection{Eigennamen und Possessivpronomen}
 
 In der Prädikatenlogik gibt es Individuenkonstanten. Das bedeutet, dass man für ein bestimmtes
 Diksursuniversum sagt, dass ein bestimmter Bezeichner einer bestimmten Entität zugeordnet wird. Es
@@ -1700,15 +1700,15 @@ cat & \ms{ head & \ms[adj]{
                              cont & \ms{ ltop & \ibox{1}\\
                                          ind  & \ibox{2}\\
                                        }}}\\
-           spr & \eliste\\
+           spr   & \eliste\\
            comps & \eliste\\
          }\\
 cont & \ms{ ltop & \ibox{1}\\
-%            ind  & \ibox{2}\\
+            ind  & \ibox{3} property\\
             rels & \liste{ \ms[klein]{
                            lbl  & \ibox{1}\\ 
-                           arg1 & \ibox{2}\\
-                           } }\\
+                           arg0 & \ibox{3}\\
+                           arg1 & \ibox{2} } }\\
             hcons & \eliste\\
           }\\
 }
@@ -1762,6 +1762,7 @@ zusätzlich zu den bereits beschrieben Beschränkungen für Kopf"=Adjunkt"=Struk
      }
 \z
 
+\noindent
 Anhand von Adjektiven wie \emph{potentiell} kann man sich klarmachen, warum Determinatoren auf das Label der
 modifizierten \nbar zugreifen können müssen und weshalb man also das \specm braucht. Man könnte ja
 vermuten, dass man statt dessen vom Nomen auf den Determinator zugreifen kann und
@@ -1937,17 +1938,17 @@ cat & \ms{ head & \ms[adj]{
                                         spr  & \nliste{ Det }\\
                                         comps & \eliste }\\
                              cont & \ms{ %ltop & \ibox{1}\\
-                                         ind  & \ibox{2}\\
+                                         ind  & \ibox{1}\\
                                        }}}\\
            spr & \eliste\\
            comps & \eliste\\
          }\\
-cont & \ms{ ltop & \ibox{1}\\
-%            ind  & \ibox{2}\\
+cont & \ms{ ltop & \ibox{2}\\
+            ind  & \ibox{3} property\\
             rels & \liste{ \ms[klein]{
-                           lbl  & \ibox{1}\\ 
-                           arg1 & \ibox{2}\\
-                           } }\\
+                           lbl  & \ibox{2}\\
+                           arg0 & \ibox{3}\\
+                           arg1 & \ibox{2} } }\\
             hcons & \eliste\\
           }\\
 }
@@ -1955,7 +1956,7 @@ cont & \ms{ ltop & \ibox{1}\\
 Im Gegensatz zu (\ref{le-kleinen-vorläufig}) wird der \ltopw in (\mex{0}) nicht mit dem \ltopw innerhalb des \modwes gleichgesetzt.
 Stattdessen wird festgelegt, dass in Kopf"=Adjunkt"=Strukturen mit nicht-skopalen Adjunkten die \ltopwe der Töchter identifiziert
 werden. 
-\ea
+\eas
 \label{ex-scopal-ltop}
 \avm{
 [ non-head-dtrs < [ cat|head|scopal & minus ] > ]} \impl\\[2mm]
@@ -1963,7 +1964,7 @@ werden.
 \avm{[ head-dtr|cont|ltop & \1\\
   non-head-dtrs < [ cont|ltop & \1 ] > ]
 }
-\z
+\zs
 
 \noindent
 Das bedeutet, dass die Handles von \emph{einfach} und \emph{Beispiel} nicht im
@@ -3152,6 +3153,15 @@ ableiten.
       er lacht
       \z
       Dabei soll sowohl die syntaktische Struktur als auch der Bedeutungsbeitrag berücksichtigt werden.
+
+\item Wie sieht der Lexikoneintrag für das Adjektiv \emph{großem}, wie es in (\mex{1})
+vorkommt, aus?
+\eal
+\ex mit großem Tamtam
+\ex mit großem Eifer
+\zl
+Überlegen Sie, wie Sie Information bzgl.\ morphologischer Eigenschaften des Adjektivs repräsentieren
+können. Denken Sie dazu auch über die Eigenschaften des Nomens nach, das modifiziert wird.
 
 \item Laden Sie die zu diesem Kapitel gehörende Grammatik (siehe Übung~\ref{uebung-grammix-kapitel4} auf Seite~\pageref{uebung-grammix-kapitel4}).
 Im Fenster, in dem die Grammatik geladen wird, erscheint zum Schluss eine Liste von Beispielen.

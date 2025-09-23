@@ -1872,7 +1872,9 @@ Die Analyse von kohärenten und inkohärenten Konstruktionen und Anhebungs- und
 Kontrollverben, die in den nächsten Abschnitten präsentiert wird,
 geht auf \citet{Kiss95a} zurück. 
 
-(\mex{1}) zeigt den \locw von \emph{scheinen}:
+(\mex{1}) zeigt den \locw von \emph{scheinen}:\footnote{%
+Die Punkte stehen für den Pfad \textsc{synsem|loc}.
+}
 %% \footnote{
 %%         \citet[\page 37]{dSW88a} propose a function composition\is{function composition}
 %%         approach for English\il{English} \emph{seem}. They assume that \emph{seems} is a functor
@@ -1884,13 +1886,12 @@ geht auf \citet{Kiss95a} zurück.
 \label{le-scheinen}%
 \stem{schein} (Subjektanhebungsverb, obligatorisch kohärent\is{Kohärenz|(}):\\
 \ms{
-cat & \ms{% head   & verb \\ 
-           arg-st & \ibox{1} $\oplus$ \ibox{2} $\oplus$ \sliste{ \textrm{V[\type{inf},
-               \textsc{lex}+, \textsc{subj}~\ibox{1}, \textsc{comps}~\ibox{2}, \ltop \ibox{3} ]}}\\
-         }\\
-cont & \ms{
-          ind  & \ibox{4} event\\
-          ltop & \ibox{5} }\\
+\ldots & \ms{ cat & \ms{% head   & verb \\ 
+                    arg-st & \ibox{1} $\oplus$ \ibox{2} $\oplus$ \sliste{ \textrm{V[\type{inf},
+                    \textsc{lex}+, \textsc{subj}~\ibox{1}, \textsc{comps}~\ibox{2}, \ltop \ibox{3} ]} } }\\
+              cont & \ms{
+                     ind  & \ibox{4} event\\
+                     ltop & \ibox{5} } }\\
 rels & \liste{ \ms[scheinen]{
                lbl  & \ibox{5}\\
                arg0 & \ibox{4}\\ 
@@ -2060,13 +2061,12 @@ in vielen Punkten gleicht.\footnote{\label{fn-phase-verbs-control}%
 \label{le-beginnen}%
 \stem{beginn} (Phasenverb, optional kohärent):\\
 \ms{
-cat & \ms{% head   & verb \\
+\ldots & \ms{ cat & \ms{% head   & verb \\
            arg-st & \ibox{1} $\oplus$ \ibox{2} $\oplus$ \sliste{ \textrm{V[\type{inf},
-               \textsc{subj}~\ibox{1}, \textsc{comps}~\ibox{2}, \ltop \ibox{3} ]} }\\
-         }\\
+               \textsc{subj}~\ibox{1}, \textsc{comps}~\ibox{2}, \ltop \ibox{3} ]} } }\\
 cont & \ms{
           ind  & \ibox{4} event\\
-          ltop & \ibox{5} }\\
+          ltop & \ibox{5} } }\\
 rels & \liste{ \ms[beginnen]{
         lbl  & \ibox{5}\\
         arg0 & \ibox{4}\\
@@ -2141,19 +2141,19 @@ nicht.
 \label{le-versuchen-incoh}%
 \stem{versuch} (Kontrollverb, optional kohärent):\\
 %\resizebox{\linewidth}{!}{%
-\onems{
-cat$|$arg-st  \sliste{ NP[\type{str}]\ind{1}  } $\oplus$ \ibox{2} $\oplus$ \nliste{
+\ms{
+\ldots & \ms{ cat$|$arg-st  \sliste{ NP[\type{str}]\ind{1}  } $\oplus$ \ibox{2} $\oplus$ \nliste{
   \textrm{V[}\type{inf}, \textsc{subj} \sliste{NP[\type{str}]\ind{1}}, \textsc{comps}~\ibox{2}, \ltop \ibox{3}]  }\\
 cont \ms{ ind  & \ibox{4} event\\
           ltop & \ibox{5}\\
-          }\\ 
-rels \liste{ \ms[versuchen]{
+          } }\\ 
+rels & \liste{ \ms[versuchen]{
         lbl  & \ibox{5}\\
         arg0 & \ibox{4}\\ 
         arg1 & \ibox{1}\\
         arg2 & \ibox{3}\\
        } }\\[10mm]
-hcons \eliste 
+hcons & \eliste 
 }
 \iw{versuchen|uu}%
 %}
@@ -2218,18 +2218,18 @@ Der Lexikoneintrag in (\mex{1}) zeigt den \localw für das \aciv \emph{sehen}:\f
 \eas
 \label{le-sehen}%
 \stem{seh} (AcI-Verb, obligatorisch kohärent\is{Kohärenz|(}):\\
-\onems{ cat$|$arg-st \sliste{ NP[\type{str}]\ind{1} } $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \sliste{ \textrm{V[}%
+\ms{ \ldots & \ms{ cat$|$arg-st \sliste{ NP[\type{str}]\ind{1} } $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$ \sliste{ \textrm{V[}%
 \type{bse}, \textsc{lex}+, \textsc{subj}~\ibox{2}, \textsc{comps}~\ibox{3}, \ltop \ibox{4}] }\\[2mm]
 cont \ms{ ind  & \ibox{5} event\\
           ltop & \ibox{6}\\
-        }\\
-rels \liste{  \ms[sehen]{
+        } }\\
+rels & \liste{  \ms[sehen]{
               lbl  & \ibox{6}\\
               arg0 & \ibox{5}\\
               arg1 & \ibox{1}\\
               arg2 & \ibox{7}\\
              } }\\[8mm]
-hcons \liste{ \ms[qeq]{
+hcons & \liste{ \ms[qeq]{
               harg & \ibox{7}\\
               larg & \ibox{4}\\
               } }
@@ -2287,7 +2287,7 @@ sieht, das nicht wirklich da ist:
 \eas
 \stem{erlaub} (Objektkontrollverb, optional kohärent\is{Kohärenz|)}\is{Inkohärenz}):\\
 \ms{
-cat & \ms{% head   & verb \\
+\ldots & \ms{ cat & \ms{% head   & verb \\
            arg-st & \begin{tabular}[t]{@{}l@{}}
                     \sliste{ NP[\str]\ind{1}, NP[\type{ldat}]\ind{2} } $\oplus$ \ibox{3} $\oplus$\\[2mm]
                     \sliste{ \textrm{V[\type{inf}, \textsc{subj}~\sliste{NP[\type{str}]\ind{2}},
@@ -2296,8 +2296,8 @@ cat & \ms{% head   & verb \\
 % \begin{tabular}{@{}l@{}l}
 %                             \textrm{V[}&\textrm{\type{inf}, \textsc{lex}+, \textsc{subj}~\sliste{NP[\type{str}]\ind{2}},}\\
 %                                     & \textrm{\textsc{comps}~\ibox{3} ]:\ibox{4}}\\
-%                             \end{tabular}}\\
-         }\\
+%                             \end{tabular}\}\\
+         } }\\
 cont & \ms{ ind  & \ibox{5} event\\
             ltop & \ibox{6}\\
           }\\ 
