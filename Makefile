@@ -168,12 +168,12 @@ $(PUB_FILE): ../hpsg/make_bib_header ../hpsg/make_bib_html_number  ../hpsg/.bibt
 
 
 # lualatex has to be run two times + biber to get "also printed as ..." right.
-completed-hpsg.bib: ../../Bibliographien/biblio.bib $(SOURCE) langsci.dbx bib-creation.tex
+hpsg-lehrbuch.bib: ../../Bibliographien/biblio.bib $(SOURCE) langsci.dbx bib-creation.tex
 	lualatex -no-pdf -interaction=nonstopmode  bib-creation 
 	biber bib-creation
 	lualatex -no-pdf -interaction=nonstopmode  bib-creation
-	biber --output_format=bibtex --output-resolve-xdata --output-legacy-date bib-creation.bcf -O completed-hpsg_tmp.bib
-	biber --tool --configfile=biber-tool.conf --output-field-replace=location:address,journaltitle:journal --output-legacy-date completed-hpsg_tmp.bib -O completed-hpsg.bib
+	biber --output_format=bibtex --output-resolve-xdata --output-legacy-date bib-creation.bcf -O hpsg-lehrbuch_tmp.bib
+	biber --tool --configfile=biber-tool.conf --output-field-replace=location:address,journaltitle:journal --output-legacy-date hpsg-lehrbuch_tmp.bib -O hpsg-lehrbuch.bib
 
 
 todo-bib.unique.txt: completed-hpsg.bcf
