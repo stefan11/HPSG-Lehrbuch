@@ -95,7 +95,7 @@ Für \emph{gab} hat man also:
                      { vform & fin \\
                      } \\
              spr    & \eliste\\
-             arg-st & \liste{ NP[\textit{nom\/}]\ind{1}, NP[\textit{acc}]\ind{2}, NP[\textit{dat}]\ind{3}   } \\
+             arg-st & \liste{ NP[\type{nom}]\ind{1}, NP[\type{acc}]\ind{2}, NP[\type{dat}]\ind{3}   } \\
            } \\
   cont &  \ms{ ltop & \ibox{4}\\
                ind  & \ibox{5}\\
@@ -445,7 +445,7 @@ besprochen wurde:
 \label{le-interessantes-agr}%
 Adjektiveintrag mit Kongruenzinformation (\localw für \emph{interessantes}):\\
 \ms
- { cat & \ms{ head & \onems[adj]
+ { \ldots & \ms{ cat & \ms{ head & \onems[adj]
                       { %prd & $-$ \\
                         mod$|$loc \onems{ cat \onems{spr \liste{~ \textrm{Det[\begin{tabular}[t]{@{}l@{}}
                                                           \textsc{case} $nom \vee acc$,\\
@@ -461,13 +461,12 @@ Adjektiveintrag mit Kongruenzinformation (\localw für \emph{interessantes}):\\
                comps & \eliste \\
              } \\
    cont & \ms{ ltop  & \ibox{2}\\ 
-               ind   & \ibox{3} \\
-               restr & \liste{ \ms[interessant]{
+               ind   & \ibox{3}} } \\
+   rels  & \liste{ \ms[interessant]{
                                 ltop & \ibox{2}\\ 
                                 arg0 & \ibox{3}\\
                                 arg1 & \ibox{1}\\ 
-                               } } } \\
-}
+                              } } }
 \zs
 
 \noindent
@@ -480,25 +479,25 @@ des Determinators und des Adjektivs von den semantischen Eigenschaften des Nomen
 Das ist wichtig für Nomina wie \emph{Mädchen} und \emph{Weib}, die innerhalb der NP das Genus Neutrum
 haben, auf die man sich aber sowohl mit \emph{es} (neutrum) als auch mit \emph{sie} (femininum) beziehen kann:
 \eal
-\ex "`Farbe bringt die meiste Knete!"' verriet ein 14jähriges türkisches {\em Mädchen\/}, {\em die\/} die Mauerstückchen am
+\ex "`Farbe bringt die meiste Knete!"' verriet ein 14jähriges türkisches \emph{Mädchen}, \emph{die} die Mauerstückchen am
       Nachmittag am Checkpoint Charlie an Japaner und US-Bürger verkauft.\footnote{
         taz, 14.06.90, S.\,6.
       }
-\ex Es ist ein junges {\em Mädchen\/}, {\em die\/} auf der Suche nach CDs bei Bolzes reinschaut.\footnote{
+\ex Es ist ein junges \emph{Mädchen}, \emph{die} auf der Suche nach CDs bei Bolzes reinschaut.\footnote{
         taz, 13.03.96, S.\,11.
       }
 \zl
 %Solche Sätze sind jedoch selten und kommen im heutigen Deutsch praktisch nicht vor.
 \eal
 \label{bsp-neu-neu-goethe}
-\ex Das {\em Mädchen\/}, {\em das\/} Rosen und andere Blumen herumtrug, bot ihm \emph{ihren} Korb
+\ex Das \emph{Mädchen}, \emph{das} Rosen und andere Blumen herumtrug, bot ihm \emph{ihren} Korb
 dar, \ldots\footnote{
-        Goethe, {\em Wilhelm Meisters Lehrjahre\/}, Hamburger Ausgabe, Band 7, S.\,90.
+        Goethe, \emph{Wilhelm Meisters Lehrjahre}, Hamburger Ausgabe, Band 7, S.\,90.
       }
-\ex Nun sitz ich hier, wie ein altes {\em Weib\/}, {\em das\/} ihr Holz von Zäunen stoppelt
+\ex Nun sitz ich hier, wie ein altes \emph{Weib}, \emph{das} ihr Holz von Zäunen stoppelt
       und \emph{ihr}\iw{ihr!Possessivum} Brot an den Türen, um ihr hinsterbendes, freudloses Dasein noch einen
       Augenblick zu verlängern und zu erleichtern.\footnote{
-        Goethe, {\em Die Leiden des jungen Werther\/}, Hamburger Ausgabe, Band 6, S.\,99.
+        Goethe, \emph{Die Leiden des jungen Werther}, Hamburger Ausgabe, Band 6, S.\,99.
       }\label{bsp-goethe-altes-weib}
 \zl
 Der Genus"=Wert im semantischen Index von \emph{Mädchen} und \emph{Weib} muss also \type{fem} $\vee$ \type{neu} sein, Artikel
