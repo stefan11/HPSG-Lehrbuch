@@ -139,11 +139,11 @@ o-public: o-public-lehrbuch
 #commit 
 #o-public-bib
 
-#o-public-lehrbuch: /Users/stefan/public_html/Pub/hpsg-lehrbuch.pdf 
-#	scp -p $? hpsg.hu-berlin.de:/home/stefan/public_html/Pub/hpsg-lehrbuch.pdf
-
-o-public-lehrbuch: completed-hpsg.pdf 
+o-public-lehrbuch: /Users/stefan/public_html/Pub/hpsg-lehrbuch.pdf 
 	scp -p $? hpsg.hu-berlin.de:/home/stefan/public_html/Pub/hpsg-lehrbuch.pdf
+
+#o-public-lehrbuch: completed-hpsg.pdf 
+#	scp -p $? hpsg.hu-berlin.de:/home/stefan/public_html/Pub/hpsg-lehrbuch.pdf
 
 
 
