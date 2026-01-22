@@ -360,7 +360,7 @@ Typ \textit{Negativscanner} im Vergleich zu seinem Supertyp \textit{Scanner}
 die Art des Eingabematerials sehr eingeschränkt. 
 
 Die Objekte, die man modelliert, haben immer einen maximal spezifischen Typ. In unserem Beispiel
-bedeutet das, dass wir Objekte vom Typ \type{Laserdrucker} und \type{Negativscanner} haben können aber nicht
+bedeutet das, dass wir Objekte vom Typ \type{Laserdrucker} und \type{Negativscanner} haben können, aber nicht
 vom Typ \type{druckendes Gerät}. Das liegt daran, dass \type{druckendes Gerät} nicht maximal
 spezifisch ist, denn dieser Typ hat Untertypen.
 
@@ -384,8 +384,8 @@ In Merkmalbeschreibungen wird das Oder durch `$\vee$'\is{$\vee$} ausgedrückt.
 }
 \z
 Manche Internetsuchmaschinen lassen durch `oder' verknüpfte Anfragen nicht zu. Man muss
-dann zwei einzelne Anfragen nämlich nach "`Julia Warbanow"' und nach "`Julia Barbanow"'
-stellen. Das entspricht den beiden folgenden, disjunktiv verknüpften Beschreibungen:
+dann zwei einzelne Anfragen stellen, nämlich nach "`Julia Warbanow"' und nach "`Julia
+Barbanow"'. Das entspricht den beiden folgenden, disjunktiv verknüpften Beschreibungen: 
 \ea
 \ms[person]{
  vorname  & Julia\\
@@ -587,8 +587,8 @@ geburtstag & 15.10.1965\\
 haarfarbe  & blond\\
 }
 \z
-Die Person Katharina Meier kann durchaus noch weitere Eigenschaften haben, die dem Detektiv unbekannt sind,
-wichtig ist, dass die Eigenschaften, die der Detektiv kennt, zu den Eigenschaften, nach denen der Auftraggeber sucht,
+Die Person Katharina Meier kann durchaus noch weitere Eigenschaften haben, die dem Detektiv unbekannt sind.
+Wichtig ist, dass die Eigenschaften, die der Detektiv kennt, zu den Eigenschaften, nach denen der Auftraggeber sucht,
 passen. Außerdem ist wichtig, dass der Detektiv nur gesicherte Information verwendet, er darf sich nicht irgendwelche
 Eigenschaften des gesuchten Objektes ausdenken. Die Unifikation der Anfrage aus (\mex{-1}a) mit der Information
 des Detektivs in (\mex{0}) ist also (\mex{0}) selbst und nicht etwa (\mex{1}):
