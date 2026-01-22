@@ -677,13 +677,13 @@ in den folgenden Beispielen kursiv gesetzt:
 Die Verben bestimmen den Kasus ihrer jeweiligen Argumente (der Subjekte und Objekte).
 In (\mex{0}d) bestimmt die Präposition den Kasus der Nominalphrase \emph{diesem Haus} und
 leistet auch den semantischen Hauptbeitrag: Ein Ort wird beschrieben. (\mex{0}e)
-ist umstritten: Es gibt sowohl Wissenschaftler, die annehmen, dass der Determinator
+ist umstritten: Es gibt sowohl Wissenschaftler*innen, die annehmen, dass der Determinator\todostefan{HS: Determinierer?}
 der Kopf ist\NOTE{\cite{Brame81a-u}} 
 \parencites[\page 6]{Ajdukiewicz35a-u}{VH77a-u,Brame82a}[\page 90--92]{Hudson84a-u}{Hellan86a,Abney87a,Netter94,Netter98a}, als auch solche, die annehmen,
 dass das Nomen der Kopf ist \parencites{vanLangendonck94a}[\page 49]{ps2}{Demske2001a}{Hudson2004a}{Bruening2009a}{MyPM2021a}{MuellerHeadless}.
 % Dalrymple textbook
 Ich schließe mich für den Rest des Buches den letzteren an. Argumente für den Kopfstatus des Nomens
-finden sich in Kapitel~\ref{sec-dp-analyse}, eine länger Diskussion findet sich in \citew{MyPM2021a}.
+finden sich in Abschnitt~\ref{sec-dp-analyse},\todostefan{fehlt} eine länger Diskussion findet sich in \citew{MyPM2021a}.
 
 Die Kombination eines Kopfes mit einer anderen Konstituente wird \emph{Projektion
 des Kopfes}\is{Projektion} genannt. Eine Projektion, die alle notwendigen Bestandteile zur Bildung
@@ -975,7 +975,7 @@ Modifikatoren sind normalerweise Adjunkte, \dash optional\is{Optionalität}, in 
 (obligatorische) Argumente.
 
 Argumente werden in der HPSG in Subjekte\is{Subjekt} und Komplemente\is{Komplement}
-unterteilt. Nicht alle Köpfe müssen ein Subjekt haben (siehe Kapitel~\ref{sec-subjekt-valenz}),
+unterteilt. Nicht alle Köpfe müssen ein Subjekt haben (siehe Abschnitt~\ref{sec-subjekt-valenz}),
 so dass die Menge der Argumente eines Kopfes durchaus auch der Menge der Komplemente eines Kopfes entsprechen
 kann. Die Begriffe werden aber nicht synonym verwendet, wie das in anderen Schulen
 der Linguistik der Fall ist.
@@ -1067,7 +1067,7 @@ zugeordnet werden und wie sich komplexere Einheiten zusammensetzen. Eine einfach
 mit der man (\mex{0}) analysieren kann, ist in (\mex{1}) zu sehen:\footnote{
   Die Konjunktion \emph{weil} wird vorerst ignoriert. Da die Behandlung von Sätzen mit Verberst- oder
   Verbzweitstellung weitere Überlegungen voraussetzt, werden hier nur Verbletztsätze besprochen.
-  Zu den anderen Verbstellungen siehe Kapitel~\ref{sec-v1} und~\ref{Kapitel-nla}.%
+  Zu den anderen Verbstellungen siehe Abschnitt~\ref{sec-v1} und Kapitel~\ref{Kapitel-nla}.%
 }
 \ea
 \label{bsp-grammatik-psg}
@@ -1102,7 +1102,7 @@ den Zeilen 5, 8 und 10.
 \begin{tabular}[t]{@{}r|l@{~~~}l@{~~~}l@{~~~}l@{~~~}l@{~~~}l@{\hspace{1cm}}l}
  & \multicolumn{6}{l}{Wörter und Symbole} & angewendete Regeln\\\hline
  1 & Aicke         & dem          & Affen          & den          & Stock & gibt                \\
- 2 & {NP}          & dem          & Affen          & den          & Stock & gibt & {NP $\to$ er}  \\
+ 2 & {NP}          & dem          & Affen          & den          & Stock & gibt & {NP $\to$ Aicke}  \\
  3 & NP            & {D}          & Affen          & den          & Stock & gibt & {D $\to$ dem}  \\
  4 & NP            & D            & {N}           & den          & Stock & gibt & {N $\to$ Affen} \\
  5 & NP            &              & {NP}          & den          & Stock & gibt & {NP $\to$ D, N}\\
@@ -1114,7 +1114,7 @@ den Zeilen 5, 8 und 10.
 \end{tabular}
 \z
 %\vspace{-\baselineskip}\end{figure}
-In (\mex{0}) bin ich von einer Folge von Wörtern ausgegangen und haben gezeigt, dass man die Regeln
+In (\mex{0}) bin ich von einer Folge von Wörtern ausgegangen und habe gezeigt, dass man die Regeln
 der Phrasenstrukturgrammatik so anwenden kann, dass ein Satzsymbol abgeleitet werden kann. Genauso gut
 hätte man die Schritte in umgekehrter Reihenfolge durchführen können, dann hätte man aus dem
 Satzsymbol mit den Schritten~9--1 eine Wortfolge abgeleitet. Durch andere Wahl von Ersetzungsregeln
@@ -1148,7 +1148,7 @@ aber nicht unmittelbar dominiert\is{Dominanz!unmittelbare}. Will man über Bezie
 verwendet man Verwandschaftsbezeichnungen. So ist in Abbildung~\ref{fig-Aicke-dem-Affen-den-Stock-gibt-flat}
 S der \emph{Mutterknoten}\is{Knoten!Mutter-} der drei NP"=Knoten und des V"=Knotens. 
 Die NP"=Knoten und V sind \emph{Schwestern}\is{Knoten!Schwester-}, da sie denselben Mutterknoten haben.
-Hat ein Knoten zwei Töchter\is{Knoten!Tochter-} liegt eine \emph{binär\is{binär} verzweigende Struktur}\is{Verzweigung}\is{Verzweigung!binäre} vor.
+Hat ein Knoten genau zwei Töchter\is{Knoten!Tochter-}, liegt eine \emph{binär\is{binär} verzweigende Struktur}\is{Verzweigung}\is{Verzweigung!binäre} vor.
 % stimmt nicht, das ist relativ
 %hat er mehr als zwei Töchter, spricht man auch von \emph{flacher Verzweigung}. 
 Gibt es genau eine Tochter, spricht man von einer \emph{unären\is{unär}\is{Verzweigung!unäre} Verzweigung}. Zwei Konstituenten sind 
@@ -1276,7 +1276,8 @@ S  & $\to$ NP\_3\_pl\_nom, NP\_dat, NP\_acc, V\_3\_pl\_ditransitiv\\
 \end{tabular}
 \z
 Da wir Nominalphrasen in vier Kasus unterscheiden müssen, haben wir dann
-insgesamt (3 * 2) + 3 = 9 Symbole für verschiedene NPen. Da die Verben zu den Nominalphrasen
+insgesamt (3 * 2) + 3 = 9 Symbole für verschiedene NPen: sechs NP-Symbole für die Nominativ-NPen und
+dann je ein NP-Symbol für Genitiv, Dativ und Akkusativ. Da die Verben zu den Nominalphrasen
 in der Regel passen müssen, weil man \zb Verben, die drei Argumente nehmen, von solchen,
 die nur zwei bzw.\ eins nehmen, unterscheiden können muss (\mex{1}), muss man entsprechend auch
 die Menge der Symbole für Verben aufblähen.\is{Valenz}
@@ -1419,7 +1420,7 @@ Im vorigen Abschnitt wurde gezeigt, wie man sehr spezifische Phrasenstrukturrege
 zu allgemeineren Regelschemata generalisieren kann. Diese Abstraktion lässt sich
 noch weitertreiben: Statt explizite Kategoriesymbole wie V, N oder P zu verwenden, kann man auch
 an deren Stelle Variablen setzen. Eine solche Form der Abstraktion findet man in
-der \xbar-Theorie (sprich X-bar"=Theorie) \citep{Chomsky70a,Jackendoff77}. Diese Form abstrakter Regeln
+der \xbar-Theorie (sprich X-bar"=Theorie; \citealt{Chomsky70a,Jackendoff77}). Diese Form abstrakter Regeln
 spielt in den verschiedensten Theorien eine Rolle. Beispielhaft seien
 erwähnt: Government \& Binding \indexgb \citep{Chomsky81a,SS88a,Grewendorf88a},
 Generalized Phrase Structure Grammar\indexgpsg \citep*{GKPS85a}
@@ -1491,10 +1492,15 @@ mittels Vererbungshierarchien erfasst.
 HPSG ist eine monostratale Theorie, \dash, Phonologie, Syntax
 und Semantik werden in einer Struktur repräsentiert. Es gibt keine
 getrennten Beschreibungsebenen wie zum Beispiel in der Government \& Binding"=Theorie.
-(\mex{1}) zeigt Auszüge aus einer Repräsentation des Wortes \emph{Grammatik}:
+(\mex{1}) zeigt Auszüge aus einer Repräsentation des Wortes \emph{Grammatik}:\footnote{Der Wert des
+  \textsc{phonology}"=Merkmals ist in IPA-Umschrift angegeben. Phonologie ist nicht Gegenstand
+  dieses Buches, weshalb in den folgenden Kapiteln der Einfachkeit halber die orthografische Form angegeben
+  wird. Zur Phonologie in HPSG siehe zum Beispiel \citew{Hoehle99a-u}.
+}
 \ea
 \ms[word]{
-phonology   & \phonliste{ Grammatik } \\[1mm]
+%phonology   & \phonliste{ Grammatik } \\[1mm]
+phonology   & \phonliste{ \textipa{g\textinvscr am\textprimstress atIk} } \\[1mm]
 syntax-semantics \ldots & \ms[local]{ category  & \ms[category]{ head & \ms[noun]{ case & \ibox{1}\\
                                                        }\\[6mm]
                                       spr & \nliste{ Det[\textsc{case}~\ibox{1}] } \\
