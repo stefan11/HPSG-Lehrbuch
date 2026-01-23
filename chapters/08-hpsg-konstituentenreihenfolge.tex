@@ -313,7 +313,7 @@ Oder allgemeiner:
 }
 \z
 \texttt{collect-phon} geht dabei durch die Liste der Töchter und sammelt analog zu
-\texttt{collet-rels} auf S.\,\pageref{constraint-collect-rels} die \phonwe auf.
+\texttt{collect-rels} auf S.\,\pageref{constraint-collect-rels} die \phonwe auf.
 %
 % \begin{itemize}
 % \item \begin{tabular}[t]{@{}ll@{}}
@@ -758,8 +758,7 @@ erreichen, indem man ein leeres Element annimmt, das den Platz des Verbs in (\me
 und bis auf die Tatsache, dass es phonologisch leer ist, identisch
 mit dem normalen Verb ist, \dash, es hat dieselbe Valenz und leistet auch denselben semantischen
 Beitrag. Dieses leere Element (auch \emph{Spur}\is{Spur!Verb-|(} oder \emph{Lücke}
-oder \emph{Trace} bzw.\ \emph{Gap} genannt)
-ist in (\mex{1}) als \_$_i$ gekennzeichnet. 
+bzw.\ \emph{Trace} oder \emph{Gap} genannt) ist in (\mex{1}) als \_$_i$ gekennzeichnet. 
 Dass das Verb \emph{lacht} zu dieser Spur gehört, wird durch den gemeinsamen
 Index gekennzeichnet.
 \eal
@@ -894,7 +893,7 @@ loc  & \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin\\
 Unter \textsc{local} steht nun alle Information, die in lokalen Kontexten eine Rolle spielt.
 Diese Information wird zwischen Spur und Verb geteilt. Bisher ist es jedoch noch nicht möglich,
 eine entsprechende Strukturteilung vorzunehmen, denn das Verb \emph{kennt} kann ja nur
-die Eigenschaften der Projektion der Spur (dem gesamten Satz mit leerem Verb) selegieren und die \compsl der selegierten
+die Eigenschaften der Projektion der Spur (dem gesamten Satz mit leerem Verb) selegieren, und die \compsl der selegierten
 Projektion ist die leere Liste, was uns wieder zu dem Problem mit (\ref{bsp-kennt-gibt}) bringt. Man
 muss also sicherstellen, dass die gesamte Information über die Verbspur am obersten Knoten
 ihrer Projektion verfügbar ist. Das kann man erreichen, indem man ein entsprechendes Kopfmerkmal
@@ -996,7 +995,7 @@ früheren Auf"|lagen dieses Buches habe ich in der Valenzliste des Ausgabeverbs 
 Komplement eine Verbalprojektion sein muss (\head \type{verb}). Das ist aber nicht nötig, denn der
 \dslw enthält ja die Information darüber, dass die Spur den \localw \ibox{1} (finites Verb in Letztstellung) haben
 muss. Daraus ergibt sich für die Spur, dass sie ein Verb sein muss, da ja in der Spur der \dslw und der
-\localw identifiziert werden, und somit kommen als Komplemente des Verberstverbs nur
+\localw identifiziert werden. Somit kommen als Komplemente des Verberstverbs nur
 Verbalprojektionen in Frage. 
 %Linearisierungsregeln nehmen auf das \textsc{initial}"=Merkmal Bezug und sorgen für
 %die korrekte Anordnung der Köpfe in lokalen Bäumen.
@@ -1040,7 +1039,7 @@ wird dadurch modelliert, dass man den semantischen Beitrag parallel zur Valenzin
 durch den Baum fädelt. 
 Bei der Kombination mit Argumenten sorgt das Semantikprinzip dafür, 
 dass die Information über den \textsc{index}"=Wert (die Ereignisvariable) und der \ltopw entlang der Kopfprojektion im Baum nach
-oben gereicht wird. Im letzten Projektionsschritt in Abbildung~\ref{verb-movement-syn}
+oben gereicht werden. Im letzten Projektionsschritt in Abbildung~\ref{verb-movement-syn}
 ist das Verb in Erststellung der Kopf und deshalb wird auch der semantische Beitrag
 dieses Verbs projiziert. In der Regel (\mex{1}) für das Verb in Erststellung wird
 der semantische Beitrag der Projektion der Spur in Endstellung (\textsc{ind} \ibox{2}, \ltop \ibox{3}) mit
@@ -1075,7 +1074,7 @@ dtrs & \liste{ \ms{
 % bug medskip is necessary when \flushright is used
 
 \noindent
-Bei der Kombination des Verbs in Erststellung mit der Projektion der Verbspur wird der \ltopw und
+Bei der Kombination des Verbs in Erststellung mit der Projektion der Verbspur wird\todostefan{werden?} der \ltopw und
 der Index von der Verbspurprojektion übernommen und wegen des Semantikprinzips dann weiter nach oben
 gereicht und so zum Beitrag der gesamten Konstruktion. Abbildung~\vref{verb-movement-sem} zeigt die
 semantischen Aspekte der Verbbewegungsanalyse mit der Spur in (\ref{le-verbspur-kennt}) und der
@@ -1380,8 +1379,8 @@ Die Beschränkung in (\ref{constraint-DSL}) unterscheidet sich von der von
 Projektionen der Verbspur anwendbar sein und somit wohlgeformte Sätze ausschließen.
 
 Diese Analyse funktioniert und ist Bestandteil der Grammatiken im CoreGram-Projekt
-\citep{MuellerCoreGram}, es gibt aber ein Problem, das ich übersehen habe: Die Beschränkung in
-(\ref{constraint-DSL}) erfasst alle Vorkommen von Verben in Kopfpositionen, in
+\citep{MuellerCoreGram}. Es gibt aber ein Problem, das ich übersehen habe: Die Beschränkung in
+(\ref{constraint-DSL}) erfasst alle Vorkommen von Verben in Kopfpositionen. In
 Koordinationsstrukturen sind die Verben bzw.\ ihre Projektionen aber nicht in Kopfposition. Das
 bedeutet, dass trotz der Implikation in (\ref{constraint-DSL}) ungrammatische Sätze zugelassen
 werden. (\mex{1}) zeigt einige Beispiele:
@@ -1411,8 +1410,8 @@ Verbalprojektionen für die Analyse von Sätzen wie (\mex{1}) hilfreich sein:
 \ea
 Kennt$_j$ [Aicke den Roman \trace$_j$] und [Conny den Film \trace$_j$]?
 \z
-Das ist aber eine Täuschung. Da die Verbspur in beiden Konjunkten dieselbe ist (Sie ist Teil von
-\head und muss deshalb in beiden Konjunkten gleich sein, da die \catwe identifiziert werden.) Ist
+Das ist aber eine Täuschung. Da die Verbspur in beiden Konjunkten dieselbe ist (sie ist Teil von
+\head und muss deshalb in beiden Konjunkten gleich sein, da die \catwe identifiziert werden). Ist
 auch die Valenzliste des Verbs in beiden Konjunkten identisch. Das bedeutet, dass (\mex{0})
 überhaupt nicht analysiert werden kann, denn \emph{Aicke} und \emph{Conny} und \emph{den Roman} und
 \emph{den Film} sind nicht identifizierbar. Selbst wenn die Konjunkte aus phonologisch und
@@ -1549,7 +1548,7 @@ zu den Verbzweitsprachen gerechnet wird, weil in Aussagesätzen
 normalerweise eben nur genau eine Konstituente vor dem Finitum steht (zu den Details siehe Kapitel~\ref{Kapitel-nla}).
 Weitere Beispiele und eine ausführliche Diskussion findet man in \citew{Mueller2003b} und \citew{Bildhauer2011a}
 bzw.\ in der \href{http://hpsg.hu-berlin.de/~stefan/Pub/mehr-vf-ds.html}{im WWW zugänglichen Datensammlung}\footnote{
-  \url{http://hpsg.hu-berlin.de/~stefan/Pub/mehr-vf-ds.html}. \mytoday%
+  \url{http://hpsg.hu-berlin.de/~stefan/Pub/mehr-vf-ds.html}. \mytoday.%
 }.
 
 Bei einem Ansatz, der Verbspuren annimmt, kann man davon ausgehen, dass sich in (\mex{0}) eine Projektion
@@ -1914,12 +1913,12 @@ Für die beiden Sätze in (\mex{1}) gibt es also unterschiedliche Verzweigungen:
 In Crysmanns Analyse gibt es somit Verbbewegung, wenn ein Verbalkomplex vorliegt, und es
 gibt keine Verbbewegung, wenn die rechte Satzklammer nicht besetzt ist.
 Zu ähnlichen Vorschlägen siehe auch \citew*[\page225]{KW91a} und \citew*[\page 194, 201]{SRTD96a}.
-Auf diese Weise hat man zwar die Verarbeitungsprobleme, die ein leerer verbaler Kopf mit sich
-bringt, beseitigt, aber man hat auch keine Möglichkeit mehr, die scheinbar mehrfache
+Auf diese Weise hat man zwar die Verarbeitungsprobleme beseitigt, die ein leerer verbaler Kopf mit sich
+bringt, aber man hat auch keine Möglichkeit mehr, die scheinbar mehrfache
 Vorfeldbesetzung\is{Vorfeldbesetzung} mit Hilfe eines leeren verbalen Kopfes\is{leere Kategorie} zu erklären.
 
-Crysmann (in der Diskussion zu seinem Vortrag auf dem Workshop \emph{Large"=Scale Grammar Development and Grammar Engineering} 
-2006 in Haifa) hat vorgeschlagen, die Tatsache, dass die Elemente, die bei der scheinbar mehrfachen Vorfeldbesetzung
+Crysmann hat in der Diskussion zu seinem Vortrag auf dem Workshop \emph{Large"=Scale Grammar Development and Grammar Engineering} 
+2006 in Haifa vorgeschlagen, die Tatsache, dass die Elemente, die bei der scheinbar mehrfachen Vorfeldbesetzung
 vorangestellt werden, vom selben Verb abhängen müssen \citep[\page67]{Fanselow93a}, dadurch zu erfassen, dass bei der Einführung
 der Fernabhängigkeiten offen gelassen wird, ob sich ein oder mehrere Elemente in \slasch befinden
 (zu \slasch und der Behandlung der Fernabhängigkeiten siehe Kapitel~\ref{Kapitel-nla}).
@@ -2133,7 +2132,7 @@ will. Eine genauere Diskussion hierzu findet man in \citew{Mueller2004e}. Allerd
 noch bestrebt, so wenig wie möglich leere Elemente zu verwenden, \dash, man versucht die Stipulation
 unsichtbarer Einheiten zu vermeiden, wo immer es geht.
 Kongruenz wird in der HPSG deshalb über die Identität von Merkmalen erzwungen (siehe
-Kapitel~\ref{Kapitel-kongruenz}), leere Agreement"=Köpfe und Bewegungen in bestimmte Baumpositionen
+Kapitel~\ref{Kapitel-kongruenz}). Leere Agreement"=Köpfe und Bewegungen in bestimmte Baumpositionen
 spielen bei der Beschreibung keine Rolle.  Man modelliert vielmehr direkt beobachtbare Eigenschaften
 linguistischer Zeichen: In (\mex{1}a) haben die NP und das Verb die Eigenschaft, Plural zu sein, und
 in (\mex{1}b) sind sie Singular.
@@ -2210,7 +2209,7 @@ zum einen die direkt beobachtbare und zum anderen solche, die der Rückübertrag
 mehrerer umgestellter Phrasen in die Position der Spur entsprechen \citep{Frey93a}.
 Nun hat sich aber herausgestellt, dass Ansätze, die Spuren annehmen,
 problematisch sind, denn sie sagen für Sätze, in denen es mehrere Spuren gibt, 
-Lesarten voraus, die nicht wirklich vorhanden sind (siehe \citew[\page 146]{Kiss2001a} und \citew[Abschnitt~2.6]{Fanselow2001a}).
+Lesarten voraus, die nicht wirklich vorhanden sind \parencites[siehe][\page 146]{Kiss2001a}[Abschnitt~2.6]{Fanselow2001a}.
 So könnte \zb in (\mex{1}) \emph{mindestens einem Verleger} an der Stelle von \_$_i$ interpretiert werden,
 was dann zur Folge hätte, dass man eine Lesart bekommt, in der
 \emph{fast jedes Gedicht} Skopus über \emph{mindestens einem Verleger} hat.
