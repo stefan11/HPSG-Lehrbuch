@@ -608,7 +608,7 @@ nicht oder unzureichend formalisierte Konstruktionsgrammatikvarianten. Zu einem 
 \citep{MuellerCxG}. Allen Varianten ist gemein, dass
 Vererbung eine wesentliche Rolle spielt, so dass man sie mit Merkmalbeschreibungen und Vererbung
 formalisieren müsste.\footnote{%
-  Die Vorschläge in \citew{KF99a}, \citew{Kay2005a} und \citew{Kay2002a} im Rahmen der Berkeley
+  Die Vorschläge in \citew{KF99a} und \citew{Kay2002a,Kay2005a} im Rahmen der Berkeley
   Construction Grammar sind teilweise in sich inkonsistent bzw.\ miteinander inkompatibel.
 \citet{Kay2002a} nimmt ungetypte Merkmalstrukturen an,
   verwendet aber in einem 2000 fertiggestellten Aufsatz \citep{Kay2005a} getypte Merkmalstrukturen. Relationale Beschränkungen
@@ -790,7 +790,7 @@ syn & \ms{ cat & v\\
        }\\
 val & \menge{ \onems{ role \onems{ gf \type{subj} } }}\\
 }
-\ex die \emph{Passive Construction}:\\
+\ex die \emph{Passive Construction}:\todostefan{Abstand zwischen Überschrift und Klammer zu klein}\\
 \ms{
 syn & \ms{ cat  & v\\
            form & PastPart\\
@@ -1298,7 +1298,7 @@ Der Rasen läuft sich leicht platt.
 \zl
 Das Problem besteht darin, dass das Objekt in (\mex{-1}a) kein Objekt von \emph{fischen} ist.
 Damit es beim Passiv zum Subjekt werden kann, muss es vorher eingeführt worden sein. Man könnte
-vorschlagen, das analog zur Einführung des Reflexivums zu tun, das funktioniert jedoch nicht,
+vorschlagen, das analog zur Einführung des Reflexivums zu tun. Das funktioniert jedoch nicht,
 wie deutlich wird, wenn man den entsprechenden Typ aufschreibt:
 \ea
 Typ für Resultativkonstruktion (funktioniert nicht):\\
@@ -1390,7 +1390,7 @@ der dem folgenden ähnelt:\footnote{
   Koenig in der Typdefinition festlegt, dass \ibox{2} das Subjekt ist, müsste es weitere Typen für
   die Extraposition von Objektsätzen geben. Siehe Fußnote~\ref{fn-Extrapositionslexikonregel}. In
   welcher Beziehung die Auslassungspunkte in der \compsl zu den Auslassungspunkten in der
-  \textsc{arg-liste} stehen, ist nicht festgelegt. Ohne weiter Spezifikationen ist über die \compsl
+  \textsc{arg-liste} stehen, ist nicht festgelegt. Ohne weitere Spezifikationen ist über die \compsl
   nur ausgesagt, dass sie \ibox{1} enthält. Wieso nach \ibox{1} in der \compsl Punkte stehen, ist unklar, denn \ibox{1} ist das letzte Element der
   \textsc{arg-liste}, müsste also -- wenn man von einer einfachen Zuordnung ausgeht -- auch das letzte Element der \compsl sein. %
 }
@@ -1563,8 +1563,8 @@ cont \ms{
        }
 }
 \z
-Typen, die nichts an der Semantik ändern, unifizieren einfach \textsc{lex-cont} mit \textsc{cont-out},
-solche, die etwas ändern, fügen Information in \textsc{add-cont} ein und können dabei auf \textsc{lex-cont}
+Typen, die nichts an der Semantik ändern, unifizieren einfach \textsc{lex-cont} mit \textsc{cont-out}.
+Solche, die etwas ändern, fügen Information in \textsc{add-cont} ein und können dabei auf \textsc{lex-cont}
 Bezug nehmen. \textsc{cont-out} übernimmt das Ergebnis von \textsc{add-cont}. Das Problem ist hierbei ebenfalls,
 dass das nur einmal funktioniert. Soll der Resultativkonstruktion noch die Information über einen
 freien Dativ hinzugefügt werden, scheitert das Verfahren.
@@ -1872,7 +1872,7 @@ des Generalisierten Kopfmerkmalsprinzips\is{Prinzip!Generalisiertes Kopfmerkmals
 
 
 \eas
-Generalisiertes Kopfmerkmalsprinzip \citep[\page33]{GSag2000a-u}:\\
+Generalisiertes Kopfmerkmalsprinzip \citep[\page33]{GSag2000a-u}:\todostefan{zu wenig Abstand}\\
 \type{headed"=phrase}\istype{headed"=phrase} \impl
 \onems{
 synsem  / \ibox{1}\\
@@ -2039,10 +2039,10 @@ das Wort \emph{Lesbarkeit} in einer Vererbungshierarchie wie in Abbildung~\vref{
 \end{figure}
 Das Override Principle würde man dann so interpretieren, dass bei Konflikten in Bezug
 auf die syntaktische Kategorie immer das Affix gewinnt. Damit hätte man dann irgendwie
-zentral geregelt, wie Überschreibung vorgenommen wird (Wie das zu formalisieren wäre,
-ist eine offene Frage.).
+zentral geregelt, wie Überschreibung vorgenommen wird. Wie das zu formalisieren wäre,
+ist jedoch eine offene Frage.
 % MR2001a:54 -> Unifikation
-Allerdings hat man dann das Problem, dass eine automatische
+Außerdem hat man mit einem so ausgelegten Override Principle das Problem, dass eine automatische
 Berechnung aller von einer Grammatik lizenzierten Wörter, wie sie bei Koenig
 möglich ist (siehe Abbildung~\ref{bsp-Partitionen} und~\ref{bsp-Partitionen-ausgerechnet}), nicht mehr durchgeführt werden kann.
 Der Grund hierfür ist, dass Restriktionen, die ein Affix in Bezug auf das Element spezifiziert, mit dem es
@@ -2082,7 +2082,7 @@ Für die Behandlung von Ausnahmen wie \zb \emph{brennbar}, das nicht von einem t
 abgeleitet ist, benötigt man keine Defaults. Es reicht, eine entsprechend allgemeine (nicht
 produktive) Lexikonregel zu haben, die keine (oder andere) Restriktionen in Bezug auf die Valenzliste des Verbs enthält. 
 Diese allgemeinere Lexikonregel ist Bestandteil der im Lexikon gespeicherten Information
-zum idiosynkratischen \emph{brennbar}, für die produktiven Formen wird die Lexikonregel in (\mex{0})
+zum idiosynkratischen \emph{brennbar}. Für die produktiven Formen wird die Lexikonregel in (\mex{0})
 verwendet \citep[\page 64, 68]{Riehemann98a}.
 
 
@@ -2099,10 +2099,10 @@ ist, noch einmal mit der Information von \prefix{vor} kombiniert, kommt nichts N
 \citep[\page 18]{KN93a}.
 Man könnte nun behaupten, dass die zehnfache Präfigierung von
 \prefix{vor} an ein Nomen ohnehin nicht vorkommt und dass man alle vorkommenden Wörter über Vererbung
-kompakt repräsentieren kann, aber eine solche Analyse bedeutet, dass
+kompakt repräsentieren kann. Aber eine solche Analyse bedeutet, dass
 man alle möglichen Stamm"=Affix"=Kombinationen aufschreiben muss, und entspricht dem in der Einleitung 
 auf Seite~\pageref{Seite-Alle-Sätze-aufschreiben}
-diskutierten Aufschreiben aller möglichen Sätze, ist somit wenig erhellend und spiegelt die
+diskutierten Aufschreiben aller möglichen Sätze. Sie ist somit wenig erhellend und spiegelt die
 menschliche Sprachfähigkeit nicht adäquat wider. Auch ist die Festlegung einer solchen Grenze ad
 hoc. Bei der Diskussion von Stammbäumen findet man durchaus auch noch eine größere Anzahl von
 Präfixen:
@@ -2117,17 +2117,17 @@ von sechzig Jahren (also 1610) noch "`lang und stark"' war. Unfassbar.\footnote{
 }
 \ex Mein Ur$_{11}$"-ur$_{10}$"-ur$_9$"-ur$_8$"-ur$_7$"-ur$_6$"-ur$_5$"-ur$_4$"-ur$_3$"-ur$_2$"-ur$_1$"-großvater und mein Ur$_{13}$"-ur$_{12}$"-ur$_{11}$"-ur$_{10}$"-ur$_9$"-ur$_8$"-ur$_7$"-ur$_6$"-ur$_5$"-ur$_4$"-ur$_3$"-ur$_2$"-ur$_1$"-großvater hatten diesen
 Vornamen um 1600.\footnote{
-  \url{http://www.baby-vornamen.de/Jungen/S/St/Stoffel/}. 06.06.2008
+  \url{http://www.baby-vornamen.de/Jungen/S/St/Stoffel/}. 06.06.2008.
 }
 \ex Nein, jeder Deutsche hat mindestens einen
 ur$_{16}$"-ur$_{15}$"-ur$_{14}$"-ur$_{13}$"-ur$_{12}$"-ur$_{11}$"-ur$_{10}$"-ur$_9$"-ur$_8$"-ur$_7$"-ur$_6$"-ur$_5$"-ur$_4$"-ur$_3$"-ur$_2$"-ur$_1$"-großvater,
 der aus einem anderen Land kommt\footnote{
-  \url{http://iq.lycos.de/exp/show/Myrt/?e4882eb7d690b0c92ed1ab7dcab0e104}. 06.06.2008
+  \url{http://iq.lycos.de/exp/show/Myrt/?e4882eb7d690b0c92ed1ab7dcab0e104}. 06.06.2008.
 }
 \ex Das war eine sehr seltene Gabe für Einhörner und das letzte Einhorn mit dieser Fähigkeit war
 Moonlight Shadow, Cystals Ur$_{18}$"-ur$_{17}$"-ur$_{16}$"-ur$_{15}$"-ur$_{14}$"-ur$_{13}$"-ur$_{12}$"-ur$_{11}$"-ur$_{10}$"-ur$_{9}$"-ur$_{8}$"-ur$_{7}$"-ur$_{6}$"-ur$_{5}$"-ur$_{4}$"-ur$_{3}$"-ur$_{2}$"-ur$_{1}$"-großvater.\footnote{
 \url{http://www.forenfuchs.de/archiv/1/56000/54760/mein-leben-bevor-ich-hierher-kam-F_5299-40.html}.
-06.06.2008
+06.06.2008.
 }
 \zl
 
