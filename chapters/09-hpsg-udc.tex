@@ -11,13 +11,15 @@
 \chapter{Nichtlokale Abhängigkeiten}
 \label{Kapitel-nla}
 
-Bisher können wir Verbletzt und Verberstsätze analysieren. In diesem Kapitel werden wir
+Bisher können wir Verbletzt- und Verberstsätze analysieren. In diesem Kapitel werden wir
 die Mechanismen kennenlernen, die zu einer adäquaten Behandlung der Vorfeldbesetzung benötigt
 werden. Damit werden wir dann in der Lage sein, Verbzweitsätze und Relativsätze bzw.\ eingebettete Interrogativsätze zu analysieren.
 
 \section{Verschiedene Arten von Fernabhängigkeiten}
 
-Das\is{Extraktion|(}\is{nichtlokale Abhängigkeit|(} Vorfeld kann mit einer Konstituente (Adjunkt, Subjekt oder Komplement) besetzt sein \parencites[Abschnitt~2.4]{Erdmann1886a}[\page69, \page 77]{Paul1919a}, weshalb das Deutsche zu den Verbzweitsprachen\is{Verbzweitsprache} gezählt wird.\footnote{%
+Im\is{Extraktion|(}\is{nichtlokale Abhängigkeit|(} Deutschen stehen die Konstituenten in
+Aussagesätzen nicht wie im Englischen in Subjekt-Verb-Objekt-Reihenfolge. Das finite Verb steht
+initial und die Position vor dem finiten Verb kann mit einer beliebigen Konstituente (Adjunkt, Subjekt oder Komplement) besetzt sein \parencites[Abschnitt~2.4]{Erdmann1886a}[\page69, \page 77]{Paul1919a}, weshalb das Deutsche zu den Verbzweitsprachen\is{Verbzweitsprache} gezählt wird.\footnote{%
   Die Kategorisierung des Deutschen als Verbzweitsprache scheint im Widerspruch zur Aussage zu stehen, 
   dass das Deutsche eine Verbletztsprache\is{Verbletztsprache} (siehe Seite~\pageref{page-verbletzt}) ist. Dem ist
   jedoch nicht so, da bei der Klassifizierung von Sprachen nach der Zugehörigkeit zu den Verbzweitsprachen
@@ -28,11 +30,11 @@ Das\is{Extraktion|(}\is{nichtlokale Abhängigkeit|(} Vorfeld kann mit einer Kons
   \citealt{Haider2020a}). Das Verb kann jedoch auch nach vorn gestellt werden. Im Gegensatz zum
   Englischen kann im Deutschen nicht nur das Subjekt vor dem finiten Verb stehen, sondern auch
   Adjunkte und Komplemente, was eine Eigenschaft von V2"=Sprachen ist. Das Englische ist eine
-  SVO"=Sprache aber keine V2"=Sprache (\citet[\page 375]{Rizzi1990a-u} nennt das Englische eine
+  SVO"=Sprache aber keine V2"=Sprache. \citet[\page 375]{Rizzi1990a-u} nennt das Englische eine
   residuale V2"=Sprache, weil es in Fragesätzen noch Muster gibt, die dem ähneln, was man von
-  V2"=Sprachen kennt). Das Dänische ist eine SVO"=Sprache aber auch gleichzeitig eine V2"=Sprache
+  V2"=Sprachen kennt. Das Dänische ist eine SVO"=Sprache aber auch gleichzeitig eine V2"=Sprache
   \citep{Vikner95a-u,MOeDanish,MuellerGermanic}.%  
-}
+}\todostefan{Sebastian findet, dass alles nach Im Gegensatz weg soll.}
 (\mex{1}) zeigt einige Beispiele für mögliche Vorfeldbesetzungen:
 \ea
 \label{fragen}
@@ -303,7 +305,7 @@ nonloc & \ms{ slash & \sliste{ \ibox{1} } \\
 
 \noindent
 Da Spuren keine interne Struktur, \dash keine Töchter haben, sind sie vom Typ \type{word}.
-Die Spur hat die Eigenschaften eines Akkusativobjekts. Dass das Akkusativobjekt
+Die Spur in (\mex{0}) hat die Eigenschaften eines Akkusativobjekts. Dass das Akkusativobjekt
 an der Stelle der Spur fehlt, ist durch den entsprechenden Wert in \slasch ausgedrückt.\is{Spur!Extraktionsspur|)} 
 %
 Abbildung~\vref{abb-das-buch-kennt-er-variable-verzweigung} zeigt das Weiterreichen
@@ -368,7 +370,7 @@ dtrs \liste{ \onems{ loc \ibox{1}\\
 \end{schema}
 Dieses Schema kombiniert einen finiten Satz mit Verb in Verberststellung (\textsc{initial}+) und einem Element in \textsc{slash}
 mit einer Nicht-Kopf"|tochter, deren \textsc{local}"=Wert identisch mit diesem \textsc{slash}"=Element ist.
-In der Struktur werden keine Argumente gesättigt. \type{head-filler-phrase} ist Untertyp von \type{head-non-complement-phrase}
+In der Struktur werden keine Argumente gesättigt. Der Typ \type{head-filler-phrase} ist Untertyp von \type{head-non-complement-phrase}
 (siehe Abbildung~\vref{abb-sign-hf-struc}).
 \begin{figure}
 \oneline{
@@ -561,9 +563,9 @@ Die wesentlichen Punkte der Analyse kann man wie folgt zusammenfassen:
 \item Das erfolgt über Strukturteilung.
 \item Die Information über nichtlokale Abhängigkeiten ist gleichzeitig an den entsprechenden Knoten präsent.
 \end{itemize}
-Diese Analyse kann Sprachen erklären, in denen bestimmte Elemente in Abhängigkeit davon flektieren,
+Diese Analyse kann Sprachen erklären, in denen bestimmte Elemente abhängig davon flektieren,
 ob sie Bestandteil einer Konstituente sind, durch die eine Fernabhängigkeit hindurchgeht. \citet*{BMS2001a} nennen 
-Irisch\il{Irisch}, Chamorro\il{Chamorro}, Palauan\il{Palauan}, Isländisch\il{Isländisch},
+Irisch\il{Irisch}, Chamorro\il{Chamorro}, Palauisch\il{Palauisch}, Isländisch\il{Isländisch},
 Kikuyu\il{Kikuyu}, Ewe\il{Ewe}, Thompson Salish\il{Thompson Salish}, Moore\il{Moore}, 
 Französisch\il{Französisch}, Spanisch\il{Spanisch} und Jiddisch\il{Jiddisch} als Beispiele für
 solche Sprachen und geben entsprechende Literaturverweise. Da in HPSG"=Analysen die Information Schritt für Schritt
@@ -576,7 +578,7 @@ Fernabhängigkeiten eine Rolle spielen, zugreifen.
 Es gibt ein grundlegendes Problem damit, dass die Relationen, die von Lexikonelementen beigetragen
 werden, innerhalb von \cont in einer Liste gesammelt werden. \cont ist Teil von \local und da der
 \localw zwischen Füller und Spur geteilt wird, bedeutet das, dass alle Relationen, die vom Füller
-beigetragen werden auch an der Stelle der Spur vorhanden sind. So sind in der Analyse von (\mex{1})
+beigetragen werden, auch an der Stelle der Spur vorhanden sind. So sind in der Analyse von (\mex{1})
 alle Relationen von \emph{der Affe, der immer wieder für große Erheiterung sorgt} auch innerhalb der
 Spur im Mittelfeld präsent.
 \ea
@@ -593,7 +595,7 @@ Das Ergebnis dieser Überlegungen ist, dass \rels und \hcons außerhalb der in F
 geteilten Information repräsentiert werden müssen, so dass sie zwischen Spur und Füller nicht
 geteilt werden. Was dann in \cont verbleibt ist der \ltopw und der Index. Das entspricht genau dem,
 was \citet[\page 305, 307]{CFPS2005a} als Wert von \textsc{hook} annehmen. Entlang der Kopfpfade
-werden also unter \cont der Index projiziert, das \ltop\hyp Label kann von einem Adjunkt kommen,
+wird also unter \cont der Index projiziert; das \ltop\hyp Label kann von einem Adjunkt kommen,
 wenn es ein skopendes Adjunkt ist. \rels und \hcons werden einfach immer von allen Töchtern eingesammelt.
 
 Die entsprechend angepasste Extraktionsspur zeigt (\mex{1}):
@@ -608,12 +610,12 @@ Extraktionsspur: \\
  hcons \eliste\\
 }
 \zs
-Man muss einfach sagen, dass die Spur weder Relationen noch Skopusbeschränkungen
+Neu ist hier, dass die Spur weder Relationen noch Skopusbeschränkungen
 beiträgt.\footnote{%
 Interessanterweise tritt dieses Problem bei Ansätzen ohne Spuren nicht auf. Das liegt daran, dass
 die Information über Argumente verwendet wird, um Fernabhängigkeiten einzuführen, aber die
-Relationen im \contw der Argumente bleiben für die Berechnung des semantischen Beitrags von Phrasen
-unberücksichtigt. Zu spurenlosen Ansätzen siehe Abschnitt~\ref{Abschnitt-Argumentrealisierungsprinzip-BMS}.}
+Relationen im \contw der Argumente für die Berechnung des semantischen Beitrags von Phrasen
+unberücksichtigt bleiben. Zu spurenlosen Ansätzen siehe Abschnitt~\ref{Abschnitt-Argumentrealisierungsprinzip-BMS}.}
 Das Gleiche gilt für die Verbspur aus Kapitel~\ref{Abschnitt-V1} von Seite~\pageref{le-verbspur}.
 
 Die angepasste Lexikonregel zeigt (\mex{1}):
@@ -761,7 +763,7 @@ und(e1:assertion, schlafen(e2:assertion, affe), lachen(e3:assertion, kind))
 \z
 Die Bestimmung des Satztyps bei Koordination von Sätzen mit verschiedenen Satztypen muss erst mal
 offen bleiben. Man könnte einen kombinierten Typ berechnen oder den des jeweils letzten Konjunkts
-nehmen, aber das bleibt Gegenstand weiterer Forschung und ist unabhängig davon, wie die Satztypen
+nehmen, aber das bleibt Gegenstand weiterer Forschung und ist, unabhängig davon, wie die Satztypen
 repräsentiert werden, ein Problem.
 
 Es gibt verschiedene Ansätze für die Bestimmung von Satztypen. \citet{Kathol2000a,Kathol2001a}
@@ -912,7 +914,7 @@ der \modew muss demzufolge \type{assertion\_or\_imperative\_or\_in\-ter\-rog\-a\
 Da weder Imperativmorphologie noch Frageintonation vorliegt, ist nur der \modew \type{assertion}
 angebracht. Das Element in \slasch wird dann entweder durch ein spezielles Dominanzschema für
 die Vorfeldellipse abgebunden \citep{Mueller2004e,VMY2024a} oder ein leeres Element im Vorfeld
-fungiert als Füller in einer Füller"=Kopf"=Struktur.
+fungiert als Füller in einer Kopf"=Füller"=Struktur.
 \is{Satztyp|)} 
 
 
@@ -1173,7 +1175,7 @@ Diese Äußerungen entsprechen den Sätzen in (\mex{1}):
 \eal
 \ex Doch was noch passiert, ist egal, \ldots
 \ex Zu erwähnen, dass ihre Seele völlig in Ordnung war, ist interessant.
-\ex Dass die Kollegen von Rammstein vor fünf Jahren noch im Vorprogramm von Sandow spielten ist ein Treppenwitz der Musikgeschichte.
+\ex Dass die Kollegen von Rammstein vor fünf Jahren noch im Vorprogramm von Sandow spielten, ist ein Treppenwitz der Musikgeschichte.
 \zl
 Die Kopula, die mit Adjektiven benutzt wird, leistet keinen eigenen semantischen Beitrag,
 sie stellt lediglich die Kongruenzinformation und die verbalen Merkmale zur Verfügung, die von anderen Prädikaten
