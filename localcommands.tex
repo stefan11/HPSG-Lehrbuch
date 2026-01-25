@@ -84,11 +84,11 @@
 
 % for editing, remove later
 %\usepackage{xcolor}
-\newcommand{\iaddpages}{\iftoggle{draft}{\yel[add pages]{pages}\xspace}}
+\newcommand{\iaddpages}{\iftoggle{draft}{\yel[add pages]{pages}{}}\xspace}
 
-\newcommand{\addpages}{\iftoggle{draft}{\todostefan{add pages}}\xspace}
-\newcommand{\addsource}{\iftoggle{draft}{\todostefan{add source}}\xspace}
-\newcommand{\addglosses}{\iftoggle{draft}{\todostefan{add glosses}}\xspace}
+\newcommand{\addpages}{\iftoggle{draft}{\todostefan{add pages}}{}\xspace}
+\newcommand{\addsource}{\iftoggle{draft}{\todostefan{add source}}{}\xspace}
+\newcommand{\addglosses}{\iftoggle{draft}{\todostefan{add glosses}}{}\xspace}
 
 
 

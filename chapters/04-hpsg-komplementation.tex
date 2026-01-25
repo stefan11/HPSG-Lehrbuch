@@ -62,7 +62,7 @@ sm edges
 \end{figure}
 \ea
 \ms{ 
-  phon     & \phonliste{ dem Eichhörnchen }\\[1mm]
+  phon     & \phonliste{ dem, Eichhörnchen }\\[1mm]
   head-dtr & \onems{ phon \phonliste{ Eichhörnchen }  \\
                  }\\
   non-head-dtrs & \liste{ \onems{ phon \phonliste{ dem } \\
@@ -81,7 +81,7 @@ Nicht-Kopftochter enthalten. Die \dtrsl enthält die Töchter in Abfolge, in der
 Phrase vorkommen. Für das Eichhörnchen"=Beispiel ergibt sich Folgendes:
 \ea
 \onems{ 
-  phon      \phonliste{ dem Eichhörnchen }\\[1mm]
+  phon      \phonliste{ dem, Eichhörnchen }\\[1mm]
   head-dtr  \ibox{1} \\
   non-head-dtrs  \nliste{ \ibox{2} }\\
   dtrs  \liste{ \ibox{2} \onems{ phon \phonliste{ dem } }, \ibox{1} \onems{ phon \phonliste{ Eichhörnchen } } }\\
@@ -172,15 +172,15 @@ Baum entspricht.\footnote{
 \ea
 %\resizebox{\linewidth}{!}{
 \onems{
-phon     \phonliste{ Aicke dem Eichhörnchen die Nuss gibt }\\
+phon     \phonliste{ Aicke, dem, Eichhörnchen, die, Nuss, gibt }\\
 head-dtr \onems{
-phon     \phonliste{ dem Eichhörnchen die Nuss gibt }\\
+phon     \phonliste{ dem, Eichhörnchen, die, Nuss, gibt }\\
 head-dtr \onems{
-      phon     \phonliste{ die Nuss gibt }\\
+      phon     \phonliste{ die, Nuss, gibt }\\
       head-dtr \onems{ phon \phonliste{ gibt }\\
                        } \\
       nh-dtrs \liste{ \onems{ 
-                                                  phon     \phonliste{ die Nuss }\\
+                                                  phon     \phonliste{ die, Nuss }\\
                                                   head-dtr \onems{ phon \phonliste{ Nuss }  \\
                                                                  }\\
                                                   nh-dtrs \liste{ \onems{ phon \phonliste{ die } \\
@@ -189,7 +189,7 @@ head-dtr \onems{
                        }\\
 }\\
 nh-dtrs \liste{ \onems{ 
-                                                  phon     \phonliste{ dem Eichhörnchen }\\
+                                                  phon     \phonliste{ dem, Eichhörnchen }\\
                                                   head-dtr \onems{ phon \phonliste{ Eichhörnchen }  \\
                                                                  }\\
                                                   nh-dtrs \liste{ \onems{ phon \phonliste{ dem } \\
@@ -209,7 +209,7 @@ und \compsw sowie den Typ der jeweiligen Teilstruktur:
 \ea
 \label{ms-die-Nuss-gibt}
 \onems[head-complement-phrase~]{
-      phon    \phonliste{ die Nuss gibt }\\
+      phon    \phonliste{ die, Nuss, gibt }\\
 %      spr \liste{}\\
       comps \ibox{1} \liste{ NP[\nom], NP[\dat]} \\
       head-dtr \onems{ phon \phonliste{ gibt }\\
@@ -217,7 +217,7 @@ und \compsw sowie den Typ der jeweiligen Teilstruktur:
                                      comps \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
                        } \\
       non-head-dtrs \liste{ \ibox{2} \onems[head-specifier-phrase~]{ 
-                                                  phon  \phonliste{ die Nuss }\\
+                                                  phon  \phonliste{ die, Nuss }\\
                                                   p-o-s \type{noun}\\
                                                   % acc
 %                                                  spr \liste{}\\
@@ -254,21 +254,6 @@ sm edges
 \end{figure}
 
 
-%% \ea
-%% \onems[head-argument-phrase~]{
-%%       phon    \phonliste{ er die Nuss dem Eichhörnchen gibt }\\
-%%       comps \ibox{1} \liste{ } \\
-%%       head-dtr \onems[head-argument-phrase]{ phon \phonliste{ die Nuss dem Eichhörnchen gibt }\\
-%%                                        comps \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
-%%                        } \\
-%%       non-head-dtrs \liste{ \ibox{2} \onems[word]{ 
-%%                                        phon \phonliste{ er }\\
-%%                                        p-o-s \textit{noun}\\
-%%                                        comps  \liste{} \\
-%%                                       }
-%%                        }\\
-%% }
-%% \z
 
 
 
@@ -309,7 +294,7 @@ tikz={\draw[<->] ($(fin1.south west)+(\offsetup,0)$) to ($(fin2.north west)+(\of
 Die Verbform\isfeat{vform} ist bisher noch gar nicht in Merkmalbeschreibungen enthalten gewesen.
 Eine mögliche Merkmalsgeometrie zeigt (\mex{1}).
 \ea
-      \ms{ phon   & list~of~phoneme strings\\
+      \ms{ phon   & list~of~phoneme~strings\\
            p-o-s  & p-o-s \\
            vform  & vform \\ 
            spr    & list~of~signs\\
@@ -326,7 +311,7 @@ ist jedoch adäquater: Man führt ein neues Merkmal \textsc{head}\isfeat{head} e
 eine komplexe Struktur ist, die alle Merkmale enthält, deren Werte für die
 Erklärung der Distributionseigenschaften\label{page-kopf-merkmal} der Gesamtprojektion relevant sind.
 \ea
-      \ms{ phon & list~of~phoneme strings\\
+      \ms{ phon & list~of~phoneme~strings\\
            head & \ms{
                   p-o-s & p-o-s\\
                   vform & vform\\
@@ -474,7 +459,7 @@ das Kopfmerkmalsprinzip die Projektion der Merkmale erzwingt: Der Kopfwert der g
 \iboxb{1} entspricht dem Kopfwert des Verbs \emph{gibt}.
 \ea
 \onems[head-complement-phrase~]{
-      phon  \phonliste{ die Nuss gibt }\\
+      phon  \phonliste{ die, Nuss, gibt }\\
       head  \ibox{1}\\
       comps \ibox{2} \sliste{ NP[\nom], NP[\dat]} \\
       head-dtr \onems[word]{ phon \phonliste{ gibt }\\
@@ -483,7 +468,7 @@ das Kopfmerkmalsprinzip die Projektion der Merkmale erzwingt: Der Kopfwert der g
                                      comps \ibox{2}  $\oplus$ \sliste{ \ibox{3} } \\
                        } \\
       non-head-dtrs \liste{ \ibox{3} \onems[head-specifier-phrase~]{ 
-                                        phon \phonliste{ die Nuss }\\
+                                        phon \phonliste{ die, Nuss }\\
                                         head \ms[noun]{ cas & acc\\
                                                       } \\
 %                                        comps   \eliste \\

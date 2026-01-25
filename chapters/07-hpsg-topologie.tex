@@ -73,11 +73,12 @@ Beispiele zeigt die Übersicht in Tabelle~\vref{bsp-topo}.
 \is{Feld!Mittel-}
 \is{Nachfeld|see{Feld}}
 \is{Feld!Nach-}
-\begin{table}[htbp]
-\begin{sideways}
+\begin{sidewaystable}[htbp]
+%\begin{sideways}
 %{\tiny
 \begin{tabular}{lllll}
-Vorfeld & linke Kl & Mittelfeld                             & rechte Klammer & Nachfeld                   \\ \\
+\lsptoprule
+Vorfeld & linke Kl & Mittelfeld                             & rechte Klammer & Nachfeld                   \\\midrule
 Aicke    & schläft.                                                                                            \\
 Aicke    & hat           &                                        & geschlafen.                                 \\
 Aicke    & erkennt       & Conny.                                                                               \\
@@ -92,12 +93,12 @@ Aicke    & hat           &                                        & behauptet   
         & Iss            & jetzt dein Eis                         & auf!                                        \\
         & Hat           & er doch das ganze Eis alleine          & gegessen.                                   \\  \\
         & weil          & er das ganze Eis alleine               & gegessen hat   & ohne mit der Wimper zu zucken.    \\
-        & weil          & er das ganze Eis alleine               & essen können will   & ohne gestört zu werden.    \\
+        & weil          & er das ganze Eis alleine               & essen können will   & ohne gestört zu werden.    \\\lspbottomrule
 %        & wer           & das ganze Eis alleine                  & gegessen hat.                               \\
 \end{tabular}
-\end{sideways}
 \caption{\label{bsp-topo}Beispiele für die Besetzung topologischer Felder}
-\end{table}
+%\end{sideways}
+\end{sidewaystable}
 
 Die rechte Satzklammer kann mehrere Verben enthalten und wird auch 
 Verbalkomplex\is{Verbalkomplex} (\emph{verbal complex} oder \emph{verb cluster}) genannt.
