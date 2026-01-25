@@ -101,8 +101,7 @@ dass niemand das Buch [[lesen können] wird]
 \emph{wird} kann wie in \pref{ex-uf} rechts oder wie in \pref{ex-of} links des eingebetteten Verbalkomplexes
 stehen. Nach dem Aufbau des Verbalkomplexes \emph{lesen können wird} wird dieser mit den Argumenten 
 der beteiligten Verben, also mit \emph{das Buch} und \emph{niemand} kombiniert.\footnote{
-        Eine solche Struktur wurde schon von 
-        \citet*{Johnson86a}
+        Eine solche Struktur wurde schon von \citet*{Johnson86a}
         im Zusammenhang mit der Positionierung des Verbalkomplexes im
         Vorfeld vorgeschlagen.
 }
@@ -153,7 +152,12 @@ benutzt haben, bzw.\ der angepassten Version auf S.\,\pageref{schema-head-arg}.
 Im Kapitel~\ref{Kapitel-Konstituentenreihenfolge} wurde das \emph{append} ($\oplus$) durch zwei appends
 ersetzt, um die relativ freie Anordnung von Konstituenten im Mittelfeld erklären zu können.
 Bei der Verbalkomplexbildung ist die Reihenfolge der Abbindung von verbalen Argumenten strikt: Es wird
-immer mit dem letzten Argument begonnen. Deshalb wird im Prädikatskomplexschema nur ein \emph{append} 
+immer mit dem letzten Argument begonnen.\footnote{%
+  Das bedeutet nicht, dass die Stellung fest ist. Es gibt die Oberfeldumstellung, die in
+  Abhängigkeit von den kombinierten Verben optional oder obligatorisch sein kann. Vergleiche
+  (\ref{ex-uf}) und (\ref{ex-of}). Aber auch bei der Analyse von (\ref{ex-uf}) und (\ref{ex-of})
+  wird immer das letzte Argument der \compsl mit dem regierenden Kopf kombiniert.
+} Deshalb wird im Prädikatskomplexschema nur ein \emph{append} 
 verwendet. Das Kopf"=Argument"=Schema wird auf S.\,\pageref{schema-bin} noch so revidiert,
 dass es korrekt mit dem Schema~\ref{schema-vk} und den entsprechenden Lexikoneinträgen für komplexbildende
 Verben interagiert.
@@ -331,7 +335,7 @@ list\_of\_non\_c\_forming\_synsems(\eliste).\\\\
 list\_of\_non\_c\_forming\_synsems(\liste{ \onems{ loc$|$cat|comps \eliste\\ %head$|$prd $-$\\
                                                    lex $-$\\
                                                 } $|$ \textrm{Rest} }) :=\\\\
-\hfill        list\_of\_non\_c\_forming\_synsems(Rest).\\\\
+\hfill        list\_of\_non\_c\_forming\_synsems(Rest).\\[2mm]
 \zs
 Eine Liste besteht aus Elementen, die keinen Prädikatskomplex bilden, wenn die Liste
 die leere Liste ist (erste Klausel) oder wenn das erste Element gesättigt ist
