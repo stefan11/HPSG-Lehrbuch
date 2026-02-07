@@ -846,9 +846,9 @@ Liste, die dann eine Verkettung aller \relswe und das Ergebnis der relationalen 
 \label{constraint-collect-rels}
 \texttt{collect-rels}([],[]).\\
 \texttt{collect-rels}([[\textsc{cont|rels} Rels1]|Dtrs],Rels) :=\\
-\hfill \texttt{collect-rels}(Dtrs,Rels2), \texttt{append}(Rels1,Rels2,Rels).
+\mbox{}\hfill \texttt{collect-rels}(Dtrs,Rels2), \texttt{append}(Rels1,Rels2,Rels).
 \z
-\medskip
+%\medskip
 \texttt{collect-rels} liefert für eine leere Tochter"=Liste die leere Liste an Relationen zurück
 (erste Klausel). Wenn es Elemente in der Liste der Töchter gibt, wird die Tochterliste in zwei Teile
 geteilt: die erste Tochter [\textsc{cont|rels} Rels1] und eine eventuell leere Liste weiterer

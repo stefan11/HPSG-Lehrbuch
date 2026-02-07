@@ -576,12 +576,13 @@ type hierarchy
     [non-headed-phrase]
     [headed-phrase
       [head-non-specifier-phrase,name=non-specifier
-        [head-complement-phrase,name=complement]]
+        [head-complement-phrase,name=complement]
+        [head-adjunct-phrase, name=head-adjunct-phrase]]
       [head-non-complement-phrase,name=non-complement
-        [head-adjunct-phrase, no edge,name=head-adjunct-phrase]
+        [,identify=head-adjunct-phrase]
         [head-specifier-phrase,name=specifier]]]]]
-\draw (non-specifier.south) to (head-adjunct-phrase.north);
-\draw (non-complement.south) to (head-adjunct-phrase.north);
+%\draw (non-specifier.south) to (head-adjunct-phrase.north);
+%\draw (non-complement.south) to (head-adjunct-phrase.north);
 \end{forest}}
 \caption{\label{fig-type-sign-Valenzprinzip}Typhierarchie für \type{sign} mit Untertypen für das Valenzprinzip}
 \end{figure}
