@@ -23,11 +23,12 @@
 
 \usepackage{ifthen}
 \provideboolean{draft}
-\setboolean{draft}{false}
 
 %\newtoggle{draft}\togglefalse{draft}
-\newtoggle{draft}\toggletrue{draft}
+\newtoggle{draft}
 %\newtoggle{finished}\togglefalse{finished}
+
+
 
 
 
@@ -38,6 +39,10 @@
                      % them changes the layout of the pages, so we have to rely on them. Unless ... 16.03.2023
 %\mmzset{readonly}
 % see below for further settings
+
+%\setboolean{draft}{false}\togglefalse{draft}\renewcommand{\itdopt}[1]{}\renewcommand{\todostefan}[1]{}\newcommand{\NOTE}[1]{}
+\setboolean{draft}{true}\toggletrue{draft}\newcommand{\NOTE}[1]{\marginpar{#1}}
+
 
 \input{localhyphenation.tex} % has to be loaded before german.sty
 \input{localmetadata.tex}
@@ -62,11 +67,8 @@
 
 
 
-\newcommand{\NOTE}[1]{}
-%\newcommand{\NOTE}[1]{\marginpar{#1}}
 
-\renewcommand{\itdopt}[1]{}
-\renewcommand{\todostefan}[1]{}
+
 
 
 % \renewcommand{\itd}[1]{}

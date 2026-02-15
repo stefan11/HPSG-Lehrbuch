@@ -1265,6 +1265,7 @@ ergeben sich die gemeinsamen Label"=Werte h2 in (\ref{ex-every-klein-kind-schlaf
 
 (\mex{1}) zeigt den Lexikoneintrag für \emph{jede}:
 \eas
+\label{le-jede}%
 Lexikoneintrag für \emph{jede}:\\
 \ms{
 cat & \ms{ head & \ms[det~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~]{
@@ -3132,6 +3133,455 @@ ableiten.
 \subsection{Inkrementelle Verarbeitung}
 
 \itdopt{add something or delete}
+
+
+
+\subsection{Die DP-Analyse}
+\label{sec-dp-analyse}
+
+\mbox{}\is{Determinator!-phrase|(}%
+Die Analyse der Nominalstrukturen ist relativ komplex: Das Selektionsmerkmal \textsc{spec} wird benötigt,
+das Spezifikatorprinzip muss formalisiert werden, und außerdem braucht man das Valenzmerkmal \spr
+und eine entsprechende Grammatikregel für Determinator"=Nomen"=Strukturen (siehe
+Abschnitt~\ref{Abschnitt-SPR-Merkmal}). Eine Analyse, die davon ausgeht, dass der Determinator der
+Kopf\is{Kopf} ist, scheint wesentlich einfacher zu sein. Für den Quantor \emph{jede} könnte man
+statt (\ref{le-jede}) die Struktur in (\mex{1}) annehmen:
+
+\eas
+\emph{jedes} in der DP-Analyse:\\
+\ms{
+cat & \ms{ head & \ms[det]{
+                  case & \type{nom} }\\
+           arg-st & \liste{ NP[\ltop \ibox{1}, \textsc{ind} \ibox{2}] }\\
+         }\\
+cont & \ms{
+       rels & \liste{ \ms[every\_q]{
+                      arg0 & \ibox{2}\\ 
+                      rstr & \ibox{3}\\ 
+%                      body &\\
+                      } }\\[5mm]
+       hcons & \liste{ \ms[qeq]{
+                       harg & \ibox{3}\\
+                       larg & \ibox{1}\\
+                       }
+               }\\
+       }
+}
+\zs
+
+\noindent
+Das \argst-Element würde dann auf \comps gemappt und der Determinator würde rechts von sich mit
+einer NP (einer vollständigen Nominalprojektion, die im DP-System keinen Determinator brauchen
+würde) verlangen. Eine mit diesem Determinator gebildete DP hätte (vom \headw abgesehen) dasselbe Aussehen
+wie die NP in der bisher diskutierten NP"=Analyse.
+\begin{figure}
+\hfill
+\begin{forest}
+sm edges
+[DP
+  [D [jedes]]
+  [NP [Bild]]]
+\end{forest}\hfill
+\begin{forest}
+sm edges
+[DP
+  [D [jedes]]
+  [NP 
+    [N [Bild]]
+    [PP [vom Gleimtunnel,roof]]]]
+\end{forest}
+\hfill\mbox{}
+\caption{DP-Analyse mit Determinator als Kopf}
+\end{figure}
+
+Problematisch an dieser DP"=Analyse sind aber die Possessivpronomina. Man könnte sich
+hier statt (\ref{le-Possessivpronomen}) folgenden Lexikoneintrag vorstellen:
+\eas
+\textit{ihren} (falsch, Index des Possessivums statt des Nomens):\\
+\ms{ 
+  cat & \ms{ head  & \ms[det]{
+                     case & nom}\\
+             arg-st & \nliste{ NP[\ltop \ibox{1}, \textsc{ind} \ibox{2}] }\\
+           } \\
+  cont &  \ms{
+%       ltop & \ibox{3}\\
+       ind  & \ibox{3} \ms{
+                       per & 3\\
+                       num & sg\\
+                       gen & fem\\
+                      }\\ 
+       rels & \liste{ \ms[def\_q]{
+                      arg0 & \ibox{2}\\ 
+                      rstr & \ibox{4}\\ 
+%                      body &\\
+                      }, \ms[besitzen\_rel]{
+                            lbl  & \ibox{1}\\     % pronoun_q(x,h, h) h1:pronoun_rel(x),
+                                % h1:besitzen(x,y) ^ h1:buch(y)
+%                           arg0 & event\\
+                            arg1 & \ibox{3}\\
+                            arg2 & \ibox{2}
+                      } }\\
+       hcons & \liste{ \ms[qeq]{
+                       harg & \ibox{4}\\
+                       larg & \ibox{1}\\
+                       }
+               }\\
+           } \\
+}
+\zs
+Das Problem besteht nun darin, dass die Repräsentation für \emph{ihr Buch},
+die mit (\mex{0}) gebildet werden kann, die falsche Index"=Information hat, denn das Semantikprinzip
+sorgt dafür, dass der semantische Beitrag in einer Kopf"=Komplement"=Struktur vom Kopf kommt. In der
+DP"=Analyse ist der Determinator der Kopf und steuert somit den semantischen Hauptbeitrag bei. Man
+würde also eine Struktur bekommen, die durch (\mex{1}) beschrieben wird:
+\eas
+\textit{ihren Kater} (falsch, Index des Possessivums statt des Nomens):\\
+\ms{ 
+  cat & \ms{ head  & \ms[det]{
+                     case & nom}\\
+             comps & \eliste\\
+           } \\
+  cont &  \ms{
+%       ltop & \ibox{3}\\
+       ind  & \ibox{3} \ms{
+                       per & 3\\
+                       num & sg\\
+                       gen & fem\\
+                      }\\ 
+       rels & \liste{ \ms[def\_q]{
+                      arg0 & \ibox{2}\\ 
+                      rstr & \ibox{4}\\ 
+%                      body &\\
+                      }, \ms[besitzen\_rel]{
+                            lbl  & \ibox{1}\\     % pronoun_q(x,h, h) h1:pronoun_rel(x),
+                                % h1:besitzen(x,y) ^ h1:buch(y)
+%                           arg0 & event\\
+                            arg1 & \ibox{3}\\
+                            arg2 & \ibox{2}
+                      }, \ms[kater]{
+                         lbl & \ibox{1}\\
+                         arg0 & \ibox{2} } }\\
+       hcons & \liste{ \ms[qeq]{
+                       harg & \ibox{4}\\
+                       larg & \ibox{1}\\
+                       }
+               }\\
+           } \\
+}
+\zs
+Der Index dieser DP entspricht dem Possessivpronomen, nicht aber dem Nomen.
+Das Nomen ist aber das Element, das eine semantische Rolle eines Verbs füllen kann.
+Würde man mit dem Eintrag in (\mex{-1}) den Satz in (\mex{1}) analysieren,
+bekäme man eine falsche Repräsentation, in der \emph{friert} über \emph{ihren}
+prädiziert. Die semantische Repräsentation wäre dann (\mex{1}c) statt (\mex{1}b):
+\eal
+\ex Ihren Kater friert.
+\ex \textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1, i1, x), h4:kater(x), h3:frieren(x) \},\\
+              \hphantom{\textlangle~}\{ h2 \qeq h4 \}  }   
+\ex  \textmrs{ h0, \{ h1:def\_q(i1, h2, h3), h4:besitzen(e1, i1, x), h4:kater(x), h3:frieren(i1) \},\\
+              \hphantom{\textlangle~}\{ h2 \qeq h4 \}  }   
+\zl
+
+\noindent
+Man könnte versuchen, das Problem zu beheben, indem man den Index
+des Nomens zum Index von \emph{ihr} macht. Somit würde dieser Index
+dann auch zum Index der DP werden. Die Index"=Information des Possessivums
+wäre nur noch in der Argumentstelle der \relation{besitzen}"=Relation
+repräsentiert:
+\eas
+\textit{ihren} (falsch, Index von Nomen übernommen):\\
+%\oneline{%
+\ms{ 
+  cat & \ms{ head  & \ms[det]{
+                     case & nom}\\
+             arg-st & \nliste{ NP[\ltop \ibox{1}, \textsc{ind} \ibox{2}] }\\
+           } \\
+  cont &  \ms{
+%       ltop & \ibox{3}\\
+       ind  & \ibox{2} \\ 
+       rels & \liste{ \ms[def\_q]{
+                      arg0 & \ibox{2}\\ 
+                      rstr & \ibox{4}\\ 
+%                      body &\\
+                      }, \ms[besitzen\_rel]{
+                            lbl  & \ibox{1}\\     % pronoun_q(x,h, h) h1:pronoun_rel(x),
+                                % h1:besitzen(x,y) ^ h1:buch(y)
+%                           arg0 & event\\
+                            arg1 & \ms{
+                       per & 3\\
+                       num & sg\\
+                       gen & fem\\
+                      }\\
+                            arg2 & \ibox{2}
+                      } }\\
+       hcons & \liste{ \ms[qeq]{
+                       harg & \ibox{4}\\
+                       larg & \ibox{1}\\
+                       }
+               }\\
+           } \\
+}
+\zs
+
+\noindent
+Dieser Vorschlag funktioniert aber auch nicht, da die Information über das Possessivpronomen
+für die Bindungstheorie\is{Bindungstheorie|(} gebraucht wird. Zur Bindungstheorie siehe
+\citew[Kapitel~6]{ps2} und \citew{MuellerBinding}. Man könnte vorschlagen, die Bindungstheorie auf semantischen Repräsentationen
+operieren zu lassen, aber das funktioniert nicht, da man auch die Bindung von Reflexivpronomen
+im Zusammenhang mit inhärent reflexiven Verben\is{Verb!inhärent reflexives} erklären will:
+Das Reflexivum\is{Pronomen!Reflexiv-} muss in Sätzen wie (\mex{1}) immer mit dem Subjekt in Person\is{Person} und Numerus\is{Numerus} übereinstimmen.
+\eal
+\ex Ich erhole mich.
+\ex Du erholst dich.
+\ex Er erholt sich.
+\ex Ihr erholt euch.
+\zl
+Die Reflexivpronomina in (\mex{0}) sind keine semantischen, aber syntaktische Argumente.
+Eine Bindungstheorie muss also auf syntaktischen Strukturen bzw.\ mit Bezug auf Valenzinformation
+operieren. Somit muss die Information über den Index des Possessivums außerhalb der Relationen
+in \textsc{rels} verfügbar sein.\is{Bindungstheorie|)} 
+Eine Analyse mit Possessivum als Kopf scheidet also aus. Damit bleiben
+nur zwei Möglichkeiten: die NP"=Analyse und eine Analyse, die einen leeren Determinator\is{leere Kategorie} als Kopf
+nimmt, der dann mit Possessivum und NP verbunden wird \citep[\page 50, \page 53]{Abney87a}. Diese
+Analyse ist in Abbildung~\ref{Abbildung-DP-Possessivum} dargestellt. Die Kategorie von \emph{ihre}
+wäre in solch einer Analyse unklar. Die entsprechend flektierten Possessivpronomina können nur an
+der Stelle vor dem Nomen und vor den Adjektiven auftreten, sind aber selbst nicht äquivalent zu DPen
+wie \emph{ihren Kater}. Die Flexion entspricht jedoch klar der Flexion des Artikels
+\emph{ein}. Würde man \emph{ihren} die Kategorie Possessivum geben oder irgendeine andere Kategorie,
+wäre die Parallelität zum Artikel nicht erfasst.
+% seine eine
+% ihr ein
+% ihre eine
+% dein ein
+% deine eine
+% deinem einem
+% deines eines
+\begin{figure}
+\hfill
+\begin{forest}
+sm edges
+[NP
+  [Det [ihren]]
+  [NP [Kater]]]
+\end{forest}
+\hfill
+\begin{forest}
+sm edges
+[DP
+  [DetP [ihren]]
+  [D$'$
+    [D [\trace]]
+    [NP [Kater]]]]
+\end{forest}
+\hfill\mbox{}
+\caption{NP-Analyse und DP-Analyse mit leerem Kopf und Possessivpronomen}\label{Abbildung-DP-Possessivum}
+\end{figure}
+
+Die Analyse mit einem leeren Kopf für den Determinator und mit einer Spezialkategorie für das Possessivum wäre auf jeden Fall komplizierter
+als die NP"=Analyse, so dass man der NP"=Analyse wohl den Vorzug geben muss.
+
+%%  Dan Flickinger: 2008 in Kyoto
+%%  Er arbeitet einen großen Teil der Woche. -> Man braucht eine Regel, die eine NP mit Zeitnomen projiziert.
+%%
+%% \Citet{vanLangendonck94a} und \citet{Hudson2004a} führen ein weiteres Argument 
+%% für eine Analyse mit dem Nomen als Kopf an: Bestimmte Nomina können als Adjunkte auf"|treten:
+%% \eal
+%% \ex Er hat \emph{den ganzen Tag} gearbeitet.
+%% \ex \emph{Eines Tages} werd' ich mich rächen, [\ldots]\footnote{
+%%   Die Ärzte, \emph{Debil}, CBS Schallplatten GmbH, 1984.
+%% }
+%% \zl
+%% Geht man von einer Analyse aus, in der der Modifikator bestimmt, welche Köpfe er modifizieren
+%% kann, dann muss man in Nomina wie \emph{Tag} den \modw so spezifizieren, dass diese Nomina Verben
+%% modifizieren können. Außerdem muss der Kasus des Nomens im Lexikoneintrag spezifiziert sein,
+%% denn die Bedeutung des Modifikators hängt mit dem Kasus des Nomens zusammen (zu semantischen
+%% Kasus\is{Kasus!semantischer} siehe Kapitel~\ref{sec-sem-kasus}).
+%% Es ist dann eine Eigenschaft des Nomens, 
+%% dass es als Modifikator verwendet werden kann, der Determinator ist dafür nicht verantwortlich.
+%% Das Einfachste ist es anzunehmen, dass die Kopfmerkmale alle vom Nomen kommen. Alternativ könnte man
+%% Determinatoren natürlich so spezifizieren, dass sie den \modw vom Nomen übernehmen oder die Kopf"=Informationen
+%% des Determinators generell mit denen des Nomens vereinigen \citep{Netter96a}. Beide Möglichkeiten sind
+%% aber komplizierter als die hier vorgestellte Analyse.
+%% % Netter96a:100 SemP -> Semantik kommt vom Determinator
+
+Ein zweites Argument gegen DP"=Strukturen liefern Beispiele mit relationalen Nomina, in denen der
+Determinator eine semantische Rolle füllt:
+\eal
+\ex Connys Bruder
+\ex Connys Zerstörung der Stadt
+\zl
+Für beide Beispiele gibt es eine Lesart, in der Peter ein semantisches Argument des Nomens ist. Wäre
+\emph{Connys} kein syntaktisches Argument der jeweiligen Nomina, wäre unklar, wie das Linking
+innerhalb der Lexikoneinträge für \emph{Bruder} bzw.\ \emph{Zerstörung} vorgenommen werden
+könnte. In einer NP"=Analyse kann man dagegen das Linking im Lexikon vornehmen, da der Determinator
+vom Nomen selegiert wird.%
+\is{Determinator!-phrase|)}
+
+\subsection{Lexikalische Abbindung von Determinatoren}
+
+\mbox{}\is{Konstruktionsgrammatik (CxG)|(}\citet[\page 80]{Michaelis2006a} schlägt im Rahmen der
+Konstruktionsgrammatik eine Analyse von Nominalphrasen wie (\mex{1}) vor, die davon ausgeht, dass der
+Determinator über eine Lexikonregel abgebunden wird.
+\eal
+\ex Conny trinkt Milch.
+\ex Conny mag Kinder.
+\zl
+Für Stoffnomina und Nomina im  Plural nimmt sie an, dass diese eine leere \sprl haben, also keinen
+Determinator selegieren (zum \sprm siehe Kapitel~\ref{sec-spr}). Der semantische Beitrag des
+Determinators wird bereits im Lexikon in die semantische Repräsentation des Nomens (in die \textsc{frames}"=Liste) aufgenommen. Folgende Repräsentation zeigt, wie Stoffnomina behandelt werden:\is{Skopus|(}
+\ea
+Schematischer Eintrag für Stoffnomina nach \citet[\page 80]{Michaelis2006a}:\\
+\ms{
+syn & \ms{ head & \ms[noun]{
+                  count & $-$\\
+                  agr & \ms{ per & 3\\
+                             num & sg\\
+                           }\\
+                  }\\
+           val & \ms{ spr   & \eliste\\
+                      comps & \eliste\\
+                    }\\
+         }\\
+sem & \ms{
+      index & c\\
+      frames & \liste{ \ibox{1} \ms[nominal]{
+                                arg & c\\
+                                }, \ms[exist]{
+                                   arg   & c\\
+                                   restr & \ibox{1}\\
+                                   } }\\
+      }\\
+}
+\z
+Dabei steht \emph{nominal} für eine nominale Relation, die je nach Nomen noch spezifischer wird, und
+\emph{exist} für den semantischen Beitrag des Quantors. Der Quantor hat unmittelbaren Skopus über
+den Beitrag des Nomens, was man an der Strukturteilung \iboxt{1} sehen kann.
+
+%% Diese Analyse hat zwei Probleme: Die Möglichkeit der Modifikation von Stoffnomina bzw.\ von Nomina im Plural und den
+%% Skopus von skopustragenden Adjektiven. Das erste Problem soll anhand der Beispiele in (\mex{1})
+%% erläutert werden, auf die bereits \citet[\page 319]{Netter94} hingewiesen hat:
+Diese Analyse hat ein Problem mit der Modifikation von Stoffnomina bzw.\ von Nomina im Plural durch
+Adjektive, das anhand der Beispiele in (\mex{1}) erläutert werden soll, auf die bereits \citet[\page 319]{Netter94} hingewiesen hat:
+\eal
+\ex[]{
+der gute Wein
+}
+\ex[]{
+guter Wein
+}
+\ex[*]{
+guter der Wein
+}
+\zl 
+Wenn man davon ausgeht, dass \emph{Wein} einen Lexikoneintrag hat, der keinen Determinator selegiert,
+dann muss das Adjektiv in (\mex{0}b) eine vollständige NP modifizieren. Dann stellt sich aber die
+Frage, wieso das Adjektiv eine vollständige NP, die einen Determinator enthält, nicht modifizieren
+darf (\mex{0}c). Nimmt man dagegen an, dass in (\mex{0}b) ein leerer Determinator an der Stelle
+steht, an der Determinatoren normalerweise stehen würden, dann folgt die Ungrammatikalität von
+(\mex{0}c) automatisch aus der Analyse, die im Abschnitt~\ref{sec-Adjunkte-psg} vorgestellt
+wurde: Adjektive modifizieren \nbar{}s. Da \emph{Wein} nur einen Determinator verlangt, ist \emph{Wein} eine
+\nbar. Die Kombination mit Adjunkten verändert die Valenz eines Kopfes nicht, so dass \emph{guter
+  Wein} genauso wie \emph{Wein} einen Determinator verlangt. Bei Stoffnomina kann der Determinator
+leer\is{leere Kategorie} sein, was in (\mex{1}) der Fall ist. 
+
+
+\ea
+{}[\sub{NP} \_ [\sub{\nbar} guter Wein]]
+\z
+
+\noindent
+Als Alternative zu einem leeren Element bietet sich eine
+Spezialregel an, die einen Kopf, der einen Determinator selegiert, zu einem vollständigen Kopf
+projiziert und den semantischen Beitrag leistet, den der leere Determinator leisten
+würde \citep{Wunderlich87d}. Abbildung~\vref{Abb-NP-Analysen} zeigt die Analysemöglichkeiten.
+\begin{figure}
+\hfill
+%
+\begin{forest}
+sm edges
+[NP
+  [Det [\trace]]
+  [\nbar 
+    [Adj [guter]]
+    [\nbar [Wein]]]]
+\end{forest}
+\hfill
+%
+\begin{forest}
+sm edges
+[NP
+  [\nbar 
+    [Adj [guter]]
+    [\nbar [Wein]]]]
+\end{forest}
+%
+\hfill
+%
+\begin{forest}
+sm edges
+[NP
+  [Adj [guter]]
+  [NP 
+    [\nbar [Wein]]]]
+\end{forest}
+%
+\hfill\mbox{}
+
+\caption{\label{Abb-NP-Analysen}Analysemöglichkeiten für determinatorlose Nominalphrasen: leerer
+  Determinator, unäre Projektion, Lexikonregel}
+\end{figure}
+Die beiden ersten Analysen sind formale Varianten voneinander und machen in bezug auf die
+Modifikation durch Adjektive dieselben Vorhersagen. Allerdings ist ein Vorteil der ersten Analyse,
+dass man ein Objekt annehmen muss, dass bis auf den phonologischen Gehalt Objekten entspricht, die es
+bereits in der Grammatik gibt (siehe Kapitel~\ref{Kapitel-Lexikon} zur Organisation des Lexikons in der
+HPSG). Folgt man der Analyse zwei, muss man eine sehr spezielle Grammatikregel stipulieren, die ein
+Element aus der \sprl abbindet und eine Determinator"=Semantik mit der Kopfsemantik verrechnet. Die
+Analyse mit dem leeren Determinator ist also vorzuziehen.\footnote{
+  Man kann sich jetzt fragen, warum hier einem leeren Kopf der Vorzug gegeben wird, im letzten
+  Abschnitt jedoch im Zusammenahng mit Possessivpronomina gegen einen leeren Determinator
+  argumentiert wurde. Die Fälle unterscheiden sich dahingehend, dass für den hier angenommenen leeren
+  Determinator ein direktes sichtbares Gegenstückt existiert (i), beim leeren Kopf, der eine NP und
+  ein Possessivum selegiert, ist das jedoch nicht der Fall. Man muss erklären, wieso Possessiva
+  dieselbe Distribution haben wie Determinatoren, und das ist erklärt, wenn man sie als
+  Determinatoren analysiert. In der DP"=Analyse haben sowohl die Possessiva als auch der leere
+  Determinator, der das Possesivum selegiert, einen besonderen Status.
+\eal
+\ex ein guter Wein
+\ex \_ guter Wein
+\zllast
+}
+
+%% Das zweite Problem, das sich für die lexikalische Abbindung des Determinators ergibt, ist ein
+%% semantisches: Im Abschnitt~\ref{sec-kapselnde-Modifikation} wurden Adjektive vorgestellt, die den semantischen Gehalt der \nbar, die
+%% sie modifizieren unter ihre Relation einbetten. Würde man nun den semantischen Beitrag des Quantors
+%% im Lexikon einführen, bekäme man für den entsprechenden Ausschnitt aus (\mex{1}a) statt (\mex{1}b)
+%% die Repräsentation in (\mex{1}c):
+%% \eal
+%% \ex Wenn die Post Hundefutter und "`Die Zeit"' "`angeblichen Wein"' vertreibt, darf die Weltwoche
+%% nicht passen.\footnote{
+%%   \url{http://www.weltwoche.ch/forum/threads.asp?AssetID=14074&ThreadID=0&ThreadOpen=1}. 24.01.2007
+%% }
+%% \ex $\exists$ x angeblich(wein(x)) $\wedge$ vertreiben(Zeit,x)
+%% \ex angeblich($\exists$ x wein(x)) $\wedge$ vertreiben(Zeit,x)
+%% %% \ex Mutmaßliche Mörder erholen sich (auf einer Südseeinsel).
+%% %% \ex $\exists$ x mutmaßlich(mörder(x)) $\wedge$ erholen(x)
+%% %% \ex mutmaßlich($\exists$ x mörder(x) $\wedge$ erholen(x))
+%% \zl
+%% In (\mex{0}b) wird gesagt, dass es ein Objekt x gibt, das \emph{Die Zeit} vertreibt und das angeblich
+%% Wein ist. In (\mex{0}c) wird dagegen gesagt, dass \emph{Die Zeit} etwas vertreibt, was angeblich
+%% existiert und Wein ist. Das ist semantisch nicht richtig, denn, dass es etwas gibt, was die Zeit vertreibt steht
+%% außer Frage, fraglich ist nur, ob das, was sie vertreibt, Wein ist. Davon abgesehen, ist die Formel
+%% in (\mex{0}c) nicht wohlgeformt, denn die Variable x in vertreiben(Zeit,x) ist nicht durch den
+%% Quantor $\exists$ gebunden.
+
+%% In den beiden linken Strukturen in Abbildung~\ref{Abb-NP-Analysen} bildet der Determinator bzw.\ das
+%% Schema, das die Determinatorensemantik beisteuert, das höchste Element im Baum. Der Quantor schließt
+%% die NP ab und hat Skopus über alles innerhalb der NP. In der dritten Analyse mit der Lexikonregel
+%% hat der Quantor immer unmittelbaren Skopus über das Nomen, zu dem er gehört, was nicht den
+%% beobachtbaren Fakten entspricht.%
+%% \is{Skopus|)}
+\is{Konstruktionsgrammatik (CxG)|)}
+
 
 
 %\section*{Kontrollfragen}

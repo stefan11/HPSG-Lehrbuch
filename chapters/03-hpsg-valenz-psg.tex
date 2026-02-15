@@ -520,7 +520,24 @@ Aicke singt laut.
 }
 \zl
 Analog zur Selektion von Argumenten durch Köpfe über \spr und \comps kann
-man Adjunkte ihren Kopf über ein Merkmal (\textsc{modified})\isfeat{mod} selegieren lassen.
+man Adjunkte ihren Kopf über ein Merkmal (\textsc{modified})\isfeat{mod} selegieren
+lassen.\footnote{%
+  In früheren Varianten der HPSG ging man davon aus, dass der Kopf das Adjunkt selegiert. So nahmen
+  \citet[161]{ps} an, dass zu jedem Kopf eine Menge gehört, in der Beschreibungen möglicher Adjunkte
+  enthalten sind. Zum Beispiel wären dann bei Nomina eine Beschreibung einer Adjektivphrase und einer
+  Präpositionalphrase in dieser Menge. Diese Analyse wurde dann aber aus semantischen Gründen
+  aufgegeben. \citet[Abschnitt~1.9]{ps2} gehen stattdessen davon aus, dass
+  Adjunkte den Kopf, den sie modifizieren, selegieren. \Citet{NB94} haben eine Analyse
+  vorgeschlagen, in der Adjunkte per Lexikonregeln in Valenzmerkmale aufgenommen werden. Auf diese
+  Analyse komme ich im Abschnitt~\ref{sec-lr-for-transp-pvs} zurück. Ich übernehme sie für bestimmte
+  Partikelverbkonstruktionen. \citet*[42]{BMS2001a} schlagen ebenfalls vor, einige Adjunkte als
+  valenzabhängige Elemente zu behandeln.%
+% Man braucht dazu das SCOPAL-Merkmal, das ich vorschlage. Dann geht es. Aber so wie es im Artikel
+% ist, funktioniert es nicht. 
+%Dieser Ansatz funktioniert jedoch so wie er nicht, weil Adjunkte die
+%  andere Adjunkte semantisch einbetten anders als im Ansatz von \citeauthor{NB94} nicht korrekt
+%  behandelt werden können.%
+}
 Adjektive, Nomina modifizierende Präpositionalphrasen und Relativsätze
 selegieren eine fast vollständige Nominalprojektion, \dash ein Nomen, das
 nur noch mit einem Determinierer kombiniert werden muss, um eine vollständige
@@ -578,7 +595,6 @@ dem wir uns mit Kopfmerkmalen und dem Kopfmerkmalsprinzip (siehe S.\,\pageref{pr
 beschäftigen: Das Kopfmerkmalsprinzip sorgt dafür, dass der \modw der gesamten Projektion mit dem
 \modw des Lexikoneintrags für \emph{treues} identisch ist. 
 
-\itdopt{Selektion der Adjunkte durch Kopf?}
 % Alternativ zur Selektion des Kopfes durch den Modifikator könnte man eine
 % Beschreibung aller möglichen Adjunkte beim Kopf vornehmen. Dies wurde von
 % \citet[\page 161]{ps} vorgeschlagen. \citet[Abschnitt~1.9]{ps2} rücken von diesem Ansatz aber wieder
@@ -718,8 +734,9 @@ vertreten wird.
 Bevor die Details besprochen werden, hier noch ein Disclaimer: All die Punkte, die hier vorgebracht
 werden, sind kein Argument gegen Konstruktionsgrammatik. Sie sind Argumente gegen phrasale Ansätze
 zur Argumentstruktur. Solche phrasalen Ansätze gibt es nicht nur in der Konstruktionsgrammatik,
-sondern auch in der GPSG, der LFG und in TAG. HPSG zählt selbst zur Klasse der konstruktionsgrammatischen Theorien. Seit
-1997 gibt es Constructional HPSG \citep{Sag97a} und Sign"=Based Construction Grammar ist auch eine
+sondern auch in der Generalisierten Phrasenstrukturgrammatik (Generalized Phrase Structure Grammar,
+GPSG), LFG, Simpler Syntax und in TAG. HPSG zählt selbst zur Klasse der konstruktionsgrammatischen Theorien. Seit 1997 gibt
+es Constructional HPSG \citep{Sag97a} und Sign"=Based Construction Grammar ist auch eine 
 HPSG"=Variante \citep[\page 486]{Sag2010b}. Das HPSG"=Handbuch \citep{HPSGHandbook} ist im Rahmen der Constructional HPSG
 geschrieben. Im Artikel \emph{HPSG and Construction Grammar} diskutiere ich, was 
 Konstruktionsgrammatiken ausmacht und wie HPSG dazu steht \citep{MuellerCxG}.
@@ -727,17 +744,160 @@ Konstruktionsgrammatiken ausmacht und wie HPSG dazu steht \citep{MuellerCxG}.
 
 \subsubsection{Die Lehren aus der Generalisierten Phrasenstrukturgrammatik (GPSG)}
 
-\itdopt{Hier fehlt noch Zeug!}
+Die Generalisierte Phrasenstrukturgrammatik \citep*{GKPS85a} ist eine Vorgängertheorie der
+HPSG. Ivan Sag ist einer der Köpfe hinter HPSG \citep{ps,ps2} und war auch Koautor des Hauptbuches
+über GPSG. Pauline \citet{Jacobson87b} hat eine Rezension des GPSG-Buches verfasst, in der sie auf
+einige Probleme der GPSG hingewiesen hat, die sich leicht im Rahmen der Kategorialgrammatik lösen lassen.
+Carl Pollard hat bei Ivan Sag in Stanford mit einer kategorialgrammatischen Arbeit
+\citep{Pollard84a-u} promoviert. Er wurde dann Koautor der beiden wichtigsten HPSG-Bücher aus der Zeit
+nach der Veröffentlichung des GPSG-Buches. Im Folgenden möchte ich einige der Probleme der GPSG
+besprechen, die so ähnlich auch für andere phrasale Ansätze gelten. GPSG geht davon aus, dass Valenz
+mithilfe von Zahlen kodiert wird. Jeder Kopf hat ein \subcatm, dessen Wert eine Zahl ist. Diese Zahl
+sagt etwas darüber aus, in welche Regeln ein Kopf eingesetzt werden kann. Die Zahl des Kopfes muss
+zu der Zahl einer Regel passen. Dabei kann es recht verschiedene Regeln mit derselben Zahl
+geben. Zum Beispiel eine Regel für Verbphrasen im Aktiv und eine mit derselben Zahl für Verbphrasen
+im Passiv. Für ihre Grammatik des Englischen haben \citet[57, 60]{GKPS85a} zum Beispiel die beiden folgenden
+Regeln:
+\eal
+\ex VP $\to$ H[3], NP, PP[\emph{to}]
+\ex VP[PAS] $\to$ H[3], PP[\emph{to}], (PP[\emph{by}])
+\zl
+Die erste Regel kann mit dem Verb \emph{handed} verwendet werden, wie es in \emph{handed the sword
+  to Tracy} vorkommt. Die zweite Regel kann für die Analyse von \emph{The sword was handed to
+  Tracy.} genutzt werden.
+
+Im folgenden Abschnitt bespreche ich ein morphologisches Problem, auf das ich schon in
+\citew[129]{MuellerGTBuch1} hingewiesen habe. 
 
 \subsubsubsection{Morphologie}
 
+Es gibt im Deutschen Derivationen, die Bezug auf Valenzeigenschaften ihres Kopfes nehmen. So muss
+zum Beispiel der Verbstamm, der mit dem Suffix \suffix{bar} kombiniert wird, zu einem Verb mit
+Akkusativobjekt gehören. Sowohl \emph{lösen} als auch \emph{vergleichen} verlangt einen
+Akkusativ. Die Verben \emph{schlafen} und \emph{helfen} dagegen verlangen entweder gar kein Objekt
+oder eins im Dativ.
+\eal
+\ex[]{
+lösbar \jambox{(Nominativ, Akkusativ)}
+}
+\ex[]{
+vergleichbar \jambox{(Nominativ, Akkusativ, PP[mit])}
+}
+\ex[*]{
+schlafbar \jambox{(Nominativ)}
+}
+\ex[*]{
+helfbar  \jambox{(Nominativ, Dativ)}
+}
+\zl
+Man beachte, dass \emph{lösen} und \emph{vergleichen} beide ein Akkusativobjekt verlangen, aber
+ihre Valenz ansonsten verschieden ist. Sie müssten also in einer GPSG-Grammatik verschiedene Zahlen
+als \subcatw haben.
+
+Die \bard entspricht der Passivierung mit einer zusätzlichen Modalbedeutung \citep{Gelhaus77}:
+\eal
+\ex Alex liest den Roman.
+\ex Der Roman kann gelesen werden.
+\ex Der Roman ist lesbar.
+\zl
+Da bei Passivierung von \emph{helfen} ein unpersönliches Passiv entsteht, ist die \bard nicht
+möglich, denn das Argument von \emph{helfen} steht im Dativ und das Adjektiv müsste einen Nominativ verlangen:
+\eal
+\ex[]{
+Alex hilft dem Kind.
+}
+\ex[]{
+Dem Kind kann geholfen werden.
+}
+\ex[*]{
+Das Kind ist helfbar.
+}
+\ex[*]{
+Dem Kind ist helfbar.
+}
+\zl
+Also: Es gibt keine semantischen Gründe, die gegen die Bildung von \noword{helfbar}
+sprechen. Vielmehr ist es so, dass ein so genanntes persönliches Passiv möglich sein muss, \dash, es
+muss ein Akkusativobjekt geben. Da man aber an der Zahl, die zu einem Verb gehört, nicht erkennen
+kann, ob es einen Akkusativ verlangt, kann GPSG die \bard nicht adäquat erfassen. Mit der in diesem
+Kapitel vorgestellten Repräsentation ist das hingegen kein Problem. Siehe \zb \citet{Riehemann97a}
+für eine Analyse der \bard im Rahmen der HPSG.
+
 \subsubsubsection{Voranstellung von Phrasenteilen}
 
-\subsubsection{Vererbung}
+Auf ein anderes Problem haben \citet{Nerbonne86a} und \citet{Johnson86a} in ihren Arbeiten im Rahmen
+der GPSG selbst hingewiesen. Sie untersuchen die Voranstellung von
+Verbalphrasenteilen\is{Voranstellung von Phrasenteilen}, wie sie in (\mex{1}) zu sehen sind:
+\eal
+\ex {}[Erzählen] wird er seiner Tochter ein Märchen können.
+\ex {}[Ein Märchen erzählen] wird er seiner Tochter können.
+\ex {}[Seiner Tochter ein Märchen erzählen] wird er können.
+\zl
+Das Problem an diesen Sätzen ist, dass sich im Vorfeld eine Konstituente befindet, die aus genau
+einem Verb besteht (\mex{0}a), einem Verb und seinem Akkusativobjekt (\mex{0}b) und einem Verb mit
+Akkusativ- und Dativobjekt (\mex{0}c). Alle Argumente des Verbs, die nicht gemeinsam mit dem Verb im
+Vorfeld stehen spuken im Mittelfeld rum, weshalb Nerbonne die Konstruktion wohl auch
+Poltergeistkonstruktion genannt hat. Wollte man diese Sätze mit der Valenzrepräsentation der GPSG
+beschrieben, so müsste es für \emph{erzählen} die Möglichkeit geben mit jeder Teilmenge seiner
+Objekte eine Phrase zu bilden. Damit wäre man aber noch nicht fertig, denn man müsste auch erklären,
+wie die Nominalphrasen im Mittelfeld lizenziert sind.
+
+Auch dürfen obligatorische Argumente nicht fehlen. Wenn sie im Vorfeld nicht enthalten sind, müssen
+sie im Mittelfeld realisiert werden (\mex{1}b,c):
+\eal
+\ex[]{
+Kim hat die Nudeln verschlungen.
+}
+\ex[]{
+Verschlungen hat Kim die Nudeln.
+}
+\ex[*]{
+Verschlungen hat Kim.
+}
+\ex[*]{
+Verschlungen hat Kim den Nudeln.
+}
+\zl
+Und die Nominalgruppen im Mittelfeld müssen zu den Anforderungen des Verbs im Vorfeld
+passen. Nerbonne und Johnson haben das Problem gelöst, aber die Lösung bestand darin, dass sie die
+lexikalische Repräsentation von Valenz aus der Kategorialgrammatik in GPSG nachgebaut haben.
+
+In Abschnitt~\ref{sec-pvp} wird erklärt, wie die Voranstellung von Verbphrasenteilen in der HPSG
+analysiert werden kann.
+
+%\subsubsection{Vererbung}
 
 \subsubsection{Sprachübergreifenden Generalisierungen}
 
+\citet[540, 541]{GJ2004a} nehmen für Sätze wie (\mex{1}) die Konfiguration in (\mex{2}) an:
+\eal
+\ex The trolley rumbled through the tunnel.
+\ex The wagon creaked down the road.
+\zl
+\ea
+NP V PP
+\z
+Sie nehmen an, dass mit dem Verb eine Geräuschemission verbunden sein muss und dass die
+Gesamtkonfiguration dann eine gewisse Semantik beisteuert.
 
+Nun gibt es aber eine völlig parallele Konstruktion im Deutschen \citep[922]{MuellerUnifying}:
+\ea
+dass die Straßenbahnen um die Ecke quietschen
+\z
+Es scheint also so zu sein, dass die Anordnung überhaupt nichts mit dem Phänomen zu tun hat. Das
+Charakteristische der Konstruktion scheint vielmehr zu sein, dass diese Elementen überhaupt gemeinsam miteinander vorkommen. Das würde in einem Ansatz
+richtig erfasst, der sagt, dass es für die \emph{rumpel}- und \emph{quietsch}-Verben neben dem
+Eintrag als monovalentes Verb noch einen weiteren Eintrag mit einer Pfad-PP als Argument gibt, der
+dann eine Fortbewegungsbedeutung hat. In welcher Reihenfolge die Argumente und der Kopf angeordnet
+werden müssen, hängt von unabhängigen Eigenschaften ab. Im konkreten Fall ist das Englische eine
+SVO-Sprache und das Deutsche eine SOV- und V2-Sprache (siehe Abschnitt~\ref{Abschnitt-V1} und
+Kapitel~\ref{Kapitel-nla}). Daraus ergibt sich für sehr viele Kopf-Argument-Muster die jeweilige
+Anordnung im Englischen oder im Deutschen. Diese Eigenschaften haben aber ansonsten
+nichts mit Valenz oder phrasalen Konstruktionen zu tun.
+
+Im Abschnitt~\ref{Abschnitt-Lexikonregeln} stelle ich Lexikonregeln vor, mit denen man aus
+mit bestimmten Eigenschaften andere Lexikonelemente ableiten kann. Im
+Abschnitt~\ref{Abschnitt-Konstruktionsgrammatik-phrasal} geht es dann nochmal um phrasale Konstruktionsgrammatikansätze.
 
 \subsection{Subjekte und Valenz}
 
