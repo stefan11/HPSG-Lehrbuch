@@ -1,5 +1,7 @@
 %\RequirePackage{my-xspace}
-%\usepackage{german}
+%\usepackage{ngerman}
+
+\usepackage{iflang}
 
 % \, -> kurz \ -> '.' kein Satzende
 
@@ -73,34 +75,34 @@
 
 
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\Vf}{Vorfeld\xspace}}{%
 \newcommand{\Vf}{\emph{Vorfeld}\xspace}}
 
 \newcommand{\Vfs}{\emph{Vorfelds}\xspace}
 
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\Mf}{Mittelfeld\xspace}}{%
 \newcommand{\Mf}{\emph{Mittelfeld}\xspace}}
 
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\Nf}{Nachfeld\xspace}}{%
 \newcommand{\Nf}{\emph{Nachfeld}\xspace}}
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\vf}{Vorfeld\xspace}}{%
 \newcommand{\vf}{\emph{Vorfeld}\xspace}}
 
 \newcommand{\vfs}{\emph{Vorfelds}\xspace}
 
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\mf}{Mittelfeld\xspace}}{%
 \newcommand{\mf}{\emph{Mittelfeld}\xspace}}
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\nf}{Nachfeld\xspace}}{%
 \newcommand{\nf}{\emph{Nachfeld}\xspace}}
 
@@ -131,7 +133,7 @@
 \newcommand{\argstw}{\textsc{arg-st}\hyp Wert\xspace}
 \newcommand{\argstv}{\textsc{arg-st} value\xspace}
 \newcommand{\argstvs}{\textsc{arg-st} values\xspace}
-\iflanguage{german}{
+\IfLanguageName{german}{
 \newcommand{\argstl}{\textsc{arg-st}\hyp Liste\xspace}
 }{\newcommand{\argstl}{\textsc{arg-st} list\xspace}}
 \newcommand{\argstls}{\textsc{arg-st} lists\xspace}
@@ -158,7 +160,7 @@
 \newcommand{\comps}{\textsc{comps}\xspace}
 \newcommand{\compsdtrs}{\textsc{comps-dtrs}\xspace}
 \newcommand{\compsf}{\textsc{comps} feature\xspace}%
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\compsl}{\textsc{comps}\hyp Liste\xspace}}{%
 \newcommand{\compsl}{\textsc{comps} list\xspace}%
 }
@@ -213,7 +215,7 @@
 \newcommand{\dslwes}{\textsc{dsl}\hyp Wertes\xspace}
 \newcommand{\dslwen}{\textsc{dsl}\hyp Werten\xspace}
 \newcommand{\dtrs}{\textsc{dtrs}\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\dtrsl}{\textsc{dtrs}\hyp Liste\xspace}}{%
 \newcommand{\dtrsl}{\textsc{dtrs} list\xspace}}
 \newcommand{\dtrsv}{\textsc{dtrs} value\xspace}
@@ -222,7 +224,7 @@
 \newcommand{\dom}{\textsc{dom}\xspace}
 \newcommand{\domv}{\textsc{dom} value\xspace}
 \newcommand{\domw}{\textsc{dom}\hyp Wert\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\doml}{\textsc{dom}\hyp Liste\xspace}}{%
 \newcommand{\doml}{\textsc{dom} list\xspace}%
 }
@@ -243,9 +245,13 @@
 \newcommand{\fstren}{f\hyp Strukturen\xspace}
 \newcommand{\gap}{\textsc{gap}\xspace}
 \newcommand{\gapf}{\textsc{gap} feature\xspace}
+\newcommand{\gapv}{\textsc{gap} value\xspace}
+\IfLanguageName{german}{%
+\newcommand{\gapl}{\textsc{gap}-Liste\xspace}}{%
+\newcommand{\gapl}{\textsc{gap} list\xspace}}
 \newcommand{\gtop}{\textsc{gtop}\xspace}
 \newcommand{\hcons}{\textsc{hcons}\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\hconsl}{\textsc{hcons}\hyp Liste\xspace}}{%
 \newcommand{\hconsl}{\textsc{hcons} list\xspace}}
 \newcommand{\hconslen}{\textsc{hcons}\hyp Listen\xspace}%
@@ -300,18 +306,18 @@
 \newcommand{\lightwen}{\textsc{light}\hyp Werten\xspace}
 \newcommand{\lightwes}{\textsc{light}\hyp Wertes\xspace}
 \newcommand{\lista}{\textsc{list-a}\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\listal}{\textsc{list-a}\hyp Liste\xspace}}{%
 \newcommand{\listal}{\textsc{list-a} list\xspace}%
 }
 \newcommand{\listz}{\textsc{list-z}\xspace}
 \newcommand{\listu}{\textsc{list-u}\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\listul}{\textsc{list-u}\hyp Liste\xspace}}{%
 \newcommand{\listul}{\textsc{list-u} list\xspace}%
 }
 \newcommand{\listlu}{\textsc{list-lu}\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\listlul}{\textsc{list-lu}\hyp Liste\xspace}}{%
 \newcommand{\listlul}{\textsc{list-lu} list\xspace}%
 }
@@ -362,7 +368,7 @@
 \newcommand{\pformf}{\textsc{pform} feature\xspace}
 \newcommand{\pformv}{\textsc{pform} value\xspace}
 \newcommand{\phon}{\textsc{phon}\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
   \newcommand{\phonl}{\textsc{phon}\hyp Liste\xspace}}{%
 \newcommand{\phonl}{\textsc{phon} list\xspace}}
 \newcommand{\phonv}{\textsc{phon} value\xspace}
@@ -382,7 +388,7 @@
 \newcommand{\predvs}{\textsc{pred} values\xspace}
 \newcommand{\que}{\textsc{que}\xspace}
 \newcommand{\quef}{\textsc{que} feature\xspace}%
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\quel}{\textsc{que}\hyp Liste\xspace}}{%
 \newcommand{\quel}{\textsc{que} list\xspace}}
 \newcommand{\quev}{\textsc{que} value\xspace}%
@@ -391,7 +397,7 @@
 %\newcommand{\rel}{\textsc{rel}\xspace}
 %\newcommand{\REL}{\textsc{rel}\xspace}
 \newcommand{\rels}{\textsc{rels}\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\relsl}{\textsc{rels}\hyp Liste\xspace}}{%
 \newcommand{\relsl}{\textsc{rels} list\xspace}}
 \newcommand{\relslen}{\textsc{rels}\hyp Listen\xspace}%
@@ -402,7 +408,7 @@
 \newcommand{\relsw}{\textsc{rels}\hyp Wert\xspace}
 \newcommand{\relswe}{\textsc{rels}\hyp Werte\xspace}
 \newcommand{\relswes}{\textsc{rels}\hyp Wertes\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\rell}{\textsc{rel}\hyp Liste\xspace}}{%
 \newcommand{\rell}{\textsc{rel} list\xspace}}
 \newcommand{\relw}{\textsc{rel}\hyp Wert\xspace}
@@ -416,7 +422,7 @@
 \newcommand{\slasch}{\textsc{slash}\xspace}
 \newcommand{\slashel}{\textsc{slash}\hyp Element\xspace}
 \newcommand{\slashf}{\textsc{slash} feature\xspace}
-\newcommand{\slashl}{\iflanguage{german}{\textsc{slash}\hyp Liste\xspace}{\textsc{slash} list\xspace}}
+\newcommand{\slashl}{\IfLanguageName{german}{\textsc{slash}\hyp Liste\xspace}{\textsc{slash} list\xspace}}
 \newcommand{\slashls}{\textsc{slash} lists\xspace}
 \newcommand{\slashm}{\textsc{slash}\hyp Merkmal\xspace}
 \newcommand{\slashms}{\textsc{slash}\hyp Merkmals\xspace}
@@ -434,7 +440,7 @@
 \newcommand{\specwes}{\textsc{spec}\hyp Wertes\xspace}
 \newcommand{\spr}{\textsc{spr}\xspace}
 \newcommand{\sprf}{\textsc{spr} feature\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\sprl}{\textsc{spr}\hyp Liste\xspace}}{%
 \newcommand{\sprl}{\textsc{spr} list\xspace}%
 }
@@ -448,7 +454,7 @@
 \newcommand{\subcat}{\textsc{subcat}\xspace}
 \newcommand{\subcatf}{\textsc{subcat} feature\xspace}
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\subcatl}{\textsc{subcat}\hyp Liste\xspace}}{%
 \newcommand{\subcatl}{\textsc{subcat} list\xspace}%
 }
@@ -464,7 +470,7 @@
 \newcommand{\subcatv}{\textsc{subcat} value\xspace}
 \newcommand{\subj}{\textsc{subj}\xspace}
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\subjl}{\textsc{subj}\hyp Liste\xspace}}{%
 \newcommand{\subjl}{\textsc{subj} list\xspace}
 }
@@ -489,7 +495,7 @@
 \newcommand{\topic}{\textsc{topic}\xspace}
 \newcommand{\val}{\textsc{val}\xspace}
 \newcommand{\vcomp}{\textsc{vcomp}\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\vcompl}{\textsc{vcomp}\hyp Liste\xspace}}{%
 \newcommand{\vcompl}{\textsc{vcomp} list\xspace}}
 
@@ -524,46 +530,46 @@
 
 
 \newcommand{\er}{\mbox{-\emph{er}}\xspace}
-\newcommand{\ern}{\iflanguage{german}{%
+\newcommand{\ern}{\IfLanguageName{german}{%
 \mbox{-\emph{er}}\hyp Nominalisierung\xspace}{%
 \mbox{-\emph{er}}\hyp nominalization\xspace}%
 }
 \newcommand{\erns}{"~\emph{er}\hyp nominalizations\xspace}
 \newcommand{\gee}{\emph{Ge}- \mbox{-\emph{e}}\xspace}
-\newcommand{\geen}{\iflanguage{german}{%
+\newcommand{\geen}{\IfLanguageName{german}{%
 \emph{Ge}- \mbox{-\emph{e}}\hyp Nominalisierung\xspace}{%
 \emph{Ge}- \mbox{-\emph{e}}\hyp nominalization\xspace}%
 }
 \newcommand{\geens}{\emph{Ge}- \mbox{-\emph{e}}\hyp nominalizations\xspace}
 \newcommand{\geenen}{\emph{Ge}- \mbox{-\emph{e}}\hyp Nominalisierungen\xspace}
-\newcommand{\geed}{\emph{Ge}- \mbox{-\emph{e}}\hyp \iflanguage{german}{% 
+\newcommand{\geed}{\emph{Ge}- \mbox{-\emph{e}}\hyp \IfLanguageName{german}{% 
 Derivation}{derivation}\xspace}
 \newcommand{\geeds}{\emph{Ge}- \mbox{-\emph{e}}\hyp derivations\xspace}
 \newcommand{\ung}{\mbox{-\emph{ung}}\xspace}
 \newcommand{\ungd}{\mbox{-\emph{ung}}\hyp derivation\xspace}
 \newcommand{\ungds}{\mbox{-\emph{ung}}\hyp derivations\xspace}
-\newcommand{\ungn}{\iflanguage{german}{%
+\newcommand{\ungn}{\IfLanguageName{german}{%
 \mbox{-\emph{ung}}\hyp Nominalisierung\xspace}{%
 \mbox{-\emph{ung}}\hyp nominalization\xspace}%
 }
 \newcommand{\ungs}{-\mbox{\emph{ung}}\hyp nominalizations\xspace}
 
 
-\newcommand{\bars}{-\emph{bar}\xspace}
-\newcommand{\baradj}{\iflanguage{german}{%
-\mbox{-\emph{bar}}\hyp Adjektiv\xspace}{%
-\mbox{-\emph{bar}}\hyp adjective\xspace}%
+\newcommand{\bars}{\emph{-bar}\xspace}
+\newcommand{\baradj}{\IfLanguageName{german}{%
+\emph{-bar}\hyp Adjektiv\xspace}{%
+\emph{-bar}\hyp adjective\xspace}%
 }
-\newcommand{\baradjs}{\iflanguage{german}{%
-\mbox{-\emph{bar}}\hyp Adjektivs\xspace}{%
-\mbox{-\emph{bar}}\hyp adjectives\xspace}%
+\newcommand{\baradjs}{\IfLanguageName{german}{%
+\emph{-bar}\hyp Adjektivs\xspace}{%
+\emph{-bar}\hyp adjectives\xspace}%
 }
-\newcommand{\bard}{\iflanguage{german}{%
-\mbox{-\emph{bar}}\hyp Derivation\xspace}%
-{\mbox{-\emph{bar}} `able' derivation\xspace}%
+\newcommand{\bard}{\IfLanguageName{german}{%
+\emph{-bar}\hyp Derivation\xspace}%
+{\emph{-bar} `-able' derivation\xspace}%
 }
-\newcommand{\bards}{\mbox{-\emph{bar}}\hyp derivations\xspace}
-\newcommand{\barden}{\mbox{-\emph{bar}}\hyp Derivationen\xspace}
+\newcommand{\bards}{\emph{-bar}\hyp derivations\xspace}
+\newcommand{\barden}{\emph{-bar}\hyp Derivationen\xspace}
 
 \newcommand{\itsdb}{\mbox{\textsf{\lbrack incr tsdb()\rbrack}}\indexitsdb}
 \newcommand{\indexitsdb}{\is{incr tsdb()@\mbox{\textsf{\lbrack incr tsdb()\rbrack}}}\xspace}
@@ -577,7 +583,7 @@ Derivation}{derivation}\xspace}
 %\newcommand{\construction}{"`construction"'\xspace}
 %\newcommand{\constructions}{"`constructions"'\xspace}
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\ppt}{Prinzipien und Parameter\hyp Theorie\xspace}}{%
 \newcommand{\ppt}{Principles and Parameters Theory\xspace}}
 
@@ -650,7 +656,7 @@ Derivation}{derivation}\xspace}
 
 \newcommand{\indexgb}{\is{Government and Binding (GB)}\xspace}
 \newcommand{\gb}{GB\indexgb}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\gbt}{GB\hyp Theorie\indexgb}%
 }{%
 \newcommand{\gbt}{GB theory\indexgb}%
@@ -664,20 +670,20 @@ Derivation}{derivation}\xspace}
 
 \newcommand{\indexiqp}{\is{Inherently Negated Quantifier Phrase (IQP)}\xspace}
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\indexot}{\is{Optimalitätstheorie (OT)}\xspace}
 }{
 \newcommand{\indexot}{\is{Optimality Theory (OT)}\xspace}
 }
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\indexmp}{\is{Minimalistisches Programm (MP)}\xspace}
 }{
 \newcommand{\indexmp}{\is{Minimalist Program (MP)}\xspace}
 }
 \newcommand{\minimalism}{\isi{Minimalism}\xspace}
 \newcommand{\indexmgg}{\is{Mainstream Generative Grammar (MGG)}\xspace}
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\indexmg}{\is{Minimalistische Grammatik (MG)}\xspace}
 }{
 \newcommand{\indexmg}{\is{Minimalist Grammar (MG)}\xspace}
@@ -696,7 +702,7 @@ Derivation}{derivation}\xspace}
     Structure\hyp Based} (FTAG)}\xspace}
 \newcommand{\treeag}{TAG\indextag}
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\indexug}{\is{Universalgrammatik (UG)}\xspace}
 }{
 \newcommand{\indexug}{\is{Universal Grammar (UG)}\xspace}
@@ -711,18 +717,18 @@ Derivation}{derivation}\xspace}
 \newcommand{\Construction}{Construction\xspace}
 \newcommand{\Constructions}{Constructions\xspace}
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\zuinf}{\emph{zu}\hyp Infinitiv\xspace}
 }{
 \newcommand{\zuinf}{\emph{zu}\hyp infinitive\xspace}}
 
-\iflanguage{german}{%
+\IfLanguageName{german}{%
 \newcommand{\zuinfs}{\emph{zu}\hyp Infinitivs\xspace}
 }{
 \newcommand{\zuinfs}{\emph{zu}\hyp infinitives\xspace}
 }
 
-\newcommand{\andund}{\iflanguage{german}{und}{and}\xspace}
+\newcommand{\andund}{\IfLanguageName{german}{und}{and}\xspace}
 
 
 
@@ -801,7 +807,7 @@ Derivation}{derivation}\xspace}
 \newcommand{\vSLASHnp}{V\kern-0.1em/NP}
 \newcommand{\vSLASH}{V\kern-0.1em/}
 
-\iflanguage{german}{
+\IfLanguageName{german}{
 \newcommand{\xbart}{\texorpdfstring{\xbar-Theo\-rie\is{X-Theorie@\xbar-Theorie}}{X̄-Theo\-rie}\xspace}
 }{\newcommand{\xbart}{\texorpdfstring{\xbar theory\is{X theory@\xbar theory}}{X̄ theo\-ry}\xspace}}
 

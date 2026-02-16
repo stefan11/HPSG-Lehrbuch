@@ -167,22 +167,50 @@ $%
 
 %\setlength{\extrarowheight}{1pt}
 
+% \newcommand{\ms}[2][]{%
+%   \mbox{%
+%     \delimiterfactor=1000 \delimitershortfall=0pt
+%     \tabcolsep=0pt
+%     $\left[%
+%     \begin{tabular}{>{\upshape\scshape}l@{}>{\hspace*{5pt}\normalfont\itshape}l}
+%     \if\relax\detokenize{#1}\relax\else
+%     \multicolumn{2}{>{\normalfont\itshape}l}{#1}%
+%     \\ 
+%     \fi
+%     #2%
+%     \end{tabular}%
+%     \right]$%
+%   }%
+%   \vspace{1mm}%
+% }
+
+% David Carlisle, 2026-02-15
+% https://tex.stackexchange.com/a/759739/18561
 \newcommand{\ms}[2][]{%
-  \mbox{%
-    \delimiterfactor=1000 \delimitershortfall=0pt
-    \tabcolsep=0pt
-    $\left[%
-    \begin{tabular}{>{\upshape\scshape}l@{}>{\hspace*{5pt}\normalfont\itshape}l}
+\ifdim\lastskip=-1pt % flag value
+  \mbox{}\\*[-.8\baselineskip]%
+\else
+  \ifnum\lastpenalty=-10000 % other flag value
+    \mbox{}\\*[-.8\baselineskip]%
+  \fi
+\fi
+\mbox{%
+\delimiterfactor=1000 \delimitershortfall=0pt\tabcolsep=0pt%
+$\hspace{-2pt}\left[%
+\begin{tabular}{>{\upshape\scshape}l@{}>{\hspace*{5pt}\normalfont\itshape}l}
     \if\relax\detokenize{#1}\relax\else
     \multicolumn{2}{>{\normalfont\itshape}l}{#1}%
-    \\ 
-    \fi
-    #2%
-    \end{tabular}%
-    \right]$%
+    \\% 
+    \fi%
+#2%
+\end{tabular}%
+\right]$%
   }%
-  \vspace{1mm}%
+% David Carlisle sagt man braucht \par, aber dann fehlen Zeilenumbrüche bei \zl
+%\par\vspace{1mm}%
+\vspace{1pt}%
 }
+
 
 
 \newcommand{\onems}[2][]{%
