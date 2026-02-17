@@ -196,7 +196,7 @@ $%
 \fi
 \mbox{%
 \delimiterfactor=1000 \delimitershortfall=0pt\tabcolsep=0pt%
-$\hspace{-2pt}\left[%
+$\hspace{-1pt}\left[%
 \begin{tabular}{>{\upshape\scshape}l@{}>{\hspace*{5pt}\normalfont\itshape}l}
     \if\relax\detokenize{#1}\relax\else
     \multicolumn{2}{>{\normalfont\itshape}l}{#1}%
@@ -211,23 +211,51 @@ $\hspace{-2pt}\left[%
 \vspace{1pt}%
 }
 
+% This is code to do the spaceing by hand. It is needed for special cases like
+% implications
+
+\def\msskip{\mbox{}\\*[-.8\baselineskip]}
 
 
 \newcommand{\onems}[2][]{%
-  \mbox{%
-    \delimiterfactor=1000 \delimitershortfall=0pt
-    \tabcolsep=0pt
-    $\left[%
+\ifdim\lastskip=-1pt % flag value
+  \mbox{}\\*[-.8\baselineskip]%
+\else
+  \ifnum\lastpenalty=-10000 % other flag value
+    \mbox{}\\*[-.8\baselineskip]%
+  \fi
+\fi
+\mbox{%
+    \delimiterfactor=1000 \delimitershortfall=0pt\tabcolsep=0pt
+    $\hspace{-1pt}\left[%
     \begin{tabular}{>{\upshape\scshape}l}
     \if\relax\detokenize{#1}\relax\else
     {\normalfont\itshape #1}%
-    \\ 
+    \\%
     \fi
     #2%
     \end{tabular}%
     \right]$%
   }%
-  \vspace{1mm}%
+  \vspace{1pt}%
+}
+
+% The test would be too complicated, just do the skip.
+\newcommand{\onemsskip}[2][]{%
+\mbox{}\\*[-.8\baselineskip]%
+\mbox{%
+    \delimiterfactor=1000 \delimitershortfall=0pt\tabcolsep=0pt
+    $\hspace{-1pt}\left[%
+    \begin{tabular}{>{\upshape\scshape}l}
+    \if\relax\detokenize{#1}\relax\else
+    {\normalfont\itshape #1}%
+    \\%
+    \fi
+    #2%
+    \end{tabular}%
+    \right]$%
+  }%
+  \vspace{1pt}%
 }
 
 
