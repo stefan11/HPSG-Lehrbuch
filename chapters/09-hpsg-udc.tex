@@ -34,7 +34,7 @@ initial und die Position vor dem finiten Verb kann mit einer beliebigen Konstitu
   residuale V2"=Sprache, weil es in Fragesätzen noch Muster gibt, die dem ähneln, was man von
   V2"=Sprachen kennt. Das Dänische ist eine SVO"=Sprache aber auch gleichzeitig eine V2"=Sprache
   \citep{Vikner95a-u,MOeDanish,MuellerGermanic}.%  
-}\todostefan{Sebastian findet, dass alles nach Im Gegensatz weg soll.}
+}%\todostefan{Sebastian findet, dass alles nach Im Gegensatz weg soll.}
 (\mex{1}) zeigt einige Beispiele für mögliche Vorfeldbesetzungen:
 \ea
 \label{fragen}
@@ -138,7 +138,8 @@ Die Stelle, an der die Vorfeldkonstituente stehen würde, wird meist durch einen
 diesen Platzhalter auch Spur\is{Spur}, Lücke oder \emph{Trace} bzw.\ \emph{Gap}.
 Vergleiche auch Abschnitt~\ref{sec-v1}. Das zur Lücke gehörige Element im Vorfeld wird auch Füller\is{Füller} genannt.
 
-Abhängigkeiten, die über Phrasengrenzen hinweggehen, nennt man\NOTE{JB: schwer verständlich, Def-Abgrenzung}
+Abhängigkeiten, die über Phrasengrenzen hinweggehen, nennt man
+%\NOTE{JB: schwer verständlich, Def-Abgrenzung}
 \emph{Fernabhängigkeiten}\is{Fernabhängigkeit} oder \emph{nichtlokale Abhängigkeiten}. Die Anzahl der Phrasengrenzen, die bei der Voranstellung überschritten werden können, ist im Prinzip
 unbegrenzt. Auch Satzgrenzen können überschritten werden. Bei zu hoher Komplexität ergeben sich
 dann allerdings Verarbeitungsprobleme für den Menschen. 
@@ -407,18 +408,27 @@ type hierarchy,
 \caption{\label{abb-sign-hf-struc}Typhierarchie für \type{headed-phrase}}
 \end{figure}
 Dadurch wird der \compsw der Kopf"|tochter automatisch mit dem der Mutter identifiziert (siehe Abschnitt~\ref{Abschnitt-Valenzprinzip} zum Valenzprinzip\is{Prinzip!Valenz-}).
-Der semantische Beitrag kommt vom Verb (der Kopf"|tochter). Das folgt aus dem Semantikprinzip, denn der
+Der semantische Beitrag (\ltop- und \textsc{index}-Wert) kommt vom Verb (der Kopf"|tochter). Das
+folgt aus dem Semantikprinzip (siehe Abschnitt~\ref{Abschnitt-Semantikprinzip}), denn der
 Typ \type{head-filler-phrase} ist ein Untertyp von \type{head-non-adjunct-phrase}.
-\itdopt{check}
 
 Die Abbildung~\ref{abb-sign-hf-struc} enthält auch einen Typ \type{head"=non"=filler"=phrase}. Die Beschränkung
-für diesen Typ sieht wie folgt aus:
+für diesen Typ sieht wie folgt aus:\footnote{%
+  Alternativ könnte man auch eine relationale Beschränkung \texttt{collect-slash} verwenden, die
+  analog zu \texttt{collect-rels} und \texttt{collect-hcons} (siehe
+  S.\,\pageref{constraint-collect-rels-collect-hcons}) die \slasch-Elemente aller Töchter
+  aufsammelt. Dieses Aufsammeln könnte man mit dem Abbinden über ein Merkmal \textsc{to-bind|slash}
+  kombinieren, wie das \citet[163--164]{ps2} für die Behandlung von \emph{tough}-Movement
+  vorgeschlagen haben. Da es dieses Phänomen im Deutschen so nicht gibt \citep[275]{Demske94a},
+%\parencites[Abschnitt~6.2]{Thiersch78a}[52]{Hoehle78a}, 
+belasse ich es hier vorerst bei der
+  einfacheren Version.
+}
 \eas
 \type{head"=non"=filler"=phrase}\istype{head"=non"=filler"=phrase} \impl\\
 \onems{ 
-nonloc$|$slash \ibox{1} $\oplus$ \ibox{2}\\
-head"=dtr$|$nonloc$|$slash \ibox{1} \\
-non-head"=dtrs  \sliste{ [ nonloc$|$slash \ibox{2} ] }\\
+nonloc$|$slash \ibox{1} $\oplus$ \ibox{2}\\[1mm]
+dtrs \sliste{ [nonloc$|$slash \ibox{1}], [nonloc$|$slash \ibox{2}] }
 }
 \zs
 Diese Implikation sorgt dafür, dass in allen bisher eingeführten Strukturen außer der eben besprochenen
@@ -428,12 +438,10 @@ wiederholt sind, stellt (\mex{0}) die Formalisierung des Prinzips der nichtlokal
 \eas
 \type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
 \onems{ 
-nonloc$|$slash            \eliste\\
-head-dtr$|$nonloc$|$slash \sliste{ \ibox{1} }\\
-non-head-dtrs             \sliste{ [ loc \ibox{1} ] }\\
-   }
+nonloc$|$slash            \eliste\\[1mm]
+dtrs \sliste{ [loc \ibox{1}], [nonloc$|$slash \sliste{ \ibox{1} }] }\\
+}
 \zs
-\itdopt{Anpassen}
 
 \noindent
 In\is{Spur!Extraktionsspur|(} (\ref{le-spur-acc-o-kennen}) wurde eine Spur für das Akkusativobjekt von \emph{kennen} angegeben.
@@ -948,7 +956,9 @@ unmarkiert
 % Seitenzahlen. Bei GMueller2004 steht das verteilt.
 ist (\citealp{Lenerz77}, \citealp[\page 73--74]{Haider84c}, \citealp{Fanselow2003d},\todostefan{use
   parencites here and find solution for GMueller}
-G.\,\citealp[\page 189]{GMueller2004a}, \citealp{Frey2004a}),\NOTE{Koster zitieren: \citealp{Koster78a-u}} 
+G.\,\citealp[\page 189]{GMueller2004a}, \citealp{Frey2004a}),
+% Weiß nicht mehr wo.
+%\NOTE{Koster zitieren: \citealp{Koster78a-u}} 
 \dash, es muss sich beim vorangestellten Element nicht zwangsläufig 
 um einen Topik\is{Topik} oder um einen Fokus\is{Fokus} handeln.\footnote{
   Die Beispiele in (\mex{1}) und (\mex{2}) sind von \citet[\page 4--6, 8]{Frey2004a}. 
@@ -1116,7 +1126,7 @@ Kathol kreuzklassifiziert die Typen in (\mex{0}) mit den Typen \type{declarative
 \begin{forest}
 type hierarchy, auto name,
 before typesetting nodes={
-where={> O_={tier}{max}}{l*=1.5}{},
+where={> O_={tier}{max}}{l*=1.6}{},
 %for tree={alias/.option=content},
 },
 [finite-clause
@@ -1261,9 +1271,9 @@ dass beliebig viele Elemente vor dem Verb in der linken Satzklammer stehen könn
 \ea
  \type{Vn-clause} \impl \onems{
                                                   S[\type{fin}]\\
-                                                  dom \liste{ [ \type{1} ], \ldots, \onems[2]{
+                                                  dom \liste{ [ \type{1} ], \ldots{} , \onems[2]{
                                                                               V[\type{fin}]\\
-                                                                              }, \ldots }
+                                                                              }, \ldots{} }
                                                   }
 \z
 Das ist aber problematisch, da Kathol Linearisierungsbeschränkungen annimmt, die dafür sorgen,
@@ -1355,7 +1365,7 @@ eine Liste, die Information über die Valenz eines Kopfes enthält (\argst)\isfe
 Von dieser Liste gibt es eine Abbildung auf eine weitere Liste (\textsc{deps})\isfeat{deps},
 die sowohl Argumente als auch Adjunkte enthält. 
 \ea
-Argument Structure Extension \citep*[\page 12]{BMS2001a}\\
+Argument Structure Extension \citep*[\page 12]{BMS2001a}\\[2pt]
 \type{verb} \impl \ms{
 arg-st & \ibox{1}\\
 deps   & \ibox{1} $\oplus$ list\textup{(}`adverbial'\textup{ )}\\
@@ -1365,7 +1375,7 @@ Von dieser Liste gibt es schließlich eine Abbildung auf die \textsc{subj}\isfea
 \textsc{comps}\isfeat{comps}"=Liste. \subj entspricht dem im vorliegenden Buch verwendeten \sprm.
 
 \eas
-Argumentrealisierungsprinzip \citep*[\page 12]{BMS2001a}\\
+Argumentrealisierungsprinzip \citep*[\page 12]{BMS2001a}\\[2pt]
 \type{word} \impl \ms{
 subj  & \ibox{1} \\
 comps & \ibox{2} $\ominus$ list\textup{(}`gap-ss'\textup{ )}\\
