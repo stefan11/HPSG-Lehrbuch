@@ -368,6 +368,81 @@ Umgebung ab:\footnote{
 \ex Er sah\iw{sehen} den Mond kleiner werden.
 \zl
 
+\subsection{Satzargumente}
+
+In der HPSG ist die Frage, ob \emph{dass}-Sätze wie der in (\mex{1}a) Objekte sind, eigentlich nicht
+interessant, weil grammatische Funktionen im Gegensatz zu Theorien wie LFG
+\citep{Bresnan82a-ed,BATW2016a,Dalrymple2023a-ed} keine Primitiva der Theorie sind. In LFG werden Argumentsätze
+unterschiedlich eingestuft. Je nach Autor*in haben sie die Kategorie \textsc{comp} oder
+\textsc{subj} bzw.\ \textsc{obj}
+\citep*{DL2000a-u,Berman2003b-u,Berman2007a-u,AMM2005a-u,Forst2006a-u}. Von Forst ist auch das 
+Beispiel in (\mex{1}b):
+\eal
+\ex Wir akzeptieren, dass die Erde rund ist.
+\ex Dass die Erde rund ist, wurde nicht allgemein akzeptiert.
+\zl
+Der \emph{dass}-Satz ist laut Forst ein Objekt im Aktiv und ein Subjekt im Passiv. Innerhalb der
+HPSG ist es aber egal, ob man den \emph{dass}-Satz Subjekt oder Objekt nennt, denn er ist im Aktiv
+nur ein nicht besonders gekennzeichnetes Element der \compsl. Für infinite Formen des Passivs würde
+es einen Unterschied machen, ob der \emph{dass}-Satz ein Subjekt ist oder nicht (siehe Abschnitt~\ref{sec-subj-merkmal}),
+aber auch das wäre nur für die Analyse von Kontrollkonstruktionen wichtig und die funktionieren nur
+mit Verben, die ein nominales Subjekt brauchen. Das kann man sich an den folgenden Beispielen klar machen:
+\eal
+\ex Dass die Erde rund ist, stimmt.
+\ex Dass die Erde rund ist, scheint zu stimmen.
+\ex Conny liest einen Roman.
+\zl
+(\mex{0}a) zeigt einen Satz mit einem \emph{dass}-Satz als Argument. (\mex{0}b) zeigt, dass das
+Satz-Argument auch realisiert werden kann, wenn \emph{stimmen} als \emph{zu}-Infinitiv verwendet
+wird. Bei der Konstruktion mit \emph{scheinen} handelt es sich um eine so genannte
+Anhebungskonstruktion (siehe Abschnitt~\ref{sec-anhebung}). In (\mex{1}) liegen dagegen so genannte
+Kontrollkonstruktionen vor:
+\eal
+\ex[]{
+Conny behauptet, einen Roman zu lesen.
+}
+\ex[*]{
+Conny behauptet, zu stimmen, dass die Erde rund ist.
+}
+\ex[*]{
+Conny behauptet zu stimmen.
+}
+\zl
+Wie (\mex{0}a) zeigt, werden die Subjekte in Kontrollkonstruktionen nicht ausgedrückt. Wenn also das
+Satz-Argument nicht ausgedrückt würde und entsprechende Verben in Kontrollkonstruktionen verwendet
+werden könnten, dann wäre das ein Beleg dafür, dass das Satzargument ein Subjekt ist. Leider sind
+beide Sätze in (\mex{0}b,c) ungrammatisch. Das bedeutet, dass der Test für Satzargumente nicht
+anwendbar ist und das Satz-Argument also sowohl als Subjekt als auch als Objekt eingeordnet werden
+könnte. Auch Subjekt"=Verb"=Kongruenz kann nicht als Test für den Status als Subjekt oder Nicht-Subjekt
+herangezogen werden, denn subjektlose Verben müssen immer in der dritten Person Singular stehen und
+die Form des Verbs wäre auch dritte Person Singular, wenn das Satz-Argument ein Subjekt wäre.
+
+Es gibt jedoch einen Bereich in der Grammatik des Deutschen, wo man sehen kann, dass bestimmte
+\emph{dass}-Sätze Subjekte sein müssen. Das liegt daran, dass sie bei Passivierungen über
+\emph{von}- bzw.\ \emph{durch}"=Korrelatkonstruktionen ausgedrückt werden können: 
+\eal
+\ex
+\label{ex-Dass Sandy sich so für diese Sache einsetzt, begeistert mich}%
+Dass Sandy sich so für diese Sache einsetzt, begeistert mich.
+\ex Ich bin davon begeistert, dass Sandy sich so für die Sache einsetzt.
+\zl
+\eal
+\ex Dass [\ldots], radikalisiert diesen Gedanken.
+\ex Dieser Gedanke wird erstens dadurch radikalisiert, dass er [\ldots]\footnote{
+ZBBS Heft 2/2004, S.\,282
+}
+\zl
+% für
+% ‚natürliche‘ genauso wie für ‚gesellschaftliche‘ Interpretationen gelten soll,
+% und zweitens dadurch, dass er alle rhetorischen oder methodologischen Stra-
+% tegien ablehnt, die die Ergebnisse der Sozialwissenschaften mit einem ‚privi-
+% legierten‘ oder ‚objektiven‘ Erkenntnis- und Geltungsstatus ausstatten.
+
+\noindent
+Das bedeutet, dass die \emph{dass}-Sätze in (\mex{-1}a) und (\mex{0}a) Subjekte sind. Das Objekt ist
+\emph{mich} bzw.\ \emph{diesen Gedanken}. Die Objekte stehen in den Aktivsätzen jeweils im Akkusativ
+und in den Passivsätzen im Nominativ. Die entsprechenden Nominalphrasen haben also strukturellen Kasus.
+
 
 \subsection{Semantische Kasus}
 \label{sec-sem-kasus}
@@ -754,21 +829,35 @@ Die Zuweisung struktureller Kasus wird durch das folgende Prinzip geregelt \pare
   Eine korrekte Formalisierung wurde von Detmar Meurers
   vorgeschlagen \parencites{Meurers99b}{MdK2001a}[Abschnitt~10.4.1.4]{Meurers2000b}.
   Diese ist recht komplex und wird deshalb hier in einem Anhang diskutiert (siehe Abschnitt~\ref{kasus-anhang}).
-  Zu \prz{}s Ansatz siehe Abschnitt~\ref{kasus-adamp}.%
+  Zu \prz{}s Ansatz siehe Abschnitt~\ref{kasus-adamp}.
+
+  Satzsubjekte wurden weder von Meurers noch von \prz berücksichtigt.
+%
 }
 \begin{prinzip-break}[Kasusprinzip]\is{Prinzip!Kasus-}
 \label{case-p}
 \begin{itemize}
-\item In einer Liste, die sowohl das Subjekt als auch die Komplemente eines verbalen Kopfes
-      enthält, bekommt das erste Element mit strukturellem Kasus 
-      Nominativ\is{Kasus!Nominativ}, es sei denn es wird von einem übergeordneten Kopf angehoben.
+\item Das erste kasusrelevante Element in der Argumentstrukturliste eines Kopfes bekommt
+  Nominativ\is{Kasus!Nominativ}, wenn es eine NP mit strukturellem Kasus ist, es sei denn es wird von einem übergeordneten Kopf angehoben. 
 \item Alle anderen nicht angehobenen Elemente der Liste, die strukturellen Kasus tragen, bekommen Akkusativ\is{Kasus!Akkusativ}.
 \item In nominalen Umgebungen wird Elementen mit strukturellem Kasus Genitiv\is{Kasus!Genitiv} zugewiesen.
 \end{itemize}
-\end{prinzip-break}\todostefan{\argst?}
+\end{prinzip-break}
+Mit „kasusrelevanten Elementen“ sind Satzargumente und Nominalphrasen mit strukturellem Kasus
+gemeint. Die Formulierung ist komplex aber leider notwendig. Würde man sich -- wie ich das in
+früheren Auf"|lagen dieses Buches getan habe, nur auf Nominalgruppen
+mit strukturellem Kasus beziehen, so wäre die NP in (\ref{ex-Dass Sandy sich so für diese Sache
+  einsetzt, begeistert mich}) –– hier als (\mex{1}) wiederholt -- die erste NP mit strukturellem Kasus
+und bekäme Nominativ zugewiesen. 
+\ea
+\label{ex-Dass Sandy sich so für diese Sache einsetzt, begeistert mich-zwei}%
+Dass Sandy sich so für diese Sache einsetzt, begeistert mich.
+\z
+
+\noindent
 Die Einschränkung in Bezug auf die Anhebung von Elementen dient zur korrekten Erfassung der
 Kasuszuweisung in bestimmten Sätzen mit mehreren Verben (\zb AcI"=Konstruktionen, siehe
-Kapitel~\ref{Kapitel-anhebung} und S.\,\pageref{page-aci-kasus}).
+Kapitel~\ref{Kapitel-anhebung} und S.\,\pageref{page-aci-kasus}). 
 %% Die Formulierung des Prinzips wurde wesentlich durch die Arbeiten
 %% von Adam Przepiórkowski und Detmar Meurers beeinflußt (\citealp{Prze99}; 
 %% \citealp{Meurers99b}; \citealp[Abschnitt~10.4.1.4]{Meurers2000b}; \citealp{MdK2001a}).
@@ -782,27 +871,27 @@ Akkusativobjekt gibt, steht es an zweiter Stelle. Gibt es zusätzlich zum Akkusa
 Dativobjekt, steht dieses zwischen dem Nominativ und dem Akkusativobjekt:
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l}
-a. & \emph{schläft}:     & \comps \sliste{ NP[\type{str}]$_j$ }\\[2mm]
-b. & \emph{unterstützt}: & \comps \sliste{ NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2mm]
-c. & \emph{hilft}:       & \comps \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2mm]
-d. & \emph{schenkt}:     & \comps \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$, NP[\type{str}]$_l$ }\\
+a. & \emph{schläft}:     & \argst \sliste{ NP[\type{str}]$_j$ }\\[2mm]
+b. & \emph{unterstützt}: & \argst \sliste{ NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2mm]
+c. & \emph{hilft}:       & \argst \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2mm]
+d. & \emph{schenkt}:     & \argst \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$, NP[\type{str}]$_l$ }\\
 \end{tabular}
 \z
-Die \compsl von \emph{schläft} enthält genau ein Element: eine NP mit strukturellem Kasus.
-Da diese NP das erste Element der \compsl ist, bekommt sie Nominativ. Genauso bekommt die erste NP
-in der \compsl von \emph{unterstützt} Nominativ, die zweite bekommt allerdings Akkusativ. Bei
+Die \argstl von \emph{schläft} enthält genau ein Element: eine NP mit strukturellem Kasus.
+Da diese NP das erste Element der \argstl ist, bekommt sie Nominativ. Genauso bekommt die erste NP
+in der \argstl von \emph{unterstützt} Nominativ, die zweite bekommt allerdings Akkusativ. Bei
 \emph{hilft} bekommt das erste Element Nominativ, das zweite ist lexikalisch als Dativ markiert. Bei
 \emph{schenkt} bekommt das erste Element Nominativ, das zweite
 Element ist wie das Objekt von \emph{hilft} lexikalisch als Dativ markiert und das dritte Element
 bekommt Akkusativ.
 
-Bei Passivierung der Verben in (\mex{0}) ergeben sich die folgenden \comps"=Listen:
+Bei Passivierung der Verben in (\mex{0}) ergeben sich die folgenden \argst"=Listen:
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l}
-a. & \emph{geschlafen wird}:  & \comps \sliste{ }\\[2mm]
-b. & \emph{unterstützt wird}: & \comps \sliste{ NP[\type{str}]$_k$ }\\[2mm]
-c. & \emph{geholfen wird}:    & \comps \sliste{ NP[\type{ldat}]$_k$ }\\[2mm]
-d. & \emph{geschenkt wird}:   & \comps \sliste{ NP[\type{ldat}]$_k$, NP[\type{str}]$_l$ }\\
+a. & \emph{geschlafen wird}:  & \argst \sliste{ }\\[2mm]
+b. & \emph{unterstützt wird}: & \argst \sliste{ NP[\type{str}]$_k$ }\\[2mm]
+c. & \emph{geholfen wird}:    & \argst \sliste{ NP[\type{ldat}]$_k$ }\\[2mm]
+d. & \emph{geschenkt wird}:   & \argst \sliste{ NP[\type{ldat}]$_k$, NP[\type{str}]$_l$ }\\
 \end{tabular}
 \z
 In (\mex{0}) steht jetzt eine andere NP an erster Stelle. Wenn diese NP strukturellen Kasus hat,
@@ -815,8 +904,8 @@ Für das Dativpassiv muss man ein bisschen zaubern: Bei der Kombination von \emp
 Dativ beim eingebetteten Verb zu einem strukturellen Kasus bei der Kombination mit dem Passiv"=Hilfsverb:
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l}
-a. & \emph{geholfen bekommt}:    & \comps \sliste{ NP[\type{str}]$_k$ }\\[2mm]
-b. & \emph{geschenkt bekommt}:   & \comps \sliste{ NP[\type{str}]$_k$, NP[\type{str}]$_l$ }\\
+a. & \emph{geholfen bekommt}:    & \argst \sliste{ NP[\type{str}]$_k$ }\\[2mm]
+b. & \emph{geschenkt bekommt}:   & \argst \sliste{ NP[\type{str}]$_k$, NP[\type{str}]$_l$ }\\
 \end{tabular}
 \z
 Wie diese Umwandlung genau passiert, wird im Abschnitt~\ref{sec:dat-pass} ausführlicher erklärt. Hier ist
@@ -838,10 +927,10 @@ Verben anheben. Solche Verben werden deshalb auch Anhebungsverben\is{Verb!Anhebu
 Entsprechende Valenzlisten sind in (\mex{1}) zu sehen:
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l}
-a. & \emph{schlafen lässt}:     & \comps \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$ }\\[2mm]
-b. & \emph{unterstützen lässt}: & \comps \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2mm]
-c. & \emph{helfen lässt}:       & \comps \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2mm]
-d. & \emph{schenken lässt}:     & \comps \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{ldat}]$_k$, NP[\type{str}]$_l$ }\\
+a. & \emph{schlafen lässt}:     & \argst \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$ }\\[2mm]
+b. & \emph{unterstützen lässt}: & \argst \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[2mm]
+c. & \emph{helfen lässt}:       & \argst \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[2mm]
+d. & \emph{schenken lässt}:     & \argst \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$, NP[\type{ldat}]$_k$, NP[\type{str}]$_l$ }\\
 \end{tabular}
 \z
 NP[\str]$_i$ steht hierbei jeweils für das Subjekt des AcI-Verbs. 
@@ -853,12 +942,13 @@ das erste Element in den Listen in (\mex{0}) bekommt immer Nominativ, die restli
 Kasus bekommen Akkusativ. Die logischen Subjekte der eingebetteten Verben werden also im Akkusativ realisiert.
 
 Die Kasuszuweisung an das Subjekt von Adjektiven\is{Adjektiv} funktioniert analog. Die Kopula\is{Kopula} wird mit dem Adjektiv
-verbunden, und es entsteht eine Valenzliste, die die Argumente des Adjektivs enthält (\mex{1}a). Wird
+verbunden, und es entsteht eine \argstl, die die Argumente des Adjektivs enthält (\mex{1}a). Zu
+den Details siehe \citew[226]{MuellerPredication}. Wird
 ein solcher Komplex noch unter ein AcI"=Verb wie \emph{sehen} eingebettet, erhält man die Liste in (\mex{1}b):
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{~}l}
-a. & \emph{kleiner werden}:     & \comps \sliste{ NP[\str]$_j$ }\\[2mm]
-b. & \emph{kleiner werden sah}: & \comps \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$ }\\
+a. & \emph{kleiner werden}:     & \argst \sliste{ NP[\str]$_j$ }\\[2mm]
+b. & \emph{kleiner werden sah}: & \argst \sliste{ NP[\str]$_i$, NP[\type{str}]$_j$ }\\
 \end{tabular}
 \z
 Die Kasuszuweisung funktioniert analog zu den bereits diskutierten Fällen. In den verbalen Umgebungen
@@ -1174,7 +1264,11 @@ Kodierung dieser Eigenschaften eine weitere Liste, die \argstl, verwendet.
 weiter zu strukturieren. Zusätzlich zur \type{synsem}"=Information wird
 ein Boolesches Merkmal (\textsc{realized}\isfeat{realized}\label{page-realized}) verwendet,
 das Auskunft darüber gibt, ob ein Argument lokal realisiert 
-oder angehoben wurde. Elemente, die mit ihrem Kopf über das Kopf"=Argument"=Schema
+oder angehoben wurde.\footnote{%
+  Man beachte, dass dieses Merkmal im Prinzip dieselbe Funktion hat, wie Meurers' Merkmal
+  \textsc{raised} \citep{Meurers99b}. Meurers benutzt zusätzlich ein Merkmal \textsc{realized}, was zu
+  Verwirrung beim Vergleich der Analysen führen kann.
+} Elemente, die mit ihrem Kopf über das Kopf"=Argument"=Schema
 verbunden werden, werden als \textsc{realized}+ gekennzeichnet. Dasselbe gilt
 für Argumente, die extrahiert oder als Klitikon\is{Klitisierung}
 morphologisch realisiert werden.
@@ -1243,10 +1337,12 @@ Argumentstrukturliste in (\mex{1}):
 Die Implikation in (\ref{case-prz-acc}) würden der NP[\str] Akkusativ zuweisen.
 Das lässt sich reparieren, indem man verlangt, dass in der ersten Implikation
 keine Nominalphrase mit strukturellem Kasus vor der NP[\str] steht, die dann
-Nominativ bekommt, \dash, entweder steht vor dieser NP nichts, eine NP mit lexikalischem
-Kasus oder etwas, das keine NP ist. Analog muss die zweite Implikation 
+Nominativ bekommt, \dash, entweder steht vor dieser NP nichts oder NPen mit lexikalischem
+Kasus. Analog muss die zweite Implikation 
 so geändert werden, dass beliebiges Material vor der NP[\str] stehen kann,
-vorausgesetzt, dieses enthält eine weitere NP mit strukturellem Kasus.
+vorausgesetzt, dieses enthält eine weitere NP mit strukturellem Kasus oder wie in (\ref{ex-Dass
+  Sandy sich so für diese Sache einsetzt, begeistert mich}) auf S.\,\pageref{ex-Dass Sandy sich so für diese Sache einsetzt, begeistert mich} ein Satzargument, dass
+dem Subjekt entspricht.
 
 \prz kritisiert \citeauthor{HM94a}s Bezugnahme auf die Konstituentenstruktur
 als nicht angemessen, da Kasusvergabe ein lokales Phänomen ist und eine
@@ -1307,10 +1403,23 @@ Selbst wenn die Argumentstruktur von \emph{jodeln} bzw.\ \emph{reparieren}
 für \emph{lassen} zugänglich ist, nützt das nichts, denn in \prz{}s
 Ansatz ist für die Kasusvergabe entscheidend, wo ein Element realisiert wird.
 
-\citet{Prze99b} integriert deshalb Meurers Ansatz der Kasuszuweisung (\citeyear{Meurers99b}, \citeyear[Abschnitt~10.4.1.4]{Meurers2000b})
-in seine Theorie und führt zusätzlich zum \textsc{realized}"=Merkmal
-das Merkmal \textsc{raised}\isfeat{raised} ein, das den Wert + hat, wenn ein
-Argument angehoben wird, und den Wert $-$, wenn das nicht der Fall ist.
+\citet[93]{Prze99b} weist selbst auf ein weiteres Problem seines Ansatzes hin: In
+Infinitivkonstruktionen werden Subjekte nicht realisiert, aber Höhles Tests mit kongruierenden
+Adverbialen haben gezeigt, dass diese Subjekte im Nominativ stehen (siehe
+Abschnitt~\ref{sec-kasus-nicht-realisierter-subj}).\footnote{%
+Man könnte natürlich behaupten, dass die nicht realisierten Subjekte als \textsc{realized} `+'
+markiert werden, denn die Subjekte müssen durch den übergeordneten Kopf als pronominal ausgewiesen
+werden. Im Zuge dessen könnten sie auch als realisiert markiert werden. Das entspricht der
+Realisierung durch ein PRO in Theorien wie Government \& Binding \citep[Abschnitt~2.4.1]{Chomsky81a}.
+} Das bedeutet, dass Kasusvergabe nicht davon
+abhängen kann, ob ein Element in der Argumentstrukturliste lokal realisiert wurde oder nicht.
+Die relevante Unterscheidung ist vielmehr, ob ein Element angehoben wurde oder nicht
+\parencites{Meurers99b}[Abschnitt~10.4.1.4]{Meurers2000b}. \prz verwendet also statt des
+\textsc{realized}-Merkmals das Merkmal \textsc{raised}\isfeat{raised}. Dieses hat den Wert `+', wenn ein
+Argument angehoben wird, und den Wert $-$, wenn das nicht der Fall ist. Mit dieser Analyse kann
+Kasus zugewiesen werden, auch wenn ein Argument nicht realisiert wird (im Fall der nicht
+ausgedrückten Subjekte) und es kann Kasus zugewiesen werden
+
 Der \textsc{raised}"=Wert eines Arguments wird über die folgende Beschränkung
 festgelegt (S.\,94):
 \ea
@@ -1374,7 +1483,7 @@ innerhalb des Infinitivs zugewiesen wird, denn aus diesen Bereichen kann nichts 
 Siehe Kapitel~\ref{kasus-anhang} zu einem anderen Vorschlag zur Bestimmung des \textsc{raised}"=Wertes.
 
 Das zweite Problem mit dem revidierten Ansatz ist dasselbe, das bereits diskutiert
-wurde: Die Argumentstruktur wird bei \prz nicht projiziert. Deshalb ist
+wurde: Die Argumentstruktur wird auch bei \citet[80]{Prze99b} nicht projiziert. Deshalb ist
 unklar, wie in (\ref{bsp-der-aufsatz-gelesen}) bzw.\ (\ref{bsp-den-saenger-jodeln})
 die Information über die Argumentstruktur des Verbs im Vorfeld zum
 Matrixverb gelangen soll. Man muss also die Argumentstruktur bzw.\ eine entsprechende
