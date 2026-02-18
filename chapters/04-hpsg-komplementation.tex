@@ -422,7 +422,7 @@ type hierarchy
    calign angle=60
   [word]
   [phrase
-    [non-headed-phrase]
+%    [non-headed-phrase]
     [headed-phrase
       [head-specifier-phrase]
       [head-complement-phrase]
@@ -431,15 +431,15 @@ type hierarchy
 \caption{\label{fig-type-sign}Typhierarchie für \type{sign}: alle Untertypen von \type{headed"=phrase} erben Beschränkungen.}
 \end{figure}
 \type{word} und \type{phrase} sind Unterklassen sprachlicher Zeichen.
-Phrasen kann man unterteilen in Phrasen ohne Kopf (\type{non"=headed"=phrase})
-und Phrasen mit Kopf (\type{headed"=phrase}). Auch für Phrasen vom Typ
-\type{non"=headed"=phrase} bzw.\ \type{headed"=phrase} gibt es Untertypen.
-Den Typ \type{head"=complement"=phrase} haben wir bereits besprochen. Auf andere
-Typen werden wir in den kommenden Kapiteln eingehen. Gewöhnlich haben Strukturen einen Kopf, aber
-die Analyse von Relativsätzen, die in Kapitel~\ref{Kapitel-rs} besprochen wird, verknüpft eine
-Verbalprojektion mit einer Relativphrase. Das Ergebnis ist ein Relativsatz. Die Kopf"|information wird
-nicht von der Verbalprojektion zum Relativsatz übertragen. Relativsätze sind vom Typ
-\type{non"=headed"=phrase}. Ein anderes Beispiel für Strukturen ohne Kopf sind NPN-Konstruktionen
+In der Abbildung gibt es als Untertyp von \type{phrase} nur den Typ \type{headed-phrase}. \type{headed-phrase} hat die
+Untertypen \type{head-specifier-phrase}, \type{head"=complement"=phrase} und
+\type{head-adjunct-phrase}, den ich bereits besprochen habe bzw.\ im
+Abschnitt~\ref{sec-Kopf-Adjunkt-Strukturen} vorstellen werde. Auf andere
+Typen werden ich in den kommenden Kapiteln eingehen. Gewöhnlich haben Strukturen einen Kopf, aber
+die Analyse von Relativsätzen, die in Kapitel~\ref{Kapitel-rs} besprochen wird, ist kopflos. Eine
+Verbalprojektion wird mit einer Relativphrase verknüpft. Das Ergebnis ist ein Relativsatz. Die Kopf"|information wird
+nicht von der Verbalprojektion zum Relativsatz übertragen. Relativsätze bilden einen Untertyp des
+Typs \type{phrase}, sind aber keine Untertypen von \type{headed"=phrase}. Ein anderes Beispiel für Strukturen ohne Kopf sind NPN-Konstruktionen
 \citep{Matsuyama2004a,Jackendoff2008a}. (\mex{1}) zeigt ein deutsches Beispiel:
 \ea
 Zeile für Zeile\footnote{%
@@ -584,7 +584,7 @@ type hierarchy
  } 
   [word]
   [phrase
-    [non-headed-phrase]
+ %   [non-headed-phrase]
     [headed-phrase
       [head-non-specifier-phrase,name=non-specifier
         [head-complement-phrase,name=complement]

@@ -281,7 +281,7 @@ durch die Relativphrase abgebunden wird. Schema~\vref{rs-schema-struk} zeigt ein
 Abbildung~\ref{abb-von dessen Fahrrad-syn} lizenziert.
 %\begin{figure}
 \begin{samepage}
-\begin{schema}[Relativsatzschema (strukturelle Aspekte)]
+\begin{schema}[Relativsatzschema (strukturelle Aspekte, vorläufig)]
 \label{rs-schema-struk}
 \type{relative-clause}\istype{relative"=clause} \impl\\
 %\resizebox{\linewidth}{!}{
@@ -292,7 +292,7 @@ Abbildung~\ref{abb-von dessen Fahrrad-syn} lizenziert.
                  nonloc \ms{  rel   & \liste{} \\
                               slash & \liste{} \\
                            } \\[-5\baselineskip]
-   dtrs \liste{ \begin{tabular}{@{}l@{}}
+   dtrs \liste{ %\begin{tabular}{@{}l@{}}
                             \ms{ loc    & \ibox{1} \\
                                                nonloc & \ms{%  que   & \liste{} \\
                                                               rel   & \sliste{ [] } \\
@@ -309,9 +309,9 @@ Abbildung~\ref{abb-von dessen Fahrrad-syn} lizenziert.
                                                              rel   & \eliste \\
                                                              slash & \sliste{ \ibox{1} } \\
                                                              } \\
-                                               } \\
-                            \end{tabular}
-                         } \\
+                                               } 
+%                            \end{tabular}
+                         } 
 }%}
 \end{schema}
 \end{samepage}
@@ -343,7 +343,8 @@ dem Kopf"=Füller"=Schema, das auf S.\,\pageref{hf-schemaa} vorgestellt wurde. E
 Verbprojektion in Initialstellung (\textsc{ini}$+$) gebildet werden, ist die zweite Tochter im
 Relativsatz eine Verbalprojektion mit Verb in Letztstellung (\textsc{ini}$-$). Diese Ähnlichkeit der
 beiden Satztypen kann man durch einen gemeinsamen Supertyp für Relativsätze und Verbzweitsätze mit
-Verb in Initialstellung erfassen.
+Verb in Initialstellung erfassen. Die Details werden im
+Abschnitt~\ref{sec-Generalisierung-Satztypen} besprochen.
 
 
 Das Ergebnis der Kombination von Relativphrase und Verbletztsatz mit entsprechender Lücke ist ein Relativsatz und hat deshalb den Kopfwert
@@ -470,6 +471,119 @@ Das ist der Pfarrer, der die Predigt hielt, in deren\iw{deren!Relativpronomen} M
 \z
 \is{Linearisierung!-sregel|)}
 
+\subsection{Generalisierungen über Satztypen: Aussagesätze, Relativsätze und Interrogativnebensätze}
+\label{sec-Generalisierung-Satztypen}
+
+Im Abschnitt über die topologischen Felder habe ich bereits darauf hingewiesen, dass Verbzweitsätze,
+Relativsätze und Interrogativnebensätze im Wesentlichen dieselbe Syntax haben. Es ist jeweils eine
+Wortgruppe vorangestellt. Die Voranstellung kann aus einer beliebig tief eingebetteten Konstituente
+erfolgen. Der Unterschied zwischen Verbzweitsätzen und Relativ- bzw.\ Interrogatiovnebensätzen
+besteht lediglich in der Stellung des finiten Verbs. Bei Verbzweitsätzen befindet sich das finite
+Verb in zweiter Position, \dash, es ist vorangestellt (siehe Abschnitt~\ref{Abschnitt-V1}). Bei Relativ- und
+Interrogativnebensätzen befindet sich das finite Verb dagegen in Letztstellung.
+\ea
+\type{filler-phrase} \impl\\
+\onems{ loc$|$cat$|$nonloc \ms{  rel   & \liste{} \\
+                              slash & \liste{} \\
+                           } \\[-5\baselineskip]
+   dtrs \liste{ %\begin{tabular}{@{}l@{}}
+                            \ms{ loc    & \ibox{1} \\
+                                               nonloc & \ms{%  que   & \liste{} \\
+                                                            %  rel   & \sliste{ [] } \\
+                                                              slash & \eliste \\
+                                                           } \\
+                                   }, %\\
+                            \onems{ loc$|$cat \onems{ head \ms[verb]{ %initial & $-$ \\
+                                                                      vform   & fin \\
+                                                                      dsl     & none\\
+                                                                                } \\
+                                                               comps \liste{} \\
+                                                                     } \\
+                                                 nonloc \ms{% que   & \liste{} \\
+                                                             rel   & \eliste \\
+                                                             slash & \sliste{ \ibox{1} } \\
+                                                             } \\
+                                               } 
+                 %           \end{tabular}
+                         } 
+}
+
+\z
+
+\noindent
+Der Typ \type{relative-clause} erbt von \type{filler-phrase}. Siehe Abbildung~\vref{abb-sign-relcl} für einen Überblick über die aktuelle Typhierarchie
+unter \type{phrase}. 
+%
+\begin{figure}
+\centering
+\oneline{%
+%\scalebox{0.8}{%
+%\begin{sideways}%
+\begin{forest}
+type hierarchy,
+ % for tree={
+ %   calign=fixed angles,
+ %   calign angle=50
+ % } 
+% all maximal types are aligned
+for tree={where n children=0{tier=word}{}}
+[phrase
+    %[non-headed-phrase, l sep*=2
+    [filler-phrase, name=filler, s sep+=3mm
+      [relative-clause]]
+    [headed-phrase, l sep*=2, for children={l sep*=4}
+      [head-non-filler-phrase, name=non-filler, 
+        [head-filler-phrase,no edge, name=head-filler]]
+      [head-non-argument-phrase, name=non-arg
+        [head-argument-phrase,no edge, name=argument]]
+      [head-non-adjunct-phrase, name= non-adjunct
+        [head-adjunct-phrase, no edge, name=adjunct]]
+      [head-non-specifier-phrase, name=non-specifier
+        [head-specifier-phrase, no edge, name=specifier]]]]
+\draw[out=290, in=150] (filler.south) to (head-filler.north);
+\draw (non-adjunct.south) to (argument.north);
+\draw (non-adjunct.south) to (head-filler.north);
+\draw (non-adjunct.south) to (specifier.north);
+\draw (non-arg.south) to (adjunct.north);
+\draw (non-arg.south) to (head-filler.north);
+\draw (non-arg.south) to (specifier.north);
+\draw (non-filler.south) to (adjunct.north);
+\draw (non-filler.south) to (argument.north);
+\draw (non-filler.south) to (specifier.north);
+\draw (non-specifier.south) to (adjunct.north);
+\draw (non-specifier.south) to (argument.north);
+\draw (non-specifier.south) to (head-filler.north);
+\end{forest}
+%\end{sideways}
+}
+\caption{\label{abb-sign-relcl}Typhierarchie für \type{phrase}}
+\end{figure}
+
+Damit kann das Relativsatzschema stark vereinfacht werden:
+\begin{schema}[Relativsatzschema (strukturelle Aspekte)]
+\label{rs-schema-struk-mit-Vererbung}
+\type{relative-clause}\istype{relative"=clause} \impl\\
+\onems{ loc$|$cat \ms{ head & relativizer \\
+                       spr  & \eliste\\
+                       comps & \liste{ } \\
+                     } \\[-5\baselineskip]
+   dtrs \sliste{ [nonloc$|$rel \sliste{ [] }], [loc$|$cat$|$head$|$initial $-$ ] } 
+}
+\end{schema}
+
+Das Kopf"=Füller"=Schema wird noch einfacher:
+\begin{schema}[Kopf"=Füller"=Schema]
+\label{schema-Füller-Kopf-mit-Vererbung}\is{Schema!Kopf"=Füller"=}
+\type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
+\onems{ 
+   dtrs \sliste{ [nonloc$|$rel \eliste], [loc$|$cat$|$head$|$initial $+$ ] } 
+}
+\end{schema}
+
+\noindent
+Nach der Diskussion der syntaktischen Aspekte der Analyse werden nun semantische Aspekte besprochen.
+
+
 
 \subsection{Die Semantik von Relativsätzen}
 \label{Abschnitt-rs-sem-Analyse}
@@ -493,7 +607,6 @@ der Roman, [den Autor alle kennen]
 der Roman, [alle dessen Autor kennen]
 }
 \zl
-\itdopt{doppelt?}
 Die Modifikation ist nur genau dann möglich, wenn die spezielle Relativsatzsyntax vorliegt.
 Enthält der Satz kein Relativpronomen oder ist dieses irgendwo anders als in der ersten
 Phrase, werden die Äußerungen ungrammatisch.
@@ -908,8 +1021,52 @@ geteilt worden ist.
 Bevor alternative Analysen besprochen werden, muss noch ein Detail geklärt werden:
 \type{relative-clause} ist kein Untertyp von \type{headed-phrase}, das Valenzprinzip und das
 Semantikprinzip gelten deshalb nicht. Die entsprechende Information (Valenzmerkmale und \contw) ist
-im Relativsatzschema daher explizit spezifiziert. Einen Überblick über die aktuelle Typhierarchie
-unter \type{phrase} gibt Abbildung~\vref{abb-sign-relcl}. 
+im Relativsatzschema daher explizit spezifiziert. Die Typhierarchie unterhalb von \type{phrase} ist
+in Abbildung~\ref{abb-sign-relcl} zu sehen. Die Details zur Hierarchie werden im folgenden Abschnitt besprochen.
+
+
+\subsection{Generalisierungen über Satztypen: Aussagesätze, Relativsätze und Interrogativnebensätze}
+\label{sec-Generalisierung-Satztypen}
+
+Im Abschnitt über die topologischen Felder habe ich bereits darauf hingewiesen, dass Verbzweitsätze,
+Relativsätze und Interrogativnebensätze im Wesentlichen dieselbe Syntax haben. Es ist jeweils eine
+Wortgruppe vorangestellt. Die Voranstellung kann aus einer beliebig tief eingebetteten Konstituente
+erfolgen. Der Unterschied zwischen Verbzweitsätzen und Relativ- bzw.\ Interrogatiovnebensätzen
+besteht lediglich in der Stellung des finiten Verbs. Bei Verbzweitsätzen befindet sich das finite
+Verb in zweiter Position, \dash, es ist vorangestellt (siehe Abschnitt~\ref{Abschnitt-V1}). Bei Relativ- und
+Interrogativnebensätzen befindet sich das finite Verb dagegen in Letztstellung.
+\ea
+\type{filler-phrase} \impl\\
+\onems{ loc$|$cat$|$nonloc \ms{  rel   & \liste{} \\
+                              slash & \liste{} \\
+                           } \\[-5\baselineskip]
+   dtrs \liste{ %\begin{tabular}{@{}l@{}}
+                            \ms{ loc    & \ibox{1} \\
+                                               nonloc & \ms{%  que   & \liste{} \\
+                                                            %  rel   & \sliste{ [] } \\
+                                                              slash & \eliste \\
+                                                           } \\
+                                   }, %\\
+                            \onems{ loc$|$cat \onems{ head \ms[verb]{ %initial & $-$ \\
+                                                                      vform   & fin \\
+                                                                      dsl     & none\\
+                                                                                } \\
+                                                               comps \liste{} \\
+                                                                     } \\
+                                                 nonloc \ms{% que   & \liste{} \\
+                                                             rel   & \eliste \\
+                                                             slash & \sliste{ \ibox{1} } \\
+                                                             } \\
+                                               } 
+                 %           \end{tabular}
+                         } 
+}
+
+\z
+
+\noindent
+Der Typ \type{relative-clause} erbt von \type{filler-phrase}. Siehe Abbildung~\vref{abb-sign-relcl} für einen Überblick über die aktuelle Typhierarchie
+unter \type{phrase}. 
 %
 \begin{figure}
 \centering
@@ -922,35 +1079,63 @@ type hierarchy,
  %   calign=fixed angles,
  %   calign angle=50
  % } 
+% all maximal types are aligned
+for tree={where n children=0{tier=word}{}}
 [phrase
     %[non-headed-phrase, l sep*=2
-    [relative-clause]%]
+    [filler-phrase, name=filler, s sep+=3mm
+      [relative-clause]]
     [headed-phrase, l sep*=2, for children={l sep*=4}
-      [head-non-adjunct-phrase, name=non-adjunct, 
-        [head-adjunct-phrase,no edge, name=adjunct]]
+      [head-non-filler-phrase, name=non-filler, 
+        [head-filler-phrase,no edge, name=head-filler]]
       [head-non-argument-phrase, name=non-arg
         [head-argument-phrase,no edge, name=argument]]
-      [head-non-filler-phrase, name= non-filler
-        [head-filler-phrase, no edge, name=filler]]
+      [head-non-adjunct-phrase, name= non-adjunct
+        [head-adjunct-phrase, no edge, name=adjunct]]
       [head-non-specifier-phrase, name=non-specifier
         [head-specifier-phrase, no edge, name=specifier]]]]
+\draw[out=290, in=150] (filler.south) to (head-filler.north);
 \draw (non-adjunct.south) to (argument.north);
-\draw (non-adjunct.south) to (filler.north);
+\draw (non-adjunct.south) to (head-filler.north);
 \draw (non-adjunct.south) to (specifier.north);
 \draw (non-arg.south) to (adjunct.north);
-\draw (non-arg.south) to (filler.north);
+\draw (non-arg.south) to (head-filler.north);
 \draw (non-arg.south) to (specifier.north);
 \draw (non-filler.south) to (adjunct.north);
 \draw (non-filler.south) to (argument.north);
 \draw (non-filler.south) to (specifier.north);
 \draw (non-specifier.south) to (adjunct.north);
 \draw (non-specifier.south) to (argument.north);
-\draw (non-specifier.south) to (filler.north);
+\draw (non-specifier.south) to (head-filler.north);
 \end{forest}
 %\end{sideways}
 }
 \caption{\label{abb-sign-relcl}Typhierarchie für \type{phrase}}
 \end{figure}
+
+Damit kann das Relativsatzschema stark vereinfacht werden:
+\begin{schema}[Relativsatzschema (strukturelle Aspekte)]
+\label{rs-schema-struk-mit-Vererbung}
+\type{relative-clause}\istype{relative"=clause} \impl\\
+\onems{ loc$|$cat \ms{ head & relativizer \\
+                       spr  & \eliste\\
+                       comps & \liste{ } \\
+                     } \\[-5\baselineskip]
+   dtrs \sliste{ [nonloc$|$rel \sliste{ [] }], [loc$|$cat$|$head$|$initial $-$ ] } 
+}
+\end{schema}
+
+Das Kopf"=Füller"=Schema wird noch einfacher:
+\begin{schema}[Kopf"=Füller"=Schema]
+\label{schema-Füller-Kopf-mit-Vererbung}\is{Schema!Kopf"=Füller"=}
+\type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
+\onems{ 
+   dtrs \sliste{ [nonloc$|$rel \eliste], [loc$|$cat$|$head$|$initial $+$ ] } 
+}
+\end{schema}
+
+\noindent
+Nach der Diskussion der verschiedenen Satztypen werden nun alternative Analysen besprochen.
 
 
 
