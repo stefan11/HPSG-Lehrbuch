@@ -2699,7 +2699,9 @@ in Kathols Beispiel in (\mex{1}) ausgeschlossen:
 In diesem Saal sind viele Preise verliehen bekommen worden.
 }
 \z
-\citet{Kathol91a}\addpages markiert diesen Satz mit einem Fragezeichen, ich finde ihn aber sehr markiert.
+\citet{Kathol91a}
+%\addpages gibt es nicht zum Download Beispiel ist (60)
+markiert sein Beispiel (60) mit einem Fragezeichen, ich finde ihn aber sehr markiert.
 Man könnte die Theorie so modifizieren, dass (\mex{0}) analysierbar wird: Man muss dazu nur den \daw
 von \emph{bekommen} anders spezifizieren. Nimmt man an, dass die \daliste nicht leer, sondern
 einelementig ist und identifiziert man das \textsc{da}"=Element mit dem ersten
@@ -2872,13 +2874,12 @@ head & \ms[verb]{
         subj & \ibox{2}\\
        }\\
 comps & \ibox{3}\\
-arg-st & \ibox{1}\\
+arg-st & \ibox{3}\\
 }}}\\
 \multicolumn{1}{r}{$\wedge$ \texttt{first-np-str}(\,\ibox{1}, \ibox{2}, \ibox{3}\,)}\\
 %\end{tabular}
 \is{Lexikonregel!Argumentblockierung}\isrel{first-np-str}
 \zs
-\itdopt{Muss hier nicht was von ARG-ST blockiert werden? Wie beim Passiv auch?}
 %\vspace{-\baselineskip}\end{figure}
 %
 %\noindent
@@ -2894,6 +2895,9 @@ Aktivsätzen Nominativ bekommt und mit dem Verb kongruiert und keine der im
 Abschnitt~\ref{sec-unakkusativitaet} besprochenen Objekteigenschaften hat,
 während bei den Infinitiven mit und ohne \emph{zu} alle Subjekte, \dash auch die mit
 Objekteigenschaften, in \subj repräsentiert werden.
+
+Man beachte, dass alle Argumente der \argstl auf \comps gemappt werden und es zusätzlich noch das
+\subjm gibt. Ich werde auf diese unkanonische Verteilung der Argumente im Abschnitt~\ref{sec-ARP-und-Partizipien} zurückkommen.
 
 Die Lexikoneinträge für die Hilfsverben, die in Konstruktionen mit modalen Hilfsverben
 benutzt werden, sind parallel zu den Perfekthilfsverben in \pref{le-haben-perfekt} bzw.\ \pref{le-sein-perfekt}: 
@@ -3174,7 +3178,7 @@ blockiert, und man bekommt einen Verbalkomplex, der dieselbe \compsl hat wie \em
 Da das Objekt von \emph{auszukosten} das erste Element mit strukturellem Kasus in der \compsl von
 \emph{auszukosten erlaubt wurde} ist, muss es im Nominativ stehen.
 %
-Abbildung~\vref{abb-remote-pass-da-hm-erlauben} zeigt die Details.\todostefan{AVM align north in Abbildung}
+Abbildung~\vref{abb-remote-pass-da-hm-erlauben} zeigt die Details.
 \begin{figure}
 \oneline{%
 \begin{forest}
@@ -3201,7 +3205,6 @@ sm edges
         comps & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
       } [wurde]]]
 \end{forest}}
-\itdopt{avm für wurde weiter nach links}
 \caption{Analyse des Verbalkomplexes in \emph{auszukosten erlaubt wurde} in:\ \emph{dass der Erfolg uns nicht auszukosten erlaubt wurde.}}\label{abb-remote-pass-da-hm-erlauben}
 \end{figure}
 Die Kontrollbeziehung zwischen dem Dativobjekt von \emph{erlaubt} und dem Subjekt von \emph{auszukosten} 
@@ -3411,7 +3414,6 @@ rels  & \liste{ \ms[klein]{
 hcons & \eliste\\
 }
 \zs
-\itdopt{ind und arg0 müsste dann hier und im Kapitel über Semantik hinzugefügt werden.}
 Durch das Argumentrealisierungsprinzip wird die \argstl in einen Teil mit dem Subjekt und einen Rest
 gespalten (zum Wirkungsbereich des Argumentrealisierungsprinzip wird im Abschnitt~\ref{sec-ARP-und-Partizipien} noch mehr gesagt). Bei Adjektiven wie \emph{treu} und \emph{stolz} kann die \compsl auch eine NP oder PP
 enthalten. Bei subjektlosen Adjektiven wie \emph{schulfrei} \parencites[72]{Mueller2002b}[18]{Haider86} kann die \subjl auch leer sein. 
@@ -3824,7 +3826,7 @@ braucht, haben auch Höhles Sanitäter"=Sätze in (\ref{ex-sanitaeter}) auf S.\,
 \subsection{Das Argumentrealisierungsprinzip und Partizipien}
 \label{sec-ARP-und-Partizipien}
 
-In den ersten drei Auflagen dieses Buches kam die Argumentstrukturliste noch nicht
+In den ersten drei Auf"|lagen dieses Buches kam die Argumentstrukturliste noch nicht
 vor. Valenzverändernde Lexikonregeln bezogen sich auf das Merkmal \subcat, das dem \compsm in dieser
 Ausgabe des Buches entspricht (siehe auch \citealt{Mueller2003e}). Von 2008 bis 2011 arbeitete ich mit Bjarne Ørsnes an einer Grammatik
 des Dänischen \citep{MOeDanish}. Das Dänische ist -- anders als das Deutsche -- eine SVO-Sprache. Wie bereits im
@@ -3882,7 +3884,7 @@ Infinitiv mit \emph{zu}:\\
     \ms{ head|subj & \sliste{ NP[\str]$_i$ }\\
          spr    & \eliste\\
          comps  & \sliste{ NP[\str]$_j$ }\\
-         arg-st & \sliste{ NP[\str]$_i$, NP[\str]$_j$ } }
+         arg-st & \sliste{ NP[\str]$_j$ } }
 \ex 
 \label{ex-ppp-mapping-ARGST}%
 Partizip für Passiv oder Perfekt:\\
@@ -3892,6 +3894,7 @@ Partizip für Passiv oder Perfekt:\\
          arg-st & \sliste{ NP[\str]$_j$ } }
 \zl
 
+\noindent
 (\mex{1}) zeigt eine vereinfachte Form des Argumentrealisierungsprinzip. (\mex{1}) entspricht dem 
 Prinzips in (\ref{Prinzip-Argumentrealisierung-einfach}) auf
 S.\,\pageref{Prinzip-Argumentrealisierung-einfach}, wurde aber durch das \subjm
@@ -3907,7 +3910,7 @@ Kasus gibt. Die restlichen Elemente werden dann auf \spr und \comps verteilt.
 }
 \ea
 \label{Prinzip-Argumentrealisierung-einfach-SUBJ}%
-Argumentrealisierungsprinzip\is{Prinzip!Argumentrealisierungs-} (vereinfachte Version):\\
+Argumentrealisierungsprinzip\is{Prinzip!Argumentrealisierungs-} (vereinfachte Version):\\[2pt]
 \type{word} \impl
 \avm{
 [head|subj & \1\\
