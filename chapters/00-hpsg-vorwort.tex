@@ -27,17 +27,21 @@ Lesen zu einzelnen Abschnitten zurückkehren.
 
 Zu diesem Buch gehört ein Foliensatz, der unter 
 \url{https://hpsg.hu-berlin.de/~stefan/Lehre/HPSG/}
-verfügbar ist. Von dieser Seite gelangt man auch zu einer Seite, die computerverarbeitbare
-Grammatiken enthält, die den jeweiligen Kapiteln in diesem Buch entsprechen. Eine CD, die
+verfügbar ist. Die \LaTeX-Quellen für die Folien befinden sich auf
+\url{https://github.com/stefan11/HPSG-Folien-Deutsch/}. Der Quelltext für dieses Buch findet sich
+unter dem im Impressum angegebenen Link.
+Von der erstgenannten Seite gelangt man auch zu einer Seite, die computerverarbeitbare
+Grammatiken enthält, die den jeweiligen Kapiteln in diesem Buch entsprechen. Eine virtuelle Maschine, die
 alle zum Grammatikentwickeln benötigte Software und auch die Grammatiken enthält, ist unter
-\url{https://hpsg.hu-berlin.de/Software/Grammix/} verfügbar. Der interessierten Leser*in
+\url{https://hpsg.hu-berlin.de/Software/Grammix/} verfügbar. Alternativ gibt es
+Installationsanweisungen für verschiedene Betriebssysteme. Der interessierten Leser*in
 wird nahegelegt, sich mit den Grammatiken zu beschäftigen, da das anschaulicher ist,
 als es jeder noch so gute Text sein könnte.
 
 \section*{Benutzte Korpora}
 
 Die meisten der Beispiele in diesem Buch sind Belege aus der {\em taz}\footnote{
-\url{http://www.taz.de/}, 21.07.2024.}, einer überregionalen
+\url{http://www.taz.de/}, 24.02.2026.}, einer überregionalen
 deutschen Tageszeitung. Andere sind aus dem Magazin \emph{Der Spiegel},
 aus der Computerzeitschrift c't oder aus der \emph{zitty}, einer kleinen Zeitschrift mit
 Veranstaltungshinweisen aus Berlin. 
@@ -91,13 +95,13 @@ Berlin, 01.\ August, 2008\hfill Stefan Müller
 Die wichtigste Änderung von der zweiten zur dritten Auf"|lage besteht in einer Anpassung des
 Kopf"=Argument"=Schemas. Ich verwende jetzt nicht mehr die \emph{del}"=Relation sondern
 \emph{append} \citep[Abschnitt~8.4]{MuellerGTBuch1}. Das ermöglicht eine einfache sprachübergreifende Analyse der Konstituentenstellung
-\citep{MuellerCopula}. Die entsprechenden Analysen haben sich im CoreGram"=Projekt\footnote{
+\parencites[228]{MuellerPredication}{MuellerCopula}. Die entsprechenden Analysen haben sich im CoreGram"=Projekt\footnote{
   \url{https://hpsg.hu-berlin.de/Projects/CoreGram.html}. Zu einer Beschreibung des Projekts siehe \citew{MuellerCoreGram}. Das CoreGram"=Projekt beschäftigt sich mit der Implementation von Grammatiken für so
 verschiedene Sprachen wie Deutsch, Dänisch\il{Dänisch}
-\citep{MOe2011a,MuellerPredication,MuellerCopula,MOeDanish}, Englisch\il{Englisch}
-\citep{MuellerPredication,MuellerCopula}, Jiddisch\il{Jiddisch} \citep{MOe2011a}, Spanisch\il{Spanisch}, Französisch\il{Französisch},
+\citep{MOe2011a,MuellerPredication,MuellerCopula,MOe2013a,MOeDanish}, Englisch\il{Englisch}
+\citep{MuellerPredication,MuellerCopula,MOe2013a,MuellerLFGphrasal}, Jiddisch\il{Jiddisch} \citep{MOe2011a}, Spanisch\il{Spanisch}, Französisch\il{Französisch},
 Maltesisch\il{Maltesisch} \citep{MuellerMalteseSketch},
-Persisch\il{Persisch} \citep{MuellerPersian} und Mandarin Chinesisch\il{Mandarin Chinesisch} \citep{Lipenkova2009a,ML2009a}.
+Persisch\il{Persisch} \citep{MuellerPersian,MG2010a} und Mandarin Chinesisch\il{Mandarin Chinesisch} \citep{Lipenkova2009a,ML2009a,Lu2021a,LM2027a}.
 }, bewährt. 
 
 Wir haben uns entschlossen, die CD-Rom, die bisher mit dem Buch zusammen ausgeliefert wurde, nicht
@@ -117,7 +121,11 @@ zu können.\footnote{Fußnote aus der Zukunft: Bis zur Eröffnung des BER am 31.
 aber bereits jetzt über meine Webseite zugänglich.
 
 Der Abschnitt~\ref{sec-vererbung-koenig} zur vererbungsbasierten Analyse des Passivs wurde nochmals
-überarbeitet und enthält jetzt auch eine Diskussion von Doppelpassivierungen im Türkischen\il{Türkisch} und
+überarbeitet und enthält jetzt auch eine Diskussion von Doppelpassivierungen\footnote{
+  Anmerkung vom 24.02.2026: Bei den Konstruktionen handelt es sich um Interaktionen aus Passiv und
+  Impersonalkonstruktion \citep{Belvins2003a}. Sie sind dennoch für vererbungsbasierte Analysen
+  problematisch und werden im Abschnitt~\ref{sec-vererbung-koenig} jetzt nach aktuellem Kenntnisstand besprochen.
+} im Türkischen\il{Türkisch} und
 anderen Sprachen. Außerdem habe ich im Abschnitt~\ref{sec-spr} etwas erklärenden Text und eine
 Abbildung hinzugefügt. Die Diskussion des \textsc{mother}"=Merkmals im Kapitel~\ref{Kapitel-Lokalität} wurde erweitert und auf
 den Stand von \citew{MuellerGTBuch1} bzw.\ \citew{MuellerGTBuch2} gebracht. 
@@ -153,7 +161,10 @@ Ich habe dann auch mein Grammatiktheorie"=Buch im Stauffenburg"=Verlag veröffen
 ich gemeinsam mit Martin Haspelmath und mit der Unterstützung von vielen, vielen Linguist*innen
 weltweit (u.\,a.\ Chomsky, Pinker, Goldberg) begonnen, einen wissenschaftsgeführten Diamond Open
 Access-Verlag aufzubauen \citep{MuellerOA}.\footnote{Diamond Open Access bedeutet, dass weder die Autor*innen noch die
-Leser*innen für die Veröffentlichungen bezahlen müssen.} Seit 2014 gibt es Language Science Press. Ab diesem Zeitpunkt habe ich
+Leser*innen für die Veröffentlichungen bezahlen müssen.%
+% Stattdessen wird Language Science Press von über 100
+%Universitäten weltweit finanziert.
+} Seit 2014 gibt es Language Science Press. Ab diesem Zeitpunkt habe ich
 auch meine Bücher dort veröffentlicht. 
 
 Im April 2024 habe ich Frau Narr gefragt, ob ich die Rechte an diesem Buch zurückbekommen könnte,
@@ -192,6 +203,15 @@ und habe die meisten Beispiele so abgeändert, dass es keine Gender-Stereotypen 
 Verwendung von Maskulina angewiesen ist, denn nur bei diesen ist der Kasus voll ausbuchstabiert. 
 
 Ich habe an Stellen, wo das noch nicht der Fall war, bei Literaturquellen Seitenzahlen hinzugefügt.
+
+Im Abschnitt~\ref{Abschnitt-phrasale-Valenz} gibt es als Teil des Kapitels über Valenz eine Diskussion darüber, ob lexikalisch kodierte Valenz oder phrasal
+lizenzierte Ansätze adäquater sind. Die Diskussion über Alternativen im Lexikonkapitel wurde
+ebenfalls ausgebaut und ein Abschnitt über Erzwingung (Coercion) hinzugefügt (Abschnitt~\ref{sec-Erzwingung}).
+
+Ich habe das \textsc{dtrs}-Merkmal eingeführt, das wie bei \citet[29--30]{GSag2000a-u} alle Töchter
+enthält. Dadurch wird es möglich, Prinzipien allgemeiner zu formulieren, und man kann
+Generalisierungen bzgl.\ Verbzweitsätzen und Relativ- und Interrogativnebensätzen erfassen. Das
+\textsc{non-head-dtrs}-Merkmal braucht man nicht mehr.
 
 Im Kapitel~\ref{Kapitel-passiv} habe ich die Diskussion unakkusativischer Verben erweitert und um
 eine Zusammenfassung ergänzt, so dass ganz klar ist, welche Tests anwendbar sind und welche nicht.

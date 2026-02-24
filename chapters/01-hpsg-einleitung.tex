@@ -14,10 +14,10 @@
 In diesem Kapitel soll erklärt werden, warum man sich überhaupt mit Syntax
 beschäftigt (Abschnitt~\ref{sec-wozu-syntax}) und 
 warum es sinnvoll ist, die Erkenntnisse zu formalisieren (Abschnitt~\ref{sec-formal}).\footnote{
-  Dieses Kapitel bildete die Grundlage der ersten beiden Kapitel meines Grammatiktheoriebuches
+  Teile dieses Kapitels bilden auch die Grundlage der ersten beiden Kapitel meines Grammatiktheoriebuches
   \citep{MuellerGTBuch2}. Den Abschnitt über Interrogativnebensätze und Relativsätze und
-  topologische Felder, hatte ich zuerst in die Grammatiktheorie integriert und habe ihn nun für die
-  vierte Auflage dieses Buches auch hier in den Abschnitt~\ref{sec-Topologische-Felder-Zuordnung} integriert.
+  topologische Felder, habe ich zuerst als Bestandteil der Grammatiktheorie veröffentlicht und habe ihn nun für die
+  vierte Auf"|lage dieses Buches auch hier in den Abschnitt~\ref{sec-Topologische-Felder-Zuordnung} integriert.
 }
 Einige Grundbegriffe werden in den Abschnitten~\ref{konstituententests}--\ref{sec-intro-arg-adj} eingeführt. 
 Die Abschnitte~\ref{sec-grammatikmodelle}--\ref{sec-xbar}
@@ -46,16 +46,22 @@ dass es eine maximale Satzlänge und eine maximale Wortlänge und somit eine end
 Anzahl von Wörtern gibt, so ist die Anzahl der bildbaren Sätze endlich.
 Allerdings ist die Zahl der bildbaren Sätze selbst bei Begrenzung der Satzlänge riesig.
 Und die Frage, die man dann beantworten muss, ist: Was ist die Maximallänge für
-Sätze? Zum Beispiel kann man die Sätze in (\mex{1}) verlängern:
+Sätze? 20 Wörter? 30? 40? Thomas Manns Roman "`Joseph und die Brüder"' enthält einen Satz mit 347 Wörtern. Der längste
+bekannte Satz, der in einem Roman verwendet wurde, hat 1077 Wörter \citep{Hug2018a}.
+Aber auch eine Grenze von 1500 Wörtern wäre willkürlich. Das kann man sich anhand der Sätze in
+(\mex{1}) klarmachen. Diese Sätze kann man auf einfache Art verlängern:
 \eal
-\ex Dieser Satz geht weiter und weiter und weiter und weiter \ldots
+\ex Dieser Satz geht weiter und weiter und weiter und weiter.
 \ex {}[Ein Satz ist ein Satz] ist ein Satz.
 \zl
 In (\mex{0}b) wird etwas über die Wortgruppe \emph{ein Satz ist ein Satz} ausgesagt, nämlich dass sie
 ein Satz ist. Genau dasselbe kann man natürlich auch vom gesamten Satz (\mex{0}b) behaupten und den Satz
-entsprechend um \emph{ist ein Satz} erweitern.
-
-Durch Erweiterungen wie die in (\mex{0}) können wir enorm lange und komplexe Sätze bilden.\footnote{
+entsprechend um \emph{ist ein Satz} erweitern. Und auch über den Satz mit 1077 kann man folgenden
+Satz schreiben, wobei die drei Punkte für den zitierten Satz stehen: 
+\ea
+Der Schriftsteller Hermann Broch schrieb in seinem Roman "`Der Tod des Vergils"' den Satz \ldots.
+\z
+Durch Erweiterungen wie die in (\mex{-1}) und (\mex{0}) können wir enorm lange und komplexe Sätze bilden.\footnote{
 Manchmal wird behauptet, dass wir in der Lage wären, unendlich lange Sätze zu bilden (\citealp*[\page
  117]{NKN2001a}, \citealp[\page 3]{KS2008a-u}, Dan Everett in \citew{OW2012a} bei 25:19,
  \citealp*[\page 67]{Chesi2015a-u}, \citealp[\page 5]{Lin2017a}, \citealp[\page 2]{Martorell2018a}.
@@ -76,7 +82,7 @@ Das ist nicht richtig, da jeder Satz irgendwann einmal enden
 willkürlich \parencites[\page 208]{Harris57a}[\page 23]{Chomsky57a}. Auch ist die Annahme, dass
 solche komplexen Sätze als Gesamtheit in unserem Gehirn gespeichert sind, unplausibel. Man kann für
 hochfrequente Muster bzw.\ idiomatische Kombinationen mit psycholinguistischen Experimenten zeigen,
-dass sie als ganze Einheit gespeichert sind, das ist für Sätze wie die in (\mex{0}) jedoch nicht der
+dass sie als ganze Einheit gespeichert sind\todostefan{Quelle}, das ist für Sätze wie die in (\mex{0}) jedoch nicht der
 Fall. Es muss also eine Strukturierung der Äußerungen, es muss bestimmte wiederkehrende Muster
 geben. Solche Muster aufzudecken, zu beschreiben und zu erklären, ist die Aufgabe der Syntax.
 
@@ -99,7 +105,7 @@ Argument, so dass die Funktion von \emph{die Frau} bzw.\ \emph{die Mädchen} kla
 In (\mex{0}c,d) verlangt das Verb zwei Argumente, und \emph{die Frau} und \emph{die Mädchen}
 könnten an beiden Argumentstellen auf"|treten. Die Sätze könnten also bedeuten, dass
 die Frau jemanden kennt oder dass jemand die Frau kennt. Durch die Flexion des Verbs und
-Kenntnis der syntaktischen Gesetzmäßigkeiten des Deutschen weiß der Hörer
+Kenntnis der syntaktischen Gesetzmäßigkeiten des Deutschen weiß die Hörer*in
 aber, dass es für (\mex{0}c,d) jeweils nur eine Lesart gibt.
 
 
@@ -149,7 +155,7 @@ Vorhersagen sie macht, und wir können alternative Analysen ausschließen.
 Betrachtet man den Satz in (\mex{1}), so hat man das Gefühl, dass bestimmte Wörter zu einer
 Einheit gehören.
 \ea
-Alle Studenten lesen während der vorlesungsfreien Zeit Bücher.
+Alle Student*innen lesen während der vorlesungsfreien Zeit Bücher.
 \z
 In diesem Abschnitt sollen Tests vorgestellt werden, die Indizien für eine engere
 Zusammengehörigkeit von Wörtern darstellen. Wenn von einer \emph{Wortfolge}\is{Wortfolge}
@@ -215,10 +221,10 @@ Was\is{Fragetest} sich erfragen lässt, ist eine Konstituente.
         \ex {}[Das Kind] schläft.
         \ex Wer schläft?
         \zl
-        Der Fragetest ist ein Spezialfall des Pronominalisierungstests: Man bezieht sich mit
-        einem Fragepronomen auf eine Wortfolge.
+Der Fragetest ist ein Spezialfall des Pronominalisierungstests: Man bezieht sich mit
+einem Fragepronomen auf eine Wortfolge. Der Pronominalisierungstest und somit auch der Fragetest sind Spezialfälle des Ersetzungstests.
 
-Die Konstituenten wie \emph{das Buch zu lesen} in \pref{ex-das-buch-zu-lesen} kann man erfragen,
+Auch Konstituenten wie \emph{das Buch zu lesen} in \pref{ex-das-buch-zu-lesen} kann man erfragen,
 wie (\mex{1}) zeigt:
 \ea
 Was versucht Aicke?
@@ -291,7 +297,7 @@ Die Voranstellbarkeit einer Wortfolge ist als starkes Indiz für deren Konstitue
 zu werten.
 
 Diesen Test findet man auch als Satzgliedtest in der traditionellen Grammatik. Der
-Begriff der Konstituente ist jedoch allgemeiner, da er auch Fälle wie (\mex{1}) erfasst:
+Begriff der Konstituente ist jedoch allgemeiner, da er auch Fälle wie (\mex{1}a) erfasst:
 \eal
 \ex Märchen erzählen sollte man niemandem.
 \ex dass man niemandem Märchen erzählen sollte
@@ -395,7 +401,7 @@ in (\ref{bsp-weil-jetzt-es-regnet}), ein Element vor das Expletivum gestellt,
 wird der Satz ungrammatisch. Der Grund für die Ungrammatikalität von
 (\ref{bsp-es-sah-Conny-regnen}) liegt in einer generellen Abneigung des 
 Akkusativ"=\emph{es} dagegen, die erste Stelle im Satz einzunehmen. Es gibt zwar Belege für
-solche Muster, aber in diesen ist das \emph{es} immer referentiell \parencites[\page162]{Lenerz94a}[\page4]{GS97a}.
+solche Voranstellungen, aber in diesen ist das \emph{es} immer referentiell \parencites[\page162]{Lenerz94a}[\page4]{GS97a}.
 
 %        \citet[\page162]{Lenerz94a} schreibt (\ref{bsp-geld-weg}) Peter Gallmann\aimention{Peter Gallmann}
 %        zu. (\ref{bsp-experten}) stammt von Santorini und ist nach \citew[\page4]{GS97a} zitiert.%
@@ -441,7 +447,7 @@ nicht immer ohne weiteres sagen lässt, was verschoben wurde. Zum Beispiel stehe
 \ex weil gestern dem Kind alle geholfen haben
 \zl
 Man könnte also annehmen, dass \emph{gestern} gemeinsam mit \emph{dem Kind} umgestellt wurde. Eine
-alternative Erklärung für die Abfolgevarianten in (\mex{1}) liegt aber darin anzunehmen, dass
+alternative Erklärung für die Abfolgevarianten in (\mex{0}) liegt aber darin anzunehmen, dass
 Adverbien an beliebiger Stelle im Satz stehen können und dass in (\mex{0}b) nur \emph{dem Kind} vor
 \emph{alle} gestellt wurde. Man sieht auf jeden Fall, dass \emph{gestern} und \emph{dem Kind} nicht
 in einer semantischen Beziehung stehen und dass man sich auch nicht mit einem Pronomen auf die
@@ -490,6 +496,7 @@ Wie ich zeigen werde, sind beide problematisch.
 
 Die erste ist wegen Beispielen wie (\mex{1}) problematisch:
 \eal
+\label{ex-Agrarsubventionen}
 \ex Keine Einigung erreichten Schröder und Chirac über den Abbau der Agrarsubventionen.\footnote{tagesschau, 15.10.2002, 20:00.}
 \ex Über den Abbau der Agrarsubventionen erreichten Schröder und Chirac keine Einigung.
 \zl
@@ -508,7 +515,7 @@ Keine Einigung über den Abbau der Agrarsubventionen erreichten Schröder und Ch
 \z
 In theoretischen Erklärungsversuchen geht man davon aus, dass \emph{keine Einigung über den Abbau der Agrarsubventionen}
 eine Konstituente ist, die unter gewissen Umständen aufgespalten\is{NP"=Aufspaltung} werden kann. In solchen Fällen können die einzelnen
-Teilkonstituenten wie in (\mex{-2}) unabhängig voneinander umgestellt werden.
+Teilkonstituenten wie in (\ref{ex-Agrarsubventionen}) unabhängig voneinander umgestellt werden \citep{deKuthy2002a}.
 
 
 
@@ -567,7 +574,7 @@ wäre der Konstituentenbegriff entwertet, da man mit den Konstituententests ja g
 bzw.\ syntaktisch zusammengehörige Wortfolgen ermitteln will.%\NOTE{Johannes Bubenzer: Unverständlich! Wieso?}
 \footnote{
   Die Daten kann man mit einem leeren verbalen Kopf\is{Spur!Verb-}\is{leere Kategorie} vor dem finiten Verb analysieren,
-  so dass letztendlich wieder genau eine Konstituente vor dem Finitum steht \citep{Mueller2005d}.
+  so dass letztendlich wieder genau eine Konstituente vor dem Finitum steht \citep{Mueller2005d,MuellerGS}.
   Trotzdem sind die Daten für Konstituententests problematisch, da die Konstituententests
   ja entwickelt wurden, um zu bestimmen, ob \zb \emph{trocken} und \emph{durch die Stadt}
   bzw.\ \emph{wenig} und \emph{mit Sprachgeschichte} in (\mex{1}) Konstituenten bilden. Ein
@@ -624,7 +631,7 @@ Diese Wörter kann man nicht gemeinsam umstellen:\footnote{
   Das Beispiel in (\mex{1}) ist jedoch bewusst so konstruiert worden, 
   dass sich ein Subjekt mit im Vorfeld befindet, was aus Gründen, die 
   mit den informationsstrukturellen Eigenschaften solcher Vorfeldbesetzungen
-  zusammenhängen, nur sehr eingeschränkt möglich ist \citep[\page 118]{MBC2012a}. Siehe auch \citew{dKM2003a} zu Subjekten
+  zusammenhängen, nur sehr eingeschränkt möglich ist \citep*[\page 118]{MBC2012a}. Siehe auch \citew{dKM2003a} zu Subjekten
   in vorangestellten Verbalphrasen.%
 }
 \ea[*]{
@@ -632,6 +639,7 @@ Aicke einen Esel kaufte deshalb.
 }
 \z
 
+\noindent
 Eine Ersetzung durch Pronomina ist nicht ohne Ellipse möglich:
 \eal
 \ex[\#]{
@@ -655,7 +663,7 @@ anzunehmen. Daraus kann man aber für den Konstituentenstatus in (\mex{1}) keine
 Deshalb kaufte Aicke einen Esel.
 \z
 
-
+\noindent
 Zusammenfassend kann man sagen, dass die Konstituententests, wenn man sie ohne Wenn und Aber
 anwendet, nur Indizien liefern. Ist man sich der erwähnten problematischen Fälle bewusst,
 kann man mit den Tests aber doch einigermaßen klare Vorstellungen davon bekommen, welche
@@ -666,10 +674,9 @@ Wörter als Einheit analysiert werden sollten.
 
 Der Kopf"=Begriff spielt in der Kopfgesteuerten Phrasenstrukturgrammatik
 eine wichtige Rolle, wie man unschwer am Namen der Theorie erkennen kann.
-
 Der Kopf einer Wortgruppe/""Konstituente/""Phrase/""Projektion ist dasjenige Element,
 das die wichtigsten Eigenschaften der Wortgruppe/""Konstituente/""Phrase/""Projektion bestimmt.
-Gleichzeitig steuert der Kopf den Aufbau der Phrase, \dash, der Kopf verlangt
+Gleichzeitig steuert der Kopf den internen Aufbau der Phrase, \dash, der Kopf verlangt
 die Anwesenheit bestimmter anderer Elemente in seiner Phrase. Die Köpfe sind
 in den folgenden Beispielen kursiv gesetzt:
 \eal
@@ -684,15 +691,15 @@ In (\mex{0}d) bestimmt die Präposition den Kasus der Nominalphrase \emph{diesem
 leistet auch den semantischen Hauptbeitrag: Ein Ort wird beschrieben. (\mex{0}e)
 ist umstritten: Es gibt sowohl Wissenschaftler*innen, die annehmen, dass der Determinator
 der Kopf ist
-\parencites[\page 6]{Ajdukiewicz35a-u}{VH77a-u}[Abschnitt~6]{Brame81a-u}{Brame82a}[\page 90--92]{Hudson84a-u}{Hellan86a,Abney87a,Netter94,Netter98a}, als auch solche, die annehmen,
-dass das Nomen der Kopf ist \parencites{vanLangendonck94a}[\page 49]{ps2}{Demske2001a}{Hudson2004a}{Bruening2009a}{MyPM2021a}{MuellerHeadless}.
+\parencites[\page 6]{Ajdukiewicz35a-u}[231]{VH77a-u}[Abschnitt~6]{Brame81a-u}{Brame82a}[\page 90--92]{Hudson84a-u}{Hellan86a,Abney87a,Netter94,Netter98a}, als auch solche, die annehmen,
+dass das Nomen der Kopf ist \parencites{vanLangendonck94a}[\page 49]{ps2}{Demske2001a}{Hudson2004a}{Bruening2009a}{MyPM2021a}{MuellerHeadless}.\LATER{LFG-Handbook}
 % Dalrymple textbook
-Ich schließe mich für den Rest des Buches den letzteren an. Argumente für den Kopfstatus des Nomens
+Ich schließe mich den letzteren an. Argumente für den Kopfstatus des Nomens
 finden sich in Abschnitt~\ref{sec-dp-analyse}, eine längere Diskussion findet sich in
 \citew{MuellerHeadless} und \citew{MyPM2021a}.
 
 Die Kombination eines Kopfes mit einer anderen Konstituente wird \emph{Projektion
-des Kopfes}\is{Projektion} genannt. Eine Projektion, die alle notwendigen Bestandteile zur Bildung
+des Kopfes}\is{Projektion} genannt. Die größte Projektion, die alle notwendigen Bestandteile zur Bildung
 einer vollständigen Phrase enthält, wird \emph{Maximalprojektion}\is{Projektion!Maximal-}
 genannt. Ein \emph{Satz}\is{Satz} ist die Maximalprojektion eines finiten Verbs.
 
@@ -704,8 +711,8 @@ in der Tabelle~\vref{tab-merkmale} dargestellt.
 \oneline{\begin{tabular}{ll}\lsptoprule
 Kategorie    & projizierte Merkmale\\\midrule
 Verb         & Wortart, Verbform\is{Verbform} (\textit{fin}, \textit{bse}, \textit{inf}, \textit{ppp})\\
-Nomen        & Wortart, Kasus\is{Kasus} (\textit{nom}, \textit{gen}, \textit{dat}, \textit{acc})\\
-             & Person\is{Person} (\emph{1}, \emph{2}, \emph{3}), Numerus (\emph{sg}, \emph{pl})\\
+Nomen        & Wortart, Kasus\is{Kasus} (\textit{nom}, \textit{gen}, \textit{dat}, \textit{acc}),
+               Person\is{Person} (\emph{1}, \emph{2}, \emph{3}), Numerus (\emph{sg}, \emph{pl})\\
 %Präposition  & Kategorie, (Form der Präposition (\textit{an}, \textit{auf}, \ldots), Kasus der NP)\\
 Adjektiv     & Wortart, bei flektierten Formen Kasus\is{Kasus|(}, Genus\is{Genus|(} (\emph{mas}, \emph{fem}, \emph{neu}), Numerus\is{Numerus|(}\\
              & und Flexionsklasse\is{Flexion!-sklasse|(} (\emph{strong}, \emph{weak})\\\lspbottomrule
@@ -767,7 +774,7 @@ müssen in Kasus, Genus, Numerus und Flexionsklasse zum Artikel und dem Nomen in
 passen:
 \eal
 \ex[]{
-ein kluger Beamter
+ein kluges Beamter
 }
 \ex[]{
 eine kluge Beamte
@@ -870,6 +877,22 @@ sind (\emph{Pizza} in (\mex{1}b)).
 \zl
 
 \noindent
+Abbildung~\ref{fig-optional-arguments-adjuncts} visualisiert noch einmal, dass sowohl Adjunkte als auch Argumente
+optional sein können. Daraus, dass etwas optional ist, folgt nicht, dass es ein Adjunkt ist.
+\begin{figure}
+\begin{tikzpicture}
+\node[anchor=east](c1) at (-1,2) {nicht optional};
+\node[anchor=east](c2) at (-1,1) {optional};
+\node[anchor=west](c3) at (1,2) {Argument};
+\node[anchor=west](c4) at (1,1) {Adjunkt};
+\draw (c1.east) -- (c3.west) -- (c2.east) -- (c4.west);
+\end{tikzpicture}
+\caption{\label{fig-optional-arguments-adjuncts}Adjunkte sind immer optional. Argumente können
+  optional oder obligatorisch sein. Wenn etwas nicht optional ist, muss es
+  ein Argument sein \citep[§1182]{Duden2005}.} 
+\end{figure}
+
+\noindent
 Normalerweise legen Köpfe die syntaktischen Eigenschaften ihrer Argumente
 ziemlich genau fest. So schreibt ein Verb vor, welche Kasus seine nominalen
 Argumente haben können bzw.\ müssen. Zum Beispiel verlangt \emph{bezichtigen} einen Genitiv, der
@@ -905,9 +928,9 @@ Aicke hängt an die Eisenbahn.
 }
 \zl
 Der Kasus von Nominalphrasen in modifizierenden Präpositionalphrasen hängt dagegen
-von ihrer Bedeutung ab. Direktionale (also eine Richtung angebende) Präpositionalphrasen 
+von der Bedeutung der Präposition ab. Direktionale (also eine Richtung angebende) Präpositionen 
 verlangen normalerweise eine Nominalphrase im Akkusativ (\mex{1}a), lokale (also einen Ort spezifizierende)
-PPen nehmen einen Dativ zu sich (\mex{1}b):
+Präpositionen nehmen einen Dativ zu sich (\mex{1}b):
 \eal
 \ex Aicke geht in die Schule / auf den Weihnachtsmarkt / unter die Brücke.
 \ex Aicke schläft in der Schule / auf dem Weihnachtsmarkt / unter der Brücke.
@@ -984,7 +1007,7 @@ Argumente werden in der HPSG in Subjekte\is{Subjekt} und Komplemente\is{Kompleme
 unterteilt. Nicht alle Köpfe müssen ein Subjekt haben (siehe Abschnitt~\ref{sec-subjekt-valenz}),
 so dass die Menge der Argumente eines Kopfes durchaus auch der Menge der Komplemente eines Kopfes entsprechen
 kann. Die Begriffe werden aber nicht synonym verwendet, wie das in anderen Schulen
-der Linguistik der Fall ist.
+der Linguistik mitunter der Fall ist.\LATER{Quelle?}
 % \item Genitive?
 % \eal
 % \ex der Mantel des Versicherungsvertreters
@@ -1017,17 +1040,17 @@ aufgeführt.
 \item Transformationsgrammatik\is{Transformation} und deren Nachfolger
       \begin{itemize}
       \item Transformationsgrammatik\\\citep{Chomsky57a,Bierwisch63a}
-      \item Government \& Binding\is{Government and Binding (GB)@\textit{Government and Binding} (GB)}\\\citep{Chomsky81a,SS88a,Grewendorf88a}
-      \item Minimalismus\is{Minimalistisches Programm}\\\citep{Chomsky95a-u,Grewendorf2002a}
+      \item Government \& Binding\is{Government and Binding (GB)@\textit{Government and Binding} (GB)}\\\citep{Chomsky81a,FF87a,SS88a,Grewendorf88a,Lohnstein2014a}
+      \item Minimalismus\is{Minimalistisches Programm}\\\citep{Chomsky95a-u,Grewendorf2002a,Adger2003a}
       \end{itemize}
 \item Relational Grammar (RG)\\
-      \citep{Perlmutter83a-ed}
+      \citep{Perlmutter83a-ed,PR84a-ed}
 \item Tree Adjoining Grammar\is{Tree Adjoining Grammar@\emph{Tree Adjoining Grammar} (TAG)}\\
       \citep*{JLT75a-u,Joshi87a-u,JS97a}      
 \item Generalisierte Phrasenstrukturgrammatik (\gpsg)\\
-      \citep*{GKPS85a}
+      \citep*{GKPS85a,Uszkoreit87a}
 \item Lexikalisch Funktionale Grammatik (LFG)\is{Lexical Functional Grammar@\emph{Lexical Functional Grammar} (LFG)}\\
-      \citep{Bresnan82a-ed,Bresnan2001a,BF96a-ed,Berman2003a}
+      \citep{Bresnan82a-ed,Bresnan2001a,BF96a-ed,Berman2003a,Dalrymple2023a-ed}
 \item Head-Driven Phrase Structure Grammar (HPSG)\\\citep*{ps,ps2,Kiss95b,Sag97a,Mueller99a,Mueller2002b,HPSGHandbook}
 \item Konstruktionsgrammatik (CxG)\is{Konstruktionsgrammatik (CxG)}\\\citep*{FKoC88a,KF99a,Goldberg95a,Goldberg2006a,FS2006a-ed}
 \end{itemize}
@@ -1036,7 +1059,10 @@ aufgeführt.
 Das HPSG-Handbuch \citep{HPSGHandbook} enthält auch Kapitel, die HPSG mit vielen der hier genannten
 Theorien vergleichen. Eine ausführliche Einführung in verschiedene Theorien gibt
 \citet{MuellerGT-Eng}. Von diesem Buch gibt es eine frühere deutsche Version, in der aber die Kapitel
-über Minimalismus und Dependenzgrammatik noch nicht enthalten sind \citep{MuellerGTBuch}.
+über Minimalismus und Dependenzgrammatik noch nicht enthalten sind \citep{MuellerGTBuch}. Auch
+Diskussionskapitel zu verschiedenen theorieübergreifenden Fragen wurden in der englischen Version
+hinzugefügt oder, so bereits vorhanden, ausgebaut, so dass der jeweils aktuellen Version
+der Vorzug gegeben werden sollte.
 
 Sieht man vom Minimalismus ab, so finden sich Einsichten aus all diesen Grammatiktheorien
 in den Analysen, die ich im Folgenden vorstellen werde.\footnote{
@@ -1170,7 +1196,7 @@ nur Baumrepräsentationen oder äquivalente, kompakter darstellbare Klammerausdr
 Hier muss darauf hingewiesen werden, dass die Grammatik in (\ref{bsp-grammatik-psg}) nicht die einzig mögliche Grammatik
 für den Beispielsatz in (\ref{bsp-weil-Aicke-dem-Affen-den-Stock-gibt}) ist. 
 Es gibt unendlich\label{page-unendlich-viele-grammatiken} viele Grammatiken, 
-die zur Analyse solcher Sätze verwendet werden können \citep[Übung~1]{MuellerGT-Eng5}.
+die zur Analyse solcher Sätze verwendet werden können (siehe Übung~\ref{ua-psg-eins} auf S.\,\pageref{ua-psg-eins}).
 Eine ist zum Beispiel die in (\mex{1}):
 \ea\label{psg-binaer}
 \begin{tabular}[t]{@{}l@{ }l@{}}
@@ -1219,25 +1245,26 @@ Sowohl die Grammatik in (\mex{0}) als auch die in (\mex{-3}) ist zu ungenau.\foo
   des Verbs. Siehe hierzu Kapitel~\ref{Kapitel-Valenz}. Die Strukturen, die wir in den folgenden
   Kapiteln motivieren werden, ähneln eher denen in Abbildung~\ref{fig-Aicke-dem-Affen-den-Stock-gibt-bin} als denen in Abbildung~\ref{fig-Aicke-dem-Affen-den-Stock-gibt-flat}.%
 }
+Zum Beispiel lassen die Grammatiken die Folge in (\ref{ex-Aicke dem Affen dem Stock gibt}) zu.
 Nimmt man noch Lexikoneinträge für \emph{ich} und \emph{das} in die Grammatik auf, so werden
-fälschlicherweise die Sätze in (\mex{1}b--d) lizenziert:
+fälschlicherweise auch noch die Abfolgen in (\mex{1}c,d) lizenziert:
 \eal
 \ex[]{
 Aicke dem Affen den Stock gibt
 }
-\ex[*]{
-ich dem Affen den Stock gibt
-}
-\ex[*]{
+\ex[*]{\label{ex-Aicke dem Affen dem Stock gibt}
 Aicke dem Affen dem Stock gibt
+}
+\ex[*]{\label{ex-ich dem Affen den Stock gibt}
+ich dem Affen den Stock gibt
 }
 \ex[*]{
 Aicke dem Affen das Stock gibt
 }
 \zl
-In (\mex{0}b) ist die Subjekt"=Verb"=Kongruenz verletzt, \emph{ich} und \emph{gibt} passen
-nicht zueinander. In (\mex{0}c) sind die Kasusanforderungen des Verbs nicht erfüllt.
-\emph{gibt} verlangt ein Akkusativ"=Objekt. In (\mex{0}d) ist die Determinator"=Nomen"=Kongruenz
+In (\ref{ex-Aicke dem Affen dem Stock gibt}) sind die Kasusanforderungen des Verbs nicht erfüllt.
+\emph{gibt} verlangt ein Akkusativ"=Objekt. In (\ref{ex-ich dem Affen den Stock gibt}) ist die Subjekt"=Verb"=Kongruenz verletzt, \emph{ich} und \emph{gibt} passen
+nicht zueinander. In (\mex{0}d) ist die Determinator"=Nomen"=Kongruenz
 verletzt. \emph{das} und \emph{Stock} passen nicht zueinander, da die Genus"=Eigenschaften der
 beiden Wörter verschieden sind.
 
@@ -1364,7 +1391,7 @@ Phrasenstrukturgrammatiken, die nur atomare Symbole verwenden, sind problematisc
 da Generalisierungen nicht erfasst werden. Wir können zwar als Menschen erkennen, dass
 das Symbol NP\_3\_sg\_nom für eine Nominalphrase steht, weil es die Buchstabenfolge NP
 enthält, aber formal ist das Symbol ein Symbol wie jedes andere in der Grammatik. Die Grammatik
-würde genauso funktionieren, wenn man statt NP\_akk das Symbol Z80 verwenden würde. Somit kann die
+würde genauso funktionieren, wenn man statt NP\_akk das Symbol Z80 oder \smiley{} verwenden würde. Somit kann die
 Gemeinsamkeit aller Symbole, die für NPen verwendet werden, nicht erfasst werden. 
 Genauso können wir nicht erfassen, dass die Regeln in (\mex{0}) etwas gemeinsam haben.
 Formal ist ihnen nur gemeinsam, dass sie ein Symbol auf der linken Regelseite und 
@@ -1428,9 +1455,9 @@ noch weitertreiben: Statt explizite Kategoriesymbole wie V, N oder P zu verwende
 an deren Stelle Variablen setzen. Eine solche Form der Abstraktion findet man in
 der \xbar-Theorie (sprich X-bar"=Theorie; \citealt{Chomsky70a,Jackendoff77}). Diese Form abstrakter Regeln
 spielt in den verschiedensten Theorien eine Rolle. Beispielhaft seien
-erwähnt: Government \& Binding \indexgb \citep{Chomsky81a,SS88a,Grewendorf88a},
-Generalized Phrase Structure Grammar\indexgpsg \citep*{GKPS85a}
-und Lexical Functional Grammar\indexlfg \citep{Bresnan82a-ed,Bresnan2001a,BF96a-ed}.
+erwähnt: Government \& Binding \indexgb \citep{Chomsky81a,FF87a,SS88a,Grewendorf88a},
+Generalized Phrase Structure Grammar\indexgpsg \citep*{GKPS85a,Uszkoreit87a}
+und Lexical Functional Grammar\indexlfg \citep{Bresnan82a-ed,Bresnan2001a,BF96a-ed,Dalrymple2023a-ed}.
 
 (\mex{1}) zeigt die \xbar-Schemata und eine mögliche Instantiierung, in der
 für X die Kategorie N eingesetzt wurde, und Beispielwortgruppen, die mit den Regeln
@@ -1514,7 +1541,7 @@ syntax-semantics \ldots & \ms[local]{ category  & \ms[category]{ head & \ms[noun
                                       spr & \nliste{ Det[\textsc{case}~\ibox{1}] } \\
                                       comps & \eliste\\
                                      } \\[6mm]
-              content & \ldots \ms[grammatik]{ inst & X \\
+              content & \ldots{} \ms[grammatik]{ inst & X \\
                                    }\\
             }\\
 }
@@ -1626,7 +1653,7 @@ Leider sind jedoch nicht alle Bereiche unseres Sprachvermögens der Introspektio
 spätestens zu dem Zeitpunkt, zu dem die generative Grammatik den Bereich sehr simpler Sätze verlassen
 hatte und mit komplexen Beispielsätzen für Strukturen zu argumentieren begann, ergaben sich Probleme.
 Die negative Beurteilung von Daten wird benutzt, um bestimmte Strukturen auszuschließen. Oft kann man
-jedoch zeigen, dass es durchaus Belege für die angeblich unmöglichen Strukturen gibt (siehe auch \citew{Mueller2007c,MM2009a}).
+jedoch zeigen, dass es durchaus Belege für die angeblich unmöglichen Strukturen gibt \citep[siehe auch][]{Mueller2007c,MM2009a}.
 Dieser Punkt wird auch in dem obigen Zitat von Sampson angesprochen: Mitunter gibt es Äußerungskontexte, in denen
 Äußerungen völlig normal erscheinen, und die jeweiligen Autor*innen sind nur nicht auf einen solchen gekommen.
 Somit wird ein Theoriegebäude entwickelt, das leicht durch Daten zum Einsturz gebracht werden kann.
@@ -1677,13 +1704,14 @@ Delphin der helfen Kind diesem.
 Kritiker wenden hier zu Recht ein, dass man bei (\mex{0}b--d) Abstufungen in der Akzeptabilität
 feststellen kann: In (\mex{0}b) gibt es keine Kongruenz zwischen Subjekt und Verb, in (\mex{0}c)
 stehen zusätzlich \emph{Delphin} und \emph{der} in der falschen Reihenfolge, und in (\mex{0}d) ist \emph{Kind}
-und \emph{diesem} vertauscht. Genauso verletzen die Sätze in (\mex{-1}) zwar grammatische
+und \emph{diesem} vertauscht. Genauso verletzen die Sätze in (\mex{0}) zwar grammatische
 Regeln des Deutschen, sind aber noch interpretierbar.
 Sampsons Kritik wird jedoch sofort hinfällig, wenn man Grammatik als ein System
 von Wohlgeformtheitsbeschränkungen versteht. Eine Äußerung ist um so schlechter,
 je mehr Wohlgeformtheitsbedingungen sie verletzt \citep[\page 26--27]{PS2001a}. Die
-Wohlgeformtheitsbedingungen kann man auch wichten, 
-so dass man erklären kann, warum bestimmte Verletzungen zu stärkeren Abweichungen führen als andere.\todostefan{Quelle}
+Wohlgeformtheitsbedingungen kann man auch wichten %\parencites[z.\,B.][]{FKKM2001a}
+\citep[z.\,B.][]{Sensekerci2024a-u}, 
+so dass man erklären kann, warum bestimmte Verletzungen zu stärkeren Abweichungen führen als andere.\LATER{Quelle}
 % \citep{Brew95a}. Ist nicht ganz das. Er sagt nur, dass der Typ am Ende eines Pfades mit einer
 % bestimmten Wahrscheinlichkeit vorkommt.
 % Steht auch bei Müller & Kasper, allerdings ist das nur für den Vergleich von Lexikoneinträgen. \citep[255]{FCS2000a}.

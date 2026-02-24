@@ -136,6 +136,19 @@ safe]{tipa}
 % for Germanic history tree
 \useforestlibrary{edges} 
 
+\forestset{%
+  circle edge/.style={
+    tikz+={
+          \node [fit=(.child anchor) (!u.parent anchor), draw=\foresteoption{circle edge colour},
+            ellipse, inner ysep=1.5pt, line width=0.25mm ] {};
+        }
+  },
+%  circle edge/.default=<1->,
+  declare toks={circle edge colour}{red},
+}
+
+
+
 %\usepackage{memoize} 
 %\usepackage{nomemoize} % use this if memoize caues chaos.
 %\memoizeset{
@@ -317,3 +330,6 @@ Figure~\ref{#1}\vpageref[]{#1} and Figure~\ref{#2} \vpageref{#2}}}%
 % is loaded in langscibook.cls
 %\usepackage{xspace}
 \xspaceaddexceptions{\ind \hyp " \ |}
+
+
+\usepackage{wasysym}
