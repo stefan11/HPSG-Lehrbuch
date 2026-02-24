@@ -287,7 +287,7 @@ Abbildung~\ref{abb-von dessen Fahrrad-syn} lizenziert.
 %\resizebox{\linewidth}{!}{
 \onems{ loc$|$cat \ms{ head & relativizer \\
                        spr  & \eliste\\
-                       comps & \liste{ } \\
+                       comps & \eliste \\
                      } \\
                  nonloc \ms{  rel   & \liste{} \\
                               slash & \liste{} \\
@@ -565,7 +565,7 @@ Damit kann das Relativsatzschema stark vereinfacht werden:
 \type{relative-clause}\istype{relative"=clause} \impl\\
 \onems{ loc$|$cat \ms{ head & relativizer \\
                        spr  & \eliste\\
-                       comps & \liste{ } \\
+                       comps & \eliste \\
                      } \\[-5\baselineskip]
    dtrs \sliste{ [nonloc$|$rel \sliste{ [] }], [loc$|$cat$|$head$|$initial $-$ ] } 
 }
@@ -853,25 +853,37 @@ Beschränkungen.
 \label{rs-schema}\is{Schema!Relativsatz-}
 \type{relative-clause} \impl\\
 \oneline{%
+\onems{ loc \ms{ cat & \ms{ head & \onems[relativizer]{ mod \upshape \nbar\ind{1} } \\
+                            spr   & \eliste\\
+                            comps & \eliste } \\
+                 cont  & \ibox{2} \ms{ ltop &  \ibox{3} } }\\
+   dtrs \liste{ \ms{ nonloc|rel & \sliste{ \ms{ ind  & \ibox{1}\\
+                                                ltop & \ibox{3}
+                                              } } }, %\\
+                \onems{ loc  \onems{ cat [head|initial $-$]\\
+                                     cont \ibox{2} } } } \\
+}}
+\end{schema}
+%\vspace{-\baselineskip}\end{figure}
+
+\noindent
+Die Beschränkungen, die für Strukturen vom Typ \type{relative-clause} gelten müssen einschließlich
+der von Obertypen (\type{filler-phrase}) ererbten Beschränkungen sind in (\mex{1}) zu sehen:
+\ea
+Beschränkungen für \type{relative-clause} mit den von \type{filler-phrase} geerbten Beschränkungen:\\
+\oneline{%
 \onems{ loc \ms{ cat & \ms{ head & \onems[relativizer]{ mod \upshape \nbar\ind{1} \\
                                                               } \\
-                                     spr   & \eliste\\
-                                     comps & \eliste\\
-                                     } \\
-                           cont  & \ibox{2} \ms{ ltop &  \ibox{3}  \\
-                                               } \\
-                              } \\
-                 nonloc \ms{  rel   & \liste{} \\
-                              slash & \liste{} \\
-                           } \\
-   dtrs \liste{ \begin{tabular}{@{}l@{}}
-                            \ms{ loc    & \ibox{4} \\
-                                 nonloc & \ms{%  que   & \liste{} \\
-                                                              rel   & \sliste{ \ms{ ind  & \ibox{1}\\
-                                                                                    ltop & \ibox{3}
-                                                                                           } } \\
-                                                              slash & \eliste \\
-                                                           } \\
+                            spr   & \eliste\\
+                            comps & \eliste } \\
+                 cont  & \ibox{2} \ms{ ltop &  \ibox{3} } } \\
+         nonloc \ms{  rel   & \liste{} \\
+                      slash & \liste{} } \\
+   dtrs \liste{ \ms{ loc    & \ibox{4} \\
+                     nonloc & \ms{%  que   & \liste{} \\
+                                     rel   & \sliste{ \ms{ ind  & \ibox{1}\\
+                                                           ltop & \ibox{3} } } \\
+                                     slash & \eliste } \\
                                    }, %\\
                             \onems{ loc  \onems{ cat \onems{ head \ms[verb]{ initial & $-$ \\
                                                                                   vform   & fin \\
@@ -885,12 +897,10 @@ Beschränkungen.
                                                              rel   & \liste{} \\
                                                              slash & \sliste{ \ibox{4} } \\
                                                              } \\
-                                               } \\
-                            \end{tabular}
-                         } \\
+                                               }
+                         } 
 }}
-\end{schema}
-%\vspace{-\baselineskip}\end{figure}
+\z
 \ibox{1} ist der referentielle Index des modifizierten Nomens. Dieser ist identisch mit dem Index
 des Relativpronomens (innerhalb von \textsc{rel} in der ersten Tochter). \ibox{2} ist der
 semantische Beitrag des gesamten Relativsatzes und auch der rechten
@@ -1022,120 +1032,8 @@ Bevor alternative Analysen besprochen werden, muss noch ein Detail geklärt werd
 \type{relative-clause} ist kein Untertyp von \type{headed-phrase}, das Valenzprinzip und das
 Semantikprinzip gelten deshalb nicht. Die entsprechende Information (Valenzmerkmale und \contw) ist
 im Relativsatzschema daher explizit spezifiziert. Die Typhierarchie unterhalb von \type{phrase} ist
-in Abbildung~\ref{abb-sign-relcl} zu sehen. Die Details zur Hierarchie werden im folgenden Abschnitt besprochen.
-
-
-\subsection{Generalisierungen über Satztypen: Aussagesätze, Relativsätze und Interrogativnebensätze}
-\label{sec-Generalisierung-Satztypen}
-
-Im Abschnitt über die topologischen Felder habe ich bereits darauf hingewiesen, dass Verbzweitsätze,
-Relativsätze und Interrogativnebensätze im Wesentlichen dieselbe Syntax haben (siehe S.\,\pageref{page-Relativsätze-Topologie}). Es ist jeweils eine
-Wortgruppe vorangestellt. Die Voranstellung kann aus einer beliebig tief eingebetteten Konstituente
-erfolgen. Der Unterschied zwischen Verbzweitsätzen und Relativ- bzw.\ Interrogatiovnebensätzen
-besteht lediglich in der Stellung des finiten Verbs. Bei Verbzweitsätzen befindet sich das finite
-Verb in zweiter Position, \dash, es ist vorangestellt (siehe Abschnitt~\ref{Abschnitt-V1}). Bei Relativ- und
-Interrogativnebensätzen befindet sich das finite Verb dagegen in Letztstellung.
-\ea
-\type{filler-phrase} \impl\\
-\onems{ loc$|$cat$|$nonloc \ms{  rel   & \liste{} \\
-                              slash & \liste{} \\
-                           } \\[-5\baselineskip]
-   dtrs \liste{ %\begin{tabular}{@{}l@{}}
-                            \ms{ loc    & \ibox{1} \\
-                                               nonloc & \ms{%  que   & \liste{} \\
-                                                            %  rel   & \sliste{ [] } \\
-                                                              slash & \eliste \\
-                                                           } \\
-                                   }, %\\
-                            \onems{ loc$|$cat \onems{ head \ms[verb]{ %initial & $-$ \\
-                                                                      vform   & fin \\
-                                                                      dsl     & none\\
-                                                                                } \\
-                                                               comps \liste{} \\
-                                                                     } \\
-                                                 nonloc \ms{% que   & \liste{} \\
-                                                             rel   & \eliste \\
-                                                             slash & \sliste{ \ibox{1} } \\
-                                                             } \\
-                                               } 
-                 %           \end{tabular}
-                         } 
-}
-
-\z
-
-\noindent
-Der Typ \type{relative-clause} erbt von \type{filler-phrase}. Siehe Abbildung~\vref{abb-sign-relcl} für einen Überblick über die aktuelle Typhierarchie
-unter \type{phrase}. 
-%
-\begin{figure}
-\centering
-\oneline{%
-%\scalebox{0.8}{%
-%\begin{sideways}%
-\begin{forest}
-type hierarchy,
- % for tree={
- %   calign=fixed angles,
- %   calign angle=50
- % } 
-% all maximal types are aligned
-for tree={where n children=0{tier=word}{}}
-[phrase
-    %[non-headed-phrase, l sep*=2
-    [filler-phrase, name=filler, s sep+=3mm
-      [relative-clause]]
-    [headed-phrase, l sep*=2, for children={l sep*=4}
-      [head-non-filler-phrase, name=non-filler, 
-        [head-filler-phrase,no edge, name=head-filler]]
-      [head-non-argument-phrase, name=non-arg
-        [head-argument-phrase,no edge, name=argument]]
-      [head-non-adjunct-phrase, name= non-adjunct
-        [head-adjunct-phrase, no edge, name=adjunct]]
-      [head-non-specifier-phrase, name=non-specifier
-        [head-specifier-phrase, no edge, name=specifier]]]]
-\draw[out=290, in=150] (filler.south) to (head-filler.north);
-\draw (non-adjunct.south) to (argument.north);
-\draw (non-adjunct.south) to (head-filler.north);
-\draw (non-adjunct.south) to (specifier.north);
-\draw (non-arg.south) to (adjunct.north);
-\draw (non-arg.south) to (head-filler.north);
-\draw (non-arg.south) to (specifier.north);
-\draw (non-filler.south) to (adjunct.north);
-\draw (non-filler.south) to (argument.north);
-\draw (non-filler.south) to (specifier.north);
-\draw (non-specifier.south) to (adjunct.north);
-\draw (non-specifier.south) to (argument.north);
-\draw (non-specifier.south) to (head-filler.north);
-\end{forest}
-%\end{sideways}
-}
-\caption{\label{abb-sign-relcl}Typhierarchie für \type{phrase}}
-\end{figure}
-
-Damit kann das Relativsatzschema stark vereinfacht werden:
-\begin{schema}[Relativsatzschema (strukturelle Aspekte)]
-\label{rs-schema-struk-mit-Vererbung}
-\type{relative-clause}\istype{relative"=clause} \impl\\
-\onems{ loc$|$cat \ms{ head & relativizer \\
-                       spr  & \eliste\\
-                       comps & \liste{ } \\
-                     } \\[-5\baselineskip]
-   dtrs \sliste{ [nonloc$|$rel \sliste{ [] }], [loc$|$cat$|$head$|$initial $-$ ] } 
-}
-\end{schema}
-
-Das Kopf"=Füller"=Schema wird noch einfacher:
-\begin{schema}[Kopf"=Füller"=Schema]
-\label{schema-Füller-Kopf-mit-Vererbung}\is{Schema!Kopf"=Füller"=}
-\type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
-\onems{ 
-   dtrs \sliste{ [nonloc$|$rel \eliste], [loc$|$cat$|$head$|$initial $+$ ] } 
-}
-\end{schema}
-
-\noindent
-Nach der Diskussion der verschiedenen Satztypen werden nun alternative Analysen besprochen.
+in Abbildung~\ref{abb-sign-relcl} zu sehen. Nach der Besprechung der Semantik von Relativsätzen
+wende ich mich nun alternativen Analysen zu.
 
 
 
@@ -1236,7 +1134,7 @@ Nomen hinzu.
 
 Zusätzlich zur \nbar\hyp Relativsatz"=Spezialregel, die nur für die Analyse von
 Nominalstrukturen mit Relativsatz gebraucht wird, gibt es noch das allgemeine
-Kopf"=Adjunkt"=Schema (\type{simple-hd-adj-ph}). Die in früheren Auflagen dieses Buches vorgestellte
+Kopf"=Adjunkt"=Schema (\type{simple-hd-adj-ph}). Die in früheren Auf"|lagen dieses Buches vorgestellte
 Analyse kommt dagegen mit einem sehr allgemeinen Kopf"=Adjunkt"=Schema aus. Insgesamt entfällt das
 Problem, wenn man MRS verwendet, weil dann die Konjunktion von Relationen nicht durch gemeinsame
 Mitgliedschaft von Relationen in einer Menge entsteht, sondern durch die Identifikation von
