@@ -625,7 +625,7 @@ formalisieren müsste.\footnote{%
     Probleme mit keinem Wort erwähnt, obwohl er \citew{Mueller2006d} zitiert.%
 }
 
-\subsubsection{Phrasale vs.\ Argumentstruktur-Konstruktionen}
+\subsubsection{Phrasale vs.\ lexikalische Argumentstruktur-Konstruktionen}
 \label{sec-phrasal-lexikalisch-rc}
 
 Obwohl HPSG/SBCG und die anderen Konstruktionsgrammatikvarianten ähnlich sind, wird die Frage, welche Phänomene auf phrasaler Ebene
@@ -679,7 +679,9 @@ zu verwenden. So wie in \emph{die Regelung des Verkehrs} ein Verb nominalisiert 
 \emph{leer fischen} ausgehend vom Stamm nominalisiert werden.
 
 \citet{Kay2005a}, noch im Rahmen der Berkeley Construction Grammar aber schon mit einer MRS"=Semantik, schlägt Argumentstruktur"=Konstruktionen vor,
-die zu den HPSG"=Lexikonregeln äquivalent sind. Zur Diskussion phrasaler Ansätze siehe \citew{Mueller2006d}.
+die zu den HPSG"=Lexikonregeln äquivalent sind. Zur Diskussion phrasaler Ansätze siehe
+\textcites{Mueller2006d,MuellerUnifying,MuellerLFGphrasal,MuellerLexikon,MuellerGT-Eng5,MuellerLFGTAG,MuellerTAGCxG}
+und \textcites{MWArgSt,MWArgStReply}.
 %
 %% \citet[\page26]{Croft2001a}:
 %% \begin{figure}[htbp]
@@ -696,6 +698,78 @@ die zu den HPSG"=Lexikonregeln äquivalent sind. Zur Diskussion phrasaler Ansät
 %% it has the drawback that all combinations must be represented as binary,
 %% whereas many constructions have more than two elements. \citep[\page49]{Croft2001a}
 %% \end{quote}
+
+\subsubsection{Erzwingung (Coercion) und Lexikonregeln}
+\label{sec-Erzwingung}
+
+Ich möchte hier nicht die gesamte Diskussion aus den im vorigen Abschnitt diskutierten Quellen
+wiederholen, aber auf eine Sache möchte ich dennoch hinweisen: Die phrasalen und lexikalischen
+Analysen liegen bei der Frage der Einsetzung von Material in Strukturen gar nicht so weit
+auseinander, wie immer behauptet wird. Die Grundannahme phrasaler Ansätze ist, dass Verben (oder
+allgemeiner Köpfe) in Strukturen eingesetzt werden können, in die sie eigentlich nicht passen. So
+kann zum Beispiel ein ditransitives Verb mit Subjekt und zwei Objekten benutzt werden
+(\mex{1}a). Genauso kann aber das zweistellige Verb \emph{bake} mit Subjekt und zwei Objekten
+benutzt werden (\mex{1}b) und das Beispiel in (\mex{1}c) zeigt, dass sogar einstellige Verben mit
+Subjekt und zwei Objekten benutzt werden können.
+\eal
+\ex She gave her a book.
+\ex I baked her a cake.
+\ex She smiled herself an upgrade.
+\zl
+Goldberg erklärt das so, dass die Verben in eine dreistellige Konstruktion hineingewürgt werden,
+obwohl sie von ihrer Stelligkeit nicht passen würden. In der Dativ-Konstruktion stehen dann weitere
+Argument-Slots zur Verfügung und die Dativkonstruktion bringt auch die entsprechende Bedeutung mit.
+
+In den vorangegangenen Kapiteln wurde eine Theorie entwickelt, in der die phrasalen Schemata meist keine
+Bedeutung beisteuern (über \textsc{c-cont} ist das aber möglich, siehe Abschnitt~\ref{sec-Semantik-C-CONT}). Die
+Bedeutung ist für gewöhnlich in den Lexikoneinträgen enthalten. Der wichtige Punkt dieses Abschnitts ist:
+Während phrasale Konstruktionsgrammatikansätze Elemente, die nicht passen, in Konfigurationen
+einsetzen, benutzen lexikalische Ansätze Lexikonregeln, um Elemente passend zu machen. Sie sind
+sozusagen explizite Beschreibungen dessen, was in phrasalen Ansätzen einfach Zauberei ist. Die
+Abbildung~\ref{abb-phrasal-vs-lexikalisch} soll das verdeutlichen.
+
+
+\begin{figure}
+\hfill
+\begin{forest}
+sm edges
+[S
+  [NP$_x$ [he,tier=words]]
+  [VP x z y%, green
+    [V%,green 
+      [V x y, circle edge, edge={<-},tier=words 
+        [baked]]]
+    [NP$_z$, calign with current %,green 
+      [her,tier=words]]
+    [NP$_y$%,green 
+      [a cake,roof,tier=words]]]]
+\end{forest}
+\hfill
+\begin{forest}
+sm edges
+[S
+  [NP$_x$ [he,tier=words]]
+  [VP
+    [V x z y%, green
+      [V x y, circle edge
+        [baked]]]
+    [NP$_z$,calign with current [her,tier=words]]
+    [NP$_y$ [a cake,roof,tier=words]]]]
+\end{forest}
+\hfill\mbox{}
+\caption{Erzwingung: Einstöpselansatz vs.\ Lexikonregel aus \citew[22]{MuellerLexikon}}\label{abb-phrasal-vs-lexikalisch}
+\end{figure}
+
+In der linken Abbildung wird ein zweistelliges Verb in eine Konfiguration eingesetzt, in der dann
+Subjekt und Objekte realisiert werden. In der Abbildung auf der rechten Seite wird ein zweistelliges
+Verb zu einem dreistelligen in Beziehung gesetzt. Dieses wird in der Lexikonregel auch um die
+entsprechenden semantischen Bestandteile erweitert. Das dreistellige Verb kann dann wie ein normales
+dreistelliges Verb in den entsprechenden Strukturen des Englischen benutzt werden. Ich habe schon im
+Abschnitt~\ref{sec-CxG-sprachübergreifende-Generalisierungen} darauf hingewiesen, dass die lexikalischen Ansätze den Vorteil haben, dass sie
+sprachübergreifend funktionieren. Ich habe eine entsprechende lexikalische Analyse ausgearbeitet,
+die sowohl für das Englische als auch für das Deutsche funktioniert \citep{MuellerLFGphrasal}.
+
+
 
 \subsection{Linking"=Konstruktionen}
 \label{cxg-hpsg-linking-konstruktionen}
@@ -1095,17 +1169,14 @@ Für \stem{les} könnte man den unterspezifizierten Lexikoneintrag in (\mex{1})
 annehmen, der dem von \citet[\page59]{Koenig99a} für \emph{play} vorgeschlagenen ähnelt.
 \ea
 \ms[lesen]{
-stem-phon & \phonliste{ les }\\
+\multicolumn{2}{@{}l@{}}{\textsc{stem-phon} \phonliste{ les }}\\
 cat       & \ms{
-            arg-st & \sliste{ NP\ind{1}, NP\ind{2} } \\
-            }\\
+            arg-st & \sliste{ NP\ind{1}, NP\ind{2} } }\\
 cont      & \ms[lesen-rel]{
             agens & \ibox{1}\\
-            thema & \ibox{2}\\
-            }\\
+            thema & \ibox{2} }
 }
 \z
-\itdopt{onems}
 Die für unsere Merkmalsgeometrie angepassten Typen \type{active} und \type{passive} zeigt (\mex{1}):
 \eal
 \ex 
