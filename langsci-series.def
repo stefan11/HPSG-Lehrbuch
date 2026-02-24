@@ -40,6 +40,8 @@
 \newcommand{\tpd}{tpd}
 \newcommand{\whll}{whll}
 \newcommand{\frats}{frats} %Frame-based Approaches to Semantics
+\newcommand{\lngr}{lngr} %Languages of the New Guinea Region
+\newcommand{\slr}{slr} % Spoken Language Research
 
 \newcommand{\dummyseries}{dummyseries}
 \newcommand{\guidelines}{guidelines}
@@ -90,6 +92,8 @@
             \item Ali, Mark, Scott Grimm \& Adams Bodomo. A dictionary and  grammatical sketch of Dagaare.
             \item  Namyalo, Saudah,   Alena Witzlack-Makarevich,   Anatole Kiriggwajjo,   Amos Atuhairwe,   Zarina Molochieva,   Ruth Gimbo Mukama   \& Margaret Zellers. A dictionary and grammatical sketch of Ruruuli-Lunyala.
             \item Gunnink, Hilde. A grammar of Fwe.
+            \item Childs, Tucker G. A grammar of Sherbro.
+            \item
             \end{enumerate}
         }
 \fi
@@ -102,7 +106,7 @@
 
             \bigskip
 
-            Editors: Michael R. Marlo,  Laura J. Downing, Kristina Riedel
+            Editors: Michael R. Marlo, Michael Diercks, Laura J. Downing, Kristina Riedel
 
 
             \bigskip
@@ -120,7 +124,9 @@
             \item Gibson, Hannah, Rozenn Guérois, Gastor Mapunda \& Lutz Marten (eds.). Morphosyntactic variation in East African Bantu languages: Descriptive and comparative approaches.
             \item Green, Christopher R. \& Samson Lotven (eds.). The Ghanaian linguistics nexus.
             \item Essegbey, James, Brent Henderson, Fiona McLaughlin \& Michael Diercks Pushing the boundaries: Selected papers from the 51–52 Annual Conference on African Linguistics.
-            \item Huang, Yaqian, Nina Hagen Kaldhol, Jun Jie Lim, Sharon Rose \& Anthony Struthers-Young (eds.). ACAL in SoCAL: Selected papers from the 53rd Annual Conference on African Linguistics
+            \item Huang, Yaqian, Nina Hagen Kaldhol, Jun Jie Lim, Sharon Rose \& Anthony Struthers-Young (eds.). ACAL in SoCAL: Selected papers from the 53rd Annual Conference on African Linguistics.
+            \item van der Wal, Jenneke (ed.). The expression of information structure in Bantu.
+            \item Akinlabi, Akinbiyi, Sampson Korsah, Sharon Rose \& Abdul-Razak Sulemana (eds.). Cross-disciplinary approaches to Information Structure in Niger-Congo languages.
             \end{enumerate}
             }
 \fi
@@ -148,6 +154,10 @@
           \item Migge, Bettina \& Shelome Gooden.  Social and structural aspects of language contact and change.
           \item Coler, Matt \& Andrew Nevins (eds.). Contemporary research in minoritized and diaspora languages of Europe.
           \item Pfadenhauer, Katrin, Sofia Rüdiger \& Valentina Serreli (eds.). Global and local perspectives on language contact.
+          \item Haig, Geoffrey, Mohammad Rasekh-Mahand, Donald Stilo, Laurentia Schreiber \& Nils Schiborr (eds.).  Post-predicate elements in the Western Asian Transition Zone: A corpus-based approach to areal typology.
+          \item Alexiadou, Artemis, Claudio Scarvaglieri, Christoph Schroeder \& Heike Wiese (eds.). The construction of multilinguals as Others: Do we practice what we preach?
+          \item Gholami, Saloumeh \& Mehlem, Ulrich (eds.). Identity formation, language and migration dynamics: Minorities in the MENA region and the German
+diaspora.
         \end{enumerate}
         }
 \fi
@@ -163,7 +173,7 @@
         \bigskip
 
         Editors:     Andrea C. Schalley (Karlstad University, Sweden) [editor-in-chief],\\
-    M Carmen Parafita Couto (Leiden University, Netherlands) [editor-in-chief],\\
+    M. Carmen Parafita Couto (Leiden University, Netherlands) [editor-in-chief],\\
     Susana Eisenchlas (Griffith University, Australia),\\
     Galina Putjata (Europa-Universität Flensburg, Germany),\\
     Jorge Valdés Kroff (University of Florida, USA).
@@ -177,6 +187,8 @@
           \item Shim, Ji Young. OV and VO variation in code-switching.
           \item Rodríguez González, Eva \& Rosita L. Rivera (eds.). Language assessment in multilingual settings: Innovative practices across formal and informal environments.
           \item Polinsky, Maria \& Michael T. Putnam (eds.). Formal approaches to complexity in heritage language grammars.
+          \item Allen, Shanley E. M., Mareike Keller, Artemis Alexiadou \& Heike Wiese (eds.). Linguistic dynamics in heritage speakers: Insights from the RUEG group.
+          \item Anne Reath Warren, Jonas Yassin Iversen \& Boglárka Straszer (eds.). Teacher education for working in linguistically diverse classrooms: Nordic perspectives.
         \end{enumerate}
         }
 \fi
@@ -184,8 +196,8 @@
 \ifx\lsSeries\cicl
 	\newcommand{\lsSeriesTitle}{Current Issues in Celtic Linguistics}
 	\newcommand{\lsSeriesColor}{lsRichGreen}
-	\renewcommand{\lsISSNelectronic}{}
- 	\renewcommand{\lsISSNprint}{} 
+	\renewcommand{\lsISSNelectronic}{3053-030X}
+ 	\renewcommand{\lsISSNprint}{3053-0296}
  	\renewcommand{\lsSeriesText}{
         {\large  Current Issues in Celtic Linguistics}
 
@@ -242,15 +254,6 @@
 
             \bigskip
 
-            \begin{minipage}{\textwidth}% for undoing \raggedright and justify the following two paragraphs
-
-            No scientific work proceeds without conceptual foundations. In language science, our concepts about language determine our assumptions, direct our attention, and guide our hypotheses and our reasoning. Only with clarity about conceptual foundations can we pose coherent research questions, design critical experiments, and collect crucial data.
-            %
-            This series publishes short and accessible books that explore well-defined topics in the conceptual foundations of language science. The series provides a venue for conceptual arguments and explorations that do not require the traditional book-length treatment, yet that demand more space than a typical journal article allows.
-            \end{minipage}
-
-            \bigskip
-
             \textbf{In this series:}
 
             \begin{enumerate}
@@ -263,6 +266,7 @@
             \item Archangeli, Diana \& Douglas Pulleyblank. Emergent phonology.
             \item Lund, Kristine, Pierluigi Basso Fossali, Audrey Mazur \& Magali Ollagnier-Beldame (eds.). Language is a complex adaptive system: Explorations and evidence.
             \item Wiese, Heike. Grammatical systems without language borders: Lessons from free-range language.
+            \item De Smet, Hendrik, Guglielmo Inglese \& Malte Rosemeyer (eds.). Acting on actuation.
             \end{enumerate}
 
             }
@@ -291,22 +295,11 @@
             \item Terhart, Lena. A grammar of Paunaka.
             \item Pebley, Carol J. \& Thomas E. Payne. A grammar of Kagayanen.
             \item Rohleder, Jean. A grammar of Vamale.
+            \item Kasak, Ryan. A grammar of Mandan.
+            \item Mohammadirad, Masoud. A grammar of Hewramî.
             \end{enumerate}
 
 
-            This  series grew out of  the grammars published in \textit{Studies in Diversity Linguistics}, which are proudly mentioned:
-
-            \begin{enumerate}
-            \item[4.] Berghäll, Liisa. A grammar of Mauwake.
-            \item[5.] Wilbur, Joshua. A grammar of Pite Saami.
-            \item[7.] Schackow, Diana.    A grammar of Yakkha.
-            \item[8.] Liljegren, Henrik. A grammar of Palula.
-            \item[9.] Shimelman, Aviva. A grammar of Yauyos Quechua.
-            \item[11.] Kluge, Angela. A grammar of Papuan Malay.
-            \item[12.] Kieviet, Paulus. A grammar of Rapa Nui.
-            \item[22.] Döhler, Christian. A grammar of Komnzo.
-            \item[23.] Yakpo, Kofi. A grammar of Pichi.
-            \end{enumerate}
 
 
             }
@@ -331,10 +324,11 @@
             \item Lehmann, Christian. Thoughts on grammaticalization.
             \item Schütze, Carson T. The empirical base of linguistics: Grammaticality judgments and linguistic methodology.
             \item Bickerton, Derek. Roots of language.
-            \item von der Gabelentz, Georg. Die Sprachwissenschaft.  Ihre Aufgaben, Methoden und bisherigen Ergebnisse.
+            \item von der Gabelentz, Georg. Die Sprachwissenschaft: Ihre Aufgaben, Methoden und bisherigen Ergebnisse.
             \item Stefan Müller, Marga Reis \& Frank Richter (Hrsg.). Beiträge zur deutschen Grammatik: Gesammelte Schriften von Tilman N.\ Höhle.
-            \item Anderson, Stephen R.\ \& Louis de Saussure (eds.). René de Saussure and the theory of word formation.
+            \item Anderson, Stephen R. \& Louis de Saussure (eds.). René de Saussure and the theory of word formation.
             \item Wackernagel, Jacob. On a law of Indo-European word order: Über ein Gesetz der indogermanischen Wortstellung.
+            \item Jespersen, Otto. Negation in English and other languages.
             \end{enumerate}
             }
 \fi
@@ -372,8 +366,7 @@
 
             \bigskip
 
-            Chief Editor: Stefan Müller\\
-            Consulting Editors: Berthold Crysmann, Ana R. Luís
+            Editors: Berthold Crysmann, Ana R. Luís, Stefan Müller
 
             \bigskip
 
@@ -395,6 +388,7 @@
             \item Dalrymple, Mary (ed.). Handbook of Lexical Functional Grammar.
             \item Winckel, Elodie. French subject islands: Empirical and formal approaches.
             \item Gibson, Edward \& Moshe Poliak (eds.). From fieldwork to linguistic theory: A tribute to Dan Everett.
+            \item Bîlbîie, Gabriela  \& Gerhard Schaden (eds.). Empirical Issues in Syntax and Semantics: Selected papers from CSSP.
             }
             }
 \fi
@@ -430,6 +424,7 @@
             \item Berthele, Raphael \& Isabelle Udry (eds.). Individual differences in early instructed language learning: The role of language aptitude, cognition, and motivation.
             \item McManus, Kevin \& Monika S. Schmid (eds.). How special are early birds? Foreign language teaching and learning.
             \item  Granget, Cyrille,  Isabel Repiso \& Guillaume Fon Sing (eds.). Language, creoles, varieties: From emergence to transmission.
+            \item Sbranna, Simona. Prosody and interactional fluency of Italian learners of German.
             \end{enumerate}
 	}
 \fi
@@ -460,6 +455,8 @@
 
             \begin{enumerate}
             \item Dyck, Carrie, Frances Froman, Alfred Keye \& Lottie Keye. A grammar and dictionary of Gayogo̱hó:nǫˀ (Cayuga).
+            \item Moens, Jelien \&  Matthias Pache. Notes on the grammar of Andakí.
+
             \end{enumerate}
 }
 \fi
@@ -519,6 +516,7 @@
                 \item Forker, Diana. A grammar of Sanzhi Dargwa.
                 \item Dolatian, Hossep, Afsheen Sharifzadeh \& Bert Vaux. A grammar of Iranian Armenian: Parskahayeren or Iranahayeren.
                 \item Dolatian, Hossep. Adjarian’s Armenian dialectology (1911): Translation and commentary.
+                \item Wichers Schreur, Jesse. Intensive language contact in the Caucasus: The case of Tsova-Tush.
                 \end{enumerate}
                 }
 \fi
@@ -538,7 +536,7 @@
             In this series:
 
             \begin{enumerate}
-            \item Côté, Marie-Hélène, Remco Knooihuizen and John Nerbonne (eds.).  The future of dialects.
+            \item Côté, Marie-Hélène, Remco Knooihuizen \& John Nerbonne (eds.).  The future of dialects.
             \item Schäfer, Lea. Sprachliche Imitation: Jiddisch in der deutschsprachigen Literatur (18.–20. Jahrhundert).
             \item Juskan, Martin. Sound change, priming, salience: Producing and perceiving variation in Liverpool English.
             \item Dellert, Johannes. Information-theoretic causal inference of lexical flow.
@@ -547,6 +545,7 @@
             \item Paulsen, Ingrid. The emergence of American English as a discursive variety: Tracing enregisterment processes in nineteenth-century U.S. newspapers.
             \item van Gijn, Rik, Hanna Ruch, Max Wahlström \& Anja Hasse (eds.). Language contact: Bridging the gap between individual interactions and areal patterns.
             \item Schützler, Ole. Concessive constructions in varieties of English.
+            \item Wagner, Susanne \& Ulrike Stange-Hundsdörfer (eds.). (Dia)lects in the 21st century: Selected papers from Methods in Dialectology XVII.
             \end{enumerate}
             }
 \fi
@@ -612,7 +611,7 @@
 	\renewcommand{\lsISSNelectronic}{2750-557X} %online
 	\renewcommand{\lsISSNprint}{2750-5588} %Print
 	\renewcommand{\lsSeriesText}{
-            {\large  Open Germanic Linguistics
+            {\large  Open Germanic Linguistics}
             
             \bigskip
             
@@ -626,8 +625,8 @@
             \bigskip
             
             In this series:
-            
-            \begin{enumerate}
+
+            \lsSeriesHistoryWheel[12]{
             \item Lemke, Robin. Experimental investigations on the syntax and usage of fragments.
             \item Larsson, Ida \& Erik Petzell (eds.). Morphosyntactic change in Late Modern Swedish.
             \item Hall, Tracy Alan. Velar fronting in German dialects: A study in synchronic and diachronic phonology.
@@ -638,8 +637,14 @@
             \item Bech, Kristin \& Alexander Pfaff (eds.). Noun phrases in early Germanic languages.
             \item Somers, Katerina. How to create an early German \textit{scriptus}: The literization approach to historical German syntax.
             \item Vieregge, Annika. Bewertung, Variation und Wandel der Präpositionalkasus im Deutschen: Der Einfluss metapragmatischer Urteile auf die Rektion von Präpositionen.
-            \end{enumerate}
- }
+            \item Kinn, Kari \& Michael T. Putnam (eds.). A reference guide to the syntax of North American Norwegian.
+            \item Schäfer, Lisa. The licensing and usage of topic drop in German.
+            \item Demske, Ulrike \& Barthe Bloom . Discourse structure and narration: A diachronic view from Germanic.
+            \item Verelst, Natalie. The dynamics of feminisation: A corpus-based diachronic analysis of Dutch and German feminising morphology.
+            \item Harchaoui, Sarah  \& Pierre-Yves Modicom (eds.). Verb-third phenomena in Germanic verb-second languages: Historical and variational perspectives.
+            \item Roehrs, Dorian. Semantically vacuous elements in German: Adjectival inflections and the article \emph{ein}
+
+            }
          }
 \fi
 \ifx\lsSeries\ogs
@@ -741,14 +746,15 @@
             \item Kolaković, Zrinka, Edyta Jurkiewicz-Rohrbacher, Björn Hansen, Dušica Filipović Đurđević \& Nataša Fritz. Clitics in the wild: Empirical studies on the microvariation of the pronominal, reflexive and verbal clitics in Bosnian, Croatian and Serbian.
             \item Biskup, Petr, Marcel Börner, Olav Mueller-Reichau \& Iuliia Shcherbina (eds.). Advances in formal Slavic linguistics 2021.
             \item Jędrzejowski, Łukasz, Uwe Junghanns, Kerstin Schwabe \& Carla Umbach (eds.). Syntax, semantics, and the lexicon: Papers by and in honor of Ilse Zimmermann.
+            \item Gehrke, Berit, Denisa Lenertová, Roland Meyer, Daria Seres, Luka Szucsich \& Joanna Zaleska (eds.).   Advances in Formal Slavic Linguistics 2022.
             \end{enumerate}
             }
 \fi
 \ifx\lsSeries\otc
 	\newcommand{\lsSeriesTitle}{Open Text Collections}
 	\newcommand{\lsSeriesColor}{lsRichGreen}
-	\renewcommand{\lsISSNelectronic}{} % Online
-	\renewcommand{\lsISSNprint}{}% (Print)
+	\renewcommand{\lsISSNelectronic}{3052-9956 } % Online
+	\renewcommand{\lsISSNprint}{3052-9948}% (Print)
         \renewcommand{\lsSeriesText}{
             {\large Open Text Collections}
 
@@ -776,6 +782,11 @@
 
             \begin{enumerate}
             \item Döhler, Christian. Speaking the map: Komnzo texts.
+            \item Zahrer, Alexander. Children of the sago: Muyu texts.
+            \item Vogel, Alan. The Stories of Siko and Yowao: Jarawara texts.
+            \item Mohammadirad, Masoud. Echoes of the past: Hewramî narratives.
+            \item Lindsey, Kate L. The Ende way: Short stories and songs from Limol prepared with the Ende Language Committee.
+            \item Zielenbach, Maria. Half silver, half gold: Modole folk stories and a first sketch grammar.
             \end{enumerate}
         }
 \fi
@@ -833,6 +844,8 @@
                 \item  Veselinova, Ljuba \& Arja Hamari (eds.). The Negative Existential Cycle.
                 \item  Janic, Katarzyna, Nicoletta Puddu \& Martin Haspelmath (eds.). Reflexive constructions in the world's languages.
                 \item  Persohn, Bastian. The polyfunctionality of `still' expressions: A cross-linguistic exploration.
+                \item Pakendorf, Brigitte \& Françoise Rose. Fillers: Hesitatives and placeholders.
+                \item  Däbritz, Chris Lasse, Josefina Budzisch \& Rodolfo Basile (eds.). Locative and existential predication: On forms, functions and neighboring domains.
             \end{enumerate}
             }
 \fi
@@ -846,8 +859,7 @@
 
             \bigskip
 
-            Chief Editor: John R. Rickford\\
-            Managing Editor: Joseph T. Farquharson
+            Chief Editor:   Joseph T. Farquharson
 
             \bigskip
 
@@ -859,6 +871,8 @@
             \item Sherriah, André Ché. A tale of two dialect regions: Sranan’s 17th-century English input.
             \item Delgado, Sally.  Ship English: Sailors’ speech in the early colonial Caribbean.
             \item Forrester, Clive (ed.). Intersections of language rights and social justice in the Caribbean context.
+            \item Bartens, Angela, Peter Slomanson \& Kristoffer Friis Bøegh. New research on circum-Caribbean creoles and language contact.
+            \item Bakker, Peter. A grammar of 18th century Haitian Creole: A description of Ducoeurjoly’s Haitian Creole (1802).
             \end{enumerate}
 
             }
@@ -952,6 +966,8 @@
             \item Schubö, Fabian, Sabine Zerbian, Sandra Hanne \& Isabell Wartenburger (eds.). Prosodic boundary phenomena.
             \item Albert, Aviad. A model of sonority based on pitch intelligibility.
             \item Wehrle, Simon. Conversation and intonation in autism: A multi-dimensional analysis.
+            \item Kaland, Constantijn. Word stress in prosodic theory.
+            \item Lialiou, Maria. Prosody and attention orienting: The role of rising intonation in speech processing.
             }
             }
             
@@ -965,7 +981,7 @@
              
              \bigskip
              
-             Editors: Stefan Müller, Antonio Machicao y Priemer\\
+             Editors: Antonio Machicao y Priemer, Stefan Müller, Kelsey Neely\\
              Editorial Board: Olivier Bonami, Pavel Caha, Rui Chaves, Louise McNally, Marianne Mithun, Katharina Spalek, Anatol Stefanowitsch, Foong Ha Yap
              
              \bigskip
@@ -1018,6 +1034,7 @@
 	    \item Nakagawa, Natsuko. Information structure in spoken Japanese: Particles, word order, and intonation.
 	    \item Same, Fahime. Referring expression generation in context: Combining linguistic and computational approaches.
 	    \item Lemke, Robin, Lisa Schäfer, Ingo Reich (eds.).  Information structure and information theory.
+	    \item Trinh, Tue, Anton Benz, Daniel Goodhue, Kazuko Yatsushiro \& Manfred Krifka (eds.). Biased questions: Experimental results and theoretical modelling.
             \end{enumerate}
             }
 \fi
@@ -1062,6 +1079,8 @@
             \item Marzouk, Shaimaa. Sprachkontrolle im Spiegel der Maschinellen Übersetzung: Untersuchung zur Wechselwirkung ausgewählter Regeln der Kontrollierten Sprache mit verschiedenen Ansätzen der Maschinellen Übersetzung.
             \item Frittella, Francesca Maria. Usability research for interpreter-centred technology: The case study of SmarTerp.
             \item Prandi, Bianca. Computer-assisted simultaneous interpreting: A cognitive-experimental study on terminology.
+            \item Czulo, Oliver, Martin Kappus \& Felix Hoberg (eds.). Digitale Translatologie.
+            \item Penet, JC, Joss Moorkens \& Masaru Yamada (eds.). Teaching translation in the age of generative AI: New paradigm, new learning?
             }
             }
 \fi
@@ -1073,13 +1092,13 @@
 	\renewcommand{\lsISSNprint}{2943-6559} %Print
 
 	\renewcommand{\lsSeriesText}{
-            {\large {Topics in Phonological Diversity}
+            {\large Topics in Phonological Diversity}
 
             \bigskip
 
-            Editors:     Natalia Kuznetsova (Università Cattolica del Sacro Cuore,
-            Cormac Anderson (University of Surrey),
-            Shelece Easterday (University of Hawai'i, Mānoa)
+            Editors: Natalia Kuznetsova (Università Cattolica del Sacro Cuore),
+                     Cormac Anderson (University of Surrey),
+                     Shelece Easterday (University of Hawai'i, Mānoa)
 
 
             \bigskip
@@ -1091,19 +1110,19 @@
             \item Bracks, Christoph. Compound Intonation Units in Totoli: Postlexical prosody and the prosody-syntax interface.
             \item Nikulin, Andrey \& Javier Carol. Historical phonology of Mataguayan.
             \item Kim, Ji Yea,  Veronica Miatto, Andrija Petrović \& Lori Repetti (eds.).  Epenthesis and beyond: Recent approaches to insertion in phonology and its interfaces.
-
+            \item Kuznetsova, Natalia, Cormac Anderson \& Shelece Easterday (eds.). Rarities in phonetics and phonology.
             \end{enumerate}
-
             }
-        }
 \fi
 \ifx\lsSeries\whll
 	\newcommand{\lsSeriesTitle}{World Histories of Lexicography and Lexicology}
 	\newcommand{\lsSeriesColor}{lsNightGreen}
+	\renewcommand{\lsISSNelectronic}{3052-993X } %online
+	\renewcommand{\lsISSNprint}{3052-9921} %Print
 
 
 	\renewcommand{\lsSeriesText}{
-            {\large {World Histories of Lexicography and Lexicology}
+            {\large World Histories of Lexicography and Lexicology}
 
             \bigskip
 
@@ -1120,14 +1139,15 @@
             \item Williams, Geoffrey, Mathilde Le Meur \& Andrès Echavarria-Pelaez (eds.). West meets East: Papers in historical lexicography and lexicology from across the globe.
             \end{enumerate}
             }
-        }
         
 \fi
 \ifx\lsSeries\frats
 	\newcommand{\lsSeriesTitle}{Frame-Based Approaches to Semantics}
 	\newcommand{\lsSeriesColor}{lsLightBlue}
+	\renewcommand{\lsISSNelectronic}{3053-0288} %online
+	\renewcommand{\lsISSNprint}{3053-027X} %Print
         \renewcommand{\lsSeriesText}{
-            {\large {Frame-Based Approaches to Semantics}
+            {\large Frame-Based Approaches to Semantics}
 
             \bigskip
 
@@ -1145,11 +1165,54 @@
 
             \begin{enumerate}
             \item Koeva, Svetla (eds.). Universality of semantic frames and language specific Bulgarian data
+            \item Feldmüller, Tim. Das Framing von Extremismusvarianten im medialen Diskurs der Jahre 1999–2021: Eine \textit{corpus-driven} Methode zur Erschließung und Visualisierung semantischer Frames.
             \end{enumerate}
             }
-        }
         
-        
+
+\fi
+\ifx\lsSeries\lngr
+	\newcommand{\lsSeriesTitle}{Languages of the New Guinea Region}
+	\newcommand{\lsSeriesColor}{lsSoftGreen}
+        \renewcommand{\lsSeriesText}{
+            {\large Languages of the New Guinea Region}
+
+            \bigskip
+
+            Editors: 	František Kratochvíl,
+    			Christian Döhler
+
+
+
+
+            \bigskip
+
+            In this series:
+
+            \begin{enumerate}
+            \item
+            \end{enumerate}
+            }
+\fi
+\ifx\lsSeries\slr
+	\newcommand{\lsSeriesTitle}{Spoken Language Research}
+	\newcommand{\lsSeriesColor}{lsDarkGreenTwo}
+        \renewcommand{\lsSeriesText}{
+            {\large Spoken Language Research}
+
+            \bigskip
+
+            Chief editor: 	Plinio A. Barbosa\\
+            Editors: Albert Rilliard, Eugenia San Segundo
+
+            \bigskip
+
+            In this series:
+
+            \begin{enumerate}
+            \item ~
+            \end{enumerate}
+            }
 \fi
 \ifx\lsSeries\dummyseries
 	\newcommand{\lsSeriesTitle}{~}
