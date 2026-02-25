@@ -17,7 +17,7 @@
 \label{kap-merkmalstrukturen}
 
 In diesem Kapitel werden Merkmalstrukturen eingeführt, mit deren Hilfe
-wir alle linguistischen Objekte modellieren werden.
+alle linguistischen Objekte modelliert werden.
 }{% GT-Buch
 \chapter{Merkmalbeschreibungen}
 \label{Kap-Merkmalbeschreibungen}
@@ -96,7 +96,8 @@ mutter     & \ldots\\
 }
 \z
 Der Wert des \textsc{vater}"=Merkmals ist dann eine Merkmalbeschreibung, die dieselben Merkmale
-wie (\mex{-1}) hat.
+wie die äußere Struktur hat: \textsc{vorname}, \textsc{nachname}, \textsc{geburtstag},
+\textsc{vater} und \textsc{mutter}.
 
 Ein \emph{Pfad}\is{Pfad} in einer Merkmalbeschreibung ist eine Folge von Merkmalen, 
 die in der Merkmalbeschreibung unmittelbar aufeinander folgen.
@@ -155,10 +156,9 @@ töchter    & \liste{ \ms{
                      geburtstag & 10.10.2004\\
                      vater      & \ldots\\
                      mutter     & \ldots\\
-                     töchter    & \liste{ }\\   
-} }\\   
-}
-\z
+                     töchter    & \liste{ } } } }
+\z\todostefan{Nach Mutter Zwischenraum. Unterste Klammer soll eingezogen sein, nicht abschließend
+  mit der letzten Klammer.}
 Nun stellt sich die Frage: Was ist mit Söhnen? Soll man eine Liste der Söhne einführen?
 Wollen wir zwischen Söhnen und Töchtern differenzieren? 
 Sicher ist das Geschlecht der Kinder eine wichtige Eigenschaft, aber es ist eine Eigenschaft
@@ -172,19 +172,17 @@ ist also eine adäquatere Repräsentation:
 vorname    & max\\
 nachname   & meier\\
 geburtstag & 10.10.1985\\
-\textbf{\textsc{geschlecht}} & \emph{\textbf{männlich}}\\
+\textbf{\textsc{geschlecht}} & \textbf{\itshape männlich}\\
 vater      & \ldots\\
 mutter     & \ldots\\
-\emph\textsc{kinder}     & \liste{ \ms{
+\textbf{\textsc{kinder}}     & \liste{ \ms{
                      vorname    & clara\\
                      nachname   & meier\\
                      geburtstag & 10.10.2004\\
-                     \textbf{\textsc{geschlecht}} & \emph{\textbf{weiblich}}\\
+                     \textbf{\textsc{geschlecht}} & {\textbf{\itshape weiblich}}\\
                      vater      & \ldots\\
                      mutter     & \ldots\\
-                     kinder     & \liste{ }\\   
-} }\\   
-}
+                     kinder     & \eliste\\ } } }
 \z
 Nun kann man fragen, warum die Eltern nicht auch in einer Liste repräsentiert werden.
 In der Tat wird man ähnliche Fragen auch in linguistischen Aufsätzen wiederfinden:
@@ -196,9 +194,9 @@ zu müssen.
 Wenn die Reihenfolge der Elemente egal ist, verwendet man statt Listen auch Mengen\is{Menge}.
 Mengen werden mit geschweiften Klammern geschrieben.\footnote{
  Die Beschreibung von Mengen ist technisch aufwendig.
- Wir würden in diesem Buch Mengen nur zum Aufsammeln von semantischer Information verwenden.
- Dies kann genauso gut mit Hilfe von Listen gemacht werden, weshalb wir hier auf die
- Einführung der Mengen verzichten und statt der Mengen Listen verwenden.%
+ Ich würde in diesem Buch Mengen nur zum Aufsammeln von semantischer Information verwenden.
+ Dies kann genauso gut mit Hilfe von Listen gemacht werden, weshalb ich hier auf die
+ Einführung der Mengen verzichte und statt der Mengen Listen verwende.%
 }
 
 \section{Typen}
@@ -359,7 +357,7 @@ auch sein, dass Werte für bereits existierende Merkmale spezifischer werden. So
 Typ \textit{Negativscanner} im Vergleich zu seinem Supertyp \textit{Scanner} 
 die Art des Eingabematerials sehr eingeschränkt. 
 
-Die Objekte, die man modelliert, haben immer einen maximal spezifischen Typ. In unserem Beispiel
+In Modellen müssen Typen immer maximal spezifisch sein (\emph{sort resolved}; \cites[18]{ps2}[102]{Richter2024a}). In unserem Beispiel
 bedeutet das, dass wir Objekte vom Typ \type{Laserdrucker} und \type{Negativscanner} haben können, aber nicht
 vom Typ \type{druckendes Gerät}. Das liegt daran, dass \type{druckendes Gerät} nicht maximal
 spezifisch ist, denn dieser Typ hat Untertypen.
@@ -536,7 +534,7 @@ kann man unendlich lange wiederholen.
 
 \mbox{}\is{Unifikation|(}%
 Grammatikregeln werden in der HPSG genauso wie Lexikoneinträge mit Hilfe von Merkmalbeschreibungen
-aufgeschrieben. % Man beschreibt Sätze und Wörter, nicht die Grammatikregeln.
+formuliert. % Man beschreibt Sätze und Wörter, nicht die Grammatikregeln.
 Damit ein Wort oder eine größere phrasale Einheit als Tochter in einer durch eine bestimmte Grammatikregel lizenzierten Phrase
 verwendet werden kann, muss das Wort bzw.\ die phrasale Einheit Eigenschaften haben, die mit
 der Beschreibung der Tochter in der Grammatikregel kompatibel sind. Liegt eine solche Kompatibilität vor, spricht
@@ -546,7 +544,7 @@ man auch von \emph{Unifizierbarkeit}.\footnote{
   auch in Formalismen verwendet, in denen Unifikation gar nicht technisch definiert ist. In der HPSG
   meint er dann in der Regel, dass man die Beschränkungen zweier Beschreibungen in eine einzige
   Beschreibung zusammenführt. Intuitiv will man damit sagen, dass die beschriebenen Objekte dann die
-  Beschränkungen beider Beschreibungen zugleich erfüllen müssen (\emph{constraint satisfaction}). Da
+  Beschränkungen beider Beschreibungen zugleich erfüllen müssen (\emph{constraint satisfaction}; \cite[94]{Richter2024a}). Da
   der Begriff \emph{Unifikation} aber weit verbreitet ist, wird er auch in diesem Abschnitt verwendet. Der Begriff der
   Unifikation wird im weiteren Buch außer in den Diskussionsabschnitten bei der Diskussion von explizit unifikationsbasierten
   Ansätzen keine Rolle mehr spielen. Das hier vorgestellte Konzept der
@@ -570,7 +568,7 @@ männliche Person geliefert werden. Die beiden Beschreibungen in (\mex{1}) sind 
 nachname   & meier\\
 geschlecht & weiblich\\
 haarfarbe  & blond\\
-}
+}ßtodostefan{person nach oben}
 \ex \ms[person]{
 nachname   & meier\\
 geschlecht & männlich\\
@@ -588,9 +586,9 @@ haarfarbe  & blond\\
 }
 \z
 Die Person Katharina Meier kann durchaus noch weitere Eigenschaften haben, die dem Detektiv unbekannt sind.
-Wichtig ist, dass die Eigenschaften, die der Detektiv kennt, zu den Eigenschaften, nach denen der Auftraggeber sucht,
+Wichtig ist, dass die Eigenschaften, die der Detektiv kennt, zu den Eigenschaften, nach denen die Auftraggeber*in sucht,
 passen. Außerdem ist wichtig, dass der Detektiv nur gesicherte Information verwendet, er darf sich nicht irgendwelche
-Eigenschaften des gesuchten Objektes ausdenken. Die Unifikation der Anfrage aus (\mex{-1}a) mit der Information
+Eigenschaften der gesuchten Person ausdenken. Die Unifikation der Anfrage aus (\mex{-1}a) mit der Information
 des Detektivs in (\mex{0}) ist also (\mex{0}) selbst und nicht etwa (\mex{1}):
 \ea
 \ms[person]{
@@ -619,7 +617,7 @@ geburtstag & 15.10.1965\\
 \z
 Diese Daten sind mit der Anfrage kompatibel. Unifiziert man die beiden Beschreibungen in (\mex{-3}a) und (\mex{0}),
 erhält man (\mex{-2}). Nimmt man an, dass der Detektiv ganze Arbeit geleistet hat, dann weiß Bettina Kant,
-dass die gesuchte Person die Eigenschaften aus der Anfrage + die neu herausgefundenen Eigenschaften hat.
+dass die gesuchte Person die Eigenschaften aus der Anfrage und die neu herausgefundenen Eigenschaften hat.
 \is{Unifikation|)}
 
 %\ifthenelse{\boolean{hpsg-buch}}{
@@ -630,8 +628,8 @@ In\is{Modell|(}\is{Theorie|(}\is{Phänomen|(}\is{Merkmalstruktur|(} den bisherig
 Merkmalbeschreibungen beschreiben getypte Merkmalstrukturen, die eine Modellierung der beobachtbaren
 linguistischen Strukturen sind. In den Typdefinitionen legt man fest, welche
 Eigenschaften der linguistischen Objekte innerhalb des Modells beschrieben werden sollen. Die Typhierarchie zusammen mit den Typdefinitionen wird
-auch \emph{Signatur}\is{Signatur} genannt. % FR: Relationen gehören auch zur Signatur.
-Als Grammatiker verwendet man die Typen in
+auch \emph{Signatur}\is{Signatur} genannt \citep[102]{Richter2024a}. % FR: Relationen gehören auch zur Signatur.
+Als Grammatiker*in verwendet man die Typen in
 Merkmalbeschreibungen. Diese Beschreibungen sind Beschränkungen, die für linguistische Objekte
 gelten müssen. So kann man \zb in einer Beschreibung des linguistischen Objekts \emph{Frau} auf die
 Festlegung des Kasuswertes verzichten, denn \emph{Frau} kann -- wie (\mex{1}) zeigt -- in allen vier
@@ -644,25 +642,24 @@ Kasus auf"|treten:
 \ex Aicke liebt die Frau.      \jam(Akkusativ)
 \zl
 In einem Modell gibt es aber nur vollständig spezifizierte Repräsentationen,
-\dash, das Modell enthält vier Formen für \emph{Frau} mit den jeweiligen Kasus.
+\dash, ein Modell eines der Sätze in (\mex{0}) enthält eine der vier Formen für \emph{Frau} mit dem jeweiligen Kasus.
 Bei maskulinen Nomina wie \emph{Mann} muss man dagegen in der Beschreibung
 etwas über den Kasus sagen, denn die Genitiv"=Singular"=Form unterscheidet
 sich von den anderen Singularformen, wovon man sich durch das Einsetzen
 von \emph{Mann} in die Beispiele in (\mex{0}) überzeugen kann. (\mex{1}) zeigt die
 Merkmalbeschreibungen für \emph{Frau} und \emph{Mann}:
 \eal
-\ex\label{avm-frau}
+\ex\label{avm-frau}%
 Frau\\
 \ms{
-genus & fem\\
+genus & fem
 %kasus & Kasus\\
-}
-\ex\label{avm-mann}
+}\todostefan{now the distance between Frau and the AVM is too big}
+\ex\label{avm-mann}%
 Mann\\
 \ms{
 genus & mas\\
-kasus & Nominativ $\vee$ Dativ $\vee$ Akkusativ\\
-}
+kasus & Nominativ $\vee$ Dativ $\vee$ Akkusativ }
 \zl
 (\mex{0}a) enthält im Gegensatz zu (\mex{0}b) kein Kasus"=Merkmal, da man, wenn man die
 Merkmalstrukturen für das Objekt \emph{Frau} beschreibt, nichts über den Kasus sagen muss. Da aber
@@ -670,7 +667,7 @@ alle nominalen Objekte ein Kasus"=Merkmal haben, ist klar, dass auch die Struktu
 ein Kasus"=Merkmal haben. Der Wert des Kasus"=Merkmals ist vom Typ \type{Kasus}.
 \type{Kasus} ist hierbei ein allgemeiner Typ, der die Untertypen \type{Nominativ}, \type{Genitiv},
 \type{Dativ} und \type{Akkusativ} hat. Konkrete linguistische Objekte haben immer genau einen dieser
-maximal spezifischen Typen als Kasus"=Wert. Die zu (\mex{0}) gehörenden Merkmalstrukturen zeigen die
+maximal spezifischen Typen als Kasus"=Wert. Sie müssen sortenaufgelöst (\emph{sort-resolved}) sein. Die zu (\mex{0}) gehörenden Merkmalstrukturen zeigen die
 Abbildungen~\ref{abb-avm-frau} und~\ref{abb-avm-mann}.%\NOTE{Punkt ist hier falsch}
 %die Abbildungen~\ref{abb-avm-frau} und~\ref{abb-avm-mann}.
 \begin{figure}
@@ -834,9 +831,9 @@ Abbildungen~\ref{abb-avm-frau} und~\ref{abb-avm-mann}.%\NOTE{Punkt ist hier fals
 % \end{pspicture}}
 \caption{\label{abb-avm-mann}Merkmalstrukturen zur Beschreibung von \emph{Mann} in  (\ref{avm-mann})}
 \end{figure}
-In diesen Darstellungen gehört zu jedem Knoten ein Typ (\type{noun}, \type{fem}, \type{Nominativ},
+In diesen Darstellungen gehört zu jedem Knoten ein Typ (\type{Nomen}, \type{fem}, \type{Nominativ},
 \ldots), wobei die Typen in den Merkmalstrukturen immer maximal spezifisch sind, \dash keine
-Untertypen mehr haben. Es gibt immer einen Eingangsknoten (im Beispiel \type{noun}), und die anderen
+Untertypen mehr haben. Es gibt immer einen Eingangsknoten (im Beispiel \type{Nomen}), und die anderen
 Knoten sind mit Pfeilen verbunden, an denen jeweils die Merkmalsnamen (\textsc{genus}, \textsc{kasus}) stehen.
 
 Geht man noch einmal zum Personenbeispiel aus den vorigen Abschnitten zurück,
