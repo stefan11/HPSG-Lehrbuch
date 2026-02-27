@@ -46,14 +46,14 @@ zeigt Beispiele aus der Chemie und der Linguistik.
 \begin{figure}
 \centerline{
 \begin{forest}
-sm edges
+%sm edges
 [O
   [H] 
   [H] ]
 \end{forest}
 \hspace{5em}
 \begin{forest}
-sm edges
+%sm edges
 [helfen
  [Aicke]
  [Conny] ]
@@ -107,13 +107,13 @@ darüber aus, welche Elemente zusammen vorkommen müssen/""können,
 und zum anderen ist Valenzinformation im Lexikon enthalten.
 
 Um solcherart redundante Repräsentation zu vermeiden, nimmt
-man in der HPSG -- wie in der Kategorialgrammatik\is{Kategorialgrammatik (CG)} -- Beschreibungen der Argumente eines
+man in der HPSG -- wie in der Kategorialgrammatik\is{Kategorialgrammatik (CG)} \citep{Ajdukiewicz35a-u,Steedman2000a-u} -- Beschreibungen der Argumente eines
 Kopfes in die lexikalische Repräsentation des Kopfes auf. 
 
 Ein weiteres Argument dafür, dass Valenzinformation im Lexikon verfügbar sein muss, ist, dass
 bestimmte morphologische Prozesse Bezug auf Valenzinformation nehmen. So ist zum Beispiel die \bard
 nur für Verben produktiv verwendbar, die ein Akkusativobjekt verlangen: \emph{unterstützbar} ist
-bildbar, \noword{helfbar} dagegen nicht.  
+bildbar, \noword{helfbar} dagegen nicht. Siehe auch Abschnitt~\ref{sec-bar-Derivation-GPSG} und Abschnitt~\ref{sec-bard-pv}. 
 
 In der Beschreibung von Köpfen gibt es verschiedene Valenzmerkmale (\textsc{spr} für Spezifikatoren und \textsc{comps}
 für Komplemente). Diese enthalten Beschreibungen
@@ -137,27 +137,29 @@ Unterklassen (wie \zb intransitives oder transitives Verb)
 gebildet werden. Im Englischen gibt es auch die Verwendung \emph{X subcategorizes for Y}, was soviel wie
 \emph{X verlangt Y} oder \emph{X selegiert Y}\is{Selektion} heißt. Man sagt auch, dass X Y
 \emph{regiert}.\is{Rektion}
-Früher hieß das Valenzmerkmal auch \subcat für Subkategorisierung.
+In den Büchern von \citeauthor{ps} bis 1994 und in den ersten drei Auf"|lagen dieses Buches hieß das
+Valenzmerkmal auch \subcat für Subkategorisierung \parencites{ps}[Kapitel~1--8]{ps2}{Mueller99a}.
 % Rektion schließt in der Dependenzgrammatik auch Adjunkte ein. Das ist also vielleicht etwas
 % irreführend, aber irgendwo muss Rektion noch erwähnt werden.
 
 Statt spezifische Regeln wie die in (\ref{psg-valenz}) zu verwenden, kann man Regelschemata wie die in (\mex{1})
-für Kopf"=Argument"=Kombination benutzen:
+für Kopf"=Komplement"=Kombination benutzen:
 \ea
 \label{psg-regeln-append}
 \begin{tabular}[t]{@{}l@{~}l@{~$\to$~}l}
 a.& V[\comps \ibox{1}] &  \ibox{2}, V[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ]\\
 b.& A[\comps \ibox{1}] &  \ibox{2}, A[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ]\\
-c.& N[\comps \ibox{1}] &  \ibox{2}, N[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ]\\
+c.& N[\comps \ibox{1}] &  N[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ], \ibox{2}\\
 d.& P[\comps \ibox{1}] &  P[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ], \ibox{2}\\
 \end{tabular}
 \z
 % In den Boxen verwende ich \emph{A} und \emph{B} statt 1 oder 2, damit man nicht mit den
 % Strukturteilungen in den folgenden Abbildungen durcheinanderkommt.
 
+\noindent
 Die Schemata lizenzieren die Verbindung von V, A, N bzw.\ P mit einem Element aus der
 \compsl.
-Dabei ist `$\oplus$'\is{$\oplus$} (\emph{append}\is{Relation!\emph{append}}) eine Relation zur Verknüpfung zweier Listen:\\
+Dabei ist `$\oplus$'\is{$\oplus$} (\emph{append}\is{Relation!\emph{append}}) eine Relation zur Verknüpfung zweier Listen:
 \ea
 \begin{tabular}[t]{@{}l@{~}l@{}}
 \phonliste{ x, y } = & \phonliste{ x } $\oplus$ \phonliste{ y } oder\\
@@ -180,7 +182,7 @@ V[\comps \ibox{1}] $\to$ \ibox{2} NP, V[\comps \ibox{1} \sliste{} $\oplus$ \slis
 \z
 \emph{append} teilt die \compsl von \emph{schläft} in zwei Teile. 
 Ein Teil ist eine einelementige Liste, die die NP enthält, der zweite Teil ist die leere Liste. 
-Die leere Liste entspricht der Liste der noch zu sättigenden Argumente.
+Die leere Liste entspricht der Liste der noch zu sättigenden Argumente \iboxb{1}.
 Abbildung~\vref{fig-Aicke-schlaeft} zeigt den durch das Regelschema lizenzierten Baum.
 \begin{figure}
 \centerline{
@@ -239,11 +241,11 @@ Zuerst kann man von der Abfolge der Konstituenten auf der rechten Regelseite abs
 (dazu später noch mehr). Man erhält dann (\mex{1}):
 \ea
 \label{abstraktion-linearisierung}
-      \begin{tabular}[t]{@{}lll}
-      V[\comps \ibox{1}] & $\to$ & V[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
-      N[\comps \ibox{1}] & $\to$ & N[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
-      A[\comps \ibox{1}] & $\to$ & A[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
-      P[\comps \ibox{1}] & $\to$ & P[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
+      \begin{tabular}[t]{@{}l@{~}l@{~}c@{}l@{~~~}l}
+      V[\comps \ibox{1}] & $\to$ & V&[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] & \ibox{2}\\
+      N[\comps \ibox{1}] & $\to$ & N&[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] & \ibox{2}\\
+      A[\comps \ibox{1}] & $\to$ & A&[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] & \ibox{2}\\
+      P[\comps \ibox{1}] & $\to$ & P&[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] & \ibox{2}\\
       \end{tabular}
 \z
 In einem zweiten Schritt kann man, wie das in den \xbar-Schemata gemacht wurde, über
@@ -251,8 +253,8 @@ die Kategorie des Kopfes abstrahieren. Man erhält dann ein abstraktes Schema, d
 die Regeln in (\ref{psg-regeln-append}) bzw.\ in (\mex{0}) zusammenfasst:
 \ea
 \label{regelschema-psg-comps}
-\begin{tabular}[t]{@{}lll}
-H[\comps \ibox{1}] & $\to$ & H[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] \ibox{2}\\
+\begin{tabular}[t]{@{}l@{~}l@{~}l@{~~~}l}
+H[\comps \ibox{1}] & $\to$ & H[\comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } ] & \ibox{2}\\
 \end{tabular}
 \z
 `H' steht hierbei für irgendeinen Kopf (also \zb A, N, P oder V).
@@ -282,7 +284,7 @@ was oft der Einfachheit halber nicht gemacht wird.
 Stattdessen verwendet man die orthographische Form. Zur Behandlung der Phonologie in HPSG siehe
 \citew{BK94b} und \citew{Hoehle99a-u}.
 
-NP[\type{nom}], NP[\type{dat}] und NP[\type{acc}] stehen für komplexe Merkmalstrukturen, die intern
+NP[\type{nom}], NP[\type{dat}] und NP[\type{acc}] stehen für komplexe Merkmalbeschreibungen, die intern
 genauso aufgebaut sind wie der Eintrag für \emph{gibt} in (\mex{0}). Wie die Kasusinformation
 repräsentiert wird, wird auf S.\,\pageref{page-ref-case-feat} erklärt. Die Reihenfolge der
 Elemente entspricht der unmarkierten Reihenfolge\label{page-unmarkierte-Reihenfolge}, \dash der Reihenfolge, die man in den meisten
@@ -390,25 +392,26 @@ Für die Analyse von Spezifikator-Kopf-Strukturen braucht man ein Schema, das an
 (\ref{regelschema-psg-comps}) ist. Eine vorläufige Version ist in (\mex{1}) zu sehen:
 \ea
 \label{regelschema-psg-spr}
-\begin{tabular}[t]{@{}lll}
-H[\spr \ibox{1}] & $\to$ & \ibox{2}~~~ H[\spr \ibox{1}  $\oplus$ \sliste{ \ibox{2} }  ]\\
+\begin{tabular}[t]{@{}l@{~}l@{~}l@{~~~}l}
+H[\spr \ibox{1}] & $\to$ & \ibox{2} & H[\spr \ibox{1}  $\oplus$ \sliste{ \ibox{2} }  ]
 \end{tabular}
 \z
-Wir werden darauf im nächsten Kapitel zurückkommen.
+Ich werde darauf im nächsten Kapitel zurückkommen.
 
 Das Deutsche zählt typologisch zu den Subjekt-Objekt-Verb-Sprachen (SOV), so wie \zb auch Afrikaans,
-Niederländisch, Japanisch, Koreanisch und Persisch. Das Englische, die skandinavischen Sprachen und die
+Niederländisch, Japanisch, Koreanisch und Persisch \citep{Haider2020a}. Das Englische, die skandinavischen Sprachen und die
 romanischen Sprachen werden zu den Subjekt"=Verb"=Objekt"=Sprachen (SVO) gezählt. Ich habe in diesem Kapitel
 alle Argumente von finiten Verben gleich behandelt. Sie sind alle in der \compsl repräsentiert. Das
 ist berechtigt, weil Subjekte im Deutschen keinen besonderen Status haben, ja, es muss nicht mal
-ein Subjekt im Satz geben. Das wird im kommenden Abschnitt genauer besprochen. Bei den SVO-Sprachen
+ein Subjekt im Satz geben. Das wird in den Abschnitten~\ref{sec-argst-Liste}
+und~\ref{sec-Subjekt-und-Valenz} genauer besprochen. Bei den SVO-Sprachen
 ist das jedoch anders: Schon durch die Stellung hat das Subjekt einen anderen Status. Subjekte
 stehen links vom Verb, andere Argumente rechts. Das wird in HPSG-Grammatiken dadurch erfasst, dass
 für Subjekte ein separates Valenzmerkmal verwendet wird. In manchen Grammatiken ist das das \subjm,
 in anderen das \sprm. Da ich das \subjm anders verwende, benutze ich wie \citet*[Abschnitt~4.3]{SWB2003a} das \sprm
 für die Repräsentation des Subjekts in SVO-Sprachen \citep[Abschnitt~4.3]{MuellerGermanic}.
 
-Die Struktur in Abbildung~\ref{fig-Aicke-expects-Conny} ist das Gegenstück zu
+Die Struktur in Abbildung~\ref{fig-Aicke-expects-Conny} ist das englische Gegenstück zu
 Abbildung~\ref{fig-Aicke-Conny-erwartet}. Die Komplemente stehen im Englischen rechts des Verbs, das
 Subjekt steht links. Für das Subjekt gibt es eine besondere Position. Im Deutschen ist das nicht der
 Fall. Da kann das Subjekt irgendwo stehen, Hauptsache, es steht links des Verbs, gemeinsam mit den
@@ -446,11 +449,11 @@ kommen auf \comps. (\mex{1}) und (\mex{2}) zeigen prototypische Verben im Englis
 \label{ex-spr-comps-arg-st-Englisch}
 \begin{tabular}[t]{@{}ll@{~~}l@{~~}l@{}}
 Verb          & \spr                      & \comps                                     & \argst\\
-\emph{sleep}  & \sliste{ NP[\type{nom}] } & \sliste{}                                  & \sliste{ NP[\type{nom}] }\\
-\emph{expect} & \sliste{ NP[\type{nom}] } & \sliste{ NP[\type{acc}] }                  & \sliste{ NP[\type{nom}], NP[\type{acc}] }\\
-\emph{speak}  & \sliste{ NP[\type{nom}] } & \sliste{ PP[\type{about}] }                & \sliste{ NP[\type{nom}], PP[\type{about}] }\\
-\emph{give}   & \sliste{ NP[\type{nom}] } & \sliste{ NP[\type{acc}], NP[\type{acc}] }  & \sliste{ NP[\type{nom}], NP[\type{acc}], NP[\type{acc}] }\\
-\emph{serve}  & \sliste{ NP[\type{nom}] } & \sliste{ NP[\type{acc}], PP[\type{with}] } & \sliste{ NP[\type{nom}], NP[\type{acc}], PP[\type{with}] }\\  
+\emph{sleeps}  & \sliste{ NP[\type{nom}] } & \sliste{}                                  & \sliste{ NP[\type{nom}] }\\
+\emph{expects} & \sliste{ NP[\type{nom}] } & \sliste{ NP[\type{acc}] }                  & \sliste{ NP[\type{nom}], NP[\type{acc}] }\\
+\emph{speaks}  & \sliste{ NP[\type{nom}] } & \sliste{ PP[\type{about}] }                & \sliste{ NP[\type{nom}], PP[\type{about}] }\\
+\emph{gives}   & \sliste{ NP[\type{nom}] } & \sliste{ NP[\type{acc}], NP[\type{acc}] }  & \sliste{ NP[\type{nom}], NP[\type{acc}], NP[\type{acc}] }\\
+\emph{serves}  & \sliste{ NP[\type{nom}] } & \sliste{ NP[\type{acc}], PP[\type{with}] } & \sliste{ NP[\type{nom}], NP[\type{acc}], PP[\type{with}] }\\  
 \end{tabular}
 \z
 
@@ -458,19 +461,20 @@ Verb          & \spr                      & \comps                              
 \label{ex-spr-comps-arg-st-Deutsch}
 \begin{tabular}[t]{@{}ll@{~~}l@{~~}l@{}}
 Verb            & \spr                      & \comps                                      & \argst\\
-\emph{schlafen}  & \sliste{ } & \sliste{ NP[\type{nom}] }                                  & \sliste{ NP[\type{nom}] }\\
-\emph{erwarten} & \sliste{ } & \sliste{ NP[\type{nom}], NP[\type{acc}] }                  & \sliste{ NP[\type{nom}], NP[\type{acc}] }\\
-\emph{sprechen} & \sliste{ } & \sliste{ NP[\type{nom}], PP[\type{über}] }                 & \sliste{ NP[\type{nom}], PP[\type{about}] }\\
-\emph{geben}    & \sliste{ } & \sliste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }  & \sliste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }\\
-\emph{dienen}   & \sliste{ } & \sliste{ NP[\type{nom}], NP[\type{dat}], PP[\type{with}] } & \sliste{ NP[\type{nom}], NP[\type{dat}], PP[\type{with}] }\\  
+\emph{schläft}  & \sliste{ } & \sliste{ NP[\type{nom}] }                                  & \sliste{ NP[\type{nom}] }\\
+\emph{erwartet} & \sliste{ } & \sliste{ NP[\type{nom}], NP[\type{acc}] }                  & \sliste{ NP[\type{nom}], NP[\type{acc}] }\\
+\emph{spricht} & \sliste{ } & \sliste{ NP[\type{nom}], PP[\type{über}] }                 & \sliste{ NP[\type{nom}], PP[\type{about}] }\\
+\emph{gibt}    & \sliste{ } & \sliste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }  & \sliste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }\\
+\emph{dient}   & \sliste{ } & \sliste{ NP[\type{nom}], NP[\type{dat}], PP[\type{with}] } & \sliste{ NP[\type{nom}], NP[\type{dat}], PP[\type{with}] }\\  
 \end{tabular}
 \z
 
+\noindent
 In der Literatur findet man das Argumentrealisierungsprinzip, das für die Verteilung von Argumenten
 auf Valenzlisten sorgt.
 \ea
 \label{Prinzip-Argumentrealisierung-einfach}%
-Argumentrealisierungsprinzip\is{Prinzip!Argumentrealisierungs-} (vereinfachte Version):\\
+Argumentrealisierungsprinzip\is{Prinzip!Argumentrealisierungs-} (vereinfachte Version):\\[2pt]
 \type{word} \impl
 \avm{
 [spr    & \1\\
@@ -489,13 +493,14 @@ können. Ohne eine solche Beschränkung könnten im Prinzip alle Elemente aus de
 stehen und keins in der \compsl. Das alles soll uns hier nicht kümmern: Für deutsche Verben
 ist die \sprl leer und alle Argumente finiter Verben werden unter \comps aufgeführt. Im folgenden
 Abschnitt gebe ich einfach die Valenzmerkmale \spr und \comps an. Ich komme auf die von \argst
-ausgehende Verteilung der Valenzinformation im Kapitel~\ref{Kapitel-Lexikon} über das Lexikon noch einmal zurück.
+ausgehende Verteilung der Valenzinformation im Kapitel~\ref{Kapitel-Lexikon} über das Lexikon und im
+Abschnitt~\ref{sec-ARP-und-Partizipien} über nicht-kanonische Verteilung bei nicht-finiten Verben noch einmal zurück.
 
 Die einheitliche \argstl hat den Vorteil, dass bestimmte Eigenschaften von Sprachen sprachübergreifend
 gleich behandelt werden können. So kann zum Beispiel die Beziehung zwischen Syntax und Semantik (das
 sogenannte Linking\is{Linking}) auf \argst gemacht werden \citep*{DKW2024a}. Wir werden uns das im Kapitel~\ref{Kapitel-Semantik}
 über Semantik genauer ansehen. Die Argumentstrukturliste ist für die Kasusvergabe (siehe Kapitel~\ref{Kapitel-Kasus})
-und für die Bindungstheorie relevant.
+und für die Bindungstheorie\is{Bindeungstheorie} \citep{PS92a,Branco2021a,MuellerBinding} relevant.
 \is{Valenz|)}
   
 \section{Adjunkte}
@@ -530,11 +535,15 @@ lassen.\footnote{%
   enthalten sind. Zum Beispiel wären dann bei Nomina eine Beschreibung einer Adjektivphrase und einer
   Präpositionalphrase in dieser Menge. Diese Analyse wurde dann aber aus semantischen Gründen
   aufgegeben. \citet[Abschnitt~1.9]{ps2} gehen stattdessen davon aus, dass
-  Adjunkte den Kopf, den sie modifizieren, selegieren. \Citet{NB94} haben eine Analyse
-  vorgeschlagen, in der Adjunkte per Lexikonregeln in Valenzmerkmale aufgenommen werden. Auf diese
-  Analyse komme ich im Abschnitt~\ref{sec-lr-for-transp-pvs} zurück. Ich übernehme sie für bestimmte
+  Adjunkte den Kopf, den sie modifizieren,
+  selegieren. \textcites[64]{Miller92d-u}[83]{Warner93a-u}[21]{AG97a-u}[60]{MSI99a}[103]{Kim2000a-u} und \citet[131]{Sag2020a}
+  schlagen für verschiedene Sprachen Lexikonregeln für die Einführung bestimmter Adjunkte (\zb Negation von Verben) in Valenzlisten vor.
+  \Citet{NB94} haben für das Niederländische eine Analyse entwickelt, in der Adjunkte generell per
+  Lexikonregeln in Valenzmerkmale aufgenommen werden. Auf diese Analyse komme ich im
+  Abschnitt~\ref{sec-lr-for-transp-pvs} zurück. Ich übernehme sie für bestimmte
   Partikelverbkonstruktionen. \citet*[42]{BMS2001a} schlagen ebenfalls vor, einige Adjunkte als
-  valenzabhängige Elemente zu behandeln.%
+  valenzabhängige Elemente zu behandeln, verwenden jedoch dafür nicht Lexikonregeln, sondern
+  spezielle Merkmale. Zu solchen merkmalbasierten Ansätzen siehe auch Abschnitt~\ref{sec-vererbung-koenig}.% 
 % Man braucht dazu das SCOPAL-Merkmal, das ich vorschlage. Dann geht es. Aber so wie es im Artikel
 % ist, funktioniert es nicht. 
 %Dieser Ansatz funktioniert jedoch so wie er nicht, weil Adjunkte die
@@ -557,7 +566,7 @@ NP zu bilden. Die Abkürzung dafür ist \nbar. Ausschnitte des Lexikoneintrags f
 }
 \z
 \emph{interessantes} ist ein Adjektiv, das selbst keine Argumente mehr zu sich nimmt,
-und das deshalb eine leere \sprl und \compsl hat. Adjektive wie \emph{treu} in (\mex{1}) würden entsprechend
+und das deshalb leere \spr- und \comps-Listen hat. Adjektive wie \emph{treu} in (\mex{1}) würden entsprechend
 eine Dativ"=NP in ihrer \compsl haben.
 \ea
 ein dem König treues Mädchen
@@ -594,7 +603,7 @@ Adjektiv \emph{interessantes}:
 }
 \z
 Wie die Weitergabe des \textsc{mod}"=Wertes genau erfolgt, werden wir im nächsten Kapitel sehen, in
-dem wir uns mit Kopfmerkmalen und dem Kopfmerkmalsprinzip (siehe S.\,\pageref{prinzip-hfp})
+dem wir uns mit Kopfmerkmalen und dem Kopfmerkmalsprinzip\is{Prinzip!Kopfmerkmals-} (siehe S.\,\pageref{prinzip-hfp})
 beschäftigen: Das Kopfmerkmalsprinzip sorgt dafür, dass der \modw der gesamten Projektion mit dem
 \modw des Lexikoneintrags für \emph{treues} identisch ist. 
 
@@ -631,15 +640,12 @@ Adjunkt. Deshalb muss in der Grammatikregel, die Kopf und Adjunkt kombiniert, fe
 dass das Adjunkt gesättigt ist, \dash, dass \sprl und \compsl der Adjunkttochter leer sind. 
 \ea
 \label{regelschema-psg-adjunct}
-\begin{tabular}[t]{@{}lll@{}}
-H[\spr \ibox{1}, \comps \ibox{2}] & $\to$ & [\textsc{mod} \ibox{3}, \spr \eliste, \comps \eliste]~~~ \ibox{3}~H[\spr \ibox{1}, \comps \ibox{2} ]\\
+\begin{tabular}[t]{@{}l@{~}l@{~}l@{~~~~}l@{}}
+H[\spr \ibox{1}, \comps \ibox{2}] & $\to$ & [\textsc{mod} \ibox{3}, \spr \eliste, \comps \eliste] & \ibox{3}~H[\spr \ibox{1}, \comps \ibox{2} ]\\
 \end{tabular}
 \z
-In (\mex{0}) wählt die Adjunkttochter über \ibox{3} den Kopf, den sie modifizieren will. \spr und
-\comps der Adjunkttochter müssen leer sein. Der \sprw und der \compsw der Kopftochter werden mit dem
-\sprw und dem \compsw der Mutter identifiziert (\ibox{1} und \ibox{2}).
-
-Phrasen wie (\mex{1}b) werden somit korrekt ausgeschlossen:
+Phrasen wie (\mex{1}b) werden somit korrekt ausgeschlossen, da die Präposition eine NP in der
+\compsl hat und somit mit der Spezifikation der Adjunkttochter im obigen Schema inkompatibel ist:
 \eal
 \label{ex-die-Wurst-in}
 \ex[]{
@@ -649,6 +655,11 @@ die Wurst in der Speisekammer
 die Wurst in
 }
 \zl
+In (\ref{regelschema-psg-adjunct}) wählt die Adjunkttochter über \ibox{3} den Kopf, den sie modifizieren will. Der \sprw und der \compsw der Kopftochter werden mit dem \sprw und dem \compsw der Mutter
+identifiziert (\,\ibox{1} und \ibox{2}\,). Das erfasst, dass in Kopf-Adjunkt-Strukturen keine
+Argumente des Kopfes abgebunden werden. So ergibt sich \zb bei der Adjunktion an eine \nbar wieder
+eine \nbar.
+
 Das Beispiel in (\mex{0}a) soll noch genauer diskutiert werden. Für die Präposition \emph{in} (in der
 Verwendung in (\mex{0}a)) nimmt man den folgenden Lexikoneintrag an:
 
@@ -673,7 +684,7 @@ spr & \eliste\\
 comps & \eliste{ } \\
 }
 \z
-Diese Repräsentation entspricht der des Adjektivs \emph{interessantes} und kann 
+Diese Repräsentation entspricht der des Adjektivs \emph{interessantes} in (\ref{le-interessantes}) und kann 
 -- abgesehen von der Stellung der PP -- auch genauso verwendet
 werden: Die PP modifiziert eine \nbar.
 
@@ -719,9 +730,9 @@ eine Antwort geschrieben, die 2006 veröffentlicht wurde \citep{Mueller2006d}. D
 aber nicht erledigt. Die Idee phrasaler Konstruktionen ist so attraktiv, dass sie sich Jahrzehnte
 gehalten hat und immer wieder auch in anderen theoretischen Frameworks in anderer Form
 auftaucht. 2013 im Rahmen der Lexical Functional Grammar \citep{Toivonen2013a,ADT2013a} und zuletzt in Tree Adjoining
-Grammar \citep{Seyffarth2023a}. Ich habe also seit 2003 viele, viele Aufsätze und ja, sogar ein Buch veröffentlicht, die
+Grammar \citep{KO2013a-u,LK2017a,Seyffarth2023a}. Ich habe also seit 2003 viele, viele Aufsätze und ja, sogar ein Buch veröffentlicht, die
 zeigen, warum bestimmte Ansätze nicht funktionieren und wie man die Phänomene stattdessen
-beschreiben kann. Alle der Publikationen wurden von Gutachter*innen begutachtet wurden (peer
+beschreiben kann. Alle der Publikationen wurden von Gutachter*innen begutachtet (peer
 review) und sind in den führenden Fachzeitschriften veröffentlicht. Ein langer Artikel war ein
 Target"=Artikel \citep{MWArgSt}, zu dem es Antworten von führenden Wissenschaftler*innen gab, auf die wir auch
 wieder geantwortet haben \citep{MWArgStReply}. Das Buch zur LFG \citep{MuellerLFGphrasal} ist aus einem
@@ -740,7 +751,7 @@ zur Argumentstruktur. Solche phrasalen Ansätze gibt es nicht nur in der Konstru
 sondern auch in der Generalisierten Phrasenstrukturgrammatik (Generalized Phrase Structure Grammar,
 GPSG), LFG, Simpler Syntax und in TAG. HPSG zählt selbst zur Klasse der konstruktionsgrammatischen Theorien. Seit 1997 gibt
 es Constructional HPSG \citep{Sag97a} und Sign"=Based Construction Grammar ist auch eine 
-HPSG"=Variante \citep[\page 486]{Sag2010b}. Das HPSG"=Handbuch \citep{HPSGHandbook} ist im Rahmen der Constructional HPSG
+HPSG"=Variante \citep[\page 486]{Sag2010b}. Das HPSG"=Handbuch \citep*{HPSGHandbook} ist im Rahmen der Constructional HPSG
 geschrieben. Im Artikel \emph{HPSG and Construction Grammar} diskutiere ich, was 
 Konstruktionsgrammatiken ausmacht und wie HPSG dazu steht \citep{MuellerCxG}.
 
@@ -769,10 +780,11 @@ Die erste Regel kann mit dem Verb \emph{handed} verwendet werden, wie es in \emp
   to Tracy} vorkommt. Die zweite Regel kann für die Analyse von \emph{The sword was handed to
   Tracy.} genutzt werden.
 
-Im folgenden Abschnitt bespreche ich ein morphologisches Problem, auf das ich schon in
+Im folgenden Abschnitt bespreche ich ein morphologisches Problem für GPSG-Ansätze, auf das ich schon in
 \citew[129]{MuellerGTBuch1} hingewiesen habe. 
 
 \subsubsubsection{Morphologie}
+\label{sec-bar-Derivation-GPSG}
 
 Es gibt im Deutschen Derivationen, die Bezug auf Valenzeigenschaften ihres Kopfes nehmen. So muss
 zum Beispiel der Verbstamm, der mit dem Suffix \suffix{bar} kombiniert wird, zu einem Verb mit
@@ -797,7 +809,7 @@ Man beachte, dass \emph{lösen} und \emph{vergleichen} beide ein Akkusativobjekt
 ihre Valenz ansonsten verschieden ist. Sie müssten also in einer GPSG-Grammatik verschiedene Zahlen
 als \subcatw haben.
 
-Die \bard entspricht der Passivierung mit einer zusätzlichen Modalbedeutung \citep{Gelhaus77}:
+Die \bard entspricht der Passivierung mit einer zusätzlichen Modalbedeutung \citep[233]{Gelhaus77}:
 \eal
 \ex Alex liest den Roman.
 \ex Der Roman kann gelesen werden.
@@ -819,7 +831,7 @@ Das Kind ist helfbar.
 Dem Kind ist helfbar.
 }
 \zl
-Also: Es gibt keine semantischen Gründe, die gegen die Bildung von \noword{helfbar}
+Wie (\mex{0}b) zeigt, gibt es keine semantischen Gründe, die gegen die Bildung von \noword{helfbar}
 sprechen. Vielmehr ist es so, dass ein so genanntes persönliches Passiv möglich sein muss, \dash, es
 muss ein Akkusativobjekt geben. Da man aber an der Zahl, die zu einem Verb gehört, nicht erkennen
 kann, ob es einen Akkusativ verlangt, kann GPSG die \bard nicht adäquat erfassen. Mit der in diesem
@@ -881,7 +893,7 @@ diesem Lexikoneintrag kann man den Satz in (\mex{1}a) analysieren. In der
 Analyse wird jeweils ein Komplement mit einem Verb bzw.\ einer Verbprojektion kombiniert. Man kann den Lexikoneintrag aber auch
 für verschiedene andere Sätze verwenden. Zum Beispiel für Sätze, die ein Adjunkt enthalten wie
 (\mex{1}b). Auch in Verberstsätzen wie (\mex{1}c) und (\mex{1}d) spielt der Lexikoneintrag eine
-Rolle, wie in den folgenden Kapiteln erklärt werden wird. Bei (\mex{1}e) handelt es sich um einen Satz mit Vorfeldellipse \citep{Fries88b}. Dieser Satz könnte die
+Rolle, wie in den folgenden Kapiteln erklärt werden wird. Bei (\ref{ex-Vorfeldellipse}) handelt es sich um einen Satz mit Vorfeldellipse \citep{Fries88b}. Dieser Satz könnte die
 Antwort auf die Frage \emph{Was macht Aicke?} sein.
 \eal
 \ex {}[dass] Aicke dem Eichhörnchen die Nuss gibt
@@ -916,9 +928,9 @@ solche Konstruktionen nicht mehr erklären, es sei denn man würde zulassen, das
 ein leeres Element realisiert wird. Da leere Elemente innerhalb der Konstruktionsgrammatik per Dogma
 verboten sind \citep[\page 219]{Goldberg2003b}, ist dieser Ausweg aber versperrt.
 
-Es bleibt dann nur, dass man sagt: Wenn \emph{geben} mit zwei Argumenten, \dash ohne Subjekt ist
-auch eine Argumentstrukturkonstruktion. Leider ist die Vorfeldellipse nicht auf Subjekte
-beschränkt. Auch Akkusativobjekte können weggelassen werden:
+Es bleibt dann nur, dass man sagt: Wenn \emph{geben} mit zwei Argumenten, \dash ohne Subjekt
+realisiert wird, gibt es dafür eine spezielle Argumentstrukturkonstruktion. Leider ist die
+Vorfeldellipse jedoch nicht auf Subjekte beschränkt. Auch Akkusativobjekte können weggelassen werden:
 \eal
 \ex {}[Ich] Finde den Abdruck der Anzeige der chemischen Industrie bezüglich Gen- und Biotechnologie 
       in der taz einen ziemlichen Fehlgriff. [Das] Halte ich auf Dauer für politisch nicht tragbar 
@@ -935,10 +947,11 @@ Rock ist ergiebig und geduldig. [Den] Muß man nur zitieren. Und so ist die Musi
 \zl
 \citet[30, 42]{Fries88b} hat gezeigt, dass bei Parallelität von Frage und Antwort sogar auch Dativ- und
 Präpositionalobjekte weglassbar sind. Das bedeutet aber, dass nicht das Vorliegen von allen
-Argumenten, die prinzipiell zu einer Argumentstrukturkonstruktion gehören, sondern die potentielle
-Realisierung ausschlaggebend sind. 
+Argumenten, die prinzipiell zu einer Argumentstrukturkonstruktion gehören, sondern die \emph{potentielle}
+Realisierung ausschlaggebend ist. 
 
-Subjekte werden nie in Kontrollkonstruktionen wie (\mex{1}) ausgedrückt \citep[Abschnitt~4]{Mueller2007d}:
+Einen ähnlichen Fall stellen Kontrollkonstruktionen wie die in (\mex{1}) dar. In solchen
+Konstruktionen werden Subjekte nie ausgedrückt \citep[Abschnitt~4]{Mueller2007d}:
 \ea
 Aicke hat dem Kind empfohlen, [diesen Roman zu lesen].
 \z
@@ -984,18 +997,19 @@ Kapitel~\ref{Kapitel-nla}). Daraus ergibt sich für sehr viele Kopf-Argument-Mus
 Anordnung im Englischen oder im Deutschen. Diese Eigenschaften haben aber ansonsten
 nichts mit Valenz oder phrasalen Konstruktionen zu tun.
 
-Im Abschnitt~\ref{Abschnitt-Lexikonregeln} stelle ich Lexikonregeln vor, mit denen man aus
+Im Abschnitt~\ref{Abschnitt-Lexikonregeln} stelle ich Lexikonregeln vor, mit denen man aus Lexikonelementen
 mit bestimmten Eigenschaften andere Lexikonelemente ableiten kann. Im
 Abschnitt~\ref{Abschnitt-Konstruktionsgrammatik-phrasal} geht es dann nochmal um phrasale Konstruktionsgrammatikansätze.
 
 \subsection{Subjekte und Valenz}
+\label{sec-Subjekt-und-Valenz}
 
 Im vorangegangenen Abschnitt wurde das Subjekt (finiter Verben) genauso wie andere Argumente des Verbs
 in der Valenzliste repräsentiert und auch in syntaktischen Strukturen wie die anderen
 Argumente behandelt. Das wird in anderen Grammatiktheorien anders gesehen.
 
 Für Sätze wie (\ref{bsp-weil-peter-maria-erwartet}) wird in der \gbt oft die Struktur
-in Abbildung~\vref{fig-Aicke-Conny-erwartet-ip} angenommen (siehe \zb \citealt[\page 49]{Grewendorf88a}).
+in Abbildung~\vref{fig-Aicke-Conny-erwartet-ip} angenommen \parencites[siehe z.\,B.][\page 49]{Grewendorf88a}[171]{Lohnstein2014a}.
 %
 \begin{figure}
 \centerline{%
@@ -1022,15 +1036,16 @@ nicht innerhalb der Projektion des Verbs (der VP) steht. Das Subjekt wird deshal
 \hypertarget{externesArgument}{\emph{externes Argument}}\is{Argument!externes} genannt. Es lassen sich durchaus
 Subjekt"=Objekt"=Asymmetrien feststellen. Ob das allerdings eine strukturell andere
 Behandlung von Subjekten rechtfertigt, ist eine kontrovers diskutierte Frage 
-\parencites[vergleiche z.\,B.][]{Haider82,Grewendorf83a,Kratzer84a,Webelhuth85a,%
-Sternefeld85b,%
-Scherpenisse86a,%S. 31, Kapitel~4
-Fanselow87a,Grewendorf88a,Duerscheid89a,Webelhuth90,Oppenrieder91a,Wilder92a,Haider93a,Grewendorf93,%
-Frey93a,%S.30
+\parencites[vergleiche z.\,B.][]{Haider82,Haider93a,Haider97a,Haider2010a,Grewendorf83a,Kratzer84a,Webelhuth85a,%
+Sternefeld85b}%
+[Kapitel~4]{Scherpenisse86a}%S. 31, Kapitel~4
+{Fanselow87a,Grewendorf88a,Duerscheid89a,Webelhuth90,Oppenrieder91a,Wilder92a,Grewendorf93}%
+[30]{Frey93a}%
 %Duerscheid89a:60
-Lenerz94a,%
-Meinunger2000a%S. 30
-}. 
+{Lenerz94a}%
+[30]{Meinunger2000a}[Abschnitt~IV.3]{Sternefeld2006a-u}[\page
+172]{BG2014a-u}. \citet[Abschnitt~IV.3]{Sternefeld2006a-u} und \citet[Kapitel~2]{Haider2010a} kommen
+zu dem Schluss, dass es im Deutschen keine Evidenz für eine IP gibt.
 In Abbildung~\vref{fig-Aicke-Conny-erwartet} werden alle Komplemente des Verbs auf die gleiche Weise gesättigt.
 Die maximale Projektion ist eine Projektion des Verbs.
 Es gibt in dieser Analyse für Sätze mit finiten Verben
@@ -1096,7 +1111,7 @@ for an argument. \citep[\page27]{Marantz84a}
 Wenn man diesem Ansatz folgt, kann man nicht erfassen, wieso (\ref{what-is-eating-x}) anderen englischen
 Sätzen ähnelt und wieso (\ref{what-is-eating-x}) intern den normalen syntaktischen Gesetzmäßigkeiten folgend strukturiert ist.
 Aus diesem Grund wird idiomatischen Phrasen in HPSG"=Ansätzen sehr wohl eine interne Struktur zugesprochen 
-(siehe \citew{KE94a,Sailer2000a,SS2003a,Soehn2006a} zu Idiomanalysen im Rahmen der HPSG). 
+(siehe \citew{KE94a,Sailer2000a,SS2003a} und \citew{Soehn2006a} zu Idiomanalysen im Rahmen der HPSG). 
 
 Andere Beispiele, die Bresnan angeführt hat, erklärt Marantz mit der Annahme, dass es sich bei
 den Subjekten nicht eigentlich um Subjekte handelt, sondern um zugrundeliegende Objekte. Die
@@ -1159,7 +1174,7 @@ sondern zugrundeliegende Objekte sind.
 Wäre diese Annahme richtig,
 dürften keine Passivvarianten von Idiomen mit festem Subjekt existieren,
 da bei der Passivierung das Subjekt unterdrückt wird und unakkusativische
-Verben eben kein zugrundeliegendes Subjekt haben (siehe Kapitel~\ref{Kapitel-passiv}).
+Verben eben kein zugrundeliegendes Subjekt haben (siehe Abschnitt~\ref{sec-unakkusativitaet}).
 Betrachtet man die oben aufgeführten Beispiele, so stellt man fest, dass die Verben in
 (\mex{-1}) in der wörtlichen Lesart durchaus passivierbar sind.
 Dass manche Passivierungen der Idiombeispiele schlecht sind, ist
@@ -1334,7 +1349,7 @@ nicht"=referentiellen Index, in (\mex{0}) dagegen um einen referentiellen
 (zu semantischen Indices siehe Abschnitt~\ref{sec-index}).
 
 Ich nehme im Folgenden an, dass sowohl expletive Objekte als auch expletive Subjekte
-vom entsprechenden Kopf syntaktisch, nicht aber semantisch selegiert werden.
+vom entsprechenden Kopf syntaktisch selegiert werden, jedoch keine semantische Rolle füllen. 
 Durch die Einführung von Quasi"=Theta"=Rollen würde der Begriff der semantischen Rolle 
 syntaktisiert\label{page-syntaktisierung} und somit entwertet.
 \is{Pronomen!Expletiv-|)}
@@ -1440,12 +1455,14 @@ Zu leeren Subjekten und Kontrolle\is{Kontrolle} siehe \citew[\page912]{Nerbonne8
 \questions{
 \begin{enumerate}
 \item Wofür steht `$\oplus$'?
-\item Was ist die Obliqueness"=Hierarchie?
+%\item Was ist die Obliqueness"=Hierarchie?
+\item Was bewirkt das Argumentrealisierungsprinzip?
+\item Haben Verben im Deutschen Spezifikatoren?
 \end{enumerate}}
 
 \exercises{
 \begin{enumerate}
-\item Geben Sie die Valenzlisten für folgende Wörter an:
+\item Geben Sie die Argumentstruktur- und Valenzlisten für folgende Wörter an:
       \eal
       \ex er
       \ex ihre (in \emph{ihre Ankündigung})
