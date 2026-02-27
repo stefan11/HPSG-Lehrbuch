@@ -1634,10 +1634,21 @@ Storage and cataloguing done by \storageinstitution\\[3ex]
 	maxcitenames=2,
 	isbn=false,
 	autolang=hyphen,
-	\ifbool{resetcapitals}{language=english,}{}
+%autolang=none, % this works for Li-te-ra-tur-wis-sen-schaft St. Mü. 27.02.2026
+%	\ifbool{resetcapitals}{language=english,}{} This overwrites my langid. Thank you.
 	backend=\lsBiblatexBackend,
 	indexing=cite
 ]{biblatex}
+
+\ifbool{resetcapitals}{
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldset=langid, fieldvalue={english}]
+    }
+  }
+}
+}{}
 
 %% DOIs are handled after hyperref.
 \defbibheading{references}{\chapter{References}\sloppy}
