@@ -470,6 +470,7 @@ um dieses Merkmal, so erhält man (\mex{1}):
            head   & head \\
            spr   & list~of~signs\\
            comps & list~of~signs\\
+           arg-st & list~of~signs\\
            cont   & cont\\
          }
 \z
@@ -483,7 +484,7 @@ zeigt eine entsprechende Beschreibung:
            cat  & \ms{ head  & head\\
                        spr   & list~of~signs\\
                        comps & list~of~signs\\
-                     } \\
+                       arg-st & list~of~signs } \\
            cont & cont\\
          }
 \z
@@ -551,8 +552,8 @@ Der Wert von \rels ist eine Liste der jeweiligen Relationen, die die Referenzmen
   Formalisierung von Mengen recht kompliziert, weshalb ich -- wie \citeauthor*{CFPS2005a} auch – Listen verwende.%
 }
 (\mex{1}) zeigt den Lexikoneintrag für \emph{Buch}:\footnote{
-  In den folgenden Kapiteln bis zum Kapitel~\ref{Kapitel-Konstituentenreihenfolge} werden Relationen (\rels\isfeat{rels})
-  und Skopus"=Beschränkungen (\hcons\isfeat{hcons}) innerhalb von \cont\isfeat{cont} aufgeführt. Das wird im Abschnitt~\ref{Abschnitt-V1} dann
+  In den folgenden Kapiteln bis zum Kapitel~\ref{Kapitel-Konstituentenreihenfolge} werden Relationen (\rels)\isfeat{rels}
+  und Skopus"=Beschränkungen (\hcons)\isfeat{hcons} innerhalb von \cont\isfeat{cont} aufgeführt. Das wird im Abschnitt~\ref{Abschnitt-V1} dann
   revidiert, damit die Relationen nicht mit der Verbspur geteilt werden und in der \relsl der
   gesamten Sätze nicht doppelt repräsentiert werden.
 }
@@ -561,14 +562,13 @@ Der Wert von \rels ist eine Liste der jeweiligen Relationen, die die Referenzmen
 Lexikoneintrag für \emph{Buch}:\\
 \ms{ 
   cat & \ms{ head & noun\\
-             spr   & \nliste{ Det } \\
-             comps & \eliste \\
-           } \\
+             spr   & \nliste{ [] }\\
+             arg-st & \nliste{ Det } } \\
   cont &  \ms
            { ind & \ibox{1} \ms{ per & 3 \\
                                  num & sg \\
                                  gen & neu \\
-                               } \\
+                               } \\[5mm]
              rels & \liste{ \ms[buch]{ arg0 & \ibox{1} \\ }} \\
            } \\
 }
@@ -580,7 +580,7 @@ beziehen; \emph{es} dagegen kann nicht auf \emph{Delfin} referieren.
 \ea
 Der Delfin$_i$ sieht ein Kind$_j$. Er$_i$ schützt es$_j$.
 \z
-Pronomina müssen im allgemeinen mit dem Element, auf das sie sich beziehen, in Person,
+Pronomina müssen im Allgemeinen mit dem Element, auf das sie sich beziehen, in Person,
 Numerus und Genus übereinstimmen. Die Indizes werden dann entsprechend identifiziert.
 In der HPSG wird das mittels Strukturteilung gemacht. Man spricht auch von Koindizierung\is{Koindizierung}.
 (\mex{1}) zeigt Beispiele für die Koindizierung von Reflexivpronomina\is{Pronomen!Reflexiv-}:
@@ -599,6 +599,10 @@ ich auf die Bindungstheorie nicht weiter eingehen. Zu einem Überblick siehe abe
 \citew{MuellerBinding}.
 %Da es keine zufriedenstellenden Bindungstheorien gibt,
 %werde ich Bindungsdaten auch nicht für die Argumentation für bestimmte syntaktische Strukturen verwenden.
+
+Der Index einer Nominalphrase entspricht dem Index des Kopfnomens der Nominalphrase. Das heißt,
+\emph{das Buch} hat denselben Index wie \emph{Buch} in (\ref{le-buch}). Wie das sischergestellt
+wird, wird im Abschnitt~\ref{Abschnitt-Semantikprinzip} erklärt.
 
 Die Beschreibung in (\mex{1}) zeigt einen Lexikoneintrag für das Pronomen \emph{er}. Das Pronomen
 hat leere Valenzlisten, da es keine weiteren Konstituenten benötigt, um als vollständige
@@ -667,7 +671,57 @@ um ein nominales Objekt mit leerer \compsl, das in seiner \sprl noch einen Deter
 
 \section{Der semantische Beitrag von Adjektiven}
 
-\itdopt{fehlt noch}
+Nach den Nomina soll jetzt erklärt werden, wie der semantische Beitrag von Adjektiven repräsentiert
+wird. (\mex{1}) zeigt einen vorläufigen Eintrag:
+
+\eas
+\label{le-kleinen-sem1}%
+Lexikoneintrag für \emph{kleine}: (vorläufig):\\
+\ms{
+cat & \ms{ head & \ms[adj]{
+                  mod & \nbar\ind{1} }\\
+            arg-st & \eliste
+         }\\
+cont & \ms{ ind  & \ibox{2} property\\[1mm]
+            rels & \liste{ \ms[klein]{
+                           arg0 & \ibox{2}\\
+                           arg1 & \ibox{1} } } } }
+\zs
+Das Adjektiv hat eine leere \argstl, da es weder einen Spezifikator noch ein anderes Argument
+verlangt. Der \modw sagt aus, dass das Adjektiv eine \nbar modifizieren kann. Der Index des
+modifizierten Nomens \iboxb{1} ist identisch mit dem \argone der Relation
+\relation{klein}. Adjektive führen einen eigenen Index ein, der dem \argzero der Relation
+\relation{klein} entspricht \iboxb{2}. Dieses \argzero ist parallel zu dem von Nomina und Verben, denen wir
+uns im folgenden Abschnitt zuwenden werden.
+
+Die Analyse der Adjektiv-Nomen-Kombination in (\mex{1}) zeigt Abbildung~\ref{Abb-kleine-Kind}.
+\ea
+das kleine Kind
+\z
+\begin{figure}
+\begin{forest}
+sm edges
+[\nbar\ind{1}\feattab{\rels \nliste{ klein(\ibox{2}, \ibox{1}), kind(\ibox{1}) }}
+  [Adj\feattab{\textsc{mod} \ibox{3} \nbar\ind{1}\\
+               \rels \nliste{ klein(\ibox{2}, \ibox{1}) }}  [kleine]]
+  [\ibox{3} \nbar\ind{1}\feattab{\rels \nliste{ kind(\ibox{1}) }} [Kind]]]
+\end{forest}
+\caption{Analyse der Kombination von \emph{kleine} und \emph{Kind}}\label{Abb-kleine-Kind}
+\end{figure}
+Bei der Einsetzung von Adjektiv und Nomen in das Kopf"=Adjunkt"=Schema wird der \modw des Adjektivs
+mit dem modifizierten Nomen identifiziert \iboxb{3}. Dadurch wird der referentielle Index des Nomens
+\iboxb{1} im Adjektiv verfügbar. Durch die Identifikation des Index-Wertes des modifizierten Nomens 
+mit dem Argument des Adjektivs im Lexikoneintrag des Adjektivs wird sichergestellt, dass sich
+Adjektiv und Nomen auf dasselbe Element beziehen (\,\ibox{1} in Abbildung~\ref{Abb-kleine-Kind} und
+\ibox{1} in (\ref{le-kleinen-sem1})).
+Bei der Kombination des Adjektivs mit dem Nomen werden beide \relslen verknüpft und
+das Ergebnis wird am Mutterknoten repräsentiert. Der Index der gesamten \nbar ist ebenfalls
+\ibox{1}, weil der semantische Index in Strukturen mit Kopf zwischen Mutter und Kopf geteilt
+wird. Siehe Abschnitt~\ref{Abschnitt-Semantikprinzip}.
+
+Diese erste Skizze der Modifikation im nominalen Bereich wird in den 
+Abschnitten~\ref{Abschnitt-Semantik-Adjektivmodifikation-mutmaßlich} und~\ref{Abschnitt-scheinbar-einfache-Beispiele}
+noch ausgearbeitet werden.
 
 \section{Der semantische Beitrag von Verben und Linking}
 \label{sec-Linking}
@@ -776,19 +830,19 @@ Alle kleinen Kinder schlafen.
 \begin{figure}
 \begin{forest}
 sm edges
-[{V$_e$[\nliste{ every\_q(x, \ldots), klein(x), kind(x), schlafen(e,x) }]}
-  [{NP$_x$[\nliste{ every\_q(x, \ldots), klein(x), kind(x) }]}
+[{V$_e$[\nliste{ every\_q(x, \ldots), klein(p,x), kind(x), schlafen(e,x) }]}
+  [{NP$_x$[\nliste{ every\_q(x, \ldots), klein(p,x), kind(x) }]}
     [{Det$_x$[\nliste{ every\_q(x, \ldots) }]} [alle]]
-    [{N$_x$[\nliste{ klein(x), kind(x) }]}
-      [{Adj$_x$[\nliste{ klein(x) }]} [kleinen]]
-      [{N$_x$[\nliste{ kind(x) }]} [Kinder]]]]
+    [{\nbar{}$_x$[\nliste{ klein(p,x), kind(x) }]}
+      [{Adj$_p$[\nliste{ klein(p,x) }]} [kleinen]]
+      [{\nbar{}$_x$[\nliste{ kind(x) }]} [Kinder]]]]
   [{V$_e$[\nliste{ schlafen(e,x) }]} [schlafen]]]
 \end{forest}
 \caption{Semantik von \emph{Alle kleinen Kinder schlafen.}}\label{fig-Alle-kleinen-Kinder-schlafen}
 \end{figure}
 Der Beitrag des Determinators \emph{alle} wird im nächsten Abschnitt diskutiert. Er ist in der
 Abbildung einfach als \type{every\_q}(x, \ldots) angegeben. Ansonsten wurde der semantische Beitrag von
-Adjektiven, Nomen und Verben bereits besprochen.\todostefan{Adjektive fehlen} Bei der Diskussion des Adjektivs \emph{kleine}
+Adjektiven, Nomen und Verben bereits besprochen. Bei der Diskussion des Adjektivs \emph{kleine}
 wurde schon gezeigt, wie der referentielle Index des Adjektivs mit dem des Nomens identifiziert
 wird: Über den \modw kann das Adjektiv auf den referentiellen Index des Nomens zugreifen und diesen
 mit dem eigenen Index identifizieren. Die Variable, die der Quantor bindet wird mit der des
@@ -1317,7 +1371,7 @@ cont & \ms{
                        harg & \ibox{3}\\
                        larg & \ibox{1} } } }
 }
-\zs\todostefan{nach qeq ist mehr Platz als davor}
+\zs
 \emph{jede} ist ein Determinator, der selbst keine Argumente braucht, also eine leere \spr- und
 \compsl hat. Der Allquantor wird in der \relsl eingeführt. \argzero ist das Merkmal für die
 Variable. Der Wert von \argzero, also die Variable, ist \ibox{2}. Außerdem gibt es je ein Merkmal
@@ -1370,7 +1424,7 @@ sm edges
                \hcons \nliste{ h2 \qeq h4, h6 \qeq h8 }}
     [Det\feattab{\rels \nliste{ h1:every(x,h2,h3) },\\
                \hcons \nliste{ h2 \qeq h4 }} [jede] ]
-    [N\feattab{\rels \nliste{ h4:tochter(x,y), h5:exist(y,h6,h7), h8:mitarbeiter(y) },\\
+    [\nbar\feattab{\rels \nliste{ h4:tochter(x,y), h5:exist(y,h6,h7), h8:mitarbeiter(y) },\\
                \hcons \nliste{ h6 \qeq h8 }}
       [N\feattab{\rels \nliste{ h4:tochter(x,y) },\\
                  \hcons \eliste} [Tochter] ]
@@ -1378,7 +1432,7 @@ sm edges
                   \hcons \nliste{ h6 \qeq h8 }} 
          [Det\feattab{\rels \nliste{ h5:exist(y,h6,h7) },\\
                       \hcons \nliste{ h6 \qeq h8 }} [eines]]
-         [N\feattab{\rels \nliste{ h8:mitarbeiter(y) },\\
+         [\nbar\feattab{\rels \nliste{ h8:mitarbeiter(y) },\\
                     \hcons \eliste} [Mitarbeiters]] ] ] ]
    [V\feattab{\rels \nliste{ h9:schlafen(x) },\\
               \hcons \eliste} [schläft]]]
@@ -1388,7 +1442,7 @@ sm edges
 \caption{\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft}Analyse des Beispiels \emph{Jede Tochter
     eines Mitarbeiters schläft.}}
 \end{figure}
-\itdopt{Lexikoneintrag für schlafen fehlt noch.}
+%\itdopt{Lexikoneintrag für schlafen fehlt noch.}
 Wie im Abschnitt~\ref{Abschnitt-Komposition} erklärt, werden die Relationen einfach durch Listenverkettung von den
 Töchtern zum Mutterknoten hochgereicht. Genauso funktioniert das für die Handle"=Constraints:
 \ea
@@ -1785,6 +1839,7 @@ cont & \ms{ ltop & \ibox{2}\\
 }
 \zs
 
+\noindent
 Wie man an (\ref{mrs-potentielle-Mörder}) sehen kann muss der \ltopw einer Kopf"=Adjunkt"=Struktur
 durch die Adjunkttochter bestimmt werden, denn \ltop ist das Label des jeweils einbettenden
 Prädikats. Bei intersektiven Adjektiven\is{Adjektiv!intersektives} wie \emph{klein} sind beide Handles identifiziert, weshalb
@@ -2718,9 +2773,14 @@ im Abschnitt~\ref{Abschnitt-Semantikprinzip} vorgestellte Semantikprinzip Bezug 
 
 \section{Alternativen}
 
-\itdopt{Introduction}
+In den folgenden Abschnitten diskutiere ich die Skizze von \citet*{CFPS2005a} für die Behandlung der
+intersektiven und skopalen Modifikation (Abschnitt~\ref{Abschnitt Intersektive und skopale Modifikatoren}), die Analyse bestimmter Lesarten bei Modifikation durch das
+Adverb \emph{wieder} und warum man dafür keine leeren Elemente in der Syntax braucht (Abschnitt~\ref{Abschnitt-Leere Elemente und sublexikalischer Skopus}), die DP-Analyse
+und Possessivpronomina (Abschnitt~\ref{sec-dp-analyse}) und zu guter Letzt die Analyse von
+Nominalgruppen ohne Determinierer (Abschnitt~\ref{Abschnitt-Lexikalische Abbindung von Determinatoren}).  
 
 \subsection{Intersektive und skopale Modifikatoren}
+\label{Abschnitt Intersektive und skopale Modifikatoren}
 
 \citet*{CFPS2005a} skizzieren eine Typhierarchie, die die korrekte Weitergabe von \ltopwen
 sicherstellen soll. Sie haben ausdrücklich angemerkt, dass das nur eine Skizze ist, aber ich möchte
@@ -2818,6 +2878,7 @@ intersektive und skopale Modifikation zu haben. Es wird ein einziges Schema benu
 der Implikationen kann man einfach bei Vorliegen bestimmter Konfigurationen weitere Beschränkungen anwenden.
 
 \subsection{Leere Elemente und sublexikalischer Skopus}
+\label{Abschnitt-Leere Elemente und sublexikalischer Skopus}
 
 In diesem Abschnitt möchte ich eine Analyse diskutieren, in der leere Elemente angenommen werden, um
 verschiedene Lesarten bestimmter Sätze ableiten zu können. Ich zeige dann, wie man mit dem in diesem
@@ -3040,7 +3101,7 @@ sm edges, for tree={l sep= 4ex}
     [Det\feattab{
     \rels \relliste{ h1:every(x, h2, h3) },\\
     \hcons \relliste{ h2 \qeq h4  } } [alle] ]
-    [N\feattab{
+    [\nbar{}\feattab{
     \rels \relliste{ h4:fenster(x) },\\
     \hcons \relliste{ } } [Fenster] ] ]
   [V\feattab{
@@ -3491,7 +3552,7 @@ wäre die Parallelität zum Artikel nicht erfasst.
 sm edges
 [NP
   [Det [ihren]]
-  [N [Kater]]]
+  [\nbar [Kater]]]
 \end{forest}
 \hfill
 \begin{forest}
@@ -3548,6 +3609,7 @@ vom Nomen selegiert wird.%
 \indexmrsend
 
 \subsection{Lexikalische Abbindung von Determinatoren}
+\label{Abschnitt-Lexikalische Abbindung von Determinatoren}
 
 \mbox{}\is{Konstruktionsgrammatik (CxG)|(}\citet[\page 80]{Michaelis2006a} schlägt im Rahmen der
 Konstruktionsgrammatik eine Analyse von Nominalphrasen wie (\mex{1}) vor, die davon ausgeht, dass der
