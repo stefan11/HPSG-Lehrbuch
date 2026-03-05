@@ -12,7 +12,7 @@
 \label{Kapitel-sem}\label{Kapitel-Semantik}
 
 
-Innerhalb\is{Semantik|(} der HPSG"=Forschung gibt es drei verschiedene Ansätze
+Innerhalb\is{Semantik|(} der HPSG"=Forschung gibt es verschiedene Ansätze
 zur Beschreibung der Bedeutung sprachlicher Ausdrücke. In den ersten
 HPSG"=Arbeiten \citep{ps,ps2,Kiss95a,Mueller99a} und auch in einigen Umsetzungen 
 innerhalb der Computerlinguistik \citep{MuellerBabel} wurde die Situationssemantik
@@ -20,7 +20,8 @@ innerhalb der Computerlinguistik \citep{MuellerBabel} wurde die Situationssemant
 \citep{Nerbonne93a}. Zu dieser Art Semantik zählen die \emph{Lexical Resource Semantics} (LRS,
 \citealt{RS2004a-u,IR2015a-u,Richter2016a-u,SailerRichter2021a-u}, \citealt[Abschnitt~6.2]{KR2024a}), die \emph{Minimal Recursion Semantics}\indexmrsstart
 (MRS; \citealt*{CFPS2005a}) und Varianten der \emph{Discourse Representation Theory} (DRT; \citealt{KR93a}) mit Underspecified
-Discourse Representation Structures (UDRS; \citealt{FR95a-u}). Zur MRS gab es 1995 die ersten Veröffentlichungen \citep*{CFMRS95a-u}, und
+Discourse Representation Structures (UDRS;
+\citealt{FR95a-u}). Zur MRS gab es 1995 die ersten Veröffentlichungen \citep*{CFMRS95a-u}, und
 der 2005er Aufsatz kursierte in verschiedenen Versionen seit dieser Zeit im Netz. Veröffentlichungen wie das Buch von
 \citet{GSag2000a-u}, das Situationssemantik verwendet, kamen nur noch selten vor. Auch UDRS haben
 sich nicht wirklich durchgesetzt. Das Buch von \citet{Holler2005a-u} blieb eine Ausnahme.
@@ -32,9 +33,10 @@ Verarbeitung der Grammatiken durch Computer ermöglicht. Zu weiteren Vorteilen s
 Das folgende Kapitel führt in MRS ein. Dazu diskutiere ich viele der Anwendungsfälle, die für das
 Englische von \citet*{CFPS2005a} ausgearbeitet wurden. Für Details, die in diesem klassischen Artikel
 offen geblieben sind, habe ich die implementierte Grammatik von Dan Flickinger konsultiert
-\parencites{Flickinger2000a,FCS2000a}. Die ersten drei Auf"|lagen dieses Buches haben noch
+\citep*{Flickinger2000a,FCS2000a}. In den ersten drei Auf"|lagen dieses Buches habe ich noch
 Situationssemantik verwendet. Leser*innen, die die Ansätze vergleichen möchten, können also frühere
-Auf"|lagen konsultieren.%\todostefan{zitieren: \citep{Ginzburg2012a-u,LGC-Grammar-in-Dialog}}
+Auf"|lagen konsultieren.%\todostefan{zitieren: \citep{Ginzburg2012a-u,
+%\citet{Ginzburg2012a-u,Luecking:Ginzburg:Cooper:2024a} benutzen Type Theory with Records (TTR).}
 
 Dieses Buch ist ein Syntax"=Buch. Syntax ist ein komplexes System und die Beschäftigung damit
 faszinierend. Allerdings ist Syntax allein im wahrsten Sinne des Wortes sinnlos. Die (Morpho-)Syntax wird nur gebraucht, um eine
@@ -84,7 +86,7 @@ Es ist die Aufgabe der Syntax die Mehrdeutigkeit des Satzes zu erklären. Intere
 Diskussion in diesem Kapitel ist der Satz in (\mex{0}b). Hier entspricht \emph{jede} dem Allquantor ($\forall$) und \emph{eine} dem
 Existenzquantor ($\exists$), der vielleicht schon aus der Mathematik bekannt ist.\footnote{%
 Für eine Einführung in die Logik für Sprachwissenschaftler*innen siehe \citew*{AAD73a} oder \citew{Lohnstein2011a}.}
-Es gibt dann zwei Lesarten: In der einen muss es einen bestimmten Mitarbeiter geben
+(\ref{ex-Jede-Tochter-eines-Mitarbeiters-schläft}) hat zwei Lesarten: In der einen muss es einen bestimmten Mitarbeiter geben
 und für alle Töchter, die er hat, muss gelten, dass sie schlafen. Man sagt, dass der Existenzquantor
 \isi{Skopus} über den Allquantor hat. In der anderen Lesart muss für alle
 Menschen, für die gilt, dass sie die Tochter eines Mitarbeiters sind, gelten, dass sie
@@ -102,7 +104,7 @@ syntaktischen Strukturen aus dem Speicher entnehmen \parencites{Cooper83}[Kapite
 HPSG syntaktische und semantische Aspekte in einer gemeinsamen Struktur behandelt werden, bekommt
 man dann aber auch für Sätze wie (\ref{ex-Jede-Tochter-eines-Mitarbeiters-schläft}) zwei verschiedene Strukturen. Man kann sich klar machen, dass sich strukturelle
 Mehrdeutigkeiten multiplizieren. Mehrdeutigkeiten in Nominalphrasen multiplizieren sich mit
-Mehrdeutigkeiten wie denen, die in (\mex{0}a) vorliegen. Auch ist es so, dass es bei gleichzeitigem
+Mehrdeutigkeiten wie denen, die in (\mex{0}a) oder wegen Ambiguitäten im Sprachsignal vorliegen. Auch ist es so, dass es bei gleichzeitigem
 Vorliegen mehrerer Quantoren in verschiedenen NPen im Satz unglaublich viele Lesarten geben kann, die
 letztendlich nur Expert*innen anhand sorgfältig konstruierter Kontexte unterscheiden
 können. 
@@ -135,7 +137,7 @@ und Abschnitt~\ref{sec-Linking}
 zeigt, wie man die Verbindung zwischen den Argumenten eines Kopfes und dem semantischen Beitrag des
 Kopfes herstellen kann, \dash, es wird gezeigt, wie die semantischen Rollen einer Relation gefüllt
 werden können. Abschnitt~\ref{Abschnitt-Komposition} erklärt, wie einfache kompositionale Semantik
-funktioniert und Abschnitt~\ref{Abschnitt-Skopus} schließlich beschäftigt sich mit Quantorenskopus und
+funktioniert und Abschnitt~\ref{Abschnitt-Skopus} schließlich beschäftigt sich schließlich mit Quantorenskopus und
 diversen interessanten Phänomenen, die für das Verständnis des technischen Apparats notwendig sind.
 
 
@@ -147,7 +149,9 @@ diversen interessanten Phänomenen, die für das Verständnis des technischen Ap
 Über die Bedeutung von Wörtern kann man lange nachdenken: Was bedeutet es, jemanden oder etwas zu
 lieben? Was bedeutet das Wort \emph{Tasse}? Muss das Objekt, auf das wir uns beziehen eine bestimmte
 Form haben? Einen Henkel? Warum ist ein Eimer etwas Anderes als eine Tasse? Was macht eine Zitrone
-aus? Dass sie gelb ist und sauer? Ist eine grüne Zitrone keine Zitrone \citep{Braisby90}? All das sind spannende
+aus? Dass sie gelb ist und sauer? Ist eine grüne Zitrone keine Zitrone \citep{Braisby90}?
+% Ganzes Papier.
+All das sind spannende
 Fragen, mit denen sich Semantiker*innen auch beschäftigen \citep{Rosch1973b-u}. Hier spielen sie aber keine Rolle, denn
 man kann sich damit behelfen, dass man dem Bündel an Eigenschaften einfach einen Namen gibt: Für die
 Bedeutung von \emph{lieben} verwendet man die Relation \relation{lieben} und für die von
@@ -173,8 +177,7 @@ Relationen können verschiedene Stelligkeiten haben. Je nach Ansatz werden Relat
 \relation{lieben} aus, dann sind nur der, die oder das Liebende und der/die/das Geliebte Argumente der
 \relation{lieben}"=Relation. Die Alternative ist, dass man annimmt, dass ein lieben"=Ereignis
 beschrieben wird und das Ereignis in Relation zu Liebendem und Geliebtem steht. Ich gehe hier von
-Letzterem aus. Somit ergeben sich die folgenden Stelligkeiten:\todostefan{Jakob: Relationen als Beispiel
-  angeben sterben(e,Aicke)}
+Letzterem aus. Somit ergeben sich die folgenden Stelligkeiten:
 \begin{itemize}
 \item einstellig:  \relation{regnen}   (\emph{Es regnet.}) 
 \item zweistellig: \relation{sterben}  (\emph{Aicke stirbt.})
@@ -189,8 +192,8 @@ In der Prädikatenlogik\is{Prädikatenlogik} wird \zb dem Satz (\mex{1}a) die Re
 \ex lieben$'$(e, Aicke$'$, Conny$'$)
 \ex lieben(e, Aicke, Conny)
 \zl
-Das kleine $e$ steht dabei für das Ereignis. Das $e$ wird auch Ereignisvariable
-genannt. \relation{Aicke} und \relation{Conny} sind sogenannte Individuenkonstanten. Aus
+Das kleine $e$ steht dabei für das Ereignis. Das $e$ wird auch Ereignisvariable\is{Ereignisvariable}
+genannt. \relation{Aicke} und \relation{Conny} sind sogenannte Individuenkonstanten\is{Individuenkonstante}. Aus
 Platzgründen oder wenn keine Verwechslungsgefahr besteht, lasse ich die Striche auch wie in (\mex{0}c) mitunter weg. 
 
 Dieselbe Bedeutung kann aber auch durch den Passivsatz in (\mex{1}) ausgedrückt werden.
@@ -347,19 +350,20 @@ wahr sind, bekommt man jeweils die Aussagen in b.
 \zl
 \eal
 \ex Ein Kind schläft.
-\ex Es gibt mindestens ein Kind, und für dieses Kind gilt, dass es schläft.
+\ex Es gibt mindestens ein x, für das gilt, dass es ein Kind ist und dass es schläft.
 \ex \blau{$\exists$}x kind(x) \blau{$\wedge$} schlafen(x)
 \zl
 \eal
 \label{ex-Das-Kind-schläft}
 \ex Das Kind schläft.
-\ex Es gibt ein (bestimmtes) Kind, und für dieses Kind gilt, dass es schläft.
-\ex \blau{$\iota$}x kind(x) \blau{$\wedge$} schlafen(x)\todostefan{Quelle iota und erklären}
+\ex Es gibt ein einziges x, das Kind ist, und für dieses Kind gilt, dass es schläft.
+\ex \blau{$\iota$}x kind(x) \blau{$\wedge$} schlafen(x)
 \zl
 Mit Hilfe logischer Symbole für die Quantoren kann man diese Bedeutung wie in c repräsentieren. Da
 die Bedeutung von \emph{kind} und \emph{schlafen} bekannt ist, kann man die Bedeutung der
 Determinatoren bestimmen: Alles, was nicht von \emph{Kind} oder \emph{schlafen} beigesteuert wurde,
-muss von den Determinatoren kommen. Das ist in (\mex{-2})--(\mex{0}) blau hervorgehoben.
+muss von den Determinatoren kommen. Das ist in (\mex{-2})--(\mex{0}) blau hervorgehoben. Zum
+$\iota$-Operator siehe auch \citew[85]{HK98a-u}. 
 
 Ich habe hier dargelegt, was gegeben sein muss, damit ein Satz in einem gegebenen Diskursuniversum
 wahr wird. Man kann aber Sätze auch so verstehen, dass sie Diskursuniversen beschreiben. Der Satz in
@@ -384,6 +388,7 @@ Mögliche Repräsentation mit semantischen Rollen:\\[2pt]
 }
 \z
 
+\noindent
 Um Generalisierungen in Bezug auf die Verbindung zwischen Syntax und Semantik (das sogenannte
 \emph{Linking}\is{Linking}) vornehmen zu können, werden zur Kennzeichnung der Argumente\is{Argument}
 in Relationen oft semantische Rollen\is{semantische Rolle} \citep{Fillmore68,Fillmore77,Kunze91} wie
@@ -423,9 +428,10 @@ Experiencer eingeordnet wird \parencites[\page 190]{Devlin92}[\page65]{Dowty2000
 Der Einbrecher wurde am frühen Morgen gesehen.
 \z
 
+\noindent
 Diese Probleme werden in Dowtys Ansatz umgangen, weil es eben nur noch Proto"=Rollen gibt. Einen
 parallelen Ansatz, der auch in der HPSG viel verwendet wird \citep*{Davis2001a-u,KD2003a-u,DKW2024a}, haben \citet{VanVL97a-u}
-vorgeschlagen. Statt Proto"=Agens und Proto"=Patiens verwenden sie die Rollen Actor und Undergoer.
+vorgeschlagen. Statt Proto"=Agens und Proto"=Patiens verwenden sie die Rollen Actor\is{Actor} und Undergoer\is{Undergoer}.
 
 Ich folge hier den Autor*innen des MRS"=Papiers und verwende für die Ereignisvariablen und die
 wichtigsten Variablen von Nomina und Adjektiven \argzero und für weitere Argumente dann \argone,
@@ -460,7 +466,7 @@ Information über die Bedeutung von Lexikoneinträgen wird als Wert des Merkmals
 (Abkürzung \textsc{cont}\isfeat{cont}) angegeben. Erweitert man die bisherige Beschreibung einfach
 um dieses Merkmal, so erhält man (\mex{1}): 
 \ea
-      \ms{ phon   & list~of~phoneme strings\,\\
+      \ms[sign]{ phon   & list~of~phoneme strings\,\\
            head   & head \\
            spr   & list~of~signs\\
            comps & list~of~signs\\
@@ -473,7 +479,7 @@ von \textsc{cat} ist eine Merkmalstruktur mit den Merkmalen \head, \spr und \com
 zeigt eine entsprechende Beschreibung:
 \ea
 \label{geom-cat-cont}
-      \ms{ phon & list~of~phoneme strings\,\\[2pt]
+      \ms[sign]{ phon & list~of~phoneme strings\,\\[2pt]
            cat  & \ms{ head  & head\\
                        spr   & list~of~signs\\
                        comps & list~of~signs\\
@@ -482,9 +488,9 @@ zeigt eine entsprechende Beschreibung:
          }
 \z
 Mit einer solchen Gruppierung der Information wird es möglich, durch eine einfache
-Strukturteilung nur syntaktische Information zu teilen.\todostefan{teilung teilen ändern?} Zum Beispiel möchte
+Strukturteilung nur syntaktische Information an verschiedenen Stellen in AVMs zu identifizieren. Zum Beispiel möchte
 man Fälle\is{Koordination|(} symmetrischer\label{page-symmetrische-koordination} Koordination wie in (\mex{1}) so behandeln, dass
-man einfach die \textsc{cat}"=Werte der Konjunkte identifiziert \citep[\page 202]{ps2}:
+man einfach die \textsc{cat}"=Werte der Konjunkte teilt \citep[\page 202]{ps2}:
 \eal
 \ex {}[der Delfin] und [der Hund]
 \ex Aicke [kennt] und [liebt] dieses Lied.
@@ -545,9 +551,9 @@ Der Wert von \rels ist eine Liste der jeweiligen Relationen, die die Referenzmen
   Formalisierung von Mengen recht kompliziert, weshalb ich -- wie \citeauthor*{CFPS2005a} auch – Listen verwende.%
 }
 (\mex{1}) zeigt den Lexikoneintrag für \emph{Buch}:\footnote{
-  In den folgenden Kapiteln bis zum Kapitel~\ref{Kapitel-Konstituentenreihenfolge} werden Relationen (\rels)
-  und Skopus"=Beschränkungen (\hcons) innerhalb von \cont aufgeführt. Das wird im Abschnitt~\ref{Abschnitt-V1} dann
-  revidiert, damit die Relationen nicht mir der Verbspur geteilt werden und in der \relsl der
+  In den folgenden Kapiteln bis zum Kapitel~\ref{Kapitel-Konstituentenreihenfolge} werden Relationen (\rels\isfeat{rels})
+  und Skopus"=Beschränkungen (\hcons\isfeat{hcons}) innerhalb von \cont\isfeat{cont} aufgeführt. Das wird im Abschnitt~\ref{Abschnitt-V1} dann
+  revidiert, damit die Relationen nicht mit der Verbspur geteilt werden und in der \relsl der
   gesamten Sätze nicht doppelt repräsentiert werden.
 }
 \eas
@@ -659,6 +665,10 @@ auf den Wert von \cont und \baro{N} entspricht einer Nominalprojektion
 mit dem Bar"=Level~1 aus der \xbart. In der HPSG handelt es sich bei \baro{N}
 um ein nominales Objekt mit leerer \compsl, das in seiner \sprl noch einen Determinator enthält.
 
+\section{Der semantische Beitrag von Adjektiven}
+
+\itdopt{fehlt noch}
+
 \section{Der semantische Beitrag von Verben und Linking}
 \label{sec-Linking}
 
@@ -667,12 +677,14 @@ Der semantische Beitrag von Verben und Nomina ist recht ähnlich: Es gibt ein \t
 und dann eine Relation in der \relsl, wobei der \textsc{index}"=Wert mit dem \argzero der
 wichtigsten Relation in der \relsl identifiziert ist. Bisher gibt es aber noch keine Zuordnung der Elemente in der \argstl\is{Valenz} zu
 Argumentrollen\is{semantische Rolle} im semantischen Beitrag. Eine solche Verbindung wird auch \emph{Linking} genannt.
+Zu Linking"=Theorien im Rahmen der HPSG siehe \citew{Davis96a-u} und \citew{Wechsler95a-u} bzw.\ für
+einen Überblick \citew*{HPSGHandbookLinking}.
 (\mex{1}) zeigt, wie einfach das Linking in der HPSG funktioniert.
 Die referentiellen Indizes der Nominalphrasen sind mit den entsprechenden Merkmalen in der Relation
 in der \relsl identifiziert.\is{Argument}
 \eas
 \label{le-gibt}%
-\emph{gibt}:\\
+Lexikoneintrag für \emph{gibt}:\\
 \ms
 { cat & \ms{ head & \ms[verb]
                      { vform & fin } \\[1mm]
@@ -696,7 +708,8 @@ in Typhierarchien spezifizieren und die spezifischen Lexikoneinträge diesen Mus
 \dash von den entsprechenden Typen Beschränkungen erben lassen. Eine Typbeschränkung für
 Verben mit Agens, Thema und Goal hat die Form in (\mex{1}):
 \ea
-\label{bsp-linking-arg123}
+\label{bsp-linking-arg123}%
+Linking für ditransitive Verben wie \emph{geben}:\\
 \onems
 { cat$|$arg-st \liste{ []\ind{1}, []\ind{2}, []\ind{3}  } \\[2mm]
   cont|rels \liste{ \ms{ arg1 & \ibox{1} \\
@@ -715,7 +728,7 @@ Der Typ für die Relation \emph{geben} ist Untertyp von \type{arg123-rel}, dem T
 Strukturen mit den Merkmalen \argone, \argtwo und \argthree haben (siehe auch Kapitel~\ref{Abschnitt-Typhierarchien}). 
 Der Lexikoneintrag für das Wort \emph{geben} bzw.\ den Stamm \stem{geb} hat das Linking"=Muster in
 (\mex{0}). 
-
+%
 % \begin{forest}
 % type hierarchy,
 % for tree={nameN/.option=content},
@@ -738,10 +751,6 @@ Der Lexikoneintrag für das Wort \emph{geben} bzw.\ den Stamm \stem{geb} hat das
 %   [arg3\_rel
 %     [,identify=arg0123-rel]]]
 % \end{forest}
-
-
-Zu Linking"=Theorien im Rahmen der HPSG siehe \citew{Davis96a-u} und \citew{Wechsler95a-u} bzw.\ für
-einen Überblick \citew{HPSGHandbookLinking}.
 \is{Linking|)}
 
 Zur Einordnung hier noch eine kurze Bemerkung zum \isi{$\lambda$-Kalkül}. Leser*innen, die sich schon mit
@@ -760,33 +769,33 @@ und die Variablen gebunden. Im nächsten Abschnitt wird das genauer erklärt.
 \label{Abschnitt-Komposition}\label{Semantik-Adjektivmodifikation}
 
 Damit sind wir jetzt so weit, dass wir uns mit einfachen kompositionalen Strukturen beschäftigen
-können. Die Analyse von (\mex{1}) zeigt Abbildung~\ref{fig-Der-kleine-Affe-schläft}.
+können. Die Analyse von (\mex{1}) zeigt Abbildung~\ref{fig-Alle-kleinen-Kinder-schlafen}.
 \ea
-Der kleine Affe schläft.
+Alle kleinen Kinder schlafen.
 \z
 \begin{figure}
 \begin{forest}
 sm edges
-[{V$_e$[\nliste{ def\_q(x, \ldots), klein(x), affe(x), schlafen(x) }]}
-  [{NP$_x$[\nliste{ def\_q(x, \ldots), klein(x), affe(x) }]}
-    [{Det$_x$[\nliste{ def\_q(x, \ldots) }]} [der]]
-    [{N$_x$[\nliste{ klein(x), affe(x) }]}
-      [{Adj$_x$[\nliste{ klein(x) }]} [kleine]]
-      [{N$_x$[\nliste{ affe(x) }]} [Affe]]]]
-  [{V$_e$[\nliste{ schlafen(e,x) }]} [schläft]]]
+[{V$_e$[\nliste{ every\_q(x, \ldots), klein(x), kind(x), schlafen(e,x) }]}
+  [{NP$_x$[\nliste{ every\_q(x, \ldots), klein(x), kind(x) }]}
+    [{Det$_x$[\nliste{ every\_q(x, \ldots) }]} [alle]]
+    [{N$_x$[\nliste{ klein(x), kind(x) }]}
+      [{Adj$_x$[\nliste{ klein(x) }]} [kleinen]]
+      [{N$_x$[\nliste{ kind(x) }]} [Kinder]]]]
+  [{V$_e$[\nliste{ schlafen(e,x) }]} [schlafen]]]
 \end{forest}
-\caption{Semantik von \emph{Der kleine Affe schläft.}}\label{fig-Der-kleine-Affe-schläft}
+\caption{Semantik von \emph{Alle kleinen Kinder schlafen.}}\label{fig-Alle-kleinen-Kinder-schlafen}
 \end{figure}
-Der Beitrag des Determinators \emph{der} wird im nächsten Abschnitt besprochen. Er ist in der
-Abbildung einfach als \type{def\_q}(x, \ldots) angegeben. Ansonsten wurde der semantische Beitrag von
-Adjektiven, Nomen und Verben bereits besprochen. Bei der Diskussion des Adjektivs \emph{kleine}
+Der Beitrag des Determinators \emph{alle} wird im nächsten Abschnitt diskutiert. Er ist in der
+Abbildung einfach als \type{every\_q}(x, \ldots) angegeben. Ansonsten wurde der semantische Beitrag von
+Adjektiven, Nomen und Verben bereits besprochen.\todostefan{Adjektive fehlen} Bei der Diskussion des Adjektivs \emph{kleine}
 wurde schon gezeigt, wie der referentielle Index des Adjektivs mit dem des Nomens identifiziert
 wird: Über den \modw kann das Adjektiv auf den referentiellen Index des Nomens zugreifen und diesen
 mit dem eigenen Index identifizieren. Die Variable, die der Quantor bindet wird mit der des
 Adjektivs und des Nomens identifiziert und ist letztlich auch der Index für die gesamte NP. Das Verb \emph{schlafen} identifiziert sein \argone mit dem
 semantischen Index der NP in seiner \argst- bzw.\ \compsl (siehe Abschnitt~\ref{sec-Linking} über Linking). Auf diese Weise wird sichergestellt,
 dass bei allen Relationen derselbe Index, nämlich das $x$ in
-Abbildung~\ref{fig-Der-kleine-Affe-schläft}, auftaucht.
+Abbildung~\ref{fig-Alle-kleinen-Kinder-schlafen}, auftaucht.
 
 Damit das so funktioniert, wie in der Abbildung gezeigt, brauchen wir zwei Dinge: Erstens muss der
 Index eines Kopfes zur Mutter weitergegeben werden, denn sonst wäre nirgends festgelegt, dass der
@@ -799,7 +808,7 @@ Die Weitergabe des semantischen Index ist einfach. Das entsprechende Prinzip lä
 aufschreiben:
 \ea
 \label{Semantik-Index-headed-phrase}
-\type{headed-phrase} \impl\\
+\type{headed-phrase} \impl\\[1pt]
 \ms{
 cont|ind & \ibox{1}\\
 head-dtr|cont|ind & \ibox{1}\\
@@ -813,27 +822,27 @@ head-dtr|cont|ind & \ibox{1}\\
 % modifizierten Nomen geteilt ist. 2025-04-13.
 % }
 Die Implikation in (\mex{0}) bewirkt, dass in Strukturen mit Kopftochter der Index der Kopftochter mit
-dem der Mutter identisch ist. So wird die Ereignisvariable von Verben ($e$ in Abbildung~\ref{fig-Der-kleine-Affe-schläft}) nach oben gegeben und der
-referentielle Index von Nomen ($x$ in Abbildung~\ref{fig-Der-kleine-Affe-schläft}) auch.
+dem der Mutter identisch ist. So wird die Ereignisvariable von Verben ($e$ in Abbildung~\ref{fig-Alle-kleinen-Kinder-schlafen}) nach oben gegeben und der
+referentielle Index von Nomen ($x$ in Abbildung~\ref{fig-Alle-kleinen-Kinder-schlafen}) auch.
 
 Die Relationen werden von der folgenden Beschränkung für Zeichen vom Typ \type{phrase} eingesammelt:
 \ea
-\label{constraint-RELS}
-\type{phrase} \impl\\
+\label{constraint-RELS}%
+\type{phrase} \impl\\[1mm]
 \onems{
 cont|rels  \ibox{1} $\oplus$ \ibox{2}\\
 dtrs  \sliste{ [cont|rels \ibox{1} ], [cont|rels \ibox{2} ] }\\
 }
 \z
-\textsc{dtrs} ist hierbei eine Liste, die sich beim Aneinanderhängen einer Liste mit der Kopftochter
-und den Nicht"=Kopftöchtern ergibt, wenn es eine Kopftochter gibt. Andernfalls
+\textsc{dtrs} ist hierbei die Liste, die sich beim Aneinanderhängen der Liste mit der Kopftochter
+und der Liste mit den Nicht"=Kopftöchtern ergibt, wenn es eine Kopftochter gibt. Andernfalls
 ist die \textsc{dtrs}"=Liste mit der Liste der Nicht"=Kopftöchter identisch. Die Beschränkung in
 (\mex{0}) funktioniert nur für Phrasen mit genau zwei Töchtern. Man kann eine relationale
 Beschränkung angeben, die die Relationen von beliebig vielen Töchtern zusammensammelt. Die
 Beschränkung in (\mex{0}) hat dann die Form:
 \ea
 Berechnung des \relswes (vorläufig):\\
-\type{phrase} \impl\\
+\type{phrase} \impl\\[1mm]
 \onems{
 cont|rels  \texttt{collect-rels}(\ibox{1})\\
 dtrs  \ibox{1} \\
@@ -900,7 +909,8 @@ angemessene Bedeutungsrepräsentation.
 
 Auf S.\,\pageref{ex-Alle-Kinder-schlafen} wurden bereits die Sätze
 (\ref{ex-Alle-Kinder-schlafen})--(\ref{ex-Das-Kind-schläft}) besprochen und etwas zu deren Bedeutung
-gesagt. Das Beispiel (\ref{ex-Alle-Kinder-schlafen}) sei hier der Übersichtlichkeit halber wiederholt:
+gesagt. Das Beispiel (\ref{ex-Alle-Kinder-schlafen}) sei hier der Übersichtlichkeit halber
+wiederholt:\todostefan{Das war vorn anders.}
 \eal
 \label{ex-Alle-Kinder-schlafen-zwei}
 \ex Alle Kinder schlafen.
@@ -917,7 +927,7 @@ every\_q(x, kind(x), schlafen(x))
 In dieser Darstellung ist ein Quantor eine dreistellige Relation zwischen einer Variable (x),
 einer Restriktion (kind(x)) und einem Body (schlafen(x)).\footnote{%
   \citet[89--90]{Heim2011a-u}, \citet[7]{Diesing92a} und \citet[130]{Kratzer95a} sprechen von
-  \emph{restrictive clause} und \emph{nuclear scope}. \citet[287]{mrs} vermeiden den Begriff \emph{scope}
+  \emph{restrictive clause} und \emph{nuclear scope}. \citet*[287]{mrs} vermeiden den Begriff \emph{scope}
   bewusst und benutzen stattdessen \emph{body}, da es noch ein allgemeineres Verständnis von Skopus
   gibt und sie Verwirrung vermeiden wollen.%
 } Das ist noch recht übersichtlich und es
@@ -929,13 +939,14 @@ wiederholt ist:
 \label{ex-Jede-Tochter-eines-Mitarbeiters-schläft-zwei}
 Jede Tochter eines Mitarbeiters schläft.
 \z
-\todostefan{Jakob Mache: Jede =\= all.}
+\todostefan{Jakob Mache: Jede = \ = all.}
+\noindent
 Dieses Beispiel hat die beiden Lesarten in (\mex{1}) und (\mex{2}):
 \eal
 \label{ex-Jede Tochter eines Mitarbeiters schläft. weiter Skopus Allquantor}
 \ex $\forall$x ($\exists$y \relationunmarked{mitarbeiter}(y) $\wedge$ \relationunmarked{tochter}(x,y)) $\to$
 \relationunmarked{schlafen}(x)
-\ex Für jede Entität x in unserem Diskursuniversum für die gilt, dass es im Diskursuniversum eine Entität y gibt, die
+\ex Für jede Entität x in unserem Diskursuniversum, für die gilt, dass es im Diskursuniversum eine Entität y gibt, die
 Mitarbeiter ist und deren Tochter x ist, gilt auch, dass sie (x) schläft.
 \zl
 \eal
@@ -954,6 +965,7 @@ x im Diskursuniversum, für die gilt, dass sie die Tochter von y sind, auch gilt
 \ex exist\_q(y, mitarbeiter(y), every\_q(x, tochter(x,y), schlafen(x)))
 \zl 
 
+\noindent
 Betrachtet man (\ref{ex-Jede-Tochter-eines-Mitarbeiters-schläft-zwei}) und die beiden Ausdrücke in
 (\mex{0}), stellt man fest, dass jeder Quantor das dazugehörige Nomen in seiner Restriktion hat:
 tochter(x,y) befindet sich in der Restriktion von x und mitarbeiter(y) in der Restriktion von y. Die
@@ -1007,7 +1019,21 @@ Modifikationen durch mehrere Attribute verschiedene Klammerungsmöglichkeiten gi
 wirkliche Bedeutungsunterschiede gäbe. Stattdessen schlagen die Autor*innen das vor, was wir schon
 in den vorangegangenen Abschnitten umgesetzt haben. Die Relationen werden in einer Liste
 gesammelt. Die referentiellen Indizes von Köpfen und Adjunkten werden identifiziert. Zusätzlich muss
-bei intersektiver\todostefan{Begriff eingeführt?} Modifikation das Label von Kopf und Adjunkt identifiziert werden.
+bei intersektiver Modifikation\footnote{%
+Intersektive Modifikation kann zum Beispiel vorliegen, wenn ein Adjektiv sich auf eine bestimmte Menge
+von Individuen bezieht und ein modifiziertes Nomen auf eine andere Menge. Durch die Modifikation
+wird eine Schnittmenge gebildet. Abbildung~\ref{fig-Diskursuniversum-blond-Kind} hat das für die
+blonden Kinder verdeutlicht. Im Gegensatz zu interesektiven Modifkatoren gibt es Modifikatoren, die den semantischen Beitrag des
+Elements, das sie modifizieren, einbetten:
+\eal
+\ex ein kleiner Mörder
+\ex ein mutmaßlicher Mörder
+\zl
+Ein kleiner Mörder ist sowohl klein als auch ein Mörder. Ein mutmaßlicher Mörder ist jemand, von dem
+gemutmaßt wird, dass er ein Mörder ist. Er kann unschuldig sein. Man kann zwar klein sein, aber
+nicht mutmaßlich. Adjektive wie \emph{mutmaßlich} werden in
+Abschnitt~\ref{Abschnitt-Semantik-Adjektivmodifikation-mutmaßlich} behandelt.%
+} das Label von Kopf und Adjunkt identifiziert werden.
 Für (\mex{0}a) ergibt sich also:
 \ea
 \label{ex-every-klein-kind-schlafen}
@@ -1120,8 +1146,10 @@ Ausdrücke in (\ref{ex-Quantoren-Mitarbeiter-Tochter}) sollen mit einer Formel r
 werden. (\mex{1}) zeigt die entsprechende MRS:
 \ea
 \label{ex-Jede Tochter eines Mitarbeiters schläft-MRS}
-\textmrs{ h0, \{ h1:every\_q(x, h2, h3), h4:tochter(x,y),
-             h5:exist\_q(y, h6, h7), \hphantom{\textlangle~}h8:mitarbeiter(y), h9:schlafen(x) \},\\
+\textmrs{ h0, \{ \begin{tabular}[t]{@{}l@{}}
+                 h1:every\_q(x, h2, h3), h4:tochter(x,y), h5:exist\_q(y, h6, h7), h8:mitarbeiter(y),\\
+                 h9:schlafen(x) \},
+                 \end{tabular}\\
 \hphantom{\textlangle~}\{ h2 \qeq h4, h6 \qeq h8 \}  }
 \z
 Der Trick ist, dass die Slots in der Repräsentation für die Quantoren nicht direkt mit den Labels
@@ -1159,8 +1187,9 @@ allen Ausdrücken, in denen die Variable vorkommt, geben.
 \end{figure}
 Zum Beispiel kommt y in h8:mitarbeiter(y) und h4:tochter(x,y) vor. Da h8 von h6 dominiert wird, ist
 dieses Vorkommen von y gebunden, aber das y in tochter(x,y) muss ebenfalls gebunden werden. Das wird
-durch die rote Kante von y zu h4:tochter(x,y) erzwungen.\todostefan{S: Gepunktet und gestrichelt?
-  Rot ist bei schlechtem Licht nicht gut sichtbar.}
+durch die rote Kante von y zu h4:tochter(x,y) erzwungen.
+%\todostefan{S: Gepunktet und gestrichelt?
+%  Rot ist bei schlechtem Licht nicht gut sichtbar.}
 
 Zwischen h6 und h8 können nur Quantoren treten, so dass das y in h4 nur dadurch gebunden werden
 kann, dass h4 von h7 dominiert ist. Das heißt, entweder wird h4 direkt bei h7 eingestöpselt oder
@@ -1221,15 +1250,15 @@ identifiziert und h3 mit h9 oder h6 wird direkt mit h8 identifiziert und h7 mit 
 \end{tikzpicture}
 \caption{Skopusaufgelöste MRS mit weitem Skopus für den Existenzquantor, siehe (\ref{ex-Jede Tochter eines Mitarbeiters schläft. weiter Skopus Existenzquantor})}\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Existenzquantor}
 \end{figure}
-Die Skopus-aufgelösten MRSen entsprechen genau den beiden Lesarten aus (\ref{ex-Quantoren-Mitarbeiter-Tochter}).
+Die skopusaufgelösten MRSen entsprechen genau den beiden Lesarten aus (\ref{ex-Quantoren-Mitarbeiter-Tochter}).
 
-Damit ist schon den wesentlichen Teil der Analyse erklärt. Es fehlt lediglich die Umsetzung
+Damit ist schon der wesentliche Teil der Analyse erklärt. Es fehlt lediglich die Umsetzung
 in Merkmalbeschreibungen für die entsprechenden Lexikoneinträge. 
 (\mex{1}) zeigt den Lexikoneintrag für \emph{Tochter}:
 
 \eas
 \label{le-Tochter}%
-\emph{Tochter}:\\
+Lexikoneintrag für \emph{Tochter}:\\
 \ms{
 cat & \ms{ head & \ms[noun]{
                   case & \type{nom}\\
@@ -1254,14 +1283,16 @@ cont & \ms{
 \zs
 \emph{Tochter} verlangt einen Determinator und eine Genitiv-NP. Der Index der Genitiv-NP ist
 identisch mit dem \argone der \type{tochter\_rel}"=Relation. Zum semantischen Beitrag sprachlicher
-Zeichen gehört nicht nur ein Index, sondern auch ein \ltopm. \ltop steht dabei für \emph{local top}
+Zeichen gehört nicht nur ein Index, sondern auch ein \ltopm. \ltop\isfeat{ltop} steht dabei für \emph{local top}
 und bezieht sich auf das lokal höchste Label. Oben wurde schon das Beispiel (\ref{ex-every-klein-kind-schlafen}) mit attributivem
 Adjektiv besprochen. Der \ltopw eines Lexikoneintrags ist identisch mit dem Label der wichtigsten Relation, die von einem
-Lexikoneintrag eingeführt wird (dem sogenannten \textsc{key}). Bei einfachen Beispielen wie dem
+Lexikoneintrag eingeführt wird (dem sogenannten \textsc{key}\isfeat{key}). Bei einfachen Beispielen wie dem
 Adjektiv \emph{klein} und dem Nomen \emph{Tochter} gibt es ohnehin nur ein Element in \rels und
 dessen Label ist dann identisch mit dem \ltop. Bei der Phrase \emph{kleinen Kinder}\label{page-kleinen-Kinder}, die oben schon
 besprochen wurde, werden die \ltopwe von \emph{kleinen} und \emph{Kinder} identifiziert. Dadurch
-ergeben sich die gemeinsamen Label"=Werte h2 in (\ref{ex-every-klein-kind-schlafen}).
+ergeben sich die gemeinsamen Label"=Werte h2 in (\ref{ex-every-klein-kind-schlafen}). In der
+\textsc{hcons}-Liste eines Lexikoneintrags werden die Skopusbeschränkungen repräsentiert. Für
+\emph{Tochter} gibt es keine, weshalb die Liste leer ist.
 
 (\mex{1}) zeigt den Lexikoneintrag für \emph{jede}:
 \eas
@@ -1284,12 +1315,9 @@ cont & \ms{
                       } }\\[5mm]
        hcons & \liste{ \ms[qeq]{
                        harg & \ibox{3}\\
-                       larg & \ibox{1}\\
-                       }
-               }\\
-       }
+                       larg & \ibox{1} } } }
 }
-\zs
+\zs\todostefan{nach qeq ist mehr Platz als davor}
 \emph{jede} ist ein Determinator, der selbst keine Argumente braucht, also eine leere \spr- und
 \compsl hat. Der Allquantor wird in der \relsl eingeführt. \argzero ist das Merkmal für die
 Variable. Der Wert von \argzero, also die Variable, ist \ibox{2}. Außerdem gibt es je ein Merkmal
@@ -1315,12 +1343,14 @@ entweder vom Typ \type{none} oder vom Typ \type{sign}. Über den \specw kann man
 den Index des Nomens \iboxb{2} zugreifen, das mit einem Determinator kombiniert wird. So wird es möglich,
 aufzuschreiben, dass die Variable des Allquantors mit dem referentiellen Index des Nomens \iboxb{2}
 übereinstimmt und dass die Restriktion des Allquantors \qeq\vspace{-0pt} mit dem \ltopw der \nbar
-ist (\,\ibox{3} \qeq~\ibox{1}\,). Die entsprechende \qeq"=Beschränkung steht in der \hconsl, der Liste
+ist (\,\ibox{3} \qeq~\ibox{1}\,). Die entsprechende \qeq"=Beschränkung steht in der \hconsl\isfeat{hcons}, der Liste
 der Handle Constraints. Das \textsc{h} in \textsc{harg} steht dabei für \emph{hole}, also die Stelle, in die etwas
 eingestöpselt werden kann, und das \textsc{l} in \textsc{larg} steht für \emph{label}. Für unser
 Beispiel \emph{jede Tochter} bedeutet das, dass \type{tochter\_rel} in die Restriktion von
 \emph{every\_q} eingestöpselt werden kann oder irgendein Quantor, der \type{tochter\_rel}
-dominiert. Der \textsc{body}"=Wert des Quantors wird einfach nicht angegeben. Das ist Teil der
+dominiert. Der \textsc{body}"=Wert des Quantors wird einfach nicht angegeben. In (\mex{0}) wird das
+durch die leere Box \etag\is{\etag} dargestellt. Man kann das Merkmal auch wie in (\ref{le-jede}) einfach ganz weglassen. Die
+fehlende Angabe des \body"=Wertes ist Teil der
 Unterspezifikation: Irgendein Handle einer anderen Relation oder eines anderen Quantors kann dort
 eingefügt werden, Hauptsache, zum Schluss sind alle Variablen im Bereich eines Quantors und keiner der
 Handle"=Constraints ist verletzt.
@@ -1362,7 +1392,7 @@ sm edges
 Wie im Abschnitt~\ref{Abschnitt-Komposition} erklärt, werden die Relationen einfach durch Listenverkettung von den
 Töchtern zum Mutterknoten hochgereicht. Genauso funktioniert das für die Handle"=Constraints:
 \ea
-\type{phrase} \impl\\
+\type{phrase} \impl\\[1mm]
 \onems{
 cont|hcons  \texttt{collect-hcons}(\ibox{1})\\
 dtrs  \ibox{1} \\
@@ -1413,7 +1443,7 @@ der Kopf"|tochter.
 Formalisieren lässt sich das Prinzip wie folgt:
 \ea
 \ms{ non-head-dtrs & \liste{ [\textsc{cat|head|spec} \type{sign}] } } \impl\\
-\hfill\onems{ head-dtr \ibox{1}\\
+\mbox{}\hfill\onems{ head-dtr \ibox{1}\\
               non-head-dtrs \nliste{ [\textsc{cat|head|spec} \ibox{1}] } }
 \z
 
@@ -1684,7 +1714,7 @@ die Prädikation in (\mex{0}) ist sie es nicht.
 \z
 \ea
 Soldaten sind Mörder.\footnote{
-  Tucholsky, Kurt, (1931), "`Der bewachte Kriegsschauplatz"', \emph{Die Weltbühne}, S.\,31.
+  Tucholsky, Kurt. 1931. Der bewachte Kriegsschauplatz. \emph{Die Weltbühne}. S.\,31.
 }
 \z
 Genauso gilt bis zur rechtskräftigen Verurteilung von Mördern, dass man sie nicht Mörder nennen
@@ -1704,11 +1734,12 @@ cat & \ms{ head & \ms[adj]{
                              cont & \ms{ ltop & \ibox{1}\\
                                          ind  & \ibox{2}\\
                                        }}}\\
-           spr   & \eliste\\
-           comps & \eliste\\
+%           spr   & \eliste\\
+%           comps & \eliste\\
+           arg-st & \eliste
          }\\
 cont & \ms{ ltop & \ibox{1}\\
-            ind  & \ibox{3} property\\
+            ind  & \ibox{3} property\\[1mm]
             rels & \liste{ \ms[klein]{
                            lbl  & \ibox{1}\\ 
                            arg0 & \ibox{3}\\
@@ -1727,7 +1758,8 @@ Mörder (\mex{1}b), stattdessen muss das \emph{potentiell} den \emph{Mörder} wi
 \textmrs{ h1, \{ h1:potentiell(h2), h2:mörder(x) \}, \{  \}  }
 \zl
 
-Für das Adjektiv \emph{potentielle} ergibt sich:
+\noindent
+Für das Adjektiv \emph{potentielle} ergibt sich:\todostefan{Erklären wie Index weitergegeben wird}
 \eas
 Lexikoneintrag für \emph{potentielle}:\\
 \ms{
@@ -1738,8 +1770,9 @@ cat & \ms{ head & \ms[adj]{
                              cont & \ms{ ltop & \ibox{1}\\
 %                                         ind  & \ibox{2}\\
                                        }}}\\
-           spr & \eliste\\
-           comps & \eliste\\
+%           spr & \eliste\\
+%           comps & \eliste\\
+           arg-st & \eliste
          }\\
 cont & \ms{ ltop & \ibox{2}\\
 %            ind  & \ibox{2}\\
@@ -1754,7 +1787,7 @@ cont & \ms{ ltop & \ibox{2}\\
 
 Wie man an (\ref{mrs-potentielle-Mörder}) sehen kann muss der \ltopw einer Kopf"=Adjunkt"=Struktur
 durch die Adjunkttochter bestimmt werden, denn \ltop ist das Label des jeweils einbettenden
-Prädikats. Bei intersektiven Adjektiven wie \emph{klein} sind beide Handles identifiziert, weshalb
+Prädikats. Bei intersektiven Adjektiven\is{Adjektiv!intersektives} wie \emph{klein} sind beide Handles identifiziert, weshalb
 auch da der \ltopw von der Adjunkttochter genommen werden kann. Die folgende Beschränkung gilt also
 zusätzlich zu den bereits beschrieben Beschränkungen für Kopf"=Adjunkt"=Strukturen:
 \ea
@@ -1794,16 +1827,16 @@ Affen glauben, dass es schläft. Und dann kann es sein, dass es für jeden Affen
 dem er glaubt, dass es schläft. (\mex{1}) zeigt die drei Lesarten im Überblick:
 \eal
 \label{ex-Prädikatenlogik-alle-Affen-glauben-dass-ein-Einhorn-schläft}
-\ex $\forall$x \relationunmarked{affe}(x) $\to$ \relationunmarked{glauben}($\exists$y \relationunmarked{einhorn}(y) $\wedge$ schlafen(y))
-\ex $\exists$y \relationunmarked{einhorn}(y) $\wedge$ ($\forall$x \relationunmarked{affe}(x) $\to$ \relationunmarked{glauben}(schlafen(y)))
-\ex $\forall$x \relationunmarked{affe}(x) $\to$ ($\exists$y \relationunmarked{einhorn}(y) $\wedge$ \relationunmarked{glauben}(schlafen(y)))
+\ex $\forall$x \relationunmarked{affe}(x) $\to$ \relationunmarked{glauben}(x,$\exists$y \relationunmarked{einhorn}(y) $\wedge$ schlafen(y))
+\ex $\exists$y \relationunmarked{einhorn}(y) $\wedge$ ($\forall$x \relationunmarked{affe}(x) $\to$ \relationunmarked{glauben}(x,schlafen(y)))
+\ex $\forall$x \relationunmarked{affe}(x) $\to$ ($\exists$y \relationunmarked{einhorn}(y) $\wedge$ \relationunmarked{glauben}(x,schlafen(y)))
 \zl
 In der hier verwendeten Notation mit den Quantoren als dreistelliger Relation sieht das wie folgt aus:
 \eal
 \label{ex-Quantoren-Relationen-alle-Affen-glauben-dass-ein-Einhorn-schläft}
-\ex every\_q(x, affe(x), glauben(exist\_q(y, einhorn(y), schlafen(y))))
-\ex exist\_q(y, einhorn(y), every\_q(x,affe(x), glauben(schlafen(y)))
-\ex every\_q(x, affe(x), exist\_q(y, einhorn(y), glauben(schlafen(y)))
+\ex every\_q(x, affe(x), glauben(x,exist\_q(y, einhorn(y), schlafen(y))))
+\ex exist\_q(y, einhorn(y), every\_q(x,affe(x), glauben(x,schlafen(y)))
+\ex every\_q(x, affe(x), exist\_q(y, einhorn(y), glauben(x,schlafen(y)))
 \zl
 Letztendlich ergeben sich diese Lesarten in der hier beschriebenen Grammatik fast von selbst. Die
 beiden Lesarten mit Skopus oberhalb von \emph{glauben} sind nach allem, was bisher gesagt wurde,
@@ -1926,9 +1959,10 @@ Da h5 \qeq h4 gilt und h4 aber auch das Label von h4:scheinbar(h5) ist, dominier
 selbst, eine unzulässige Konfiguration. Die Gleichsetzung der \ltopwe von \relation{scheinbar},
 \relation{einfach} und \relation{beispiel} kommt in der bisherigen Analyse dadurch zustande, dass
 intersektive Adjektive ihren \ltopw mit dem des modifizierten Nomens teilen (h4:einfach(x),
-h4:beispiel(x)). Da \emph{scheinbar einfaches} als intersektives Adjunkt zu \emph{Beispiel} fungiert
+h4:beispiel(x)). Da \emph{scheinbar einfaches} als intersektives Adjunkt zu \emph{Beispiel} fungiert,
 muss der \ltopw von \emph{scheinbar einfaches} mit dem von \emph{Beispiel} identifiziert werden. Der
-\ltopw von \emph{scheinbar einfaches} ist aber identisch mit dem von \emph{scheibar}, so dass dann
+\ltopw von \emph{scheinbar einfaches} ist aber identisch mit dem von \emph{scheinbar}, weil ja
+\relation{scheinbar} die Relation \relation{einfaches} unter sich einbettet, so dass dann
 letztendlich alle drei Relationen denselben \ltopw haben.
 
 Die Lösung für das Problem besteht darin, dass der \ltopw eines intersektiven Adjektivs nicht mehr
@@ -1944,15 +1978,16 @@ cat & \ms{ head & \ms[adj]{
                              cont & \ms{ %ltop & \ibox{1}\\
                                          ind  & \ibox{1}\\
                                        }}}\\
-           spr & \eliste\\
-           comps & \eliste\\
+%           spr & \eliste\\
+%           comps & \eliste\\
+            arg-st & \eliste
          }\\
 cont & \ms{ ltop & \ibox{2}\\
-            ind  & \ibox{3} property\\
+            ind  & \ibox{3} property\\[1mm]
             rels & \liste{ \ms[klein]{
                            lbl  & \ibox{2}\\
                            arg0 & \ibox{3}\\
-                           arg1 & \ibox{2} } }\\
+                           arg1 & \ibox{1} } }\\
             hcons & \eliste\\
           }\\
 }
@@ -1979,7 +2014,7 @@ sich die richtige MRS in (\ref{mrs-ein-scheinbar-einfaches-Beispiel}), weil der 
 den \ltopw von \emph{scheinbar einfaches} bei.
 
 Es stellt sich die Frage, ob es gut ist, die Tatsache, dass es um skopale oder intersektive
-Modifikatoren geht als Kopfmerkmal zu repräsentieren. Die Alternative bestünde darin, die
+Modifikatoren geht, als Kopfmerkmal zu repräsentieren. Die Alternative bestünde darin, die
 Hauptrelation des Kopfes zu kennzeichnen und dann bei Modifikation als Antezedens einer Implikation
 auf das Vorliegen einer skopalen oder intersektiven Relation zu testen. Die Repräsentation als
 Kopfmerkmal scheint die richtigen Vorhersagen bezüglich Koordinierbarkeit zu machen:
@@ -2009,12 +2044,13 @@ korrigiert. Alex Lascarides und Ann Copestake haben eine MRS konstruiert, die li
 kein Netz \citep[Abschnitt~4.3]{FKT2005a}. Prinzipiell kann es solche MRSen also geben, aber die entsprechende MRS kann man
 umformulieren, so dass auch für den entsprechenden Satz eine MRS angegeben werden kann, die ein Netz
 ist. \citet{ADKMNT2003a} haben nun gezeigt, dass man Dominanzgraphen, die Netze sind, wesentlich effizienter
-verarbeiten kann als das für den allgemeinen Fall möglich wäre. Es ist also sinnvoll, diese
+verarbeiten kann, als das für den allgemeinen Fall möglich wäre. Es ist also sinnvoll, diese
 zusätzliche Beschränkung für MRSen zu verwenden. Die von der in diesem Buch entwickelten Grammatik
 erzeugten MRSen sind immer Netze. Ich werde im Folgenden erklären, was es heißt, ein Netz zu sein
 und werde ein Beispiel diskutieren, in dem die Netzeigenschaft erst nicht gegeben war. 
 
-Es folgt eine Definition für \emph{Netz}:\footnote{
+Es folgt eine Definition für \emph{Netz}:
+\footnote{
   Die Original"=Definition von \citet[\page 133]{FKT2005a} lautet wie folgt:
 \begin{quote}
 We say that an MRS structure is an (MRS-) net if and only if every fragment
@@ -2025,29 +2061,33 @@ nodes in the fragment have at least one outgoing dominance edge.
 then Y and Z are connected by a hypernormal path (see below) that does not
 visit the node X itself.
 \end{quote}
-Ich vermute, dass sich 1.\ lediglich auf Quantoren"=Fragmente beziehen sollte, denn sie schreiben: "`This is also the case for the nuclear fragments l11, l12, . . . , that have no outgoing
-dominance edges at all. The only fragment with nodes that have more than one outgoing dominance
-edges is the top fragment."' Das bedeutet, dass l0 und l11 in Abbildung~\ref{Abbildung 1 von
-  FKT2005a} auch Fragmente im Sinne der Definition
-sind. l0 hat aber keinen Knoten ohne ausgehende Dominanzkante und die nuklearen Fragmente haben nur
-einen Knoten und für diesen gibt es nur eingehende Kanten. In Abbildung~\ref{fig-alle-Affen-glauben-dass-ein-Einhorn-schläft} gibt es
-h5:glauben(x,h6). h5:glauben(x,h6) hat eine ausgehende Dominanzkante, nämlich h6, aber es gibt eben
-auch keinen Knoten, aus dem keine Dominanzkante austritt. Aber selbst wenn man 1.\ auf Fragmente mit
-Quantoren beschränken würde, wäre eine solche Definition nicht sinnvoll, denn wenn der Skopus eines
-Quantors bekannt ist, zum Beispiel, weil in einer Sprache Quantoren, die links stehen, immer Skopus
-über Quantoren, die rechts stehen haben, dann kann man auch Restriktionen für den Body von Quantoren
-formulieren.  
-\itdopt{check}
+In Abbildung~\ref{fig-alle-Affen-glauben-dass-ein-Einhorn-schläft} gibt es das atomare Fragment
+h5:glauben(x,h6). h5:glauben(x,h6) hat eine ausgehende Dominanzkante, nämlich h6, aber da h6 atomar ist, gibt es
+keinen Knoten, aus dem keine Dominanzkante austritt. Ich habe die Definition also so
+abgeändert, dass statt genau einem Knoten ohne Dominanzkante höchstens ein Knoten ohne Dominanzkante
+verlangt wird.
+% Doch! Dann wäre das Fragment eben größer und würde alles, was schon feststeht einschließen.
+% Aber dann wäre in dem Fragment viele Knoten ohne ausgehende Dominanzkanten!
+% Aber selbst wenn man 1.\ auf Fragmente mit
+% Quantoren beschränken würde, wäre eine solche Definition nicht sinnvoll, denn wenn der Skopus eines
+% Quantors bekannt ist, zum Beispiel, weil in einer Sprache Quantoren, die links stehen, immer Skopus
+% über Quantoren haben, die rechts stehen, dann kann man auch Restriktionen für den Body von Quantoren
+% formulieren.
 }
 \begin{definition}
-Eine MRS ist ein Netz, gdw.\ jedes Fragment aus dem Dominanzgraph der MRS die folgenden beiden
+Eine MRS ist ein Netz\is{Netz}, gdw.\ jedes Fragment\is{Fragment} aus dem Dominanzgraph der MRS die folgenden beiden
 Bedingungen erfüllt:
 \begin{enumerate}
-\item Es gibt in jedem Fragment höchstens einen Knoten ohne austretende Dominanzkante.
-\item Wenn ein Knoten X zwei (oder mehr) ausgehende Dominanzkanten hat, dann jeweils zwei dieser
-  Dominanzkanten über einen hypernormalen Pfad verbunden, der nicht über X verläuft.
+\item Es gibt höchstens einen Knoten ohne austretende Dominanzkante.
+\item Wenn ein Knoten X zwei (oder mehr) ausgehende Dominanzkanten hat, \zb zu Y und Z, dann sind Y
+  und Z über einen hypernormalen Pfad verbunden, der nicht über X verläuft.
 \end{enumerate}
 \end{definition}
+Die Dominanzkanten\is{Dominanzkante} sind dabei Kanten, die Handles über explizite oder implizite
+Dominanzbeschränkungen verbinden. Also die gestrichelten Linien in den oben diskutierten
+MRSen. Fragmente sind die Graphen, die durch durchgehende Linien dargestellt werden. Bei Fragmenten
+sind die Skopusverhältnisse schon klar.
+
 Der Quantor+Variable selbst bildet in dieser Definition auch einen Knoten des Fragments (zum
 Beispiel l8:each$_z$ in Abbildung~\ref{Abbildung 1 von FKT2005a}). 
 Von diesem
@@ -2115,15 +2155,15 @@ links in Abbildung~\ref{Abbildung hypernormaler Graph} für hypernormale Pfade u
 \hfill\mbox{}
 \caption{Zwei hypernormale Pfade und ein nicht hypernormaler Pfad von Y nach Z ohne X}\label{Abbildung hypernormaler Graph}
 \end{figure}
-\itdopt{Punkte für Knoten hinzufügen, check}
+\itdopt{Punkte für Knoten hinzufügen, check, Y2 ist in der mittleren Abbildung zu weit vom Pfeil weg.}
 
 Im linken Graph könnte man die Dominanzkante von X zu Z einfach weglassen, denn man gelangt auch
 über Y1, Y2 und Y3 zu Z. Genauso kann man beim zweiten Graph Y3 irgendwo unterhalb von X einstöpseln
 und damit den doppelten Austritt aus X im Prinzip beseitigen. Beim dritten Graph hilft die
-Verbindung zwischen Y und Z nicht, da sie auch zwei aus Y2 ausgehende Dominanzkanten hat. Setzt man
+Verbindung zwischen Y und Z über Y2 nicht, da sie auch zwei aus Y2 ausgehende Dominanzkanten hat. Setzt man
 Y2 irgendwo ein, bleibt das Problem bestehen, dass man Knoten mit zwei ausgehenden Dominanzkanten
-hat.
-\itdopt{check}
+hat. Wenn es dagegen Verbindungen über hypernormale Pfade gibt, sind die möglichen Auflösungen der
+Dominanzbeschränkungen einfacher zu ermitteln.
 
 Abbildung~\ref{Abbildung 1 von FKT2005a} zeigt einen Dominanzgraphen für das englische Beispiel in
 (\mex{1}):
@@ -2131,7 +2171,7 @@ Abbildung~\ref{Abbildung 1 von FKT2005a} zeigt einen Dominanzgraphen für das en
 Each section is also suitable as s single day tour.
 \z
 Im obersten Fragment mit l0 gehen aus h1 drei Dominanzkanten aus. Die MRS ist ein Netz, weil es
-zwischen l2, l5 und l8 jeweils hypernormale Pfade gibt, die nicht über l1 verlaufen: l2, l12, h6, l5
+zwischen l2, l5 und l8 jeweils hypernormale Pfade gibt, die nicht über h1 verlaufen: l2, l12, h6, l5
 und l5, l14, l8 und l2, l12, h6, l5, l14, l8. 
 \begin{figure}
 \oneline{%
@@ -2173,7 +2213,7 @@ und l5, l14, l8 und l2, l12, h6, l5, l14, l8.
 
 \end{tikzpicture}}
 \caption{Dominanzgraph für \emph{Each section is also suitable as s single day tour.} nach
-  \citet{FKT2005a}. Die roten Kanten sind Kanten, die sich implizit aus Variablenbindungen oder
+  \citet[132]{FKT2005a}. Die roten Kanten sind Kanten, die sich implizit aus Variablenbindungen oder
   Bedingungen für die oberste Handle ergeben.}\label{Abbildung 1 von FKT2005a}
 \end{figure}
 
@@ -2188,7 +2228,7 @@ Sein Kind schläft.
 \ex\label{ex-Ein Affe dessen Kind schläft}
 Ein Affe, dessen Kind schläft, lacht.
 \zl
-Das Possessivpronomen \emph{ihr} führt einen Quantor für die Variable von Kind ein und eine
+Das Possessivpronomen \emph{sein} führt einen Quantor für die Variable von \emph{Kind} ein und eine
 \relation{besitzen}"=Relation. Die MRS für \emph{ihr Buch} wurde bereits auf S.\,\pageref{MRS ihr
   Buch} angegeben. (\mex{1}) zeigt eine ähnliche MRS, die zusätzlich die Relation für \emph{schläft} enthält:
 \ea
@@ -2197,11 +2237,13 @@ Das Possessivpronomen \emph{ihr} führt einen Quantor für die Variable von Kind
 \hphantom{\textlangle~}\{ h2 \qeq h4 \}  }
 \z
 Die Situation mit dem possessiven Relativpronomen liegt anders, weil die Variable des Besitzenden
-mit dem Bezugsnomen des Relativsatzes identifiziert wird. Die MRS für (\mex{-1}b) ist:
+mit dem Bezugsnomen des Relativsatzes (x) identifiziert wird. Die MRS für (\mex{-1}b) ist:
 \ea
 \label{MRS EIn Affe dessen Kind schläft lacht}
-\textmrs{ h0, \{ h1:exist\_q(x, h2, h3), h4:affe(x), h5:def\_q(y, h6, h7), ??:besitzen(e1, x, y),
-  h8:kind(y), h4:schlafen(e2, y), h9:lachen(e3, x) \},\\
+\textmrs{ h0, \{ \begin{tabular}[t]{@{}l@{}}
+                 h1:exist\_q(x, h2, h3), h4:affe(x), h5:def\_q(y, h6, h7), ??:besitzen(e1, x, y),\\
+                 h8:kind(y), h4:schlafen(e2, y), h9:lachen(e3, x) \},
+                 \end{tabular}\\
 \hphantom{\textlangle~}\{ h2 \qeq h4, h6 \qeq h8  \}  }
 \z
 Das Handle von \emph{schlafen} ist das \ltop des Relativsatzes und wird deshalb mit dem \ltop des
@@ -2210,7 +2252,7 @@ modifizierten Nomens identifiziert (\type{h4}, siehe Analyse der Adjektive im Ab
   schläft}) ein Pronomen vorliegt, das einen eigenen Referenten einführt, wohingegen in (\ref{ex-Ein
   Affe dessen Kind schläft}) die Rolle des Besitzenden von $x$ gefüllt ist, \dash von einer
 Variable, die durch den Quantor des modifizierten Nomens gebunden wird. Das bedeutet, dass das
-Handle von \relation{besitzen} nicht wie bei \emph{ihr} mit dem Handle des Nomens \emph{Kind}
+Handle von \relation{besitzen} nicht wie bei \emph{ihr} bzw.\ \emph{sein} mit dem Handle des Nomens \emph{Kind}
 identisch sein kann, denn wenn es das wäre, bekäme man einen Dominanzgraphen wie er in Abbildung~\ref{Abbildung dessen Kind-falsch}
 dargestellt ist.
 \begin{figure}
@@ -2240,7 +2282,7 @@ dargestellt ist.
 Wie in Abschnitt~\ref{Abschnitt-Quantoren} erklärt, müssen alle Vorkommen von Variablen irgendwie von
 ihrem Quantor gebunden werden. Das heißt für y, dass h4:schlafen(y) entweder von h6 oder h7 dominiert
 werden muss. Da h6 aber bereits belegt ist, muss h4 irgendwo unterhalb von h7 sein. Das funktioniert
-für y in der obigen MRS gut, aber für x funktioniert es nicht, denn x kommt in h7, h4 und h9 vor und
+für y in der obigen MRS gut, aber für x funktioniert es nicht, denn x kommt in h8, h4 und h9 vor und
 es gibt nur zwei Plätze: h2 und h3.
 \begin{figure}
 \begin{tikzpicture}[mrs]
@@ -2266,7 +2308,7 @@ es gibt nur zwei Plätze: h2 und h3.
 \caption{Falsche MRS für \emph{Ein Affe, dessen Kind schläft, lacht.}: Es gibt keinen hypernormalen
   Pfad von h8 zu h9, der nicht über h1 führt.}\label{Abbildung dessen Kind-falsche-MRS}
 \end{figure}
-Wenn man versucht, den Existenzquantor in h7 einzustöpseln ergibt sich eine Konfiguration, in der
+Wenn man versucht, den Existenzquantor in h7 einzustöpseln, ergibt sich eine Konfiguration, in der
 die Variable x in h8:besitzen(x,y) ungebunden ist (Abbildung~\ref{Abbildung dessen Kind-falsch}). h3 müsste sowohl mit h9:lachen(x) als auch mit
 h8:besitzen(x,y) verbunden sein, was technisch ausgeschlossen ist, da man nur ein Label in h3
 einstöpseln kann.
@@ -2426,7 +2468,36 @@ Zusammen sagen diese beiden Beschränkungen, dass in Strukturen mit Kopf, die ke
 Kopf"=Adjunkt"=Strukturen sind, der \ltopw vom Kopf kommt und in Strukturen, die
 Kopf"=Adjunkt"=Strukturen sind, kommt er vom Adjunkt.
 
-\itdopt{Typhierarchie mit head-non-adjunct-phrase}
+Die Typhierarchie für die Untertypen von \type{headed-phrase} mit dem Typ
+\type{head-non-adjunct-phrase} zeigt Abbildung~\ref{abb-headed-phrase-head-non-adjunct-structure}.
+
+\begin{figure}
+\oneline{
+% Das tut so, als wäre head-complement-phrase eine Tochter von head-non-complement-phrase, zeichnet aber
+% keine Kante. Die Kanten werden dann alle mit draw per Hand gezeichnet.
+\begin{forest}
+type hierarchy,
+ % for tree={
+ %   calign=fixed angles,
+ %   calign angle=50
+ % } 
+    [headed-phrase, l sep*=2, for children={l sep*=4}
+      [head-non-adjunct-phrase, name=non-adjunct, 
+        [head-adjunct-phrase,no edge, name=adjunct]]
+      [head-non-complement-phrase, name=non-arg,calign with current
+        [head-complement-phrase,no edge, name=argument]]
+      [head-non-specifier-phrase, name=non-specifier
+        [head-specifier-phrase, no edge, name=specifier]]]
+\draw (non-adjunct.south) to (argument.north);
+\draw (non-adjunct.south) to (specifier.north);
+\draw (non-arg.south) to (adjunct.north);
+\draw (non-arg.south) to (specifier.north);
+\draw (non-specifier.south) to (adjunct.north);
+\draw (non-specifier.south) to (argument.north);
+\end{forest}}
+\caption{\label{abb-headed-phrase-head-non-adjunct-structure}Typhierarchie für \type{headed-phrase}}
+\end{figure}
+
 
 Damit ist geklärt, wie sich der \ltop"=Wert der Mutter ergibt. Es muss aber auch die Bestimmung des
 \ltopwes der Töchter geregelt werden. Normalerweise kann so etwas lexikalisch geregelt werden: Eine
@@ -2444,12 +2515,12 @@ halber hier noch einmal wiederholt:
 \avm{
 [\type{head-adjunct-phrase}\\
  non-head-dtrs < [ cat|head|scopal & minus ] > ]} \impl\\[2mm]
-\hfill 
+\mbox{}\hfill 
 \avm{[ head-dtr|cont|ltop & \1\\
   non-head-dtrs < [ cont|ltop & \1 ] > ]
 }
 \z
-Nur wenn das Adjunkt nicht skopal ist, werden die \ltopwe identifiziert. In allen anderen Fällen
+(\mex{0}) besagt: Nur wenn das Adjunkt nicht skopal ist, werden die \ltopwe identifiziert. In allen anderen Fällen
 sind die \ltopwe verschieden und das sollen sie auch sein. Für diese Fälle ist keine weiter
 Beschränkung nötig.
 
@@ -2458,7 +2529,7 @@ Skopusbeschränkungen. Zusammengefasst ist das in (\mex{1}) gezeigt:
 \ea
 \label{constraint-collect-rels-collect-hcons}
 Berechnung von \rels und \hcons:\\
-\type{phrase} \impl\\
+\type{phrase} \impl\\[1mm]
 \onems{
 cont \ms{ rels  & \upshape\texttt{collect-rels}(\ibox{1})\\
           hcons & \upshape\texttt{collect-hcons}(\ibox{1})}\\ 
@@ -2592,7 +2663,7 @@ Determinators in der Regel eingeführt wird.
   Determinator und der NP \emph{Kinder} mit unärer Regel}\label{Abbildung-leere-Determinatoren-C-CONT}
 \end{figure}
 
-Das entsprechend ausbuchstabierte Schema für artikellose Nominalphrasen im Plural zeigt:
+Das entsprechend ausbuchstabierte Schema für artikellose Nominalphrasen im Plural zeigt (\mex{1}):
 \eas
 \type{bare-np-phrase} \impl\\
 \avm{
@@ -2621,7 +2692,7 @@ neuen Index einführen können. Der \indw und der \ltopw wird also aus \ccont ü
 \eas
 \label{Semantikprinzip-CCONT}%
 Berechnung der Semantik von Phrasen:\\
-\type{phrase} \impl\\
+\type{phrase} \impl\\[1mm]
 \ms{
 cont & \ms{ ind   & \ibox{1}\\
             ltop  & \ibox{2}\\
@@ -2646,6 +2717,8 @@ im Abschnitt~\ref{Abschnitt-Semantikprinzip} vorgestellte Semantikprinzip Bezug 
 
 
 \section{Alternativen}
+
+\itdopt{Introduction}
 
 \subsection{Intersektive und skopale Modifikatoren}
 
@@ -2684,7 +2757,6 @@ type hierarchy
 \end{forest}
 \caption{Typhierarchie von \citet[\page 308]{CFPS2005a}}\label{fig-skopal-intesaktiv-MRS-Paper}
 \end{figure}
-\itdopt{font by avm ist fett}
 \textsc{hook} ist bei \citeauthor{CFPS2005a} ein Merkmal, dessen Wert eine Merkmalbeschreibung mit
 \textsc{index}, \ltop und weiteren Merkmalen ist, die nach oben hochgereicht werden. \gtop steht für
 global top. Alle Quantoren und Relationen müssen unter dem \gtop-Label sein. Da man es eigentlich
@@ -2708,8 +2780,7 @@ liefert und nicht noch zusätzliche eine für skopale Modifikation mit unsinnige
 folgende Beispiel zeigt, wo das Problem liegt:
 \eal
 \ex (das) scheinbar einfache Beispiel
-\ex \textmrs{ h0, \{ h1:scheinbar(h2), h3:einfach(x), h1:beispiel(x)  \},\\
-    \hphantom{\textlangle~}\{ h2 \qeq h3  \}  }
+\ex \textmrs{ h0, \{ h1:scheinbar(h2), h3:einfach(x), h1:beispiel(x)  \}, \{ h2 \qeq h3  \}  }
 \zl
 Wenn \emph{scheinbar} mit \emph{einfache} kombiniert wird, bettet \relation{scheinbar}
 \relation{einfach} ein. Das entspricht dem, was oben als \type{scopal-phrase} dargestellt ist. Wenn
@@ -2723,13 +2794,14 @@ inkonsistente MRS in (\mex{1}), in der sich h2 selbst dominiert:
 \textmrs{ h0, \{ h1:scheinbar(h2), h1:einfach(x), h1:beispiel(x)  \},\\
     \hphantom{\textlangle~}\{ h2 \qeq h1  \}  }
 \z
-Schuld an dem Problem sind die drei Punkte in der \relsl. Immer, wenn man irgendwo in Repräsentationen drei Punkte
-sieht, ist das ein Zeichen für ungenügende Formalisierung. Es kann sein, dass es eine mehr oder
-wenige einfache Formalisierung gibt, aber sicher ist es nicht. Sicher kann man erst sein, wenn man
-sie selbst ausgearbeitet hat. Man könnte diesen Teil des Problems lösen, indem man einen Zeiger wie
+% Schuld an dem Problem sind die drei Punkte in der \relsl. Immer, wenn man irgendwo in Repräsentationen drei Punkte
+% sieht, ist das ein Zeichen für ungenügende Formalisierung. Es kann sein, dass es eine mehr oder
+% wenige einfache Formalisierung gibt, aber sicher ist es nicht. Sicher kann man erst sein, wenn man
+% sie selbst ausgearbeitet hat. 
+Man könnte diesen Teil des Problems lösen, indem man einen Zeiger wie
 \textsc{key} auf die von einem Modifikator beigesteuerte Relation verwendet. Der \textsc{key} von \emph{einfache} wäre
 dann die \relation{einfach}"=Relation und der \textsc{key} von \emph{scheinbar} die
-\relation{scheinbar}"=Relation. Wenn diese Relation vom Typ \type{scopal-reln} ist, dann handelt es
+\relation{scheinbar}"=Relation. Der Key von \emph{scheinbar einfache} wäre \relation{einfach}. Wenn diese Relation vom Typ \type{scopal-reln} ist, dann handelt es
 sich um eine skopale Modifikation und wenn nicht, dann um eine intersektive. Das würde auch gleich
 ein weiteres Problem lösen, nämlich dass \type{intersective-phrase} mit allen Phrasen kompatibel
 ist, denn alle \ltop{}s sind immer identifizierbar. Auch bei skopalen Modifikatoren wäre es
@@ -2772,8 +2844,8 @@ einer solchen Zerlegung kann man dann die verschiedenen Bezüge von \emph{wieder
 einen Lesart bezieht sich \emph{wieder} auf CAUSE und in der anderen auf \relation{offen}. Wenn man davon
 ausgeht, dass \emph{öffnen} die Bedeutung in (\mex{0}) hat, muss man aber trotzdem noch erklären,
 wie ein Adverb Bestandteile einer Wortbedeutung modifizieren kann, \dash wie sich \emph{wieder} auf
-\relation{offen} beziehen kann. \Citet[\page 93]{Stechow96a} hat deshalb die Analyse in
-Abbildung~\vref{Abbildung-wieder-oeffnen-Stechow} entwickelt.
+\relation{offen} beziehen kann. \Citet{Stechow96a} hat deshalb die Analyse in
+Abbildung~\vref{Abbildung-wieder-oeffnen-Stechow} entwickelt (siehe S.\,93 und Abschnitt~3).
 \begin{figure}
 \centering
 \begin{forest}
@@ -2803,11 +2875,11 @@ no word baseline
 			[T]]
 		[AgrS]]]
 \end{forest}
-\caption{\label{Abbildung-wieder-oeffnen-Stechow}Decomposition in syntactic structures}
+\caption{\label{Abbildung-wieder-oeffnen-Stechow}Dekomposition in der syntaktischen Struktur nach \citet{Stechow96a}}
 \end{figure}%
 AgrS\is{Kategorie!funktionale!AgrS} und AgrO\is{Kategorie!funktionale!AgrO} sind dabei funktionale
 Köpfe, die für Subjekt- und Objektkongruenz\is{Kongruenz!Objekt-} in Sprachen wie Baskisch\il{Baskisch} vorgeschlagen und auch ins Deutsche
-übernommen wurden (siehe \citealt[Kapitel~3]{MuellerGT-Eng5}). Nominalphrasen 
+übernommen wurden \parencites[siehe][Abschnitt~4.6.1.1]{MuellerGT-Eng5}[Abschnitt~4.10.2]{MuellerGermanic}. Nominalphrasen 
 müssen aus der VoiceP\is{Kategorie!funktionale!Voice} in die Spezifikatorpositionen dieser Köpfe bewegt werden, um Kasus zu
 erhalten. T\is{Kategorie!funktionale!T} steht für Tense und entspricht der Kategorie Infl aus
 früheren Arbeiten im Rahmen der \gbt \citep[\page 3]{Chomsky86b}. Wichtig ist der
@@ -2815,7 +2887,15 @@ Voice"=Kopf und die separate Repräsentation von \emph{offen} als Kopf einer eig
 Phrase. In der Abbildung entspricht alles unterhalb von Voice$'$ dem Verb \emph{öffnen}. Durch die
 Annahme eines eigenen Voice"=Kopfes, der die Kausativbedeutung beisteuert, wird es möglich, die
 beiden Lesarten in der Syntax abzuleiten: In der Lesart mit engem Skopus von \emph{wieder} geht das
-Adverb an die XP und hat dann Skopus über offen(x) und in der Lesart mit weitem Skopus geht
+Adverb an die XP\footnote{%
+  XP wird für gewöhnlich als Symbol benutzt, wenn die Kategorie X offen gelassen wird. Zum Beispiel
+  wenn man über allgemeine Schemata spricht, in die verschiedenen Kategorien wie N, A oder P
+  eingesetzt werden können. Siehe Abschnitt~\ref{sec-xbar}. In der Analyse eines konkreten Satzes
+  dürfen allerdings nur Knoten mit Kategorien vorkommen, die in der Grammatik der betreffenden
+  Sprache verwendet werden. Dass in Abbildung~\ref{Abbildung-wieder-oeffnen-Stechow} XP verwendet
+  wird, bedeutet also entweder, dass \citeauthor{Stechow96a} sich auf keine Kategorie festlegen
+  wollte oder dass er wirklich eine Kategorie X annimmt. Beides deutet auf Schwächen in der Analyse hin.
+} und hat dann Skopus über offen(x) und in der Lesart mit weitem Skopus geht
 das Adverb an VoiceP oder eine höhere Phrase und hat dann Skopus über CAUSE(BECOME(offen(x))).
 
 \citet{JB2003a-u} haben darauf hingewiesen, dass diese Analyse vorhersagt, dass es für Sätze wie
@@ -2855,8 +2935,8 @@ Max alle Fenster selbst öffnet, entspricht der Lesart mit weitem Skopus in
 \ex $\forall$x \relationunmarked{fenster}(x) $\to$ CAUSE(\relationunmarked{max}, \relationunmarked{offen}(x))
 \ex CAUSE(\relationunmarked{max}, $\forall$x \relationunmarked{fenster}(x) $\to$ \relationunmarked{offen}(x))
 \zl
-Diese beiden Lesarten kann man unterspezifiziert in einem Dominanzgraphen, wie ihn Abbildung~\ref{Abbildung-Max-alle-Fenster-oeffnete}
-zeigt, repräsentieren.
+Diese beiden Lesarten kann man unterspezifiziert in einem Dominanzgraphen repräsentieren, wie ihn
+Abbildung~\ref{Abbildung-Max-alle-Fenster-oeffnete} zeigt.
 \begin{figure}
 \begin{tikzpicture}[mrs]
 % \draw (-5,10) to[grid with coordinates] (5,-.5);
@@ -2922,11 +3002,12 @@ Lexikoneintrag für \stem{öffn}:\\
           rels & \liste{ \ms[cause]{
                          lbl  & \ibox{3}\\
                          arg0 & \ibox{4}\\
-                         arg1 & \ibox{5} },
+                         arg1 & \ibox{1}\\
+                         arg2 & \ibox{5} },
                          \ms[offen]{ 
                           lbl  & \ibox{6}\\
                           arg0 & event\\
-                          arg1 & \ibox{1} 
+                          arg1 & \ibox{2} 
                           } } }\\
           hcons & \liste{ \ms[qeq]{
                           harg & \ibox{5}\\
@@ -3052,7 +3133,6 @@ stehen. Dafür habe ich 2008 eine Analyse implementiert, die sich die Kodierung 
 macht, die in Abschnitt~\ref{sec-realized} vorgestellt wird. Im Zusammenhang mit Kasusvergabe hat
 \citet{Meurers99b} sogenannte Spirits eingeführt. Damit wird es möglich, den Kasus für \emph{diesen
   Roman} in Abhängigkeit vom finiten Verb zu vergeben.
-vom 
 \eal
 \ex Diesen Roman vorgelesen hat Max gestern.
 \ex Dieser Roman vorgelesen wird nur selten.
@@ -3085,11 +3165,10 @@ Lexikoneintrag für \emph{wieder}:\\
 \avm{
 [ cat & [ head & [\type{adv}\\
                   mod & [ cat &  [ head  & verb\\
-                                   comps & \ibox{1} ]]\\
+                                   comps & \ibox{1} ]\\
                           cont & [ ltop & \ibox{2}\\
-                                   ind  & \ibox{3} ]]\\
-          spr  & <>\\
-          comps & <> ]\\
+                                   ind  & \ibox{3} ]]]\\
+          arg-st & <> ]\\
   cont & [ ltop & \ibox{4}\\
            ind  & \ibox{3}\\        
            rels & < [\type{wieder}\\
@@ -3097,23 +3176,66 @@ Lexikoneintrag für \emph{wieder}:\\
                      arg1 & \ibox{5}] >\\
            hcons & < [\type{qeq}\\
                       harg & \ibox{5}\\
-                      larg & \ibox{2} ] > \+ \texttt{outscope-realized(\ibox{1})} ] ]
+                      larg & \ibox{2} ] > \+ \texttt{outscope-realized}\upshape!(!\ibox{4},
+                      \ibox{5}, \ibox{1}!)! ] ]
 }
 \zs
-\itdopt{Runde Klammern sind zu groß.}
-\emph{wieder} modifiziert ein Verb mit einer \compsl \ibox{1}. \emph{wieder} ist ein Adverb, braucht
-also weder eine Spezifikator noch ein Komplement. Der \ltopw von \emph{wieder} ist identisch mit dem
+\emph{wieder} modifiziert ein Verb mit einer \compsl \ibox{1}. \emph{wieder} ist ein Adverb, hat
+also eine leere \argstl. Der \ltopw von \emph{wieder} ist identisch mit dem
 Label der \relation{wieder}"=Relation. \emph{wieder} hat ein \argone, das das modifizierte Verb im
 Skopus hat: \ibox{5} \qeq \ibox{2}. Zusätzlich wird an die Liste der Handle"=Constraints eine Liste
 angehängt, die das Ergebnis der Anwendung von \emph{outscope-realized} ist. \emph{outscope-realized} wird auf die
 \compsl des modifizierten Verbs angewendet \iboxb{1}. Für alle bereits realisierten Quantoren gibt
-es eine \qeq-Beschränkung, die auf der linken Seite das Handle von \emph{wieder} \iboxb{5} hat und
-auf der rechten Seite das Handle des Quantors des jeweiligen Arguments des modifizierten Verbs. Für
+es eine \qeq-Beschränkung, die auf der linken Seite das Argument von \emph{wieder} \iboxb{5} hat
+und auf der rechten Seite das Handle des Quantors des jeweiligen Arguments des modifizierten Verbs (\,\ibox{5} \qeq l1). Für
 die nicht realisierten Argumente des modifizierten Verbs wird eine Beschränkung in \hcons
 aufgenommen, die besagt, dass der Quantor des noch nicht realisierten Arguments \emph{wieder}, also
-\ibox{4} dominiert.
-\itdopt{
-Constraint angeben}
+\ibox{4}, dominiert (l2 \qeq \ibox{4}\,).\todostefan{Constraint angeben?}
+% scopal_modifier :=
+%  (@modifier,
+%   @arg0_le,
+%   synsem:loc:(cat:head:(mod:loc:(cat:comps:Subcat,
+%                                  cont:ltop:LTop),
+%                         scopal:plus),
+%               cont:ltop:Label),
+%   rels:hd:(lbl:Label,
+%            arg3:Handle2),
+%   h_cons:[(qeq,
+%            harg:Handle2,
+%            larg:LTop)|outscope_realized(Label,Handle2,Subcat)]).
+% outscope_realized(Label,Handle,Subcat,ScopeConstraints) if 
+%    when( (Subcat=(e_list;ne_list);
+%           ScopeConstraints=(e_list;ne_list)) 
+%        , undelayed_outscope_realized(Label,Handle,Subcat,ScopeConstraints)
+%        ).
+%
+% % The other scope constraints cause the MRSes to be graphs that are not normal.
+% % This is a problem for utool.
+% undelayed_outscope_realized(_Label,_Handle,_,[]) if true,!. % no scope constraints for debugging
+%
+% undelayed_outscope_realized(_Label,_Handle,[],[]) if true.
+%
+% % Arguments that are realized are outscoped by a scopal adjunct to their left.
+% % The argument Handle is above the quantifier handle.
+% undelayed_outscope_realized(Label,Handle,[(realized:plus,
+%                                      arg:loc:cont:quant:lbl:QH
+%                                     )|Subcat],[(qeq,
+%                                                 harg:Handle,
+%                                                 larg:QH)|ScopeConstraints]) if
+%     outscope_realized(Label,Handle,Subcat,ScopeConstraints).
+%
+% % Arguments that are not realized yet outscope the scopal adjunct to their reight.
+% % The handle for the quantifier body is above the lable of the adjunct.
+% undelayed_outscope_realized(Label,Handle,[(realized:minus,
+%                                            arg:loc:cont:quant:lbl:QH % body:QH
+%                                            % This is a hack that was suggested to me by Stefan Thater 26.02.2009
+%                                            % If we refer to the body, the resulting dominance graph is not a net.
+%                                            % St. Mü. 01.03.2009
+%                                           )|Subcat],[(qeq,
+%                                                       harg:QH,
+%                                                       larg:Label)|ScopeConstraints]) if
+%     outscope_realized(Label,Handle,Subcat,ScopeConstraints).
+%
 %
 % Wie ist das mit dem \argzero von \emph{wieder}? Hat es eins? In ERG gibt es ein event:
 %   \ibox{3}. Allerdings gibt es auch bei apparently eins.
@@ -3132,9 +3254,7 @@ von \emph{öffnen} vorgenommen, die dekomponierte Bedeutung ist aber einem einzi
 Unterspezifikation der Skopusverhältnisse im Lexikon lassen sich dann die entsprechenden Lesarten
 ableiten.
 
-\subsection{Inkrementelle Verarbeitung}
-
-\itdopt{add something or delete}
+\LATER{\subsection{Inkrementelle Verarbeitung}}
 
 
 
@@ -3231,7 +3351,7 @@ hier statt (\ref{le-Possessivpronomen}) folgenden Lexikoneintrag vorstellen:
            } \\
 }
 \zs
-Das Problem besteht nun darin, dass die Repräsentation für \emph{ihr Buch},
+Das Problem besteht nun darin, dass die Repräsentation für \emph{ihren Kater},
 die mit (\mex{0}) gebildet werden kann, die falsche Index"=Information hat, denn das Semantikprinzip
 sorgt dafür, dass der semantische Beitrag in einer Kopf"=Komplement"=Struktur vom Kopf kommt. In der
 DP"=Analyse ist der Determinator der Kopf und steuert somit den semantischen Hauptbeitrag bei. Man
@@ -3272,7 +3392,7 @@ würde also eine Struktur bekommen, die durch (\mex{1}) beschrieben wird:
 }
 \zs
 Der Index dieser DP entspricht dem Possessivpronomen, nicht aber dem Nomen.
-Das Nomen ist aber das Element, das eine semantische Rolle eines Verbs füllen kann.
+Das Nomen ist jedoch das Element, das eine semantische Rolle eines Verbs füllen kann.
 Würde man mit dem Eintrag in (\mex{-1}) den Satz in (\mex{1}) analysieren,
 bekäme man eine falsche Repräsentation, in der \emph{friert} über \emph{ihren}
 prädiziert. Die semantische Repräsentation wäre dann (\mex{1}c) statt (\mex{1}b):
@@ -3328,7 +3448,7 @@ repräsentiert:
 \noindent
 Dieser Vorschlag funktioniert aber auch nicht, da die Information über das Possessivpronomen
 für die Bindungstheorie\is{Bindungstheorie|(} gebraucht wird. Zur Bindungstheorie siehe
-\citew[Kapitel~6]{ps2} und \citew{MuellerBinding}. Man könnte vorschlagen, die Bindungstheorie auf semantischen Repräsentationen
+\citew[Kapitel~6]{ps2}, \citew{Branco2021a} und \citew{MuellerBinding}. Man könnte vorschlagen, die Bindungstheorie auf semantischen Repräsentationen
 operieren zu lassen, aber das funktioniert nicht, da man auch die Bindung von Reflexivpronomen
 im Zusammenhang mit inhärent reflexiven Verben\is{Verb!inhärent reflexives} erklären will:
 Das Reflexivum\is{Pronomen!Reflexiv-} muss in Sätzen wie (\mex{1}) immer mit dem Subjekt in Person\is{Person} und Numerus\is{Numerus} übereinstimmen.
@@ -3343,13 +3463,20 @@ Eine Bindungstheorie muss also auf syntaktischen Strukturen bzw.\ mit Bezug auf 
 operieren. Somit muss die Information über den Index des Possessivums außerhalb der Relationen
 in \textsc{rels} verfügbar sein.\is{Bindungstheorie|)} 
 Eine Analyse mit Possessivum als Kopf scheidet also aus. Damit bleiben
-nur zwei Möglichkeiten: die NP"=Analyse und eine Analyse, die einen leeren Determinator\is{leere Kategorie} als Kopf
+nur zwei Möglichkeiten: die NP"=Analyse (Abbildung~\ref{Abbildung-DP-Possessivum} links) und eine Analyse, die einen leeren Determinator\is{leere Kategorie} als Kopf
 nimmt, der dann mit Possessivum und NP verbunden wird \citep[\page 50, \page 53]{Abney87a}. Diese
-Analyse ist in Abbildung~\ref{Abbildung-DP-Possessivum} dargestellt. Die Kategorie von \emph{ihre}
+Analyse ist in Abbildung~\ref{Abbildung-DP-Possessivum} rechts dargestellt. Die Kategorie von \emph{ihren}
 wäre in solch einer Analyse unklar. Die entsprechend flektierten Possessivpronomina können nur an
 der Stelle vor dem Nomen und vor den Adjektiven auftreten, sind aber selbst nicht äquivalent zu DPen
-wie \emph{ihren Kater}. Die Flexion entspricht jedoch klar der Flexion des Artikels
-\emph{ein}. Würde man \emph{ihren} die Kategorie Possessivum geben oder irgendeine andere Kategorie,
+wie \emph{ihren Kater}. 
+\eal
+\ex[]{Ihr Kater schnurrt.
+}
+\ex[*]{
+Ihr schnurrt.
+}
+\zl
+Die Flexion entspricht jedoch klar der Flexion des Artikels \emph{ein}. Würde man \emph{ihren} die Kategorie Possessivum geben oder irgendeine andere Kategorie,
 wäre die Parallelität zum Artikel nicht erfasst.
 % seine eine
 % ihr ein
@@ -3364,7 +3491,7 @@ wäre die Parallelität zum Artikel nicht erfasst.
 sm edges
 [NP
   [Det [ihren]]
-  [NP [Kater]]]
+  [N [Kater]]]
 \end{forest}
 \hfill
 \begin{forest}
@@ -3412,7 +3539,7 @@ Determinator eine semantische Rolle füllt:
 \ex Connys Bruder
 \ex Connys Zerstörung der Stadt
 \zl
-Für beide Beispiele gibt es eine Lesart, in der Peter ein semantisches Argument des Nomens ist. Wäre
+Für beide Beispiele gibt es eine Lesart, in der \emph{Conny} ein semantisches Argument des Nomens ist. Wäre
 \emph{Connys} kein syntaktisches Argument der jeweiligen Nomina, wäre unklar, wie das Linking
 innerhalb der Lexikoneinträge für \emph{Bruder} bzw.\ \emph{Zerstörung} vorgenommen werden
 könnte. In einer NP"=Analyse kann man dagegen das Linking im Lexikon vornehmen, da der Determinator
@@ -3430,8 +3557,10 @@ Determinator über eine Lexikonregel abgebunden wird.
 \ex Conny mag Kinder.
 \zl
 Für Stoffnomina und Nomina im  Plural nimmt sie an, dass diese eine leere \sprl haben, also keinen
-Determinator selegieren (zum \sprm siehe Kapitel~\ref{sec-spr}). Der semantische Beitrag des
-Determinators wird bereits im Lexikon in die semantische Repräsentation des Nomens (in die \textsc{frames}"=Liste) aufgenommen. Folgende Repräsentation zeigt, wie Stoffnomina behandelt werden:\is{Skopus|(}
+Determinator selegieren (zum \sprm siehe Abschnitt~\ref{Abschnitt-SPR-Merkmal}). Der semantische Beitrag des
+Determinators wird bereits im Lexikon in die semantische Repräsentation des Nomens (in die
+\textsc{frames}"=Liste) aufgenommen. Folgende Repräsentation zeigt, wie Stoffnomina ihrer Meinung
+nach behandelt werden sollten:\is{Skopus|(}
 \ea
 Schematischer Eintrag für Stoffnomina nach \citet[\page 80]{Michaelis2006a}:\\
 \ms{
@@ -3464,7 +3593,10 @@ den Beitrag des Nomens, was man an der Strukturteilung \iboxt{1} sehen kann.
 %% Skopus von skopustragenden Adjektiven. Das erste Problem soll anhand der Beispiele in (\mex{1})
 %% erläutert werden, auf die bereits \citet[\page 319]{Netter94} hingewiesen hat:
 Diese Analyse hat ein Problem mit der Modifikation von Stoffnomina bzw.\ von Nomina im Plural durch
-Adjektive, das anhand der Beispiele in (\mex{1}) erläutert werden soll, auf die bereits \citet[\page 319]{Netter94} hingewiesen hat:
+Adjektive, das anhand der Beispiele in (\mex{1}) erläutert werden soll, auf die bereits \citet[\page
+319]{Netter94} hingewiesen hat:\footnote{
+  Siehe auch \citew[Problem 2, 265--266]{SWB2003a}.
+}
 \eal
 \ex[]{
 der gute Wein
@@ -3531,7 +3663,7 @@ sm edges
 \hfill\mbox{}
 
 \caption{\label{Abb-NP-Analysen}Analysemöglichkeiten für determinatorlose Nominalphrasen: leerer
-  Determinator, unäre Projektion, Lexikonregel}
+  Determinator, unäre Projektion, Lexikonregel. Der Lexikonregelansatz macht falsche Vorhersagen.}
 \end{figure}
 Die beiden ersten Analysen sind formale Varianten voneinander und machen in bezug auf die
 Modifikation durch Adjektive dieselben Vorhersagen. Allerdings ist ein Vorteil der ersten Analyse,
@@ -3636,13 +3768,13 @@ Die Interpretation semantischer Repräsentationen konnten hier nur knapp angeris
 werden. \citet{Lohnstein2011a} gibt eine ausführlichere Einführung in Aussagenlogik, Prädikatenlogik
 und die Interpretation entsprechender Ausdrücke.
 
-\citet{KR2024a} geben einen Überblick über Semantik im Rahmen der HPSG. \citet{HPSGHandbookLinking}
+\citet{KR2024a} geben einen Überblick über Semantik im Rahmen der HPSG. \citet*{HPSGHandbookLinking}
 beschäftigen sich mit Argumentstruktur und Linking.
 
 Der Artikel von
-\citet{CFPS2005a} stellt MRS vor. Ich kann mich erinnern, dass ich in den 90ern diesen Artikel nicht
+\citet*{CFPS2005a} stellt MRS vor. Ich kann mich erinnern, dass ich in den 90ern diesen Artikel nicht
 verstehen konnte, obwohl ich an einer Grammatik gearbeitet habe, die eine MRS enthielt. Ich habe
-damals gemeinsam mit Walter Kasper an der deutschen \Verbmobil-Grammatik gearbeitet. Das Buch von
+damals gemeinsam mit Walter Kasper die deutsche \Verbmobil-Grammatik entwickelt \citep{MK2000a}. Das Buch von
 \citet{BB2005a} hat mir sehr dabei geholfen, die Grundidee von Semantikframeworks mit
 Unterspezifikation zu verstehen. Das Buch kommt mit einer Prolog"=Implementation der entsprechenden
 Grammatikfragmente, so dass man Dinge selbst ausprobieren kann. Ich hoffe, dass das hier vorliegende
