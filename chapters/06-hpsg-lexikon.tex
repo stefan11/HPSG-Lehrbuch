@@ -1067,7 +1067,7 @@ nicht gibt.\footnote{
 Es reicht also aus, Listen zu verwenden.
 
 Listen kann man bei Verwendung normaler Unifikation nicht verkürzen oder verlängern.\footnote{%
-Siehe \citet[104]{Copestake2002a} zur Kodierung von Differenzlisten mittels
+Siehe \citet[104]{Copestake2002a} und auch S.\,\pageref{page-difflists} des vorliegenden Buches zur Kodierung von Differenzlisten\is{Liste!Differenz-} mittels
 Merkmal"=Wert"=Paaren. Differenzlisten kann man verlängern. Der Trick besteht darin, dass
 Differenzlisten kein festgelegtes Ende haben und man nur einen Zeiger auf die Stelle verwendet, an
 der die Liste zu Ende sein soll. Bei der Verknüpfung von Listen kann man einen neuen Zeiger auf ein
@@ -2303,7 +2303,7 @@ cat & \ms{ head   & \ms[adj]{
            arg-st & \nliste{ NP\ind{1} }\\
          }\\
 cont & \ms{ ltop & \ibox{2}\\
-            ind  & \ibox{3} property\\
+            ind  & \ibox{3} property\\[1mm]
             rels & \liste{ \ms[reif]{
                            lbl  & \ibox{2}\\
                            arg0 & \ibox{3}\\
@@ -2320,7 +2320,7 @@ cat & \ms{ head   & \ms[adj]{
                     mod & \nbar\ind{1} }\\
            arg-st & \nliste{ NP\ind{1} } }\\
 cont & \ms{ ltop & \ibox{2}\\
-            ind  & \ibox{3} property\\
+            ind  & \ibox{3} property\\[1mm]
             rels & \liste{ \ms[reif]{
                            lbl  & \ibox{2}\\
                            arg0 & \ibox{3}\\
@@ -2338,7 +2338,6 @@ Regel für alle Adjektivstämme funktioniert, also \zb auch für \stem{groß}/""
 der auf seinen Sohn stolze Mann
 \z
 Sollte das nicht der Fall sein, formulieren Sie Ihre Regel um.
-\itdopt{Aufgaben anpassen.}
 
 \item Laden Sie die zu diesem Kapitel gehörende Grammatik 
 (siehe Übung~\ref{uebung-grammix-kapitel4} auf S.\,\pageref{uebung-grammix-kapitel4}).
@@ -2348,9 +2347,9 @@ Gehen Sie zum  Unterpunkt \texttt{Draw|""Hierarchy}.
 In der Statusleiste unten im Fenster erscheint der Text: \emph{Enter type to display [bot]:}.
 Geben Sie dort \emph{word} bzw.\ \emph{phrase} ein, um sich die Typhierarchie unter
 \type{word} bzw.\ \type{phrase} anzusehen. Die Beschränkungen, die zu den Typen gehören, finden
-Sie in der Datei \texttt{le\_macros.pl}, die Sie über das Menü \texttt{File|Open File} öffnen können.
+Sie in den Dateien \texttt{le\_macros.pl} und \texttt{syntax.pl}, die Sie über das Menü \texttt{File|Open File} öffnen können.
 Die genaue Syntax der Typbeschränkungen ist im Trale"= bzw.\ ALE"=Manual beschrieben.\footnote{
-\url{http://www.ale.cs.toronto.edu/docs/}. 24.05.2024.%
+\url{http://www.ale.cs.toronto.edu/docs/}. 06.03.2026.%
 }
 \end{enumerate}
 }
@@ -2365,8 +2364,8 @@ Zu Lexikonregeln in den verschiedenen Grammatikframeworks siehe \citew{Jackendof
 \citew{Meurers2001a}. Meurers geht auch auf den formalen Hintergrund der Lexikonregeln ein.
 
 Im HPSG-Handbuch gibt es zwei Kapitel zum Lexikon: \citew{DavisKoenig2024a} und \citew*{DKW2024a}. Im
-ersten Kapitel geht es um die Struktur des Lexikons, um all die Dinge, die auch in diesem Kapitel
-besprochen wurden: Vererbung, Lexikonregeln, Defaults. Im zweiten Kapitel geht es um die Verbindung
+ersten Aufsatz geht es um die Struktur des Lexikons, um all die Dinge, die auch in diesem Kapitel
+besprochen wurden: Vererbung, Lexikonregeln, Defaults. Im zweiten Aufsatz geht es um die Verbindung
 der Argumentstrukturliste zur Semantik und Lexikonregeln werden noch einmal im Zusammenhang mit
 Passivierung diskutiert.
 }
