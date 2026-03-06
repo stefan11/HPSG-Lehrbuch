@@ -1888,8 +1888,8 @@ Die Punkte stehen für den Pfad \textsc{synsem|loc}.
 \stem{schein} (Subjektanhebungsverb, obligatorisch kohärent\is{Kohärenz|(}):\\
 \ms{
 \ldots & \ms{ cat & \ms{% head   & verb \\ 
-                    arg-st & \ibox{1} $\oplus$ \ibox{2} $\oplus$ \sliste{ \textrm{V[\type{inf},
-                    \textsc{lex}+, \textsc{subj}~\ibox{1}, \textsc{comps}~\ibox{2}, \ltop \ibox{3} ]} } }\\
+                    arg-st & \ibox{1} $\oplus$ \ibox{2} $\oplus$ \nliste{ V[\type{inf},
+                    \textsc{lex}+, \textsc{subj}~\ibox{1}, \textsc{comps}~\ibox{2}, \ltop \ibox{3} ] } }\\
               cont & \ms{
                      ind  & \ibox{4} event\\
                      ltop & \ibox{5} } }\\
@@ -2063,8 +2063,8 @@ in vielen Punkten gleicht.\footnote{\label{fn-phase-verbs-control}%
 \stem{beginn} (Phasenverb, optional kohärent):\\
 \ms{
 \ldots & \ms{ cat & \ms{% head   & verb \\
-           arg-st & \ibox{1} $\oplus$ \ibox{2} $\oplus$ \sliste{ \textrm{V[\type{inf},
-               \textsc{subj}~\ibox{1}, \textsc{comps}~\ibox{2}, \ltop \ibox{3} ]} } }\\
+           arg-st & \ibox{1} $\oplus$ \ibox{2} $\oplus$ \nliste{ V[\type{inf},
+               \textsc{subj}~\ibox{1}, \textsc{comps}~\ibox{2}, \ltop \ibox{3} ] } }\\
 cont & \ms{
           ind  & \ibox{4} event\\
           ltop & \ibox{5} } }\\
@@ -2144,8 +2144,8 @@ nicht.
 %\resizebox{\linewidth}{!}{%
 \ms{
 \ldots & \ms{ cat & \ms{ arg-st & \begin{tabular}[t]{@{}l@{}}
-                                  \sliste{ NP[\type{str}]\ind{1}  } $\oplus$ \ibox{2} $\oplus$ \\
-                                  \nliste{ \textrm{V[}\type{inf}, \textsc{subj} \sliste{NP[\type{str}]\ind{1}}, \textsc{comps}~\ibox{2}, \ltop \ibox{3}]  }
+                                  \nliste{ NP[\type{str}]\ind{1}  } $\oplus$ \ibox{2} $\oplus$ \\
+                                  \nliste{ V[}\type{inf}, \textsc{subj} \sliste{NP[\type{str}]\ind{1}}, \textsc{comps}~\ibox{2}, \ltop \ibox{3}]
                                   \end{tabular}}\\
               cont & \ms{ ind  & \ibox{4} event\\
                         ltop & \ibox{5} } }\\ 
@@ -2221,8 +2221,9 @@ Der Lexikoneintrag in (\mex{1}) zeigt den \localw für das \aciv \emph{sehen}:\f
 \label{le-sehen}%
 \stem{seh} (AcI-Verb, obligatorisch kohärent\is{Kohärenz|(}):\\
 \ms{ \ldots & \ms{ cat & \ms{ arg-st & \begin{tabular}[t]{@{}l@{}}
-                                     \sliste{ NP[\type{str}]\ind{1} } $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$\\
-                                     \sliste{ \textrm{V[}\type{bse}, \textsc{lex}+, \textsc{subj}~\ibox{2}, \textsc{comps}~\ibox{3}, \ltop \ibox{4}] }
+                                     \nliste{ NP[\type{str}]\ind{1} } $\oplus$ \ibox{2} $\oplus$ \ibox{3} $\oplus$\\
+                                     \nliste{ V[\type{bse}, \textsc{lex}+, \textsc{subj}~\ibox{2},
+                                         \textsc{comps}~\ibox{3}, \ltop \ibox{4}] }
                                      \end{tabular}}\\[2mm]
                    cont & \ms{ ind  & \ibox{5} event\\
                                ltop & \ibox{6}\\
@@ -2293,9 +2294,9 @@ sieht, das nicht wirklich da ist:
 \ms{
 \ldots & \ms{ cat & \ms{% head   & verb \\
            arg-st & \begin{tabular}[t]{@{}l@{}}
-                    \sliste{ NP[\str]\ind{1}, NP[\type{ldat}]\ind{2} } $\oplus$ \ibox{3} $\oplus$\\
-                    \sliste{ \textrm{V[\type{inf}, \textsc{subj}~\sliste{NP[\type{str}]\ind{2}},
-                      \textsc{comps}~\ibox{3}, \ltop \ibox{4}]}}\\
+                    \nliste{ NP[\str]\ind{1}, NP[\type{ldat}]\ind{2} } $\oplus$ \ibox{3} $\oplus$\\
+                    \nliste{ V[\type{inf}, \textsc{subj}~\sliste{NP[\type{str}]\ind{2}},
+                      \textsc{comps}~\ibox{3}, \ltop \ibox{4}]}
                     \end{tabular}
 % \begin{tabular}{@{}l@{}l}
 %                             \textrm{V[}&\textrm{\type{inf}, \textsc{lex}+, \textsc{subj}~\sliste{NP[\type{str}]\ind{2}},}\\
@@ -2392,7 +2393,7 @@ HPSG"=Notation, ergibt sich folgendes:
 AcI"=Verb nach \citet[\page 1425]{Zifonun97c} übertragen in HPSG-Format:\\
 \ms{ head   & verb \\
            comps & \begin{tabular}{@{}l@{}}
-                    \sliste{ NP[\type{nom}], NP[\type{acc}]\ind{1} } $\oplus$ \sliste{ \textrm{ VP[\type{bse}, \textsc{subj}~\sliste{ NP[\type{nom}]\ind{1}}]}}\\
+                    \nliste{ NP[\type{nom}], NP[\type{acc}]\ind{1} } $\oplus$ \nliste{ VP[\type{bse}, \textsc{subj}~\sliste{ NP[\type{nom}]\ind{1}}]}\\
                     \end{tabular}
 % \begin{tabular}{@{}l@{}l}
 %                             \textrm{V[}&\textrm{\type{inf}, \textsc{lex}+, \textsc{subj}~\sliste{NP[\type{str}]\ind{2}},}\\

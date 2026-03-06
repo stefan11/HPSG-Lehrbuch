@@ -2650,10 +2650,10 @@ werden Dativ"=Passive von unakkusativischen Verben von der Grammatik nicht zugel
 \label{le-bekommen-passive-da}%
 \mbox{\emph{bekomm-} (Dativpassivhilfsverb):} \\
 \ms{
- head$|$da & \sliste{ } \\[2mm]
- arg-st    & \sliste{ NP[\str]\ind{1}} $\oplus$ \ibox{2} $\oplus$ \liste{ \begin{tabular}{@{}l@{}l@{}}
-                  \textrm{V[}&\textrm{\type{ppp}, \textsc{lex}+, \textsc{da}~\nliste{ NP\sub{\type{ref}} },}\\[1mm]
-                          &\textrm{\textsc{comps}~\sliste{ NP[\type{ldat}]\ind{1}} $\oplus$ \ibox{2}]} \\
+ head$|$da & \eliste \\[2mm]
+ arg-st    & \nliste{ NP[\str]\ind{1}} $\oplus$ \ibox{2} $\oplus$ \liste{ \begin{tabular}{@{}l@{}l@{}}
+                  V[&\type{ppp}, \textsc{lex}+, \textsc{da}~\nliste{ NP\sub{\type{ref}} },\\[1mm]
+                          &\comps~\nliste{ NP[\type{ldat}]\ind{1}} $\oplus$ \ibox{2}] \\
                   \end{tabular}}\\
 }\iw{bekommen!passive|uu}
 \zs
@@ -3048,8 +3048,7 @@ Für \emph{versuchen} nehme ich den folgenden Lexikoneintrag an:\footnote{
 \stem{versuch}:\\
 \ms{
 head$|$da & \rule{0cm}{3ex}\sliste{ \ibox{1} }\\[2mm]
-arg-st    & \sliste{ \ibox{1} NP[\str]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \sliste{ \textrm{V[}%
-\type{inf}, \textsc{subj} \sliste{ NP[\str]\ind{2}}, \comps \ibox{3}]}\\[2mm]
+arg-st    & \nliste{ \ibox{1} NP[\str]\ind{2} } $\oplus$ \ibox{3} $\oplus$ \nliste{ V[\type{inf}, \textsc{subj} \sliste{ NP[\str]\ind{2}}, \comps \ibox{3}]}\\[2mm]
 }
 \zs
 
@@ -3060,7 +3059,7 @@ Die Argumentblockierungsregel in (\ref{lr-da-reduction}) lizenziert den Lexikone
 \emph{versucht} (Partizip):\\
 \ms{
 head$|$da & \rule{0cm}{3ex}\sliste{ NP[\str]\ind{2} }\\[2mm]
-arg-st    & \ibox{3} $\oplus$ \sliste{ V[\type{inf}, \textsc{subj} \sliste{ NP[\str]\ind{2}}, \comps \ibox{3}] }\\[2mm]
+arg-st    & \ibox{3} $\oplus$ \nliste{ V[\type{inf}, \textsc{subj} \sliste{ NP[\str]\ind{2}}, \comps \ibox{3}] }\\[2mm]
 }
 \zs
 
@@ -4340,9 +4339,9 @@ Das Hilfsverb zieht den Wert von \HPSGerg \iboxb{1} von der \compsl des eingebet
                      erg  & \ibox{1} \\ 
                    } \\
  comps & \ibox{2} $\oplus$ \liste{ \begin{tabular}{@{}l@{}l@{}}
-                  \textrm{V[}&\textrm{\type{ppp}, %\textsc{flip}$-$, 
+                  V[&\textrm{\type{ppp}, %\textsc{flip}$-$, 
                                 \textsc{lex}+, \textsc{subj}~\liste{ NP[\type{str}]\sub{\type{ref}} }, \textsc{erg}~\ibox{1},}
-                          \textrm{\textsc{comps}~\ibox{1} $\oplus$ \ibox{2}]}\\
+                          \comps~\ibox{1} $\oplus$ \ibox{2}]\\
                  \end{tabular}}\\[4mm]
 }\iw{werden!passive|uu}
 \zs
