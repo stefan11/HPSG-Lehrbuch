@@ -147,7 +147,7 @@ Das folgende Schema, das eine Abwandlung des von \citeauthor{HN94a} vorgeschlage
 \end{schema}
 \end{samepage}
 %
-Dieses Schema entspricht dem Kopf"=Argument"=Schema, das wir bis zum Kapitel~\ref{Kapitel-Konstituentenreihenfolge}
+Dieses Schema entspricht dem Kopf"=Komplement"=Schema, das wir bis zum Kapitel~\ref{Kapitel-Konstituentenreihenfolge}
 benutzt haben, bzw.\ der angepassten Version auf S.\,\pageref{schema-head-arg}.
 Im Kapitel~\ref{Kapitel-Konstituentenreihenfolge} wurde das \emph{append} ($\oplus$) durch zwei appends
 ersetzt, um die relativ freie Anordnung von Konstituenten im Mittelfeld erklären zu können.
@@ -158,7 +158,7 @@ immer mit dem letzten Argument begonnen.\footnote{%
   (\ref{ex-uf}) und (\ref{ex-of}). Aber auch bei der Analyse von (\ref{ex-uf}) und (\ref{ex-of})
   wird immer das letzte Argument der \compsl mit dem regierenden Kopf kombiniert.
 } Deshalb wird im Prädikatskomplexschema nur ein \emph{append} 
-verwendet. Das Kopf"=Argument"=Schema wird auf S.\,\pageref{schema-bin} noch so revidiert,
+verwendet. Das Kopf"=Komplement"=Schema wird auf S.\,\pageref{schema-bin} noch so revidiert,
 dass es korrekt mit dem Schema~\ref{schema-vk} und den entsprechenden Lexikoneinträgen für komplexbildende
 Verben interagiert.
 
@@ -268,7 +268,7 @@ Ohne eine solche Spezifikation wären alle drei Strukturen in (\mex{1}) möglich
 \zl
 Die Spezifikation des \lexwes von \emph{erzählen} stellt sicher, dass \emph{erzählen} mit \emph{wird} kombiniert wird,
 bevor \emph{erzählen} mit seinen Argumenten kombiniert wird. Da der Mutterknoten in
-Kopf"=Argument"=Strukturen als \textsc{lex}$-$ spezifiziert ist (in anderen Strukturen übrigens auch), 
+Kopf"=Komplement"=Strukturen als \textsc{lex}$-$ spezifiziert ist (in anderen Strukturen übrigens auch), 
 %(siehe Schema~\ref{schema-bin} auf S.\,\pageref{schema-bin}), 
 können die Projektionen
 von \emph{erzählen} in (\mex{0}b--c) nicht mit \emph{wird} kombiniert werden.
@@ -293,7 +293,7 @@ von \emph{erzählen} in (\mex{0}b--c) nicht mit \emph{wird} kombiniert werden.
 % arise.
 % }
 
-Der \textsc{lex}"=Wert der Mutter in Prädikatskomplexstrukturen ist im Unterschied zu Kopf"=Argument"=Strukturen
+Der \textsc{lex}"=Wert der Mutter in Prädikatskomplexstrukturen ist im Unterschied zu Kopf"=Komplement"=Strukturen
 nicht restringiert, da Prädikatskomplexe unter andere Verben eingebettet werden können 
 und mit diesen einen Prädikatskomplex bilden können, wie (\ref{ex-er-geholfen-haben-wird}) zeigt.
 \ea
@@ -407,7 +407,7 @@ dass [das Buch lesen] niemand wird
 }
 \z
 Eine Kombination von \emph{wird} und \emph{das Buch lesen} wird weder durch das Verbalkomplexschema
-noch durch das Kopf"=Argument"=Schema lizenziert, da die Kombination von \emph{das Buch} und \emph{lesen} 
+noch durch das Kopf"=Komplement"=Schema lizenziert, da die Kombination von \emph{das Buch} und \emph{lesen} 
 eine Verbalphrase ergibt, die den \lexw $-$\isfeat{lex} hat, 
 und demzufolge nicht unter \emph{wird} eingebettet werden kann, da \emph{wird} ein Verb mit
 dem \lexw + selegiert.
@@ -428,11 +428,11 @@ wird nicht ausgeschlossen.
 das Buch, das lesen niemand wird
 }
 \z
-Die Sätze in (\mex{-1}) können mit dem Kopf"=Argument"=Schema analysiert werden,
+Die Sätze in (\mex{-1}) können mit dem Kopf"=Komplement"=Schema analysiert werden,
 da dieses eine Kombination der Elemente in der \compsl von \emph{wird} in beliebiger
 Reihenfolge zulässt. Genauso gibt es eine Analyse für (\mex{0}): \emph{lesen} und \emph{niemand}
-werden mit \emph{wird} über das Kopf"=Argument"=Schema kombiniert. Eine Spur nimmt den Platz
-für das Relativpronomen in einer Kopf"=Argument"=Struktur ein, und das Relativsatzschema lizenziert
+werden mit \emph{wird} über das Kopf"=Komplement"=Schema kombiniert. Eine Spur nimmt den Platz
+für das Relativpronomen in einer Kopf"=Komplement"=Struktur ein, und das Relativsatzschema lizenziert
 dann den gesamten Relativsatz:
 \ea[*]{
 das Buch, [\sub{rc} das$_i$ [\sub{h-arg} \_$_i$ [\sub{h-arg} lesen [\sub{h-arg} niemand wird]]]]
@@ -441,18 +441,18 @@ das Buch, [\sub{rc} das$_i$ [\sub{h-arg} \_$_i$ [\sub{h-arg} lesen [\sub{h-arg} 
 Es ist klar, dass einzelne Verben bzw.\ Verbalkomplexe nicht als Argumente in \kasen
 vorkommen sollen. Ein solches Vorkommen kann man dadurch ausschließen, dass man verlangt,
 dass die Argumente immer den \lexw $-$ haben. Schema~\ref{schema-bin} ist
-das entsprechend angepasste Schema.\is{Schema!Kopf"=Argument"=}
+das entsprechend angepasste Schema.\is{Schema!Kopf"=Komplement"=}
 
 \begin{samepage}
-\begin{schema}[Kopf-Argument-Schema (binär verzweigend, vorläufige Version)]
+\begin{schema}[Kopf-Komplement-Schema (binär verzweigend, vorläufige Version)]
 \label{schema-bin}
-\type{head"=argument"=phrase}\istype{head"=argument"=phrase} \impl\\
+\type{head"=complement"=phrase}\istype{head"=complement"=phrase} \impl\\
 \onems{
       synsem$|$loc$|$cat$|$comps \ibox{1} $\oplus$ \ibox{3}\\
 % das gilt für mehrere Schemata
 %                     lex $-$\\
 %                }\\
-      head-dtr$|$cat$|$comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3} \\
+      head-dtr$|$synsem$|$loc$|$cat$|$comps \ibox{1} $\oplus$ \sliste{ \ibox{2} } $\oplus$ \ibox{3} \\
       non-head-dtrs \nliste{ [ \synsem  \ibox{2} [\textsc{lex}  $-$ ] ] }\\
 }
 \end{schema}\isfeat{lex}
@@ -469,7 +469,7 @@ In Fußnote~\ref{fn-lex-intransitiv} wurde schließlich gesagt, dass der \lexw i
 im Lexikon nicht spezifiziert wird, so dass diese an Positionen vorkommen können, an denen Phrasen
 verlangt werden, aber auch innerhalb von Verbalkomplexen. Man könnte nun annehmen, dass das intransitive Verb
 \emph{lachen} in (\mex{0}) als phrasales Argument realisiert werden kann, da der \lexw von \emph{lachen}
-mit den Anforderungen des Kopf"=Argument"=Schemas kompatibel ist. Der Satz in (\mex{0}) wird aber dennoch
+mit den Anforderungen des Kopf"=Komplement"=Schemas kompatibel ist. Der Satz in (\mex{0}) wird aber dennoch
 nicht von der Theorie zugelassen, da das regierende Verb, also \emph{wird}, von seinem verbalen Argument verlangt,
 dass dessen \lexw + ist. Somit kommt es in \kasen zu konfligierenden \lexwen, 
 weshalb der Satz (\mex{0}) auch ausgeschlossen ist.

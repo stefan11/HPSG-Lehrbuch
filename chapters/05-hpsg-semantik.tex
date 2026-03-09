@@ -510,7 +510,7 @@ einzeln verhalten würden.\is{Koordination|)}
 % \cont repräsentiert. Das schließt Information über semantische Relationen zwischen Objekten und
 % Information über Quantoren ein \parencites[Abschnitt~8.2]{ps2}[\page 311]{CFPS2005a}. In MRS werden
 % Relationen, Quantoren und Beschränkungen bzgl.\ Skopus allerdings in Listen behandelt, die einfach
-% verkettet werden. In der Analyse der Verbstellung, die im Kapitel~\ref{Abschnitt-V1} erklärt wird,
+% verkettet werden. In der Analyse der Verbstellung, die im Abschnitt~\ref{Abschnitt-V1} erklärt wird,
 % wird der \contw des vorangestellten Verbs mit dem eines Platzhalterverbs in Endstellung (dem \_$_i$
 % in (\mex{1})) geteilt. Würde diese Information die
 % Relationen beinhalten, würden diese einmal vom vorangestellten Verb und einmal von der Verbspur am
@@ -779,7 +779,7 @@ Linking für ditransitive Verben wie \emph{geben}:\\
 %% die \compsl mit drei Elementen beginnt, deren Index mit Werten von Argumentrollen innerhalb von \cont
 %% identisch ist.
 Der Typ für die Relation \emph{geben} ist Untertyp von \type{arg123-rel}, dem Typ, den alle
-Strukturen mit den Merkmalen \argone, \argtwo und \argthree haben (siehe auch Kapitel~\ref{Abschnitt-Typhierarchien}). 
+Strukturen mit den Merkmalen \argone, \argtwo und \argthree haben (siehe auch Abschnitt~\ref{Abschnitt-Typhierarchien}). 
 Der Lexikoneintrag für das Wort \emph{geben} bzw.\ den Stamm \stem{geb} hat das Linking"=Muster in
 (\mex{0}). 
 %
@@ -902,7 +902,7 @@ cont|rels  \texttt{collect-rels}(\ibox{1})\\
 dtrs  \ibox{1} \\
 }
 \z
-\texttt{collect-rels} geht dabei durch die Liste der Töchter und hängt den jeweiligen \relsw an eine
+\texttt{collect-rels}\isrel{collect-rels} geht dabei durch die Liste der Töchter und hängt den jeweiligen \relsw an eine
 Liste, die dann eine Verkettung aller \relswe und das Ergebnis der relationalen Beschränkung
 \texttt{collect-rels} ist. Formal kann man das wie folgt aufschreiben:\todostefan{Boxen statt Variablennamen?}
 \ea
@@ -1444,7 +1444,7 @@ sm edges
 \end{figure}
 %\itdopt{Lexikoneintrag für schlafen fehlt noch.}
 Wie im Abschnitt~\ref{Abschnitt-Komposition} erklärt, werden die Relationen einfach durch Listenverkettung von den
-Töchtern zum Mutterknoten hochgereicht. Genauso funktioniert das für die Handle"=Constraints:
+Töchtern zum Mutterknoten hochgereicht. Genauso funktioniert das für die Handle"=Constraints:\isrel{collect-hcons}
 \ea
 \type{phrase} \impl\\[1mm]
 \onems{
@@ -2468,7 +2468,7 @@ modifiziert. Die korrekte ungeskopte MRS mit den zusätzlichen Links für die Va
 \end{tikzpicture}
 \caption{Korrekte MRS für \emph{Ein Affe, dessen Kind schläft, lacht.}}\label{Abbildung dessen Kind}
 \end{figure}
-Im Kapitel~\ref{Abschnitt-rs-sem-Analyse} wird die Analyse vorgestellt, die die korrekte MRS liefert. 
+Im Abschnitt~\ref{Abschnitt-rs-sem-Analyse} wird die Analyse vorgestellt, die die korrekte MRS liefert. 
 
 Damit sind die schwierigen Themen Quantorenskopus und Unterspezifikation behandelt. Im kommenden
 Abschnitt werden alle Teile der kompositionalen Semantik zum Semantikprinzip zusammengestellt.
