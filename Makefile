@@ -39,10 +39,6 @@ completed-hpsg.pdf: completed-hpsg.tex $(SOURCE)
 # sed -i.backup 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' completed-hpsg.ldx
 	sed -i.backup 's/\\MakeCapital //g' completed-hpsg.adx
 	python3 fixindex.py lsa completed-hpsg
-	mv mainmod.adx main.adx
-	mv mainmod.ldx main.ldx
-	mv mainmod.sdx main.sdx
-	python3 fixindex.py a 
 	mv completed-hpsgmod.adx completed-hpsg.adx
 	mv completed-hpsgmod.ldx completed-hpsg.ldx
 	mv completed-hpsgmod.sdx completed-hpsg.sdx

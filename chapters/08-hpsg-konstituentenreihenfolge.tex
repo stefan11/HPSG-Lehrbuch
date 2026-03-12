@@ -31,7 +31,8 @@ verwenden:
 \ex
 \label{ex-weil Aicke dem Affen den Stock gibt}
 weil Aicke dem Affen den Stock gibt
-\ex weil Aicke den Stock dem Affen gibt
+\ex\label{ex-weil Aicke den Stock dem Affen gibt}
+weil Aicke den Stock dem Affen gibt
 \ex weil den Stock Aicke dem Affen gibt
 \ex weil den Stock dem Affen Aicke gibt
 \ex weil dem Affen Aicke den Stock gibt
@@ -725,7 +726,7 @@ finiten Nebensätzen stehen immer am Ende (von Ausklammerungen ins Nachfeld und 
 \item\is{Skopus|(} Im Abschnitt~\ref{sec-mf} wurden die Beispiele (\ref{bsp-absichtlich-nicht}) diskutiert,
 und es wurde darauf hingewiesen, dass die Skopusbeziehung der Adverbien
 von ihrer Reihenfolge abhängt. Das links stehende Adverb hat Skopus über das folgende Adverb
-und das Verb in Letztstellung.\footnote{%
+und das Verb in Letztstellung.\setlength{\footexindent}{13.5pt}\footnote{%
 An dieser Stelle darf nicht verschwiegen werden,
   dass es Ausnahmen von der Regel zu geben scheint, dass weiter links stehende Modifikatoren
   Skopus über Modifikatoren rechts von ihnen haben. \citet*[\page47]{Kasper94a}
@@ -753,7 +754,7 @@ Hans hat gut gelesen wegen der Nachhilfestunden.
   Das folgende Beispiel von \citet[\page 383]{Crysmann2004a}
   zeigt allerdings, dass auch bei besetzter Satzklammer eine Anordnung der Adjunkte
   möglich ist, in der ein weiter rechts stehendes Adjunkt Skopus über ein links stehendes hat:
-\ea
+\eanoraggedright
 Da muss es schon erhebliche Probleme mit der Ausrüstung gegeben haben, da wegen schlechten
   Wetters ein Reinhold Messmer niemals aufgäbe.
 %\ex Stefan  ist wohl deshalb krank geworden, weil er äußerst hart wegen der Konferenz in Bremen gearbeitet hat.
@@ -762,7 +763,6 @@ Das ändert jedoch nichts an der Tatsache, dass die entsprechenden
 Sätze in (\ref{bsp-absichtlich-nicht-anal}) und (\ref{bsp-absichtlich-nicht-anal-v1}) unabhängig von der Verbstellung
 dieselbe Bedeutung haben. Die allgemeine Bedeutungskomposition muss man jedoch eventuell
 auf die von Crysmann beschriebene Weise behandeln.%
-\itdopt{check wie Berthold das gemacht hat}
 }
 Das wurde dann mittels folgender Struktur erklärt:
 \eal
@@ -804,11 +804,11 @@ cat  & \ms{ head & \ms[verb]{ vform & fin\\
             comps & \sliste{ \npnom\ind{1}, \npacc\ind{2} }\\
           }\\
 cont & \ms{
-       ind  & \ibox{3}\\
-       ltop & \ibox{4}\\
+       ltop & \ibox{3}\\
+       ind  & \ibox{4} event\\
        rels & \liste{ \ms[kennen]{
-                       lbl & \ibox{4}\\
-                       arg0 & \ibox{3}\\
+                       lbl & \ibox{3}\\
+                       arg0 & \ibox{4}\\
                        arg1 & \ibox{1}\\
                        arg2 & \ibox{2}\\
                      } } }\\
@@ -817,8 +817,12 @@ cont & \ms{
 Dieser Lexikoneintrag unterscheidet sich vom normalen Verb \emph{kennt} nur in seinem
 \phonw. \argst- und \sprw sind hier nicht angegeben. Dazu später mehr.
 
+
 Die syntaktischen Aspekte der Analyse von (\ref{bsp-kennt-jemand-den-Roman}) sind in Abbildung~\vref{verb-movement-syn-simple}
-dargestellt. 
+dargestellt. Die Kombination der Spur mit \emph{den Roman} und \emph{jemand} folgt den Regeln und Prinzipien, die
+bisher schon besprochen wurden. Es stellt sich aber sofort die Frage, wodurch das Verb \emph{kennt}
+in Abbildung~\ref{verb-movement-syn-simple} lizenziert wird und welchen Status es hat.
+
 \begin{figure}
 \begin{forest}
 sm edges
@@ -835,15 +839,12 @@ sm edges
 \end{forest}
 \caption{\label{verb-movement-syn-simple}Vorläufige Analyse von \emph{Kennt jemand den Roman?}}
 \end{figure}
-Die Kombination der Spur mit \emph{den Roman} und \emph{jemand} folgt den Regeln und Prinzipien, die
-wir bisher kennengelernt haben. Es stellt sich aber sofort die Frage, wodurch das Verb \emph{kennt}
-in Abbildung~\ref{verb-movement-syn-simple} lizenziert wird und welchen Status es hat.
 
 Will man erfassen, dass sich das finite Verb in Initialstellung wie ein Komplementierer verhält
 \citep{Hoehle97a}, so liegt es nahe, \emph{kennt} in
 Abbildung~\ref{verb-movement-syn-simple} Kopfstatus zuzuschreiben und \emph{kennt} eine gesättigte
 Verbalprojektion mit Verbletztstellung selegieren zu lassen. Finite Verben in Initialstellung
-unterscheiden sich dann von Komplementierern dadurch, dass sie eine Projektion einer Verbspur
+unterscheiden sich dann von Komplementierern lediglich dadurch, dass sie eine Projektion einer Verbspur
 verlangen, wohingegen Komplementierer Projektionen von overten Verben verlangen:
 \eal
 \ex dass [jemand den Roman kennt]
@@ -853,7 +854,7 @@ Nun ist es aber normalerweise nicht so, dass \emph{kennen} einen vollständigen 
 sonst nichts weiter, wie es zur Analyse des Verberstsatzes mit \emph{kennt} als Kopf notwendig
 wäre. Auch muss sichergestellt werden, dass die Verbalprojektion, mit der \emph{kennt} kombiniert
 wird, genau die zu \emph{kennt} gehörige Verbspur enthält. Könnte sie nämlich die Verbspur
-enthalten, die zu \emph{gibt} gehört, so würde man Sätze wie (\mex{1}b) analysieren können: 
+enthalten, die zu \emph{gibt} gehört, so würde man Wortfolgen wie (\mex{1}b) analysieren können: 
 \eal
 \ex[]{ Gibt [Aicke dem Affen den Stock \_$_{gibt}$].  } 
 \ex[*]{
@@ -900,7 +901,7 @@ loc  & \ms{ cat  & \ms{ head & \ms[verb]{ vform & fin\\
                       }\\
             cont & \ms{
        ltop & \ibox{3}\\
-       ind  & \ibox{4}\\
+       ind  & \ibox{4} event\\
        rels & \liste{ \ms[kennen]{
                        lbl & \ibox{3}\\
                        arg0 & \ibox{4}\\
@@ -934,7 +935,7 @@ im nächsten Kapitel beschäftigen werden.\footnote{%
   besprochen werden, um eine lokale Bewegung handelt \citep[Abschnitt~3.1]{Frank94b}.
 
   Der Vorschlag, Information über die Verbspur als Teil der Kopf"|information nach oben zu reichen,
-  stammt von \citet[\page 187]{Oliva92b}.%
+  stammt von \citet[\page 187]{Oliva92b}. Oliva gibt allerdings nur syntaktische Information weiter.%
 }
 (\mex{1}) zeigt den angepassten Eintrag für die Verbspur:
 
@@ -942,35 +943,31 @@ im nächsten Kapitel beschäftigen werden.\footnote{%
 \label{le-verbspur-kennt}%
 Verbspur für \emph{kennt} mit \dslm für die Projektion von Valenz und semantischen Eigenschaften:\\
 \samepage
-\ms[word]{
-phon & \phonliste{}\\
-loc  & \ms{ cat  & \ms{ head & \onems[verb]{ vform \type{fin}\\
+\onems[word]{
+phon  \phonliste{}\\[1mm]
+loc   \ibox{1} \ms{ cat  & \ms{ head & \onems[verb]{ vform \type{fin}\\
                                                       ini   $-$\\
-                                                      dsl   \ms{ cat & \ms{ spr   & \ibox{1}\\ 
-                                                                            comps & \ibox{2}\\
-                                                                         }\\
-                                                                 cont & \ibox{3}}}\\
-                                 spr   & \ibox{1}\\
-                                 comps & \ibox{2} \nliste{ \npnom\ind{4}, \npacc\ind{5} }\\
+                                                      dsl   \ibox{1}}\\
+%                                 spr   & \ibox{1}\\
+                                 comps & \nliste{ \npnom\ind{2}, \npacc\ind{3} }\\
                       }\\
-            cont & \ibox{3} \ms{
-              ltop & \ibox{6}\\
-              ind  & \ibox{7}\\
+            cont & \ms{
+              ltop & \ibox{4}\\
+              ind  & \ibox{5} event\\
               rels & \liste{ \ms[kennen]{
-                             lbl & \ibox{6}\\
-                             arg0 & \ibox{7}\\
-                             arg1 & \ibox{4}\\
-                             arg2 & \ibox{5}\\
-                           } } } }\\
-}
+                             lbl & \ibox{4}\\
+                             arg0 & \ibox{5}\\
+                             arg1 & \ibox{2}\\
+                             arg2 & \ibox{3}\\
+                           } } } } }
 \zs
-Durch die Teilung der Werte innerhalb des \dslwes mit denen der Verbspur in (\mex{0}) ist die Information
+Durch die Teilung des \localwes mit dem \dslw in (\mex{0}) ist die Information
 über syntaktische und semantische Information der Verbspur auch an ihrer Maximalprojektion
-verfügbar, und das Verb in Erststellung kann sicherstellen, dass die Projektion der Spur zu ihm passt.
+verfügbar, und das Verb in Erststellung kann sicherstellen, dass die Projektion der Spur zu ihm passt.%
 \is{Spur!Verb-|)}
 
 Der spezielle Lexikoneintrag für die Verberststellung wird durch die folgende
-Regel\is{Lexikonregel!Verberststellung|(} lizenziert:\footnote{
+Regel\is{Lexikonregel!Verberststellung|(} lizenziert:\footnote{\label{fn-V1-Lexikonregel-oder-Schema}%
 Im Abschnitt~\ref{Abschnitt-Lexikonregeln} wurde erklärt, dass man Lexikonregeln auch so formalisieren
 kann, dass das Eingabeelement eine Tochter ist. In früheren Publikationen habe ich -- vielen
 vorausgehenden Veröffentlichungen folgend (siehe S.\,\pageref{Seite-V1-via-Lexikonregel}) -- die
@@ -1008,20 +1005,20 @@ loc & \ibox{1} \ms{ cat$|$head & \ms[verb]{ vform & fin\\
 \zs
 
 \noindent
-Das durch diese Regel lizenzierte Verb selegiert eine maximale Projektion der Verbspur,
+Das durch diese Regel lizenzierte Verb selegiert eine maximale Projektion der Verbspur (\comps \eliste),
 die dieselben lokalen Eigenschaften wie das Eingabeverb hat. Das wird durch die
 Koindizierung des \localw{}es des Eingabeverbs und des \dslw{}es der selegierten
 Verbalprojektion erreicht. Eingabe für die Regel können nur finite Verben in Endstellung
 (\textsc{initial}$-$) sein. Die Ausgabe ist ein Verb in Erststellung (\textsc{initial}+).\footnote{%
 In früheren Auf"|lagen dieses Buches habe ich in der Valenzliste des Ausgabeverbs noch angegeben, dass das
-Komplement eine Verbalprojektion sein muss (\head \type{verb}). Das ist aber nicht nötig, denn bei
-den bisher verwendeten Verbspuren muss die Wortart der Spur ohnehin \type{verb} sein. Daraus, dass
-es einen gefüllten \dslw gibt, folgt die Wortart. Auch bei der verallgemeinerten Version der
-Kopfspur (siehe (\ref{le-verbspur}) auf S.\,\pageref{le-verbspur}) ist die Information darüber, dass eine Verbspur projiziert wird, vorhanden. Das liegt
-daran, dass der \dslw im selegierten Satz die Information darüber enthält, dass die Spur den \dslw \ibox{1} (finites Verb in Letztstellung) haben
-muss. Daraus ergibt sich für die Spur, dass sie ein Verb sein muss, da ja in der Spur der \dslw und der
-\localw identifiziert werden. Somit kommen als Komplemente des Verberstverbs nur
-Verbalprojektionen in Frage.} 
+Komplement eine Verbalprojektion sein muss (\head \type{verb}). Das ist aber nicht nötig,
+denn der \dslw des selegierten Komplements enthält ja die Information darüber, dass die Spur den \dslw \ibox{1}
+(finites Verb in Letztstellung) haben muss. Daraus ergibt sich für die Spur, dass sie ein
+Verb sein muss, da ja in der Spur der \dslw und der \localw identifiziert werden.
+Somit kommen als Komplemente des Verberstverbs nur Verbalprojektionen in Frage. Auch für die
+nicht-zyklische Version der Verbspur, die in Abschnitt~\ref{Abschnitt-Verbspuren ohne Zyklen} diskutiert wird, muss die Wortart nicht
+angegeben werden, denn der Kopf der selegierten Phrase muss einen \dslw vom Typ \type{local} haben
+und somit kommt nur die Spur mit dem \headw \type{verb} in Frage.} 
 %Linearisierungsregeln nehmen auf das \textsc{initial}"=Merkmal Bezug und sorgen für
 %die korrekte Anordnung der Köpfe in lokalen Bäumen.
 %
@@ -1051,8 +1048,7 @@ Die Regel in (\mex{0}) lizenziert ein Verb, das einen Satz (\,\iboxt{1} in
 Abbildung~\ref{verb-movement-syn}) selegiert. Der \dslw dieses Satzes entspricht dem \locw der in
 die Regel eingesetzten Tochter (\,\ibox{1} in (\ref{lr-verb-movement})). Teil des \dslwes ist auch die Valenzinformation, die in
 Abbildung~\ref{verb-movement-syn} dargestellt ist \iboxb{2}. Da \dsl ein Kopfmerkmal ist, ist der
-\dslw der VP mit dem der Verbspur identisch, und da die Information über Valenz und Semantik im
-\locw der Verbspur mit der im \dslw identifiziert ist, ist auch die \comps"=Information des Verbs
+\dslw der VP mit dem der Verbspur identisch, und der \locw der Verbspur mit dem \dslw identifiziert ist, ist auch die \comps"=Information des Verbs
 \emph{kennen} in der Spur verfügbar. Die Kombination der Spur mit ihren Argumenten erfolgt genau so,
 wie das bei normalen Verben der Fall wäre.
 
@@ -1063,7 +1059,7 @@ dass Verberstsätze entsprechend ihren Verbletztgegenstücken interpretiert werd
 wird dadurch modelliert, dass man den semantischen Beitrag parallel zur Valenzinformation
 durch den Baum fädelt. 
 Bei der Kombination mit Argumenten sorgt das Semantikprinzip dafür, 
-dass die Information über den \textsc{index}"=Wert (die Ereignisvariable) und der \ltopw entlang der Kopfprojektion im Baum nach
+dass der \textsc{index}"=Wert (die Ereignisvariable) und der \ltopw entlang der Kopf"|projektion im Baum nach
 oben gereicht werden. Im letzten Projektionsschritt in Abbildung~\ref{verb-movement-syn}
 ist das Verb in Erststellung der Kopf und deshalb wird auch der semantische Beitrag
 dieses Verbs projiziert. In der Regel (\mex{1}) für das Verb in Erststellung wird
@@ -1143,7 +1139,7 @@ sm edges, for tree={l sep+=\baselineskip}
 \begin{scope}[overlay,<->,shorten >=2pt, shorten <=2pt]
 %\draw[gray] (-6,-10) to[grid with coordinates] (9,1);
 % Lexical rule
-\draw[brown] plot [smooth,mark=none,mark indices={2,3,4}] coordinates {(c1.north) (-3.3,-4) (-2.8,-3.8) (-1.6, -3.8) (dsl0.south west)};
+\draw[brown] plot [smooth,mark=none,mark indices={2,3,4}] coordinates {(c1.north) (-3.3,-4) (-2.8,-3.7) (-1.6, -3.7) (dsl0.south west)};
 % [3] links zu [3] rechts
 \draw[blue]  plot [smooth] coordinates {(dsl0.north) (-0.8,-2) (1,-1.9) (dsl1.north west)};
 % DSL percolates down from clause to trace.
@@ -1172,11 +1168,11 @@ vorkommen würde, ein V1"=Verb. Dieses selegiert eine Verbspur und in \dsl ist d
 ursprünglichen Verbs \iboxb{3} enthalten. Das Komplement des Verbs in Initialstellung \iboxb{2} wird
 mit der Verbalprojektion identifiziert, wodurch der \dslw der Verbalprojektion dann den \contw des
 Verbletztverbs \iboxb{3} enthält. Da \dsl ein Kopfmerkmal ist, wird der \dslw mit anderen
-Kopfmerkmalen entlang des Kopfpfades weitergegeben, so dass er auch an der Verbspur vorhanden
+Kopfmerkmalen entlang des Kopf"|pfades weitergegeben, so dass er auch an der Verbspur vorhanden
 ist. Da Valenz und semantische Information im \dslw mit den entsprechenden Werten der Spur (\ref{le-verbspur-kennt}) identifiziert wird, ist \ibox{3} auch identisch mit dem
 \contw der Verbspur. Das heißt, dass die Relation kennen(jemand, roman) auch Element der
 \relsl der Verbspur ist. Das Handel dieser Relation ist -- wie beim ursprünglichen Verb auch --
-h1. Nach Semantikprinzip wird der \ltopw den Kopfpfad entlang nach oben gegeben und das V1"=Verb
+h1. Nach Semantikprinzip wird der \ltopw den Kopf"|pfad entlang nach oben gegeben und das V1"=Verb
 übernimmt den \ltopw von seinem Komplement. Da das V1"=Verb der Kopf des gesamten Satzes ist, wird
 der \ltopw des V1"=Verbs dann zum \ltopw des gesamten Satzes. Man beachte, dass das Verb in
 Erststellung keine Relationen über \rels beisteuert. Das ist wichtig, denn die Relationen kommen vom
@@ -1226,10 +1222,9 @@ sm edges, for tree={l sep+=2\baselineskip}
 			[NP{[\textit{acc}]}%,fit=band
 				[den Roman, roof]]
                         [V\ms{dsl|cont \subnode{dsl3}{\ibox{3}},\\
-                              cont \subnode{cont-trace}{\ibox{3}}\ms{ltop & \subnode{ltop1}{\ibox{1}} h2\\
-                                                                     rels & \nliste{ h2:n(h3), h1:k(j, r) }\\[1mm]
-                                                                     hcons & \nliste{ h3 \qeq h1 }
-                                                                   }}
+                              cont \ms{ltop & \subnode{ltop1}{\ibox{1}} h2\\
+                                       rels & \nliste{ h2:n(h3), h1:k(j, r) }\\[1mm]
+                                       hcons & \nliste{ h3 \qeq h1 } }}
                           [Adv\ms{cont \ms{ltop & \subnode{ltop1}{\ibox{1}} h2\\
                                            rels & \nliste{ h2:n(h3) }\\[1mm]
                                            hcons & \nliste{ h3 \qeq h1 } } }
@@ -1244,7 +1239,7 @@ sm edges, for tree={l sep+=2\baselineskip}
 \end{figure}
 Anders als bei der Analyse des unnegierten Satzes ist nicht h1 das \ltop, sondern das Handle
 der Negation h2. Dieses Handle wird nach oben gegeben. Der \contw des Verbs, wie es in Endstellung
-vorkommen würde, wird via \dsl mit dem \contw der Spur geteilt. Der \hconsw für die
+vorkommen würde \iboxb{3}, wird via \dsl mit dem \contw der Spur geteilt. Der \hconsw für die
 Skopusbeschränkungen von \emph{kennt} und somit auch der Verbspur ist die leere Liste. Die Negation führt die Relation \relation{nicht} mit dem
 Handle h2 ein, \relation{nicht} hat das Argument h3 und h3 ist \qeq mit h1, dem Handle der Relation
 \relation{kennen}. Die \relation{nicht}"=Relation und die \relation{kennen}"=Relation werden in \rels nach
@@ -1255,40 +1250,80 @@ oben geben darf, sondern den Umweg über die Spur nehmen muss, denn durch Adjunk
 kann der Beitrag des Verbs in Initialstellung noch in sein Gegenteil verkehrt werden.
 \is{Lexikonregel!Verberststellung|)}
 
+Zum Schluss müssen noch Abfolgen wie (\mex{1}) ausgeschlossen werden:
+\ea[*]{
+Kennt er das Buch kennt.
+}
+\z
+(\mex{0}) könnte analysiert werden, wenn das erste Vorkommen von \emph{kennt} als Ausgabe der Verbbewegungsregel
+analysiert wird und wenn der \textsc{dsl}"=Wert des zweiten \emph{kennt} nicht restringiert ist, so dass das
+zweite \emph{kennt} dieselbe Rolle wie die Verbspur in der Analyse übernehmen könnte. Man kann nicht allgemein
+für alle overt realisierten Verben verlangen, dass deren \textsc{dsl}"=Wert \emph{none} ist, da die Verben ja
+die Eingabe für die Verbbewegungslexikonregel darstellen und der \textsc{local}"=Wert des Eingabeverbs mit dem
+\textsc{dsl}"=Wert der vom Ausgabeverb selegierten Verbspur identifiziert wird. Hätten alle overten Verben
+den \textsc{dsl}"=Wert \emph{none}, entstünde bei der Kombination mit der Spur ein Widerspruch, da die Spur einen
+spezifizierten \textsc{dsl}"=Wert hat (Die Spur ist zyklisch\is{Zyklus}, deshalb ist der Wert von \textsc{loc$|$cat$|$\-head$|$\-dsl$|$\-loc$|$\-cat$|$\-head$|$\-dsl}
+mit \emph{none} unverträglich.).
+(\mex{0}) muss durch eine Beschränkung ausgeschlossen werden, die besagt, dass ein Verb, wenn es overt realisiert
+wird und in syntaktische Strukturen eintritt, den \textsc{dsl}"=Wert \emph{none} haben muss
+\citep[207]{Meurers2000b}.\footnote{%
+Bei Meurers ist \dsl Teil des \textsc{marking}-Wertes, also Teil von \textsc{cat}, aber nicht Teil
+von \head. Auch gilt Meurers' Implikation nur für finite Verben, weil er davon ausgeht, dass
+Kopfbewegung nur finite Verben betrifft. Die scheinbar mehrfache Vorfeldbesetzung ist jedoch auch
+bei infiniten Verben möglich (siehe Abschnitt~\ref{Abschnitt-Verbspuren ohne Zyklen}).
+} (\mex{1}) leistet das Verlangte:
+\ea
+\label{constraint-DSL}%
+\ms{ head-dtr & \ms[word]{ phon & non-empty-list \\
+                         }
+} \impl \onems{ loc$|$cat$|$head$|$dsl \type{none} }
+\z
+Abbildung~\ref{abb-jemand-den-Roman-kennt-dsl} verdeutlicht die Konfiguration.
+Die Beschränkung wird angewendet, wenn \emph{kennt} als Kopftochter mit dem Akkusativobjekt
+kombiniert wird. Da die Kopfmerkmale entlang des Kopf"|pfades geteilt werden, hat auch \emph{kennt}
+den \dslw \type{none}. Im Lexikon kann es aber einen unspezifizierten \dslw haben.
+\begin{figure}
+\begin{forest}
+sm edges
+[{V[\head \ibox{1} ]}
+  [{NP[\textit{nom}]}
+    [niemand]]
+  [{V[\head \ibox{1} [\dsl \type{none}]]}
+    [{NP[\type{acc}]}
+       [den Roman,roof]]
+    [{V[\head \ibox{1}]}
+      [kennt]]]]
+\end{forest}
+\caption{\label{abb-jemand-den-Roman-kennt-dsl}\dslwe für \emph{jemand den Roman kennt}}
+\end{figure}
+
+Die Beschränkung in (\ref{constraint-DSL}) unterscheidet sich von der von
+\citet[\page207]{Meurers2000b} angegebenen \ua dadurch, dass die Kopftochter im Antezedens vom Typ
+\emph{word} sein muss. Ohne diese Einschränkung auf \type{word} würde das Constraint auch auf
+Projektionen der Verbspur anwendbar sein und somit wohlgeformte Sätze ausschließen.
+
+
 
 Es wäre unbefriedigend, wenn man für jedes Verb eine spezielle Spur haben müsste. Das ist aber 
-zum Glück nicht nötig, da eine allgemeine Spur der Form in (\mex{1}) für die Analyse
-von Sätzen mit Verbbewegung ausreicht.\footnote{%
-  In früheren Arbeiten \parencites{Mueller2005c}[408]{MuellerOrder2024} habe ich eine zyklische Spur
-  verwendet, in der der \localw mit dem \dslw
-\itdopt{Seite für LB}
-  identifiziert wurde. Das bedeutet so viel wie: Ich fehle mir selbst. Diese Analyse wurde von
-  \citet[207]{Meurers2000b} vorgeschlagen. Sie ist sehr elegant, aber leider nicht mit der Analyse
-  der Koordination verträglich, die ich hier verwende. Sie Abschnitt~\ref{sec-Verbbewegung mit zyklischen Strukturen} für eine Diskussion.
-}
+zum Glück nicht nötig, da eine ganz allgemeine Spur der Form in (\mex{1}) für die Analyse
+von Sätzen mit Verbbewegung ausreicht.
 \eas
-Verbspur:\\
+\label{le-verbspur}%
+Allgemeine Kopfspur nach \citet[207]{Meurers2000b}:\is{Spur!Verb-}\\
 \ms{
-phon & \eliste\\
-loc & \ms{ cat & \ms{ head & \onems[verb]{
-                             vform \type{fin}\\
-                             ini   $-$\\
-                             dsl   \ms{ cat & \ms{ spr   & \ibox{1}\\ 
-                                                     comps & \ibox{2}\\
-                                                   }\\
-                                          cont & \ibox{3}\\
-                                        }}\\
-                      spr & \ibox{1}\\
-                      comps & \ibox{2}\\
-                    }\\
-          cont & \ibox{3}\\
-        }\\
+phon & \phonliste{}\\
+loc  & \ibox{1} \ms{ cat$|$head$|$dsl   & \ibox{1}\\
+                   }\\
 }
 \zs
-\itdopt{Das ist falsch wegen mehrfacher Vorfeldbesetzung einfach alten Text nehmen, dann diskutieren}
-(\mex{1}) ist ein Lexikoneintrag für ein Element, das nicht ausgesprochen wird. Es hat die Wortart
-Verb, ist finit und muss in Letztstellung stehen (\textsc{ini}$-$). \sprw, \compsw und \contw wird mit dem
-Wert in \dsl geteilt.
+Dies mag auf den ersten Blick verwundern, doch wenn man sich das Zusammenspiel der Lexikonregel
+(\ref{lr-verb-movement2}) und die Perkolation des \textsc{dsl}"=Merkmals im Baum genau ansieht, wird
+man erkennen, dass der \dslw der Verbprojektion und somit der \localw der Verbspur durch den
+\localw des Eingabeverbs bestimmt ist. In Abbildung~\ref{verb-movement-syn} und~\ref{verb-movement-sem}
+ist \emph{kennt} die Eingabe zur Verbbewegungsregel. Der \localw der Verbspur entspricht
+also dem \localw von \emph{kennt}. Durch die entsprechenden Strukturteilungen wird  sichergestellt,
+dass bei einer Analyse des Satzes (\ref{bsp-kennt-jemand-den-Roman}) der \localw der Verbspur genau dem entspricht, was in
+(\ref{le-verbspur-kennt}) angegeben ist.
 
 Diese Analyse der Verbstellung ist die komplexeste Analyse im vorliegenden Buch. Wenn man sie verstanden
 hat, braucht man nichts mehr zu fürchten. Die wichtigsten Punkte seien hier noch einmal zusammengefasst:
@@ -1308,106 +1343,40 @@ Nach der Diskussion der Analyse von Verberstsätzen in diesem Kapitel wird im fo
 die Analyse von Verbzweitsätzen erklärt. Vorher sollen aber noch alternative HPSG"=Ansätze zur Konstituentenstellung
 und die Behandlung der Konstituentenstellung in anderen Theorien diskutiert werden.
 
-\section{Alternativen}
+\section{Anhang}
+\label{sec-Anhang-Verbbewegung}
 
-Abschnitt~\ref{sec-konstituentenreihenfolge-alternativen} diskutiert einige Aspekte bisheriger
-HPSG"=Ansätze. Abschnitt~\ref{sec-alternativen-konstituentenreihenfolge-gb} setzt sich mit der
-Behandlung der Konstituentenstellung innerhalb der GB"=Theorie bzw.\ innerhalb des Minimalistischen
-Programms auseinander.
 
-\subsection{Alternative HPSG-Ansätze}
-\label{sec-konstituentenreihenfolge-alternativen}
+Die Analyse mit der zyklischen Verbspur ist sehr elegant und mein Favorit. Es gibt jedoch ein
+Problem mit Koordinationsdaten. Koordination ist ein komplexes Phänomen und es könnte sein, dass man
+selbst Fälle, die einfach zu sein scheinen, anders lösen muss. Ich möchte mögliche Lösungen für die
+Koordinationsprobleme deshalb hier in einem Anhang diskutieren.
 
-Alternative HPSG"=Ansätze werden ausführlich in \citew{Mueller2004b} und in
-\citew{Mueller2005c,Mueller2005d,MuellerGS} diskutiert. Hier seien nur einige Punkte kurz erwähnt.
+In früheren Publikationen zum Thema Satzstellung habe ich darauf hingewiesen, dass in der linken
+Satzklammer auch wie in (\mex{1}) koordinierte Verben stehen können.
+\ea
+Kirby kennt und liebt diese Band.
+\z
+Das bedeutet aber, dass die Regel für die Ableitung solcher Voranstellungen keine Lexikonregel
+sondern eine unäre syntaktische Regel sein muss (siehe auch
+Fn.\,\ref{fn-V1-Lexikonregel-oder-Schema} auf S.\,\pageref{fn-V1-Lexikonregel-oder-Schema}). Gerade
+die Behandlung der Koordination führt nun aber zu einem Problem mit den Zyklen in der
+Verbspur. Dieses werde ich in Abschnitt~\ref{sec-Verbbewegung mit zyklischen Strukturen} erklären. Es scheint
+mehrere Lösungen für das Problem zu geben, diese sind aber alle mit der Behandlung eines anderen
+komplexen Phänomens inkompatibel: der scheinbar mehrfachen Vorfeldbesetzung.
 
-\subsubsection{Verbbewegung mit zyklischen Strukturen}
+
+\subsection{Probleme mit Koordination und zyklischen Strukturen}
 \label{sec-Verbbewegung mit zyklischen Strukturen}
 
-\citet[207]{Meurers2000b} hat eine zyklische Verbspur bzw.\ sogar noch viel allgemeiner eine Spur
-für Kopfbewegung vorgeschlagen:
-\eas
-\label{le-verbspur}%
-Allgemeine Kopfspur:\is{Spur!Verb-}\\
-\ms{
-phon & \phonliste{}\\
-loc  & \ibox{1} \ms{ cat$|$head$|$dsl   & \ibox{1}\\
-                   }\\
-}
-\zs
-Mit dieser zyklischen Struktur muss man nicht einmal die Wortart und sonstigen Eigenschaften der
-Verbspur wie \initialw und Finitheit angeben. Dies mag auf den ersten Blick verwundern, doch wenn
-man sich das Zusammenspiel der Verberstregel (\ref{lr-verb-movement2}) und die Perkolation des
-\textsc{dsl}"=Merkmals im Baum genau ansieht, wird man erkennen, dass der \dslw der Verbprojektion
-und somit der \localw der Verbspur durch den \localw des Eingabeverbs bestimmt ist. In
-Abbildung~\ref{verb-movement-syn} und~\ref{verb-movement-sem} ist \emph{kennt} die Eingabe zur
-Verbbewegungsregel. Der \localw der Verbspur entspricht also dem \localw von \emph{kennt}. Durch die
-entsprechenden Strukturteilungen wird sichergestellt, dass bei einer Analyse des Satzes
-(\ref{bsp-kennt-jemand-den-Roman}) der \localw der Verbspur genau dem entspricht, was in
-(\ref{le-verbspur-kennt}) angegeben ist. Wie oben schon erwähnt, enthält die geteilte Information
-auch die Wortart der Spur, so dass die Wortart nicht in der Beschreibung der vom Verb in
-Initialstellung selegierten Projektion angegeben werden muss.
-
-Diese Verbspur ist wunderschön und viel besser als die, die ich im vorigen Abschnitt vorgestellt
-habe, es gibt nur ein Problem, auf das auch \citet[207]{Meurers2000b} bereits hingewiesen hat. Mit
-der zyklischen Verbspur kann man nicht in Lexikoneinträgen von Verbletztverben festlegen, dass deren
-\dslw \type{none} ist, denn die Verbletztverben sind Töchter der Verberstregel und ihr \localw ist
-identisch mit dem \dslw der selegierten Verbprojektion. Wäre der \dslw eines Verbs in Letztstellung
-\type{none}, dann würden Verben in Erststellung in ihrer \compsl ein Element mit dem Pfad
-\textsc{loc|cat|head|dsl|cat|head|dsl} und dem Wert \type{none} haben. Der \headw der selegierten
-Projektion ist mit dem \headw der Verbspur identisch. Das heißt, der \headw der Spur enthält
-\textsc{dsl|cat|head|dsl} \type{none}. Da es aber in der Verbspur einen Zyklus gibt,
-der \dsl mit \local gleichsetzt, muss es nach \dsl immer weiter gehen. \type{none} kommt als Wert
-nicht in Frage. Das bedeutet, dass der \dslw von Verben in Letztstellung nicht \type{none} sein darf,
-wenn man so eine schöne Spur wie in (\ref{le-verbspur}) verwenden will. Dann ergibt sich aber das
-Problem, dass außer der erwünschten Verbspur auch Verbletztverben in Sätzen mit Verbinitialstellung
-auftreten können:
-\ea[*]{
-Kennt jemand den Roman kennt.
-}
-\z
-(\mex{0}) könnte analysiert werden, wenn das erste Vorkommen von \emph{kennt} als Ausgabe der Verbbewegungsregel
-analysiert wird und wenn der \textsc{dsl}"=Wert des zweiten \emph{kennt} nicht restringiert ist, so dass das
-zweite \emph{kennt} dieselbe Rolle wie die Verbspur in der Analyse übernehmen könnte. Ich habe
-deshalb lange Zeit in Anlehnung an einen Vorschlag von \citet[207]{Meurers2000b} die folgende
-Beschränkung vorgeschlagen. Sie besagt, dass ein Verb, wenn es overt realisiert
-wird und in syntaktische Strukturen eintritt, den \textsc{dsl}"=Wert \emph{none} haben muss. 
-\ea
-\label{constraint-DSL}
-\ms{ head-dtr & \ms[word]{ phon & non-empty-list \\
-                         }
-} \impl
-\onems{ loc$|$cat$|$head$|$dsl \type{none}\\
-            }
-\z
-Abbildung~\ref{abb-jemand-den-Roman-kennt-dsl} verdeutlicht die Konfiguration:
-\begin{figure}
-\begin{forest}
-sm edges
-[{V[\head \ibox{1} ]}
-  [{NP[\textit{nom}]}
-    [niemand]]
-  [{V[\head \ibox{1} [\dsl \type{none}]]}
-    [{NP[\type{acc}]}
-       [den Roman,roof]]
-    [{V[\head \ibox{1}]}
-      [kennt]]]]
-\end{forest}
-\caption{\label{abb-jemand-den-Roman-kennt-dsl}\dslwe für \emph{jemand den Roman kennt}}
-\end{figure}
-Die Beschränkung wird angewendet, wenn \emph{kennt} als Kopftochter mit dem Akkusativobjekt
-kombiniert wird. Da die Kopfmerkmale entlang des Kopfpfades geteilt werden, hat auch \emph{kennt}
-den \dslw \type{none}. Im Lexikon kann es aber einen unspezifizierten \dslw haben.
-
-Die Beschränkung in (\ref{constraint-DSL}) unterscheidet sich von der von
-\citet[\page207]{Meurers2000b} angegebenen \ua dadurch, dass die Kopftochter im Antezedens vom Typ
-\emph{word} sein muss. Ohne diese Einschränkung auf \type{word} würde das Constraint auch auf
-Projektionen der Verbspur anwendbar sein und somit wohlgeformte Sätze ausschließen.
+Die Kopfspur in (\ref{le-verbspur}) ist sehr elegant und erfasst direkt, dass Verbbewegung nur
+innerhalb der Kopfdomäne stattfinden kann. Im Gegensatz zu Voranstellungen von Konstituenten ins Vorfeld und Extrapositionen ist
+die Verbumstellung nur in einem eingeschränkten Bereich möglich.
 
 Diese Analyse funktioniert und ist Bestandteil der Grammatiken im CoreGram-Projekt
 \citep{MuellerCoreGram}. Es gibt aber ein Problem, das ich übersehen habe: Die Beschränkung in
-(\ref{constraint-DSL}) erfasst alle Vorkommen von Verben in Kopfpositionen. In
-Koordinationsstrukturen sind die Verben bzw.\ ihre Projektionen aber nicht in Kopfposition. Das
+(\ref{constraint-DSL}) erfasst alle Vorkommen von Verben in Kopf"|positionen. In
+Koordinationsstrukturen sind die Verben bzw.\ ihre Projektionen aber nicht in Kopf"|position. Das
 bedeutet, dass trotz der Implikation in (\ref{constraint-DSL}) ungrammatische Sätze zugelassen
 werden. (\mex{1}) zeigt einige Beispiele:
 \eal
@@ -1416,14 +1385,15 @@ werden. (\mex{1}) zeigt einige Beispiele:
 Der Affe kennt$_j$ [[lacht] und [den Stock \trace$_j$]].
 }
 \ex[*]{
-Der Affe gibt$_j$ [[lacht] und [dem Mann den Stock \trace$_j$]].
+Der Affe gibt$_j$ [[lacht] und [dem Kind den Stock \trace$_j$]].
 }
 \zl
-Die Struktur in (\mex{0}b) entsteht dadurch, dass eine Verbspur für \emph{gibt} mit zwei Argumenten kombiniert
-wird, so dass nur noch ein Subjekt gebraucht wird. Dann wird die Projektion \emph{dem Mann den Stock
+Die Struktur in (\mex{0}b) entsteht dadurch, dass eine Verbspur für \emph{gibt} (\trace$_j$) mit
+zwei Argumenten (\emph{dem Kind} und \emph{den Stock}) kombiniert
+wird, so dass nur noch ein Subjekt gebraucht wird. Dann wird die Projektion \emph{dem Kind den Stock
   \trace$_j$} mit dem intransitiven Verb \emph{lacht} koordiniert. Dabei wird der \dslw des
-Verbletztverbs mit dem der Verbspur identifiziert. Es entsteht also ein \emph{lacht} mit einem
-\dslw, der später mit dem \localw von \emph{gibt} identifiziert wird. Unsinnige und unerwünschte
+Verbletztverbs \emph{lacht} mit dem der Verbspur identifiziert. Es entsteht also ein \emph{lacht} mit einem
+\dslw, der später mit dem \localw von \emph{gibt} identifiziert wird. Das sind unsinnige und unerwünschte
 Strukturen. Man kann nun alles Mögliche versuchen, um die Strukturen mit weiteren Implikationen
 auszuschließen, aber das ist nicht so einfach, denn man möchte Verben mit gefüllten \dslwen
 koordinieren können, denn das war ja der Ausgangspunkt: Sätze wie (\mex{1}) sollten analysiert werden.
@@ -1432,17 +1402,31 @@ Schläft und schnarcht Aicke?
 \z
 Man könnte die Koordination von Konjunkten mit gefülltem \dslw generell ausschließen. Auf den ersten
 Blick scheint das eine schlechte Idee zu sein, weil es so scheint, als könnten koordinierte
-Verbalprojektionen für die Analyse von Sätzen wie (\mex{1}) hilfreich sein:
+Verbalprojektionen für die Analyse von Sätzen wie (\mex{1}) hilfreich sein \parencites[Abschnitt~2]{Hoehle91}[6]{Frank94}:
 \ea
+\label{ex-Koordination-V1-als-ATB}
 Kennt$_j$ [Aicke den Roman \trace$_j$] und [Conny den Film \trace$_j$]?
 \z
 Das ist aber eine Täuschung. Da die Verbspur in beiden Konjunkten dieselbe ist (sie ist Teil von
-\head und muss deshalb in beiden Konjunkten gleich sein, da die \catwe identifiziert werden). Ist
-auch die Valenzliste des Verbs in beiden Konjunkten identisch. Das bedeutet, dass (\mex{0})
+\head und muss deshalb in beiden Konjunkten gleich sein, da die \catwe der Konjunkte identifiziert
+werden), ist auch die Valenzliste des Verbs in beiden Konjunkten identisch. Das bedeutet, dass (\mex{0})
 überhaupt nicht analysiert werden kann, denn \emph{Aicke} und \emph{Conny} und \emph{den Roman} und
 \emph{den Film} sind nicht identifizierbar. Selbst wenn die Konjunkte aus phonologisch und
-semantisch kompatiblem Material bestünden, wäre die Analyse letztendlich falsch, da die Variablen
-der NPen identifiziert würden und somit die sich ergebende MRS nicht wohlgeformt wäre. Sätze wie
+semantisch kompatiblem Material bestünden, wäre die Analyse letztendlich falsch, da die
+\textsc{index}- und \ltopwe der NPen identifiziert würden und somit die sich ergebende MRS nicht wohlgeformt wäre.\footnote{%
+  Ein ähnliches Argument findet sich bei \citet[75]{Kathol2000a}. Kathol nimmt an, dass das
+  Hilfsverb wie in (i.a) jeweils Teil des Verbalkomplexes in den Konjunkten ist. Da im ersten
+  Konjunkt zwei Argumente und im zweiten drei angezogen werden müssen, entstünde ein Widerspruch.
+\eal
+\ex Peter hat$_i$ [das Buch gekauft \_$_i$] und [es dann seiner Schwester geliehen \_$_i$].
+\ex Peter hat$_i$ [[das Buch gekauft] und [es dann seiner Schwester geliehen] \_$_i$].
+\zl
+Ich würde dagegen annehmen, dass der \lexw einer Koordination unbestimmt ist, so dass die Struktur
+die Form in (i.b) haben kann. Es gibt nur eine Verbspur, die nur das Subjekt der Koordination
+anzieht. Da das \lexm nur dazu da ist, unechte Mehrdeutigkeiten auszuschließen und da es wegen der
+Koordination keine Gefahr für unechte Mehrdeutigkeiten gibt, sind solche Strukturen problemlos
+analysierbar. Das Grundproblem mit viel einfacheren Sätzen wie (\ref{ex-Koordination-V1-als-ATB}) bleibt allerdings bestehen.
+} Sätze wie
 (\mex{0}) muss man also anders analysieren. Siehe \citews{Crysmann2003c}{BS2004a} zu Vorschlägen für
 ähnliche Strukturen im Englischen und \citew{AC2024a} zu einem allgemeinen Überblick über
 Koordination in HPSG.
@@ -1459,9 +1443,9 @@ Diese kann man nicht ausschließen, denn genau diese Koordination in der rechten
 man ja als Eingabe der Verberstregel.
 
 Ein weiteres Problem ergibt sich daraus, dass bei Koordinationen die \catwe der Konjunkte
-identifiziert werden \citep[\page 202]{ps2}. Abbildung~\ref{Abbildung Kennt und
+identifiziert werden \citep[\page 202]{ps2}. Wie Abbildung~\ref{Abbildung Kennt und
   liebt Aicke diese Band} zeigt, gelangt auf diese Weise der \localw von \emph{kennt und liebt}
-\iboxb{2} innerhalb der \catwe der beiden Konjunkte zu den Verben \emph{kennt} und \emph{liebt}. 
+\iboxb{2} innerhalb der \catwe der beiden Konjunkte (jeweils \ibox{3}\,) zu den Verben \emph{kennt} und \emph{liebt}. 
 %\mmznext{recompile} % for one compilation
 \begin{figure}
 \begin{forest}
@@ -1487,14 +1471,320 @@ Damit landet auch der \contw der Koordination der beiden Verben im \dslw der ein
 Rein technisch, von der Menge der lizenzierten Strukturen, ist das kein Problem, aber es ist dennoch
 unerwartet und vor allem sorgt es dafür, dass man nicht verlangen kann, dass der \dslw eines Verbs
 immer identisch mit dem \localw des Verbs ist, wenn das Verb einen von \type{none} verschiedenen
-\dslw hat. Mit solch einer Beschränkung hätte man die falsche Koordination der in der rechten
-Satzklammer in (\ref{ex-Schläft und schnarcht Aicke schläft und schnarcht}) ausschließen können,
+\dslw hat. Mit solch einer Beschränkung hätte man die falsche Koordination in der rechten
+Satzklammer in (\ref{ex-Probleme bei zyklischen Verbspuren mit Koordination}) und (\ref{ex-Schläft und schnarcht Aicke schläft und schnarcht}) ausschließen können,
 aber man braucht genau das in der linken Satzklammer.
 
 Die Schlussfolgerung ist, dass man, wenn man die Analyse der koordinierten Verben in Initialstellung
-beibehalten will, auf die zyklische Verbspur verzichten muss. Da man ohne zyklische Strukturen auch
-nicht die unplausiblen Verteilungen von \dslwen aus Abbildung~\ref{Abbildung Kennt und liebt Aicke
-  diese Band} bekommt, bevorzuge ich eine nicht-zyklische Analyse.
+beibehalten will, auf die zyklische Verbspur verzichten muss. Das hat auch den Vorteil, dass man die
+unplausiblen Verteilungen von \dslwen aus Abbildung~\ref{Abbildung Kennt und liebt Aicke diese Band}
+nicht bekommt.
+
+\subsection{Verbspuren ohne Zyklen und scheinbar mehrfache Vorfeldbesetzung}
+\label{Abschnitt-Verbspuren ohne Zyklen}
+
+\citet[57]{Crysmann2022a} hat eine Verbspur vorgeschlagen, die im hier benutzten Format wie folgt
+aussehen würde:
+\eas
+\label{le-Verbspur-nicht-zyklisch}%
+Nichtzyklische Verbspur nach \citet[57]{Crysmann2022a}:\\
+\ms{
+phon & \eliste\\
+loc & \ms{ cat & \ms{ head & \onems[verb]{
+                             vform \type{fin}\\
+                             ini   $-$\\
+                             dsl   \ms{ cat & \ms{ spr   & \ibox{1}\\ 
+                                                     comps & \ibox{2}\\
+                                                   }\\
+                                          cont & \ibox{3}\\
+                                        }}\\
+                      spr & \ibox{1}\\
+                      comps & \ibox{2}\\
+                    }\\
+          cont & \ibox{3}\\
+        }\\
+}
+\zs
+Im Gegensatz zur allgemeinen Kopfspur in (\ref{le-verbspur}) ist die Information über die Wortart (\type{verb})
+und Stellung (\textsc{ini}$-$) direkt festgelegt. Valenzinformation und semantische Information ist
+direkt geteilt. Diese Spur kann statt der zyklischen Spur verwendet werden und in den
+Computerimplementationen zu diesem Buch verwende ich sie auch. Die Analyse mit der zyklusfreien Spur
+hat aber einen Makel: Die Wortart der Spur in (\ref{le-Verbspur-nicht-zyklisch}) und
+auch der \vformw, den Crysmann nicht angegeben hat, ist im Prinzip egal. Das liegt daran, dass der \dslw der Spur zwar Information über
+die Wortart und die dazugehörigen Merkmale enthält, diese jedoch in der Spur nicht geteilt
+werden. Das führt nur deshalb nicht zu Problemen, weil die Verbspur immer phonologisch leer ist, und
+phonologisch leere Verben mit \vform \type{fin} und \vform \type{bse} und \vform \type{inf} sehen
+gleich aus: Es ist nichts zu sehen.
+
+
+Man könnte annehmen, dass man dieses Problem einfach aus der Welt schaffen kann, indem man den
+\vformw auf \type{fin} festlegt. Die Spur würde dann auch für alle bisher besprochenen Fälle von
+Verbbewegung funktionieren. Eine wesentliche Motivation für die Verbbewegungsanalyse sind jedoch Daten mit scheinbar
+mehrfacher Vorfeldbesetzung wie die in (\mex{1}):
+\eal
+\ex {}[Zum zweiten Mal] [die Weltmeisterschaft] errang Clark 1965 \ldots\footnote{%
+        Der deutsche Straßenverkehr, 1968, Heft 6, p.\,210, quoted after \citet*[\page 224]{Neumann69a-u}.
+%\citep*[\page 162]{Benes71}
+      }\label{bsp-zum-zweiten-mal-die-Weltmeisterschaft}
+
+\ex {}[Zum zweiten Mal] [die Weltmeisterschaft] hat Clark 1965 errungen.
+\zl
+Die einzige sinnvolle Analyse für solche Daten scheint mir eine mit einem leeren Kopf zu sein: die
+Verbbewegungsspur. Ich kann hier nicht die komplette Analyse motivieren und erklären. Dafür gibt es
+inzwischen ein eigenes (fast fertiges) Buch \citep{MuellerGS}. Wichtig für die Diskussion hier ist,
+dass die vorangestellten Konstituenten von einem Verb abhängen müssen. Normalerweise ist das ein
+finites Verb wie in (\ref{bsp-zum-zweiten-mal-die-Weltmeisterschaft}), aber es ist auch möglich,
+dass das Verb wie in (\mex{0}b) infinit ist. In der
+nicht-zyklischen Spur werden aber weder Wortart noch Verbform mit den Werten in \dsl geteilt. Wie
+ich oben schon festgestellt habe, ist das für die Abdeckung der Grammatik kein Problem. Ob die Spur
+nun finit oder infinit ist, ist egal, da Spuren ja keine Form haben. Allerdings muss man wohl
+einräumen, dass eine Spur mit \vform \type{bse}, die in Relation zu einem Element mit \vformw
+\type{fin} steht, unbefriedigend ist. Folgt man den Grundannahmen, die ich in Abschnitt~\ref{sec-modelle-theorien} erklärt
+habe, müssen alle Merkmale einen maximal spezifischen Wert haben. Es ist also keine Option, den
+\vformw unspezifiziert zu lassen, denn das würde bedeuten, dass es in den Modellen vier
+Möglichkeiten für die Auf"|lösung des \vformwes gäbe: \type{fin}, \type{bse}, \type{ppp} und
+\type{inf}. In der Analyse von (\mex{0}a), die in Abbildung~\ref{abb-merhvf1} zu sehen ist, steht
+die komplexe Konstituente im Vorfeld \iboxb{5} zu einer Extraktionsspur im Mittelfeld in
+Beziehung. Im Vorfeld werden die beiden Konstituenten mit einer Verbspur kombiniert. Diese Verbspur
+muss Information mit dem zugehörigen Verb teilen. Im konkreten Beispiel ist das \emph{errang}. Die
+\vform des Verbs ist finit. Wenn es eine solche Teilung gibt, ist die Spur im Vorfeld ausreichend instantiiert.
+
+
+\begin{figure}
+\resizebox{!}{\textheight-3\baselineskip}{%
+%\resizebox{\textwidth}{!}{%
+\begin{sideways}
+\begin{forest}
+sm edges
+[V{[\comps \eliste]}
+	[V\ibox{5}\,{[\dsl \ibox{7}, \comps \sliste{ \ibox{1} }]}
+		[PP
+			[zum zweiten Mal, roof]]
+		[V{[\dsl \ibox{7}, \comps \sliste{ \ibox{1} }]}
+			[\ibox{2} NP{[\textit{acc}]}
+				[die Weltmeisterschaft, roof]]
+			[V\feattab{\dsl \ibox{7},\\
+                                   \comps \sliste{ \ibox{1}, \ibox{2} }}
+				[\trace]]]]
+	[V\feattab{\comps \eliste,\\
+                   \textsc{slash} \sliste{ \ibox{5} }}
+		[V{[\comps \sliste{ \ibox{6} }]}
+			[V{[\comps \ibox{3} $\oplus$ \sliste{ \ibox{4} }]}, tier=np,edge label={node[midway,right]{V1-LR}}
+				[V{[\comps \sliste{ \ibox{1}, \ibox{2} }]}, tier=trace,edge label={node[midway,right]{MF-LR}}
+					[errang]]]]
+		[\ibox{6} V\feattab{\comps \eliste,\\
+                                    \textsc{slash} \sliste{ \ibox{5} }}
+			[\ibox{1} NP{[\textit{nom}]}, tier=np
+				[Clark]]
+			[V\feattab{\comps \ibox{3},\\
+                                   \textsc{slash} \sliste{ \ibox{5} }}
+				[\ibox{4} {[\begin{tabular}[t]{@{}l@{}}
+                                           \textsc{loc} \ibox{5} [\begin{tabular}[t]{@{}l@{}}
+                                                                       \dsl \ibox{7},\\
+                                                                       \comps \ibox{3}\,],
+                                                                       \end{tabular}\\
+                                                   \textsc{slash} \sliste{ \ibox{5} }]
+                                           \end{tabular}}, tier=trace
+					[\trace]]
+				[V{[\comps \ibox{3} \sliste{ \ibox{1} } $\oplus$ \sliste{ \ibox{4} }]}
+					[\trace]]]]]]
+\end{forest}
+\end{sideways}
+}
+\caption{\label{abb-merhvf1}Analyse von Mehrfachvoranstellung mit leerem Kopf}
+\end{figure}
+
+\begin{figure}
+\resizebox{!}{\textheight-3\baselineskip}{%
+\begin{sideways}
+\begin{forest}
+sm edges
+[V{[\comps \eliste]}
+	[V \ibox{5}\,{[\dsl \ibox{7}, \comps \sliste{ \ibox{1} }]}
+		[PP
+			[zum zweiten Mal, roof]]
+		[V{[\dsl \ibox{7}, \comps \sliste{ \ibox{1} }]}
+			[\ibox{2} NP{[\textit{acc}]}
+				[die Weltmeisterschaft, roof]]
+			[V\feattab{\dsl \ibox{7},\\
+                                   \comps \sliste{ \ibox{1}, \ibox{2} }}
+				[\trace]]]]
+	[V\feattab{\comps \eliste,\\
+                   \textsc{slash} \sliste{ \ibox{5} }}
+		[V{[\comps \sliste{ \ibox{6}}]}
+			[V{[\comps \ibox{3} $\oplus$ \sliste{ \ibox{8} }]}, tier=np,edge label={node[midway,right]{V1-LR}}
+				[hat]]]
+		[\ibox{6}\,V\feattab{\comps \eliste,\\ 
+                                     \textsc{slash} \sliste{ \ibox{5} }}, l sep+=2ex
+			[\ibox{1} NP{[\textit{nom}]}, tier=np
+				[Clark]]
+			[V\feattab{\comps \ibox{3},\\
+                                   \textsc{slash} \sliste{ \ibox{5} }}
+				[\ibox{8}\,\feattab{\comps \ibox{3},\\
+                                                    \textsc{slash} \sliste{ \ibox{5} }}
+					[\ibox{4}\,{[\begin{tabular}[t]{@{}l@{}}
+                                                    \textsc{loc} \ibox{5}\,{[\begin{tabular}[t]{@{}l@{}}
+                                                                          \dsl \ibox{7},\\
+                                                                          \comps \ibox{3}\,],
+                                                                         \end{tabular}}\\
+                                                    \textsc{slash} \sliste{ \ibox{5} }]
+                                                    \end{tabular}}
+						[\trace]]
+					[V{[\comps \ibox{3}\, \sliste{ \ibox{1} } $\oplus$ \sliste{ \ibox{4} }]}, l sep+=2ex
+						[V{[\comps \sliste{ \ibox{1}, \ibox{2} }]},edge label={node[midway,right]{MF-LR}}
+							[errungen]]]]
+				[V{[\comps \ibox{3}\,\sliste{ \ibox{1} } $\oplus$ \sliste{ \ibox{8} }]}
+					[\trace]]]]]]
+\end{forest}
+\end{sideways}
+}
+\caption{\label{anal4-vlast}Analyse von \emph{Zum zweiten Mal die Weltmeisterschaft hat Clark 1965 errungen.}}
+\end{figure}
+
+Im Folgenden bespreche ich weitere Vorschläge, die in der Literatur gemacht wurden.
+
+
+\subsection{Verbbewegung über den \texorpdfstring{\textsc{nonloc}}{NONLOC}"=Mechanismus}
+
+Kapitel~\ref{Kapitel-nla} beschäftigt sich mit so genannten nichtlokalen Abhängigkeiten. Diese
+werden in der HPSG über die Weitergabe von Information über fehlende Elemente in Bäumen
+analysiert. Die ursprüngliche Idee dafür kam von \citet{Gazdar81a}. Unter dem Pfad
+\textsc{nonlocal|slash} gibt es eine Liste mit Elementen, die in einer Struktur fehlen. Information
+über fehlende Elemente wird von den Töchtern zum Mutterknoten nach oben gereicht, bis diese
+Information -- \zB durch ein Element im Vorfeld -- abgebunden wird. In den beiden vorigen
+Abbildungen war das schon zu sehen. \citet[Abschnitt~4.7]{KW91a} und \textcites[Abschnitt~2.2.4.2]{Kiss95a}[Abschnitt~5.4.2]{Kiss95b} haben nun vorgeschlagen, auch
+die Verbbewegung mittels eines unter \nonlocal angesiedelten Merkmals zu analysieren.
+
+\eas
+\label{le-verbspur-DSL-in-NONLOC}%
+Verbspur mit \dsl in \nonloc nach \textcites[72]{Kiss95a}[230]{Kiss95b}:\is{Spur!Verb-}\\
+\ms{
+phon & \phonliste{}\\
+loc  & \ibox{1} \\
+nonloc & \upshape [\textsc{inher|slash} \nliste{ \ibox{1} }]
+}
+\zs
+% Seitenzahl stimmt nur, wenn die Formatierung dem Original entspricht
+\citet[125]{Frank94b} hat darauf hingewiesen, dass Verbbewegung anders als \zB die Vorfeldbesetzung
+nicht Satzgrenzen überschreiten kann. Umstellungen wie (\mex{1}) müssen ausgeschlossen werden:
+\ea
+Max$_j$ kennt$_i$ \trace$_j$ glaubt, dass Susanne Fritz \trace$_i$.
+\z
+(\mex{0}) wäre möglich, wenn die Information über die Verbspur \trace$_i$ über den \emph{dass}-Satz
+hinaus nach oben gereicht würde. \emph{glaubt} würde als Verbletztverb mit seinem Subjekt \trace$_j$
+und dem \emph{dass}-Satz kombiniert werden. Das Verb \emph{kennt} in Initialstellung würde mit einer
+Verbprojektion, der das Verb \emph{kennt} fehlt, kombiniert.
+
+Verbspuren, die die zu teilende Information als Kopfmerkmal repräsentieren, machen hier die
+richtigen Vorhersagen: Die Information über das umgestellte Verb kann genau so weit nach oben
+gereicht werden, wie die Projektion der Kopfmerkmale geht. Bei Merkmalen unter \nonloc muss man
+extra Barrieren einziehen. Das wäre aber möglich und auch nicht wirklich ungewöhnlich, denn auch die
+Bewegung nach rechts ist begrenzt. Man könnte also das Problem mit (\mex{0}) einfach lösen, indem
+man \emph{dass} einen Satz mit leerer \dsl-Menge selegieren lässt \citep[232]{Kiss95b}.\footnote{
+Kiss verwirft die Alternative, \dsl vom Prinzip der nicht-lokalen Merkmale (siehe S.\,\pageref{Prinzip-NONLOC}) auszunehmen und nur
+entlang von Kopf"|pfaden zu projizieren.
+} Das muss man übrigens auch bei
+einem Ansatz mit \dsl unter \head machen: In \emph{dass}-Sätzen müssen die Verben overt sein:
+\ea[*]{
+Ich glaube, dass Kim den Roman \trace
+}
+\z
+
+\noindent
+Ist also alles gut? Ist dieser Ansatz also einer ohne zyklische Strukturen, in dem trotzdem alle
+Information zwischen Spur und overtem Verb geteilt wird? Nein! Nichts ist gut, denn für die Analyse
+der scheinbar mehrfachen Vorfeldbesetzung, die in den beiden vorigen Abbildungen dargestellt wurde,
+wird die Information über die Verbspur im Vorfeld im Verbalkomplex in der rechten Satzklammer
+benötigt. Das komplexe Vorfeld steht in einer Fernabhängigkeit zur Verbspur in der rechten
+Satzklammer. Die Objekte, die in solchen Vorfeldabhängigkeiten geteilt werden, sind
+\type{local}-Objekte. Das bedeutet, aber dass alles, was unter \nonlocal steht, nicht in
+Fernabhängigkeiten geteilt werden kann. Im Vorfeld in Abbildung~\ref{abb-merhvf1} kann also die
+Information der Verbspur über den \nonlocal-Mechanismus nach oben bis zur höchsten Projektion
+gelangen, aber dort ist sie nicht Bestandteil von \local \iboxb{5} und also auch nicht Teil der
+Extraktionsspur in der rechten Satzklammer. Das ist bei Analysen, die \dsl unter \head haben,
+anders \citep[Fn.\,21]{Mueller2002f}.
+
+
+\subsection{Objekte vom Typ \texorpdfstring{\type{sign} oder \type{synsem} im \textsc{nonloc}}{sign
+    oder synsem im NONLOC}"=Mechanismus}
+
+Das im vorigen Abschnitt dargestellt Problem besteht darin, dass die über \nonlocal weitergeleitete Information über die
+Konstituente im Vorfeld die \dsl-Information nicht enthält. \citet[10]{HN94b} haben vorgeschlagen, in
+\slasch nicht nur \type{local}"=Objekte zu teilen, sondern Objekte vom Typ \type{sign}. Diese würden
+dann auch \dsl einschließen.
+
+\begin{figure}
+\begin{forest}
+[V
+  [\ibox{1} {[\nonloc|\inher|\dsl \nliste{ [] }]} ]
+  [{[\nonloc|\inher|\slasch \nliste{ \ibox{1} }]}]]
+\end{forest}
+\caption{Analyse mit \slasch-Elementen vom Typ \type{sign}}
+\end{figure}
+
+Das würde wohl funktionieren, allerdings ist ein Hauptbestandteil der Analyse der Voranstellung von
+partiellen Verbphrasenm (siehe Abschnitt~\ref{sec-pvp}), dass sich das \lexm nicht in \local, sondern unter \synsem befindet. Deshalb
+wird es nicht zwischen Spur und Füller geteilt. Somit wird lokal im Verbalkomplex die Komplexbildung
+erzwungen, aber gleichzeitig werden komplexe Phrasen als Füller im Vorfeld zugelassen. Der
+Phrasenstatus wird einfach zwischen Vorfeld und Spur nicht geteilt. Das könnte man mit der obigen
+Analyse nachbauen, indem man bei der Kopftochter nur die \local- und \nonlocal-Merkmale mit dem
+Füller teilt und den \lexw ignoriert. Das wäre jedoch eine unschöne Stipulation.
+\begin{figure}
+\begin{forest}
+[V
+  [\ms{ loc & \ibox{1}\\
+        nonloc & \ibox{2}\\
+        lex    & \ldots } ]
+  [\ms{\nonloc|\inher|\slasch \nliste{ \ms{ loc & \ibox{1}\\
+                                            nonloc & \ibox{2}} }}]]
+\end{forest}
+\caption{Analyse mit \slasch-Elementen vom Typ \type{sign} aber einzeln geteilten Werten in \type{sign}}
+\end{figure}
+
+
+
+\subsection{Explizite Weitergaben der Verbspurinformation innerhalb von \texorpdfstring{\local}{LOCAL}}
+
+Eine weiter Möglichkeit besteht darin, dass man \dsl nicht unter \head spezifiziert, um die Zyklen
+zu vermeiden und nicht unter \cat, um die Probleme mit der Koordination zu vermeiden. Da man aber
+wegen der scheinbar mehrfachen Vorfeldbesetzung \dsl innerhalb von \local haben will, müsste \dsl
+also unter \local sein.
+
+\eas
+\label{le-verbspur-DSL-unter-LOCAL}%
+Verbspur mit \dsl in \local:\is{Spur!Verb-}\\
+\ms{
+phon & \phonliste{}\\
+loc  & \ms{ cat  & \ibox{1}\\
+            cont & \ibox{2}\\
+            dsl  & \ms{ cat & \ibox{1}\\
+                        cont & \ibox{2} } } }
+\zs
+Ohne weiteres Zutun, würde \dsl aber unter \local sitzen und wäre an höheren Projektionen der Spur
+nicht verfügbar. Mit \dsl als Kopfmerkmal wird es automatisch entlang des Kopf"|pfades nach oben
+gereicht. Bei \dsl als \local-Merkmal müsste man zusätzlich festlegen, dass der \dsl-Wert der Mutter
+immer mit dem \dsl-Wert der Tochter identifiziert wird.
+
+Zusammenfassend kann man sagen, dass keine der Alternativen perfekt ist. Vielleicht kann man einfach
+die Koordination anders behandeln. Dann könnte man bei der zyklischen Spur von
+\citet[207]{Meurers2000b} bleiben, die die Verhältnisse meiner Meinung nach am besten erfasst. Von den
+anderen Möglichkeiten ist die mit der nichtzyklischen Spur in (\ref{le-Verbspur-nicht-zyklisch}) die mit den geringsten
+Auswirkungen auf die Gesamtarchitektur, weshalb ich diese auch in den Computerimplementationen für
+die in diesem Buch besprochenen Fragmente verwendet habe.
+
+
+\section{Alternativen}
+
+Abschnitt~\ref{sec-konstituentenreihenfolge-alternativen} diskutiert einige Aspekte bisheriger
+HPSG"=Ansätze. Abschnitt~\ref{sec-alternativen-konstituentenreihenfolge-gb} setzt sich mit der
+Behandlung der Konstituentenstellung innerhalb der GB"=Theorie bzw.\ innerhalb des Minimalistischen
+Programms auseinander.
+
+\subsection{Alternative HPSG-Ansätze}
+\label{sec-konstituentenreihenfolge-alternativen}
+
+Alternative HPSG"=Ansätze werden ausführlich in \citew{Mueller2004b} und in
+\citew{Mueller2005c,Mueller2005d,MuellerGS} diskutiert. Hier seien nur einige Punkte kurz erwähnt.
 
 
 \subsubsection{Flache Strukturen mit freier Linearisierung des Verbs}
@@ -1505,7 +1795,8 @@ dass das Verb mit seinen Argumenten in einem lokalen Baum realisiert wird. Da da
 und dessen Argumente vom selben Knoten dominiert werden, können sie nach GPSG"=Annahmen beliebig
 angeordnet werden, solange bestimmte innerhalb der Theorie spezifizierte Linearisierungsbeschränkungen\is{Linearisierung!-sregel}
 nicht verletzt werden. \citet{Pollard90a} hat Uszkoreits Ansatz für eine Beschreibung der Satzstruktur
-des Deutschen in seine HPSG"=Analyse übernommen. Die Analyse des Satzes (\ref{bsp-perm-mf}) zeigt
+des Deutschen in seine HPSG"=Analyse übernommen. Die Analyse des Satzes (\ref{ex-weil Aicke den
+  Stock dem Affen gibt}) von S.\,\ref{ex-weil Aicke den Stock dem Affen gibt} zeigt
 Abbildung~\ref{abb-uszkoreit-pollard}.
 \begin{figure}
 \begin{forest}
@@ -1545,7 +1836,7 @@ der einzelnen Adjunkte beziehen muss. \citet{Kasper94a} hat gezeigt, wie Adjunkt
 Analyse integriert werden können. Er verwendet komplexe relationale Beschränkungen, die alle
 Adjunkttöchter nacheinander in die Berechnung der Gesamtbedeutung einbeziehen. Da relationale
 Beschränkungen ein sehr mächtiges Beschreibungsmittel sind, sind Ansätze, die sie vermeiden bzw.\
-sich auf einfache Beschränkungen wie \emph{append} beschränken, vorzuziehen.
+sich auf einfache Beschränkungen wie \emph{append}\isrel{append} beschränken, vorzuziehen.
 
 Ansätze mit flachen Strukturen haben den Vorteil, dass sie ohne leere Köpfe\is{leere Kategorie} für die Beschreibung der
 Verbstellung auskommen. Bei solchen Analysen scheint es jedoch nicht möglich zu sein, die scheinbar
@@ -1579,12 +1870,12 @@ bzw.\ in der \href{http://hpsg.hu-berlin.de/~stefan/Pub/mehr-vf-ds.html}{im WWW 
 
 Bei einem Ansatz, der Verbspuren annimmt, kann man davon ausgehen, dass sich in (\mex{0}) eine Projektion
 einer solchen Spur im Vorfeld befindet, \dash, dass das gesamte Material vor dem Finitum eine komplexe Konstituente
-bildet. Bei Linearisierungsansätzen gibt es dagegen einfach keine Möglichkeit, 
-die Konstituenten im Vorfeld zu einer Konstituente zusammenzufassen. Man
-könnte natürlich -- wie in \citew{Mueller2002f,Mueller2002c,Mueller2005d} vorgeschlagen 
+bildet. Bei Linearisierungsansätzen gibt es dagegen keine einfache Möglichkeit, 
+die Konstituenten im Vorfeld zu einer Konstituente zusammenzufassen.\todostefan{Wetta} Man
+könnte natürlich -- wie in \citews{Mueller2002f}[121]{Mueller2002c} vorgeschlagen 
 -- einen leeren Kopf im Vorfeld annehmen, nur wäre dieser dann ein spezielles leeres Element,
 was nirgends sonst in der Grammatik gebraucht würde
-und nur zur Erfassung der scheinbar mehrfachen Vorfeldbesetzung stipuliert würde.
+und nur zur Erfassung der scheinbar mehrfachen Vorfeldbesetzung stipuliert würde \citep[322]{Mueller2005d}.
 
 Alternativ könnte man Spezialregeln formulieren, die das Material
 im Vorfeld zu einer Konstituente kombinieren \citep[Abschnitt~7.6]{Welke2019a-u}. Dabei stellt sich natürlich die Frage nach
@@ -1635,7 +1926,10 @@ sm edges
 
 In \citew[\page162]{Mueller99a} habe ich vorgeschlagen,
 Köpfe so zu repräsentieren, dass jeder Kopf in seiner Konstituentenstellungsdomäne eine Beschreibung
-von sich selbst enthält. (\mex{1}) zeigt eine Beschreibung, die für alle Köpfe zutrifft:
+von sich selbst enthält. (\mex{1}) zeigt eine Beschreibung, die für alle Köpfe zutrifft:\footnote{%
+Eine einfachere Repräsentation benutzt zyklische Strukturen: Das Domänenelement wäre dann identisch
+mit der gesamten AVM.
+}
 \ea
 \ms[word]{
 phon   & \ibox{1} \\
@@ -1647,14 +1941,15 @@ dom & \liste{ \ms[word]{ phon   & \ibox{1} \\
             } \\
 }
 \z
-\itdopt{zyklische Strukturen}
 Dabei sind unter dem Merkmal \synsem\isfeat{synsem}
 sowohl syntaktische als auch semantische Informationen zusammengefasst.
 Zu \textsc{synsem} siehe auch Kapitel~\ref{Kapitel-Lokalität}.
 
 In Kopf"=Komplement- und Kopf"=Adjunkt"=Strukturen werden Adjunkt- und Komplementtöchter in diese Liste eingesetzt 
 und relativ zum Kopf angeordnet. Das sieht formal wie folgt aus:\footnote{
-  In \citew{Mueller2002b} gilt diese Beschränkung für Verbalkomplexe nicht.%
+  In \citew[90]{Mueller2002b} gilt diese Beschränkung für Verbalkomplexe nicht. Es werden nicht die
+  Nicht-Kopftöchter in die Domäne der Kopftochter eingesetzt, sondern die Domänenelemente
+  der Nicht-Kopftochter werden mit denen der Kopftochter vereinigt.%
 }
 \ea
 \type{headed"=phrase}\istype{headed"=phrase} \impl
@@ -1697,7 +1992,7 @@ Elemente in der \doml:
 \type{phrase} \impl
 \ms{
  phon & \ibox{1} $\oplus$ \ldots{} $\oplus$ \ibox{n} \\
- dom  & \sliste{ [ phon  \ibox{1}], \ldots, [phon \ibox{n}] } }
+ dom  & \sliste{ [phon  \ibox{1}], \ldots, [phon \ibox{n}] } }
 \z
 Die folgenden Abbildungen zeigen die Analysen für die wichtigsten Fälle:
 \eal
@@ -1710,7 +2005,7 @@ Die folgenden Abbildungen zeigen die Analysen für die wichtigsten Fälle:
 Die Variabilität in der Stellung wird in diesem Ansatz nicht dadurch erreicht, dass ein beliebiges
 Element aus der \compsl mit dem Kopf verbunden werden kann, sondern dadurch, dass das Element, das
 mit dem Kopf kombiniert wird, nicht unbedingt neben dem Kopf stehen muss.
-Abbildung~\vref{abb-linearisierung-kont} zeigt die Analyse von (\mex{0}b). Die Elemente,
+Abbildung~\ref{abb-linearisierung-kont} zeigt die Analyse von (\ref{bsp-Aicke-dem-Affen-den-Stock-gibt}). Die Elemente,
 die in Abbildung~\ref{abb-linearisierung-kont} kombiniert werden, grenzen aneinander. Die Analyse
 gleicht also der, die wir mit den in Kapitel~\ref{Kapitel-komplementation} beschriebenen Mitteln auch
 bekommen würden. Neu ist lediglich die \doml. Bei der Kombination von \emph{gibt} mit seinen Argumenten
@@ -1740,7 +2035,7 @@ sm edges
 
 %\noindent
 Die Analyse von (\ref{bsp-Aicke-den-Stock-dem-Affen-gibt}) zeigt
-Abbildung~\vref{abb-linearisierung-diskont}. Im Gegensatz zu
+Abbildung~\ref{abb-linearisierung-diskont}. Im Gegensatz zu
 (\ref{bsp-Aicke-dem-Affen-den-Stock-gibt}) grenzt \emph{den Stock} in
 (\ref{bsp-Aicke-den-Stock-dem-Affen-gibt}) nicht an \emph{gibt}. In der Analyse von
 (\ref{bsp-Aicke-den-Stock-dem-Affen-gibt}) bilden \emph{den Stock} und \emph{gibt} eine
@@ -1770,8 +2065,8 @@ sm edges
 \caption{\label{abb-linearisierung-diskont}Linearisierungsanalyse mit einem Beispiel für diskontinuierliche Konstituenten}
 \end{figure}
 
-\noindent
-Abbildung~\vref{abb-linearisierung-diskont-verb} zeigt schließlich die Analyse eines Satzes mit Verberststellung. Hier
+%\noindent
+Abbildung~\ref{abb-linearisierung-diskont-verb} zeigt schließlich die Analyse eines Satzes mit Verberststellung. Hier
 wird das Verb als erstes Element der Linearisierungsdomäne angeordnet. Die entstehenden Konstituenten sind zum Teil wieder
 diskontinuierlich.
 \begin{figure}
@@ -1800,7 +2095,7 @@ sm edges
 Man kann sich leicht selbst davon überzeugen, dass die Dominanzstrukturen für alle Sätze in (\mex{0}) identisch sind.
 Die Analysen unterscheiden sich lediglich hinsichtlich der Anordnung der Elemente in den Stellungsdomänen.
 
-Abbildung~\vref{abb-linear-surface} stellt die Analyse von (\mex{0}c) noch einmal anders dar. Die Konstituenten sind hier entsprechend
+Abbildung~\ref{abb-linear-surface} stellt die Analyse von (\mex{0}c) noch einmal anders dar. Die Konstituenten sind hier entsprechend
 der Oberflächenreihenfolge angeordnet. Man sieht in dieser Abbildung recht deutlich, dass diskontinuierliche Konstituenten vorliegen.
 %
 \begin{figure}
@@ -1871,7 +2166,7 @@ delay={where tier={word}{inner xsep=0}{}}, % unclear why it has to happen here w
 Nach dieser kurzen Vorstellung der Linearisierungsansätze von Reape, Kathol und mir sollen
 jetzt die Probleme dieser Ansätze besprochen werden: Diese Ansätze haben denselben Nachteil
 wie die Ansätze, die von flachen Strukturen ausgehen: Man kann nicht motivieren,
-dass mehrere Konstituenten im Vorfeld eine gemeinsame Konstituente bilden.
+dass mehrere Konstituenten im Vorfeld eine gemeinsame Konstituente bilden. Siehe hierzu S.\,\pageref{bsp-smvfb}.
 
 \is{Vorfeldbesetzung|(}%
 Außerdem haben Linearisierungsanalysen mit binär verzweigender Struktur den Nachteil,
@@ -1918,7 +2213,7 @@ mit ihrem Kopf in beliebiger Reihenfolge zulässt.
 \subsubsection{Variable Verzweigung}
 \label{crysmann}
 
-In \citew[Abschnitt~11.5.2]{Mueller99a} und \citew{Mueller2004b} habe ich darauf hingewiesen,
+In \citew[Abschnitt~11.5.2]{Mueller99a} und \citew[Abschnitt~4]{Mueller2004b} habe ich darauf hingewiesen,
 dass die maschinelle Bottom"=Up"=Verarbeitung von Grammatiken, die leere verbale Köpfe enthalten, sehr aufwendig
 ist, da beliebige Phrasen mit den leeren verbalen Köpfen verbunden werden können, weil
 Valenz und semantischer Beitrag der Verbspur so lange unbekannt sind, bis ihre Projektion
@@ -2091,7 +2386,8 @@ aus der Mitte des Komplexes vorangestellt werden kann. Ob das Verb dabei als Spu
 \label{sec-alternativen-konstituentenreihenfolge-gb}
 
 Im Abschnitt~\ref{sec-mf} wurde eine Möglichkeit für die Analyse der Stellung von Konstituenten im Mittelfeld vorgestellt.
-In der \gbt und ihren Nachfolgern wird die Umstellung von Konstituenten mitunter mit Bewegung modelliert.
+In der \gbt und ihren Nachfolgern wird die Umstellung von Konstituenten mitunter mit Bewegung
+modelliert \parencites[z.\,B.][Abschnitt~12.6]{SS88a}[1306]{Grewendorf95a}.
 Konstituenten werden in einer zugrundeliegenden Struktur in einer bestimmten Abfolge lizenziert
 und dann über Umstellungen in die endgültige Position gebracht. Welcher Art die Zielpositionen sind,
 ist von Analyse zu Analyse verschieden. In den folgenden Abschnitten sollen einige GB"=Varianten
@@ -2160,8 +2456,8 @@ unsichtbarer Einheiten zu vermeiden, wo immer es geht.
 Kongruenz wird in der HPSG deshalb über die Identität von Merkmalen erzwungen (siehe
 Kapitel~\ref{Kapitel-kongruenz}). Leere Agreement"=Köpfe und Bewegungen in bestimmte Baumpositionen
 spielen bei der Beschreibung keine Rolle.  Man modelliert vielmehr direkt beobachtbare Eigenschaften
-linguistischer Zeichen: In (\mex{1}a) haben die NP und das Verb die Eigenschaft, Plural zu sein, und
-in (\mex{1}b) sind sie Singular.
+linguistischer Zeichen: In (\mex{1}a) haben die NP und das Verb die Eigenschaft, im Plural zu stehen, und
+in (\mex{1}b) stehen sie Singular.
 
 \eal
 \ex Die Kinder schlafen.
@@ -2177,9 +2473,9 @@ Informationsstruktur im Rahmen der HPSG.%
 
 \subsubsubsection{TopP, FocP und KontrP}
 
-\mbox{}\citet{Frey2004a}\NOTE{Seitenzahl}\is{Topik|(}\is{Fokus|(}\is{Informationsstruktur|(} nimmt eine KontrP (Kontrastphrase) und 
+\mbox{}\citet[27]{Frey2004a}\is{Topik|(}\is{Fokus|(}\is{Informationsstruktur|(} nimmt eine KontrP (Kontrastphrase) und 
 %\citet[\page165]{Frey2000a-u} 
-\citet{Frey2004b-u}
+\citet[Abschnitt~5]{Frey2004b-u}
 eine TopP (Topikphrase) an (siehe auch \citew{Rizzi97a-u} für TopP und FocP (Fokusphrase) im Italienischen und 
 \citew{Haftka95a}, \citew[\page19]{Abraham2003a} für Analysen mit TopP und/""oder FocP für das Deutsche).
 Konstituenten müssen je nach ihrem informationsstrukturellen Status in die Spezifikatorpositionen
@@ -2232,7 +2528,7 @@ mit Skopus"=Daten argumentiert. Sätze wie (\mex{1}b) sind hinsichtlich des Quan
 \zl
 Es wurde behauptet, dass man zur Erklärung der Ambiguität verschiedene Strukturen benötigt, nämlich
 zum einen die direkt beobachtbare und zum anderen solche, die der Rückübertragung einer oder
-mehrerer umgestellter Phrasen in die Position der Spur entsprechen \citep{Frey93a}.
+mehrerer umgestellter Phrasen in die Position der Spur entsprechen \citep[185]{Frey93a}.
 Nun hat sich aber herausgestellt, dass Ansätze, die Spuren annehmen,
 problematisch sind, denn sie sagen für Sätze, in denen es mehrere Spuren gibt, 
 Lesarten voraus, die nicht wirklich vorhanden sind \parencites[siehe][\page 146]{Kiss2001a}[Abschnitt~2.6]{Fanselow2001a}.
@@ -2266,7 +2562,8 @@ Siehe auch \citew[\page187--192]{Fanselow91a} und \citew[Abschnitt~2.3]{Fanselow
 \questions{
 \begin{enumerate}
 \item Welche Konstituentenstellungsphänomene kennen Sie?
-\item Warum wurden Kopf"=Spezifikator"=Strukturen eingeführt?
+\item Welche Stellung von Verb und Argumenten wird als Grundstellung für das Deutsche angenommen?
+\item Wie werden Verberstsätze analysiert?
 \end{enumerate}
 }
 
@@ -2320,5 +2617,7 @@ Auf S.\,\pageref{page-verbletzt} habe ich Argumente für die Annahme aufgeführt
 mit dem Verb in Letztposition die Grundstellung ist. Die Linearisierungsanalysen, die in
 \citew{Reape94a}, \citew{Kathol2001a} und \citew{Mueller99a,Mueller2002b,Mueller2004b} vertreten wurden, sind mit
 diesen Beobachtungen aber auch kompatibel. Einzig und allein das Phänomen der scheinbar mehrfachen
-Vorfeldbesetzung \citep{Mueller2005d,MuellerGS} stellt wirklich harte Evidenz gegen linearisierungsbasierte Analysen dar.
+Vorfeldbesetzung \citep{Mueller2003b,Bildhauer2011a,Mueller2005d,MuellerGS} stellt wirklich harte
+Evidenz gegen linearisierungsbasierte Analysen dar. \citet{MuellerGS} fasst die Ergebnisse der
+Forschung zu diesem Thema zusammen.
 }
