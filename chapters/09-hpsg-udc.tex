@@ -11,8 +11,8 @@
 \chapter{Nichtlokale Abhängigkeiten}
 \label{Kapitel-nla}
 
-Bisher können wir Verbletzt- und Verberstsätze analysieren. In diesem Kapitel werden wir
-die Mechanismen kennenlernen, die zu einer adäquaten Behandlung der Vorfeldbesetzung benötigt
+In den bisherigen Kapitel wurde erklärt, wie Verbletzt- und Verberstsätze analysiert werden können. In diesem Kapitel werden 
+die Mechanismen eingeführt, die zu einer adäquaten Behandlung der Vorfeldbesetzung benötigt
 werden. Damit werden wir dann in der Lage sein, Verbzweitsätze und Relativsätze bzw.\ eingebettete Interrogativsätze zu analysieren.
 
 \section{Verschiedene Arten von Fernabhängigkeiten}
@@ -33,7 +33,8 @@ initial und die Position vor dem finiten Verb kann mit einer beliebigen Konstitu
   SVO"=Sprache aber keine V2"=Sprache. \citet[\page 375]{Rizzi1990a-u} nennt das Englische eine
   residuale V2"=Sprache, weil es in Fragesätzen noch Muster gibt, die dem ähneln, was man von
   V2"=Sprachen kennt. Das Dänische\il{Dänisch} ist eine SVO"=Sprache aber auch gleichzeitig eine V2"=Sprache
-  \citep{Vikner95a-u,MOeDanish,MuellerGermanic}.%  
+  \citep{Vikner95a-u,MOeDanish,MuellerGermanic}. Das heißt, die Eigenschaften SOV/SVO/\ldots{} und V2 sind
+  unabhängig voneinander.%  
 }%\todostefan{Sebastian findet, dass alles nach Im Gegensatz weg soll.}
 (\mex{1}) zeigt einige Beispiele für mögliche Vorfeldbesetzungen:
 \ea
@@ -134,7 +135,7 @@ oder \emph{haben}. Da sich die Verbalphrase \emph{eine Versicherung zu betrügen
 also \emph{um zwei Millionen Mark} nicht aufgrund einer Umstellung vorn realisiert worden sein.
 
 Deshalb werden Verbzweitsätze in den meisten Grammatiken für das Deutsche zu Verberstsätzen in Beziehung gesetzt.
-Die Stelle, an der die Vorfeldkonstituente stehen würde, wird meist durch einen `\_' gekennzeichnet. Man nennt
+Die Stelle, an der die Vorfeldkonstituente stehen würde, wird meist durch `\_' gekennzeichnet. Man nennt
 diesen Platzhalter auch Spur\is{Spur}, Lücke oder \emph{Trace} bzw.\ \emph{Gap}.
 Vergleiche auch Abschnitt~\ref{sec-v1}. Das zur Lücke gehörige Element im Vorfeld wird auch Füller\is{Füller} genannt.
 
@@ -147,12 +148,12 @@ Die englische Bezeichnung für Fernabhängigkeiten, die mehrere Satzgrenzen übe
 ist \emph{unbounded dependencies}. Im Unterschied dazu gibt es Fernabhängigkeiten, die
 begrenzt sind, aber dennoch nicht lokal. Diese werden auch \emph{long distance dependencies}
 genannt. Ein Beispiel für solch eine Fernabhängigkeit ist die Extraposition\is{Extraposition|(}.
-In (\mex{1}a) ist ein Relativsatz extraponiert worden, der \emph{Frau} im \mf modifiziert.
+In (\mex{1}a) ist ein Relativsatz extraponiert worden, der \emph{Kind} im \mf modifiziert.
 In (\mex{1}b) ist ein Infinitivkomplement ins Nachfeld gestellt worden. 
 \eal
 \label{bsp-extrap}
-\ex Der Mann hat [der Frau \_$_i$] den Apfel gegeben, [die er am schönsten fand]$_i$.
-\ex Der Mann hat \_$_i$ behauptet, [einer Frau den Apfel gegeben zu haben]$_i$.
+\ex Der Delphin hat [dem Kind \_$_i$] den Ball gegeben, [das gewunken hat]$_i$.
+\ex Der Delphin hat \_$_i$ versucht, [einem Kind den Ball zu geben]$_i$.
 \zl
 Wie bei den Sätzen
 in (\ref{fragen}) könnte man für (\mex{0}b) eine lokale Umstellung annehmen, doch ist eine
@@ -218,7 +219,7 @@ zu.\itdopt{Feldhaus97a:29 eine mit wievielen Kugeln Eis gefüllte Tüte: Ich mö
 
 \section{Vorfeldbesetzung}
 
-Im letzten Kapitel haben wir bereits Spuren kennengelernt. Die Abhängigkeit zwischen vorangestelltem
+Im letzten Kapitel haben Sie bereits Spuren kennengelernt. Die Abhängigkeit zwischen vorangestelltem
 Verb und Verbspur war aber lokaler Natur, was dadurch erfasst wurde, dass die entsprechende Information
 als Teil der Kopf"|information nach oben gereicht wurde. Wie wir aber im vorigen Abschnitt gesehen haben,
 können Fernabhängigkeiten mehrere Maximalprojektionen überschreiten. Eine Projektion von Merkmalen
@@ -290,19 +291,17 @@ Merkmalstruktur, die dem \localw des geforderten Arguments entspricht, in ihrer
 
 \eas
 \label{le-spur-acc-o-kennen}%
-Spur für das Akkusativkomplement von \emph{kennen} (vorläufig):\\
+%\settowidth{\iboxlength}{\ibox{1}~}%
+Spur für das Akkusativkomplement von \emph{kennen} (vorläufig):\\[1mm]
 \ms[word]{
- phon & \phonliste{} \\
-loc   & \ibox{1} \ms{ cat \ms{ head & \ms[noun]{
-                                                     cas & acc\\
-                                                     } \\
+ phon & \phonliste{} \\[1mm]
+loc   & \hspace{-2.1ex}\ibox{1} \ms{ cat \ms{ head & \ms[noun]{
+                                                     cas & acc } \\
                                               spr   & \eliste\\
-                                              comps & \eliste\\
-                                            } \\
-                                   }\\
-nonloc & \ms{ slash & \sliste{ \ibox{1} } \\
+                                              comps & \eliste } }\\[9mm]
+nonloc & \ms{ slash & \sliste{ \ibox{1} }
                                                 %extra & \liste{} \\
-            } \\
+            } 
 }
 \zs
 
@@ -359,15 +358,16 @@ Das Kopf"=Füller"=Schema lizenziert den obersten Knoten in Abbildung~\ref{abb-d
 \type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
 \onems{ 
 nonloc$|$slash  \eliste\\
-dtrs \liste{ \onems{ loc \ibox{1}\\
+head-dtr \ibox{1}\\
+dtrs \liste{ \onems{ loc \ibox{2}\\
                                            nonloc$|$slash \liste{} \\
-                                 }, \onems{ loc$|$cat \onems{ head \ms[verb]{vform & fin\\
+                                 }, \ibox{1} \onems{ loc$|$cat \onems{ head \ms[verb]{vform & fin\\
                                                                  initial & $+$\\
                                                                 }\\
 %                                                  spr   \liste{}\\   Kann nicht anders sein.
                                                   comps \liste{}\\
                                                }\\
-                             nonloc$|$slash   \sliste{ \ibox{1} }\\
+                             nonloc$|$slash   \sliste{ \ibox{2} }\\
                         }}\\
 }
 \end{schema}
@@ -436,7 +436,12 @@ dtrs \sliste{ [nonloc$|$slash \ibox{1}], [nonloc$|$slash \ibox{2}] }
 Diese Implikation sorgt dafür, dass in allen bisher eingeführten Strukturen außer der eben besprochenen
 die \slashwe der Töchter zum \slashw der Mutter verknüpft werden.
 Zusammen mit Teilen der Beschränkungen für den Typ \type{head-filler-phrase}, die in (\mex{1})
-wiederholt sind, stellt (\mex{0}) die Formalisierung des Prinzips der nichtlokalen Merkmale dar.
+wiederholt sind, stellt (\mex{0}) die Formalisierung des Prinzips der nichtlokalen Merkmale
+dar.\footnote{%
+  Auf S.\,\pageref{type-filler-phrase} wird der Typ \type{filler-phrase} definiert, der sowohl Obertyp des Typs
+  \type{head-filler-phrase} als auch des Typs \type{relative-clause} ist. Die Beschränkungen in
+  (\mex{1}) sind dann Beschränkungen des allgemeineren Typs \type{filler-phrase}.
+}
 \eas
 \type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
 \onems{ 
@@ -580,7 +585,8 @@ Kikuyu\il{Kikuyu}, Ewe\il{Ewe}, Thompson Salish\il{Thompson Salish}, Moore\il{Mo
 Französisch\il{Französisch}, Spanisch\il{Spanisch} und Jiddisch\il{Jiddisch} als Beispiele für
 solche Sprachen und geben entsprechende Literaturverweise. Da in HPSG"=Analysen die Information Schritt für Schritt
 weitergegeben wird, können alle Knoten in der Mitte einer Fernabhängigkeit auf die Elemente, die in
-Fernabhängigkeiten eine Rolle spielen, zugreifen.
+Fernabhängigkeiten eine Rolle spielen, zugreifen. So können \zB bestimmte Komplementierer im
+Irischen verlangen, dass sich in dem Satz, den sie als Argument nehmen, eine Lücke befindet.
 
 \section{MRS und Fernabhängigkeiten}
 \label{Abschnitt MRS und Fernabhängigkeiten}
@@ -598,13 +604,13 @@ Also auch die Relation für \emph{Erheiterung}. Im Kapitel~\ref{Kapitel-Lokalit�
 besprochen, die Information, auf die man zugreifen kann, lokal zu halten. Die hier besprochene
 Verfügbarkeit von semantischer Information widerspricht diesem Bestreben fundamental. Außerdem
 würden die Relationen auch von der Spur eingesammelt und nach oben gereicht, so dass sie in der
-Repräsentation für die Bedeutung des gesamten Satzes doppelt enthalten wären. Das würde dazu führen,
+Repräsentation für die Bedeutung des gesamten Satzes doppelt enthalten wären. Das würde auch dazu führen,
 dass man Quantoren, die sich auf dieselbe Variable beziehen, doppelt hätte.
 
 Das Ergebnis dieser Überlegungen ist, dass \rels und \hcons außerhalb der in Fernabhängigkeiten
 geteilten Information repräsentiert werden müssen, so dass sie zwischen Spur und Füller nicht
 geteilt werden. Was dann in \cont verbleibt ist der \ltopw und der Index. Das entspricht genau dem,
-was \citet[\page 305, 307]{CFPS2005a} als Wert von \textsc{hook} annehmen. Entlang der Kopf"|pfade
+was \citet*[\page 305, 307]{CFPS2005a} als Wert von \textsc{hook} annehmen. Entlang der Kopf"|pfade
 wird also unter \cont der Index projiziert; das \ltop\hyp Label kann von einem Adjunkt kommen,
 wenn es ein skopendes Adjunkt ist. \rels und \hcons werden einfach immer von allen Töchtern eingesammelt.
 
@@ -612,13 +618,20 @@ Die entsprechend angepasste Extraktionsspur zeigt (\mex{1}):
 \eas
 \label{le-Extraktionsspur2}%
 Extraktionsspur: \\
-\onems[word]{
- phon   \phonliste{} \\
- loc    \ibox{1} \\
- nonloc$|$slash  \sliste{ \ibox{1} } \\ 
- rels \eliste\\
- hcons \eliste\\
-}
+% \onems[word]{
+%  phon   \phonliste{} \\
+%  loc    \ibox{1} \\
+%  nonloc$|$slash  \sliste{ \ibox{1} } \\ 
+%  rels \eliste\\
+%  hcons \eliste\\
+% }
+\avm{
+[\type{word}\\
+ phon & \phonliste{}\\
+ loc & \ibox{1}\\
+ \punk{nonloc$|$slash}{\sliste{ \ibox{1} }} \\ 
+ rels  & \eliste\\
+ hcons & \eliste ]}
 \zs
 Neu ist hier, dass die Spur weder Relationen noch Skopusbeschränkungen
 beiträgt.\footnote{%
@@ -693,7 +706,8 @@ A: Und was ist mit Peter?\\
 B: Kommt heute.
 \z
 Im Antwortsatz in (\mex{0}) wurde das Subjekt weggelassen. Es würde normalerweise vor dem Finitum im Vorfeld
-stehen, weshalb man auch von Vorfeldellipse\is{Vorfeldellipse} spricht \citep{Fries88b}.
+stehen, weshalb man auch von Vorfeldellipse\is{Vorfeldellipse} spricht (\citealt{Fries88b}; siehe
+auch S.\,\pageref{ex-Vorfeldellipse}).
 Bei Verben mit optionalen Argumenten kann man mitunter sogar den Aussagesatz mit Vorfeldellipse
 nicht von einem Fragesatz unterscheiden, wenn man einfach nur die Abfolge der Wörter betrachtet:
 \eal
@@ -717,7 +731,7 @@ Die Verberststellung kann auch in Konditionalsätzen vorkommen:
 \ex Hätte er Aicke das Buch rechtzeitig gegeben, hätte Aicke ihm helfen können.
 \zl
 Das sind längst nicht alle Verwendungsweisen für Sätze mit Verberst"= bzw.\ Verbzweitstellung,
-für einen detaillierteren Überblick siehe \citew[Kapitel~4]{Zifonun97a}.
+für einen detaillierteren Überblick siehe \citew[Abschnitt~4]{Zifonun97a}.
 
 Die Bedeutungskomponente, die durch die Verbstellung in den Satz kommt, kann man zu einem
 großen Teil bereits im Lexikon bestimmen, und zwar in der Lexikonregel, die für die Lizenzierung
@@ -762,7 +776,7 @@ verschiedenen Satztypen:
 \ex XY ist so ein Idiot und warum merke nur ich das?
 \zl
 Bei solchen Sätzen scheinen also Koordinationen nach dem Muster (\mex{-1}c) vorzuliegen. Da man also
-prinzipiell beide Möglichkeiten benötigt, wäre (\mex{-1}) mehrdeutig. Um dieses Problem kann man
+prinzipiell beide Möglichkeiten benötigt, wäre (\mex{-1}a) mehrdeutig. Um dieses Problem kann man
 sich herummogeln, indem man den Satztyp zu einem Wert von \textsc{mode} macht. Wenn man zwei Verben
 koordiniert, bekommt man ein komplexes Ereignis, das selbst wieder einen \modew hat. Für (\mex{-1}a)
 gibt es nur eine Möglichkeit: Das Ergebnis der Koordination ist ein komplexes Ereignis mit dem
@@ -852,6 +866,7 @@ lässt sich nur unter Bezug auf die Intonation bestimmen:
 \ex Peter kommt morgen.
 \zl
 
+\noindent
 Bei Verbletztsätzen kann die Konjunktion, die eine Projektion des Verbletztverbs selegiert, den
 Satzmodus festlegen. 
 
@@ -923,7 +938,7 @@ in Erststellung. Deshalb sind die Bedingungen der Beschränkung in \pref{impl-v2
 der \modew muss demzufolge \type{assertion\_or\_imperative\_or\_in\-ter\-rog\-a\-tive} sein.
 Da weder Imperativmorphologie noch Frageintonation vorliegt, ist nur der \modew \type{assertion}
 angebracht. Das Element in \slasch wird dann entweder durch ein spezielles Dominanzschema für
-die Vorfeldellipse abgebunden \citep{Mueller2004e,VMY2024a} oder ein leeres Element im Vorfeld
+die Vorfeldellipse abgebunden \citep*{Mueller2004e,VMY2024a} oder ein leeres Element im Vorfeld
 fungiert als Füller in einer Kopf"=Füller"=Struktur.
 \is{Satztyp|)} 
 
@@ -956,8 +971,8 @@ im Mittelfeld entsprechen. Insbesondere kann man feststellen, dass die Platzieru
 bestimmten Objekten (\mex{1}b--c) und bestimmten Adverbialen (\mex{1}d--e) im Vorfeld pragmatisch
 unmarkiert 
 % Seitenzahlen. Bei GMueller2004 steht das verteilt.
-ist (\citealp{Lenerz77}, \citealp[\page 73--74]{Haider84c}, \citealp{Fanselow2003d},\todostefan{use
-  parencites here and find solution for GMueller}
+ist (\citealp{Lenerz77}, \citealp[\page 73--74]{Haider84c}, \citealp{Fanselow2003d},
+%\todostefan{use parencites here and find solution for GMueller}
 G.\,\citealp[\page 189]{GMueller2004a}, \citealp{Frey2004a}),
 % Weiß nicht mehr wo.
 %\NOTE{Koster zitieren: \citealp{Koster78a-u}} 
@@ -1063,7 +1078,7 @@ lexikalische Einführung von Fernabhängigkeiten.
 
 \mbox{}\citet{Kathol95a,Kathol97a,Kathol2000a,Kathol2001a} hat eine Theorie des deutschen\is{Linearisierung!-sdomäne|(}
 Satzes entwickelt, die die von Mike Reape in die HPSG eingeführten Linearisierungsdomänen
-benutzt (Siehe \citew{Reape90a,Reape92a,Reape94a} und Abschnitt~\ref{sec-Reape-Linearisierung}).
+benutzt (siehe \citealt{Reape90a,Reape92a,Reape94a} und Abschnitt~\ref{sec-Reape-Linearisierung}).
 Die Linearisierungsdomänen verbaler Köpfe werden nach den im Kapitel~\ref{topo} eingeführten topologischen Feldern
 eingeteilt. Die Felder werden durchnummeriert: 1 = Vorfeld, 2 = linke Satzklammer, 3 = Mittelfeld
 und 4 = rechte Satzklammer. Linearisierungsbeschränkungen sorgen dann dafür, dass Elemente,
@@ -1100,7 +1115,7 @@ Er nimmt an, dass alle Satztypen Untertypen der folgenden drei Typen sind:
                                                                                 \textsc{head} $\neg$ V[\type{fin}]\\
                                                                                 }, \ldots } 
                                                            }
-\zl
+\zl\todostefan{Infinitive mit zu gehen nicht}
 Die Beschränkung für den ersten Typ besagt, dass das finite Verb an erster Stelle stehen muss,
 die für den zweiten Typ sagt, dass es ein Element im Feld \type{1} geben muss und dass das
 finite Verb unmittelbar anschließend im Feld \type{2} steht. Für Sätze vom Typ
@@ -1111,7 +1126,7 @@ Verb steht.\footnote{%
 was Hugo liest
 \z
 Relativsätze und Interrogativnebensätze sind meiner Meinung nach parallel zu V2"=Sätzen zu
-analysieren (siehe S.\,\pageref{Seite-Relativsätze-Interrogativnebensätze}). Eine extrahierte Phrase
+analysieren (siehe S.\,\pageref{Seite-Relativsätze-Interrogativnebensätze} und Abschnitt~\ref{sec-Generalisierung-Satztypen}). Eine extrahierte Phrase
 wird gefolgt von einem Satz, in dem sie fehlt. Die extrahierte Phrase steht im Vorfeld. In
 V2"=Sätzen genauso wie in Verbletztsätzen.
 } Das finite Verb muss in solchen Sätzen also in einem anderen Feld stehen. Da das
@@ -1150,13 +1165,12 @@ where={> O_={tier}{max}}{l*=1.6}{},
 \draw (wh.south) -- (r-wh-int.north);
 \draw (subord.south) -- (s-wh-int.north);
 \draw (subord.south) -- (s-pol-int.north);
-\draw (subord.south) -- (s-decl.north);
+\draw[out=336,in=140] (subord.south) to (s-decl.north);
 \draw (polar.south) -- (r-pol-int.north);
 \draw (decl.south) -- (r-decl.north);
 \end{forest}
 \caption{\label{fig-clausal-types}Satztypen nach \citew[\page 62]{Kathol2001a}}
 \end{figure}
-\itdopt{Überschneidungen vermeiden.}
 Die Boxen stehen hier für sogenannte Partitionen\is{Partition}, \dash, linguistische Objekte müssen
 jeweils einen der Typen haben, die direkt von einer Box dominiert werden.
 
@@ -1216,10 +1230,10 @@ Eine weitere Argumentation gegen leere Elemente findet sich in \citew[\page 38]{
 In Kathols nicht"=abstrakter Syntax haben leere Elemente keinen Platz.
 
 Ein anderes Phänomen, das ebenfalls problematisch für den Linearisierungsansatz ist,
-ist die sogenannte Vorfeldellipse, die auch \emph{Topic Drop} genannt
-wird. \citet{Huang84},\NOTE{FB: Scheint ein Widerspruch zu früherer Anmerkung zu sein, dass das
+ist die sogenannte Vorfeldellipse\is{Ellipse!Vorfeld-}, die auch \emph{Topic Drop} genannt
+wird. \citet[Abschnitt~1.5]{Huang84},\NOTE{FB: Scheint ein Widerspruch zu früherer Anmerkung zu sein, dass das
   Vorfeld nichts mit pragmatischen Funktionen zu tun hat.}
-\citet{Fries88b} und \citet{Hoffmann97a} diskutieren diese Konstruktion im Detail.
+\citet{Fries88b} und \citet[574--576, Abschnitt~4.1.1.1]{Hoffmann97a} diskutieren diese Konstruktion im Detail.
 Wie bereits im Abschnitt~\ref{sec-semantik-v1-v2} festgestellt wurde, lässt sich in bestimmten
 Fällen die Vorfeldellipse nicht von Fragen unterscheiden, wenn man nur die lineare Abfolge
 von realisierten Elementen betrachtet. Das entsprechende Beispiel sei hier wiederholt:
@@ -1233,7 +1247,6 @@ Die Sätze unterscheiden sich nur in Bezug auf ihre Intonation.
 
 Die Bestimmung des Satztyps würde funktionieren, wenn man annehmen würde, dass das Vorfeld
 durch ein leeres Element besetzt sein kann. Dann wäre (\mex{0}b) als Verbzweitsatz analysierbar.
-
 Will man keine leeren Elemente verwenden, bleibt nur, weitere Muster aufzuschreiben. Für die Vorfeldellipse
 müsste man dann \zb folgende Beschränkung formulieren:
 \ea
@@ -1251,7 +1264,7 @@ Genauso könnte man Typen für die Fälle mit fehlender Kopula\is{Kopula} defini
 man jedoch nur alle Abfolgemuster aufzählen, ohne die Zusammenhänge zwischen diesen Mustern
 zu erfassen. Für die bisher diskutierten Fälle ist es zwar unschön, aber doch immerhin
 möglich, sie in die Typhierarchie zu integrieren. Betrachtet man jedoch die Beispiele mit scheinbar
-mehrfacher Vorfeldbesetzung, wie sie schon im Abschnitt~\ref{sec-konst-test-probleme-voranstellung}
+mehrfacher Vorfeldbesetzung\is{Vorfeldbesetzung!scheinbar mehrfache}, wie sie schon im Abschnitt~\ref{sec-konst-test-probleme-voranstellung}
 diskutiert wurden, sieht man, dass ein rein linearisierungsbasierter Ansatz ohne leere Elemente
 erhebliche Probleme bekommt.
 \eal
@@ -1273,7 +1286,7 @@ dass beliebig viele Elemente vor dem Verb in der linken Satzklammer stehen könn
 \ea
  \type{Vn-clause} \impl \onems{
                                                   S[\type{fin}]\\
-                                                  dom \liste{ [ \type{1} ], \ldots{} , \onems[2]{
+                                                  dom \liste{ [\type{1}\,], \ldots{} , \onems[2]{
                                                                               V[\type{fin}]\\
                                                                               }, \ldots{} }
                                                   }
@@ -1321,7 +1334,6 @@ in (\mex{-1}) und (\mex{0}) dagegen erklärbar, denn dann ist die Abfolge in (\r
 Extraposition\is{Extraposition} von \emph{damit}, wie sie auch sonst möglich ist (\mex{1}a), und die
 Beispiele in (\mex{0}) sind schlecht, weil \emph{den Atem} und \emph{gut} auch ansonsten nicht ins
 Nachfeld gestellt werden können, wie (\mex{1}b,c) zeigen:
-\itdopt{Wetta diskutieren}
 \eal
 \ex[]{
 Es geht schon am 15.\ April los damit.
@@ -1357,6 +1369,8 @@ und im Abschnitt~\ref{sec-semantik-v1-v2} entwickelten Analyse der Satztypen im 
 gegenüber der linearisierungsbasierten Analyse der Vorzug zu geben.%
 \is{leere Kategorie|)}\is{Linearisierung!-sdomäne|)}
 
+\itdopt{Wetta diskutieren}
+
 
 \subsection{Lexikalische Einführung von Fernabhängigkeiten}
 \label{sec-lex-intro-udc}\label{Abschnitt-Argumentrealisierungsprinzip-BMS}
@@ -1370,7 +1384,7 @@ die sowohl Argumente als auch Adjunkte enthält.
 Argument Structure Extension \citep*[\page 12]{BMS2001a}\\[2pt]
 \type{verb} \impl \ms{
 arg-st & \ibox{1}\\
-deps   & \ibox{1} $\oplus$ list\textup{(}`adverbial'\textup{ )}\\
+deps   & \ibox{1} $\oplus$ list\textup{(}`adverbial'\textup{)}\\
 }
 \z
 Von dieser Liste gibt es schließlich eine Abbildung auf die \textsc{subj}\isfeat{subj}- und
@@ -1380,21 +1394,22 @@ Von dieser Liste gibt es schließlich eine Abbildung auf die \textsc{subj}\isfea
 Argumentrealisierungsprinzip \citep*[\page 12]{BMS2001a}\\[2pt]
 \type{word} \impl \ms{
 subj  & \ibox{1} \\
-comps & \ibox{2} $\ominus$ list\textup{(}`gap-ss'\textup{ )}\\
+comps & \ibox{2} $\ominus$ list\textup{(}`gap-ss'\textup{)}\\
 deps  & \ibox{1} $\oplus$ \ibox{2}\\
 } 
 \zs
 Dabei ist \type{gap-ss} ein Untertyp von \type{synsem}, für den gilt, dass der \localw mit einem
 Element in \slasch identisch ist. Das Subtraktionszeichen $\ominus$\is{$\ominus$}\isrel{$\ominus$} wird dazu benutzt, alle Objekte
 vom Typ \type{gap-ss} von der Liste \iboxt{2} abzuziehen. Das heißt, die Liste der abhängigen
-Elemente ist \textsc{deps}. Davon werden die Elemente abgezogen, die Gaps sind, und das Ergebnis der Subtraktion wird mit der
+Elemente ist \textsc{deps}. Davon wird die Subjekt-Liste \iboxb{1} abgetrennt und von der restlichen Liste \iboxb{2}
+werden die Elemente abgezogen, die Gaps sind, und das Ergebnis der Subtraktion wird mit der
 \textsc{comps}"=Liste identifiziert.
 
 % Nö, denn SUBJ könnte ja auch leer sein.
 %% Eine solche Abbildung sagt voraus, dass Subjekte nicht extrahiert werden können,
 %% was für das Englische richtig ist, für das Deutsche aber nicht. 
 
-Folgt man diesem Ansatz für das Deutsche, bekommt man für ein ditransitives Verb wie \emph{geben} 
+Folgt man diesem Ansatz für das Deutsche, bekommt man für die finiten Formen eines ditransitiven Verbs wie \emph{geben} 
 unter anderem die drei \compslen in (\mex{1}b--d):
 \eal
 \ex \liste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }
@@ -1465,7 +1480,7 @@ Das entspricht der Markiertheit/""Unmarkiertheit der entsprechenden Sätze in (\
 Um diesen Unterschied im Lexikon erfassen zu können, muss man bereits bei der lexikalischen
 Einführung der Adjunkte und Fernabhängigkeiten sagen, welcher Art die Adverbiale im Vorfeld
 sein werden, \dash, die Tatsache, dass eine Instrumental-PP bzw.\ ein Frame"=Adverbial oder Satzadverb
-extrahiert wurde, muss bereits im Lexikoneintrag eines Verbs enthalten sein.
+extrahiert wurde, müsste bereits im Lexikoneintrag eines Verbs enthalten sein.
 
 Überlegt man sich, was das genau bedeutet, so sieht man, dass die gesamte Sprache einfach im Lexikon
 aufgeschrieben wird. Einzig die genaue phonologische Realisierung und die semantische Relation
