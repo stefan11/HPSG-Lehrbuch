@@ -38,29 +38,20 @@ Die Analyse der Subjekt"=Verb"=Kongruenz liegt auf der Hand: Das Verb selegiert
 das Subjekt und kann also auch Anforderungen an Person- und Numerus"=Werte stellen \citep[\page 82]{ps2}.
 Den \localw des Lexikoneintrags für das finite Verb \emph{lachst} zeigt (\mex{1}):
 \ea
-\localw für \emph{lachst}:\\
-\ms{ cat & \ms{ head & \ms[verb]{ vform & fin\\
-                                }\\
-                spr & \eliste\\
-                comps & \liste{ NP[\nom]\ind{1} }\\
-               }\\
-     cont & \ms[lachen]{
-            agens & \ibox{1} \ms{
-                             per & 2\\
-                             num & sg\\
-                             }\\
-            }\\
-}
+\catw für \emph{lachst}:\\
+\ms{ head & \ms[verb]{ vform & fin }\\
+%     spr & \eliste\\
+     arg-st & \nliste{ NP[\nom]\sub{[2,\type{sg}]} } }
 \z
-In diesem Lexikoneintrag sind die Person- und Numerus"=Werte des Subjektindexes \iboxb{1}
-spezifiziert. Wird \emph{lachst} mit einer Subjektsnominalphrase kombiniert, muss diese zweite Person Singular
-sein.
+In diesem Lexikoneintrag sind die Person- und Numerus"=Werte des Subjektindexes spezifiziert. Wird
+\emph{lachst} mit einer Subjektsnominalphrase kombiniert, muss diese in der zweiten Person Singular
+stehen.
 
 Interessant sind Fälle, in denen Formen zusammenfallen. So kann zum Beispiel das Wort
 \emph{gab} sowohl mit einem Subjekt in der ersten Person als auch mit einem in der dritten Person vorkommen:
 \eal
-\ex Ich gab ihm das Buch.
-\ex Er  gab ihm das Buch.
+\ex Ich gab dem Kind das Buch.
+\ex Robin gab dem Kind das Buch.
 \zl
 Das kann man modellieren, indem man zwei Lexikoneinträge für \emph{gab} annimmt. Bei einem solchen Vorgehen
 wird allerdings nicht erfasst, dass diese beiden Einträge bis auf den Wert des \textsc{person}"=Merkmals absolut
@@ -80,35 +71,23 @@ die Disjunktion im Wert des \textsc{person}"=Merkmals.\footnote{
   \ex {} \ms{ per & 1 \\
               num & sg \\ } $\vee$ \ms{ per & 3 \\
                                         num & sg \\ }
-  \ex \ms{ per & 1 $\vee$\! 3\\
+  \ex \ms{ per & 1 $\vee$ 3\\
            num & sg \\ }
   \zl
 Die Disjunktion lässt sich komplett vermeiden, wenn man entsprechende Typen annimmt. Der \perw von
-\emph{gab} wäre dann \type{1\_or\_3} mit den Untertypen \type{1} und \type{3}.
+\emph{gab} wäre dann \type{1\_or\_3} mit den Untertypen \type{1} und \type{3}. Man kann das auch
+noch weiter treiben und die Werte für \textsc{per} und \textsc{num} in eine Typhierarchie
+integrieren \citet[19]{Flickinger2000a}.
 }
 Für \emph{gab} hat man also:
 \eas
 \label{le-gab}%
-\localw für \emph{gab}:\\
-\ms
-{ cat & \ms{ head & \ms[verb]
-                     { vform & fin \\
-                     } \\
-             spr    & \eliste\\
-             arg-st & \liste{ NP[\type{nom}]\ind{1}, NP[\type{acc}]\ind{2}, NP[\type{dat}]\ind{3}   } \\
-           } \\
-  cont &  \ms{ ltop & \ibox{4}\\
-               ind  & \ibox{5}\\
-               rels & \liste{ \ms[geben]{ lbl  & \ibox{4}\\ 
-                                          arg0 & \ibox{5}\\
-                                          arg1 & \ibox{1} \ms{
-                                                   per & 1 $\vee$\! 3\\
-                                                   num & sg\\
-                                                 }\\
-                                          arg2 & \ibox{2} \\
-                                          arg3 & \ibox{3} \\
-           }}}
-}
+\catw für \emph{gab}:\\
+\ms{
+ head & \ms[verb]
+        { vform & fin } \\
+ spr    & \eliste\\
+ arg-st & \nliste{ NP[\type{nom}]\sub{[1 $\vee$\! 3, \type{sg}]}, NP[\type{dat}], NP[\type{acc}]   } }
 \zs
 Verwendet man diesen Lexikoneintrag für die Analyse von (\mex{-1}a), so wird die Agens"=Rolle
 von \emph{geben} mit dem Index des Pronomens \emph{ich} identifiziert. Der \textsc{person}"=Wert von
@@ -116,7 +95,7 @@ von \emph{geben} mit dem Index des Pronomens \emph{ich} identifiziert. Der \text
 des Pronomens \type{1} ergibt. Bei der Analyse von (\mex{-1}b) ist das Ergebnis der Kombination
 der \textsc{person}"=Werte \type{3}.
 
-Verlangt ein Verb keine Nominalphrase im Nominativ, muss es in der dritten Person Singular stehen.
+Verlangt ein Verb keine Nominalphrase im Nominativ\is{Verb!subjektloses}, muss es in der dritten Person Singular stehen.
 Beispiele zeigt (\mex{1}):
 \eal
 \ex Ihm graut vor der Prüfung.
@@ -187,21 +166,21 @@ dass die Argumente des eingebetteten Verbs zu Argumenten\is{Argument!-anziehung|
 werden. In den obigen Beispielen bilden dann \emph{zu grauen} und \emph{scheinen}
 bzw.\ \emph{zu schlafen} und \emph{scheinst} einen Komplex. Selbiges gilt auch für
 das Passivhilfsverb und das eingebettete Partizip.
-Für die Beispiele in (\mex{-1}) und (\mex{0}) ergeben sich die folgenden \compslen:
+Für die Beispiele in (\mex{-1}) und (\mex{0}) ergeben sich die folgenden \argstlen für die finiten Verben:
 \ea
 \begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{}}
-  &                          &      \textsc{comps}\\[2mm]
-a.&zu schlafen scheinst:     & \nliste{NP[\nom]}\\[2mm]
-b.&zu grauen scheint:        & \nliste{NP[\dat]}\\[2mm]
-c.&geschlagen werden:        & \nliste{NP[\nom]}\\[2mm]
-d.&geholfen wird:            & \nliste{NP[\dat]}\\
+  &                          &      \argst\\[2mm]
+a.&zu schlafen scheinst:     & \nliste{NP[\nom], V}\\[2mm]
+b.&zu grauen scheint:        & \nliste{NP[\dat], V}\\[2mm]
+c.&geschlagen werden:        & \nliste{NP[\nom], V}\\[2mm]
+d.&geholfen wird:            & \nliste{NP[\dat], V}\\
 \end{tabular}
 \z
-Diese Valenzlisten enthalten jeweils nur ein Argument, und bei Nominativ-NPen muss es
-Kongruenz geben, bei Nicht"=Nominativ"=NPen muss das Verb in der dritten Person stehen.
+Diese Argumentstrukturlisten enthalten jeweils nur eine NP, und bei Nominativ-NPen muss es
+Kongruenz geben, bei Nicht"=Nominativ"=NPen muss das finite Verb in der dritten Person stehen.
 
 Bei Verben mit mehr Argumenten sind die Verhältnisse genauso. (\mex{2}) zeigt
-die \compslen für die Verbalkomplexe in (\mex{1}):
+die \argstlen für die Verbalkomplexe in (\mex{1}):
 \eal
 \ex weil den Studenten vor der Prüfung zu grauen scheint
 \ex weil die Frauen das Spiel zu gewinnen scheinen
@@ -209,16 +188,16 @@ die \compslen für die Verbalkomplexe in (\mex{1}):
 \zl
  \ea
 \begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{}}
-  &                          &      \comps\\[2mm]
-a.&zu grauen scheint:        & \nliste{NP[\dat], PP[\type{vor}]}\\[2mm]
-b.&zu gewinnen scheinen:     & \nliste{NP[\nom], NP[\acc]}\\[2mm]
-c.&überreicht werden:        & \nliste{NP[\nom], NP[\dat]}\\[2mm]
+  &                          &      \argst\\[2mm]
+a.&zu grauen scheint:        & \nliste{NP[\dat], PP[\type{vor}], V}\\[2mm]
+b.&zu gewinnen scheinen:     & \nliste{NP[\nom], NP[\acc], V}\\[2mm]
+c.&überreicht werden:        & \nliste{NP[\nom], NP[\dat], V}\\[2mm]
 \end{tabular}
 \z
 Gibt es ein Nominativelement, so muss das Verb mit ihm übereinstimmen;
 ist das wie in (\mex{-1}a) nicht der Fall, so muss das Verb in der dritten Person Singular stehen.
 
-Bisher stand das Nominativ"=Element immer an der ersten Stelle in der \compsl. Das ist aber nicht
+Bisher stand das Nominativ"=Element immer an der ersten Stelle in der \argstl. Das ist aber nicht
 immer so. Im Abschnitt~\ref{sec-remote-passive-phen} wird das sogenannte Fernpassiv\is{Passiv!Fern-}
 diskutiert, das sich dadurch auszeichnet, dass Objekte des eingebetteten Verbs zum Subjekt werden
 können. Die hier interessierenden Beispiele sind die mit dem Objektkontrollverb \emph{erlauben}
@@ -230,15 +209,15 @@ Siehe S.\,\pageref{bsp-Zeitung-zu-lesen-erlaubt} für die Diskussion eines ähnl
 \citew[\page309]{Bech55a}.
 }
 \z
-Die Valenzlisten für den Aktivsatz in (\mex{1}) und den Passivsatz in (\mex{0}) zeigt (\mex{2}):
+Die \argstlen für das finite Verb im Aktivsatz in (\mex{1}) und im Passivsatz in (\mex{0}) zeigt (\mex{2}):
 \ea
 Ich habe ihm die Aufsätze zu lesen erlaubt.
 \z
  \ea
 \begin{tabular}[t]{@{}l@{ }l@{\hspace{5ex}}l@{}}
-  &                          & \textsc{comps}\\[2mm]
-a.&zu lesen erlaubt habe:    & \sliste{NP[\nom], NP[\dat], NP[\acc]}\\[2mm]
-b.&zu lesen erlaubt wurde:   & \sliste{NP[\dat], NP[\nom]}\\
+  &                          & \argst\\[2mm]
+a.&zu lesen erlaubt habe:    & \sliste{NP[\nom], NP[\dat], NP[\acc], V}\\[2mm]
+b.&zu lesen erlaubt wurde:   & \sliste{NP[\dat], NP[\nom], V}\\
 \end{tabular}
 \z
 Bei der Passivierung wird das Subjekt von \emph{erlauben} unterdrückt, so dass
@@ -253,7 +232,7 @@ gibt, muss das Verb in der dritten Person Singular stehen.\footnote{
   \ea
   Er ist ein Lügner.
   \z
-  Hier kann man davon ausgehen, dass das Verb mit der am wenigsten obliquen NP im Nominativ (dem
+  Hier kann man davon ausgehen, dass das Verb mit der ersten NP im Nominativ (dem
   Subjekt) kongruiert. Die Beschreibung der Kongruenzphänomene innerhalb von Kopulakonstruktionen ist
   jedoch nicht trivial \parencites[\page 197--198]{Reis82}[\page 274]{Mueller99a}.%
 }
@@ -265,7 +244,9 @@ Analyse.
 }, Hindi\il{Hindi} und \ili{Isländisch} korrekte Vorhersagen macht \parencites{MSHindi}[\page 229]{MuellerGermanic}.
 Hindi hat wesentlich komplexere Kongruenzphänomene \citep{Arsenault2002a}, und man kann auch \emph{Subjekt} nicht ohne weiteres
 mit \emph{Nominativ} gleichsetzen. Durch ein Kongruenzprinzip, das sicherstellt, dass das Verb
-mit dem am wenigsten obliquen Nominativ"=Element kongruiert, werden die Hindi"=Daten und auch die
+mit dem 
+%am wenigsten obliquen 
+ersten Nominativ"=Element kongruiert, werden die Hindi"=Daten und auch die
 isländischen Daten korrekt erfasst.
 \is{Kongruenz!Subjekt"=Verb"=|)}
 
@@ -307,11 +288,13 @@ Diese Nomina werden wie Adjektive flektiert, Genus und Flexionsklasse sind morph
 Traditionell werden die Adjektivformen in drei Flexionsklassen\is{Flexion!-sklasse|(} eingeteilt: schwach, gemischt
 und stark. Dieter Wunderlich\aimention{Dieter Wunderlich} hat 1988 in einer unveröffentlichten Arbeit, die von \citet[\page66]{ps2}
 zitiert wird, vorgeschlagen, nur noch zwei Klassen zu verwenden: stark und schwach. Mit dieser
-Einteilung ergibt sich folgende Tabelle, wobei \type{strong}\istype{strong} heißt, dass der Determinator
+Einteilung ergibt sich Tabelle~\ref{Tabelle-Wunderlich-Adjektivflexion}, wobei \type{strong}\istype{strong} heißt, dass der Determinator
 stark sein muss und \type{weak}\istype{weak}, dass der Determinator schwach sein muss.
-\ea
+\begin{table}
 \begin{tabular}[t]{lllll}
+\lsptoprule
 Form   & \textsc{dtype}  & \textsc{num} & \textsc{gen}  & \textsc{case}\\
+\midrule
 kluge  & \type{dtype}        & \type{sg}   & \type{fem}     & $nom \vee acc$\\
        & \type{strong}       & \type{sg}   & \type{mas}     & $nom$\\
        & \type{strong}       & \type{sg}   & \type{neu}     & $nom \vee acc$\\
@@ -326,8 +309,10 @@ kluger & \type{weak}         & \type{sg}   & \type{fem}     & $gen \vee dat$\\
        & \type{weak}         & \type{pl}   & \type{genus}   & $gen$\\
        & \type{weak}         & \type{sg}   & \type{mas}     & $nom$\\
 kluges & \type{weak}         & \type{sg}   & \type{neu}     & $nom \vee acc$\\
+\lspbottomrule
 \end{tabular}
-\z
+\caption{Adjektivflexion und Werte für Flexionsklasse, Numerus, Genus und Kasus nach Wunderlich}\label{Tabelle-Wunderlich-Adjektivflexion}
+\end{table}
 Die Typen \type{dtype}\istype{dtype}, \type{case}\istype{case} und \type{genus}\istype{genus} stehen dabei für den jeweils
 allgemeinsten Typ, \dash, es gibt keine Einschränkung in Bezug auf den Wert von \textsc{dtype}\isfeat{dtype}, 
 \textsc{case}\isfeat{case} bzw.\ \textsc{genus}\isfeat{genus} für die entsprechenden Adjektivformen.
@@ -356,20 +341,14 @@ mit ihm übereinstimmt:
                      { case & \ibox{1} $nom \vee dat \vee acc$\\
                      } \\
              spr    & \nliste{ [] }\\
-             arg-st & \nliste{ Det[\textsc{case} \ibox{1}, \textsc{num} \ibox{2}, \textsc{gen} \ibox{3}] }\\
-           } \\
+             arg-st & \nliste{ Det[\textsc{case} \ibox{1}, \textsc{num} \ibox{2}, \textsc{gen} \ibox{3}] } } \\
   cont &  \ms{
-          ltop & \ibox{4}\\
-          ind &  \ibox{5} \ms{
+%          ltop & \ibox{4}\\
+          ind &  \ms{
                  per & 3\\
                  num & \ibox{2} sg\\
                  gen & \ibox{3} mas\\
-                 }\\
-          rels & \liste{ \ms[mann]{ 
-                          lbl  & \ibox{4}\\
-                          arg0 & \ibox{5}\\
-                          } } \\
-          }\\
+                 } }\\
 }
 \zs
 Hierbei ist es wichtig, dass die Kasuswerte des Determinators mit denen des Nomens
@@ -416,18 +395,12 @@ spezifiziert. (\mex{1}) zeigt ein Beispiel:
              comps & \eliste\\
            } \\
   cont &  \ms{
-          ltop & \ibox{4}\\
-          ind &  \ibox{5} \ms{
+%          ltop & \ibox{4}\\
+          ind &  \ms{
                  per & 3\\
                  num & \ibox{2} sg\\
                  gen & \ibox{3} mas\\
-                 }\\
-          rels & \liste{ \ms[beamter]{ 
-                          ltop & \ibox{4}\\
-                          arg0 & \ibox{5}\\
-                          }
-                        }\\
-         }\\
+                 } }\\
 }
 \z
 
@@ -443,36 +416,23 @@ besprochen wurde:
 
 \eas
 \label{le-interessantes-agr}%
-Adjektiveintrag mit Kongruenzinformation (\localw für \emph{interessantes}):\\
-\ms
- { \ldots & \ms{ cat & \ms{ head & \onems[adj]
+Kongruenzinformation im \catw für \emph{interessantes}:\\
+\ms{ head & \onems[adj]
                       { %prd & $-$ \\
-                        mod$|$loc \onems{ cat \onems{spr \liste{~ \upshape Det[\begin{tabular}[t]{@{}l@{}}
+            mod$|$loc|cat \onems{spr \tabularliste{~ \upshape Det[\begin{tabular}[t]{@{}l@{}}
                                                           \textsc{case} $nom \vee acc$,\\
                                                           \textsc{num} \type{sg},
                                                           \textsc{gen} \type{neu},\\
-                                                          \textsc{dtype} \type{weak}]\\
+                                                          \textsc{dtype} \type{weak}]
                                                           \end{tabular}~~~}\\
-                                                    comps \eliste}\\
-                                       cont \ms{ ind   & \ibox{1} } \\
-                                     }\\
-                      } \\
-               spr    & \eliste\\
-               comps & \eliste \\
-             } \\
-   cont & \ms{ ltop  & \ibox{2}\\ 
-               ind   & \ibox{3}} } \\
-   rels  & \liste{ \ms[interessant]{
-                                ltop & \ibox{2}\\ 
-                                arg0 & \ibox{3}\\
-                                arg1 & \ibox{1}\\ 
-                              } } }
+                                                    comps \eliste}} \\
+               arg-st & \eliste } 
 \zs
 
 \noindent
 In (\mex{0}) wird anders als im auf S.\,\pageref{le-kleinen-sem}
 angegebenen Eintrag nur auf die morpho"=syntaktischen Eigenschaften des Determinators Bezug genommen.
-Über den referentiellen Index des Adjektivs wird nur gesagt, dass er mit dem des Nomens
+Über den referentiellen Index des Adjektivs wird im Lexikoneintrag für das Adjektiv gesagt, dass er mit dem des Nomens
 identisch sein muss, sonst nichts. Behandelt man die morpho"=syntaktischen Merkmale des Determinators als
 Kopfmerkmale, ist sichergestellt, dass die morpho"=syntaktischen Eigenschaften
 des Determinators und des Adjektivs von den semantischen Eigenschaften des Nomens unabhängig sind.
@@ -503,8 +463,10 @@ dar, \ldots\footnote{
 Der Genus"=Wert im semantischen Index von \emph{Mädchen} und \emph{Weib} muss also \type{fem} $\vee$ \type{neu} sein, Artikel
 und Adjektiv dürfen aber nie \type{fem} sein.\footnote{
   Zu Problemen, die Nomina wie \emph{Mädchen} für die Bindungstheorie aufwerfen,
-  siehe \citew[\page417--418]{Mueller99a}.%
-\itdopt{check Wechsler \& Zlatic.}
+  siehe \citew[\page417--418]{Mueller99a}. \citet[199--200]{WZ2003a} diskutieren
+  \emph{Mädchen}-Beispiele im Serbokroatischen (BKS)\il{Serbokroatisch (BKS)}.%
+%ein altes Weib, das ihr Holz von den Zäunen stoppelt das = neutrum ihr = femininum
+%
 }
 Das wird korrekt erfasst, wenn \emph{Mädchen} von seinem Determinator verlangt,
 dass dieser das Genus Neutrum hat. Adjektive beziehen sich immer auf die Merkmale des Determinators (in der \textsc{spr}"=Liste
@@ -518,46 +480,70 @@ denn das Pronomen \emph{seine} in (\mex{1}) referiert auf ein Maskulinum (\emph{
 \ea
 seine Freundin
 \z
-Den Eintrag für das Possessivum\is{Pronomen!Possessiv-} zeigt (\mex{1}):
+Den \localw für das Possessivum\is{Pronomen!Possessiv-} zeigt (\mex{1}):
 \eas
 \label{le-seine-agr}%
-Lexikoneintrag für \emph{seine}:\\
+% Lexikoneintrag für \emph{seine}:\\
+% \onems{
+% \ldots|loc \ms{ 
+%   cat & \ms{ head  & \ms[det]{
+%                      case & nom $\vee$ acc\\
+%                      gen & fem \\
+%                      num & sg\\
+% % Tabelle -> dtype dtype ist aber für Adjektive
+% % Wenn Numerus unspezifiziert wäre, dann wäre der Kasus aber zu strikt.
+% % Kasus ist im Plural immer gleich.
+%                      dtype & strong \\
+%                      spec & \ms{ loc|cont & \ms{ ltop & \ibox{1}\\
+%                                              ind  & \ibox{2}\\
+%                                            }}\\
+%                      }\\
+%              arg-st & \eliste\\
+%            } \\
+%   cont &  \ms{
+% %       ltop & \ibox{3}\\
+%        ind  & \ibox{3} \ms{
+%                        per & 3\\
+%                        num & sg\\
+%                        gen & mas $\vee$ neu }}}\\ 
+%   rels \liste{ \ms[def\_q]{
+%                       arg0 & \ibox{2}\\ 
+%                       rstr & \ibox{4}\\ 
+% %                      body &\\
+%                       }, \ms[besitzen\_rel]{
+%                             lbl  & \ibox{1}\\     % pronoun_q(x,h, h) h1:pronoun_rel(x),
+%                                 % h1:besitzen(x,y) ^ h1:buch(y)
+% %                           arg0 & event\\
+%                             arg1 & \ibox{3}\\
+%                             arg2 & \ibox{2}
+%                       } }\\[7mm]
+%    hcons \liste{ \ms[qeq]{
+%                        harg & \ibox{4}\\
+%                        larg & \ibox{1}\\
+%                        }
+%                } }
+\localw für \emph{seine}:\\
 \ms{ 
   cat & \ms{ head  & \ms[det]{
                      case & nom $\vee$ acc\\
                      gen & fem \\
+                     num & sg\\
+% Tabelle -> dtype dtype ist aber für Adjektive
+% Wenn Numerus unspezifiziert wäre, dann wäre der Kasus aber zu strikt.
+% Kasus ist im Plural immer gleich.
                      dtype & strong \\
-                     spec & \ms{ cont & \ms{ ltop & \ibox{1}\\
-                                             ind  & \ibox{2}\\
-                                           }}\\
+                     % spec & \ms{ loc|cont & \ms{ ltop & \ibox{1}\\
+                     %                         ind  & \ibox{2}\\
+                     %                       }}\\
                      }\\
              arg-st & \eliste\\
            } \\
   cont &  \ms{
 %       ltop & \ibox{3}\\
-       ind  & \ibox{3} \ms{
+       ind  & \ms{
                        per & 3\\
                        num & sg\\
-                       gen & mas $\vee$ neu\\
-                      }\\ 
-       rels & \liste{ \ms[def\_q]{
-                      arg0 & \ibox{2}\\ 
-                      rstr & \ibox{4}\\ 
-%                      body &\\
-                      }, \ms[besitzen\_rel]{
-                            lbl  & \ibox{1}\\     % pronoun_q(x,h, h) h1:pronoun_rel(x),
-                                % h1:besitzen(x,y) ^ h1:buch(y)
-%                           arg0 & event\\
-                            arg1 & \ibox{3}\\
-                            arg2 & \ibox{2}
-                      } }\\
-       hcons & \liste{ \ms[qeq]{
-                       harg & \ibox{4}\\
-                       larg & \ibox{1}\\
-                       }
-               }\\
-           } \\
-}
+                       gen & mas $\vee$ neu }}}
 \zs
 \is{Pronomen!Possessiv-|)}\is{Kongruenz!NP"=interne|)}%
 \is{Adjektiv|)}\is{Determinator|)}\is{Nomen|)}
