@@ -21,6 +21,8 @@ In diesem kurzen Kapitel wird die Frage der Lokalität von Selektion erörtert.
 Mit der aktuellen Merkmalsgeometrie in (\mex{1}) hat ein Kopf Zugriff auf die phonologische Form und 
 die interne Struktur von selegierten Elementen, da Köpfe ganze Zeichen selegieren.
 \ea
+% hier phrase hinzuschreiben wäre falsch, denn \argst gibt es nicht bei Phrasen.
+% eigentlich kann es die abgebildete Struktur auch nicht geben.
 \onems{ phon \type{list~of~phoneme strings}\\
      loc   \ms[loc]{  cat  & \ms[cat]{ head  & head \\
                                         spr   & list of signs\\
@@ -42,7 +44,7 @@ die interne Struktur von selegierten Elementen, da Köpfe ganze Zeichen selegier
      dtrs           \type{list of signs}\\
 }
 \z
-Man könnte \zb einen Kopf spezifizieren, der ein Argument mit dem \textsc{phon}"=Wert {\em dem Mann\/} selegiert. Genauso ist es möglich,
+Man könnte \zb einen Kopf spezifizieren, der ein Argument mit dem \textsc{phon}"=Wert $\langle$~\emph{dem}, \emph{Mann} $\rangle$ selegiert. Genauso ist es möglich,
 eine Nominalphrase zu selegieren, die einen Relativsatz enthält, weil man im
 bisherigen Setup auch auf Tochterkonstituenten zugreifen kann.
 
@@ -73,8 +75,7 @@ und der Wert des \textsc{mod}"=Merkmals sind nicht mehr wie bisher vom Typ \type
               rel & \type{list~of~hooks} \\
               slash & \type{list~of~local~structures} \\ %\\
               %extra & \ms[list~of~local~structures]{} \\
-              }\\
-     }} \\
+              }}\!} \\
      rels  \type{list of relations}\\
      hcons  \type{list of qeqs}\\
      head-dtr  \type{sign}\\
@@ -108,17 +109,16 @@ Genauso muss das Kopf"=Adjunkt"=Schema angepasst werden:
 \begin{tabular}[t]{@{}l@{}}
 \type{head"=adjunct"=phrase}\istype{head"=adjunct"=phrase} \impl\\
 \ms{ 
-cont & \ibox{1} \\
+cont|ltop & \ibox{1} \\
 head"=dtr      & \onems{ \synsem \ibox{2} }\\
-non-head"=dtrs & \liste{ \ms{ cat & \ms{ head$|$mod & \ibox{2} \\
+non-head"=dtrs & \liste{ \onems{ cat  \ms{ head$|$mod & \ibox{2} \\
                                         comps   & \liste{} \\
                                       } \\
-                             cont & \ibox{1} \\
+                             cont|ltop \ibox{1} \\
                            }}\\
 }
 \end{tabular}
 \end{schema}
-\itdopt{check Semantik}
 Der \modw entspricht nicht der gesamten Kopf"=Tochter, sondern nur dem \synsemw der Kopf"=Tochter.
 
 Die hier direkt in die Merkmalsgeometrie integrierte Annahme der Lokalität der Selektion
@@ -207,7 +207,7 @@ Die Presse, 20.03.1997, Bald gibt's kein Wiener Rindvieh mehr. %Bauern lassen si
 Man könnte denken, dass in (\mex{0}a,b) das Idiom als Ganzes umgestellt wurde, aber wenn man sich
 erinnert, wie in den Kapiteln~\ref{Kapitel-Konstituentenreihenfolge} und~\ref{Kapitel-nla} deutsche Sätze
 analysiert wurden, wird klar, dass die Abfolge \emph{den Garaus machten} dadurch zustande kommt, dass
-\emph{machten} in Verberststellung steht und dass \emph{den Garaus} vor das Verb gestellt wurde. Das diese
+\emph{machten} in Verberststellung steht und dass \emph{den Garaus} vor das Verb gestellt wurde. Dass diese
 Analyse auch für die Spezialfälle der Idiome sinnvoll ist, zeigt der Satz in (\mex{0}c), in dem
 \emph{den Garaus} im Vorfeld steht, ohne dass \emph{machen} in Erststellung steht.
 
@@ -232,7 +232,7 @@ zu können. Für \emph{strings} in \emph{pull the strings} `Strippen ziehen' = `
 \mbox{\type{i\_strings\_rel}}. \textsc{lid} ist Teil des \catwes und kann somit selegiert werden. Idiome
 lassen sich damit über Selektionsketten beschreiben: Ein Kopf selegiert ein bestimmtes idiomatisches
 Element und dieses kann weitere selegieren. Obwohl es also in Sags Ansatz nicht nötig wäre, \phon zu
-selegieren, argumentiert er für eine Architektur, die das ermöglicht. Diese wird im folgenden
+selegieren, argumentiert er für eine Architektur, die das ermöglicht. Sein Vorschlag wird im folgenden
 Abschnitt genauer besprochen.
 
 Eine weitere Alternative zu \citeauthor{KE94a}s Ansatz besteht darin, die Merkmalsgeometrie, die direkte Selektion von Töchtern und \phon
@@ -275,7 +275,12 @@ diese auch nicht selegiert werden können. Das \synsemm wird dadurch überflüss
 \phon ist in \citew*{SWB2003a} erlaubt.) Die Information
 über den Tochterstatus ist nur noch ganz außen in der Struktur repräsentiert. Das unter
 \textsc{mother} repräsentierte Zeichen ist vom Typ \type{phrase}, enthält aber keine Information
-über die Töchter. 
+über die Töchter.\footnote{
+   Wie \citeauthor*{SWB2003a} habe ich die Strukturteilung des Kopfwertes in (\ref{feat-geom-swb})
+   und (\ref{feat-geom-Müller})  weggelassen. Auch Teilung
+   von am Mutter-Knoten repräsentierter Valenzinformation wurde nicht berücksichtigt, damit die
+   Merkmalbeschreibungen lesbar bleiben.%
+}
 \ea
 \label{feat-geom-swb}
 \ms[head-complement-construction]{
@@ -288,7 +293,7 @@ mother & \ms[phrase]{
          }\\
 head-dtr & \ibox{1} \ms[word]{
            syn & \ms{ head   & verb\\
-                      val|comps & \sliste{ NP, \ibox{2} NP }\\
+                      val|comps & \sliste{ NP, \ibox{2}\,NP }\\
                     }\\
            sem   & \ldots\\
            }\\
@@ -309,6 +314,7 @@ $\Phi$ ist eine wohlgeformte Struktur in Bezug auf eine Grammatik $G$ gdw.\
 \z
 Zum Vergleich sei hier die Struktur angegeben, die in diesem Buch angenommen wird:
 \ea
+\label{feat-geom-Müller}
 \onems[head-complement-phrase]{
 phon   \phonliste{ eine, Pizza, aß }\\
 synsem$|$loc  \ms{ cat   & \ms{ head   & verb\\
@@ -318,26 +324,26 @@ synsem$|$loc  \ms{ cat   & \ms{ head   & verb\\
                   }\\
 head-dtr  \ibox{1} \ms[word]{
            synsem$|$loc & \ms{ cat & \ms{ head   & verb\\
-                                          comps & \sliste{ NP, \ibox{2} NP }\\
+                                          comps & \sliste{ NP, \ibox{2}\,NP }\\
                                         }\\
                                cont & \ldots \\
                              }
            }\\
-dtrs  \sliste{ [ \textsc{synsem} \ibox{2} ], \ibox{1} }\\
+dtrs  \sliste{ [\textsc{synsem} \ibox{2}], \ibox{1} }\\
 }
 \z
-In (\mex{0}) gehören die Merkmale \textsc{head-dtr} und \textsc{non-head-dtrs} zu den Merkmalen, die
+In (\mex{0}) gehören die Merkmale \textsc{head-dtr} und \textsc{dtrs} zu den Merkmalen, die
 \zb Phrasen vom Typ \type{head"=complement"=phrase} haben. In (\ref{feat-geom-swb}) entsprechen
 Phrasen dagegen dem, was unter \textsc{mother} repräsentiert ist, haben also keine im Zeichen selbst
 repräsentierten Töchter. Mit der Merkmalsgeometrie in (\mex{0}) ist es prinzipiell möglich,
-Beschränkungen für die Töchter des Objekts in der \textsc{non-head-dtrs}"=Liste zu formulieren, was bei
+Beschränkungen für die Töchter des Objekts in der \textsc{dtrs}"=Liste zu formulieren, was bei
 der Annahme der Merkmalsgeometrie in (\ref{feat-geom-swb}) zusammen mit der Beschränkung in
 (\ref{meta-konstruktionsstatemnet}) ausgeschlossen ist. 
 
-Es gibt mehrere Argumente gegen diese Merkmalsgeometrie: Der erste Grund dafür, sie abzulehnen, ist ein empirischer: Die
-Lokalitätsbeschränkung ist zu stark, da man bei der Beschreibung von bestimmten, phrasal festen
-Idiomen genau solche Bezugnahmen auf Töchter von Töchtern braucht. \citew{RS2009a} diskutieren die folgenden Idiome als
-Beispiel:
+Es gibt mehrere Argumente gegen die in SBCG angenommene Merkmalsgeometrie: Der erste Grund dafür,
+sie abzulehnen, ist ein empirischer: Die Lokalitätsbeschränkung ist zu stark, da man bei der
+Beschreibung von bestimmten, phrasal festen Idiomen genau solche Bezugnahmen auf Töchter von
+Töchtern braucht. \citew{RS2009a} diskutieren die folgenden Idiome als Beispiel:\todostefan{Wasow?}
 \eal
 \ex nicht wissen, wo X-Dat der Kopf steht
 \ex\label{mich-tritt-ein-Pferd}
@@ -365,13 +371,20 @@ alle Köpfe ihre Argumentstruktur projizieren, kann man, indem man die Elemente 
 Argumentstruktur anschaut, Eigenschaften von Argumenten von Argumenten bestimmen. So enthält \zb die
 Argumentstruktur von \emph{wissen} in (\mex{1}) eine Beschreibung des \emph{dass}"=Satzes.
 \ea
-Peter weiß, dass Klaus kommt.
+Aicke weiß, dass Conny kommt.
 \z
 Da diese Beschreibung die Argumentstruktur von \emph{dass} enthält, kann man auf das Argument von
-\emph{dass} zugreifen. \emph{wissen} hat also Zugriff auf \emph{Klaus kommt}. Damit hat aber
-\emph{wissen} auch Zugriff auf die Argumentstruktur von \emph{kommt}, weshalb \emph{Klaus} für
+\emph{dass} zugreifen. \emph{wissen} hat also Zugriff auf \emph{Conny kommt}. Damit hat aber
+\emph{wissen} auch Zugriff auf die Argumentstruktur von \emph{kommt}, weshalb \emph{Conny} für
 \emph{wissen} zugänglich ist. Das sollte aber gerade durch die restriktivere Merkmalsgeometrie
-ausgeschlossen werden. \citeauthor{RS2009a} weisen darauf hin, dass neben den Argumenten auch Adjunkte
+ausgeschlossen werden.\footnote{%
+  Siehe \citet*[15--16]{AGS1998a} für eine Analyse, in der die \argstl von Elementen selegiert wird,
+  die durchaus auch interne Struktur haben können. \citet[328,332]{AG2000a} gehen davon aus, dass
+  Adverb--Verb-Kombinationen und Koordinationen von Verben unter Verben eingebettet werden können
+  und dass die \argstl der Verben also an phrasalen Projektionen verfügbar sein müssen. Auch
+  Meurers' Geister \citeyearpar{Meurers99b} und Benders Ansatz \citeyearpar{Bender2008a} für
+  diskontinuierliche Konstituenten im Wambaya\il{Wambaya} erlauben eine nicht-lokale Selektion.%
+} \citeauthor{RS2009a} weisen darauf hin, dass neben den Argumenten auch Adjunkte
 zugänglich sein müssen, damit man englische Idiome wie (\mex{-2}d) erfassen kann. In (\mex{-2}d)
 muss die Koreferenz in einem Adjunkt hergestellt werden.
 
@@ -418,8 +431,7 @@ Teilsatz mit der entsprechenden Form von \emph{glauben} bzw.\ \emph{denken} vork
 Details sind hier nicht so wichtig. Wichtig ist lediglich, dass man Beschränkungen über komplexe
 syntaktische Gebilde spezifizieren kann, \dash, dass man sich auf Töchter von Töchtern beziehen
 kann. Das ist mit der klassischen HPSG"=Merkmalsgeometrie, der sogenannten Construction"=Based
-HPSG von \citet{Sag97a}, möglich, mit der Merkmalsgeometrie der SBCG jedoch nicht. 
-\itdopt{mehr}
+HPSG von \citet{Sag97a}, möglich, mit der Merkmalsgeometrie der SBCG jedoch nicht.\todostefan{van Eynde?} 
 
 Von diesen empirischen Problemen abgesehen gibt es mit (\ref{meta-konstruktionsstatemnet}) noch ein konzeptuelles Problem:
 (\ref{meta-konstruktionsstatemnet}) ist nicht Bestandteil des Formalismus der getypten Merkmalstrukturen, sondern eine
@@ -473,24 +485,28 @@ beschrieben wird:
 \ea
 \ms{
 phon & \phonliste{ seine, Freundin }\\
-head-dtr & \ms{ synsem \ibox{1} loc$|$cat$|$comps \liste{ \ibox{2} } }\\
-non-head-dtrs & \sliste{ [ synsem \ibox{2} loc$|$cat$|$head$|$spec \ibox{1} ] } \\
+%head-dtr & \ms{ synsem \ibox{1} loc$|$cat$|$comps \liste{ \ibox{2} } }\\
+dtrs & \sliste{ [synsem \ibox{2} loc$|$cat$|$head$|$spec \ibox{1} ], [synsem \ibox{1}
+  loc$|$cat$|$comps \liste{ \ibox{2} }]  } \\
 }
 \z
-Die Nicht"=Kopf"|tochter ist in der Valenzliste des Nomens enthalten, und die Kopf"|tochter wird
+Die Nicht"=Kopf"|tochter (an erster Stelle in \textsc{dtrs}) ist in der Valenzliste des Nomens
+enthalten, und die Kopf"|tochter (an zweiter Stelle in \textsc{dtrs}) wird
 über \textsc{spec} vom Possessivum selegiert. Folgt man dem Pfad
-\textsc{non-head-dtrs$|$""hd$|$""synsem$|$""loc$|$""cat$|$""head$|$""spec$|$""loc$|$""cat$|$""comps$|$""hd}\footnote{
+\textsc{dtrs$|$""hd$|$""synsem$|$""loc$|$""cat$|$""head$|$""spec$|$""loc$|$""cat$|$""comps$|$""hd}\footnote{
   \textsc{hd} steht dabei für den Pfad zum ersten Element einer Liste. Zur Kodierung von Listen mit
   Merkmal"=Wert"=Paaren siehe Übungsaufgabe~\ref{Übung-Listen} auf S.\,\pageref{Übung-Listen} bzw.\ S.\,\pageref{Seite-Lösungen-Listen}.%
 }, so gelangt man wieder zu \iboxt{2}, \dash, es liegt ein Zyklus vor, da \iboxt{2} auch schon am
-Beginn des genannten Pfades nämlich als Wert von \textsc{non-head-dtrs$|$""hd$|$""synsem} auf"|tritt.
+Beginn des genannten Pfades nämlich als Wert von \textsc{dtrs$|$""hd$|$""synsem} auf"|tritt.
 
 Auch die Analyse von Idiomen, die von \citet{SS2003a}
 diskutiert wird, wäre dann nicht mehr ohne weiteres möglich. Man könnte statt des einfachen
 Spezifikator"=Prinzips, das Strukturen wie (\mex{0}) erzeugt, ein komplizierteres formulieren, das
-nur relevante Merkmale teilt und nicht die gesamte Struktur. So würden keine Zyklen entstehen, aber
+nur relevante Merkmale teilt und nicht die gesamte Struktur.
+% Hier wäre eine Quelle schön. Das habe ich aber wohl nie dokumentiert. In der Diss steht was zu
+% Zyklen und verwirrten Prolog-Interpretern.
+So würden keine Zyklen entstehen, aber
 die Analyse wäre komplexer. 
-\itdopt{andere Beispiele für Zyklen}
 
 Ein weiteres Beispiel für die Verwendung zyklischer Strukturen ist die Verbspur in
 (\ref{le-verbspur}) auf S.\,\pageref{le-verbspur}. Auch sie ließe sich umformulieren, doch wäre
@@ -531,7 +547,7 @@ Man müsste also zusätzlich zur neuen Merkmalsgeometrie noch verlangen, dass T�
 von \textsc{mother}"=Werten vorkommen dürfen. Das ist jedoch nur eine Stilvorgabe, und solche
 Stil"=Beschränkungen könnte man -- wenn man sie für empirisch adäquat hielte -- auch bei der
 klassischen HPSG-Merkmalsgeometrie formulieren. Man würde verlangen, dass Konstruktionen und Prinzipien nie auf die
-Töchter von Töchtern Bezug nehmen dürfen.
+Töchter von Töchtern Bezug nehmen dürfen \citep[143--145]{ps}.
 
 Wegen der konzeptuellen Probleme mit Meta"=Aussagen und der leichten Umgehbarkeit der Restriktion
 bringt die Neuorganisation der Merkmale keine Vorteile. Da die Grammatik dadurch aber komplizierter
