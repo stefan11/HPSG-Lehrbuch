@@ -38,10 +38,12 @@ completed-hpsg.pdf: completed-hpsg.tex $(SOURCE)
 # sed -i.backup 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' completed-hpsg.adx
 # sed -i.backup 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' completed-hpsg.ldx
 	sed -i.backup 's/\\MakeCapital //g' completed-hpsg.adx
-	python3 fixindex.py lsa completed-hpsg
-	mv completed-hpsgmod.adx completed-hpsg.adx
-	mv completed-hpsgmod.ldx completed-hpsg.ldx
-	mv completed-hpsgmod.sdx completed-hpsg.sdx
+
+# what does fixindex do?
+	# python3 fixindex.py lsa completed-hpsg
+	# mv completed-hpsgmod.adx completed-hpsg.adx
+	# mv completed-hpsgmod.ldx completed-hpsg.ldx
+	# mv completed-hpsgmod.sdx completed-hpsg.sdx
 	sed -i.backup 's/\\MakeCapital //g' completed-hpsg.adx
 	footnotes-index.pl completed-hpsg.ldx
 	footnotes-index.pl completed-hpsg.sdx
@@ -73,6 +75,7 @@ main.pdf: main.tex $(SOURCE)
 # sed -i.backup 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' main.adx
 # sed -i.backup 's/hyperindexformat{\\\(infn {[0-9]*\)}/\1/' main.ldx
 	sed -i.backup 's/\\MakeCapital //g' main.adx
+# Brauchen wir fixindex.py überhaupt?
 #	python3 fixindex.py lsa
 #	mv mainmod.adx main.adx
 #	mv mainmod.ldx main.ldx
