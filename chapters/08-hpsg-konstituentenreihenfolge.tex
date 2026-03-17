@@ -1523,7 +1523,7 @@ gleich aus: Es ist nichts zu sehen.
 Man könnte annehmen, dass man dieses Problem einfach aus der Welt schaffen kann, indem man den
 \vformw auf \type{fin} festlegt. Die Spur würde dann auch für alle bisher besprochenen Fälle von
 Verbbewegung funktionieren. Eine wesentliche Motivation für die Verbbewegungsanalyse sind jedoch Daten mit scheinbar
-mehrfacher Vorfeldbesetzung\is{Vorfeldbesetzung!scheinbar mehrfache} wie die in (\mex{1}):\todostefan{alle Träume gleichzeitig}
+mehrfacher Vorfeldbesetzung\is{Vorfeldbesetzung!scheinbar mehrfache} wie die in (\mex{1}):
 \eal
 \ex {}[Zum zweiten Mal] [die Weltmeisterschaft] errang Clark 1965 \ldots\footnote{%
         Der deutsche Straßenverkehr, 1968, Heft 6, S.\,210, zitiert nach \citet*[\page 224]{Neumann69a-u}.
@@ -1539,7 +1539,11 @@ Verbbewegungsspur. Ich kann hier nicht die komplette Analyse motivieren und erkl
 inzwischen ein eigenes (fast fertiges) Buch \citep{MuellerGS}. Wichtig für die Diskussion hier ist,
 dass die vorangestellten Konstituenten vom selben Verb abhängen müssen. Normalerweise ist das ein
 finites Verb wie in (\ref{bsp-zum-zweiten-mal-die-Weltmeisterschaft}), aber es ist auch möglich,
-dass das Verb wie in (\ref{bsp-zum-zweiten-mal-die-Weltmeisterschaft-hat}) infinit ist. In der
+dass das Verb wie in (\ref{bsp-zum-zweiten-mal-die-Weltmeisterschaft-hat}) infinit ist.\footnote{%
+  Das Beispiel ist konstruiert, weil hier ein Minimalpaar benötigt wird. Siehe aber
+  (\ref{bsp-alle-traeume-gleichzeitig}) auf S.\,\pageref{bsp-alle-traeume-gleichzeitig} für ein
+  Korpusbeispiel mit nicht-finitem Verb.
+} In der
 nicht-zyklischen Spur werden aber weder Wortart noch Verbform mit den Werten in \dsl geteilt. Wie
 ich oben schon festgestellt habe, ist das für die Abdeckung der Grammatik kein Problem. Ob die Spur
 nun finit oder infinit ist, ist egal, da Spuren ja keine Form haben. Allerdings muss man wohl
@@ -1646,6 +1650,39 @@ sm edges
 }
 \caption{\label{anal4-vlast}Analyse von \emph{Zum zweiten Mal die Weltmeisterschaft hat Clark 1965 errungen.}}
 \end{figure}
+
+Man kann das Problem entschärfen, indem man auch die Kopfmerkmale einzeln teilt. (\mex{1}) zeigt die
+entsprechend angepasste Spur:
+\eas
+\label{le-Verbspur-nicht-zyklisch-mit-VFORM-Teilung}%
+Nichtzyklische Verbspur mit expliziter Teilung von Kopfmerkmalen:\\
+\ms{
+phon & \eliste\\
+loc & \ms{ cat & \ms{ head & \onems[verb]{
+                             vform \ibox{1}\\
+                             ini   \ibox{2}\\
+                             dsl   \ms{ cat & \ms{ head & \ms{ vform & \ibox{1}\\
+                                                               ini   & \ibox{2} }\\
+                                                   spr   & \ibox{3}\\ 
+                                                   comps & \ibox{4} }\\
+                                        cont & \ibox{5} }}\\
+                      spr & \ibox{3}\\
+                      comps & \ibox{4}\\
+                    }\\
+          cont & \ibox{5}\\
+        }\\
+}
+\zs
+Die Wortart selbst kann man nicht teilen, denn die ist der Typ der Struktur unter \head. Wollte man
+sie teilen, müsste man den gesamten \headw teilen und hätte deshalb wieder eine Zyklus. 
+
+Eine Möglichkeit, denselben Effekt zu bekommen, besteht darin, diese einzelnen Teilungen in der V1"=Regel
+vorzunehmen. Statt den \localw des Eingabeverbs \iboxb{1} mit dem \dslw des selegierten Arguments des
+Verberstverbs zu teilen, werden nur \vform, Valenz und semantischer Beitrag geteilt. Damit entsteht
+kein Zyklus im Tochter"=Verb und alle Verbletztverben können \dsl \type{none} sein. Das Schönheitsproblem mit
+der Verteilung des \dslwes in die Töchter einer Koordination aus Abbildung~\ref{Abbildung Kennt und
+  liebt Aicke diese Band} bleibt allerdings bestehen und die Notwendigkeit von fünf Teilungen statt
+einer weist auf ein konzeptuelles Problem hin.
 
 Im Folgenden bespreche ich weitere Vorschläge für Verbspuren, die in der Literatur gemacht wurden.
 
