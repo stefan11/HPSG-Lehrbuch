@@ -340,10 +340,11 @@ Beschränkungen für die Töchter des Objekts in der \textsc{dtrs}"=Liste zu for
 der Annahme der Merkmalsgeometrie in (\ref{feat-geom-swb}) zusammen mit der Beschränkung in
 (\ref{meta-konstruktionsstatemnet}) ausgeschlossen ist. 
 
+
 Es gibt mehrere Argumente gegen die in SBCG angenommene Merkmalsgeometrie: Der erste Grund dafür,
-sie abzulehnen, ist ein empirischer: Die Lokalitätsbeschränkung ist zu stark, da man bei der
-Beschreibung von bestimmten, phrasal festen Idiomen genau solche Bezugnahmen auf Töchter von
-Töchtern braucht. \citew{RS2009a} diskutieren die folgenden Idiome als Beispiel:\todostefan{Wasow?}
+sie abzulehnen, ist ein empirischer: Die Lokalitätsbeschränkung macht es unmöglich, komplexe
+phrasale Einheiten zu beschreiben. Solche Beschreibungen braucht man, wenn es Idiome gibt, die über
+Satzgrenzen hinaus gehen und deren Teile nur in bestimmten Konfigurationen vorkommen. \citew{RS2009a} diskutieren die folgenden Idiome als Beispiel:
 \eal
 \ex nicht wissen, wo X-Dat der Kopf steht
 \ex\label{mich-tritt-ein-Pferd}
@@ -431,7 +432,124 @@ Teilsatz mit der entsprechenden Form von \emph{glauben} bzw.\ \emph{denken} vork
 Details sind hier nicht so wichtig. Wichtig ist lediglich, dass man Beschränkungen über komplexe
 syntaktische Gebilde spezifizieren kann, \dash, dass man sich auf Töchter von Töchtern beziehen
 kann. Das ist mit der klassischen HPSG"=Merkmalsgeometrie, der sogenannten Construction"=Based
-HPSG von \citet{Sag97a}, möglich, mit der Merkmalsgeometrie der SBCG jedoch nicht.\todostefan{van Eynde?} 
+HPSG von \citet{Sag97a}, möglich, mit der Merkmalsgeometrie der SBCG jedoch nicht.
+%\citet[\page 841]{VanEynde2018a-u} spezifiziert den Typ von Töchtern
+
+Die Beschränkungen bezüglich der \emph{Pferd}"=Sätze in (\mex{0}) sind zu strikt, denn es
+Idiomvarianten, bei denen das Akkusativpronomen nicht im Vorfeld steht:
+\eal
+\ex 
+%Und von wegen, die dort lebende Menschen hätte keine Bedürfnisse wie Strassen, schulen,
+%Krankenhäuser, 
+ich glaub es tritt mich ein Pferd wenn ich einen derartigen Unsinn lese.\footnote{%
+  \url{http://www.welt.de/wirtschaft/article116297208/Die-verlogene-Kritik-an-den-Steuerparadiesen.html},
+  commentary section, 2018-02-20.
+}
+\ex omg dieser xBluuR der nn ist wieder da ey nein ich glaub es tritt mich ein Pferd!!\footnote{%
+  \url{http://forum.gta-life.de/index.php?user/3501-malcolm/},
+  10.12.2015.
+}
+\ex ich glaub jetzt tritt mich ein pferd\footnote{%
+  \url{http://www.castingshow-news.de/menowin-frhlich-soll-er-zum-islam-konvertieren-7228/},
+  2018-02-20.
+}
+\zl
+Auf alle Fälle muss man aber sicherstellen, dass das Pronomen im Satz mit dem Subjekt von
+\emph{glauben} koreferent ist. 
+
+\citet{Sag2007a} und \citet*{KMSF2025a-u} haben eine Idiom"=Theorie entwickelt, die spezielle
+Lexikoneinträge annimmt, die eine idiomatische Bedeutung haben und wieder andere idiomatische
+Lexikoneinträge selegieren können. So kann man zum Beispiel das Idiom \emph{kick the bucket} mit
+Hilfe eines speziellen Lexikoneintrags für \emph{kick} analysieren, der \relation{sterben}
+bedeutet. \emph{kick} verlangt dann eine NP mit dem Nomen \emph{bucket}, das nichts bedeutet und
+seinerseits wieder einen Artikel \emph{the} verlangt, der auch nichts bedeutet
+(\citealt[Abschnitt~11.4]{KE94a}, \citealt{Everaert2010a-u}, G.\ \citealt[\page 21]{GMueller2011a}).
+Man könnte analog \emph{glauben} eine spezielle Variante von
+\emph{treten} selegieren lassen, die \emph{Pferd} und ein Pronomen selegiert. SBCG kann über das \textsc{xarg}"=Merkmal auf das Subjekt eines
+eingebetteten Verbs zugreifen. Für die Pferde-Sätze müsste man den Zugriff auf das Objekt
+erlauben, damit die Koreferenz des Akkusativpronomens mit dem Subjekt von \emph{glauben} erzwungen
+werden kann. Lexeme können sogar auch festlegen, welches ihrer abhängigen Elemente extrahiert ist
+und somit im Vorfeld steht, weil sie die \textsc{nonlocal}"=Werte der selegierten Elemente festlegen
+können. Ob man auf diese Weise alle Idiome erfassen kann, ist eine offene empirische Frage. 
+
+Sollte es möglich sein, mit speziellen Lexikonelementen über die Selektion entlang von Kopf"|pfaden
+alle Idiome zu analysieren, verbleibt dennoch ein Problem: Wie kommt man in der Sprachentwicklung
+dazu, dass die entsprechenden Selektionsketten ausgebildet werden? Mit dieser Frage zusammen hängt
+auch die Frage nach abgespeicherten Chunks, die zwar zu einem großen Teil kompositionell aufgebaut
+sind, jedoch von Sprecher*innen als Einheiten gespeichert
+werden
+\parencites{Bybee95a-u}{Langacker87a-u}[228--229]{PJ2005a}[64]{Goldberg2006a}[Kapitel~3]{Bybee2010a-u}. Abbildung~\ref{fig-locality-sbcg-hpsg}
+zeigt den Unterschied zwischen SBCG und Constructional HPSG für das Beispiel in (\mex{1}):
+\ea
+Sandy ate it.
+\z
+
+\begin{figure}
+\hfill
+\begin{forest}
+sm edges
+[S, tikz={\node[draw,red,inner ysep=-2pt,fit=()(!1)(!l)] {};}
+  [NP-Sandy,tier=vp]
+  [VP, tier=vp, fit=band, tikz={\node[draw,red,inner ysep=-2pt,fit=()(!1)(!l)] {};}
+    [V-ate]
+    [NP-it]]]
+\end{forest}
+\hfill
+\begin{forest}
+sm edges
+[S, s sep+=1.9em, tikz={\node[draw,red,inner xsep=6pt,inner ysep=0pt,fit to=tree]{};}%tikz={\node[draw,red,fit=()(!11)(!lll)] {};}
+  [NP-Sandy, tier=vp]
+  [VP, tier=vp, tikz={\node[draw,red,inner xsep=4pt,inner ysep=-2pt,fit to=tree]{};}%tikz={\node[draw,red,fit=()(!11)(!ll)] {};}
+    [V-ate]
+    [NP-it]]]
+\end{forest}
+\hfill\mbox{}
+\caption{Links SBCG, rechts Constructional HPSG: In SBCG gibt es immer nur Konstruktionen für lokale
+  Bäume. In HPSG können Töchter komplex sein und das ganze Gebilde kann als solches gespeichert sein.}\label{fig-locality-sbcg-hpsg}
+\end{figure}
+
+Ich habe den phonologischen Beitrag mit an die Kategorien geschrieben, den \phon ist ja Bestandteil
+der jeweiligen Knoten. Das wird normalerweise in Bäumen nur anders dargestellt. 
+
+In SBCG werden jeweils linguistische Objekte mittels Konstruktionen in Beziehung zueinander
+gesetzt. Zum Beispiel dominiert S die Knoten NP und VP in einer Subjekt-Kopf-Konstruktion und VP
+dominiert V und NP in einer Kopf-Komplement-Konstruktion. In der HPSG-Version auf der rechten Seite
+ist die Kopf-Komplement-Phrase hingegen als VP Teil der Subjekt-Kopf-Phrase. Es gibt ein linguistisches Objekt, das die
+komplette Struktur enthält. Bei der Analyse auf der linken Seite braucht man jeweils Konstruktionen,
+die von außen alles zusammenhalten, während rechts die Konstruktionen Bestandteil des Objekts
+sind. Man kann das mit Exoskeletten\is{Skelett} und Endoskeletten in der Tierwelt vergleichen. Interessant ist
+nun, dass ja verschiedentlich festgestellt wurde, dass auch nicht-idiomatische Wendungen bei
+entsprechender Frequenz als Chunks gespeichert werden. In SBCG gibt es aber keine Chunks, die
+irgendwie die Ableitungsstruktur enthalten würden. Man müsste quasi eine neue Datenstruktur
+schaffen, die zu jedem Knoten die Konstruktion und die Töchter speichert. Das bedeutet aber, dass
+man die Nicht-Lokalität nur ausgelagert hat. Das Skelett ist außen drum rum, aber man braucht eine
+Verbindung zwischen den Skelettteilen, sonst würde alles zerfallen. Im Gegensatz dazu beschreibt
+Constructional HPSG komplexe Objekte. Es liegt nahe, dass auch völlig transparente Objekte als
+Ganzes gespeichert werden können, wenn sie entsprechend frequent sind. Bei Speicherung kann es dann
+auch eine Lexikalisierung mit Bedeutungswandel geben.
+
+Man könnte behaupten, dass man nur die Kategorie im obersten Knoten braucht, denn diese
+repräsentiert ja den phonologischen Beitrag, die Wortart der Projektion und den gesamten
+semantischen Beitrag des linguistischen Objekts. Das wäre jedoch nicht ausreichend, wenn es rein
+syntaktisches Priming gibt. In der Psycholinguistik\is{Psycholinguistik} spricht man von \emph{Priming}\is{Priming}, wenn die
+Aktivierung bestimmter Hirnareale durch entsprechende Benutzung dazu führt, dass diese Areale wieder
+benutzt werden, weil sie eben schon aktiv sind. So wurde zum Beispiel gezeigt, dass Versuchspersonen
+bevorzugt mit Passivsätzen antworten, wenn im Dialog davor bereits Passivsätze oder ähnlich
+strukturierte Sätze mit Ortsangaben verwendet wurden. Priming an sich vermag noch nicht zwischen SBCG und Constructional HPSG zu unterscheiden,
+denn auch die SBCG-Konstruktionen werden ja aktiviert und somit geprimet. Wenn allerdings Chunks,
+die nicht mehr verarbeitet werden, weil sie als Ganzes gespeichert sind, ähnliche Strukturen primen,
+dann wäre das ein Hinweis darauf, dass in Chunks Strukturen enthalten sind. Damit dieses Argument
+stichhaltig ist, muss man natürlich syntaktische Strukturen haben von denen man sicher ist, dass
+diese Strukturen der Auslöser für Primingeffekte sind und nicht etwa bestimmtes lexikalisches
+Material oder gar nur phonologisches Material. Für Passiv konnten \citet*{ZBGS2019a} zeigen, dass hier das
+Hilfsverb \emph{be} und die Präposition \emph{by} die Auslöser des Primings sind. Die Autor*innen
+gehen davon aus, dass Phonologie, Informationsstruktur, Semantik und lexikalisches Material wichtig
+sind. Sie schließen nicht aus, dass es syntaktisches Priming geben kann (S.\,2), haben aber für alle Fälle
+von denen behauptet wurde, dass es sich um syntaktisches Priming handelt, nachgewiesen, dass andere
+Faktoren maßgeblich sind. Also: Wenn es syntaktische Priming gibt, hat die Architektur der
+Constructional HPSG den Vorteil, dass linguistische Objekte mit interner Struktur direkt modelliert
+werden. Eine externe Struktur für die Repräsentation von Konstruktionen und den durch sie
+lizenzierten Objekten ist nicht nötig.
 
 Von diesen empirischen Problemen abgesehen gibt es mit (\ref{meta-konstruktionsstatemnet}) noch ein konzeptuelles Problem:
 (\ref{meta-konstruktionsstatemnet}) ist nicht Bestandteil des Formalismus der getypten Merkmalstrukturen, sondern eine
