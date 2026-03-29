@@ -124,9 +124,9 @@ $%
 % }
 
 
-
+% textit does italics correction, which is needed for "helf", while \itshape does not. 05.03.2026
 \newcommand{\phonliste}[1]{%
-\mbox{$\langle$\normalfont\itshape#1$\rangle$}%
+\mbox{$\langle$\normalfont\textit{#1}$\rangle$}%
 }
 
 % \newcommand{\phonliste}[1]{%
@@ -205,7 +205,7 @@ $\hspace{-1pt}\left[%
 #2%
 \end{tabular}%
 \right]$%
-  }%
+}%
 % David Carlisle sagt man braucht \par, aber dann fehlen Zeilenumbrüche bei \zl
 %\par\vspace{1mm}%
 \vspace{1pt}%
