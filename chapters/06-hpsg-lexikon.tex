@@ -49,7 +49,7 @@ kann. Der Lexikoneintrag für das Nomen \emph{Buch} ist in (\mex{1}) angegeben:
  phon & \phonliste{ \highlight{Buch} } \\[2mm]
  cat  & \ms{ head & noun \\
              spr  & \nliste{ [] } \\
-%             comps & \eliste{ }\\
+%             comps & \eliste\\
              arg-st & \nliste{ Det } \\
 %               \ldots & \ldots\\
            } \\
@@ -129,7 +129,7 @@ Alle Nomina, die nur einen Determinator verlangen (\type{det-noun-root}):\\
   cont & \ms{ ind|per & 3 }}
 \z
 Mit dem \argstw ist schon viel über die Valenz eines Lexikonelements ausgesagt. Das
-Argumentrealisierungsprinzip (siehe (\ref{Prinzip-Argumentrealisierung-einfach}) auf
+Argumentrealisierungsprinzip\is{Prinzip!Argumentrealisierungs-} (siehe (\ref{Prinzip-Argumentrealisierung-einfach}) auf
 S.\,\pageref{Prinzip-Argumentrealisierung-einfach}) verteilt die Elemente der \argstl auf die
 Valenzmerkmale \spr und \comps. Für die Nomina muss sichergestellt sein, dass der Determinator auf
 der \sprl und nicht auf der \compsl landet. Dazu muss man im Lexikoneintrag für Nomina festlegen,
@@ -604,7 +604,8 @@ Die HPSG seit \citew{Sag97a} ist eine Variante der Konstruktionsgrammatik\is{Kon
   (CxG)|(}\is{Typhierarchie|(}. Die 1997er Version wird auch Constructional HPSG genannt und bildet
 die Grundlage für das 2021 erstmals erschienene HPSG"=Handbuch \citep*{HPSGHandbook}. Eine
 HPSG"=Variante, die Ivan Sag mit anderen Wissenschaftlern aus der Bay Area (Charles Fillmore, Paul
-Kay, Tom Wasow) in den 2000ern entwickelte, heißt Sign"=Based Construction Grammar (SBCG,
+Kay, Tom Wasow) in den 2000ern entwickelte, heißt Sign"=Based Construction Grammar
+(SBCG,\is{Construction Grammar (CxG)!Sign-Based (SBCG)}
 \citealt{Sag2010b,Sag2012a}). Ansonsten gibt es neben einigen formalisierten Varianten wie Embodied
 Construction Grammar\is{Construction Grammar (CxG)!Embodied} \citep{BC2005a} und Fluid Construction Grammar\is{Construction Grammar (CxG)!Fluid}
 \citep{SDB2006a-u,SteelsFluid-ed,vanTrijp2013a} viele
@@ -613,7 +614,7 @@ nicht oder unzureichend formalisierte Konstruktionsgrammatikvarianten. Zu einem 
 Vererbung eine wesentliche Rolle spielt, so dass man sie mit Merkmalbeschreibungen und Vererbung
 formalisieren müsste.\footnote{%
   Die Vorschläge in \citew{KF99a} und \citew{Kay2002a,Kay2005a} im Rahmen der Berkeley
-  Construction Grammar (BCG) sind teilweise in sich inkonsistent bzw.\ miteinander inkompatibel.
+  Construction Grammar (BCG)\is{Construction Grammar (CxG)!Berkeley} sind teilweise in sich inkonsistent bzw.\ miteinander inkompatibel.
 \citet{Kay2002a} nimmt ungetypte Merkmalstrukturen an,
   verwendet aber in einem 2000 fertiggestellten Aufsatz \citep{Kay2005a} getypte Merkmalstrukturen. Relationale Beschränkungen
   wie \emph{append} kommen ebenfalls in \citew{Kay2002a} nicht vor, werden aber in \citew{Kay2005a}
@@ -684,7 +685,7 @@ benutzt werden. Genauso ist es möglich, den Lexikoneintrag für \stem{fisch} in
 zu verwenden. So wie in \emph{die Regelung des Verkehrs} ein Verb nominalisiert wird, kann dann das
 \emph{leer fischen} ausgehend vom Stamm nominalisiert werden.
 
-\citet{Kay2005a}, noch im Rahmen der Berkeley Construction Grammar aber schon mit einer MRS"=Semantik, schlägt Argumentstruktur"=Konstruktionen vor,
+\citet{Kay2005a}, noch im Rahmen der Berkeley Construction Grammar\is{Construction Grammar (CxG)!Berkeley} aber schon mit einer MRS"=Semantik, schlägt Argumentstruktur"=Konstruktionen vor,
 die zu den HPSG"=Lexikonregeln äquivalent sind. Zur Diskussion phrasaler Ansätze siehe
 \textcites{Mueller2006d,Mueller2006c,Mueller2007d,MuellerUnifying,MuellerLFGphrasal,MuellerLexikon,MuellerGT-Eng5,MuellerLFGTAG,MuellerTAGCxG}
 und \textcites{MWArgSt,MWArgStReply}.
@@ -978,7 +979,7 @@ Ich graue dem Studenten vor der Prüfung.
 Man könnte dieses Problem dadurch beheben, dass man bereits im Lexikoneintrag für \emph{grauen}
 ein Element mit der grammatischen Funktion \emph{Subjekt} spezifiziert und zusätzlich festlegt,
 dass es nie realisiert werden kann (\textsc{syn} \type{zero}) und nichts bedeutet. Man hätte somit
-ein phonologisch nicht realisiertes Expletivpronomen, das nur in Valenzlisten sein leeres Dasein
+ein phonologisch nicht realisiertes Expletivpronomen\is{Pronomen!Expletiv-}, das nur in Valenzlisten sein leeres Dasein
 fristet. Eine Analyse, die ohne solche Hilfskonstruktionen auskommt, ist vorzuziehen.
 %Solcherart leere Elemente werden in der
 %Konstruktionsgrammatik jedoch strikt abgelehnt \citep[\page49--50]{MR2001a}.
@@ -1002,7 +1003,7 @@ In (\mex{0}a) wurde ein intransitives Verb mit der Transitiv"=Konstruktion verbu
 (\ref{ex-schlagen-linking}) nicht automatisch berechnen lassen. In Kays und Fillmores System müsste
 man also für jedes Verb einzeln Unterkonstruktionen für das Verb im Aktiv, im Passiv, in der
 Medialkonstruktion usw.\ festlegen, wodurch man nicht erfasst, dass neu entstehende transitive Verben
-von Sprecher*innen nach dem Erwerb des neuen Verbs auch ohne weiteres passiviert werden können.\is{Menge|)}%
+von Sprecher*innen nach dem Erwerb des neuen Verbs auch ohne Weiteres passiviert werden können.\is{Menge|)}%
 \is{Passiv|)}%
 
 \citet{MR2001a} benutzen keine Mengen für die Repräsentation von semantischer Information.
@@ -1412,7 +1413,7 @@ und zeige, dass seine Analyse das Problem nur verschiebt:
 Koenig diskutiert Extrapositionsdaten wie das Beispiel in (\mex{1}b), die bisher mit der
 Lexikonregel in (\mex{2}) analysiert wurden.\footnote{\label{fn-Extrapositionslexikonregel}%
   Die Angabe von \subj und \comps wäre nicht nötig, wenn man ein
-  Argumentrealisierungsprinzip (siehe S.\,\pageref{Prinzip-Argumentrealisierung-einfach})
+  Argumentrealisierungsprinzip\is{Prinzip!Argumentrealisierungs-} (siehe S.\,\pageref{Prinzip-Argumentrealisierung-einfach})
   annimmt. Es würde dann ausreichen, in der Lexikonregel nur die \argstl zu erwähnen. Das \subjm nutzt Koenig zur
   Repräsentation des Subjekts. Im restlichen Buch folge ich \citet*[Abschnitt~4.3]{SWB2003a} und
   verwende dafür das \sprm. Koenig hat in der Ausgabe der Lexikonregel links und rechts der
@@ -1835,7 +1836,7 @@ Abschnitt~\ref{sec-lr} besprochenen Lexikonregeln entspricht. Auf Hilfsmerkmale 
 %% der beladene Wagen
 %% \z
 %% Mit einem Ansatz, der Morpheme mittels Regeln verknüpft, die den Syntaxregeln ähneln, bekommt man
-%% dieses Ergebnis nicht ohne weiteres. Das Ergebnis von Affix/Wurzel- bzw. Affix/Stamm"=Kombinationen
+%% dieses Ergebnis nicht ohne Weiteres. Das Ergebnis von Affix/Wurzel- bzw. Affix/Stamm"=Kombinationen
 %% ist ein komplexer Stamm. Würde man explizit angeben wollen, dass das Ergebnis der Kombination von 
 %% \prefix{be} und \stem{lad} vom Typ \type{proto-verb} ist, müsste man sehr spezielle Derivationsschemata 
 %% haben, nämlich jeweils eins für Derivation mit Proto"=Verb als Ergebnis, eins mit Proto"=Nomen als Ergebnis, usw.\footnote{

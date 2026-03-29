@@ -461,11 +461,11 @@ Verb          & \spr                      & \comps                              
 \label{ex-spr-comps-arg-st-Deutsch}
 \begin{tabular}[t]{@{}ll@{~~}l@{~~}l@{}}
 Verb            & \spr                      & \comps                                      & \argst\\
-\emph{schläft}  & \sliste{ } & \sliste{ NP[\type{nom}] }                                  & \sliste{ NP[\type{nom}] }\\
-\emph{erwartet} & \sliste{ } & \sliste{ NP[\type{nom}], NP[\type{acc}] }                  & \sliste{ NP[\type{nom}], NP[\type{acc}] }\\
-\emph{spricht} & \sliste{ } & \sliste{ NP[\type{nom}], PP[\type{über}] }                 & \sliste{ NP[\type{nom}], PP[\type{about}] }\\
-\emph{gibt}    & \sliste{ } & \sliste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }  & \sliste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }\\
-\emph{dient}   & \sliste{ } & \sliste{ NP[\type{nom}], NP[\type{dat}], PP[\type{with}] } & \sliste{ NP[\type{nom}], NP[\type{dat}], PP[\type{with}] }\\  
+\emph{schläft}  & \eliste & \sliste{ NP[\type{nom}] }                                  & \sliste{ NP[\type{nom}] }\\
+\emph{erwartet} & \eliste & \sliste{ NP[\type{nom}], NP[\type{acc}] }                  & \sliste{ NP[\type{nom}], NP[\type{acc}] }\\
+\emph{spricht} & \eliste & \sliste{ NP[\type{nom}], PP[\type{über}] }                 & \sliste{ NP[\type{nom}], PP[\type{about}] }\\
+\emph{gibt}    & \eliste & \sliste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }  & \sliste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] }\\
+\emph{dient}   & \eliste & \sliste{ NP[\type{nom}], NP[\type{dat}], PP[\type{with}] } & \sliste{ NP[\type{nom}], NP[\type{dat}], PP[\type{with}] }\\  
 \end{tabular}
 \z
 
@@ -601,11 +601,11 @@ Adjektiv \emph{interessantes}:
 \label{avm-dem-koenig-treues}
 \emph{dem König treues}:\\
 \ms{ 
-   phon & \phonliste{ dem, König, treues }\\
+   phon  & \phonliste{ dem, König, treues }\\
    p-o-s & adj\\ %prd & $-$ \\
-   mod &  \nbar\\
-   spr & \eliste\\
-   comps & \eliste{ } \\
+   mod   & \nbar\\
+   spr   & \eliste\\
+   comps & \eliste \\
 }
 \z
 Wie die Weitergabe des \textsc{mod}"=Wertes genau erfolgt, werden wir im nächsten Kapitel sehen, in
@@ -616,7 +616,7 @@ beschäftigen: Das Kopfmerkmalsprinzip sorgt dafür, dass der \modw der gesamten
 % Alternativ zur Selektion des Kopfes durch den Modifikator könnte man eine
 % Beschreibung aller möglichen Adjunkte beim Kopf vornehmen. Dies wurde von
 % \citet[\page 161]{ps} vorgeschlagen. \citet[Abschnitt~1.9]{ps2} rücken von diesem Ansatz aber wieder
-% ab, da die Semantik der Modifikation mit diesem Ansatz nicht ohne weiteres
+% ab, da die Semantik der Modifikation mit diesem Ansatz nicht ohne Weiteres
 % beschreibbar ist.\footnote{
 %         Siehe jedoch \citew*{BMS2001a}. \citet*{BMS2001a} verfolgen einen hybriden Ansatz, in dem es sowohl Adjunkte gibt,
 %         die den Kopf selegieren, als auch solche, die vom Kopf selegiert werden.
@@ -683,12 +683,11 @@ Nach der Kombination mit der Nominalphrase \emph{der Speisekammer} bekommt man:
 \ea
 Repräsentation für \emph{in der Speisekammer}:\\
 \ms{
-phon & \phonliste{ in, der, Speisekammer } \\
+phon  & \phonliste{ in, der, Speisekammer } \\
 p-o-s & prep\\
-mod &   \nbar\\
-spr & \eliste\\
-comps & \eliste{ } \\
-}
+mod   &   \nbar\\
+spr   & \eliste\\
+comps & \eliste }
 \z
 Diese Repräsentation entspricht der des Adjektivs \emph{interessantes} in (\ref{le-interessantes}) und kann 
 -- abgesehen von der Stellung der PP -- auch genauso verwendet
@@ -756,7 +755,8 @@ werden, sind kein Argument gegen Konstruktionsgrammatik. Sie sind Argumente gege
 zur Argumentstruktur. Solche phrasalen Ansätze gibt es nicht nur in der Konstruktionsgrammatik,
 sondern auch in der Generalisierten Phrasenstrukturgrammatik (Generalized Phrase Structure Grammar,
 GPSG), LFG, Simpler Syntax und in TAG. HPSG zählt selbst zur Klasse der konstruktionsgrammatischen Theorien. Seit 1997 gibt
-es Constructional HPSG \citep{Sag97a} und Sign"=Based Construction Grammar ist auch eine 
+es Constructional HPSG \citep{Sag97a} und Sign"=Based Construction Grammar\is{Construction Grammar
+  (CxG)!Sign-Based (SBCG)} ist auch eine 
 HPSG"=Variante \citep[\page 486]{Sag2010b}. Das HPSG"=Handbuch \citep*{HPSGHandbook} ist im Rahmen der Constructional HPSG
 geschrieben. Im Artikel \emph{HPSG and Construction Grammar} diskutiere ich, was 
 Konstruktionsgrammatiken ausmacht und wie HPSG dazu steht \citep{MuellerCxG}.
