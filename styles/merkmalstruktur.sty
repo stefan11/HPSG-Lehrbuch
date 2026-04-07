@@ -45,7 +45,8 @@
 
 \newcommand{\sliste}[1]{%
 \mbox{%
-$\langle$\mbox{\upshape\scshape #1}$\rangle$}%
+\hspace{-.9pt}$\langle$\mbox{\upshape\scshape #1}$\rangle$}%
+%\upshape⟨\scshape #1⟩\}%
 }
 % \newcommand{\sliste}[1]{%
 % \mbox{%
@@ -78,7 +79,7 @@ $\langle$\mbox{\upshape\scshape #1}$\rangle$}%
 
 \newcommand{\eliste}{%
 \mbox{%
-$\left\langle\right\rangle$}%
+\hspace{-.9pt}$\left\langle\right\rangle$}%
 }
 
 \newcommand{\oldliste}[1]{%
@@ -204,7 +205,7 @@ $\hspace{-1pt}\left[%
     \fi%
 #2%
 \end{tabular}%
-\right]$%
+\right]\hspace{-1pt}$%
 }%
 % David Carlisle sagt man braucht \par, aber dann fehlen Zeilenumbrüche bei \zl
 %\par\vspace{1mm}%
@@ -235,7 +236,7 @@ $\hspace{-1pt}\left[%
     \fi
     #2%
     \end{tabular}%
-    \right]$%
+    \right]\hspace{-1pt}$%
   }%
   \vspace{1pt}%
 }
@@ -253,7 +254,7 @@ $\hspace{-1pt}\left[%
     \fi
     #2%
     \end{tabular}%
-    \right]$%
+    \right]\hspace{-1pt}$%
   }%
   \vspace{1pt}%
 }
@@ -329,3 +330,6 @@ $%
 \newcommand{\qeq}{$=_q$\xspace}
 
 \newcommand{\impl}{$\Rightarrow$\xspace}
+
+
+\newcommand{\npref}{NP\kern-1pt\sub{\type{ref}}\kern-1pt\xspace}
