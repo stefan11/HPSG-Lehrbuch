@@ -211,19 +211,19 @@ und \compsw sowie den Typ der jeweiligen Teilstruktur:
 \onems[head-complement-phrase~]{
       phon    \phonliste{ die, Nuss, gibt }\\
       p-o-s \type{verb}\\
-%      spr \liste{}\\
+%      spr \eliste\\
       comps \ibox{1} \liste{ NP[\nom], NP[\dat]} \\
       head-dtr \onems{ phon \phonliste{ gibt }\\
                        p-o-s \type{verb}\\
-%                                     spr \liste{}\\
+%                                     spr \eliste\\
                                      comps \ibox{1}  $\oplus$ \liste{ \ibox{2} } \\
                        } \\
       non-head-dtrs \liste{ \ibox{2} \onems[head-specifier-phrase~]{ 
                                                   phon  \phonliste{ die, Nuss }\\
                                                   p-o-s \type{noun}\\
                                                   % acc
-%                                                  spr \liste{}\\
-                                                  comps \liste{} \\
+%                                                  spr \eliste\\
+                                                  comps \eliste \\
                                                   head-dtr \ldots \\
                                                   non-head-dtrs \ldots \\
                                                   }
@@ -240,7 +240,7 @@ Abbildung~\vref{fig-saettigung-valenz} zeigt die Valenzinformation in Baumdarste
 \centerline{%
 \begin{forest}
 sm edges
-[{V[\comps \sliste{} ]}
+[{V[\comps \eliste ]}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke]]
   [{V[\comps \sliste{ \ibox{1} }]}

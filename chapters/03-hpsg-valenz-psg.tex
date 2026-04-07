@@ -178,7 +178,7 @@ den Lexikoneintrag für \emph{schläft} in die Regel in (\ref{psg-regeln-append}
 ergibt sich (\mex{1}):
 \ea
 \label{ex-Regel-mit-einer-NP-in-Valenz}
-V[\comps \ibox{1}] $\to$ \ibox{2} NP, V[\comps \ibox{1} \sliste{} $\oplus$ \sliste{ \ibox{2} NP } ]
+V[\comps \ibox{1}] $\to$ \ibox{2} NP, V[\comps \ibox{1} \eliste $\oplus$ \sliste{ \ibox{2} NP } ]
 \z
 \emph{append} teilt die \compsl von \emph{schläft} in zwei Teile. 
 Ein Teil ist eine einelementige Liste, die die NP enthält, der zweite Teil ist die leere Liste. 
@@ -188,7 +188,7 @@ Abbildung~\vref{fig-Aicke-schlaeft} zeigt den durch das Regelschema lizenzierten
 \centerline{
 \begin{forest}
 sm edges
-[{V[\comps \sliste{}]}
+[{V[\comps \eliste]}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke]]
   [{V[\comps \sliste{ \ibox{1} }]}
@@ -224,7 +224,7 @@ Abbildung~\vref{fig-Aicke-Conny-erwartet}.
 \centerline{%
 \begin{forest}
 sm edges
-[{V[\comps \sliste{}]}
+[{V[\comps \eliste]}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke]]
   [{V[\comps \sliste{ \ibox{1} }] }
@@ -379,7 +379,7 @@ sm edges
 [{N[\spr \eliste, \comps \eliste]}
    [Det [die] ]
    [N\feattab{
-      \spr \nliste{ Det }, \comps \sliste{}}
+      \spr \nliste{ Det }, \comps \eliste}
      [N\feattab{
          \spr \nliste{ Det },\\
          \comps \nliste{ NP[\type{gen}] }} [Tochter] ]
@@ -423,7 +423,7 @@ sm edges
 [{V[\spr \eliste, \comps \eliste]}
    [{NP[\type{nom}]} [Aicke] ]
    [V\feattab{
-      \spr \sliste{ NP[\type{nom}] }, \comps \sliste{}}
+      \spr \sliste{ NP[\type{nom}] }, \comps \eliste}
      [V\feattab{
          \spr \sliste{ NP[\type{nom}] },\\
          \comps \sliste{ NP[\type{acc}] }} [expects] ]
@@ -449,7 +449,7 @@ kommen auf \comps. (\mex{1}) und (\mex{2}) zeigen prototypische Verben im Englis
 \label{ex-spr-comps-arg-st-Englisch}
 \begin{tabular}[t]{@{}ll@{~~}l@{~~}l@{}}
 Verb          & \spr                      & \comps                                     & \argst\\
-\emph{sleeps}  & \sliste{ NP[\type{nom}] } & \sliste{}                                  & \sliste{ NP[\type{nom}] }\\
+\emph{sleeps}  & \sliste{ NP[\type{nom}] } & \eliste                                  & \sliste{ NP[\type{nom}] }\\
 \emph{expects} & \sliste{ NP[\type{nom}] } & \sliste{ NP[\type{acc}] }                  & \sliste{ NP[\type{nom}], NP[\type{acc}] }\\
 \emph{speaks}  & \sliste{ NP[\type{nom}] } & \sliste{ PP[\type{about}] }                & \sliste{ NP[\type{nom}], PP[\type{about}] }\\
 \emph{gives}   & \sliste{ NP[\type{nom}] } & \sliste{ NP[\type{acc}], NP[\type{acc}] }  & \sliste{ NP[\type{nom}], NP[\type{acc}], NP[\type{acc}] }\\
@@ -564,11 +564,11 @@ Liste ist. Deshalb ist der \compsw immer identisch mit dem von \argst.
 \label{le-interessantes}
 \emph{interessantes}:\\
 \ms{ 
-   phon & \phonliste{ interessantes }\\
+   phon  & \phonliste{ interessantes }\\
    p-o-s & adj\\
-   mod &  \nbar\\
+   mod   &  \nbar\\
    spr   & \eliste\\
-   comps & \liste{} \\
+   comps & \eliste \\
 }
 \zs
 \emph{interessantes} ist ein Adjektiv, das selbst keine Argumente mehr zu sich nimmt,

@@ -1859,7 +1859,7 @@ Abbildung~\ref{abb-uszkoreit-pollard}.
 \begin{figure}
 \begin{forest}
 sm edges, for tree={l sep=+2\baselineskip}
-[{V[\type{fin}, \comps \eliste{}]}
+[{V[\type{fin}, \comps \eliste]}
   [{\ibox{1} NP[\type{nom}]} 
     [Aicke,roof]]
   [{\ibox{3} NP[\type{acc}]} 
@@ -1966,7 +1966,7 @@ werden in diese Liste eingesetzt.
 \begin{figure}
 \begin{forest}
 sm edges
-[{V[\comps \sliste{} ]}
+[{V[\comps \eliste ]}
   [{\ibox{1} NP[\type{nom}]},ellipse,draw
     [Aicke]]
   [{V[\comps \sliste{ \ibox{1} }]}
@@ -1994,10 +1994,7 @@ phon   & \ibox{1} \\
 synsem & \ibox{2} \\
 dom & \liste{ \ms[word]{ phon   & \ibox{1} \\
                          synsem & \ibox{2} \\
-                         dom    & \liste{}\\
-                       }
-            } \\
-}
+                         dom    & \eliste } } }
 \z
 Dabei sind unter dem Merkmal \synsem\isfeat{synsem}
 sowohl syntaktische als auch semantische Informationen zusammengefasst.
@@ -2072,7 +2069,7 @@ der Domänenelemente am obersten Knoten in Abbildung~\ref{abb-linearisierung-kon
 \begin{figure}
 \begin{forest}
 sm edges
-[V\feattab{\comps \sliste{},\\
+[V\feattab{\comps \eliste,\\
            \textsc{dom} \phonliste{ Aicke, dem Affen, den Stock, gibt }}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke,roof]]
@@ -2103,7 +2100,7 @@ kann, dass \emph{dem Affen} am nächsthöheren Knoten zwischen den beiden Elemen
 \begin{figure}
 \begin{forest}
 sm edges
-[V\feattab{\comps \sliste{},\\
+[V\feattab{\comps \eliste,\\
            \textsc{dom} \phonliste{ Aicke, \blau{den Stock}, dem Affen, \blau{gibt} }}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke,roof]]
@@ -2130,7 +2127,7 @@ diskontinuierlich.
 \begin{figure}
 \begin{forest}
 sm edges
-[V\feattab{\comps \sliste{},\\
+[V\feattab{\comps \eliste,\\
            \textsc{dom} \phonliste{ \blau{gibt}, Aicke, dem Affen, \blau{den Stock} }}
   [{\ibox{1} NP[\type{nom}]}
     [Aicke,roof]]
@@ -2178,7 +2175,7 @@ der Oberflächenreihenfolge angeordnet. Man sieht in dieser Abbildung recht deut
   % sn edges,   % note the s*n*, not s*m* // Can live without, as we draw the funky edges manually.
   for tree={l sep*=2}, % Let this tree be taller.
 delay={where tier={word}{inner xsep=0}{}}, % unclear why it has to happen here with delay.
-  [V\feattab{\comps \sliste{},\\
+  [V\feattab{\comps \eliste,\\
       \textsc{dom} \phonliste{ gibt, Aicke, dem Affen, den Stock }}, s sep+=7ex
     [V\feattab{\comps \sliste{ \ibox{1} },\\
         \textsc{dom} \phonliste{ gibt, dem Affen, den Stock }},
