@@ -17,6 +17,7 @@
 \ea
 Trallala $\to$ Trulla Trollolo
 \z
+Siehe hierzu auch Abschnitt~\ref{sec-kriterien}.
 % \item Stellen Sie Überlegungen dazu an, wie man ermitteln kann, welche der unendlich vielen Grammatiken
 %       die beste ist bzw.\ welche der Grammatiken die besten sind.
 \item Allgemein geht man davon aus, dass die Grammatik mit den wenigsten Regeln die beste ist. Somit
@@ -26,10 +27,10 @@ Allerdings muss man im Auge behalten, was das Ziel der Grammatiktheorie ist. Set
 unser menschliches Sprachvermögen zu beschreiben, so kann eine Grammatik mit mehr Regeln die bessere
 sein. Das liegt daran, dass psycholinguistische Forschungen gezeigt haben, dass hochfrequente
 Einheiten einfach als ganze in unseren Köpfen abgespeichert sind und nicht jedes mal neu aus
-Einzelteilen aufgebaut werden, obwohl wir natürlich prinzipiell in der Lage dazu wären.\NOTE{Quelle
-  und Beispiel}
+Einzelteilen aufgebaut werden, obwohl wir natürlich prinzipiell in der Lage dazu wären. Zu Quellen
+siehe S.\,\pageref{page-gespeicherte-Chunks}.
 
-Damit die letzten beiden Sätze ausgeschlossen sind, muss die Grammatik Kasusinformation
+Damit die letzten beiden Sätze ausgeschlossen sind, muss die Grammatik Kasus- und Genusinformation
 enthalten. Die folgende Grammatik leistet das Gewünschte:
 \eal
 \ex s $\to$ np(nom), v(nom\_dat), np(dat)
@@ -37,24 +38,26 @@ enthalten. Die folgende Grammatik leistet das Gewünschte:
 \ex s $\to$ np(nom), v(nom\_pp\_auf), pp(auf,akk)
 %
 \ex pp(Pform,Kas) $\to$ p(Pform,Kas), np(Kas)
-\ex np(Kas) $\to$ d(Kas), n(Kas)
+\ex np(Kas) $\to$ d(Kas,Gen), n(Kas,Gen)
 %
 \ex v(nom\_dat) $\to$ hilft
 \ex v(nom\_dat\_akk) $\to$ gibt
 \ex v(nom\_pp\_auf) $\to$ wartet
 %
+\ex np(nom) $\to$ Conny
 \ex np(nom) $\to$ er
 \ex np(dat) $\to$ ihr
 %
-\ex d(nom) $\to$ der
-\ex d(dat) $\to$ der
-\ex d(akk) $\to$ das
-\ex d(akk) $\to$ ein
+\ex d(nom,mas) $\to$ der
+\ex d(dat,neu) $\to$ dem
+\ex d(dat,mas) $\to$ dem
+\ex d(akk,neu) $\to$ das
+\ex d(akk,neu) $\to$ ein
 %
-\ex n(nom) $\to$ Mann
-\ex n(dat) $\to$ Frau
-\ex n(akk) $\to$ Buch
-\ex n(akk) $\to$ Wunder
+\ex n(nom,mas) $\to$ Delphin
+\ex n(dat,neu) $\to$ Kind
+\ex n(akk,neu) $\to$ Buch
+\ex n(akk,neu) $\to$ Wunder
 %
 \ex p(auf,akk) $\to$ auf
 \zl
@@ -68,6 +71,7 @@ enthalten. Die folgende Grammatik leistet das Gewünschte:
 \label{Abschnitt-Formalismus-Lösungen}\label{Seite-Lösungen-Listen}
 
 \begin{enumerate}
+\setcounter{enumi}{1}
 \item Listen\is{Liste} kann man mittels rekursiver Strukturen beschreiben, die jeweils aus einem Listenanfang
   und einem Rest bestehen. Der Rest kann entweder eine nicht leere Liste (\type{ne\_list}) oder die
   leere Liste (\type{e\_list}) sein. Die Liste \relliste{ \type{a}, \type{b}, \type{c} } kann man wie folgt darstellen:
@@ -129,7 +133,7 @@ last & \ibox{2}\\
 }
 \zl
 Für die Verkettung der Listen muss lediglich der \textsc{list}"=Wert der zweiten Liste mit dem \textsc{last}"=Wert der ersten Liste identifiziert werden. Der \textsc{last}"=Wert der Ergebnisliste
-entspricht dem \textsc{last}"=Wert der zweiten Liste (im Beispiel \ibox{2}).
+entspricht dem \textsc{last}"=Wert der zweiten Liste (im Beispiel \ibox{2}\,).
 
 Information zur Differenzlistenkodierung lässt sich \zb mit einer Suchanfrage mit den Stichwörtern \emph{list} \emph{append} und
 \emph{feature structure} finden. Bei dieser Suchanfrage bekommt man Grammatikentwicklungsseiten, die
@@ -154,14 +158,19 @@ Differenzlisten erklären.
 \section{Dominanzstrukturen und Prinzipien}
 
 \begin{enumerate}
-\item Zeichnen Sie einen Syntaxbaum für (\mex{1}):
-\ea
-dass der Mann das spannende Buch liest
-\z
-Markieren Sie die Kanten im Baum mit Ad für Adjunkt, Ar für Argument und
-H für Kopf.
+\item 
+% Zeichnen Sie einen Syntaxbaum für (\mex{1}):
+% \ea
+% dass der Mann das spannende Buch liest
+% \z
+% Markieren Sie die Kanten im Baum mit Ad für Adjunkt, Ar für Argument und
+% H für Kopf.
 
-Die Struktur von (\mex{1}) ist in Abbildung~\ref{fig-dass-der-mann} zu sehen. Dabei steht \nbar für
+Die Struktur von (\mex{1}) ist in Abbildung~\ref{fig-dass-der-mann} zu sehen. 
+\ea
+dass das Kind das spannende Buch liest
+\z
+Dabei steht \nbar für
 ein Nomen, das einen Determinator verlangt (siehe S.\,\pageref{ex-abkuerzung-nbar}), V steht für ein lexikalisches
 Verb, \vbar für eine ungesättigte und VP für eine gesättigte Verbalprojektion.
 \begin{figure}
@@ -171,8 +180,8 @@ sm edges
   [C [dass]]
   [VP 
     [NP 
-      [Det [der]]
-      [\nbar [Mann]]]
+      [Det [das]]
+      [\nbar [Kind]]]
     [\vbar
       [NP
         [Det [das]]
@@ -181,7 +190,7 @@ sm edges
           [\nbar [Buch]]]]
       [V [liest]]]]] 
 \end{forest}
-\caption{\label{fig-dass-der-mann}Syntaxstruktur von \emph{dass der Mann das spannende Buch liest}}
+\caption{\label{fig-dass-der-mann}Syntaxstruktur von \emph{dass das Kind das spannende Buch liest}}
 \end{figure}
 \itdopt{Label H Arg Adj fehlen noch}
 \item 
@@ -335,8 +344,8 @@ cat & \ms{ head   & \ms[adj]{
            arg-st & \sliste{ NP[\nom]\ind{1} } $\oplus$ \etag\\
          }\\
 } $\mapsto$ \ms{
-cat & \ms{ head   & \ms[adj]{
-                    mod & \nbar\ind{1} } } }
+cat|head   & \ms[adj]{
+              mod & \nbar\ind{1} } }
 \zs
 Per Konvention werden alle in der Ausgabe nicht erwähnten Werte von der Eingabe zur Ausgabe
 übertragen. Das heißt, dass der \argstw und der \contw unverändert übernommen werden. Wichtig ist
@@ -373,6 +382,7 @@ Ausgabezeichen dann stehen müssen, hängt von der gewählten Endung ab.
 \ex \field{\field{Dass}{LS} \field{Aicke nicht}{MF} \field{kommt}{RS}}{VF}, \field{ärgert}{LS} \field{Conny}{MF}.
 \ex \field{\field{Einen Roman}{MF} \field{lesen}{RS}, \field{\field{der}{VF} \field{sie}{MF} \field{langweilt}{RS}}{NF}}{VF}, \field{würde}{LS} \field{sie nie}{MF}.
 \zl
+\medskip
 
 Zu (\mex{0}c): Theoretisch könnte hier auch eine Extraposition des Relativsatzes ins Nachfeld
 vorliegen. Da \emph{dem Kind, das jeder kennt} aber eine Konstituente ist, geht man davon aus, dass
@@ -419,9 +429,9 @@ sm edges
   [{\ibox{1} V[\comps \eliste ] }
     [{\ibox{3} NP[\type{dat}]} [dem Clown, roof] ]
     [{V[\comps \sliste{ \ibox{3} } ] } 
-       [{\ibox{4} NP[\type{acc}]} [drei Mark,roof] ]
-       [{V[\comps \sliste{ \ibox{3}, \ibox{4} } ] }
-          [{\ibox{2} NP[\type{nom}]} [Kurt-Martin] ]
+       [{\ibox{2} NP[\type{nom}]} [Kurt-Martin] ]
+       [{V[\comps \sliste{ \ibox{2}, \ibox{3} } ] }
+          [{\ibox{4} NP[\type{acc}]} [drei Mark,roof] ]
           [{V[\comps \sliste{ \ibox{2}, \ibox{3}, \ibox{4} } ] } [gibt] ] ] ] ] ]
 \end{forest}
 \end{figure}
@@ -482,25 +492,31 @@ sm edges
 
 \section{Relativsätze}
 
-\itdopt{Welche Relativpronomina kennen Sie?}
+\begin{enumerate}
+\item (\mex{1}) gibt einige Beispiele für Relativwörter:
+\eal
+\ex Relativpronomina: der, die, das, denen, \ldots, deren, dessen
+\ex Relativadverb: wo, woher, \ldots, wie 
+\zl
+
 
 %% \item Skizzieren Sie die Analyse für die folgende Phrase:
 %% \ea
 %% die Blume, die alle lieben
 %% \z
 %% Gehen Sie auf die \slashwe und die \relwe ein.
-\begin{figure}[H]
+\item \begin{figure}[H]
 \begin{forest}
 sm edges
 [NP
   [\ibox{1} Det [die] ]
-  [{N$'$[\spr \sliste{ \ibox{1} }] } 
-    [{\ibox{2} N$'$[\spr \sliste{ \ibox{1} }]\ind{3} } [Blume] ] 
+  [{\nbar[\spr \sliste{ \ibox{1} }] } 
+    [{\ibox{2} \nbar[\spr \sliste{ \ibox{1} }]\ind{3} } [Blume] ] 
     [RC\feattab{\textsc{mod} \ibox{2},\\
                 \rel \eliste,\\
                 \slasch \eliste }
       [NP~\ibox{4}\feattab{\type{acc},\\
-                           \textsc{rel} \sliste{ \ibox{3} }} [die] ]
+                           \textsc{rel} \nliste{ [\textsc{ind} \ibox{3}] }} [die] ]
       [V\feattab{ \comps \eliste,\\
                   \slasch \sliste{ \ibox{4} }}
          [\ibox{5} NP\feattab{\HPSGloc \ibox{4},\\
@@ -512,8 +528,17 @@ sm edges
                        \slasch \eliste }  [lieben] ] ] ] ] ] ]
 \end{forest}
 \end{figure}
+\end{enumerate}
 
-\itdopt{Kongruenz: Mädchen}
+% keine Fragen zu Lokalität
+\stepcounter{section}
+
+\section{Kongruenz}
+
+\begin{enumerate}
+\item Das Nomen \emph{Mädchen} muss syntaktisch mit dem Determinator im Genus kongruieren. Dieser
+  muss Neutrum sein. Der semantische Index von \emph{Mädchen} kann dagegen Neutrum oder Femininum sein.
+\end{enumerate}
 
 \section{Kasus}
 
@@ -522,7 +547,7 @@ sm edges
 \ex Mich (lex) friert.    
 \ex Kim (str) zerstört das Auto (str).
 \ex Das (str) dauert ein ganzes Jahr (lex = semantischer Kasus).
-\ex Sie (str) hat nur einen Tag (str) dafür gebraucht.
+\ex Sie (str) hat nur einen Tag (str) dafür angegeben.
 \ex Conny (str) denkt an den morgigen Tag (lex).
 \zl
 
@@ -595,7 +620,7 @@ hcons \liste{ \ms[qeq]{
 }\iw{scheinen|uu}
 \z
 \emph{scheinen} muss parallel zu \emph{glauben} behandelt werden, denn Quantoren können zwischen
-\emph{scheinen} und dem eingebetteten Verb skopen:
+\emph{scheinen} und dem eingebetteten Verb skopen \citep[202--203]{Kiss95a}:
 \ea
 Ein Einhorn scheint sich zu nähern.
 \z
@@ -625,10 +650,9 @@ erfasst. Zur Semantik von \emph{glauben} siehe Abschnitt~\ref{Abschnitt glauben 
 \label{le-vor}%
 \emph{vor}:\\
 \ms{
-cat & \ms{ head & \ms[particle]{ mod  & \upshape V \\
-                                 subj & \eliste \\
+cat & \ms{ head & \ms[particle]{ mod  & \upshape V 
                                } \\
-           comps & \eliste \\
+           arg-st & \eliste \\
          }
 }
 \zs\iw{vor|uu}
@@ -638,7 +662,7 @@ nicht. Somit kann es mit einstelligen (\emph{vorarbeiten}), zweistelligen (\emph
 auch sogar mit dreistelligen Verben (\emph{vorschenken}) kombiniert werden:
 \ea
 vater würde ihn mir zu xmas vorschenken\footnote{
-  \url{http://www.elitepvpers.com/forum/crossfire-trading/2138728-b-lt-colonel-gg-lm-mg3-gold-etc-6.html}. 20.02.2013.
+  \url{http://www.elitepvpers.com/forum/crossfire-trading/2138728-b-lt-colonel-gg-lm-mg3-gold-etc-6.html}, 20.02.2013.
 }
 \z
 
@@ -646,7 +670,7 @@ vater würde ihn mir zu xmas vorschenken\footnote{
 \label{le-kochen}%
 \stem{koch}:\\
 \ms{ head   & verb \\
-     comps & \liste{NP[\str], NP[\str]} \\[2mm]
+     arg-st & \liste{NP[\str], NP[\str]} \\[2mm]
 }
 \iw{kochen|uu}
 \zs
