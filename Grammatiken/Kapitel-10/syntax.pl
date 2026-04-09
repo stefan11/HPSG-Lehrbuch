@@ -319,6 +319,7 @@ headed_phrase *>
 % Relativsätze Laut ERG 2025-04-04 wird das LTOP aus NONLOC|REL mit dem LTOP des modifizierten
 % Nomens geteilt.  Dadurch kann das Possessivpronomen in Relativsätzen konjunktiv mit dem
 % modifizierten Nomen verknüpft werden. "Der Mann, dessen Kind schläft, lacht."
+% Eigentlich ist in der REL-Liste der CONT-Wert des Nomens.
 rc *>
  (%isect_n_modifier,
   %filler_phrase

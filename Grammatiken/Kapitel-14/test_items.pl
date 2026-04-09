@@ -85,64 +85,64 @@ t(65,"Der Affe, dessen Stock und dessen Roman ich kenne, schläft.",@decl,1,'Kap
 t(66,"Der Affe, von dessen Kind er ein Bild kennt, lacht.",@decl,1,'Kapitel 10: Relativsätze').
 
 
-t(67,"Ich schlafe.",@decl,1,'Kapitel 13: Kongruenz').
-t(68,"Du schläfst.",@decl,1,'Kapitel 13: Kongruenz').
-t(69,"Er schläft.",@decl,1,'Kapitel 13: Kongruenz').
-t(70,"Er schläfst.",@decl,0,'Kapitel 13: Kongruenz').
-t(71,"die Männern",@root,0,'Kapitel 13: Kongruenz').
-t(72,"der kluge  Mann",@root,1,'Kapitel 13: Kongruenz').
-t(73,"des klugen Mannes",@root,1,'Kapitel 13: Kongruenz').
-t(74,"dem klugen Mann",@root,1,'Kapitel 13: Kongruenz').
-t(75,"den klugen Mann",@root,1,'Kapitel 13: Kongruenz').
-t(76,"die klugen Männer",@root,1,'Kapitel 13: Kongruenz').
-t(77,"der klugen Männer",@root,1,'Kapitel 13: Kongruenz').
-t(78,"den klugen Männern",@root,1,'Kapitel 13: Kongruenz').
-t(79,"das kluge  Kind",@root,1,'Kapitel 13: Kongruenz').
-t(80,"des klugen Kindes",@root,1,'Kapitel 13: Kongruenz').
-t(81,"dem klugen Kind",@root,1,'Kapitel 13: Kongruenz').
-t(82,"das kluge  Kind",@root,1,'Kapitel 13: Kongruenz').
-t(83,"die klugen Kinder",@root,1,'Kapitel 13: Kongruenz').
-t(84,"der klugen Kinder",@root,1,'Kapitel 13: Kongruenz').
-t(85,"den klugen Kindern",@root,1,'Kapitel 13: Kongruenz').
-t(86,"die kluge  Frau",@root,1,'Kapitel 13: Kongruenz').
-t(87,"der klugen Frau",@root,1,'Kapitel 13: Kongruenz').
-t(88,"die klugen Frauen",@root,1,'Kapitel 13: Kongruenz').
-t(89,"der klugen Frauen",@root,1,'Kapitel 13: Kongruenz').
-t(90,"den klugen Frauen",@root,1,'Kapitel 13: Kongruenz').
-t(91,"ein   kluger Mann",@root,1,'Kapitel 13: Kongruenz').
-t(92,"eines klugen Mannes",@root,1,'Kapitel 13: Kongruenz').
-t(93,"einem klugen Mann",@root,1,'Kapitel 13: Kongruenz').
-t(94,"einen klugen Mann",@root,1,'Kapitel 13: Kongruenz').
-t(95,"ein   kluges Kind",@root,1,'Kapitel 13: Kongruenz').
-t(96,"eines klugen Kindes",@root,1,'Kapitel 13: Kongruenz').
-t(97,"einem klugen Kind",@root,1,'Kapitel 13: Kongruenz').
-t(98,"eine  kluge  Frau",@root,1,'Kapitel 13: Kongruenz').
-t(99,"einer klugen Frau",@root,1,'Kapitel 13: Kongruenz').
-t(100,"seine kluge Frau",@root,1,'Kapitel 13: Kongruenz').
-t(101,"sein kluger Mann",@root,1,'Kapitel 13: Kongruenz').
-t(102,"sein kluges Kind",@root,1,'Kapitel 13: Kongruenz').
-t(103,"seiner klugen Frau",@root,1,'Kapitel 13: Kongruenz').
-t(104,"seines klugen Mannes",@root,1,'Kapitel 13: Kongruenz').
-t(105,"seines klugen Kindes",@root,1,'Kapitel 13: Kongruenz').
-t(106,"seinem klugen Mann",@root,1,'Kapitel 13: Kongruenz').
-t(107,"seinem klugen Kind",@root,1,'Kapitel 13: Kongruenz').
-t(108,"seinen klugen Mann",@root,1,'Kapitel 13: Kongruenz').
-t(109,"ein kluger Beamter",@root,1,'Kapitel 13: Kongruenz').
-t(110,"eines klugen Beamten",@root,1,'Kapitel 13: Kongruenz').
-t(111,"einem klugen Beamten",@root,1,'Kapitel 13: Kongruenz').
-t(112,"einen klugen Beamten",@root,1,'Kapitel 13: Kongruenz').
-t(113,"eine kluge Beamte",@root,1,'Kapitel 13: Kongruenz').
-t(114,"einer klugen Beamten",@root,1,'Kapitel 13: Kongruenz').
-t(115,"der kluge Beamte",@root,1,'Kapitel 13: Kongruenz').
-t(116,"des klugen Beamten",@root,1,'Kapitel 13: Kongruenz').
-t(117,"dem klugen Beamten",@root,1,'Kapitel 13: Kongruenz').
-t(118,"den klugen Beamten",@root,2,'Kapitel 13: Kongruenz').
-t(119,"die kluge Beamte",@root,1,'Kapitel 13: Kongruenz').
-t(120,"der klugen Beamten",@root,2,'Kapitel 13: Kongruenz').
-t(121,"Die kleinen Kinder schlafen.",@decl,1,'Kapitel 13: Kongruenz').
-t(122,"Kleine Kinder schlafen.",@decl,1,'Kapitel 13: Kongruenz').
-t(123,"Die kleine Kinder schlafen.",@decl,0,'Kapitel 13: Kongruenz').
-t(124,"Kleinen Kinder schlafen.",@decl,0,'Kapitel 13: Kongruenz').
+t(67,"Ich schlafe.",@decl,1,'Kapitel 12: Kongruenz').
+t(68,"Du schläfst.",@decl,1,'Kapitel 12: Kongruenz').
+t(69,"Er schläft.",@decl,1,'Kapitel 12: Kongruenz').
+t(70,"Er schläfst.",@decl,0,'Kapitel 12: Kongruenz').
+t(71,"die Männern",@root,0,'Kapitel 12: Kongruenz').
+t(72,"der kluge  Mann",@root,1,'Kapitel 12: Kongruenz').
+t(73,"des klugen Mannes",@root,1,'Kapitel 12: Kongruenz').
+t(74,"dem klugen Mann",@root,1,'Kapitel 12: Kongruenz').
+t(75,"den klugen Mann",@root,1,'Kapitel 12: Kongruenz').
+t(76,"die klugen Männer",@root,1,'Kapitel 12: Kongruenz').
+t(77,"der klugen Männer",@root,1,'Kapitel 12: Kongruenz').
+t(78,"den klugen Männern",@root,1,'Kapitel 12: Kongruenz').
+t(79,"das kluge  Kind",@root,1,'Kapitel 12: Kongruenz').
+t(80,"des klugen Kindes",@root,1,'Kapitel 12: Kongruenz').
+t(81,"dem klugen Kind",@root,1,'Kapitel 12: Kongruenz').
+t(82,"das kluge  Kind",@root,1,'Kapitel 12: Kongruenz').
+t(83,"die klugen Kinder",@root,1,'Kapitel 12: Kongruenz').
+t(84,"der klugen Kinder",@root,1,'Kapitel 12: Kongruenz').
+t(85,"den klugen Kindern",@root,1,'Kapitel 12: Kongruenz').
+t(86,"die kluge  Frau",@root,1,'Kapitel 12: Kongruenz').
+t(87,"der klugen Frau",@root,1,'Kapitel 12: Kongruenz').
+t(88,"die klugen Frauen",@root,1,'Kapitel 12: Kongruenz').
+t(89,"der klugen Frauen",@root,1,'Kapitel 12: Kongruenz').
+t(90,"den klugen Frauen",@root,1,'Kapitel 12: Kongruenz').
+t(91,"ein   kluger Mann",@root,1,'Kapitel 12: Kongruenz').
+t(92,"eines klugen Mannes",@root,1,'Kapitel 12: Kongruenz').
+t(93,"einem klugen Mann",@root,1,'Kapitel 12: Kongruenz').
+t(94,"einen klugen Mann",@root,1,'Kapitel 12: Kongruenz').
+t(95,"ein   kluges Kind",@root,1,'Kapitel 12: Kongruenz').
+t(96,"eines klugen Kindes",@root,1,'Kapitel 12: Kongruenz').
+t(97,"einem klugen Kind",@root,1,'Kapitel 12: Kongruenz').
+t(98,"eine  kluge  Frau",@root,1,'Kapitel 12: Kongruenz').
+t(99,"einer klugen Frau",@root,1,'Kapitel 12: Kongruenz').
+t(100,"seine kluge Frau",@root,1,'Kapitel 12: Kongruenz').
+t(101,"sein kluger Mann",@root,1,'Kapitel 12: Kongruenz').
+t(102,"sein kluges Kind",@root,1,'Kapitel 12: Kongruenz').
+t(103,"seiner klugen Frau",@root,1,'Kapitel 12: Kongruenz').
+t(104,"seines klugen Mannes",@root,1,'Kapitel 12: Kongruenz').
+t(105,"seines klugen Kindes",@root,1,'Kapitel 12: Kongruenz').
+t(106,"seinem klugen Mann",@root,1,'Kapitel 12: Kongruenz').
+t(107,"seinem klugen Kind",@root,1,'Kapitel 12: Kongruenz').
+t(108,"seinen klugen Mann",@root,1,'Kapitel 12: Kongruenz').
+t(109,"ein kluger Beamter",@root,1,'Kapitel 12: Kongruenz').
+t(110,"eines klugen Beamten",@root,1,'Kapitel 12: Kongruenz').
+t(111,"einem klugen Beamten",@root,1,'Kapitel 12: Kongruenz').
+t(112,"einen klugen Beamten",@root,1,'Kapitel 12: Kongruenz').
+t(113,"eine kluge Beamte",@root,1,'Kapitel 12: Kongruenz').
+t(114,"einer klugen Beamten",@root,1,'Kapitel 12: Kongruenz').
+t(115,"der kluge Beamte",@root,1,'Kapitel 12: Kongruenz').
+t(116,"des klugen Beamten",@root,1,'Kapitel 12: Kongruenz').
+t(117,"dem klugen Beamten",@root,1,'Kapitel 12: Kongruenz').
+t(118,"den klugen Beamten",@root,2,'Kapitel 12: Kongruenz').
+t(119,"die kluge Beamte",@root,1,'Kapitel 12: Kongruenz').
+t(120,"der klugen Beamten",@root,2,'Kapitel 12: Kongruenz').
+t(121,"Die kleinen Kinder schlafen.",@decl,1,'Kapitel 12: Kongruenz').
+t(122,"Kleine Kinder schlafen.",@decl,1,'Kapitel 12: Kongruenz').
+t(123,"Die kleine Kinder schlafen.",@decl,0,'Kapitel 12: Kongruenz').
+t(124,"Kleinen Kinder schlafen.",@decl,0,'Kapitel 12: Kongruenz').
 
 % Verbalkomplexe
 t(125,"dass er lachen wird",@root,1,'Kapitel 14: Verbalkomplex').
@@ -165,3 +165,9 @@ t(137,"dass Aicke den Roman wird lesen dürfen",@root,1,'Kapitel 14: Verbalkompl
 t(138,"dass Aicke den Roman hat lesen dürfen",@root,1,'Kapitel 14: Verbalkomplex + PVP').
 t(139,"dass Aicke den Roman wird haben lesen dürfen",@root,1,'Kapitel 14: Verbalkomplex + PVP').
 
+
+% scheinbar mehrfache Vorfeldbesetzung uncomment loding :- ['mehrfache-vorfeldbesetzung']. in theory.pl
+% t(140,"Der Frau das Buch gibt er nicht.",@decl,1,'Kapitel 14: Merhfache Vorfeldbesetzung').
+% t(141,"Der Frau den Aufsatz will er geben.",@decl,1,'Kapitel 14: Merhfache Vorfeldbesetzung').
+% t(142,"Der Frau der Aufsatz gibt er.",@root,0,'Kapitel 14: Merhfache Vorfeldbesetzung').
+% t(143,"Der Frau der Aufsatz will er geben.",@root,0,'Kapitel 14: Merhfache Vorfeldbesetzung').

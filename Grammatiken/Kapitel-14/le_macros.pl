@@ -45,6 +45,7 @@ empty_slash_sign *>
   synsem:nonloc:slash:[]).
 
 
+
 rel_pronoun *>
  (%overt_word,
   synsem:(loc:cont:ind:Ind,
@@ -574,23 +575,32 @@ undelayed_list_of_non_complex_forming_synsems([]) if true.
 undelayed_list_of_non_complex_forming_synsems([(@non_complex_forming_synsem)|T]) if
    list_of_non_complex_forming_synsems(T).
 
-
-optionally_coherent_sign *>
-  (synsem:loc:cat:arg_st:[loc:cat:(head:(verb,
-                                         dsl:none),
+% Anhebungsverben aber auch die Verbbewegungsregel
+optionally_coherent_word *>
+  (synsem:loc:cat:arg_st:[loc:cat:(head:verb,
                                    comps:Comps)|(list_of_non_complex_forming_synsems,
                                                  Comps)]).
 
 
 
-%optionally_coherent_word *>
-%  (synsem:loc:cat:arg_st:[loc:cat:(head:verb,
-%                                   comps:Comps),_]).
+% normale Wörter selegieren nie DSL:local-Elemente.
+% Nur über LR abgeleitete Wörter tun dies.
+% Beschränkung wird gebraucht, um die Einbettung einer
+% Verbspur unter ein Hilfs- oder Modalverb auszuschließen.
+%
+% * Der Frau den Aufsatz _v will er.
+
+% Das war in den vorigen Auflagen des Buches enthalten:
+% overt_word *>
+%   synsem:loc:cat:comps:list_of_non_dsl_synsems.
+% Aber eigentlich reicht es, das für die Anhebungsverben festzuhalten. 
+
 
 % HCONS oder direkte Einbettung?
 argument_raising_verb *>
  (%optionally_coherent_verb,
-  synsem:loc:cat:arg_st:hd:(loc:cont:ltop:VCont,
+  synsem:loc:cat:arg_st:hd:(loc:(cat:head:dsl:none, % the embedded verb is a real verb not a verb trace. 
+                                 cont:ltop:VCont),
                             lex:plus),
   rels:[arg3:VCont],
   hcons:[]).
@@ -815,17 +825,12 @@ complementizer_like_sign *>
  (%transparent_head_le
   %spr_saturated_le
   synsem:loc:cat:(head:initial:plus,
-           % Die Verwendung von COMPS statt ARG-ST ist ein interessanter Trick:
-           % Wenn die V1-Regel syntaktisch ist, gilt das Argumentrealisierungsprinzip nicht.
-           % Die Beschränkungen müssen aber auch für vorangestellte Verben in COMPS landen.
-           % Für Wörter sorgt dann das Argumentrealisierungsprinzip dafür, dass die COMPS-Information
-           % identisch mit der ARG-ST ist.
-           comps:[(loc:cat:(head:(verb,
-                                  vform:fin,
-                                  initial:minus),
-                            spr:[],
-                            comps:[]),
-                   trace:minus) ] )).
+                  arg_st:[(loc:cat:(head:(verb,
+                                          vform:fin,
+                                          initial:minus),
+                                    spr:[],
+                                    comps:[]),
+                           trace:minus) ] )).
 
 complementizer_word *>
  (%complementizer_like_sign

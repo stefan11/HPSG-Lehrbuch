@@ -129,11 +129,50 @@ head_adjunct_phrase *>
 
 % die Verbbewegungsanalyse
 
+
+verb_movement_rule *>
+( %complex_word
+  %optionally_coherent_word
+  phon:Phon,
+  synsem:(loc:(cat:(head:verb,
+                    comps:hd:loc:(cat:head:dsl:Loc,
+                                  cont:Cont)),
+               cont:Cont),
+          nonloc:Nonloc,
+          trace:Trace,
+          lex:Lex),
+  rels:Rels,
+  hcons:HCons,
+  dtrs:[( %word,
+          phon:Phon,
+          synsem:(loc:(Loc,
+                       cat:head:(verb,
+                                 initial:minus)),
+                  nonloc:Nonloc,
+                  trace:Trace,
+                  lex:Lex,
+                  trace:minus,
+                                % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
+                  phrase:minus),
+          rels:Rels,
+          hcons:HCons)]).
+
+
+verb_initial_rule *>
+( %verb_movement_rule
+  %complementizer_like_word
+  synsem:loc:cat:head:vform:fin,
+  dtrs:[ synsem:loc:cat:head:vform:fin ]).
+
+
+
+/*
 % Das ist eine unär verzweigende Regel und keine Lexikonregel,
 % da sie auch auf koordinierte Verben angewendet werden kann.
 % Siehe auch coordination.pl.
 verb_initial_rule *>
 ( %complementizer_like_sign
+  phon:Phon,
   synsem:(loc:(cat:(head:(verb,
                           vform:fin),
                     spr:[],
@@ -143,14 +182,20 @@ verb_initial_rule *>
                cont:(ind:Ind,
                      ltop:LTop)),
           nonloc:Nonloc),
-  dtrs:[synsem:(loc:(Loc,
-                     cat:head:(verb,
-                               vform:fin,
-                               initial:minus)),
-                nonloc:Nonloc,
-                trace:minus,
-         % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
-                phrase:minus)]).
+  rels:Rels,
+  hcons:HCons,
+  dtrs:[(phon:Phon,
+         synsem:(loc:(Loc,
+                      cat:head:(verb,
+                                vform:fin,
+                                initial:minus)),
+                 nonloc:Nonloc,
+                 trace:minus,
+                                % nur koordinierte Wörter dürfen zu V1-Verben umkategorisiert werden.
+                 phrase:minus),
+         rels:Rels,
+         hcons:HCons)]).
+*/
 
 
 % [einen Mann _i] und schläft kann koordiniert werden.

@@ -418,7 +418,7 @@ interessante ---> @attr_adj(nom_or_acc,    pl,weak,  interessant_rel).
 interessanten ---> @attr_adj(gen_or_dat,genus,     sg,strong,interessant_rel).
 interessanten ---> @attr_adj(case,      genus,     pl,strong,interessant_rel).
 interessanten ---> @attr_adj(acc,       mas,       sg,dtype, interessant_rel).
-interessanten ---> @attr_adj(gen,       mas_or_neu,pl,weak,  interessant_rel).
+interessanten ---> @attr_adj(gen,       mas_or_neu,sg,weak,  interessant_rel).
 interessanten ---> @attr_adj(dat,       genus,     pl,weak,  interessant_rel).
 
 interessantem ---> @attr_adj(dat,       mas_or_neu,sg,weak,  interessant_rel).
@@ -438,7 +438,7 @@ kluge ---> @attr_adj(nom_or_acc,    pl,weak,  klug_rel).
 klugen ---> @attr_adj(gen_or_dat,genus,     sg,strong,klug_rel).
 klugen ---> @attr_adj(case,      genus,     pl,strong,klug_rel).
 klugen ---> @attr_adj(acc,       mas,       sg,dtype, klug_rel).
-klugen ---> @attr_adj(gen,       mas_or_neu,pl,weak,  klug_rel).
+klugen ---> @attr_adj(gen,       mas_or_neu,sg,weak,  klug_rel).
 klugen ---> @attr_adj(dat,       genus,     pl,weak,  klug_rel).
 
 klugem ---> @attr_adj(dat,       mas_or_neu,sg,weak,  klug_rel).
@@ -458,7 +458,7 @@ kleine ---> @attr_adj(nom_or_acc,    pl,weak,  klein_rel).
 kleinen ---> @attr_adj(gen_or_dat,genus,     sg,strong,klein_rel).
 kleinen ---> @attr_adj(case,      genus,     pl,strong,klein_rel).
 kleinen ---> @attr_adj(acc,       mas,       sg,dtype, klein_rel).
-kleinen ---> @attr_adj(gen,       mas_or_neu,pl,weak,  klein_rel).
+kleinen ---> @attr_adj(gen,       mas_or_neu,sg,weak,  klein_rel).
 kleinen ---> @attr_adj(dat,       genus,     pl,weak,  klein_rel).
 
 kleinem ---> @attr_adj(dat,       mas_or_neu,sg,weak,  klein_rel).
@@ -478,7 +478,7 @@ schöne ---> @attr_adj(nom_or_acc,    pl,weak,  schön_rel).
 schönen ---> @attr_adj(gen_or_dat,genus,     sg,strong,schön_rel).
 schönen ---> @attr_adj(case,      genus,     pl,strong,schön_rel).
 schönen ---> @attr_adj(acc,       mas,       sg,dtype, schön_rel).
-schönen ---> @attr_adj(gen,       mas_or_neu,pl,weak,  schön_rel).
+schönen ---> @attr_adj(gen,       mas_or_neu,sg,weak,  schön_rel).
 schönen ---> @attr_adj(dat,       genus,     pl,weak,  schön_rel).
 
 schönem ---> @attr_adj(dat,       mas_or_neu,sg,weak,  schön_rel).
@@ -498,7 +498,7 @@ schwierige ---> @attr_adj(nom_or_acc,    pl,weak,  schwierig_rel).
 schwierigen ---> @attr_adj(gen_or_dat,genus,     sg,strong,schwierig_rel).
 schwierigen ---> @attr_adj(case,      genus,     pl,strong,schwierig_rel).
 schwierigen ---> @attr_adj(acc,       mas,       sg,dtype, schwierig_rel).
-schwierigen ---> @attr_adj(gen,       mas_or_neu,pl,weak,  schwierig_rel).
+schwierigen ---> @attr_adj(gen,       mas_or_neu,sg,weak,  schwierig_rel).
 schwierigen ---> @attr_adj(dat,       genus,     pl,weak,  schwierig_rel).
 
 schwierigem ---> @attr_adj(dat,       mas_or_neu,sg,weak,  schwierig_rel).
@@ -518,7 +518,7 @@ treue ---> @attr_adj_np(nom_or_acc,    pl,weak,  treu_rel,dat).
 treuen ---> @attr_adj_np(gen_or_dat,genus,     sg,strong,treu_rel,dat).
 treuen ---> @attr_adj_np(case,      genus,     pl,strong,treu_rel,dat).
 treuen ---> @attr_adj_np(acc,       mas,       sg,dtype, treu_rel,dat).
-treuen ---> @attr_adj_np(gen,       mas_or_neu,pl,weak,  treu_rel,dat).
+treuen ---> @attr_adj_np(gen,       mas_or_neu,sg,weak,  treu_rel,dat).
 treuen ---> @attr_adj_np(dat,       genus,     pl,weak,  treu_rel,dat).
 
 treuem ---> @attr_adj_np(dat,       mas_or_neu,sg,weak,  treu_rel,dat).
@@ -539,7 +539,7 @@ mutmaßliche ---> @scopal_attr_adj(nom_or_acc,    pl,weak,  mutmaßlich_rel).
 mutmaßlichen ---> @scopal_attr_adj(gen_or_dat,genus,     sg,strong,mutmaßlich_rel).
 mutmaßlichen ---> @scopal_attr_adj(case,      genus,     pl,strong,mutmaßlich_rel).
 mutmaßlichen ---> @scopal_attr_adj(acc,       mas,       sg,dtype, mutmaßlich_rel).
-mutmaßlichen ---> @scopal_attr_adj(gen,       mas_or_neu,pl,weak,  mutmaßlich_rel).
+mutmaßlichen ---> @scopal_attr_adj(gen,       mas_or_neu,sg,weak,  mutmaßlich_rel).
 mutmaßlichen ---> @scopal_attr_adj(dat,       genus,     pl,weak,  mutmaßlich_rel).
 
 mutmaßlichem ---> @scopal_attr_adj(dat,       mas_or_neu,sg,weak,  mutmaßlich_rel).
@@ -547,7 +547,6 @@ mutmaßlichem ---> @scopal_attr_adj(dat,       mas_or_neu,sg,weak,  mutmaßlich_
 mutmaßlicher ---> @scopal_attr_adj(nom,       mas,       sg,weak,  mutmaßlich_rel).
 mutmaßlicher ---> @scopal_attr_adj(gen_or_dat,fem,       sg,weak,  mutmaßlich_rel).
 mutmaßlicher ---> @scopal_attr_adj(gen,       genus,     pl,weak,  mutmaßlich_rel).
-
 
 mutmaßliches ---> @scopal_attr_adj(nom_or_acc,neu,       sg,weak,  mutmaßlich_rel).
 

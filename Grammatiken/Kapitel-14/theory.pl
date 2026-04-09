@@ -74,7 +74,7 @@ signature(signature).
 
 
 examples(['  dass Aicke lachen muss',
-          '  Lachen muß Aicke.',
+          '  Lachen muss Aicke.',
           '  Dem Kind erzählen muss Aicke die Geschichte.',
           '  Eine Geschichte erzählen muss Aicke dem Kind.']).
 

@@ -88,8 +88,6 @@ beispiel ---> @noun(nom_or_dat_or_acc,neu,sg,beispiel_rel).
 
 bild   ---> @relational_noun(nom_or_dat_or_acc,neu,sg,bild_rel).
 
-buch   ---> @noun(nom_or_dat_or_acc,neu,sg,buch_rel).
-buches ---> @noun(gen,neu,sg,buch_rel).
 
 einhorn ---> @noun(nom_or_dat_or_acc,neu,sg,einhorn_rel).
 einhorns ---> @noun(gen,neu,sg,einhorn_rel).
@@ -429,20 +427,20 @@ gebe  ---> @ditrans_verb(first, sg, geben_rel).
 gibst ---> @ditrans_verb(second,sg, geben_rel).
 gibt  ---> @ditrans_verb(third, sg, geben_rel).
 
-geben   ---> @trans_verb(first_or_third, pl, geben_rel).
-gebt    ---> @trans_verb(second,         pl, geben_rel).
+geben ---> @ditrans_verb(first_or_third, pl, geben_rel).
+gebt  ---> @ditrans_verb(second,         pl, geben_rel).
 
 gab   ---> @ditrans_verb(first_or_third, sg, geben_rel).
 
-geben   ---> @trans_verb(bse, geben_rel).
+geben ---> @ditrans_verb(bse, geben_rel).
 
 
 erzähle  ---> @ditrans_verb(first, sg, erzählen_rel).
 erzählst ---> @ditrans_verb(second,sg, erzählen_rel).
 erzählt  ---> @ditrans_verb(third, sg, erzählen_rel).
 
-erzählen ---> @trans_verb(first_or_third, pl, erzählen_rel).
-erzählt  ---> @trans_verb(second,         pl, erzählen_rel).
+erzählen ---> @ditrans_verb(first_or_third, pl, erzählen_rel).
+erzählt  ---> @ditrans_verb(second,         pl, erzählen_rel).
 
 erzählte ---> @ditrans_verb(first_or_third, sg, erzählen_rel).
 

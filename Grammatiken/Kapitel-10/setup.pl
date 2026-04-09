@@ -58,7 +58,7 @@ lhandle <<< rhandle.
 % graphviz_option(svg,'qlmanage -p').
 
 % install SVGViewer from Appstore and use
-graphviz_option(svg,'sleep 0.1; open').
+graphviz_option(svg,'sleep 1; open').
 
 
 :- trale_milca_version('2.7.12') -> true; ['../Gemeinsames/new-trale.pl'].

@@ -15,7 +15,7 @@
     abort).
 
 % für [incr TSDB()]
-grammar_version('Lehrbuchgrammatik Kapitel 4').
+grammar_version('Lehrbuchgrammatik Kapitel 10').
 
 
 % Load phonology and tree output
