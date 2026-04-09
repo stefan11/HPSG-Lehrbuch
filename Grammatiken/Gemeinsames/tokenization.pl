@@ -177,3 +177,6 @@ decap_special(X,Y) :-           % £ -> ³
    atom_codes('£',[X]),!, 
    atom_codes(³,[Y]).
 
+% Allows any unicode as strings and words in the lexicon in SP 4.0.
+% Without this, one would have to use quotes around lexical items. '黑'
+:-set_prolog_flag(legacy_char_classification,on).
