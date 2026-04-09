@@ -16,8 +16,8 @@
 
 Die\is{Morphologie|(} Morphologie ist eine eigenständige Teildisziplin der Linguistik mit vielen interessanten
 Fragen, die hier nicht einmal gestreift werden können. Im folgenden Kapitel beschränke ich
-mich also nur auf einige Grundprobleme. Ich werde die bereits im Abschnitt~\ref{sec-lr}
-erwähnten Lexikonregeln vorstellen und den alternativen Ansatz, der Affixe als eigenständige
+mich also nur auf einige Grundprobleme. Ich werde zeigen, wie man die bereits im Abschnitt~\ref{sec-lr}
+erwähnten Lexikonregeln für die Modellierung morphologischer Zusammenhänge nutzen kann, und den alternativen Ansatz, der Affixe als eigenständige
 Morphe annimmt, diskutieren.
 
 
@@ -137,8 +137,8 @@ Im Vergleich zu \stem{lieb} und \stem{lach} steht bei einigen Formen in (\mex{-1
 und (\mex{0}) noch ein zusätzliches \emph{e}. Man könnte jetzt annehmen, dass \stem{red}
 einfach ein Verb ist, dass in der zweiten Person Singular die Endung \suffix{est} haben
 muss. Es gibt allerdings eine allgemeinere Gesetzmäßigkeit, auf die sich das Auf"|treten
-des \emph{e} zurückführen lässt: Das \emph{e} wird eingeführt, wenn an der Morphemgrenze
-(der Stelle an der zwei Morpheme zusammenstoßen) ein \emph{d} oder ein \emph{t} auf ein
+des \emph{e} zurückführen lässt: Das \emph{e} wird eingefügt, wenn an der Morphemgrenze
+(der Stelle an der zwei Morpheme\is{Morphem} bzw.\ Morphe\is{Morph} zusammenstoßen) ein \emph{d} oder ein \emph{t} auf ein
 \emph{s} oder ein \emph{t} treffen. Die entsprechende Regel heißt \emph{e}-Epenthese\is{Epenthese}
 und wird wie folgt aufgeschrieben:\footnote{
   Zum Beispiel \citet[\page183]{Eisenberg98a} weist darauf hin, dass diese Regel nicht
@@ -256,15 +256,14 @@ nahe:\is{Kongruenz|(}\todostefan{FB: list-of... muss man erklären}
 
 \eas
 \label{lr-verbal-inflection}%
-Lexikonregel für die zweite Person Singular Präsens (vorläufig):\\
+Lexikonregel für die zweite Person Singular Präsens (vorläufig):\\[1mm]
 \onems[fin-verb-infl-lr]{
 phon   $f(\,\ibox{1}, \phonliste{ st })$\\
-synsem$|$loc \onems{ cat   \ibox{2} \onems{ head$|$vform  \type{fin} \\
+synsem$|$loc \ms{ cat &  \ibox{2} \onems{ head$|$vform  \type{fin} \\
 %                                                        subj  & \eliste \\
-                                                  arg-st  \type{list\_of\_not\_np\_str} $\oplus$ \nliste{ NP[\str]$_{2,sg}$ } $\oplus$ \etag\\
-                                                } \\
-                     cont \ms{ ltop & \ibox{3}\\
-                               ind  & \ibox{4} } }\\
+                                                  arg-st  \etag $\oplus$ \nliste{ NP[\snom]$_{2,sg}$ } $\oplus$ \etag }\\[4mm]
+                  cont & \ms{ ltop & \ibox{3}\\
+                               ind  & \ibox{4} } }\\[10mm]
 rels \liste{ \ms[present]{
                lbl & \ibox{3}\\
                arg0 & \ibox{4}\\
@@ -290,17 +289,23 @@ mit der Endung \suffix{st} (\emph{lachst}) oder, wenn der Eingabestamm auf \emph
 endet (siehe Regel (\ref{Regel-e-einfuegung}) auf S.\,\pageref{Regel-e-einfuegung}), die
 Verknüpfung des Eingabestamms mit einem -\emph{e}- und dem \suffix{st} (\emph{redest}).  
 
-Eine finite Form kongruiert mit dem Subjekt, wenn es eins gibt. Im Kapitel~\ref{Kapitel-kongruenz}
+Eine finite Form kongruiert mit dem Subjekt, wenn es eins gibt. Das Subjekt kann ein Satz oder eine
+NP mit strukturellem Kasus sein. Wenn es kein Subjekt gibt, oder wenn das Subjekt nicht nominal ist,
+muss das Verb in der dritten Person Singular stehen. Für die zweite Person Singular muss das Subjekt
+aber eine NP mit strukturellem Nominativ sein.
+Im Kapitel~\ref{Kapitel-kongruenz}
 wurde eine Analyse der Kongruenz vorgestellt, die auf die Index"=Merkmale des Subjekts Bezug nimmt.
-In der Lexikonregel in (\mex{0}) wird verlangt, dass das erste Element in der \argstl des Verbs mit
-strukturellem Kasus einen Index mit der Person \emph{2} und dem Numerus \emph{sg} hat.
+In der Lexikonregel in (\mex{0}) wird verlangt, dass ein Element in der \argstl des Verbs mit
+strukturellem Nominativ einen Index mit der Person \emph{2} und dem Numerus \emph{sg} hat.
 Somit ist die Kongruenz zwischen Subjekt und einem Verb wie \emph{lachst} gewährleistet. Die Regel
 ist auch so formuliert, dass sie nicht auf das subjektlose Verb \emph{grauen} angewendet werden kann,
-denn \emph{grauen} hat kein Argument mit strukturellem Kasus. Die Unterteilung der \argstl in einen
-Anfang, der Elemente enthalten kann, die keine Nominalphrasen mit strukturellem Kasus sind (\type{list\_of\_not\_np\_str}), ist
-notwendig, um die im Abschnitt~\ref{sec-remote-passive-hpsg} diskutierten Beispiele des Fernpassivs\is{Passiv!Fern-} mit
-Objektkontrollverben\is{Verb!Objektkontroll-} erfassen zu können (siehe auch
-S.\,\pageref{Kasusprinzip} zum Kasusprinzip).%
+denn \emph{grauen} hat kein Argument mit strukturellem Nominativ. Die Unterteilung der \argstl in einen
+Anfang, der andere Elemente enthalten kann, ist notwendig, um Passive von ditransitiven Verben
+(siehe S.\,\pageref{ex-dass dem Kind der Roman geschenkt wurde-Passiv}) und
+die im Abschnitt~\ref{sec-remote-passive-hpsg} diskutierten Beispiele des
+Fernpassivs\is{Passiv!Fern-} mit Objektkontrollverben\is{Verb!Objektkontroll-} erfassen zu
+können. Es gibt pro \argstl aber maximal eine NP mit strukturellem Nominativ, so dass die Kongruenz
+korrekt geregelt ist (siehe auch S.\,\pageref{Kasusprinzip} zum Kasusprinzip).%
 \is{Kongruenz|)}
 
 Der \catw des Stammes und der \catw des Wortes sind identisch \iboxb{2}, aber der semantische
@@ -548,9 +553,10 @@ rels & \liste{ \ms[modal-op]{
                lbl  & \ibox{3}\\
 %               arg0 & \ibox{4}\\
                arg1 & \ibox{5} } } $\oplus$ \ibox{6}\\[6mm]
-hcons & \liste{ \ms[qeq]{
-                harg & \ibox{5}\\
-                larg & \ibox{7} } }\\[6mm]
+hcons & \eliste\\
+%hcons & \liste{ \ms[qeq]{
+%                harg & \ibox{5}\\
+%                larg & \ibox{7} } }\\[6mm]
 lex-dtr & \onems[stem]{
            phon   \ibox{1} \\
            synsem$|$loc \ms{ cat  & \ms{ head   & \ms[verb]{
@@ -558,7 +564,7 @@ lex-dtr & \onems[stem]{
                                                   }\\
                                          arg-st & \sliste{ \ibox{8} NP[\str] } $\oplus$ \ibox{2} \upshape(\etag $\oplus$ \nliste{ NP[\str] } $\oplus$ \etag)\\
                                        } \\
-                             cont & \ms{ ltop & \ibox{7}\\
+                             cont & \ms{ ltop & \ibox{5}\\
                                          ind  & \ibox{4} } }\\
           rels \ibox{6} }\\
 }\is{Lexikonregel!bar-Derivation@\emph{-bar}-Derivation}%
@@ -570,16 +576,16 @@ Die erste NP -- die auch das designierte Argument sein muss \iboxb{8} -- wird wi
 und die restliche \argstl \iboxb{2} wird zur \argstl des Adjektivs. Das Argumentrealisierungsprinzip\is{Prinzip!Argumentrealisierungs-}
 sorgt dafür, dass die erste NP mit strukturellem Kasus auf der \argstl des Adjektivs zum Subjekt des
 durch die Regel lizenzierten Adjektivs wird. Das ist das direkte Objekt des Verbstamms.
-Der Bedeutungsbeitrag des Verbs (\ltop \ibox{7}\,) wird unter einen Modaloperator eingebettet
-(\,\ibox{5} \qeq \ibox{7}\,). Wie beim Einhorn-Beispiel mit \emph{glauben}, das im Abschnitt~\ref{Abschnitt glauben und Einhörner}
-besprochen wurde, gibt es zwei Lesarten für (\mex{1}):
-\ea
-mit einem Eichhorn vergleichbar
-\z
-Der Existenzquantor kann Skopus über den Modaloperator oder unter dem Modaloperator haben. Im ersten
-Fall muss es in der entsprechenden Welt ein Einhorn geben und im zweiten kann etwas mit einem
-Einhorn verglichen werden, ohne dass es eins gibt.\todostefan{Geht das nicht auch bei: Ich
-  vergleiche ihn mit einem Einhorn.?}
+Der Bedeutungsbeitrag des Verbs (\ltop \ibox{5}\,) wird unter einen Modaloperator eingebettet.
+% (\,\ibox{5} \qeq \ibox{7}\,). Wie beim Einhorn-Beispiel mit \emph{glauben}, das im Abschnitt~\ref{Abschnitt glauben und Einhörner}
+% besprochen wurde, gibt es zwei Lesarten für (\mex{1}):
+% \ea
+% mit einem Eichhorn vergleichbar
+% \z
+% Der Existenzquantor kann Skopus über den Modaloperator oder unter dem Modaloperator haben. Im ersten
+% Fall muss es in der entsprechenden Welt ein Einhorn geben und im zweiten kann etwas mit einem
+% Einhorn verglichen werden, ohne dass es eins gibt.\todostefan{Geht das nicht auch bei: Ich
+%   vergleiche ihn mit einem Einhorn.?}
 
 Als Beispiel sei die Lexikonregel auf den Stamm \stem{lös} in (\mex{1})
 angewendet. Das Ergebnis der Regelanwendung zeigt (\mex{2}):
@@ -602,7 +608,7 @@ rels & \liste{ \ms[lösen]{
 \noindent
 \eas
 \label{le-lösbar}%
-\stem{lösbar} (inklusive Valenzmerkmalen und \subj):\\
+\stem{lösbar} (inklusive Valenzmerkmale und \subj):\\
 \ms{
 \ldots & \ms{ cat & \ms{ head & \ms[adj]{ subj & \sliste{ NP[\type{str}]\ind{3} } \\
                            } \\
@@ -615,16 +621,13 @@ cont & \ms{ ltop & \ibox{6}\\
 rels & \liste{ \ms[modal-op]{
                lbl  & \ibox{6}\\
 %               arg0 & \ibox{7}\\
-               arg1 & \ibox{7} }, 
+               arg1 & \ibox{4} }, 
                \ms[lösen]{ 
                lbl  & \ibox{4}\\ 
                arg0 & \ibox{5}\\
                arg1 & \etag\\
                arg2 & \ibox{3} } }\\
-hcons & \liste{ \ms[qeq]{
-                harg & \ibox{7}\\
-                larg & \ibox{4} } }
-}\iw{lösbar|uu}
+hcons & \eliste }\iw{lösbar|uu}
 \zs
 Die Agens"=Rolle von \emph{lösen} (\argone) ist nicht an ein Argument des
 Adjektivs gelinkt. Das wird durch das leere Kästchen in (\mex{0})
@@ -704,19 +707,21 @@ for tree={font=\footnotesize}
 Statt einer binären Regel, die ein Affix\is{Affix} mit dem Verbstamm verbindet, wird
 im lexikonregelbasierten Ansatz die phonologische Information des Affix innerhalb
 der Regel mit der phonologischen Information des Stammes kombiniert.%
-}
+}\todostefan{baseline funktioniert bei forest nicht}
 %
 \begin{figure}
-a. \begin{forest}
-   baseline
+a. 
+\begin{forest}
+baseline
    [V
      [P [auf]]
      [V
        [V [hör]]
        [en]]]
 \end{forest}
-\hspace{2.5cm}b. \begin{forest}
-   baseline
+\hspace{2.5cm}b.
+\begin{forest}
+baseline
    [V
      [V [P [auf]]
         [V [hör]]]
@@ -728,7 +733,7 @@ a. \begin{forest}
 %
 Er argumentiert, dass die Flexionsendung direkt mit dem Stamm verbunden
 wird, da sie sensitiv für die Eigenschaften des Stammes ist. Partizipien
-wie \emph{aufgehört} machen eine solche Analyse plausibel. Allerdings ist
+wie \emph{auf"|gehört} machen eine solche Analyse plausibel. Allerdings ist
 es so, dass der semantische Beitrag der Flexion sich auf den gesamten Beitrag
 des Partikelverbs bezieht und nicht nur auf den Beitrag des Basisverbs.
 In \citew[277]{Mueller2003a} habe ich dargelegt, dass diese Beispiele nicht problematisch
@@ -753,7 +758,7 @@ das \prefix{ge} zwischen Partikel und Verb steht, da ja bei Annahme dieser
 Struktur \stem{auf"|hör} mit \prefix{ge} und \suffix{t} kombiniert würde.
 Auch gibt es eine Regel, die bei der Partizipbildung auf phonologische
 Eigenschaften des Verbs Bezug nimmt: Wenn die erste Silbe betont ist,
-wird das Partizip mit  \prefix{ge} gebildet (\mex{1}a), ist sie nicht
+wird das Partizip mit  \prefix{ge} gebildet (\mex{1}a). Ist sie nicht
 betont, wird das Präfix \prefix{ge} weggelassen (\mex{1}b).
 \eal
 \ex ger\'edet, ge\'arbeitet
@@ -772,7 +777,7 @@ Das zweite scheinbare Klammerparadoxon ist die \geen.\is{Nominalisierung}
 Die \geen ist die einzige diskontinuierliche Nominalderivation im Deutschen.
 Sie besteht aus dem Präfix \prefix{Ge} und dem Suffix \suffix{e}. 
 Deverbale \prefix{Ge} "~\emph{e}"=Nomina haben die Bedeutung `andauerndes/wiederholtes V-en'
-und sind mit einer negativen Konnotation verbunden:
+und sind mit einer negativen Konnotation verbunden \citep[104]{Luedeling2001a}:
 \ea
 Sein Gepfeife ging Conny auf die Nerven.
 \z
@@ -791,9 +796,11 @@ a. \begin{forest}
 \hspace{2.5cm}b. \begin{forest}
    baseline
    [N
-     [V [P [herum]]
+     [V, fit=rectangle
+        [P [herum]]
         [V [renn]]]
-     [\gee]]
+     [\gee %,fit=band
+]]
 \end{forest}
 \caption{Alternative Strukturen für \textit{Herumgerenne}}
 \label{structures-herumgerenne}
@@ -815,8 +822,10 @@ kombiniert wird, auf der anderen Seite ist aber \bard nur mit transitiven Verben
 produktiv, und das Akkusativargument von \emph{anfahren} ist -- wie (\mex{1}) zeigt -- nur durch die
 Partikel lizenziert.
 \ea
+\label{ex-anfahrbar-bleiben}
 "`Die Kneipen,        Theater  und Geschäfte müssen \emph{anfahrbar} bleiben."'\footnote{
 taz, 05.06.1997, S.\,22.% %TAZ-HAMBURG Nr. 5244 Seite 22 vom 05.06.1997
+% wirklich in Anführungszeichen
 }
 \z
 \begin{figure}
@@ -845,7 +854,7 @@ Struktur in Abbildung~\ref{structures-anfahrbar}b zu brauchen scheint.
 In der Literatur sind sehr komplexe Verfahren wie \zb Umklammerung\is{Umklammerung} (`rebracketing')
 vorgeschlagen worden \parencites[\page165]{Bierwisch87a}[\page934]{SW94a}[\page46]{Stiebels96a}, um mit diesem scheinbaren Paradoxon fertig zu werden. Im Folgenden
 soll gezeigt werden, dass dies nicht nötig ist und dass man aufbauend auf der
-im vorigen Kapitel vorgestellten Analyse der Partikelverben die Flexionsdaten
+im vorigen Kapitel vorgestellten Analyse der Partikelverben die Flexions-
 und Derivationsdaten mit einer Struktur erklären kann, in der die Affixe
 jeweils direkt mit dem Verbstamm kombiniert werden. Die Lexikonregel für
 die Lizenzierung von Partikelverben hat ja nicht die Partikel eingeführt,
@@ -862,7 +871,7 @@ Sie enthält zusätzlich jedoch noch Flexionsinformation.\footnote{Die oberste \
   eine andere Reihenfolge: \relation{beginnen} muss am Anfang der Liste stehen, da die Liste mittels
   \texttt{append} aus den Listen der Töchter gebildet wird. Der besseren Lesbarkeit halber, habe ich
   die Listenelemente anders angeordnet. Die Reihenfolge der Elemente ist nicht wichtig. Im
-  Originalaufsatz zu MRS wird auch eine Menge bzw.\ Multimenge verwendet und Mengenelemente sind nicht geordnet \citep[293]{CFPS2005a}.
+  Originalaufsatz zu MRS wird auch eine Menge bzw.\ Multimenge verwendet und Mengenelemente sind nicht geordnet \citep*[293]{CFPS2005a}.
 }
 \begin{figure}
 \begin{forest}
@@ -943,11 +952,11 @@ rels & \liste{ \ms[present]{
 %\vspace{-\baselineskip}\end{figure}
 
 \noindent
-Obwohl der Bedeutungsbeitrag der Partikelverbkombination (\ltop \ibox{7} und \textsc{ind} \ibox{8}) noch unterspezifiziert
+Obwohl der Bedeutungsbeitrag der Partikelverbkombination (\ltop \ibox{7} und \textsc{ind} \ibox{8}\,) noch unterspezifiziert
 ist, weil das Verb noch nicht mit der Partikel kombiniert wurde, kann man sich
 auf den Beitrag beziehen. Der Bedeutungsbeitrag für das gesamte Partikelverb wurde von der Partikel
 übernommen und ist der Beitrag des verbalen Stammes, der die Eingabe für die Flexionslexikonregel
-bildet. Der Beitrag, der von der Partikel kommen wird (\ltop \ibox{7}), wird so unter
+bildet. Der Beitrag, der von der Partikel kommen wird (\ltop \ibox{7}\,), wird so unter
 die \emph{present}"=Relation eingebettet. Wenn die Partikel \emph{los}
 mit dem lexikalischen Zeichen in (\mex{0}) kombiniert wird, ergibt sich die Struktur in (\mex{1}).
 
@@ -1444,10 +1453,11 @@ Auf S.\,\pageref{lr-bar-adj} habe ich bereits die
 Lexikonregel \pref{lr-bar-adj} für \bard vorgestellt.
 
 Im Folgenden sollen komplexe Derivationen wie \emph{anfahrbar}
-in (\mex{1}) diskutiert werden:
+in (\ref{ex-anfahrbar-bleiben}) -- hier als (\mex{1}) wiederholt -- diskutiert werden:
 \ea
  "`Die Kneipen,        Theater  und Geschäfte müssen \emph{anfahrbar} bleiben."'\footnote{
 taz, hamburg, 05.06.1997, S.\,22.% %TAZ-HAMBURG Nr. 5244 Seite 22 vom 05.06.1997
+% wirklich in Anführungszeichen
 }
 \z
 \emph{anfahren} ist nach einem produktiven Muster gebildet, und die entsprechende
@@ -1458,6 +1468,9 @@ dass die bisher formulierten Regeln die Bedeutung von \barden mit Partikelverben
 erfassen.
 
 Abbildung~\vref{fig-p-fahrbar-pv-lr} zeigt die Anwendung der Partikelverbregel.
+Das Ergebnis der Anwendung ist ein Lexikoneintrag mit einem unterspezifizierten
+\argstw. Der letztendliche Wert wird durch die Partikel bestimmt, sobald die Partikel
+mit dem Kopf"=Verb kombiniert wird.
 \begin{figure}
 \begin{forest}
 sm edges
@@ -1467,9 +1480,6 @@ sm edges
 \end{forest}
 \caption{Anwendung der Partikelverbregel auf \stem{fahr}}\label{fig-p-fahrbar-pv-lr}
 \end{figure}
-Das Ergebnis der Anwendung ist ein Lexikoneintrag mit einem unterspezifizierten
-\argstw. Der letztendliche Wert wird durch die Partikel bestimmt, sobald die Partikel
-mit dem Kopf"=Verb kombiniert wird.
 
 Die Lexikonregel für die \bard verlangt als Eingabe ein Verb mit einem Objekt mit strukturellem
 Kasus. Da die Ausgabe der Partikelverbregel kompatibel mit dieser Anforderung ist, kann
@@ -1569,7 +1579,7 @@ sm edges
              \rels \nliste{ h1:modal-op(h2), h2:gerichtet-auf(e1,y), h2:fahren(e1,x) }}
   [\ibox{3} Part\feattab{\textsc{mod} \ibox{4} [\ltop \ibox{5} h2, \textsc{ind} \ibox{6} e1],\\
                          \comps \nliste{ NP[\str]$_y$ },\\
-                         \cont \ibox{6} [\ltop h3=h2, \textsc{ind} e2=e1],\\ 
+                         \cont \ibox{7} [\ltop h3=h2, \textsc{ind} e2=e1],\\ 
                          \rels \nliste{ h3:gerichtet-auf(e2,y) } } [an]]
   [Adj\feattab{ \subj \nliste{ NP[\str]$_y$ }, \comps \nliste{ \ibox{3} },\\
                 \argst \sliste{ NP[\str]$_y$, \ibox{3} Part[\textsc{mod} \ibox{4}, \cont \ibox{7}] },\\
@@ -1691,7 +1701,7 @@ das Objekt des Verbs prädiziert:
 \noindent
 Manchmal wird es als Vorteil des Lexikonregelansatzes betrachtet, dass man ohne hunderte von leeren
 Affixen\is{leere Kategorie} für Nullflexion und Konversion\is{Konversion} auskommt. Abstrakte Morpheme, die Stämme verkürzen, werden bei Verwendung
-von LR nicht gebraucht, da Morphemveränderungen über entsprechende Funktionen in den Lexikonregeln
+von Lexikonregeln nicht gebraucht, da Morphemveränderungen über entsprechende Funktionen in den Lexikonregeln
 geregelt werden. 
 
 \citet{Zwicky85a,Zwicky92a} und \citet[\page166]{Koenig99a} verwenden die folgenden Argumente
@@ -1746,7 +1756,7 @@ synsem$|$loc  \ms{ cat  & \ms{ head   & \ms[adj]{
                                    }\\
                          }\\
 }}\is{Morphem!-\suffix{bar}-Derivation}%
-\zs
+\zs\todostefan{anpassen an MRS siehe annotiertes MS}
 Das \bars ist in der Struktur für den Stamm \emph{lesbar} der Kopf. Es verlangt als Argument ein transitives
 Verb, dessen Objekt \iboxb{2} es zu seinem Subjekt macht. Das logische Subjekt des transitiven Verbs wird unterdrückt.
 Weitere eventuell vorliegende Argumente des Verbs \iboxb{3} werden angezogen.
@@ -1826,7 +1836,7 @@ verwendet werden können.
 %% \zs
 
 
-Zum Anschluss dieses Abschnitts soll noch darauf hingewiesen werden,
+Zum Abschluss dieses Abschnitts soll noch darauf hingewiesen werden,
 dass es Sprachen wie Portugiesisch\il{Portugiesisch} gibt, in denen mehrere Argumente eines Verbs
 durch ein einziges Klitikon\is{Klitisierung} realisiert werden, welches sich als Affix mit dem Verb
 verbindet \citep[Abschnitt~2.1.1.4 und S.\,169--171]{Crysmann2002a}. 
