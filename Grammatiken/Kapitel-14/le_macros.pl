@@ -216,6 +216,28 @@ pp(PForm,Case) :=
    loc:cat:head:(pform:PForm,
                  case:morph_case:Case)).
 
+cp :=
+  (@xp,
+   loc:cat:head:(comp,
+                 cform:dass)).
+
+cp(LTop) :=
+  (@cp,
+   loc:cont:ltop:LTop).
+
+% noun oder comp_prep: arg1 usw. des regierenden Kopfes werden mit dem Index identifiziert
+ref_xp(Ind) :=
+  loc:(cat:head:ref_head,
+       cont:ind:Ind).
+
+% CPen oder VPen
+% Dass Aicke lacht, freut mich.
+% Zum dritten Mal zu verlieren, freut niemanden.
+% arg1 usw. des übergeordneten Kopfes wird an LTop des engebetteten Verbs gelinkt oder ist qeq.
+verbal_xp(LTop) :=
+  loc:(cat:head:verbal,
+       cont:ltop:LTop).
+
 
 non_scopal_le *>
   hcons:[].
@@ -375,7 +397,9 @@ possessive_rel_pronoun(Genus,Numerus) :=
 proper_noun *>
  (%noun_word,
   %saturated_word
-  synsem:loc:cont:ind:Ind,
+  synsem:loc:cont:ind:(Ind,
+                       per:third,
+                       num:sg),
   rels:[(proper_q,
          arg0:Ind,
          rstr:Restr),(named_rel,
@@ -426,38 +450,30 @@ verb(VForm,Relation) :=
 non_flip_verb_word *>
   synsem:loc:cat:head:flip:minus.
 
-/*
-intrans_verb *>
- (%verb_word,
-  synsem:loc:cat:arg_st:hd: @np_str(Ind),
-  rels:[arg1:Ind]).
-*/
+subj_np_verb *>
+ (%arg1_verb,
+  synsem:loc:cat:arg_st:append(_,[@np_str])).
 
-% Liste in anderer Reihenfolge. Subjekt ist das letzte Element von ARG_ST.
-intrans_verb *>
- (%verb_word,
-  synsem:loc:cat:arg_st:Comps,
-  rels:[arg1:Ind])
-       goal last(Comps,@np_str(Ind)).
-
-
-strict_intrans_verb *>
- (%non_scopal_intrans_verb
+one_place_verb *>
+ (%arg1_verb
   synsem:loc:cat:arg_st:[_]).
 
 
-intrans_verb(Per,Num,Relation) :=
- (strict_intrans_verb,
+np_verb(Per,Num,Relation) :=
+ (np_verb,
   @fin_verb(Per,Num,Relation)).
 
-intrans_verb(VForm,Relation) :=
- (strict_intrans_verb,
+np_verb(VForm,Relation) :=
+ (np_verb,
+  @verb(VForm,Relation)).
+
+cp_verb(VForm,Relation) :=
+ (cp_verb,
   @verb(VForm,Relation)).
 
 np_pp_verb *> 
- (%non_scopal_intrans_verb,
-  %bi_or_more_val_verb, 
-  synsem:loc:cat:arg_st:[ @pp, _ ]).
+ (%two_place_verb & subj_np_verb & non_scopal_le
+  synsem:loc:cat:arg_st:hd: @pp ).
 
 np_pp_verb(Per,Num,PForm,Case,Relation) :=
  (np_pp_verb,
@@ -466,45 +482,70 @@ np_pp_verb(Per,Num,PForm,Case,Relation) :=
 
 np_pp_verb(VForm,PForm,Case,Relation) :=
  (np_pp_verb,
-  @verb(VForm,Relation),
+  @fin_verb(VForm,Relation),
   synsem:loc:cat:arg_st:hd: @pp(PForm,Case)).
 
 
-% grauen
-subjlos_verb *>
- (%non_scopal_verb_word,
-  synsem:loc:cat:arg_st:[ @np(Ind) ],
-  rels:[arg2:Ind]).
+%subjlos_np_verb *>
+% (%arg2_verb & non_scopal_le,
 
-subjlos_verb(VForm,Case,Relation) :=
- (subjlos_verb,
+
+subjlos_np_verb(VForm,Case,Relation) :=
+ (subjlos_np_verb,
   synsem:loc:cat:(head:vform:VForm,
                   arg_st:[ @np(Case,_Ind) ]),
   rels:hd:Relation).
 
-% kennen, helfen verbs with at least two arguments and a nominative
-bi_or_more_val_verb *>
+% schlafen, sterben, dass ... freut mich
+arg1_verb *>
  (%non_scopal_verb_word,
-  synsem:loc:cat:arg_st:append(_,[ @xp(Ind2), @np_str(Ind1) ]),
-  rels:[(arg1:Ind1,
-         arg2:Ind2)]).
+  synsem:loc:cat:arg_st:append(_,[ (@ref_xp(IndOrTop);@verbal_xp(IndOrTop)) ]),
+  rels:[arg1:IndOrTop]).
+
+% kennen, helfen, denken an
+arg2_verb *>
+ (%non_scopal_verb_word,
+  synsem:loc:cat:arg_st:append(_,[ @xp(Ind), _]),
+  rels:[arg2:Ind]).
+
+% geben, bezichtigen
+arg3_verb *>
+ (%non_scopal_verb_word,
+  synsem:loc:cat:arg_st:append(_,[ @xp(Ind),_,_]),
+  rels:[arg3:Ind]).
+
+
+% kennen, dass ... freut mich
+strict_trans_verb *>
+ (%arg12_verb_word
+  synsem:loc:cat:arg_st:[ @np_str,_ ]).
 
 % kennen
-strict_trans_verb *>
- (%trans_verb = bi_or_more_val_verb
-  synsem:loc:cat:arg_st:[ @np_str, _ ]).
+np_np_verb *>
+ (%strict_trans_verb
+  synsem:loc:cat:arg_st:[ _, @np_str ]).
 
-trans_verb(Per,Num,Relation) :=
- (strict_trans_verb,
+% dass ... freut mich
+cp_np_verb *>
+ (%strict_trans_verb
+  synsem:loc:cat:arg_st:[ _, @cp ]).
+
+
+np_np_verb(Per,Num,Relation) :=
+ (np_np_verb,
   @fin_verb(Per,Num,Relation)).
 
-trans_verb(VForm,Relation) :=
- (strict_trans_verb,
+np_np_verb(VForm,Relation) :=
+ (np_np_verb,
+  @verb(VForm,Relation)).
+
+cp_np_verb(VForm,Relation) :=
+ (cp_np_verb,
   @verb(VForm,Relation)).
 
 np_np_dat_verb *>
- (%bi_or_more_val_verb
-  synsem:loc:cat:arg_st:[ @np(dat,_), _ ]).
+ (%arg12_verb
+  synsem:loc:cat:arg_st:[ @np(dat,_), @np_str ]).
 
 np_np_dat_verb(Per,Num,Relation) :=
  (np_np_dat_verb,
@@ -514,32 +555,31 @@ np_np_dat_verb(VForm,Relation) :=
  (np_np_dat_verb,
   @verb(VForm,Relation)).
 
+% geben
+np_np_np_verb *>
+ (%arg123_verb
+  synsem:loc:cat:arg_st:[ @np_str, @np(dat,_), @np_str  ]).
 
-ditrans_verb *>
- (%trans_verb = bi_or_more_val_verb
-  synsem:loc:cat:arg_st:[ @np_str(Ind3), @np(dat,_), _  ],
-  rels:[arg3:Ind3]).
-
-ditrans_verb(Per,Num,Relation) :=
- (ditrans_verb,
+np_np_np_verb(Per,Num,Relation) :=
+ (np_np_np_verb,
   @fin_verb(Per,Num,Relation)).
 
-ditrans_verb(VForm,Relation) :=
- (ditrans_verb,
+np_np_np_verb(VForm,Relation) :=
+ (np_np_np_verb,
   @verb(VForm,Relation)).
 
-
-glauben_denken_verb *>
- (%intrans_verb,
-  synsem:loc:cat:arg_st:[ (loc:(cat:(head:(comp,
-                                           cform:dass),
-                                     spr:[],
-                                     comps:[]),
-                                cont:ltop:Larg)), _ ],
+% Es kann nur ein Argument mit qeq geben. Stimmts?
+scopal_arg2_verb *>
+ (%scopal_verb_word
+  synsem:loc:cat:arg_st:[@cp(Larg),_ ],
   rels:[arg2:Harg],
   hcons:[(qeq,
           harg:Harg,
           larg:Larg)]).
+
+
+%glauben_denken_verb *>
+% subj_np_verb & scopal_arg2_word
 
 
 glauben_denken_verb(Per,Num,Relation) :=

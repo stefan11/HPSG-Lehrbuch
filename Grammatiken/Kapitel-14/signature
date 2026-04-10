@@ -15,7 +15,7 @@ bot
   string
   sign phon:list synsem:synsem v2:bool rels:list hcons:list
     v_modifier
-      glbtype55
+      glbtype61
         glbtype12
           glbtype13
             isect_adv_word
@@ -31,32 +31,32 @@ bot
           &glbtype13
     spr_saturated_sign
       glbtype29
-        glbtype86
+        glbtype97
           glbtype25
             glbtype24
               glbtype17
                 glbtype6
                   overt_determiner
                   possessive_rel_pronoun
-                glbtype20
-                  glbtype84
+                glbtype21
+                  glbtype96
                     proper_noun
                     pers_pronoun
                   nominal_pronoun
-                    glbtype51
+                    glbtype50
                       nominal_rel_pronoun
                       &pers_pronoun
-                glbtype19
-                  glbtype21
-                    &glbtype51
+                glbtype20
+                  glbtype19
+                    &glbtype50
                     non_relational_rel_pronoun
                       &nominal_rel_pronoun
-                  glbtype73
+                  glbtype84
                     glbtype22
                       &isect_adv_word
                       simple_attr_adj
                     &pers_pronoun
-                glbtype83
+                glbtype95
                   glbtype8
                     glbtype3
                       &scopal_adv_word
@@ -66,54 +66,54 @@ bot
                       &simple_attr_adj
                       &scopal_adj
                     &adv_word
+                  &glbtype96
                   &glbtype84
-                  &glbtype73
                   &overt_determiner
                 pronoun
-                  &glbtype21
+                  &glbtype19
                   &nominal_pronoun
                   rel_pronoun
                     &possessive_rel_pronoun
                     &non_relational_rel_pronoun
-              glbtype82
+              glbtype94
                 glbtype9
                   &glbtype8
                   argument_raising_verb
                     non_flip_argument_raising_verb
                     modal_verb
-                &glbtype83
-            glbtype81
+                &glbtype95
+            glbtype93
               glbtype5
                 verb_initial_rule
                 &argument_raising_verb
-              &glbtype82
+              &glbtype94
           glbtype28
             &glbtype24
-            glbtype32
-              glbtype33
-                &glbtype21
-                glbtype76
+            glbtype33
+              &glbtype20
+              glbtype32
+                &glbtype19
+                glbtype88
                   complementizer_word
                   &pers_pronoun
-              &glbtype19
-              glbtype72
-                &glbtype76
-                &glbtype73
-            glbtype80
-              &glbtype72
-              &glbtype82
-          glbtype79
+              glbtype83
+                &glbtype84
+                &glbtype88
+            glbtype92
+              &glbtype83
+              &glbtype94
+          glbtype91
             glbtype1
               &verb_initial_rule
               &complementizer_word
-            &glbtype80
-            &glbtype81
-        glbtype87
-          &glbtype79
+            &glbtype92
+            &glbtype93
+        glbtype98
+          &glbtype91
           complementizer_like_sign
             &glbtype1
       glbtype30
-        glbtype78
+        glbtype90
           glbtype27
             glbtype26
               glbtype18
@@ -122,14 +122,14 @@ bot
                     empty_determiner
                     &overt_determiner
                   simple_possessive
-                &glbtype83
-              &glbtype82
-            &glbtype81
-          &glbtype79
-        &glbtype87
+                &glbtype95
+              &glbtype94
+            &glbtype93
+          &glbtype91
+        &glbtype98
       glbtype31
-        &glbtype78
-        &glbtype86
+        &glbtype90
+        &glbtype97
         spr_saturated_word
           &glbtype25
           &glbtype27
@@ -150,16 +150,16 @@ bot
     overt_sign
       &glbtype29
       glbtype40
-        glbtype77
+        glbtype89
           glbtype35
             glbtype34
-              glbtype43
-                glbtype74
+              glbtype44
+                glbtype85
                   &pers_pronoun
                   det_noun_word
                     simple_noun
                     relational_noun
-                &glbtype84
+                &glbtype96
               glbtype10
                 glbtype2
                   &glbtype3
@@ -171,40 +171,81 @@ bot
                       location_noun_mod_prep
                     isect_n_modifier_word
                       intersective_adj
-                        glbtype54
+                        glbtype60
                           attr_np_adj
                           &simple_attr_adj
                   n_modifier_word
                     &isect_n_modifier_word
                     attr_adjective_word
                       &glbtype23
-                      &glbtype54
-                glbtype37
-                  glbtype53
-                    &det_noun_word
-                    non_scopal_verb_word
-                      glbtype50
-                        subjlos_verb
-                        non_scopal_intrans_verb
-                          glbtype67
+                      &glbtype60
+                glbtype39
+                  glbtype59
+                    glbtype57
+                      glbtype54
+                        glbtype66
+                          glbtype63
+                            np_np_np_verb
+                            np_np_verb
+                          glbtype65
+                            &np_np_verb
                             np_np_dat_verb
                             np_pp_verb
-                          strict_intrans_verb
-                      bi_or_more_val_verb
-                        &glbtype67
-                        trans_verb
-                          strict_trans_verb
-                          ditrans_verb
+                        np_verb
+                      glbtype55
+                        cp_verb
+                        &np_verb
+                        subjlos_np_verb
+                      glbtype56
+                        glbtype52
+                          glbtype51
+                            cp_np_verb
+                            &np_np_verb
+                          &glbtype63
+                        glbtype53
+                          &glbtype51
+                          &glbtype65
+                        &glbtype66
+                    &det_noun_word
                   conj_word
                   verb_word
                     &argument_raising_verb
+                    dobj_np_verb
+                      glbtype64
+                        &glbtype52
+                        strict_trans_verb
+                          &glbtype51
                     non_flip_verb_word
-                      &glbtype50
+                      glbtype69
+                        &glbtype57
+                        glbtype67
+                          &glbtype54
+                          glauben_denken_verb
+                        glbtype68
+                          &glbtype56
+                          &glbtype64
+                          three_place_verb
+                            &np_np_np_verb
+                          two_place_verb
+                            &glbtype53
+                            &strict_trans_verb
+                        one_place_verb
+                          &glbtype55
                       &non_flip_argument_raising_verb
-                      intrans_verb
-                        &non_scopal_intrans_verb
-                        glauben_denken_verb
-                    &non_scopal_verb_word
+                    arg1_verb
+                      &glbtype69
+                      arg12_verb
+                        &glbtype68
+                        arg123_verb
+                          &three_place_verb
+                      subj_np_verb
+                        &glbtype67
+                    scopal_arg2_verb
+                      &glauben_denken_verb
+                    arg3_verb
+                      &arg123_verb
+                    arg2_verb
+                      &arg12_verb
                 &glbtype9
                 glbtype11
                   glbtype15
@@ -214,91 +255,91 @@ bot
                     &glbtype13
                     &glbtype14
                     &glbtype22
-                  &glbtype53
+                  &glbtype59
                   mod_preposition
                     &glbtype4
-              glbtype71
-                &glbtype74
-                glbtype85
+              glbtype82
+                &glbtype85
+                glbtype87
                   &pers_pronoun
                   comp_preposition
                 &glbtype11
-                &glbtype73
+                &glbtype84
                 preposition_word
                   &comp_preposition
                   &mod_preposition
+              &glbtype94
+            glbtype81
               &glbtype82
-            glbtype70
-              glbtype75
-                glbtype38
+              &glbtype83
+              glbtype86
+                &glbtype87
+                glbtype36
                   &complementizer_word
                   &comp_preposition
-                &glbtype76
-                &glbtype85
-              &glbtype71
-              &glbtype72
-            &glbtype80
-          &glbtype79
-        &glbtype87
+                &glbtype88
+            &glbtype92
+          &glbtype91
+        &glbtype98
       glbtype41
-        &glbtype77
-        &glbtype86
+        &glbtype89
+        &glbtype97
         overt_word
           &glbtype28
           &glbtype35
-          glbtype36
-            glbtype39
-              &glbtype33
-              &glbtype75
-            glbtype52
-              &glbtype51
-              &glbtype74
-            &glbtype32
-            &glbtype70
+          glbtype38
+            glbtype58
+              &glbtype50
+              &glbtype85
+            &glbtype33
+            glbtype37
+              &glbtype32
+              &glbtype86
+            &glbtype81
           noun_word
-            &glbtype20
-            &glbtype43
-            &glbtype52
+            &glbtype21
+            &glbtype44
+            &glbtype58
     n_modifier
-      glbtype56
+      glbtype62
         &glbtype16
         isect_n_modifier_le
           &glbtype14
-      glbtype68
+      glbtype70
         isect_n_modifier
           rc
         &isect_n_modifier_le
     lexical_sign
-      &glbtype55
-      &glbtype56
+      &glbtype61
+      &glbtype62
       non_scopal_le
-        glbtype48
-          glbtype49
-            &glbtype39
-            glbtype47
-              glbtype44
-                &glbtype85
+        glbtype49
+          &glbtype38
+          glbtype47
+            glbtype43
+              glbtype42
+                &glbtype87
                 trace
-              &glbtype75
-          &glbtype36
-          glbtype46
-            &glbtype47
-            glbtype42
-              &glbtype44
-              &glbtype71
-            &glbtype70
+              &glbtype82
+            glbtype46
+              &glbtype42
+              &glbtype86
+            &glbtype81
+          glbtype48
+            &glbtype37
+            &glbtype46
         isect_modifier_le
           &glbtype15
           &isect_v_modifier_le
           &isect_n_modifier_le
         non_scopal_non_relational_le
-          &glbtype49
+          &glbtype48
           transparent_non_scopal_non_relational_le
-            &glbtype38
+            &glbtype36
       ltop_lbl_le
         arg0_ltop_lbl_le
           relational_arg0_word
-            &glbtype37
+            &glbtype39
         scopal_modifier_le
           &glbtype2
         relational_word
@@ -308,18 +349,18 @@ bot
         &glbtype31
         &glbtype41
         glbtype45
-          &glbtype46
-          &glbtype77
-          &glbtype78
+          &glbtype47
+          &glbtype89
+          &glbtype90
           empty_rel_word
             &glbtype26
             &glbtype34
-            &glbtype42
+            &glbtype43
             non_overt_word
               empty
                 &empty_determiner
               &trace
-        &glbtype48
+        &glbtype49
         empty_slash_word
           &empty
         complex_word
@@ -332,7 +373,7 @@ bot
       arg0_le
         &arg0_ltop_lbl_le
     isect_modifier
-      &glbtype68
+      &glbtype70
       &isect_modifier_le
     intro_complex_sign dtrs:list
       &complex_word
@@ -342,45 +383,45 @@ bot
           head_filler_phrase
         headed_phrase head_dtr:sign
           head_non_adjunct_phrase
-            glbtype66
-              glbtype62
-                glbtype69
+            glbtype80
+              glbtype73
+                &head_filler_phrase
+                head_specifier_phrase
+              glbtype76
+                glbtype99
                   head_cluster_phrase
                   head_complement_phrase
                 &head_filler_phrase
-              glbtype59
-                &head_filler_phrase
-                head_specifier_phrase
-              glbtype64
-                &glbtype69
+              glbtype78
+                &glbtype99
                 &head_specifier_phrase
           head_non_filler_phrase
-            glbtype65
-              glbtype58
+            glbtype79
+              glbtype72
                 &head_specifier_phrase
                 head_adjunct_phrase
-              glbtype61
-                &glbtype69
+              glbtype75
+                &glbtype99
                 &head_adjunct_phrase
-              &glbtype64
+              &glbtype78
           head_non_specifier_phrase
-            glbtype63
-              &glbtype62
-              glbtype57
+            glbtype77
+              glbtype71
                 &head_filler_phrase
                 &head_adjunct_phrase
-              &glbtype61
+              &glbtype75
+              &glbtype76
           headed_flexible_order_phrase non_head_dtrs:list
-            glbtype60
-              &glbtype58
-              &glbtype57
-              &glbtype59
-            &glbtype63
-            &glbtype65
-            &glbtype66
+            glbtype74
+              &glbtype71
+              &glbtype72
+              &glbtype73
+            &glbtype77
+            &glbtype79
+            &glbtype80
           head_non_complement_phrase
             head_non_complement_non_cluster_phrase
-              &glbtype60
+              &glbtype74
           head_non_cluster_phrase
             &head_non_complement_non_cluster_phrase
         coord_phrase
@@ -393,7 +434,7 @@ bot
   relation lbl:handle
     arg3_relation arg3:event_or_index
       arg03_relation
-        glbtype88
+        glbtype100
           arg023_relation
           arg0123_relation
             geben_rel
@@ -407,7 +448,7 @@ bot
           dürfen_rel
         futur_rel
     arg2_relation arg2:event_or_index
-      glbtype89
+      glbtype101
         arg12_relation
           treu_rel
           in_rel
@@ -422,20 +463,21 @@ bot
           jagen_rel
           helfen_rel
           glauben_rel
+          freuen_rel
           denken_an_rel
       arg02_relation
-        &glbtype88
+        &glbtype100
         &arg012_relation
         tochter_rel
-        grauen_rel
         bild_rel
     arg1_relation arg1:event_or_index
-      &glbtype89
+      &glbtype101
       arg01_relation
         &arg012_relation
         spielen_rel
         schlafen_rel
         lachen_rel
+        grauen_rel
         bellen_rel
       wahrscheinlich_rel
       schön_rel
@@ -541,31 +583,37 @@ bot
     index per:per
   hook ltop:handle ind:event_or_index
   head mod:none_or_synsem spec:none_or_synsem scopal:bool initial:bool dsl:none_or_local
+    ref_head
+      glbtype102
+        comp_prep pform:pform
+        noun
+    verbal
+      glbtype106
+        comp cform:cform
+        verb vform:vform flip:bool
     intro_case_head case:cas
-      glbtype90
-        glbtype91
-          glbtype97
-            comp_prep pform:pform
-            noun
+      glbtype103
+        glbtype104
+          &glbtype102
           attr_adj
-        glbtype92
-          &glbtype97
+        glbtype105
+          &glbtype102
           &det
     non_modifier_head mod:none
-      glbtype94
-        &glbtype92
-        glbtype96
-          &glbtype97
-          comp cform:cform
+      glbtype108
+        &glbtype105
+        glbtype110
+          &glbtype102
+          &comp
         coord initial:plus
-      glbtype95
-        &glbtype96
-        verb vform:vform flip:bool
+      glbtype109
+        &glbtype106
+        &glbtype110
     non_dsl_head dsl:none
-      &glbtype90
-      glbtype93
-        &glbtype91
-        &glbtype96
+      &glbtype103
+      glbtype107
+        &glbtype104
+        &glbtype110
         adj
           &attr_adj
         prep
@@ -578,10 +626,10 @@ bot
           post_modifier_head pre_modifier:minus
             relativizer
           adv
-      &glbtype94
+      &glbtype108
     non_spec_head spec:none
-      &glbtype93
-      &glbtype95
+      &glbtype107
+      &glbtype109
       adj_or_verb
         &verb
         &adj
@@ -610,7 +658,7 @@ bot
     lex
   case
     nom_or_gen_or_acc
-      glbtype98
+      glbtype111
         gen
         acc
       nom_or_acc
@@ -622,7 +670,7 @@ bot
         &acc
         dat
     gen_or_dat_or_acc
-      &glbtype98
+      &glbtype111
       &dat_or_acc
       gen_or_dat
         &gen
