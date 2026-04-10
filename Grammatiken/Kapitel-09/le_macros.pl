@@ -238,7 +238,9 @@ pers_pronoun(Case,Person,Numerus,Genus) :=
 proper_noun *>
  (%noun_word,
   %saturated_word
-  loc:cont:ind:Ind,
+  loc:cont:ind:(Ind,
+                per:third,
+                num:sg),
   rels:[(proper_q,
          arg0:Ind,
          rstr:Restr),(named_rel,

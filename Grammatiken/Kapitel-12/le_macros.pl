@@ -347,7 +347,9 @@ possessive_rel_pronoun(Genus,Numerus) :=
 proper_noun *>
  (%noun_word,
   %saturated_word
-  synsem:loc:cont:ind:Ind,
+  synsem:loc:cont:ind:(Ind,
+                       per:third,
+                       num:sg),
   rels:[(proper_q,
          arg0:Ind,
          rstr:Restr),(named_rel,
