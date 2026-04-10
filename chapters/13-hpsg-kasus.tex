@@ -884,7 +884,8 @@ Dativobjekt, steht dieses zwischen dem Nominativ und dem Akkusativobjekt:
 a. & \emph{schläft}:     & \sliste{ NP[\type{str}]$_j$ }\\[1mm]
 b. & \emph{unterstützt}: & \sliste{ NP[\type{str}]$_j$, NP[\type{str}]$_k$ }\\[1mm]
 c. & \emph{hilft}:       & \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$ }\\[1mm]
-d. & \emph{schenkt}:     & \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$, NP[\type{str}]$_l$ }
+d. & \emph{schenkt}:     & \sliste{ NP[\type{str}]$_j$, NP[\type{ldat}]$_k$, NP[\type{str}]$_l$ }\\[1mm]
+e. & \emph{radikalisiert}:  & \sliste{ CP$_j$, NP[\type{str}]$_k$ }
 \end{tabular}
 \z
 Die \argstl von \emph{schläft} enthält genau ein Element: eine NP mit strukturellem Kasus.
@@ -893,7 +894,11 @@ in der \argstl von \emph{unterstützt} Nominativ, die zweite bekommt allerdings 
 \emph{hilft} bekommt das erste Element Nominativ, das zweite ist lexikalisch als Dativ markiert. Bei
 \emph{schenkt} bekommt das erste Element Nominativ, das zweite
 Element ist wie das Objekt von \emph{hilft} lexikalisch als Dativ markiert und das dritte Element
-bekommt Akkusativ.
+bekommt Akkusativ. Bei \emph{radikalisiert} ist die CP kasusrelevant. Da sie keine NP mit strukturellem
+Kasus ist, bekommt sie keinen Nominativ. Aber das zweite Element in der \argstl ist eine NP mit
+strukturellem Kasus. Und obwohl es die erste NP mit strukturellem Kasus in der \argstl ist, bekommt
+diese NP trotzdem Akkusativ, weil die vorangehende CP ein kasusrelevantes Element ist. Die NP ist
+somit das zweite kasusrelevante Element.
 
 Bei Passivierung der Verben in (\mex{0}) ergeben sich die folgenden \argst"=Listen für das Hilfsverb
 \emph{wird}:\footnote{%
@@ -905,13 +910,16 @@ Bei Passivierung der Verben in (\mex{0}) ergeben sich die folgenden \argst"=List
 a. & \emph{geschlafen wird}:  & \sliste{ V }\\[1mm]
 b. & \emph{unterstützt wird}: & \sliste{ NP[\type{str}]$_k$, V }\\[1mm]
 c. & \emph{geholfen wird}:    & \sliste{ NP[\type{ldat}]$_k$, V }\\[1mm]
-d. & \emph{geschenkt wird}:   & \sliste{ NP[\type{ldat}]$_k$, NP[\type{str}]$_l$, V }
+d. & \emph{geschenkt wird}:   & \sliste{ NP[\type{ldat}]$_k$, NP[\type{str}]$_l$, V }\\[1mm]
+e. & \emph{radikalisiert wird}:  & \sliste{ NP[\type{str}]$_k$, V }
 \end{tabular}
 \z
 In (\mex{0}) steht jetzt eine andere NP an erster Stelle. Wenn diese NP strukturellen Kasus hat,
 bekommt sie Nominativ, wenn das wie in (\mex{0}c) nicht der Fall ist, bleibt der Kasus wie er
 ist, nämlich lexikalisch spezifiziert. In (\mex{0}d) hat die zweite NP strukturellen Kasus. Da diese
-NP die erste mit strukturellem Kasus ist, bekommt sie Nominativ.
+NP die erste mit strukturellem Kasus ist, bekommt sie Nominativ. \emph{radikalisiert} verhält sich wie
+\emph{unterstützt}: Die Subjekt-CP wird unterdrückt, die NP mit strukturellem Kasus steht an erster
+Stelle und bekommt Nominativ.
 
 Für das Dativpassiv muss man ein bisschen zaubern: Bei der Kombination von \emph{geholfen} und
 \emph{bekommen} bzw.\ von \emph{geschenkt} und \emph{bekommen} wird der lexikalische
@@ -972,9 +980,6 @@ Die Kasuszuweisung funktioniert analog zu den bereits diskutierten Fällen. In d
 der Kopula bzw.\ des AcI"=Verbs bekommen die NPen mit strukturellem Kasus Nominativ bzw.\ Akkusativ.%
 \is{Kasus!struktureller|)}\is{Kasus!lexikalischer|)}
 
-\subsection{Satzargumente}
-
-\itdopt{add stuff here}
 
 
 \subsection{Semantischer Kasus}
