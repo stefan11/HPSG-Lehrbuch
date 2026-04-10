@@ -123,7 +123,8 @@ bot
     sg
     pl
   gender
-    mas
-    fem
+    fem_or_mas
+      mas
+      fem
     neu
 .

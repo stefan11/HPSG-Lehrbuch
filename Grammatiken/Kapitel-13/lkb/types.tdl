@@ -173,27 +173,46 @@ relational_noun := det_noun_word.
 
 verb_word    := relational_arg0_word & overt_word & empty_rel_word.
 
-non_scopal_verb_word := verb_word & non_scopal_le.
+;scopal_verb_word := verb_word.; & scopal_le.
+;non_scopal_verb_word := verb_word & non_scopal_le.
 
-subjlos_verb := non_scopal_verb_word.
-intrans_verb := verb_word.
+arg1_verb := verb_word.
+arg2_verb := verb_word.
+arg3_verb := verb_word.
 
-non_scopal_intrans_verb := intrans_verb & non_scopal_verb_word.
+; helfen, kennen, geben only with NP and PP arguments
+arg12_verb  := arg1_verb & arg2_verb.
+; geben, bezichtigen only with NP and PP arguments
+arg123_verb := arg12_verb & arg3_verb.
 
-strict_intrans_verb := non_scopal_intrans_verb.
-np_np_dat_verb      := non_scopal_intrans_verb & bi_or_more_val_verb.
-np_pp_verb          := non_scopal_intrans_verb & bi_or_more_val_verb.
 
-; helfen, kennen, geben
-bi_or_more_val_verb := non_scopal_verb_word.
+subjlos_np_verb := one_place_verb & non_scopal_le.
+subj_np_verb := arg1_verb.
 
-; kennen, geben
-trans_verb := bi_or_more_val_verb.
+one_place_verb := arg1_verb.
+cp_verb := one_place_verb & non_scopal_le.
+np_verb := one_place_verb & subj_np_verb & non_scopal_le.
 
-strict_trans_verb := trans_verb.
-ditrans_verb      := trans_verb.
+two_place_verb := arg12_verb.
+np_np_dat_verb := two_place_verb & subj_np_verb & non_scopal_le.
+np_pp_verb     := two_place_verb & subj_np_verb & non_scopal_le.
 
-glauben_denken_verb := intrans_verb.
+
+; kennen, geben, dass ... freut mich
+; The linking cannot happen here, since the DO may be arg2 (kennen) or arg3 (geben)
+dobj_np_verb := verb_word.
+
+strict_trans_verb := dobj_np_verb & two_place_verb.
+np_np_verb := strict_trans_verb & subj_np_verb & non_scopal_le.
+; Dass ... freut mich.
+cp_np_verb  := strict_trans_verb & non_scopal_le.
+
+three_place_verb := arg123_verb.
+
+np_np_np_verb      := subj_np_verb & dobj_np_verb & three_place_verb & non_scopal_le.
+
+scopal_arg2_verb    := verb_word.
+glauben_denken_verb := subj_np_verb & scopal_arg2_verb.
 
 preposition_word := overt_word & non_scopal_le & empty_rel_word.
 comp_preposition := preposition_word & transparent_non_scopal_non_relational_le.
@@ -290,7 +309,13 @@ post_modifier_head := modifier_head & [
 ; prep steht für Prä- und Postpositionen, der initial-Wert wird in le_macros.pl festgelegt
 prep := non_spec_head & non_dsl_head.
 
-comp_prep := prep & intro_case_head & non_modifier_head &
+; all heads that are used as arguments and with a referential index
+ref_head := head.
+
+; all non-nominal subjects CPs and VPs
+verbal := head.
+
+comp_prep := prep & ref_head & intro_case_head & non_modifier_head &
  [ pform pform ].
 
 ; kann nach Nomina und vor Verben stehen, siehe le_macros.pl
@@ -307,17 +332,17 @@ cas := bot & [
 det := intro_case_head & intro_gen_num & non_modifier_head & non_dsl_head & [
   dtype dtype ].
        
-noun := intro_case_head & non_modifier_head & non_spec_head & non_dsl_head.
+noun := ref_head & intro_case_head & non_modifier_head & non_spec_head & non_dsl_head.
 
 adj_or_verb := non_spec_head.
 
-verb := non_modifier_head & adj_or_verb &
+verb := verbal & non_modifier_head & adj_or_verb &
  [ vform vform ].
 
 adj := adj_or_verb & non_dsl_head.
 attr_adj := intro_case_head & adj & pre_modifier_head.
 
-comp := non_spec_head & non_modifier_head & non_dsl_head & [
+comp := verbal & non_spec_head & non_modifier_head & non_dsl_head & [
   cform cform ].
 
 coord := non_dsl_head & non_modifier_head & [
@@ -444,13 +469,14 @@ helfen_rel    := arg012_relation.
 
 denken_an_rel := arg012_relation.
 glauben_rel   := arg012_relation.
+freuen_rel    := arg012_relation.
 
 
 in_rel        := arg12_relation.
 
 geben_rel :=  arg0123_relation.
 
-grauen_rel := arg02_relation.
+grauen_rel := arg01_relation.
 
 poss_rel := arg012_relation.
 

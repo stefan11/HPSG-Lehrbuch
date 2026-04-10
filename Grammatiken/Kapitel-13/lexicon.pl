@@ -310,36 +310,36 @@ aicke ---> @proper_noun(fem_or_mas,'Aicke').
 
 % Verben
 
-belle    ---> @intrans_verb(first, sg, bellen_rel).
-bellst   ---> @intrans_verb(second,sg, bellen_rel).
-bellt    ---> @intrans_verb(third, sg, bellen_rel).
+belle    ---> @np_verb(first, sg, bellen_rel).
+bellst   ---> @np_verb(second,sg, bellen_rel).
+bellt    ---> @np_verb(third, sg, bellen_rel).
 
-bellen   ---> @intrans_verb(first_or_third, pl, bellen_rel).
-bellt    ---> @intrans_verb(second,         pl, bellen_rel).
+bellen   ---> @np_verb(first_or_third, pl, bellen_rel).
+bellt    ---> @np_verb(second,         pl, bellen_rel).
 
-lache    ---> @intrans_verb(first, sg, lachen_rel).
-lachst   ---> @intrans_verb(second,sg, lachen_rel).
-lacht    ---> @intrans_verb(third, sg, lachen_rel).
+lache    ---> @np_verb(first, sg, lachen_rel).
+lachst   ---> @np_verb(second,sg, lachen_rel).
+lacht    ---> @np_verb(third, sg, lachen_rel).
 
-lachen   ---> @intrans_verb(first_or_third, pl, lachen_rel).
-lacht    ---> @intrans_verb(second,         pl, lachen_rel).
+lachen   ---> @np_verb(first_or_third, pl, lachen_rel).
+lacht    ---> @np_verb(second,         pl, lachen_rel).
 
-schlafe  ---> @intrans_verb(first, sg, schlafen_rel).
-schläfst ---> @intrans_verb(second,sg, schlafen_rel).
-schläft  ---> @intrans_verb(third, sg, schlafen_rel).
+schlafe  ---> @np_verb(first, sg, schlafen_rel).
+schläfst ---> @np_verb(second,sg, schlafen_rel).
+schläft  ---> @np_verb(third, sg, schlafen_rel).
 
-schlafen ---> @intrans_verb(first_or_third, pl, schlafen_rel).
-schlaft  ---> @intrans_verb(second,         pl, schlafen_rel).
+schlafen ---> @np_verb(first_or_third, pl, schlafen_rel).
+schlaft  ---> @np_verb(second,         pl, schlafen_rel).
 
-spiele  ---> @intrans_verb(first,  sg, spielen_rel).
-spielst ---> @intrans_verb(second, sg, spielen_rel).
-spielt  ---> @intrans_verb(third,  sg, spielen_rel).
+spiele  ---> @np_verb(first,  sg, spielen_rel).
+spielst ---> @np_verb(second, sg, spielen_rel).
+spielt  ---> @np_verb(third,  sg, spielen_rel).
 
-spielen ---> @intrans_verb(first_or_third, pl, spielen_rel).
-spielt  ---> @intrans_verb(second,         pl, spielen_rel).
+spielen ---> @np_verb(first_or_third, pl, spielen_rel).
+spielt  ---> @np_verb(second,         pl, spielen_rel).
 
 
-graut   ---> @subjlos_verb(dat,grauen_rel).
+graut   ---> @subjlos_np_verb(dat,grauen_rel).
 
 
 helfe    ---> @np_np_dat_verb(first, sg, helfen_rel).
@@ -349,41 +349,41 @@ hilft    ---> @np_np_dat_verb(third, sg, helfen_rel).
 helfen   ---> @np_np_dat_verb(first_or_third, pl, helfen_rel).
 helft    ---> @np_np_dat_verb(second,         pl, helfen_rel).
 
-jage     ---> @trans_verb(first, sg, jagen_rel).
-jagst    ---> @trans_verb(second,sg, jagen_rel).
-jagt     ---> @trans_verb(third, sg, jagen_rel).
+jage     ---> @np_np_verb(first, sg, jagen_rel).
+jagst    ---> @np_np_verb(second,sg, jagen_rel).
+jagt     ---> @np_np_verb(third, sg, jagen_rel).
 
-kenne    ---> @trans_verb(first, sg, kennen_rel).
-kennst   ---> @trans_verb(second,sg, kennen_rel).
-kennt    ---> @trans_verb(third, sg, kennen_rel).
+kenne    ---> @np_np_verb(first, sg, kennen_rel).
+kennst   ---> @np_np_verb(second,sg, kennen_rel).
+kennt    ---> @np_np_verb(third, sg, kennen_rel).
 
-kennen   ---> @trans_verb(first_or_third, pl, kennen_rel).
-kennt    ---> @trans_verb(second,         pl, kennen_rel).
+kennen   ---> @np_np_verb(first_or_third, pl, kennen_rel).
+kennt    ---> @np_np_verb(second,         pl, kennen_rel).
 
-liebe    ---> @trans_verb(first, sg, lieben_rel).
-liebst   ---> @trans_verb(second,sg, lieben_rel).
-liebt    ---> @trans_verb(third, sg, lieben_rel).
+liebe    ---> @np_np_verb(first, sg, lieben_rel).
+liebst   ---> @np_np_verb(second,sg, lieben_rel).
+liebt    ---> @np_np_verb(third, sg, lieben_rel).
 
-lieben   ---> @trans_verb(first_or_third, pl, lieben_rel).
-liebt    ---> @trans_verb(second,         pl, lieben_rel).
-
-
-nehme  ---> @trans_verb(first, sg, nehmen_rel).
-nimmst ---> @trans_verb(second,sg, nehmen_rel).
-nimmt  ---> @trans_verb(third, sg, nehmen_rel).
-
-nehmen ---> @trans_verb(first_or_third, pl, nehmen_rel).
-nehmt  ---> @trans_verb(second,         pl, nehmen_rel).
+lieben   ---> @np_np_verb(first_or_third, pl, lieben_rel).
+liebt    ---> @np_np_verb(second,         pl, lieben_rel).
 
 
-gebe  ---> @ditrans_verb(first, sg, geben_rel).
-gibst ---> @ditrans_verb(second,sg, geben_rel).
-gibt  ---> @ditrans_verb(third, sg, geben_rel).
+nehme  ---> @np_np_verb(first, sg, nehmen_rel).
+nimmst ---> @np_np_verb(second,sg, nehmen_rel).
+nimmt  ---> @np_np_verb(third, sg, nehmen_rel).
 
-geben   ---> @trans_verb(first_or_third, pl, geben_rel).
-gebt    ---> @trans_verb(second,         pl, geben_rel).
+nehmen ---> @np_np_verb(first_or_third, pl, nehmen_rel).
+nehmt  ---> @np_np_verb(second,         pl, nehmen_rel).
 
-gab   ---> @ditrans_verb(first_or_third, sg, geben_rel).
+
+gebe  ---> @np_np_np_verb(first, sg, geben_rel).
+gibst ---> @np_np_np_verb(second,sg, geben_rel).
+gibt  ---> @np_np_np_verb(third, sg, geben_rel).
+
+geben  ---> @np_np_np_verb(first_or_third, pl, geben_rel).
+gebt   ---> @np_np_np_verb(second,         pl, geben_rel).
+
+gab    ---> @np_np_np_verb(first_or_third, sg, geben_rel).
 
 denke  ---> @np_pp_verb(first, sg, an_pform,acc,denken_an_rel).
 denkst ---> @np_pp_verb(second,sg, an_pform,acc,denken_an_rel).
@@ -398,6 +398,8 @@ glaubt  ---> @glauben_denken_verb(third,sg,glauben_rel).
 
 glauben ---> @glauben_denken_verb(first_or_third,pl,glauben_rel).
 glaubt  ---> @glauben_denken_verb(second,        pl,glauben_rel).
+
+freut   ---> @cp_np_verb(freuen_rel).
 
 
 an  ---> @comp_prep(an_pform,acc).
