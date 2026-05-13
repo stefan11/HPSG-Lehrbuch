@@ -26,8 +26,8 @@
 \provideboolean{draft}
 \setboolean{draft}{false}
 
-%\newtoggle{draft}\togglefalse{draft}
-\newtoggle{draft}\toggletrue{draft}
+\newtoggle{draft}\togglefalse{draft}
+%\newtoggle{draft}\toggletrue{draft}
 %\newtoggle{finished}\togglefalse{finished}
 
 
@@ -50,8 +50,9 @@
 \input{locallangscifixes.tex}
 
 
-%\newcommand{\NOTE}[1]{}
-\newcommand{\NOTE}[1]{\marginpar{#1}}
+\newcommand{\NOTE}[1]{}
+\newcommand{\LATER}[1]{}
+
 
 \mmzset{
   prefix={hpsg.memo.dir/},
