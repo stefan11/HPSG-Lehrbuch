@@ -112,7 +112,11 @@ Es wird kontrovers diskutiert, ob einige
 %[\page 107]{Wunderlich97c}% dative passive possible -> structural lexical datives are not mentioned
 %                          % but follow implicitely
 [\page 553]{Molnarfi98a} % inheränte sind in V inkorporiert
+% Eisenberg2004a:134 Seine Stellung unter den Passivdiathesen zeigt noch einmal, daß der Dativ als
+% struktureller Kasus fungieren kann, daß er aber in der Grammtikalisierungshierarchie nach dem Nom
+% und Akk rangiert.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 oder alle \parencites[\page 80]{Sternefeld95a}%
 [\page 203, 205--206]{Ryu97a}% SUBJ finit = nom, COMPS und INTARG = acc, COMPS und -INTARG = dat
 [\page 96--97]{Gunkel2003b} Dative in verbalen Umgebungen als
@@ -125,11 +129,10 @@ oder ob alle Dative lexikalischen (oder zumindest nicht-strukturellen) Kasus bek
 [\page 277, 291]{Pollard94a}%
 %[]{Meurers99b} We are agnostic as to whether a complete structural case theory should also include
 %the dative.
-[67]{VS98a}[]{Abraham95a-u}%
+[67]{VS98a}[236]{Abraham95a-u}%
 [\page 187]{McIntyre2006a}% 
 [Abschnitt~3]{Woolford2006a}.% p. 112 Icelandic, dativ auch inherent case S. 126 ist Zusammenfassung
 % lexical case = idiosynkratisch, inherent case = regulät, aber nicht strukturell
-\todostefan{wo Abraham?}
 %HR2003a,% S. 222 sagen was zu Dativen bei ditransitiven (lexikalisch) und Bindung
 % MdK2001a sagen explizit nichts zum Dativ
 %
@@ -313,6 +316,7 @@ strukturellen Akkusativen gibt es aber auch lexikalische:
 %% \emph{ein neuer Kanon} kann Subjekt in einem Passivsatz werden, \emph{ihren Sohn} nie.
 In (\mex{0}) hat \emph{ihn} nicht die Möglichkeit, seinen Kasus (\zb durch Passivierung) zu ändern,
 weshalb es sinnvoll ist, diese Akkusative zu den lexikalischen Akkusativen zu zählen.
+\itdopt{Maßaccusative}
 
 \is{Präposition|(}%
 \citet[82]{Haider85b} argumentiert dafür, dass auch die Nominalphrasen
@@ -448,6 +452,85 @@ ZBBS Heft 2/2004, S.\,282
 Das bedeutet, dass die \emph{dass}-Sätze in (\mex{-1}a) und (\mex{0}a) Subjekte sind. Das Objekt ist
 \emph{mich} bzw.\ \emph{diesen Gedanken}. Die Objekte stehen in den Aktivsätzen jeweils im Akkusativ
 und in den Passivsätzen im Nominativ. Die entsprechenden Nominalphrasen haben also strukturellen Kasus.
+
+In der HPSG-Literatur wurde die Vergabe von strukturellem Kasus bisher immer so geregelt, dass der
+ersten NP mit strukturellem Kasus in verbalen Umgebungen Nominativ zugewiesen wurde und allen
+anderen NPen mit strukturellem Kasus Akkusativ. Die Satzsubjekte kommen einem bei dieser eleganten
+Art der Kasuszuweisung in die Quere. Eine Möglichkeit, beim alten Kasusprinzip zu bleiben, bestünde
+darin, zu behaupten, dass die Sätze eigentlich NPen sind. Man würde dann entweder ein leeres Nomen
+annehmen, dass einen Satz oder eine VP verlangt und dann eine NP ergibt, oder man würde eine unäre
+Projektion annehmen, die aus dem Satz/der VP eine NP macht. Die NP wäre dann so etwas wie die NP in
+(\mex{1}b) nur dass der nominale Teil \emph{die Tatsache} unsichtbar wäre:
+\eal
+\ex Sandy setzt sich sehr für diese Sache ein. [Das/diese Tatsache] begeistert mich.
+\ex {}[Die Tatsache, dass Sandy sich sehr für diese Sache einsetzt,] begeistert mich.
+\zl
+Man müsste für Verben, die ein Satz/VP-Argument verlangen, dann jeweils nur Einträge mit Selektion
+von NPen annehmen. Eine solche Analyse wäre attraktiv, aber sie würde voraussetzen, dass die übergeordneten Verben
+immer sowohl NP als auch Satz/VP erlauben würden. Das ist aber nicht bei allen Verben der
+Fall:\footnote{
+Siehe auch \citet[235]{Mueller99a} für parallele Beispiele mit Infinitiven mit \emph{zu}.
+}
+\eal
+\ex[]{\label{ex-Satz-mit-Verb+dass-Satz}
+Die Entführer haben gedroht, dass sie die Geiseln ermorden würden.
+}
+\ex[]{
+Die Entführer haben mit der Ermordung der Geiseln gedroht.
+}
+\ex[]{
+Die Entführer haben damit gedroht, dass sie die Geiseln ermorden würden.
+}
+\ex[*]{
+Die Entführer haben der/die Ermordung der Geiseln gedroht.
+}
+\zl
+Wie (\mex{0}a) zeigt, erlaubt \emph{drohen} ein Satzsubjekt, als Objekt muss jedoch eine
+\emph{mit}-PP verwendet werden. Eine NP als Objekt ist ungrammatisch. Das bedeutet, dass es mit
+einer leeren NP oder einer entsprechenden Projektion nicht getan wäre. Man müsste eine leere PP
+annehmen oder zulassen, dass Sätze/VPen auch zu PPen projiziert werden können. 
+
+Die Duden-Grammatik listet die folgenden grammatischen Funktionen, die Sätze prinzipiell einnehmen können
+\citep[§1650]{Duden2005-Authors}: Subjekt (\mex{1}), Akkusativobjekt (\mex{2}), Genitivobjekt
+(\mex{3}), Präpositionalobjekt (\mex{3}).
+\eal
+\ex {}[Dass Anna fehlte], fiel ihren Kolleginnen sofort auf.
+\ex {}[Das/dieser Sachverhalt] fiel ihren Kolleginnen sofort auf.
+\ex {}[Euch zu helfen] ist mein größter Wunsch.
+\ex {}[Das] ist mein größter Wunsch.
+\zl
+\eal
+\ex Ich bemerkte, [dass Otto fehlte].
+\ex Ich bemerkte [das/diesen Sachverhalt].
+\zl
+\eal
+\ex Wir waren uns bewusst, [dass es hier nachts sehr kühl werden kann].
+\ex Wir waren uns [dessen/dieses Sachverhalts] bewusst.
+\zl
+\eal
+\ex Ich freue mich, [dass ihr beide auch mitkommt].
+\ex Ich freue mich darüber.
+\zl
+Also bräuchte man Regeln oder lexikalische Elemente, die NPen im Nominativ, Akkusativ, Genitiv und
+PPen projizieren. Wenn man nun aber eine Regel hat, die aus einem \emph{dass}"=Satz eine
+\emph{mit}"=PP macht, wie man das für (\ref{ex-Satz-mit-Verb+dass-Satz}) braucht, dann würde man
+erwarten, dass \emph{dass}"=Sätze auch an der Stelle des PP-Arguments anderer Sätze auftreten
+können. Wie (\mex{1}b) zeigt, ist dem aber nicht so:
+\eal
+\ex[]{
+Sie rechnet damit, dass niemand kommt.
+}
+\ex[*]{
+Sie rechnet, dass niemand kommt.
+}
+\zl 
+Wenn es für alle Sätze eine unäre Projektion gäbe, die sie zur PP macht, dann müsste (\mex{0}b) in
+Analogie zu (\mex{0}a) möglich sein. Wegen solcher Probleme scheint es angebracht zu sein, keine
+leeren Elemente oder unäre Projektionen zur Umkategorisierung anzunehmen, sondern jeweils die
+Lexikoneinträge für die entsprechenden Valenzmuster anzusetzen. Das heißt, wenn ein Verb mit einem
+Satzargument vorkommt, gibt es dafür einen Lexikoneintrag und wenn es mit einem nominalen Argument
+oder einer PP realisiert werden kann, gibt es einen weiteren Eintrag. Leider kann man aufgrund
+derselben Daten die Lexikoneinträge auch nicht über eine Lexikonregel ableiten.
 
 
 \subsection{Semantische Kasus}
@@ -979,8 +1062,6 @@ b. & \emph{kleiner werden sah}: & \argst \sliste{ NP[\str]$_i$, NP[\type{str}]$_
 Die Kasuszuweisung funktioniert analog zu den bereits diskutierten Fällen. In den verbalen Umgebungen
 der Kopula bzw.\ des AcI"=Verbs bekommen die NPen mit strukturellem Kasus Nominativ bzw.\ Akkusativ.%
 \is{Kasus!struktureller|)}\is{Kasus!lexikalischer|)}
-
-
 
 \subsection{Semantischer Kasus}
 
