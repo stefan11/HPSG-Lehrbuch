@@ -126,7 +126,9 @@ Beispielen von Extraktion aus \emph{dass}"=Sätzen bespricht.
 \ex Wen$_i$ glaubst du, daß ich \_$_i$ gesehen habe.\footnote{
     \citew[\page84]{Scherpenisse86a}.
     }
-\ex {}[Gegen ihn]$_i$ falle es den Republikanern hingegen schwerer, [ [ Angriffe \_$_i$] zu lancieren].\footnote{
+\ex
+\label{bsp-gegen-ihn}
+{}[Gegen ihn]$_i$ falle es den Republikanern hingegen schwerer, [ [ Angriffe \_$_i$] zu lancieren].\footnote{
   taz, 08.02.2008, S.\,9
 }
 \zl
@@ -240,7 +242,7 @@ loc  & \ms{ cat  & \ms{ head   & head \\
           }\\
 nonloc & nonloc\\
 }
-\z\todostefan{\type{cont} müsste \type{hook} sein. Das überall im Buch. Auch bei Lokalität.}
+\z\todostefan{\type{cont} müsste \type{hook}\istype{hook} sein. Das überall im Buch. Auch bei Lokalität.}
 Der \nonlocw ist selbst noch weiter strukturiert:
 \ea
 \ms[nonloc]{
@@ -252,7 +254,11 @@ Der \nonlocw ist selbst noch weiter strukturiert:
 \z
 Dabei ist \textsc{que} für die Analyse von Interrogativsätzen wichtig. Da diese in diesem Buch nicht behandelt
 werden, wird es im Folgenden weggelassen. \textsc{rel} ist eine Liste referentieller Indizes von
-Relativpronomina und von bestimmten \ltopwen. Auf \textsc{rel} wird im Kapitel~\ref{Kapitel-rs} über
+Relativpronomina und von bestimmten \ltopwen. \citet[305]{CFPS2005a} benutzen ein Merkmal \textsc{hook},
+deren Wert vom Typ \type{hook} ist. Unter \textsc{hook}\isfeat{hook} werden genau der Index und der \ltopw
+angegeben. Im Abschnitt~\ref{Abschnitt MRS und Fernabhängigkeiten} erkläre ich, warum ich als \contw nur Objekte vom Typ \type{hook}
+verwende und die \relslen auf der obersten Ebene ansiedle.
+Auf \textsc{rel} wird im Kapitel~\ref{Kapitel-rs} über
 Relativsätze noch genauer eingegangen. \textsc{slash} ist eine Liste von
 \type{local}"=Objekten. Diese Liste wird zur Analyse der Vorfeldbesetzung benötigt. Für die Analyse
 von Relativsätzen und Interrogativnebensätzen ist sie ebenfalls von Bedeutung.
