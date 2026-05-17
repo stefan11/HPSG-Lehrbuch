@@ -107,6 +107,7 @@ der Wert von \textsc{vater$|$geburtstag} das Datum \emph{10.05.1960}.
 Es fallen einem sofort mehrere Merkmale ein, die man noch in Repräsentationen wie (\mex{0})
 aufnehmen könnte. Man überlege sich, wie Information über Töchter oder Söhne in 
 (\mex{0}) integriert werden kann.
+%\largerpage
 
 Eine naheliegende Lösung ist, weitere Merkmale für \textsc{tochter} und \textsc{sohn}
 einzuführen:
@@ -150,6 +151,7 @@ nachname   & meier\\
 geburtstag & 10.10.1985\\
 vater      & \ldots\\
 mutter     & \ldots\\
+\addlinespace{2mm}
 töchter    & \liste{ \ms{
                      vorname    & clara\\
                      nachname   & meier\\
@@ -157,8 +159,11 @@ töchter    & \liste{ \ms{
                      vater      & \ldots\\
                      mutter     & \ldots\\
                      töchter    & \eliste } } }
-\z\todostefan{Nach Mutter Zwischenraum. Unterste Klammer soll eingezogen sein, nicht abschließend
+\z\todostefan{Unterste Klammer soll eingezogen sein, nicht abschließend
   mit der letzten Klammer.}
+%\largerpage[2]
+
+\noindent
 Nun stellt sich die Frage: Was ist mit Söhnen? Soll man eine Liste der Söhne einführen?
 Wollen wir zwischen Söhnen und Töchtern differenzieren? 
 Sicher ist das Geschlecht der Kinder eine wichtige Eigenschaft, aber es ist eine Eigenschaft
@@ -202,6 +207,7 @@ Mengen werden mit geschweiften Klammern geschrieben.\footnote{
 \section{Typen}
 \label{sec-formalismus-typen}
 
+\largerpage[2]
 Im\is{Typ|(} vorigen Abschnitt wurden aus Merkmal"=Wert"=Paaren bestehende
 Merkmalbeschreibungen vorgestellt, und es wurde gezeigt, dass es sinnvoll ist,
 komplexe Werte für Merkmale zuzulassen.  In diesem Abschnitt werden die
@@ -222,7 +228,7 @@ mutter     & \ldots\\
 kinder     & \liste{ \ldots, \ldots }\\   
 }
 \z
-Der Typ wird \textit{kursiv} gesetzt. 
+Der Typ wird \textit{kursiv} gesetzt.\pagebreak 
 
 In einer Typspezifikation wird festgelegt, welche Eigenschaften ein modelliertes
 Objekt hat. In der Theorie kann man dann nur über diese Eigenschaften sinnvoll etwas
@@ -257,6 +263,7 @@ kinder     & list of person\\
 In (\mex{0}) und (\mex{-1}) sind auch Werte von Merkmalen wie \textsc{vorname} kursiv gesetzt. Diese Werte sind auch
 Typen. Sie unterscheiden sich jedoch von Typen wie \type{person} dadurch, dass zu ihnen keine
 Merkmale gehören. Solche Typen werden \emph{atomar}\is{Typ!atomarer} genannt.
+\largerpage[2]
 
 Typen sind in Hierarchien\is{Typhierarchie|(} organisiert.
 %% \footnote{
@@ -286,7 +293,6 @@ Die beiden Alternativen unterscheiden sich vor allem darin, dass Information, di
 über Typen modelliert wird, für die im Abschnitt~\ref{sec-strukturteilung} besprochenen Strukturteilungen
 nicht ohne Weiteres %###### FR: geht wohl doch, gibt Beweis von Gerald
 zugänglich ist.
-
 %% Als Beispiel sei hier die Typhierarchie
 %% unter dem Typ für die Wortart (\emph{part of speech}) diskutiert, die Abbildung~\vref{fig-untertypen-pos}
 %% zeigt.
@@ -301,6 +307,7 @@ zugänglich ist.
 %% Der Typ \textit{p-o-s} ist der allgemeinste Typ. Alle Wörter haben eine Wortart,
 %% die einem Untertyp von \textit{p-o-s} entspricht, also \zb Adjektiv \textit{adj} oder Präposition \textit{prep}.
 %% Auf das Verhältnis von Typen in Hierarchien zueinander werde ich in Abschnitt~\ref{sec-typen} noch genauer eingehen.
+\largerpage
 
 Typhierarchien spielen eine wichtige Rolle für das Erfassen linguistischer
 Generalisierungen, weshalb im Folgenden Typhierarchien und die Vererbung\is{Vererbung}
@@ -367,6 +374,7 @@ auszudrücken. Typen für Wörter oder Phrasen, die in diesen Hierarchien ganz o
 Beschränkungen über linguistischen Objekten, die für alle linguistischen Objekte in allen Sprachen
 Gültigkeit haben. Untertypen dieser allgemeinen Typen können sprachklassen- oder sprachspezifisch sein.%
 \is{Typ|)}\is{Typhierarchie|)}
+\largerpage
 
 \section{Disjunktion}
 
@@ -452,6 +460,7 @@ Die Frage, ob die Merkmalbeschreibung ein Kind oder zwei Kinder von Peter und An
 beschreibt, kann nicht geklärt werden. Es ist durchaus möglich,
 dass es sich um zwei Kinder aus früheren Verbindungen handelt, die zufällig
 beide Klaus heißen.
+\largerpage
 
 Mit Hilfe von Strukturteilung kann man die Identität der beiden Werte
 festmachen:
@@ -498,8 +507,9 @@ steht, und außerdem muss auch noch sichergestellt werden, dass das
 Objekt, das als Kind beschrieben wird, mit dem Gesamtobjekt identisch
 ist, denn sonst hätten wir wieder die Situation, in der Max' Eltern
 noch ein zweites Kind namens Max haben könnten.
-Die Beschreibung in (\mex{1})\vpageref{bsp-avm-zyklen} erfasst die Zusammenhänge korrekt.
-\begin{figure}[htbp]
+Die Beschreibung in (\mex{1}) erfasst die Zusammenhänge korrekt.
+\largerpage[1.2]
+%\begin{figure}[htbp]
 \ea
 \label{bsp-avm-zyklen}
 \ibox{2} \ms[person]{
@@ -520,7 +530,7 @@ mutter     & \ms[person]{
              }\\
 }
 \z
-\vspace{-\baselineskip}\end{figure}
+%\vspace{-\baselineskip}\end{figure}
 Strukturen, die durch Beschreibungen wie (\mex{0}) beschrieben werden, werden zyklisch genannt, weil man, wenn man bestimmten
 Pfaden folgt, im Kreis gehen kann: \ZB den Pfad \textsc{vater$|$""kinder$|$""\ldots$|$""vater$|$""kinder$|$\ldots}\footnote{
   Die Punkte stehen hierbei für den Pfad zu \iboxt{2} in der Liste, die
@@ -575,6 +585,7 @@ geschlecht & männlich\\
 haarfarbe  & rot\\
 }
 \zl
+\largerpage
 Die Beschreibung in (\mex{1}) wäre ein mögliches Ergebnis für eine Anfrage in Bezug auf eine blonde, weibliche Person namens Meier:
 \ea
 \ms[person]{
@@ -634,6 +645,7 @@ Merkmalbeschreibungen. Diese Beschreibungen sind Beschränkungen, die für lingu
 gelten müssen. So kann man \zb in einer Beschreibung des linguistischen Objekts \emph{Frau} auf die
 Festlegung des Kasuswertes verzichten, denn \emph{Frau} kann -- wie (\mex{1}) zeigt -- in allen vier
 Kasus auf"|treten:
+%\largerpage
 
 \eal\jamwidth=6cm\relax
 \ex Die Frau schläft.       \jam(Nominativ)
@@ -650,13 +662,14 @@ von \emph{Mann} in die Beispiele in (\mex{0}) überzeugen kann. (\mex{1}) zeigt 
 Merkmalbeschreibungen für \emph{Frau} und \emph{Mann}:
 \eal
 \ex\label{avm-frau}%
-Frau\\
-\ms{
-genus & fem
+Frau:\\[-2pt]
+%\ms{
+%genus & fem }
+{}[\textsc{genus} \type{fem}]
+%\todostefan{now the distance between Frau and the AVM is too big}
 %kasus & Kasus\\
-}\todostefan{now the distance between Frau and the AVM is too big}
 \ex\label{avm-mann}%
-Mann\\
+Mann:\\
 \ms{
 genus & mas\\
 kasus & Nominativ $\vee$ Dativ $\vee$ Akkusativ }
