@@ -555,38 +555,6 @@ entspricht, die wir bisher für syntaktische Strukturen kennengelernt haben.%
 \is{Morphologie!Derivation|)}%
 \is{Morphologie!Flexion|)}%
 
-\section{Zwischenzusammenfassung der bisher eingeführten Beschreibungsmittel}
-
-An dieser Stelle bietet es sich an, eine kurze Zwischenzusammenfassung des bisher eingeführten
-Inventars zu geben, da jetzt nichts qualitativ Neues mehr hinzukommen wird. In den kommenden
-Kapiteln wird die Merkmalsgeometrie zwar noch verändert, und wir werden komplexere Analysen
-linguistisch interessanter Phänomene kennenlernen, die verwendeten Mechanismen sind aber
-bereits eingeführt. 
-\itdopt{Das muss eigentlich hinter die Linearisierung.}
-
-Eine linguistische Theorie im Rahmen der HPSG besteht aus folgenden Bestandteilen:
-\begin{enumerate}
-\item einer Signatur bestehend u.\,a.\ aus einer Typhierarchie, in der alle Typen mit ihren dazugehörigen
-  Merkmalen und möglichen Werten angegeben sind. Die Signatur spannt gewissermaßen den Raum auf, in
-  dem man eine Theorie formulieren kann.
-\item einer Anzahl von Lexikoneinträgen, deren Eigenschaften durch getypte Merkmalbeschreibungen beschränkt werden,
-\item einer Anzahl von Lexikonregeln, die ebenfalls mittels Merkmal"=Wert"=Paaren beschrieben werden und
-      die weitere Lexikoneinheiten lizenzieren,
-\item einer Anzahl von Dominanzschemata, die die Kombination von Lexikoneinheiten zu größeren Einheiten
-      lizenzieren,
-\item Prinzipien, \dash Beschränkungen, die für linguistische Objekte erfüllt sein müssen,
-\item Linearisierungsbeschränkungen, die die Abfolge der Töchter in den Dominanzschemata regeln und
-\item einer Anzahl relationaler Beschränkungen, die in den Dominanzschemata, den Lexikonregeln bzw.\
-      den Merkmalbeschreibungen verwendet werden.
-\end{enumerate}
-Die durch die Dominanzschemata lizenzierten Einheiten können je nach Schema
-selbst wieder mit anderen linguistischen Objekten kombiniert
-werden, so dass rekursiv\is{Rekursion} beliebig komplexe Strukturen aufgebaut werden können.
-
-Da die Lexikoneinträge, die Lexikonregeln und die Dominanzschemata mit Hilfe getypter Merkmalstrukturen
-modelliert werden, können Generalisierungen über alle drei Arten von Objekten in der Typhierarchie
-erfasst werden. Wird ein Prinzip formalisiert, so geschieht das meistens mit Bezug auf einen Typ. Das Prinzip
-gilt dann für alle Untertypen des betreffenden Typs.
 
 
 \section{Alternativen}
@@ -1892,7 +1860,7 @@ sollte man Defaults vermeiden.
 
 Das klassische Beispiel zur Default"=Vererbung aus der Künstlichen Intelligenz
 ist die Subhierarchie für das Konzept \emph{Vogel}: Vögel haben normalerweise
-Flügel und können fliegen. Diese Eigenschaften erbt der Subtyp \type{Spatz},
+Flügel und können fliegen \citep[358--359]{RussellNorvig2003a-ed}. Diese Eigenschaften erbt der Subtyp \type{Spatz},
 beim Subtyp \type{Pinguin} wird aber die Eigenschaft des Fliegen"=Könnens überschrieben.
 Die entsprechende Hierarchie mit Eigenschaften zeigt Abbildung~\vref{pinguin}.\todostefan{Quelle}
 \begin{figure}

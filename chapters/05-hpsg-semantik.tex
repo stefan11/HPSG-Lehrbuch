@@ -345,18 +345,18 @@ wahr sind, bekommt man jeweils die Aussagen in b.
 \eal
 \label{ex-Alle-Kinder-schlafen}
 \ex\label{ex-Alle-Kinder-schlafen-Satz} Alle Kinder schlafen.
-\ex Für alle x, für die gilt, dass sie Kind sind, gilt auch, dass sie schlafen.
+\ex Für jede Entität x in unserem Diskursuniversum, für die gilt, dass sie Kind ist, gilt auch, dass sie schläft.
 \ex \blau{$\forall$}x kind(x) \blau{$\to$} schlafen(x)
 \zl
 \eal
 \ex Ein Kind schläft.
-\ex Es gibt mindestens ein x, für das gilt, dass es ein Kind ist und dass es schläft.
+\ex Es gibt mindestens eine Entität x in unserem Diskursuniversum, für die gilt, dass sie ein Kind ist und dass sie schläft.
 \ex \blau{$\exists$}x kind(x) \blau{$\wedge$} schlafen(x)
 \zl
 \eal
 \label{ex-Das-Kind-schläft}
 \ex Das Kind schläft.
-\ex Es gibt ein einziges x, das Kind ist, und für dieses Kind gilt, dass es schläft.
+\ex Es gibt eine einzige Entität x in unserem Diskursuniversum, die Kind ist, und für diese gilt, dass sie schläft.
 \ex \blau{$\iota$}x kind(x) \blau{$\wedge$} schlafen(x)
 \zl
 Mit Hilfe logischer Symbole für die Quantoren kann man diese Bedeutung wie in c repräsentieren. Da
@@ -636,25 +636,23 @@ Im Folgenden werden die Abkürzungen in (\mex{1}) verwendet:
 \ea
 \label{abkuerzungen-sem}
 \begin{tabular}[t]{@{}lp{4.8cm}@{\hspace{0mm}}lp{3.3cm}@{}}
-NP\sub{[\type{3},\type{sg},\type{fem}]}     & \onems{ cat \ms{ head & \type{noun} \\
-                                        spr & \eliste\\
-                                         comps & \eliste \\
-                                       } \\
+NP\sub{[\type{3},\type{sg},\type{fem}]}     & \onems{ cat \ms{ head  & noun \\
+                                                               spr   & \eliste\\
+                                                               comps & \eliste } \\
                                 cont$|$ind \ms{ per & 3 \\
                                                 num & sg \\
                                                 gen & fem \\
                                               } \\
                               }  &
-NP$_{\ibox{1}}$ & \onems{ cat  \ms{ head & \type{noun} \\
-                                   spr & \eliste\\
-		                  comps & \eliste \\
-                                } \\
+NP$_{\ibox{1}}$ & \onems{ cat  \ms{ head & noun \\
+                                   spr  & \eliste\\
+		                  comps & \eliste } \\
                        cont$|$ind \ibox{1}\\
                      }\\\\
 \is{:}%
 \baro{N}:\label{ex-abkuerzung-nbar} \ibox{1} & \ms{ cat & \ms{ head   & noun \\
-                                     spr & \nliste{ Det } \\
-                                     comps & \eliste } \\
+                                                               spr    & \nliste{ Det } \\
+                                                               comps  & \eliste } \\
                           cont & \ibox{1} \\
                         } \\
 \end{tabular}
@@ -899,7 +897,8 @@ dtrs  \ibox{1} \\
 \z
 \texttt{collect-rels}\isrel{collect-rels} geht dabei durch die Liste der Töchter und hängt den jeweiligen \relsw an eine
 Liste, die dann eine Verkettung aller \relswe und das Ergebnis der relationalen Beschränkung
-\texttt{collect-rels} ist. Formal kann man das wie folgt aufschreiben:\todostefan{Boxen statt Variablennamen?}
+\texttt{collect-rels} ist. Formal kann man das wie folgt aufschreiben:
+% Nö. \todostefan{Boxen statt Variablennamen?}
 \ea
 \label{constraint-collect-rels}
 \texttt{collect-rels}([],[]).\\
@@ -959,7 +958,7 @@ angemessene Bedeutungsrepräsentation.
 Auf S.\,\pageref{ex-Alle-Kinder-schlafen} wurden bereits die Sätze
 (\ref{ex-Alle-Kinder-schlafen})--(\ref{ex-Das-Kind-schläft}) besprochen und etwas zu deren Bedeutung
 gesagt. Das Beispiel (\ref{ex-Alle-Kinder-schlafen}) sei hier der Übersichtlichkeit halber
-wiederholt:\todostefan{Das war vorn anders.}
+wiederholt:
 \eal
 \label{ex-Alle-Kinder-schlafen-zwei}
 \ex Alle Kinder schlafen.
@@ -1403,7 +1402,7 @@ fehlende Angabe des \body"=Wertes ist Teil der
 Unterspezifikation: Irgendein Handle einer anderen Relation oder eines anderen Quantors kann dort
 eingefügt werden, Hauptsache, zum Schluss sind alle Variablen im Bereich eines Quantors und keiner der
 Handle"=Constraints ist verletzt.
-\todostefan{Jakob: Wahrscheinlich wäre für mich  sehr hilfreich eine Tabelle zu haben, wo die Begriffe aus der MRS den Merkmalen in der AVM Gegenübergestellt werden.}
+%\todostefan{Jakob: Wahrscheinlich wäre für mich  sehr hilfreich eine Tabelle zu haben, wo die Begriffe aus der MRS den Merkmalen in der AVM Gegenübergestellt werden.}
 
 Abbildung~\ref{fig-Jede-Tochter-eines-Mitarbeiters-schläft} zeigt die Analyse unseres Beispiels.
 \begin{figure}
@@ -1797,6 +1796,8 @@ cont & \ms{ ltop & \ibox{1}\\
           }\\
 }
 \zs
+Der Index wird in Kopf-Adjunkt-Strukturen immer vom Kopf beigesteuert. Darauf komme ich im Abschnitt~\ref{Abschnitt-Semantikprinzip} zurück.
+
 In (\mex{0}) wird der \ltopw des modifizierten Nomens mit dem \ltopw des Adjektivs
 identifiziert. Für die potentiellen Mörder wäre das falsch, denn sie sind nicht potentiell und
 Mörder (\mex{1}b), stattdessen muss das \emph{potentiell} den \emph{Mörder} wie in (\mex{1}c) einschließen.
@@ -1808,7 +1809,7 @@ Mörder (\mex{1}b), stattdessen muss das \emph{potentiell} den \emph{Mörder} wi
 \zl
 
 \noindent
-Für das Adjektiv \emph{potentielle} ergibt sich:\todostefan{Erklären wie Index weitergegeben wird}
+Für das Adjektiv \emph{potentielle} ergibt sich:\LATER{Was ist denn der Indexwert von \emph{potentiell}?}
 \eas
 Lexikoneintrag für \emph{potentielle}:\\
 \ms{
@@ -1833,9 +1834,9 @@ cont & \ms{ ltop & \ibox{2}\\
           }\\
 }
 \zs
+Der \ltopw des modifizierten Nomens \iboxb{1} wird unter \relation{potentiell} eingebettet. 
 
-\noindent
-Wie man an (\ref{mrs-potentielle-Mörder}) sehen kann muss der \ltopw einer Kopf"=Adjunkt"=Struktur
+Wie man an (\ref{mrs-potentielle-Mörder}) sehen kann, muss der \ltopw einer Kopf"=Adjunkt"=Struktur
 durch die Adjunkttochter bestimmt werden, denn \ltop ist das Label des jeweils einbettenden
 Prädikats. Bei intersektiven Adjektiven\is{Adjektiv!intersektives} wie \emph{klein} sind beide Handles identifiziert, weshalb
 auch da der \ltopw von der Adjunkttochter genommen werden kann. Die folgende Beschränkung gilt also
@@ -3399,6 +3400,7 @@ hier statt (\ref{le-Possessivpronomen}) folgenden Lexikoneintrag vorstellen:
                             arg1 & \ibox{3}\\
                             arg2 & \ibox{2}
                       } }\\
+\addlinespace[1mm]
        hcons & \liste{ \ms[qeq]{
                        harg & \ibox{4}\\
                        larg & \ibox{1}\\
@@ -3439,6 +3441,7 @@ würde also eine Struktur bekommen, die durch (\mex{1}) beschrieben wird:
                       }, \ms[kater]{
                          lbl & \ibox{1}\\
                          arg0 & \ibox{2} } }\\
+\addlinespace[1mm]
        hcons & \liste{ \ms[qeq]{
                        harg & \ibox{4}\\
                        larg & \ibox{1}\\
@@ -3492,6 +3495,7 @@ repräsentiert:
                       }\\
                             arg2 & \ibox{2}
                       } }\\
+\addlinespace[1mm]
        hcons & \liste{ \ms[qeq]{
                        harg & \ibox{4}\\
                        larg & \ibox{1}\\
