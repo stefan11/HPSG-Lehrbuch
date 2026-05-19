@@ -268,6 +268,8 @@ Auf S.\,\pageref{bsp-projektion-v-merkmale} wurde gezeigt, dass
 die Verbform zu den Merkmalen zählt, die für die Distribution von Verbalprojektionen
 wichtig ist. Die Wortart und Information über Finitheit muss also an der Maximalprojektion
 von Verben wie \emph{gibt} repräsentiert sein. Das verdeutlicht Abbildung~\vref{fig-projektion-head-feat}.
+Die Verbform\isfeat{vform} ist bisher noch gar nicht in Merkmalbeschreibungen enthalten gewesen.
+Eine mögliche Merkmalsgeometrie zeigt (\mex{1}).
 \begin{figure}
 \settowidth{\offset}{V[\type{f}}
 \settowidth{\offsetup}{V[\type{fin}}
@@ -313,8 +315,6 @@ tikz={\draw[<->] ($(fin1.south west)+(\offsetup,2pt)$) to ($(fin2.north west)+(\
 %\end{forest}
 \caption{\label{fig-projektion-head-feat}Projektion der Kopfmerkmale des Verbs}
 \end{figure}
-Die Verbform\isfeat{vform} ist bisher noch gar nicht in Merkmalbeschreibungen enthalten gewesen.
-Eine mögliche Merkmalsgeometrie zeigt (\mex{1}).
 \ea
       \ms{ phon   & list~of~phoneme~strings\\
            p-o-s  & p-o-s \\
@@ -551,7 +551,7 @@ non-head"=dtrs & \liste{ \ms{ head$|$mod & \ibox{1} \\
 Der \modw des Adjunkts \iboxb{1} wird mit der Kopf"|tochter identifiziert, wodurch
 sichergestellt wird, dass die Kopf"|tochter die vom Adjunkt spezifizierten Eigenschaften hat. Die
 \sprl und die \compsl der Nicht"=Kopf"|tochter ist jeweils die leere Liste, weshalb nur vollständig gesättigte Adjunkte 
-in Kopf"=Adjunkt"=Strukturen zugelassen sind (siehe die Diskussion von * \emph{die Wurst in} auf S.\,\pageref{ex-die-Wurst-in}).
+in Kopf"=Adjunkt"=Strukturen zugelassen sind (siehe die Diskussion von *\emph{die Wurst in} auf S.\,\pageref{ex-die-Wurst-in}).
 
 In Kopf"=Adjunkt"=Strukturen werden keine Argumente der Kopftochter abgebunden. Sowohl der \sprw der
 Kopftochter als auch der \compsw muss mit dem entsprechenden Wert der Mutter identifiziert
@@ -717,10 +717,7 @@ S.\,\pageref{bsp-grammatik-psg}, wobei (\mex{0}) noch Information über die Verb
 Mit drei Dominanzschemata, Vererbung und Typhierarchien und verschiedenen Prinzipien sind bereits einige der wesentlichen Konzepte der HPSG"=Theorie eingeführt. Im folgenden
 Kapitel wird gezeigt, wie man den semantischen Beitrag von Wörtern repräsentieren und den
 semantischen Beitrag von Phrasen kompositionell bestimmen kann.
-
-
-
-
+%\largerpage
 
 
 \questions{
@@ -756,6 +753,7 @@ H für Kopf.
       so dass Sie unabhängig vom auf dem Computer installierten Betriebssystem arbeiten können. Alle
       Komponenten der Software sind installiert. Wenn Sie keinen Intel-Computer oder Freude am
       Installieren haben, können Sie auch eine noch unvollständige Version von TRALE direkt installieren.
+%\largerpage
 
       Für das Arbeiten mit der virtuellen Maschine gilt: Starten sie die virtuelle Maschine. Wenn der Bootvorgang abgeschlossen ist,
       sehen Sie einen Bildschirm mit einem Begrüßungsfenster in einem Web"=Browser und
@@ -790,7 +788,7 @@ H für Kopf.
       kann man die Werte, die zu den entsprechenden Boxen gehören, ein- und ausblenden.
 
       Lassen Sie sich die Merkmalbeschreibungen für die Beispiele in (\mex{0}) anzeigen!
-      Überlegen Sie, wieso die Merkmale die Werte haben, die sie haben!
+      Überlegen Sie, wieso die Merkmale die Werte haben, die sie haben!\pagebreak
       
       Geben Sie die ungrammatischen Wortfolgen in (\mex{1}) (ohne den Stern) ein:
       \eal

@@ -881,6 +881,7 @@ cont|rels  \ibox{1} $\oplus$ \ibox{2}\\
 dtrs  \sliste{ [cont|rels \ibox{1} ], [cont|rels \ibox{2} ] }\\
 }
 \z
+%\largerpage
 \textsc{dtrs} ist hierbei die Liste, die sich beim Aneinanderhängen der Liste mit der Kopftochter
 und der Liste mit den Nicht"=Kopftöchtern ergibt, wenn es eine Kopftochter gibt. Andernfalls
 ist die \textsc{dtrs}"=Liste mit der Liste der Nicht"=Kopftöchter identisch. Die Beschränkung in
@@ -988,6 +989,7 @@ wiederholt ist:
 Jede Tochter eines Mitarbeiters schläft.
 \z
 \todostefan{Jakob Mache: Jede = \ = all.}
+%\largerpage[2]
 \noindent
 Dieses Beispiel hat die beiden Lesarten in (\mex{1}) und (\mex{2}):
 \eal
@@ -1046,6 +1048,7 @@ Liste zusammensammeln. Für das einfache Beispiel in (\ref{ex-every-kind-schlafe
 h1:every\_q(x, h2, h3), h2:kind(x), h3:schlafen(x)
 \z
 h1, h2 und h3 sind die Labels der Relationen. Sie werden auch Handle genannt.
+\largerpage[2]
 
 Wie würde man mit Modifikation in Nominalgruppen umgehen? Unser Beispiel in (\ref{ex-Alle-Kinder-schlafen-zwei}), erweitert um das
 Adjektiv \emph{kleinen}, zeigt (\mex{1}):
@@ -1267,7 +1270,9 @@ farblich gekennzeichnet.
 In Abbildung~\ref{fig-Jede Tochter eines Mitarbeiters
   schläft-MRS} ist nicht festgelegt, ob der Allquantor über dem Existenzquantor steht oder
 andersherum. Entweder h2 wird mit h5
-identifiziert und h3 mit h9 oder h6 wird direkt mit h8 identifiziert und h7 mit h1. Die Abbildungen~\ref{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Allquantor} und~\ref{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Existenzquantor} zeigen die entsprechend geskopten MRSen.
+identifiziert und h3 mit h9 oder h6 wird direkt mit h8 identifiziert und h7 mit h1. Die Abbildungen~\ref{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Allquantor} und~\ref{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Existenzquantor} zeigen die geskopten MRSen.
+Die skopusaufgelösten MRSen entsprechen genau den beiden Lesarten aus
+(\ref{ex-Quantoren-Mitarbeiter-Tochter}).
 \begin{figure}
 \begin{tikzpicture}[scoped mrs]
 %\draw (-5,-1) to[grid with coordinates] (5,3);
@@ -1298,7 +1303,7 @@ identifiziert und h3 mit h9 oder h6 wird direkt mit h8 identifiziert und h7 mit 
 \end{tikzpicture}
 \caption{Skopusaufgelöste MRS mit weitem Skopus für den Existenzquantor, siehe (\ref{ex-Jede Tochter eines Mitarbeiters schläft. weiter Skopus Existenzquantor})}\label{fig-Jede-Tochter-eines-Mitarbeiters-schläft-Existenzquantor}
 \end{figure}
-Die skopusaufgelösten MRSen entsprechen genau den beiden Lesarten aus (\ref{ex-Quantoren-Mitarbeiter-Tochter}).
+
 
 Damit ist schon der wesentliche Teil der Analyse erklärt. Es fehlt lediglich die Umsetzung
 in Merkmalbeschreibungen für die entsprechenden Lexikoneinträge. 
@@ -1320,6 +1325,7 @@ cont & \ms{
                        per & 3\\
                        gen & fem\\
                        }\\
+\addlinespace[1mm]
        rels & \liste{ \ms[tochter\_rel]{
                       lbl  & \ibox{2}\\ 
                       arg0 & \ibox{3}\\ 
@@ -1329,6 +1335,7 @@ cont & \ms{
        }
 }
 \zs
+%\largerpage[3]
 \emph{Tochter} verlangt einen Determinator und eine Genitiv-NP. Der Index der Genitiv-NP ist
 identisch mit dem \argone der \type{tochter\_rel}"=Relation. Zum semantischen Beitrag sprachlicher
 Zeichen gehört nicht nur ein Index, sondern auch ein \ltopm. \ltop\isfeat{ltop} steht dabei für \emph{local top}
@@ -1356,34 +1363,45 @@ cat & \ms{ head & \ms[det~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~]{
            arg-st & \eliste\\
          }\\
 cont & \ms{
+       ltop & \ibox{3}\\
+       ind  & \ibox{2}\\
        rels & \liste{ \ms[every\_q]{
+                      lbl  & \ibox{3}\\
                       arg0 & \ibox{2}\\ 
-                      rstr & \ibox{3}\\ 
+                      rstr & \ibox{4}\\ 
 %                      body &\\
-                      } }\\[5mm]
+                      } }\\
+\addlinespace[1mm]
        hcons & \liste{ \ms[qeq]{
-                       harg & \ibox{3}\\
+                       harg & \ibox{4}\\
                        larg & \ibox{1} } } }
 }
 \zs
-\emph{jede} ist ein Determinator, der selbst keine Argumente braucht, also eine leere \spr- und
-\compsl hat. Der Allquantor wird in der \relsl eingeführt. \argzero ist das Merkmal für die
-Variable. Der Wert von \argzero, also die Variable, ist \ibox{2}. Außerdem gibt es je ein Merkmal
+\emph{jede} ist ein Determinator, der selbst keine Argumente braucht, also eine leere \argstl und
+somit auch eine leere \spr- und \compsl hat. Der Allquantor wird in der \relsl eingeführt. Der
+\ltopw von \emph{jede} ist identisch mit dem Label des der Relation. \argzero ist das Merkmal für die
+Variable. Der Wert von \argzero, also die Variable, ist \ibox{2}. \ibox{2} ist sowohl der Index-Wert
+des Quantors als auch der Index-Wert des Nomens, zu dem der Quantor gehört.\footnote{
+  Weder der \ltopw noch der \indw von Determinatoren wird in dem hier vorgestellten
+  Grammatikfragment für irgend etwas benötigt. Der Vollständigkeit halber sind sie in
+  (\ref{le-jede}) dennoch angegeben. In den folgenden Einträgen für Eigennamen (\ref{le-Aicke-1}) bzw.\ (\ref{le-Aicke-2})
+  und Possessivpronomina (\ref{le-Possessivpronomen}) und in der Diskussion von Alternativen lasse ich den \ltopw und das \lbl der Quantor-Relation weg.
+} Außerdem gibt es je ein Merkmal
 für die Restriktion (\restr) und den Body (\body). Die komplette Struktur für den Quantor ist also
 die in (\mex{1}a), aber da der Wert von \body nie durch Quantoren restringiert wird, muss man \body
 in (\mex{0}) auch nicht angeben.
 \eal
 \ex \ms[every\_q]{
-                      arg0 & \ibox{2}\\ 
-                      rstr & \ibox{3}\\ 
-                      body & \etag\\
+    lbl & \ibox{3}\\
+    arg0 & \ibox{2}\\ 
+    rstr & \ibox{4}\\ 
+    body & \etag\\
                       }
-\ex every\_q(\ibox{2}, \ibox{3}, \etag)
+\ex \ibox{3}:every\_q(\ibox{2}, \ibox{4}, \etag)
 \zl
-Für die Restriktion
-wurde oben angenommen, dass sie in einer \qeq\vspace{-2pt}\hspace{-.5ex}\hyp Relation zum Handle der
-\nbar steht. Das Nomen kann
-zwar über die \sprl auf den Determinator zugreifen, aber andersrum ist das nicht
+%\largerpage[-2]
+Für die Restriktion wurde oben angenommen, dass sie in einer \qeq\vspace{-2pt}\hspace{-.5ex}\hyp
+Relation zum Handle der \nbar steht. Das Nomen kann zwar über die \sprl auf den Determinator zugreifen, aber andersrum ist das nicht
 möglich. Determinatoren sind vollständig und somit ist ein Zugriff auf das Nomen über Valenzmerkmale
 nicht möglich. Man behilft sich deshalb mit einem Trick: Analog zum \modm nimmt man ein
 \textsc{spec}"=Merkmal an \citep[\page 50--51]{ps2}. \textsc{spec} steht für \emph{specified}. Der Wert des \specms ist
@@ -1462,6 +1480,7 @@ Präpositionalphrasen die Möglichkeit, einen Spezifikator, also ein Element in 
 \eal
 \ex {}[[Einen Schritt] vor dem Abgrund] blieb er stehen.\label{Beispiel-Schritt-vor-dem-Abgrund}
 \ex {}[[Kurz] nach dem Start] fiel die Klimaanlage aus.
+%\newpage
 \ex {}[[Schräg] hinter der Scheune] ist ein Weiher.
 \ex {}[[Mitten] im Urwald] stießen die Forscher auf einen alten Tempel.
 \zl
@@ -1494,7 +1513,7 @@ Formalisieren lässt sich das Prinzip wie folgt:
 \mbox{}\hfill\onems{ head-dtr \ibox{1}\\
               non-head-dtrs \nliste{ [\textsc{cat|head|spec} \ibox{1}] } }
 \z
-
+%\largerpage
 
 
 \subsection{Eigennamen und Possessivpronomen}
@@ -1507,6 +1526,7 @@ angesehen, dass sie \emph{Aicke} heißt. Die Repräsentation mittels Relationen 
 parallel zu der von Nominalphrasen mit Determinator. (\mex{1}) zeigt den Lexikoneintrag für den
 Eigennamen \emph{Aicke}:
 \eas
+\label{le-Aicke-1}%
 Lexikoneintrag für \emph{Aicke}:\\
 \ms{
 cat & \ms{ head & noun\\
@@ -1541,7 +1561,9 @@ werden in der Prädikatenlogik ja auch Individuenkonstanten verwendet. Diese int
 Quantoren. Die Repräsentation in (\mex{0}) legt aber eine solche Interpretation nahe. Durch
 die Verwendung von Handle"=Constraints können andere Quantoren zwischen proper\_q und named\_rel
 skopen. Das kann man ausschließen, indem man die named\_rel direkt bei proper\_q einstöpselt:
+%\largerpage[2]
 \eas
+\label{le-Aicke-2}%
 Lexikoneintrag für \emph{Aicke}:\\
 \ms{
 cat & \ms{ head & noun\\
@@ -1683,7 +1705,68 @@ weil sie eine Mischung aus Determinatoren und Pronomen sind. (\mex{1}) zeigt ein
 \ea
 ihr Buch
 \z
-Den Lexikoneintrag für \emph{ihr} zeigt (\mex{1}):
+Den Lexikoneintrag für \emph{ihr} zeigt (\ref{le-Possessivpronomen}).
+% Ich schiebe das per Hand nach hinten, dann stimmen die Beispiel-Nummern.
+% \begin{figure}[htb]
+% \eas
+% \label{Lexikoneintrag Possessivpronomen}%
+% \label{le-Possessivpronomen}%
+% Lexikoneintrag für das Possessivpronomen \emph{ihr}:\\
+% \ms{ 
+%   cat & \ms{ head  & \ms[det]{
+%                      case & nom\\
+%                      spec & \ms{ cont & \ms{ ltop & \ibox{1}\\
+%                                              ind  & \ibox{2}\\
+%                                            }}\\
+%                      }\\
+%              arg-st & \eliste\\
+%            } \\
+%   cont &  \ms{
+% %       ltop & \ibox{3}\\
+%        ind  & \ibox{3} \ms{
+%                        per & 3\\
+%                        num & sg\\
+%                        gen & fem\\
+%                       }\\ 
+% \addlinespace[1mm]
+%        rels & \liste{ \ms[def\_q]{
+%                       arg0 & \ibox{2}\\ 
+%                       rstr & \ibox{4}\\ 
+% %                      body &\\
+%                       }, \ms[besitzen\_rel]{
+%                             lbl  & \ibox{1}\\     % pronoun_q(x,h, h) h1:pronoun_rel(x),
+%                                 % h1:besitzen(x,y) ^ h1:buch(y)
+% %                           arg0 & event\\
+%                             arg1 & \ibox{3}\\
+%                             arg2 & \ibox{2}
+%                       } }\\
+% \addlinespace[1mm]
+%        hcons & \liste{ \ms[qeq]{
+%                        harg & \ibox{4}\\
+%                        larg & \ibox{1}\\
+%                        }
+%                }\\
+%            } \\
+% }
+% \zs
+% \vspace{-\baselineskip}
+% \end{figure}
+% ERG verwendet def_implicit_q_rel für Possessivpronomina.
+% def_implicit_q_rel := def_q_rel & implicit_q_rel.
+Kombiniert man \emph{ihr} mit \emph{Buch} erhält man die folgende MRS:
+\ea
+\label{MRS ihr Buch}
+\textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1, i1, x), h4:buch(x) \},\\
+\hphantom{\textlangle~}\{ h2 \qeq h4 \}  }
+\z
+Das Possessivpronomen verhält sich wie ein definiter Artikel und die Restriktion des entsprechenden
+Quantors def\_q, nämlich h2, ist \emph{quantifier equal} (\qeq) mit dem Handle der besitzen"=Relation h4, das mit dem Handle von
+\emph{Buch} identifiziert ist. Die Rolle des/der Besitzenden wird durch den pronominalen Index $i1$ gefüllt.
+
+Man beachte, dass der Index des Possessivpronomens sich vom Index der \nbar unterscheidet, mit der
+das Pronomen kombiniert wird.
+
+% von vorn wegen Layout nach hier verschoben.
 \eas
 \label{Lexikoneintrag Possessivpronomen}%
 \label{le-Possessivpronomen}%
@@ -1704,6 +1787,7 @@ Lexikoneintrag für das Possessivpronomen \emph{ihr}:\\
                        num & sg\\
                        gen & fem\\
                       }\\ 
+\addlinespace[1mm]
        rels & \liste{ \ms[def\_q]{
                       arg0 & \ibox{2}\\ 
                       rstr & \ibox{4}\\ 
@@ -1715,6 +1799,7 @@ Lexikoneintrag für das Possessivpronomen \emph{ihr}:\\
                             arg1 & \ibox{3}\\
                             arg2 & \ibox{2}
                       } }\\
+\addlinespace[1mm]
        hcons & \liste{ \ms[qeq]{
                        harg & \ibox{4}\\
                        larg & \ibox{1}\\
@@ -1723,21 +1808,8 @@ Lexikoneintrag für das Possessivpronomen \emph{ihr}:\\
            } \\
 }
 \zs
-% ERG verwendet def_implicit_q_rel für Possessivpronomina.
-% def_implicit_q_rel := def_q_rel & implicit_q_rel.
-Kombiniert man \emph{ihr} mit \emph{Buch} erhält man die folgende MRS:
-\ea
-\label{MRS ihr Buch}
-\textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1, i1, x), h4:buch(x) \},\\
-\hphantom{\textlangle~}\{ h2 \qeq h4 \}  }
-\z
-Das Possessivpronomen verhält sich wie ein definiter Artikel und die Restriktion des entsprechenden
-Quantors def\_q, nämlich h2, ist \emph{quantifier equal} (\qeq) mit dem Handle der besitzen"=Relation h4, das mit dem Handle von
-\emph{Buch} identifiziert ist. Die Rolle des/der Besitzenden wird durch den pronominalen Index $i1$ gefüllt.
 
 
-Man beachte, dass der Index des Possessivpronomens sich vom Index der \nbar unterscheidet, mit der
-das Pronomen kombiniert wird.
 
 \subsection{\emph{mutmaßliche Mörder}}
 \label{Abschnitt-Semantik-Adjektivmodifikation-mutmaßlich}
@@ -1872,6 +1944,8 @@ modifizieren, aber auch bei Komplementen kann das der Fall sein. Der folgende Sa
 \ea
 Alle Affen glauben, dass ein Einhorn schläft.
 \z
+%\largerpage[2]
+\largerpage[-1]
 Es kann sein, dass es kein Einhorn gibt und nur die Affen glauben, dass es etwas gibt, das ein
 Einhorn ist und schläft. Außerdem kann es sein, dass es ein bestimmtes Einhorn gibt, von dem alle
 Affen glauben, dass es schläft. Und dann kann es sein, dass es für jeden Affen ein Einhorn gibt, von
@@ -2206,7 +2280,7 @@ links in Abbildung~\ref{Abbildung hypernormaler Graph} für hypernormale Pfade u
 \hfill\mbox{}
 \caption{Zwei hypernormale Pfade und ein nicht hypernormaler Pfad von Y nach Z ohne X}\label{Abbildung hypernormaler Graph}
 \end{figure}
-\itdopt{Punkte für Knoten hinzufügen, check, Y2 ist in der mittleren Abbildung zu weit vom Pfeil weg.}
+\LATER{Punkte für Knoten hinzufügen, check, Y2 ist in der mittleren Abbildung zu weit vom Pfeil weg.}
 
 Im linken Graph könnte man die Dominanzkante von X zu Z einfach weglassen, denn man gelangt auch
 über Y1, Y2 und Y3 zu Z. Genauso kann man beim zweiten Graph Y3 irgendwo unterhalb von X einstöpseln
@@ -2823,6 +2897,7 @@ die beiden Untertypen \type{intersective-phrase} und \type{scopal-phrase}. Für 
 vom \type{scopal-phrase} muss es in der \relsl der \textsc{dtr1} irgendeine skopale Relation geben, deren Label mit
 dem \ltopw von \textsc{dtr1} identisch ist und deren \argone \qeq mit dem \ltop der \textsc{dtr2}
 ist.
+\largerpage
 
 Dabei gibt es aber einige Probleme: Erstens muss man bei Annahme dieser Typen sämtliche
 in Frage kommenden Dominanzschemata verdoppeln. Es muss intersektive und skopale
@@ -2862,6 +2937,7 @@ sich um eine skopale Modifikation und wenn nicht, dann um eine intersektive. Das
 ein weiteres Problem lösen, nämlich dass \type{intersective-phrase} mit allen Phrasen kompatibel
 ist, denn alle \ltop{}s sind immer identifizierbar. Auch bei skopalen Modifikatoren wäre es
 ansonsten möglich, dass sie in entsprechende Konfigurationen eintreten. 
+\largerpage
 
 Im letzten Abschnitt habe ich einen anderen Ansatz gewählt. Statt Bezug auf Relationen zu nehmen,
 habe ich ein Kopfmerkmal verwendet, das für einen Modifikator sagt, ob er skopal oder intersektiv
@@ -3012,6 +3088,70 @@ Der Dominanzgraph sagt aus, dass $h2$ $h4$, $h3$ $h7$ und $h6$ $h7$ dominiert. D
 Allquantor kann Skopus über CAUSE haben oder CAUSE kann Skopus über den Allquantor haben. Die
 Abbildungen~\ref{fig-alle-cause} und \ref{fig-cause-alle} zeigen die skopusaufgelösten Varianten des
 Graphen.
+% \begin{figure}
+% \begin{tikzpicture}[scoped mrs]
+% % \draw (-5,10) to[grid with coordinates] (5,-.5);
+% \node(offen)   at (0,0) {h7:offen(x)};
+% \node(fenster) at (-4,2){h4:fenster(x)};
+% \node(every-q) at (-4,4){h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+% \node(cause)   at (2,4) {h5:CAUSE(max, \subnode{h6}{h6})};
+%
+% \draw (h2) to (fenster);
+% \draw (h3) .. controls +(0,-1) and +(0,2).. (cause);
+% \draw (h6) to (offen);
+% \end{tikzpicture}
+% \caption{Dominanzgraph für die Lesart $\forall$x fenster(x) $\to$ CAUSE(max, offen(x))\label{fig-alle-cause}}
+% \end{figure}
+% \begin{figure}
+% \begin{tikzpicture}[scoped mrs]
+% % \draw (-5,10) to[grid with coordinates] (5,-.5);
+% \node(offen)   at (0,0) {h7:offen(x)};
+% \node(fenster) at (-4,2){h4:fenster(x)};
+% \node(every-q) at (-4,4){h1:every\_q(x, \subnode{h2}{h2}, \subnode{h3}{h3})};
+% \node(cause)   at (2,4) {h5:CAUSE(max, \subnode{h6}{h6})};
+%
+% \draw (h2) to (fenster);
+% \draw (h3) to (offen);
+% \draw (h6) .. controls +(0,-2) and +(0,2).. (every-q);
+% \end{tikzpicture}
+% \caption{Graph für die Lesart CAUSE(max, $\forall$x fenster(x) $\to$ offen(x)).\label{fig-cause-alle}}
+% \end{figure}
+Dass der Quantor $h4$ dominiert, wird im Lexikoneintrag des Quantors festgelegt. Dass der Quantor
+$h7$ dominiert, muss man in der Analyse nicht explizit machen, denn der Quantor bindet eine Variable
+in der zu $h7$ gehörenden Relation, und zwar x. Die Dominanzbeziehung zwischen $h6$ und $h7$ wird ebenfalls
+im Lexikon festgelegt, denn CAUSE und \relation{offen} gehören ja zum semantischen Beitrag eines
+einzigen Lexikoneintrags. (\mex{1}) zeigt den Lexikoneintrag für \stem{öffn}.
+%\todostefan{check ob
+%  der gleich danach kommt, sonst Punkt als Satzzeichen}
+\begin{figure}
+\eas
+\label{le-öffnen}%
+Lexikoneintrag für \stem{öffn}:\\
+\ms
+{ cat & \ms{ head & verb\\
+             arg-st & \liste{ NP[\type{nom}]\ind{1}, NP[\type{acc}]\ind{2}   } \\
+           } \\
+  cont &  \ms{
+          ltop & \ibox{3}\\
+          ind  & \ibox{4} event\\
+          rels & \liste{ \ms[cause]{
+                         lbl  & \ibox{3}\\
+                         arg0 & \ibox{4}\\
+                         arg1 & \ibox{1}\\
+                         arg2 & \ibox{5} },
+                         \ms[offen]{ 
+                          lbl  & \ibox{6}\\
+                          arg0 & event\\
+                          arg1 & \ibox{2} 
+                          } } }\\
+          hcons & \liste{ \ms[qeq]{
+                          harg & \ibox{5}\\
+                          larg & \ibox{6} } }\\
+}
+\zs
+\vspace{-.3\baselineskip}
+\end{figure}
+% Abbildungen wegen Layout nach hier verschoben.
 \begin{figure}
 \begin{tikzpicture}[scoped mrs]
 % \draw (-5,10) to[grid with coordinates] (5,-.5);
@@ -3040,37 +3180,6 @@ Graphen.
 \end{tikzpicture}
 \caption{Graph für die Lesart CAUSE(max, $\forall$x fenster(x) $\to$ offen(x)).\label{fig-cause-alle}}
 \end{figure}
-Dass der Quantor $h4$ dominiert, wird im Lexikoneintrag des Quantors festgelegt. Dass der Quantor
-$h7$ dominiert, muss man in der Analyse nicht explizit machen, denn der Quantor bindet eine Variable
-in der zu $h7$ gehörenden Relation, und zwar x. Die Dominanzbeziehung zwischen $h6$ und $h7$ wird ebenfalls
-im Lexikon festgelegt, denn CAUSE und \relation{offen} gehören ja zum semantischen Beitrag eines
-einzigen Lexikoneintrags. (\mex{1}) zeigt den Lexikoneintrag für \stem{öffn}:\todostefan{check ob
-  der gleich danach kommt, sonst Punkt als Satzzeichen}
-\eas
-\label{le-öffnen}%
-Lexikoneintrag für \stem{öffn}:\\
-\ms
-{ cat & \ms{ head & verb\\
-             arg-st & \liste{ NP[\type{nom}]\ind{1}, NP[\type{acc}]\ind{2}   } \\
-           } \\
-  cont &  \ms{
-          ltop & \ibox{3}\\
-          ind  & \ibox{4} event\\
-          rels & \liste{ \ms[cause]{
-                         lbl  & \ibox{3}\\
-                         arg0 & \ibox{4}\\
-                         arg1 & \ibox{1}\\
-                         arg2 & \ibox{5} },
-                         \ms[offen]{ 
-                          lbl  & \ibox{6}\\
-                          arg0 & event\\
-                          arg1 & \ibox{2} 
-                          } } }\\
-          hcons & \liste{ \ms[qeq]{
-                          harg & \ibox{5}\\
-                          larg & \ibox{6} } }\\
-}
-\zs
 Man beachte, dass das Linking zwischen der \argstl und der \relsl erfolgt. Es gibt
 alternative Vorschläge, wo Elemente aus der \argstl zu Argumenten nur einer ausgewählten Relation in
 Beziehung gesetzt werden. Die Relation wird mit Hilfe des Merkmals \textsc{key} aus der \relsl
@@ -3078,9 +3187,9 @@ ausgewählt: \textsc{key} zeigt auf genau ein Element \citep{Flickinger2000a}. D
 funktioniert nicht, wenn wie in (\mex{0}) Elemente der \argstl an Argumente in verschiedenen Relationen innerhalb der
 \relsl gelinkt werden.
 
-
-Die syntaktische Theorie, die man für diese Analyse annimmt, ist letztendlich nebensächlich. Ich habe
-hier HPSG gewählt. Wie Abbildung~\vref{Abbildung-Fenster-oeffnete-MRS} zeigt, handelt es sich bei der
+%Die syntaktische Theorie, die man für diese Analyse annimmt, ist letztendlich nebensächlich. Ich habe
+%hier HPSG gewählt. 
+Wie Abbildung~\vref{Abbildung-Fenster-oeffnete-MRS} zeigt, handelt es sich bei der
 Analyse für \emph{alle Fenster öffnet} um eine einfache Struktur mit einem Verb und einem Objekt.
 \begin{figure}
 %\begin{sideways}
@@ -3413,7 +3522,8 @@ Das Problem besteht nun darin, dass die Repräsentation für \emph{ihren Kater},
 die mit (\mex{0}) gebildet werden kann, die falsche Index"=Information hat, denn das Semantikprinzip
 sorgt dafür, dass der semantische Beitrag in einer Kopf"=Komplement"=Struktur vom Kopf kommt. In der
 DP"=Analyse ist der Determinator der Kopf und steuert somit den semantischen Hauptbeitrag bei. Man
-würde also eine Struktur bekommen, die durch (\mex{1}) beschrieben wird:
+würde also eine Struktur bekommen, die durch (\mex{1}) beschrieben wird.
+\begin{figure}
 \eas
 \textit{ihren Kater} (falsch, Index des Possessivums statt des Nomens):\\
 \ms{ 
@@ -3450,11 +3560,13 @@ würde also eine Struktur bekommen, die durch (\mex{1}) beschrieben wird:
            } \\
 }
 \zs
+\vspace{-\baselineskip}
+\end{figure}
 Der Index dieser DP entspricht dem Possessivpronomen, nicht aber dem Nomen.
 Das Nomen ist jedoch das Element, das eine semantische Rolle eines Verbs füllen kann.
 Würde man mit dem Eintrag in (\mex{-1}) den Satz in (\mex{1}) analysieren,
 bekäme man eine falsche Repräsentation, in der \emph{friert} über \emph{ihren}
-prädiziert. Die semantische Repräsentation wäre dann (\mex{1}c) statt (\mex{1}b):
+prädiziert. Die semantische Repräsentation wäre dann (\mex{1}c) statt (\mex{1}b).
 \eal
 \ex Ihren Kater friert.
 \ex \textmrs{ h0, \{ h1:def\_q(x, h2, h3), h4:besitzen(e1, i1, x), h4:kater(x), h3:frieren(x) \},\\
