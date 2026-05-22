@@ -43,7 +43,8 @@ oder \emph{auf}.\footnote{
 ab. Morphologische Regeln werden in Kapitel~\ref{Kapitel-Morphologie} behandelt.
 
 Im Folgenden soll gezeigt werden, wie man einen Lexikoneintrag für ein Nomen wie \emph{Buch} repräsentieren
-kann. Der Lexikoneintrag für das Nomen \emph{Buch} ist in (\mex{1}) angegeben:
+kann. Der Lexikoneintrag für das Nomen \emph{Buch} ist in (\mex{1}) angegeben.
+\begin{figure}
 \ea
 \ms{
  phon & \phonliste{ \highlight{Buch} } \\[2mm]
@@ -66,6 +67,8 @@ kann. Der Lexikoneintrag für das Nomen \emph{Buch} ist in (\mex{1}) angegeben:
 \ldots & \ldots\\
 }
 \z
+\vspace{-\baselineskip}
+\end{figure}
 Nur ein kleiner Teil dieser Information -- nämlich der grau unterlegte -- ist idiosynkratisch.
 Die Punkte in (\mex{0}) sollen darauf hinweisen, dass in den folgenden Kapiteln noch weitere Merkmale
 eingeführt werden, die auch für Nomina relevant sind, so dass sich das Verhältnis von wortspezifischer
@@ -74,9 +77,12 @@ verändert.
 
 Man kann die Information in (\mex{0}) wie folgt zerlegen: (\mex{1}) enthält 
 die Merkmal"=Wert"=Paare, die für alle lexikalischen Elemente gleich sind, die eine Relation
-einführen:
+einführen.
+%
+\begin{figure}
 \ea
-Alle relationalen Lexikonelemente bis auf Quantoren (\type{relational-le}):\\
+\label{relational-le}%
+Alle relationalen Lexikonelemente (\type{relational-le}):\\
 \avm{
 [ cont & [ ltop & \1\\
            ind  & \2\\
@@ -85,6 +91,8 @@ Alle relationalen Lexikonelemente bis auf Quantoren (\type{relational-le}):\\
                      arg0 & \2], \ldots > ] ]
 }
 \z
+\vspace{-\baselineskip}
+\end{figure}
 Der \ltopw ist dabei mit dem Label der ersten Relation identifiziert. Statt der genauen Relation ist
 in (\mex{0}) nur der allgemeinste Typ angegeben. \type{buch} und \type{kind} und auch \type{lesen}
 und \type{lachen} sind Untertypen von \type{relation}.
@@ -96,6 +104,7 @@ der Signatur für die hier entwickelte Grammatik steht zum Beispiel, dass Zeiche
 und dass der Wert von \cont vom Typ \type{mrs} sein muss. Zu Strukturen vom Typ \type{mrs} gehören
 dann die Merkmale \ltop, \textsc{ind}, \rels und \hcons. Für jedes Merkmal muss festgelegt werden,
 welchen Typ der Wert haben muss. Siehe hierzu auch Abschnitt~\ref{sec-modelle-theorien} und \citew[98]{Richter2024a}.
+%\largerpage
 
 Bei Nomen ohne Argument und Verben ist die \hconsl für
 gewöhnlich leer (siehe jedoch den Lexikoneintrag für \emph{glauben} auf S.\,\pageref{le-glauben}).
@@ -128,6 +137,7 @@ Alle Nomina, die nur einen Determinator verlangen (\type{det-noun-root}):\\
               arg-st & \nliste{ Det } }\\
   cont & \ms{ ind|per & 3 }}
 \z
+\largerpage[2]
 Mit dem \argstw ist schon viel über die Valenz eines Lexikonelements ausgesagt. Das
 Argumentrealisierungsprinzip\is{Prinzip!Argumentrealisierungs-} (siehe (\ref{Prinzip-Argumentrealisierung-einfach}) auf
 S.\,\pageref{Prinzip-Argumentrealisierung-einfach}) verteilt die Elemente der \argstl auf die
@@ -173,7 +183,8 @@ cont &  \ms{
 \z
 
 \noindent
-Die Information kann man wie folgt aufteilen: Alle Verben teilen die Information
+Die Information kann man wie folgt aufteilen: Alle Verben teilen zusätzlich zu den Beschränkungen
+für den Typ \type{relational-le} in (\ref{relational-le}) die Information
 in (\mex{1}).
 \ea
 Alle Verben (\type{verb-root}):\\
@@ -599,6 +610,7 @@ formalisieren müsste.\footnote{%
 Goldberg benutzt eine Variante von Vererbung, die von \citet*[263]{FPW85a} vorgeschlagen wurde,
 aber im ersten Buch von \citet{ps} nicht mehr verwendet wurde \citep[309]{GoldbergShirtz2025a}.%
 }
+\largerpage
 
 \subsubsection{Phrasale vs.\ lexikalische Argumentstruktur-Konstruktionen}
 \label{sec-phrasal-lexikalisch-rc}
@@ -617,6 +629,7 @@ dann muss man auch die Bedeutung von (\mex{1}b) an einer phrasalen Konfiguration
 \ex Der Teich wurde leer gefischt.
 \ex die Leerfischung des Teiches
 \zl
+\largerpage
 Man kann dann nicht, so wie das im Abschnitt~\ref{sec-lr} gemacht wurde, einen Verbstamm
 mittels Lexikonregel zu einem Partizip in Beziehung setzen, um (\mex{0}b) zu analysieren,
 da der Verbstamm ja die resultative Bedeutung nicht enthält. Diese wird in Goldbergs Analyse
@@ -966,6 +979,7 @@ Der Delphin schläft den Ball.
 Der Delphin denkt an den Fisch den Ball.
 }
 \zl
+\largerpage[2]
 In (\mex{0}a) wurde ein intransitives Verb mit der Transitiv"=Konstruktion verbunden und in
 (\mex{0}b) ein Verb, das ein Präpositionalobjekt verlangt, \dash, man kann die Repräsentationen in
 (\ref{ex-schlagen-linking}) nicht automatisch berechnen lassen. In Kays und Fillmores System müsste
@@ -989,6 +1003,7 @@ Das ist bei den sogenannten Anhebungsverben\is{Verb!Anhebungs-} der Fall (zu Anh
 siehe Abschnitt~\ref{sec-anhebung}). Wie man an der Subjekt"=Verb"=Kongruenz in (\mex{1})
 sehen kann, ist \emph{du} das Subjekt von \emph{scheinst}. Der Referent von \emph{du} ist aber nicht
 "`der Scheinende"'.
+
 \ea
 Du scheinst gleich einzuschlafen.
 \z
@@ -1016,7 +1031,7 @@ Aussagen bzgl.\ seines Vorkommens in Aktiv"= und Passivsätzen zu machen.
 Zu Resultativkonstruktionen und
 Interaktionen mit anderen Konstruktionen siehe auch \citew{Mueller2006d,Mueller2006c}.
 \is{Konstruktionsgrammatik (CxG)|)}
-
+\largerpage[2]
 
 \subsubsection{\citew{Koenig99a}}
 \label{sec-vererbung-koenig}
@@ -1064,6 +1079,7 @@ Das logische Subjekt\is{Subjekt!logisches}\footnote{
 }
 von \emph{lesen} wird unterdrückt, und es erscheint ein Reflexivum als
 formale Markierung im Satz.
+\largerpage
 
 \is{Passiv|(}%
 Das Problem mit zusätzlichen Argumenten lässt sich lösen, wenn man mehrere Repräsentationsmöglichkeiten für
@@ -1188,7 +1204,8 @@ cat       & \ms{
 \zl
 Der Aktiv"=Linking"=Typ übernimmt einfach alle Elemente der Argumentstruktur auf die \compsl.
 Der Passiv"=Linking"=Typ übernimmt alle Elemente aus der \argstl außer dem Subjekt.
-Das Ergebnis der Unifikationen von \type{lesen} mit den entsprechenden Typen zeigt (\mex{1}):
+Das Ergebnis der Unifikationen von \type{lesen} mit den entsprechenden Typen zeigt (\mex{1}).
+\begin{figure}
 \eal
 \ex 
 \begin{tabular}[t]{@{}l@{}}
@@ -1221,6 +1238,8 @@ cont      & \ms[lesen-rel]{
 }
 \end{tabular}
 \zl
+\vspace{-\baselineskip}
+\end{figure}
 Die aufmerksame Leser*in wird festgestellt haben, dass in den Spezifikationen keine
 Kasusinformation enthalten ist. In der Lexikonregel in (\ref{lr-passiv-beispiel})
 weichen die Kasus des logischen Objekts im Eintrag für die Aktivform und die Passivform
@@ -1229,6 +1248,7 @@ Entsprechende Beschränkungen müssten für die Aktiv- und die Passiv"=Linking"=
 formuliert werden. Das ist möglich: Man könnte auf die Kasusprinzipien,
 die im Kapitel~\ref{Kapitel-Kasus} erläutert werden, zurückgreifen. Allerdings könnte Kasus dann
 nicht mehr auf der \argstl zugewiesen werden, denn diese wäre ja bei Aktiv und Passiv gleich.
+\pagebreak
 
 Der Linking"=Typ für die Medialkonstruktion\is{Medialkonstruktion} lässt sich analog zum Passiv definieren:
 
@@ -1287,7 +1307,9 @@ Ursprungszeichen semantisch einbetten (also \zb \emph{cause} zu \emph{kill} hinz
 Auch gibt es Sprachen wie das Litauische\il{Litauisch} \citep[Abschnitt~5]{Timberlake82a}, das
 Irische\il{Irisch} \citep{Noonan94a} und das Türkische\il{Türkisch} \parencites{Ozkaragoez86a}[Abschnitt~2.3.3]{Knecht85a-u}, in denen Kombinationen aus Passivierung und
 Impersonalkonstruktion möglich sind \citep{Blevins2003a}. (\mex{1}) zeigt
-die türkischen Beispiele von \citet[\page 77]{Ozkaragoez86a} mit der von ihm verwendeten Glossierung:
+die türkischen Beispiele von \citet[\page 77]{Ozkaragoez86a} mit der von ihm verwendeten
+Glossierung:
+\largerpage
 %% \eal
 %% \ex
 %% \gll Vėjas nupūte tą lapelį.\\
@@ -1358,6 +1380,7 @@ Der Weinkeller  trinkt sich schnell leer.
 \ex\iw{laufen}\iw{platt}
 Der Rasen läuft sich leicht platt.
 \zl
+\largerpage[2]
 Das Problem besteht darin, dass das Objekt in (\mex{-1}a) kein Objekt von \emph{fischen} ist.
 Damit es beim Passiv zum Subjekt werden kann, muss es vorher eingeführt worden sein. Man könnte
 vorschlagen, das analog zur Einführung des Reflexivums zu tun. Das funktioniert jedoch nicht,
@@ -1457,7 +1480,7 @@ der dem folgenden ähnelt:\footnote{
   \textsc{arg-list}, müsste also -- wenn man von einer einfachen Zuordnung ausgeht -- auch das letzte Element der \compsl sein. %
 }
 \ea
-\label{linking-extraposition}
+\label{linking-extraposition}%
 \ms[extraposition]{
 cat & \ms{ subj   & \nliste{ \ibox{2} }\\
            comps  & \sliste{ \ldots{} \ibox{1} \ldots{} }\\
@@ -1579,6 +1602,7 @@ in die Grammatik aufnehmen.
 Ein weiteres Problem im Zusammenhang mit Resultativkonstruktionen ergibt sich daraus, dass
 diese einen semantischen Beitrag leisten. (\mex{1}a) könnte man als (\mex{1}b) paraphrasieren
 und als (\mex{1}c) repräsentieren:
+\newpage
 \eal
 \ex Conny fischt den Teich leer.
 \ex Dass Conny fischt, verursacht, dass der Teich leer wird.
@@ -1726,6 +1750,7 @@ besteht darin, im Lexikoneintrag für \emph{vendre} die relevante Information ei
 tiefer, nämlich bei den Töchtern zu spezifizieren. Rechnet man dann automatisch die Strukturen
 für \type{vendre} $\wedge$ \type{active} bzw.\ \type{vendre} $\wedge$ \type{medio-passive}
 aus, bekommt man auf der obersten Ebene die erwünschte Valenzrepräsentation.
+\largerpage
 
 Das ist aber nicht die Lösung des Problems. Das System, das Koenig entwickelt, lässt sich
 nicht umsetzen, wenn die Typhierarchie Derivationstypen und Wurzeln in Partitionen enthält.
@@ -1829,6 +1854,7 @@ Abschnitt~\ref{sec-lr} besprochenen Lexikonregeln entspricht. Auf Hilfsmerkmale 
 
 \subsection{Defaults}
 \label{sec-defaults}
+\largerpage
 
 In\is{Default|(} der Linguistik ist oft von Default"=Werten die Rede. 
 Zum Beispiel wird der Nominativ als Default"=Kasus\is{Kasus!Default-} bezeichnet \parencites[\page
@@ -1862,7 +1888,7 @@ Das klassische Beispiel zur Default"=Vererbung aus der Künstlichen Intelligenz
 ist die Subhierarchie für das Konzept \emph{Vogel}: Vögel haben normalerweise
 Flügel und können fliegen \citep[358--359]{RussellNorvig2003a-ed}. Diese Eigenschaften erbt der Subtyp \type{Spatz},
 beim Subtyp \type{Pinguin} wird aber die Eigenschaft des Fliegen"=Könnens überschrieben.
-Die entsprechende Hierarchie mit Eigenschaften zeigt Abbildung~\vref{pinguin}.\todostefan{Quelle}
+Die entsprechende Hierarchie mit Eigenschaften zeigt Abbildung~\vref{pinguin}.
 \begin{figure}
 \begin{forest}
 type hierarchy
@@ -1895,6 +1921,7 @@ von Insekten erben können. Die Frage, ob man Default"=Vererbung in der Linguist
 braucht, wird kontrovers diskutiert. Sind Generalisierungen, die für ganze Subklassen nicht gelten,
 Generalisierungen? 
 %Wird erfasst, wie stark ein bestimmter Typ von anderen abweicht?
+\largerpage
 
 Ein Problem mit nicht-monotoner Vererbung
 ergibt sich, wenn man Typhierarchien mit Mehrfachvererbung\is{Vererbung!Mehrfach-} hat und
@@ -1924,7 +1951,7 @@ der Werte des Obertyps, der allgemeinste Typ, der auf beide Werte passt, oder ei
 In unserem Beispiel hier ist die Entscheidung für das eine oder das andere relativ harmlos, aber
 in einer umfangreichen Theorie mit vielen im Typsystem kodierten Unterscheidungen können die Konsequenzen
 enorm sein.
-
+\largerpage
 
 \subsubsection{Missbrauch von Defaults}
 
@@ -2002,7 +2029,7 @@ so dass sie zwei NPen enthält. Die Beschränkungen von (\mex{0}) zusammen mit d
                     }\\
 }
 \z
-
+\largerpage
 
 
 \noindent
@@ -2076,6 +2103,7 @@ bzw.\ \emph{Lesbarkeit} hat.
 
 \citet[\page38]{MR2001a} geben das folgende Prinzip an, das regeln soll, welche Information
 überschrieben wird:
+\largerpage
 \begin{quote}
 OVERRIDE PRINCIPLE.\is{Prinzip!"Uberschreibungs-} If lexical and structural meanings conflict, the semantic
 constraints of the lexical element conform to those of the grammatical structure
@@ -2147,6 +2175,7 @@ lex-dtr & \ms{ phon & \ibox{1}\\
 \zs
 % Es muss in der Mitte zwischen Nom und Acc was stehen können und danach auch.
 %\vspace{-\baselineskip}\end{figure}
+\largerpage
 
 \noindent
 Für die Behandlung von Ausnahmen wie \zb \emph{brennbar}, das nicht von einem transitiven Verb
@@ -2177,6 +2206,7 @@ diskutierten Aufschreiben aller möglichen Sätze. Sie ist somit wenig erhellend
 menschliche Sprachfähigkeit nicht adäquat wider. Auch ist die Festlegung einer solchen Grenze ad
 hoc. Bei der Diskussion von Stammbäumen findet man durchaus auch noch eine größere Anzahl von
 Präfixen:
+\largerpage
 \eal
 \ex Somit startet mit diesem Ur$_9$"-ur$_8$"-ur$_7$"-ur$_6$"-ur$_5$"-ur$_34$"-ur$_3$"-ur$_2$"-ur$_1$"-großvater die Ahnentafel.\footnote{
   \url{http://www.rothschopf.eu/}. 06.06.2008.

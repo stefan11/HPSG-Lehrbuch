@@ -227,7 +227,7 @@ und \compsw sowie den Typ der jeweiligen Teilstruktur:
                                                   head-dtr \ldots \\
                                                   non-head-dtrs \ldots \\
                                                   }
-                       }\\
+                       }
 }
 \z
 Natürlich hat die Repräsentation für \emph{die Nuss} selbst wieder eine interne Struktur,
@@ -377,8 +377,9 @@ vform & vform\\
 
 \noindent
 Der Lexikoneintrag für \emph{gibt}, der auf S.\,\pageref{le-gibt-1}
-angegeben wurde, kann jetzt wie folgt präzisiert werden:
-\eas
+angegeben wurde, kann jetzt wie in (\mex{1}) präzisiert werden.
+\begin{figure}
+\ea
 \emph{gibt}:\\
 \ms[word]{ 
      phon   & \phonliste{ gibt }\\[1mm]
@@ -387,13 +388,16 @@ angegeben wurde, kann jetzt wie folgt präzisiert werden:
 %     comps  & 
      arg-st & \liste{ NP[\type{nom}], NP[\type{dat}], NP[\type{acc}] } \\
 }
-\zs
+\z
+\vspace{-2\baselineskip}
+\end{figure}
 Ein Lexikoneintrag enthält also phonologische Information, Informationen über die Kopfeigenschaften
 (\emph{part of speech}, Verbform, \ldots) und die Argumentstruktur (eine Liste von
 Merkmalbeschreibungen). Diese wird dann auf die Valenzmerkmale \spr und \comps verteilt. Für Verben
 ist \spr die leere Liste, weshalb die \compsl der \argstl entspricht. Das wird im
 Abschnitt~\ref{sec-subj-merkmal} über nicht-finite Verben revidiert werden.
 
+\noindent
 Bis jetzt gibt es in der hier dargestellten Theorie noch nichts, was sicherstellen
 würde, dass die Information, die in Lexikoneinträgen unter \textsc{head} repräsentiert
 ist, auch zum Mutterknoten kommt. Dies wird durch das Kopfmerkmalsprinzip (\emph{Head Feature Principle})
