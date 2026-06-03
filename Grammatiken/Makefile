@@ -50,12 +50,12 @@ kapitel18.tgz: clean
 kapitel19.tgz: clean
 	tar -X tar-exclude -czvf kapitel19.tgz Gemeinsames Kapitel-19*
 
-#kapitel12.tgz kapitel13.tgz kapitel14.tgz kapitel15.tgz kapitel16.tgz kapitel17.tgz kapitel18.tgz kapitel19.tgz
+#kapitel14.tgz kapitel15.tgz kapitel16.tgz kapitel17.tgz kapitel18.tgz kapitel19.tgz
 
-public: alle-grammatiken.tgz kapitel03.tgz kapitel04.tgz kapitel05.tgz kapitel06.tgz kapitel08.tgz kapitel09.tgz kapitel10.tgz kapitel11.tgz kapitel12.tgz kapitel13.tgz
+public: alle-grammatiken.tgz kapitel03.tgz kapitel04.tgz kapitel05.tgz kapitel06.tgz kapitel08.tgz kapitel09.tgz kapitel10.tgz kapitel11.tgz kapitel12.tgz kapitel13.tgz kapitel14.tgz
 	cp -p $? /Users/stefan/public_html/Pub/Einfuehrung/
 
-o-public: alle-grammatiken.tgz kapitel03.tgz kapitel04.tgz kapitel05.tgz kapitel06.tgz kapitel08.tgz kapitel09.tgz kapitel10.tgz kapitel11.tgz kapitel12.tgz kapitel13.tgz
+o-public: alle-grammatiken.tgz kapitel03.tgz kapitel04.tgz kapitel05.tgz kapitel06.tgz kapitel08.tgz kapitel09.tgz kapitel10.tgz kapitel11.tgz kapitel12.tgz kapitel13.tgz kapitel14.tgz
 	scp -p $? hpsg.hu-berlin.de:/home/stefan/public_html/Pub/Einfuehrung/
 
 old-o-public: knoppix o-copy
@@ -66,6 +66,16 @@ o-copy: alle-grammatiken.tgz kapitel3.tgz kapitel4.tgz  kapitel5.tgz kapitel6.tg
 knoppix: clean
 	\rm -rf ../../../Grammatik-CD/Grammatiken/HPSG-Textbook/Kapitel* ../../../Grammatik-CD/Grammatiken/HPSG-Textbook/Gemeinsames
 	rsync -a --exclude '*~' --exclude '*CVS*' --exclude 'tmp' --exclude 'Current' --exclude '*.tgz' --exclude 'Makefile' --exclude 'notes' --exclude 'tar-exclude' --exclude 'trale-test-export' . ../../../Grammatik-CD/Grammatiken/HPSG-Textbook/
+
+bugreport:
+	tar czvf textbook-bug.tgz Kapitel-15-mit-Flexion-kaputt/ Gemeinsames/
+	scp textbook-bug.tgz hpsg.hu-berlin.de:public_html/transfer/Bugs/`date +"%Y.%m.%d-%H.%M"`-textbook.tgz
+
+bug-report-berligram:
+	\rm -rf ~/tmp/Berligram/*
+	rsync -a --copy-links --exclude '*~' --exclude '*~' --exclude '*\.svn*' --exclude '*CVS*' --exclude 'tmp' --exclude 'Current' --exclude '*.tgz' --exclude 'Makefile' --exclude 'tar-exclude' --exclude 'trale-test-export' --exclude '\.trale_*' --exclude '\.alec_*' --exclude '*\.old' --exclude '*\.bak' . ~/tmp/Berligram/
+	(cd ~/tmp/; tar cjvf berligram.tbz Berligram/; \rm -rf Berligram/ )
+	scp ~/tmp/berligram.tbz home.hpsg.fu-berlin.de:public_html/transfer/Bugs/`date +"%Y.%m.%d-%H.%M"`-berligram.tgz
 
 
 mehr-vf: kapitel15.tgz

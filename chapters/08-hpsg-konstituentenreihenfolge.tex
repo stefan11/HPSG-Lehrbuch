@@ -22,7 +22,7 @@ kann.
 \section{Anordnung von Konstituenten im Mittelfeld}
 \label{sec-mf}
 
-Das\is{Konstitutentenstellung|(} Deutsche ist eine Sprache mit relativ freier Konstituentenstellung.
+Das\is{Konstituentenstellung|(} Deutsche ist eine Sprache mit relativ freier Konstituentenstellung.
 Im \mf können Argumente in nahezu beliebiger Abfolge angeordnet werden.
 So kann man statt der Abfolge in (\mex{1}a) auch die Abfolgen in (\mex{1}b--f)
 verwenden:
@@ -521,6 +521,7 @@ Die Beispiele (\mex{-1}) und (\mex{0}b) zeigen, dass die Argumente, die semantis
 Nomens stehen müssen, was für den \textsc{initial}"=Wert `+' für Nomina spricht. \citet[\page
 164--165]{Mueller99a} verwendet deshalb spezifische Regeln, die besagen, dass Determinatoren vor Nomina
 stehen müssen und Nicht-Determinatoren Nomina folgen müssen.
+\largerpage
 
 Würde man annehmen, dass der Determinator\is{Determinator!-phrase} der Kopf ist, bekäme man Strukturen,
 in denen die Argumente immer nur auf einer Seite des Kopfes stehen. Abbildung~\ref{abb-DP-Zerstörung-der-Stadt-durch-die-Soldaten} zeigt die
@@ -683,7 +684,8 @@ in ihre Bestandteile geteilt werden, und Verbzweitsätze sind dadurch ausgeschlo
 (i) zeigt ein Beispiel mit einem rückgebildeten Verb in Verbzweitposition:
 \ea
 Viel mehr Menschen, auch junge, hatten bald ein eigenes Auto, man billigflog halt irgendwohin (taz,
-05.12.2025, \url{https://www.taz.de/!6134390})
+05.12.2025)
+%, \url{https://www.taz.de/!6134390})
 \z
 Das Verb \emph{billigflog} ist von \emph{Billigflug} zurückgebildet. Die Alternativen in (ii.b,c)
 sind auch nicht problemlos.
@@ -719,6 +721,7 @@ Sie führen heute das Stück urauf.
 }
 \zl
 Es gibt also nur die Stellung, von der man auch annimmt, dass sie die Grundstellung ist.
+%\largerpage[2]
 
 \item Man könnte argumentieren, dass die Rückbildungen speziell sind, weil es sich um morphologische
   Bildungen handelt, die allein aus diesem Grund zusammen realisiert werden müssen. \textcites[\page 63]{Haider93a}[\page 59--60]{Haider2010a},
@@ -765,7 +768,8 @@ Hans verdreifachte seinen Profit letztes Jahr mehr als.
 %
 Adjunkt und Verb können gemeinsam in der Letztposition stehen, aber das Verb kann nicht initial
 platziert werden.
-
+%\largerpage[2]
+\largerpage
 
 \item Verben in infiniten Nebensätzen und in durch eine Konjunktion eingeleiteten
 finiten Nebensätzen stehen immer am Ende (von Ausklammerungen ins Nachfeld und Oberfeldumstellungen abgesehen):
@@ -1115,6 +1119,7 @@ ist das Verb in Erststellung der Kopf und deshalb wird auch der semantische Beit
 dieses Verbs projiziert. In der Regel (\mex{1}) für das Verb in Erststellung wird
 der semantische Beitrag der Projektion der Spur in Endstellung (\textsc{ind} \ibox{2}, \ltop \ibox{3}) mit
 den entsprechenden Werten des Verbs in Erststellung identifiziert:
+\largerpage
 
 \eas
 \label{lr-verb-movement2}%
@@ -1396,7 +1401,7 @@ Abschnitt~\ref{sec-Anhang-Verbbewegung} noch Probleme des Ansatzes mit
 koordinierten Verben und alternative HPSG"=Ansätze zur Konstituentenstellung
 und die Behandlung der Konstituentenstellung in anderen Theorien diskutiert werden. Der
 Abschnitt~\ref{Abschnitt-Beschriebungsmittel-HPSG} fasst dann alle bisher eingeführten Bestandteile der Theorie zusammen.
-
+\largerpage
 
 
 \section{Anhang}
@@ -1429,6 +1434,7 @@ komplexen Phänomens inkompatibel: der scheinbar mehrfachen Vorfeldbesetzung.
 Die Kopfspur in (\ref{le-verbspur}) ist sehr elegant und erfasst direkt, dass Verbbewegung nur
 innerhalb der Kopfdomäne stattfinden kann. Im Gegensatz zu Voranstellungen von Konstituenten ins Vorfeld und Extrapositionen ist
 die Verbumstellung nur in einem eingeschränkten Bereich möglich.
+\largerpage
 
 Diese Analyse funktioniert und ist Bestandteil der Grammatiken im CoreGram-Projekt
 \citep{MuellerCoreGram}. Es gibt aber ein Problem, das ich übersehen habe: Die Beschränkung in
@@ -1705,9 +1711,10 @@ sm edges
 \caption{\label{anal4-vlast}Analyse von \emph{Zum zweiten Mal die Weltmeisterschaft hat Clark 1965 errungen.}}
 \end{figure}
 
-Man kann das Problem entschärfen, indem man auch die Kopfmerkmale einzeln teilt. (\mex{1}) zeigt die
-entsprechend angepasste Spur:
-\eas
+Man kann das Problem entschärfen, indem man auch die Kopfmerkmale einzeln teilt. (\mex{1}) auf
+S.\,\pageref{le-Verbspur-nicht-zyklisch-mit-VFORM-Teilung} zeigt die entsprechend angepasste Spur.
+\begin{figure}
+\ea
 \label{le-Verbspur-nicht-zyklisch-mit-VFORM-Teilung}%
 Nichtzyklische Verbspur mit expliziter Teilung von Kopfmerkmalen:\\
 \ms{
@@ -1726,7 +1733,9 @@ loc & \ms{ cat & \ms{ head & \onems[verb]{
           cont & \ibox{5}\\
         }\\
 }
-\zs
+\z
+\vspace{-2\baselineskip}
+\end{figure}
 Die Wortart selbst kann man nicht teilen, denn die ist der Typ der Struktur unter \head. Wollte man
 sie teilen, müsste man den gesamten \headw teilen und hätte deshalb wieder eine Zyklus. 
 
@@ -1839,6 +1848,7 @@ Analyse nachbauen, indem man bei der Kopftochter nur die \local- und \nonlocal-M
 Füller teilt und den \lexw ignoriert (siehe Abbildung~\ref{fig-NONLOC-sign-ohne-LEX}). Das wäre
 jedoch eine unschöne Stipulation, da man ja die Merkmalsgeometrie genau so anlegen will, dass genau
 die Information geteilt wird, die zusammen gruppiert ist.
+\largerpage
 \begin{figure}
 \begin{forest}
 [V
@@ -1977,8 +1987,8 @@ sm edges, for tree={l sep=+2\baselineskip}
 %% Es gibt jedoch einige relevante Unterschiede, die im Folgenden diskutiert werden sollen:
 Wie \citet[\page220]{Netter92} anmerkt sind Adjunkte in solch flache Strukturen nicht ohne Weiteres zu
 integrieren, da die Bestimmung des semantischen Beitrags der Gesamtphrase sich auf den Beitrag
-der einzelnen Adjunkte beziehen muss. \citet{Kasper94a} hat gezeigt, wie Adjunkte in so eine flache
-Analyse integriert werden können. Er verwendet komplexe relationale Beschränkungen, die alle
+der einzelnen Adjunkte beziehen muss. \citet{Kasper94a} hat gezeigt, wie man die Berechnung der
+Semantik in einer solchen Analyse bewerkstelligen kann. Er verwendet komplexe relationale Beschränkungen, die alle
 Adjunkttöchter nacheinander in die Berechnung der Gesamtbedeutung einbeziehen. Da relationale
 Beschränkungen ein sehr mächtiges Beschreibungsmittel sind, sind Ansätze, die sie vermeiden bzw.\
 sich auf einfache Beschränkungen wie \emph{append}\isrel{append} beschränken, vorzuziehen.
@@ -1992,15 +2002,16 @@ solche problematischen Voranstellungen sind in (\mex{1}) aufgeführt (siehe auch
 %% \ex Fachleute erkennen Salzschäden an Bäumen relativ gut. [\ldots] Es kann also einige
 %%     Winterperioden dauern, bis man den Effekt beobachten kann. [\ldots] [Exakt] [auf das Salz]
 %%     kann man es tatsächlich erst zurückführen, wenn es für den Baum zu spät ist.\footnote{
-%%         taz berlin, 22.12.2003, S.\,22
+%%         taz berlin, 22.12.2003, S.\,22.
 %%     }
 \ex {}[Trocken] [durch die Stadt] kommt man am Wochenende auch mit der BVG.\footnote{
         taz berlin, 10.07.1998, S.\,22.
       }
-% [unverholen] oder [unverholen verärgert]
-\ex {}Unverhohlen verärgert auf Kronewetters Vorwurf reagierte Silke Fischer.\footnote{
-    taz berlin, 23.04.2004, S.\,21.
-}
+\ex
+\label{bsp-alle-traeume-gleichzeitig}
+{}[Alle Träume] [gleichzeitig] lassen sich nur selten verwirklichen.\footnote{        
+		Broschüre der Berliner Sparkasse, 1/1999.
+        }
 \ex {}[Hart] [ins Gericht] ging Klug mit dem Studienkontenmodell der Landesregierung.\footnote{
   taz nord, 19.02.2004, S.\,24.
   }
@@ -2013,21 +2024,45 @@ bzw.\ in der \href{http://hpsg.hu-berlin.de/~stefan/Pub/mehr-vf-ds.html}{im WWW 
   \url{http://hpsg.hu-berlin.de/~stefan/Pub/mehr-vf-ds.html}. \mytoday.%
 }.
 
-Bei einem Ansatz, der Verbspuren annimmt, kann man davon ausgehen, dass sich in (\mex{0}) eine Projektion
-einer solchen Spur im Vorfeld befindet, \dash, dass das gesamte Material vor dem Finitum eine komplexe Konstituente
-bildet. Bei Linearisierungsansätzen gibt es dagegen keine einfache Möglichkeit, 
-die Konstituenten im Vorfeld zu einer Konstituente zusammenzufassen.\todostefan{Wetta} Man
-könnte natürlich -- wie in \citews{Mueller2002f}[121]{Mueller2002c} vorgeschlagen 
+Völlig unklar bleibt bei ganz flachen Analysen, wieso Verbpartikeln vor dem finiten Verb
+stehen können sollen \citep[662--663]{MuellerGT-Eng5}, denn normalerweise stehen die in der rechten Satzklammer:
+\eal
+\label{ex-complex-vf}
+\ex
+{}[\sub{vf} [\sub{mf} Den Atem]  [\sub{vc} an]] hielt die ganze Judenheit.\footnote{%
+Lion Feuchtwanger, \emph{Jud Süß}, S.\,276, zitiert aus \citew[\page 56]{Grubacic65a}.
+}
+\ex\label{bsp-wieder-an-tritt-vorn}
+{}[\sub{vf} [\sub{mf} Wieder] [\sub{vc} an]] treten auch die beiden Sozialdemokraten.\footnote{%
+  taz, bremen, 24.05.2004, S.\,21.
+}
+\ex\label{ex-los-damit}
+{}[\sub{vf} [\sub{vc} Los]        [\sub{nf} damit]]    geht es schon   am 15. April.\footnote{%
+        taz, 01.03.2002, S.\,8.%
+    }%
+\zl
+
+\noindent
+Bei einem Ansatz, der Verbspuren annimmt, kann man davon ausgehen, dass sich in (\mex{-1}) und (\mex{0}) eine Projektion
+einer solchen Spur im Vorfeld befindet \citep[316]{Mueller2005d}, \dash, dass das gesamte Material
+vor dem Finitum eine komplexe Konstituente bildet. Damit ist das Vorfeld eine eigene verbale Domäne
+und es kann wieder ein Mittelfeld, eine rechte Satzklammer und ein Nachfeld geben, was wunderbar zu
+den Beispielen in (\mex{0}) passt. Bei Linearisierungsansätzen gibt es dagegen keine einfache Möglichkeit, 
+die Konstituenten im Vorfeld zu einer Konstituente zusammenzufassen.\footnote{%
+Die Ansätze von \citet{Wetta2011a,Wetta2014a-u,Wetta2018a} werden im Abschnitt~\ref{sec-Wetta} diskutiert.
+} Man
+könnte natürlich -- wie in \citews[6]{Mueller2002f}[121]{Mueller2002c} vorgeschlagen 
 -- einen leeren Kopf im Vorfeld annehmen, nur wäre dieser dann ein spezielles leeres Element,
-was nirgends sonst in der Grammatik gebraucht würde
+das nirgends sonst in der Grammatik gebraucht würde
 und nur zur Erfassung der scheinbar mehrfachen Vorfeldbesetzung stipuliert würde \citep[322]{Mueller2005d}.
 
 Alternativ könnte man Spezialregeln formulieren, die das Material
 im Vorfeld zu einer Konstituente kombinieren \citep[Abschnitt~7.6]{Welke2019a-u}. Dabei stellt sich natürlich die Frage nach
 der syntaktischen Kategorie dieser Konstituente. Nähme man an, dass es sich um eine verbale
-Projektion handelt, müsste man kopflose Spezialregeln annehmen, da die Konstituenten vor dem finiten
-Verb in (\mex{0}a,c) keine Verben sind und demzufolge nicht der Kopf einer verbalen Projektion sein
-können.
+Projektion handelt, müsste man kopf"|lose Spezialregeln annehmen, da die Konstituenten vor dem finiten
+Verb in (\mex{0}) keine Verben sind und demzufolge nicht der Kopf einer verbalen Projektion sein
+können. Wetta hat entsprechende Regeln im Rahmen einer HPSG-Variante, der Sign-Based Construction Grammar\indexsbcg,
+vorgeschlagen. Ich komme auf seine Ansätze in Abschnitt~\ref{sec-Wetta} zurück.
 \is{Verzweigung!flache|)}\is{Vorfeldbesetzung!scheinbar mehrfache|)}
 
 \subsubsection{Binär verzweigende Strukturen und Linearisierungsdomänen}
@@ -2139,8 +2174,7 @@ Elemente in der \doml:
 Die folgenden Abbildungen zeigen die Analysen für die wichtigsten Fälle:
 \eal
 \ex\label{bsp-Aicke-dem-Affen-den-Stock-gibt}
-(weil) Aicke dem Affen den Stock gibt
-\ex\label{bsp-Aicke-den-Stock-dem-Affen-gibt}
+(weil) Aicke dem Affen den Stock gibt\ex\label{bsp-Aicke-den-Stock-dem-Affen-gibt}
 (weil) Aicke den Stock dem Affen gibt
 \ex Gibt Aicke den Stock dem Affen?
 \zl
@@ -2309,6 +2343,7 @@ Nach dieser kurzen Vorstellung der Linearisierungsansätze von Reape, Kathol und
 jetzt die Probleme dieser Ansätze besprochen werden: Diese Ansätze haben denselben Nachteil
 wie die Ansätze, die von flachen Strukturen ausgehen: Man kann nicht motivieren,
 dass mehrere Konstituenten im Vorfeld eine gemeinsame Konstituente bilden. Siehe hierzu S.\,\pageref{bsp-smvfb}.
+\largerpage
 
 \is{Vorfeldbesetzung|(}%
 Außerdem haben Linearisierungsanalysen mit binär verzweigender Struktur den Nachteil,
@@ -2352,6 +2387,456 @@ mit ihrem Kopf in beliebiger Reihenfolge zulässt.
 \is{Verzweigung!binäre|)}
 
 
+\subsubsection{Linearisierungsdomänen und scheinbar mehrfache Vorfeldbesetzung}
+\label{sec-Wetta}
+
+\is{Vorfeldbesetzung!scheinbar mehrfache|(}
+Im Abschnitt~\ref{sec-flache-strukturen} über ganz flache Strukturen habe ich bereits die scheinbar mehrfachen
+Vorfeldbesetzungen erwähnt.\footnote{
+Dieser Abschnitt basiert auf Material, das auch in \citew{MuellerGS} enthalten ist. Dieses Buch
+hätte eigentlich schon längst veröffentlicht sein sollen. Aber verschiedene Projekte haben sich
+immer wieder vorgedrängelt. So auch die Fertigstellung der vierten Auflage des HPSG-Lehrbuches.
+} Ich habe darauf hingewiesen, dass solche Ansätze nicht erklären können, wieso
+Verbpartikel und anderes Material gemeinsam im Vorfeld stehen, wenn sie davon ausgehen, dass dort
+einfach mehrere Konstituenten stehen dürfen. In diesem Abschnitt möchte ich explizite Vorschläge von
+\citet{Wetta2011a,Wetta2014a-u} diskutieren. Wetta arbeitet im Rahmen der linearisierungsbasierten HPSG
+\citep{Reape94a,Kathol95a,Kathol2001a,Mueller99a,Mueller2002b}. \citet{Wetta2011a} nimmt eine
+relationale Beschränkung an, die aus beliebig vielen Konstituenten eine neue Konstituente bildet:\footnote{%
+  Ich habe zum ersten Domain"=Element der Mutter ein \textsc{dom}"=Merkmal hinzugefügt, das im
+  Original fehlt. 
+}
+\begin{exe}
+\ex Diskursprominenzkonstruktion für das Deutsche nach \citet[\page 264]{Wetta2011a}:
+\begin{xlist}
+\ex doms$_\bigcirc$(\sliste{ [\textsc{dom} X$_1$], \ldots, [\textsc{dom} X$_n$] }) $\equiv$ X$_1$
+$\bigcirc$ \ldots{} $\bigcirc$ X$_n$
+\ex \type{prom-part-compact-dom-cxt} \impl\\
+    \ms{
+    mtr & \ms{ dom \sliste{ \ms{ prom & \normalfont +\\
+                                 dom  & \normalfont doms$_\bigcirc$(L$_1$) } } $\bigcirc$
+      \normalfont doms$_\bigcirc$(L$_2$) \\
+                               }\\
+    dtrs & \upshape L$_1$:\type{list}( [\textsc{prom}+] ) $\bigcirc$ L$_2$:\type{list}\\
+    }
+\zl
+% Wieso werden bei der Compaction noch mal die Elemente von L1 gescrambled? Ist das nicht eine Ebene
+% zu tief? 25.10.2023
+Die Liste L$_1$ in (\mex{0}) ist eine Liste von Elementen, die als prominent (\textsc{prom}+)
+markiert werden. Aus diesen wird ein Element gebildet. Die Bildung neuer Domainelemente, die aus
+Teilen der kombinierten Elemente bestehen, nennt man auch \emph{Compaction} \citep[175]{KP95a}. Das neu
+erzeugte Element wird im Vorfeld angeordnet. Die Töchter, die nicht als prominent markiert werden,
+sind in L$_2$ enthalten.%
+% Könnte man machen, indem man Linearisierungsbeschränkungen sagen lässt, dass es nur ein
+% PROM+-Element pro Domäne geben darf.
+\footnote{
+  Dass in L$_2$ nur Elemente mit \textsc{prom}"=Wert $-$ enthalten sind, ist in 
+  (\mex{0}b) nicht vorgegeben. Das könnte man aber leicht als Beschränkung für L$_2$ in (\mex{0}b) einfügen.
+}
+Ihre \domwe werden mittels $\bigcirc$ mit dem prominenten Element kombiniert und können also
+bezüglich des prominenten Elements beliebig angeordnet werden, solange keine
+Linearisierungsbeschränkung verletzt ist. Abbildung~\ref{fig-v3-wetta2011} zeigt das Ergebnis der
+Anwendung von (\mex{0}b).
+% Das macht einfach keinen Sinn. Ich verstehe nicht, wieso er die DOMs einpackt und dann wieder
+% auspackt. Er braucht das in keinem Fall. 03.06.2026
+% \footnote{%
+%   \citet[\page 259]{Wetta2011a} nimmt an, dass der \domw von \emph{die Weltmeisterschaft}
+%   ein einzelnes Objekt ist. Das ist ungewöhnlich. Normalerweise wird angenommen, dass \emph{die
+%     Weltmeisterschaft} zwei \domain"=Objekte hat: \emph{die} und \emph{Weltmeisterschaft}
+%   \parencites[175]{KP95a}[81]{Kathol2001a}{Babel}[162]{Mueller99a}. Ohne Wettas ungewöhnliche Annahme würde die
+%   Beschränkung \texttt{doms}$_\bigcirc$ nicht gebraucht und L$_1$ und L$_2$ könnten direkt für die
+%   Berchnung des \domwes der prominenten Konstituente bzw.\ der Mutter benutzt werden.
+% }
+\begin{figure}
+\oneline{%
+\begin{forest}
+sn edges
+[{\ms{ d & \sliste{ \ms{ prom & \normalfont + \\
+                          f    & \phonliste{ zum, zweiten, Mal, die, Weltmeisterschaft } },
+                     \ms{ f    & \phonliste{ errang } },
+                     \ms{ f    & \phonliste{ Clark } } } } } 
+ [{\ms{ d & \sliste{ \ms{ f  & \phonliste{ Clark } \\
+                            s  & \normalfont NP[\type{nom}] } }\\ }}]
+ [{\ms{ d & \sliste{ \ms{ f  & \phonliste{ die, Weltmeisterschaft } \\
+                            s  & \normalfont NP[\type{nom}] } }\\ }}]
+ [{\ms{ d & \sliste{ \ms{ f  & \phonliste{ zum, zweiten, Mal } \\
+                            s  & \normalfont PP } }\\ }}]
+ [{\ms{ d & \sliste{ \ms{ f  & \phonliste{ errang } \\
+                            s  & \normalfont V[\type{fin}] } }\\ }}]
+]
+\end{forest}}
+\caption{Vn mit partieller Kompaktion nach \citet[\page 264]{Wetta2011a}}\label{fig-v3-wetta2011}
+\end{figure}
+Die Töchter der Konstruktion sind \emph{Clark}, \emph{die Weltmeisterschaft}, \emph{zum zweiten Mal}
+und \emph{errang}. \emph{zum zweiten Mal} und \emph{die Weltmeisterschaft} werden als \textsc{prom}+
+markiert und ihre \domwe werden mit $\bigcirc$ kombiniert und das Ergebnis ist der \domw des ersten
+Elements in der \doml der Mutter. Es stellt sich natürlich die Frage, welche Eigenschaften das neu
+erzeugte Objekt im Vorfeld hat. Das ist in Wettas Ansatz nicht spezifiziert. Er geht jedoch davon
+aus, dass Domain-Objekte vom Typ \type{sign} sind. Das bedeutet, dass diese Objekte syntaktische und
+semantische Eigenschaften haben müssen. Wie im Abschnitt~\ref{sec-modelle-theorien} erklärt, sind
+HPSG"=Grammatiken Beschreibungen von Modellen. Beschreibungen sind partiell. Alles, was nicht
+maximal spezifisch ist, kann im Rahmen der Typdefinitionen beliebig variieren \citep{King99a-u,Richter2024a}. Im
+Abschnitt~\ref{sec-modelle-theorien} wurde das Nomen \emph{Frau} als Beispiel besprochen. Bei \emph{Frau} muss man keinen
+Kasuswert angeben, denn \emph{Frau} ist mit allen vier Kasus des Deutschen kompatibel. Da der Typ
+\type{case} als maximale Typen genau die vier Kasus des Deutschen hat, muss nichts weiter gesagt
+werden. Wenn man das nun auf Wettas Ansatz anwendet, dann bedeutet das, dass seine Theorie unendlich
+viele Modelle beschreibt, denn die syntaktischen Eigenschaften des Elements im Vorfeld sind nicht
+spezifiziert. Da Valenzlisten Teil der syntaktischen Eigenschaften sind und da diese beliebig lang
+sein können, gibt es unendlich viele Modelle. Wetta könnte das Problem leicht beheben indem er
+die Kategorie des vorangestellten Elements spezifiziert, also auch die entsprechenden Valenzlisten.
+Normalerweise ist die Kategorie bei partieller Kompaktion die des Kopfes
+\parencites[178]{KP95a}[101]{Kathol2001a}{Babel}[244]{Mueller99a}, aber bei scheinbar mehrfachen
+Vorfeldbesetzungen ist keine der vorangestellten Konstituenten der Kopf des vorangestellten Materials.
+Wetta könnte einfach festlegen, dass das erzeugte Objekt ein Verb von der Art ist, wie man es in der
+Analyse mit leerem verbalen Kopf bekommt, aber dann hätte man relationale Beschränkungen, die aus
+dem Nichts Struktur erzeugen, statt einen leeren verbalen Kopf anzunehmen, der einem sichtbaren Verb
+entspricht. Die relationale Beschränkung wäre ein Ad-hoc-Instrument, etwas, das es nirgends sonst in
+der Grammatik gibt.
+
+\citet[Abschnitt~5.4.6]{Wetta2014a-u} verwirft die relationale Beschränkung, die mehrere
+vorangestellte Elemente in eine Konstituente kompaktiert und formuliert ein Schema, das besagt, dass
+beliebig viele Elemente vor dem Verb stehen können, wenn diese als prominent markiert sind. Alle
+nicht prominenten Elemente müssen dem Verb folgen. Das löst das Problem mit den unbekannten
+Eigenschaften der neu geschaffenen Vorfeld"=Konstituente, aber es kann nicht erklären, wieso sich
+der präverbale Bereich wie eine eigene verbale Domäne mit Mittelfeld, rechter Satzklammer und
+Nachfeld verhält (siehe Abschnitt~\ref{sec-flache-strukturen}).
+
+Weder \citet{Wetta2011a} noch \citew{Wetta2014a-u} gehen auf Beispiele wie
+(\ref{ex-der-maria-einen-ring}) ein und es wäre auch nicht trivial, solche Daten in seinen Ansatz zu
+integrieren, denn für Fernabhängigkeiten nimmt er den \slasch"=Mechanismus an (siehe Abschnitt~\ref{sec-Vorfeldbesetzung}).
+\eal
+\label{ex-der-maria-einen-ring}
+\ex {}[Der Maria] [einen Ring] glaube ich nicht, daß er je schenken wird.\footnote{
+\citew[\page 67]{Fanselow93a}.
+}
+\ex {}[Kindern] [Bonbons] denke ich, daß  man besser nicht gibt.\footnote{
+        G.\ \citew[\page 261]{GMueller98a}.
+}
+\zl
+
+\noindent
+\citet{Wetta2018a} hat dann eine Variante des Füller-Kopf-Schemas (siehe Schema~\ref{hf-schemaa} auf
+S.\,\pageref{hf-schemaa})
+vorgeschlagen, die mehrere Elemente in \slasch zulässt und diese dann in die Stellungsdomäne des
+Kopfes einsetzt.\footnote{%
+  Ich habe das Schema so angepasst, dass das C innerhalb der Liste steht. Wetta berücksichtigt
+  nicht, dass Elemente aus L$_1$ ebenfalls etwas in ihren \textsc{gap}"=Listen haben können. Diese
+  Information wird einfach ignoriert und es wird festgelegt, dass der \gapw der Mutter die leere
+  Liste ist. Deshalb wird (i.a) mehrdeutig, denn wie (i.b) zeigt, kann ein Attribut zu \emph{Schwester}
+  extrahiert werden.
+\eal
+\ex Der Marie einen Ring glaubt die Schwester nicht, dass er je schenken wird.
+\ex Von Conny kenne ich nur die Schwester.
+\zl
+Die Information über die Extraktion des Attributs von \emph{Schwester} wird einfach weggeworfen.
+}
+\ea
+\label{schema-f-g-wetta}
+\type{filler-s-p-cxt} \impl\\*
+\ms{
+mtr & \ms{ syn \ms{ cat & Y \\
+                    val & \eliste\\
+                    gap & \eliste\\
+                  }\\
+         }\\
+dtrs & \sliste{ H } $\bigcirc$ L$_1$ $\bigcirc$ L$_2$ $\bigcirc$ \sliste{ C }\\
+hd-dtr & \upshape H: \ms{ syn \ms{ cat & Y: \ms{ vf & fin\\
+                                      }\\
+                          val & L$_1$ $\oplus$ \liste{ C: \ms[clause]{
+                                                           syn & \ms{ gap & L$_2$\\
+                                                                    } } }\\
+                       }\\
+}
+} 
+\z
+H ist dabei der Kopf des Matrixsatzes, C ist das Satzkomplement von H, L$_1$ ist die Liste der
+Argumente von H und L$_2$ ist die Liste der \textsc{gap}"=Elemente, die aus dem eingebetteten Satz
+stammen. \gap wird in SBCG statt \slasch verwendet. Die \dtrsl der kompletten Konstruktion besteht aus dem Ergebnis des Shuffelns einer Liste,
+die den Kopf enthält mit L$_1$ und L$_2$ und einer Liste, die den Komplementsatz enthält. Das
+bedeutet, dass Elemente aus L$_1$ vor oder nach Elementen aus den anderen Listen angeordnet werden
+können, so lange die Reihenfolge der Elemente in L$_1$ nicht verändert wird.\footnote{%
+  Das macht falsche Vorhersagen in Bezug auf die Anordnung der Argumente in L$_1$: Wie im
+  Abschnitt~\ref{sec-mf} dargelegt, sind prinzipiell alle Abfolgen der Argumente eines Kopfes
+  möglich. So sind auch beide Abfolgen von Subjekt und Objekt von \emph{gebeten} in (i) möglich.
+\eal
+\ex {}[Über dieses Thema]$_i$ hat noch niemand den Mann gebeten, [[einen Vortrag \_$_i$ zu halten].
+\ex {}[Über dieses Thema]$_i$ hat den Mann noch niemand gebeten, [[einen Vortrag \_$_i$ zu halten].
+\zl
+  Dass das Schema in (\ref{schema-f-g-wetta}) nur eine dieser Anordnungen ableiten kann, ist es
+  empirisch nicht adäquat. Dasselbe Problem gibt es mit mehreren Schemata in
+  \citew{Wetta2014a-u}. So zum Beispiel mit dem Schema auf S.\,164: Die Elemente von L können
+% Die DTRS werden geshuffelt. In den Domain-Objekten kann geschuffelt werden. Dadurch ändert sich
+% aber nicht die Reihenfolge der Elemente in der Valenzliste.
+  gescrambelt werden, aber das Schema lässt das nicht zu. Das Problem kann behoben werden, indem man
+  eine weitere relationale Beschränkung annimmt, die eine Liste auf alle Listen abbbildet, die
+  Permutationen der ursprünglichen Liste enthalten. Statt L$_1$ mit den anderen Listen in Schema 
+  (\ref{schema-f-g-wetta}) zu kombinieren, würde man dann \texttt{permutations}(L$_1$) mit den
+  Listen kombinieren. Die Annahme einer solch zusätzlichen relationalen Beschränkung, die nirgends
+  sonst in der Grammatik gebraucht wird, würde zur Komplexität von Wettas Ansatz beitragen.
+}
+Für die Elemente von L$_2$ gilt das zur Stellung der Elemente von L$_1$ Gesagte analog.
+
+Mit Wettas Schema kann man Sätze wie (\ref{ex-der-maria-einen-ring}) analysieren, aber es gibt keine
+Erklärung dafür, warum die Elemente vor dem finiten Verb vom selben Kopf abhängen müssen. Dass dem
+so ist, zeigen die Beispiele von \citet[\page 99]{Fanselow87a} in (\mex{1}):
+\eal
+\label{ex-mult-front-same-verb}
+\ex[]{
+Ich glaube  dem Linguisten nicht, einen Nobelpreis  gewonnen zu haben.
+}
+\ex[*]{
+Dem Linguisten einen Nobelpreis  glaube  ich nicht gewonnen zu haben.
+}
+\zl
+Die Dativ-NP \emph{dem Linguisten} hängt von \emph{glaube} ab und die Akkusativ-NP \emph{einen
+  Nobelpreis} von \emph{gewonnen}. Die beiden Nominalphrasen können nicht gemeinsam im Vorfeld
+stehen. Vielleicht ist es irgendwie möglich, auszuschließen, dass die entsprechenden Elemente in die
+\slashl bzw.\ \textsc{gap}"=Liste gelangen. Trivial ist es jedenfalls nicht. 
+
+
+\citew[\page 171]{Wetta2014a-u} erfasst diese Einschränkung, indem er Vn-Stellungen als lokale
+Umstellungen analysiert. Da es in seinem 2014er Ansatz bei Vn-Stellungen keine Fernabhängigkeiten
+gibt, folgt, dass die vorangestellten Elemente Satzgenossen sein müssen: Sie müssen allesamt vom
+höchsten Verb abhängen. 
+\citet{Wetta2018a} erklärt dann Vn nicht mehr als lokale Umstellung. Aber
+sobald man Fernabhängigkeiten in Vn-Konstruktionen erlaubt, bekommt man wieder das Problem, dass die
+vorangestellten Konstituenten von verschiedenen Köpfen abhängen können. Das Schema
+(\ref{schema-f-g-wetta}) scheint so formuliert zu sein, dass die vorangestellten Elemente vom selben
+Verb abhängen, weil sie aus demselben Teilsatz kommen müssen. Dem ist aber nicht so, denn sie können
+innerhalb des Teilsatzes ja von verschiedenen Köpfen abhängen. Rui Chaves (p.\,M.\,2018) hat
+vorgeschlagen, dass man das Problem beheben könnte, indem man informationsstrukturelle
+Beschränkungen bezüglich des vorangestellten Materials formuliert. Er hat vorgeschlagen, alle
+vorangestellten Elemente als [\textsc{prominent}+] zu markieren und dann festzulegen, dass alle
+Elemente mit solch einer Markierung vom selben semantischen Prädikat abhängen müssen. 
+% Auch diese
+% Beschränkung wäre nicht ohne Weiteres zu formalisieren, denn Eine solche
+% Beschränkung wäre jedoch ver
+% elements have to depend on the same semantic predicate. Note that such a constraint would be violated
+% in sentences in which a V2 sentence is embedded into another V2 sentence:
+% \ea
+% Peter denkt, Klaus kommt morgen.
+% \z
+% \emph{Peter} is fronted and hence \textsc{prom}+ and \emph{Klaus} is also fronted and
+% \textsc{prom}+. Both depend on different verbs and both are fronted but within separate
+% clauses. The fronted elements do not share a common \vf. So, the constraint that is supposed to rule
+% out (\mex{1}) would also rule out (\mex{0}).
+% \ea[*]{
+% Peter Klaus denkt, kommt morgen.
+% }
+% \z
+% There may be ways to formalize the intuition behind the original proposal but this cannot be done
+% exclusively on the semantic/""information structural level. One would have to find ways to know which
+% \vf one is talking about, that is, whether the constituents are in the same \vf or in different
+% ones. The empty verbal head seems to be better suited to capture such constraints than any other
+% device one may think of.
+%
+% Rui 20.01.2018
+% 2. A way to solve the problem you raise wrt to my
+%% information-structural hypothesis and examples in (15) and (16) would
+%% be to relativize it to each clause: for a given clause either all
+%% fronted elements are linked to the same local verb, or all fronted
+%% elements are linked to the same verb via SLASH.  Hence (15) would be
+%% fine because the rule applies twice, for each clause.  Another way
+%% would be to distinguish between scrambling prominence and extraction
+%% prominence and require that fronted elements be of the same kind of
+%% prominence (i.e. no need to refer to the verb).
+%
+% St: OK, may work. But how do you ensure that the SLASHes are coming from the same verb?
+%
+Analysen mit Bezug auf informationsstrukturelle Aspekte, die davon ausgehen, dass verschiedene
+einzelne Konstituenten vorangestellt werden, versagen aber bei Beispielen wie
+(\ref{bsp-ihnen-für-heute}):
+\ea\label{bsp-ihnen-für-heute}
+{}[Ihnen] [für heute] [noch] [einen schönen Tag] wünscht Claudia Perez.\footnote{
+  Claudia Perez, Länderreport, Deutschlandradio. Ich danke Arne Zeschel für dieses Beispiel.
+}%
+\z
+Wie \citet*[117]{MBC2012a} festgestellt haben, geht es bei solchen Sätzen gerade nicht im die
+Diskursfunktion der vorangestellten Konstituenten. Vielmehr geht es darum, das Mittelfeld zu
+entleeren und den präsentativen Effekt dort zu verstärken. Damit scheiden auch Analysen wie die von
+\citet[\page 482]{Speyer2008a} aus, die Bezug auf funktionale Projektionen wie
+SceneP\is{Kategorie!funktionale!Scene}, FocP\is{Kategorie!funktionale!Foc} und
+TopP\is{Kategorie!funktionale!Top} \parencites{Rizzi97a-u}{Grewendorf2002a} nehmen. Zu solchen
+Projektionen siehe auch Abschnitt~\ref{sec-TopP-FocP-KontrP}. 
+
+Sätze wie (\ref{ex-los-damit}) auf S.\,\pageref{ex-los-damit}, hier als (\mex{1}) wiederholt, sind
+ebenfalls problematisch, weil die vorangestellten Elemente keinen besonderen
+informationssturkturellen Status haben. \emph{los} und \emph{damit} als \textsc{prom}+ zu markieren
+und zu behaupten, dass alle \textsc{prom}+-Elemente vor dem finiten Verb angeordnet werden, ist
+nicht angemessen. Vielmehr gibt es eine vorangestellte Phrase und deren Eigenschaften müssen
+modelliert werden. Nimmt man keine Phrase an, sondern einzeln vorangestellte Elemente, gibt es
+keinen einfache Weg, die Zusammenhänge zu erfassen.
+\ea
+\label{ex-los-damit-zwei} 
+[Los] [damit] geht es schon am 15. April.\footnote{
+        taz, 01.03.2002, S.\,8.
+    }
+\z
+Wie bereits in Abschnitt~\ref{sec-flache-strukturen} erwähnt, entspricht die Stellung der Elemente
+vor dem finiten Verb der Stellung, die man sonst ohne Voranstellung erwarten würde. \emph{los} ist
+die rechte Satzklammer und \emph{damit} ist extraponiert. Setzt man einfach \emph{los} und
+\emph{damit} in die gleiche Stellungsdomäne wie das finite Verb ein, bekäme man eine rechte
+Satzklammer (\emph{los}) und ein \nf (\emph{damit}) links von der linken Satzklammer (\emph{geht}).
+Das würde gängigen Linearisierungsregeln \citep[z.\,B.][50]{Kathol2001a} widersprechen.\footnote{
+  Es gibt eine technische Lösung für das Problem: Man könnte Linearisierungsregeln annehmen, die nur
+  für Konstituenten mit dem gleichen \textsc{prom}"=Wert gelten. \textsc{prom}+ würde für das
+  Vorfeld gelten, \textsc{prom}$-$ für den Rest des Satzes. Da wie eben dargelegt, das Vorfeld
+  nichts mit Prominenz zu tun haben muss, könnte man das \textsc{prom}"=Merkmal in \textsc{vorfeld}
+  umbenennen. (i) zeigt die entsprechenden Linearisierungsregeln: 
+\eal
+\ex Mittelfeld [\textsc{vorfeld}  \ibox{1}] $<$ rechte Satzklammer [\textsc{vorfeld}  \ibox{1}]
+\ex rechte Satzklammer [\textsc{vorfeld}  \ibox{1}] $<$ Nachfeld [\textsc{vorfeld}  \ibox{1}]
+\zl         
+Siehe \citew*{KKP95} zu Linearisierungsregeln mit Strukturteilungen.
+}
+
+Ein\label{page-MVF-Idiome} anderes Problem, das \slasch-basierte Ansätze wie mein eigener aus dem Jahr 2000 haben
+\citep[Abschnitt~2.8.3.2]{Mueller2000d}, besteht ebenfalls bei Wettas revidierter Analyse: Es ist
+schwierig die Voranstellung von Idiomteilen zu beschränken \citep[307]{Mueller2005d}. In
+(\mex{1}) sind zwei Idiombestandteile vorangestellt und in (\mex{2}) befindet sich der erste Bestandteil des
+Idioms im Vorfeld. Wie (\mex{3}) zeigt, ist es jedoch nicht
+möglich, den zweiten Idiomteil einzeln voranzustellen:
+
+\eal
+\label{ex-Mehrfachvoranstellung-Idiome}
+\ex[]{\label{ex-oel-ins-feuer}
+[Öl] [ins Feuer] goß gestern das Rote-Khmer-Radio\footnote{
+        taz, 18.06.1997, S.\,8.
+}
+}
+\ex[]{
+[Das Tüpfel] [aufs i] setze der Bürgermeister von Miami, als er am Samstagmorgen von einer schändlichen 
+Attacke der US-Regierung sprach.\footnote{
+        taz, 25.04.2000, S.\,3. %taz Nr. 6126 vom 25.4.2000 Seite 3
+    }
+}
+\ex[]{
+[Ihr Fett] [weg] bekamen natürlich auch alte und neue Regierung [\ldots]\footnote{
+        Mannheimer Morgen, 10.03.1999, Lokales; SPD setzt auf den "`Doppel-Baaß"'. %M99/903.16159 Mannheimer Morgen, 10.03.1999, Lokales; SPD setzt auf den "Doppel-Baaß"
+      }
+}
+\ex[]{
+[Dem Zeitgeist] [Rechnung] tragen im unterfränkischen Raum die privaten, städtischen und kommunalen
+    Musikschulen.\footnote{
+        Fränkisches Volksblatt, zitiert nach Spiegel, 24/2002, S.\,234.
+    }
+}
+\zl 
+\eal
+\ex[]{\label{ex-oel-goss-gestern}
+[Öl] goß gestern das Rote-Khmer-Radio [ins Feuer]
+}
+\ex[]{
+[Das Tüpfel] setze der Bürgermeister von Miami [aufs i], als er am Samstagmorgen von einer schändlichen 
+Attacke der US-Regierung sprach.
+}
+\ex[]{
+[Ihr Fett] bekamen natürlich auch alte und neue Regierung [weg] [\ldots]
+}
+\ex[]{
+[Dem Zeitgeist] tragen im unterfränkischen Raum die privaten, städtischen und kommunalen
+    Musikschulen [Rechnung].
+}
+\zl 
+
+\eal
+\ex[*]{
+[Ins Feuer] goß gestern das Rote-Khmer-Radio [Öl].
+}
+\ex[*]{
+[Aufs i] setze der Bürgermeister von Miami das Tüpfel, als er am Samstagmorgen von einer schändlichen 
+Attacke der US-Regierung sprach.
+}
+\ex[*]{
+[Weg] bekamen natürlich auch alte und neue Regierung [ihr Fett].
+}
+\ex[*]{
+[Rechnung] tragen im unterfränkischen Raum die privaten, städtischen und kommunalen
+Musikschulen [dem Zeitgeist].
+}
+\zl
+Zählt man die Idiomteile zum Prädikatskomplex (siehe Kapitel~\ref{Kapitel-Verbalkomplex}),
+wird das Stellungsverhalten auch mit der Generalisierung von \citet{Loetscher85a} erklärbar, dass Elemente vom
+linken Rand des Prädikatskomplexes vorangestellt werden können, aber nicht aus der Mitte.
+
+Das stellt für \slasch-basierte Ansätze ein Problem dar, denn diese gehen ja davon aus, dass in der
+Analyse von (\ref{ex-Mehrfachvoranstellung-Idiome}) beide Konstituenten in \slasch sind. Man müsste also in der Lage sein,
+festzulegen, dass der zweite Teil des Idioms nur dann extrahiert werden darf, wenn der erste auch
+extrahiert wird. Das ist eventuell möglich, aber in jedem Fall technisch nicht trivial.
+In einer Analyse mit leerem verbalen Kopf sind die Daten dagegen unproblematisch. Die Idiombestandteile
+werden mit dem leeren verbalen Kopf kombiniert und stehen in der Reihenfolge, in der sie auch
+stehen, wenn kein Idiombestandteil vorangestellt ist. (\mex{1}) ist das Gegenstück zu
+(\ref{ex-oel-ins-feuer}): 
+\ea
+Das Rote-Khmer-Radio goß gestern [Öl] [ins Feuer].
+\z
+
+\noindent
+Bisher haben wir keine Beispiele für satzübergreifende Voranstellung mehrerer Idiomteile gefunden,
+aber man kann sie konstruieren. In (\mex{1}) ist das Idiom unter \emph{behaupten} eingebettet:
+\ea 
+{}[Öl] [ins Feuer] behauptete der Vorsitzende, dass gestern das Rote-Khmer-Radio gegossen habe.
+\z
+Für solche Beispiele müsste Wetta sein Schema in (\ref{schema-f-g-wetta}) anwenden. Mit all den
+erläuterten Problemen der \slasch-basierten Ansätze.
+
+% Das stimmt doch nicht. Wenn man Spuren hat, kann man doch die Dativsput vor der Akkusativsput
+% anordnen.
+% St. Mü. 02.06.2026
+% Ein weiteres Problem für \slasch-basierte Ansätze ist, dass die Reihenfolge der Elemente vor dem
+% finiten Verb für gewöhnlich der Reihenfolge entspricht, die diese bei unmarkierter Stellung im Mittelfeld haben würden 
+% \parencites[\page412--413]{Eisenberg94a}[Abschnitt~2.10]{Mueller2005d}. Die Beispiele in (\mex{1})
+% und (\mex{2}) sollen das verdeutlichen: (\mex{1}a) ist ein Beleg für mehrfache Vorfeldbesetzung und
+% (\mex{1}b) die Variante mit Umstellung der Konstituenten innerhalb des Vorfelds. 
+% \judgewidth{??}
+% \eal
+% \ex[]{\label{bsp-alle-traeume-gleichzeitig-zwei}
+% {}[Alle Träume] [gleichzeitig] lassen sich nur selten verwirklichen.\footnote{
+%         Broschüre der Berliner Sparkasse, 1/1999.
+%         }
+% }
+% \ex[?*]{
+% Gleichzeitig alle Träume lassen sich nur selten verwirklichen.
+% }
+% \zl
+% (\mex{0}b) ist markiert und genauso verhält es sich mit der Abfolge in (\mex{1}b) im Vergleich zu (\mex{1}a):
+% \eal\NOTE{FB: findet b toll.}
+% \ex[]{
+% weil sich nur selten alle Träume gleichzeitig verwirklichen lassen
+% }
+% \ex[??]{
+% weil sich nur selten gleichzeitig alle Träume verwirklichen lassen
+% }
+% \zl
+% In den natürlich vorkommenden Belegen aus dem IDS"=Korpus und anderen Korpora, die
+% \citet{Bildhauer2011a} gefunden hat, lag jeweils die präferierte Mittelfeldstellung vor.
+
+% Eine Analyse ohne einen verbalen Kopf im Vorfeld kann nicht erklären, warum das nichtverbale
+% Material im Vorfeld denselben Linearisierungsgesetzmäßigkeiten wie bei Nichtvoranstellung unterliegt.\footnote{
+%   Siehe auch Abschnitt~\ref{sec-disc-entry} (insbesondere die Diskussion der Beispiele (\ref{bsp-partikel+anderes+material-topo-felder})
+%   auf S.\,\pageref{bsp-partikel+anderes+material-topo-felder}) zu Verbpartikeln, die mit anderem Material zusammen
+%   innerhalb eines komplexen Vorfelds stehen können. Die Partikel steht dann innerhalb des Vorfelds in der rechten Satzklammer
+%   und die anderen Konstituenten im Mittelfeld bzw.\ im Nachfeld.%
+% } Wollte man die Abfolge der \textsc{slash}"=Elemente bei der Einführung der Fernabhängigkeiten
+% regeln, so müsste man dort auf alle linearisierungsrelevante Information Bezug nehmen und \zb
+% sagen, dass Pronomina in der \slashl vor nichtpronominalen Elementen stehen müssen (siehe auch Abschnitt~\ref{sec-lex-intro-udc}
+% zur lexikalischen Einführung von Fernabhängigkeiten). Alternativ
+% könnte man diese Beschränkungen bei der Abbindung der Fernabhängigkeiten überprüfen. In jedem Fall
+% wären gesonderte Mechanismen stipuliert worden, die von den Mechanismen, die für die Anordnung
+% im Mittelfeld verwendet werden, verschieden sind.
+
+% Bei der Annahme eines leeren verbalen Kopfes kann man die Verhältnisse hingegen leicht erklären:
+% Innerhalb des komplexen Vorfelds gibt es wieder ein Mittelfeld.
+% Die Umordnung im Mittelfeld ist mit bestimmten pragmatischen Effekten verbunden und die Voranstellung
+% von komplexen Verbalprojektionen ebenso. Wenn beides zusammen auf"|tritt, gibt es Konflikte bei der
+% Erfüllung der pragmatischen Restriktionen, weshalb die Beispiele mit Umstellungen innerhalb eines
+% komplexen Vorfelds markierter sind.
+
+Im folgenden Abschnitt werden Ansätze mit variabler Verzweigung diskutiert. Auch für diesen Ansatz stellt die
+scheinbar mehrfache Vorfeldbesetzung ein Problem dar.
+\is{Vorfeldbesetzung!scheinbar mehrfache|)}
+
+
+
 \subsubsection{Variable Verzweigung}
 \label{crysmann}
 
@@ -2369,6 +2854,7 @@ Er hat dazu die unär verzweigenden Grammatikregeln, die der Verbspur entspreche
 Analyse mit uniformer Rechtsverzweigung eine Analyse mit Linksverzweigung bei unbesetzter
 rechter Satzklammer und mit Rechtsverzweigung bei besetzter Satzklammer implementiert.
 Für die beiden Sätze in (\mex{1}) gibt es also unterschiedliche Verzweigungen:
+\largerpage
 \eal
 \ex {}[[[Gibt Aicke] dem Affen] den Stock]?
 \ex {}[Hat [Aicke [dem Affen [den Stock gegeben]]]]?
@@ -2382,131 +2868,60 @@ Vorfeldbesetzung\is{Vorfeldbesetzung!scheinbar mehrfache|(} mit Hilfe eines leer
 
 Crysmann hat in der Diskussion zu seinem Vortrag auf dem Workshop \emph{Large"=Scale Grammar Development and Grammar Engineering} 
 2006 in Haifa vorgeschlagen, die Tatsache, dass die Elemente, die bei der scheinbar mehrfachen Vorfeldbesetzung
-vorangestellt werden, vom selben Verb abhängen müssen \citep[\page67]{Fanselow93a}, dadurch zu erfassen, dass bei der Einführung
-der Fernabhängigkeiten offen gelassen wird, ob sich ein oder mehrere Elemente in \slasch befinden
-(zu \slasch und der Behandlung der Fernabhängigkeiten siehe Kapitel~\ref{Kapitel-nla}).
+vorangestellt werden, vom selben Verb abhängen müssen (siehe Diskussion auf S.\,\pageref{ex-mult-front-same-verb}), dadurch zu erfassen, dass bei der Einführung
+der Fernabhängigkeiten offen gelassen wird, ob sich ein oder mehrere Elemente in \slasch befinden.
 Für die mehrfache Vorfeldbesetzung würde man annehmen, dass es mehrere Elemente in \slasch gibt,
 die jeweils zum selben Kopf in Beziehung stehen. Die Fernabhängigkeiten können dann entweder mit einem
-flach verzweigenden Schema gemeinsam oder aber eins nach dem anderen abgebunden werden.
-Die Ausarbeitung einer solchen Analyse muss folgende Fakten erklären:
-\begin{enumerate}
-\item Sowohl Adjunkte als auch Argumente können in Sätzen mit scheinbar mehrfacher Vorfeldbesetzung auf"|treten.
-      Man vergleiche die Datensammlung in \citew{Mueller2003b}, ein Beispiel sei hier gegeben (von S.\,36):
-      \ea
-      {}[Gezielt] [Mitglieder] [im Seniorenbereich] wollen die Kendoka allerdings nicht
-      werben.\label{bsp-gezielt-mitglieder}\footnote{
-        taz, 07.07.1999, S.\,18.
-      }
-      \z
-\item Die Reihenfolge der Elemente vor dem finiten Verb entspricht für gewöhnlich der Reihenfolge, 
-      die diese bei unmarkierter Stellung im Mittelfeld haben würden 
-      \parencites[\page412--413]{Eisenberg94a}[Abschnitt~2.10]{Mueller2005d}.
-      Die Beispiele in (\mex{1}) und (\mex{2}) sollen das verdeutlichen: (\mex{1}a) ist ein Beleg für mehrfache Vorfeldbesetzung
-      und (\mex{1}b) die Variante mit Umstellung der Konstituenten innerhalb des Vorfelds.
-\judgewidth{??}
-\eal
-\ex[]{ {}[Alle Träume] [gleichzeitig] lassen sich nur selten 
-      verwirklichen.\label{bsp-alle-traeume-gleichzeitig}\footnote{
-        Broschüre der Berliner Sparkasse, 1/1999.
-        }
-}
-\ex[?*]{
-Gleichzeitig alle Träume lassen sich nur selten verwirklichen.
-}
-\zl
-(\mex{0}b) ist markiert und genauso verhält es sich mit der Abfolge in (\mex{1}b) im Vergleich zu (\mex{1}a):
-\eal\NOTE{FB: findet b toll.}
-\ex[]{
-weil sich nur selten alle Träume gleichzeitig verwirklichen lassen
-}
-\ex[??]{
-weil sich nur selten gleichzeitig alle Träume verwirklichen lassen
-}
-\zl
-In den natürlich vorkommenden Belegen aus dem IDS"=Korpus und anderen Korpora, die
-\citet{Bildhauer2011a} gefunden hat, lag jeweils die präferierte Mittelfeldstellung vor.
-\item In Fällen, in denen mehr als ein Bestandteil eines idiomatischen Ausdrucks vorangestellt wurde,
-      kann mitunter einer der Idiombestandteile nicht in Isolation vorangestellt werden, ohne dass die
-      Äußerung ungrammatisch würde bzw.\ die idiomatische Lesart verlöre \citep[Abschnitt~2.9]{Mueller2005d}.
-\eal
-\ex {}[Öl] [ins Feuer] goß\iw{gießen!Öl ins Feuer $\sim$} gestern das Rote-Khmer-Radio:
-      \ldots\footnote{
-        taz, 18.06.1997, S.\,8.
-}
-\ex\iw{setzen!das Tüpfel aufs i $\sim$}
-{}[Das Tüpfel] [aufs i] setzte der Bürgermeister von Miami, als er am Samstagmorgen von einer schändlichen 
-Attacke der US-Regierung sprach.\footnote{
-        taz, 25.04.2000, S.\,3. %taz Nr. 6126 vom 25.4.2000 Seite 3 im Original steht `setze'
-    }
-\ex {}[Ihr Fett] [weg] bekamen natürlich auch alte und neue Regierung [\ldots]\footnote{
-        Mannheimer Morgen, 10.03.1999, Lokales; SPD setzt auf den "`Doppel-Baaß"'. %M99/903.16159 Mannheimer Morgen, 10.03.1999, Lokales; SPD setzt auf den "Doppel-Baaß"
-      }
-\zl
-\eal
-\ex[*]{
-Ins Feuer goß gestern das Rote-Khmer-Radio Öl.
-}
-\ex[*]{
-Aufs i setzte der Bürgermeister von Miami das Tüpfel, als er am Samstagmorgen von einer schändlichen 
-Attacke der US-Regierung sprach.
-}
-\ex[*]{
-Weg bekamen natürlich auch alte und neue Regierung ihr Fett.
-}
-\zl
-\end{enumerate}
-Diese Fakten sind für eine Analyse mit mehreren Elementen in \slasch aus folgenden Gründen problematisch:
-Der semantische Beitrag einer Konstituente muss berücksichtigt werden. In der HPSG"=Theorie
-wird das bei der Einführung der Fernabhängigkeit gemacht. Deshalb müsste die Tatsache, dass
-sowohl Adjunkte als auch Argumente in den verschiedensten Kombinationen im Vorfeld stehen
-können, bei der Einführung der Fernabhängigkeiten berücksichtigt werden. Werden Adjunkte
-syntaktisch eingeführt, bedeutet das, dass der \modw eines zu extrahierenden Adjunkts mit dem
-\synsemw des Kopfes, den das Adjunkt modifiziert, identifiziert werden muss. Bei Argumenten
-ist dies natürlich nicht der Fall.\footnote{
-  Bei einer Analyse, die Adjunkte als Argumente behandelt \citep*{BMS2001a}, entfällt dieses Problem. Allerdings hat
-  eine solche Analyse Probleme mit bestimmten Skopusverhältnissen bei koordinierten VPen.
-  Siehe \citew{Cipollone2001a,Levine2003a}, \citew[Abschnitt~3.6.1]{LH2006a}. Siehe aber auch \citew{Chaves2009a}.%
-}
-Das heißt, man kann nicht ohne Weiteres, wie das von
-Crysmann vorgeschlagen wurde, annehmen, dass die Anzahl der extrahierten Elemente unterspezifiziert
-bleibt. Es ist sicher möglich, eine unterspezifizierte Einführung von Fernabhängigkeiten
-zu entwickeln, allerdings ist das dann eine Spezialbehandlung, während bei Verwendung
-eines leeren Kopfes, wie er für die Verbbewegung verwendet wurde, keine zusätzlichen Annahmen
-nötig sind. Adjunkte im Vorfeld werden ganz normal über das Kopf"=Adjunkt"=Schema mit dem leeren
-verbalen Kopf verbunden und Argumente werden ebenfalls unspektakulär über das Kopf"=Komplement"=Schema
-mit dem leeren verbalen Kopf kombiniert \citep[Abschnitt~4]{Mueller2005d}.
-
-Zum zweiten Punkt ist zu sagen, dass eine Analyse ohne einen verbalen Kopf im Vorfeld nicht erklären
-kann, warum das nichtverbale Material im Vorfeld denselben Linearisierungsgesetzmäßigkeiten 
-wie im Mittelfeld unterliegt.\footnote{
-  Siehe auch Abschnitt~\ref{sec-disc-entry} (insbesondere die Diskussion der Beispiele (\ref{bsp-partikel+anderes+material-topo-felder})
-  auf S.\,\pageref{bsp-partikel+anderes+material-topo-felder}) zu Verbpartikeln, die mit anderem Material zusammen
-  innerhalb eines komplexen Vorfelds stehen können. Die Partikel steht dann innerhalb des Vorfelds in der rechten Satzklammer
-  und die anderen Konstituenten im Mittelfeld bzw.\ im Nachfeld.%
-} Wollte man die Abfolge der \textsc{slash}"=Elemente bei der Einführung der Fernabhängigkeiten
-regeln, so müsste man dort auf alle linearisierungsrelevante Information Bezug nehmen und \zb
-sagen, dass Pronomina in der \slashl vor nichtpronominalen Elementen stehen müssen (siehe auch Abschnitt~\ref{sec-lex-intro-udc}
-zur lexikalischen Einführung von Fernabhängigkeiten). Alternativ
-könnte man diese Beschränkungen bei der Abbindung der Fernabhängigkeiten überprüfen. In jedem Fall
-wären gesonderte Mechanismen stipuliert worden, die von den Mechanismen, die für die Anordnung
-im Mittelfeld verwendet werden, verschieden sind.
-
-Bei der Annahme eines leeren verbalen Kopfes kann man die Verhältnisse hingegen leicht erklären:
-Innerhalb des komplexen Vorfelds gibt es wieder ein Mittelfeld.
-Die Umordnung im Mittelfeld ist mit bestimmten pragmatischen Effekten verbunden und die Voranstellung
-von komplexen Verbalprojektionen ebenso. Wenn beides zusammen auf"|tritt, gibt es Konflikte bei der
-Erfüllung der pragmatischen Restriktionen, weshalb die Beispiele mit Umstellungen innerhalb eines
-komplexen Vorfelds markierter sind.
-
-Auch der dritte Punkt lässt sich in einer \textsc{slash}"=basierten Analyse nicht ohne Weiteres erklären:
-Hier müssten Beschränkungen bei der Einführung bzw.\ Abbindung von Idiombestandteilen
-in \slasch formuliert werden. So müsste man \zb irgendwie sicherstellen, dass \emph{ins Feuer} nur
-dann in \slasch aufgenommen werden darf, wenn auch \emph{Öl} in \slasch ist.
-Bei der Analyse mit der Verbspur ist das hingegen nicht nötig: In einer Theorie, die davon ausgeht, dass
-\emph{Öl ins Feuer gießen} einen Komplex nach der Art der Verbalkomplexe bildet, die in
-Kapitel~\ref{Kapitel-Verbalkomplex} besprochen werden, folgt automatisch, dass \emph{ins Feuer} nicht
-aus der Mitte des Komplexes vorangestellt werden kann. Ob das Verb dabei als Spur oder overt neben
-\emph{Feuer} realisiert wird, ist dabei unerheblich. Siehe Abschnitt~\ref{sec-pvp}.\is{Vorfeldbesetzung!scheinbar mehrfache|)}
+flach verzweigenden Schema gemeinsam oder aber eins nach dem anderen abgebunden werden. Probleme
+\slasch-basierte Analysen wurden im vorigen Abschnitt ausführlich besprochen.
+Crysmanns Vorschläge wurden nie ausgearbeitet und inzwischen hat er selbst eine Verbbewegungsanalyse
+für deutsche Sätze vorgeschlagen \citep{Crysmann2022a}.
+%
+% Crysmann hat in der Diskussion zu seinem Vortrag auf dem Workshop \emph{Large"=Scale Grammar Development and Grammar Engineering} 
+% 2006 in Haifa vorgeschlagen, die Tatsache, dass die Elemente, die bei der scheinbar mehrfachen Vorfeldbesetzung
+% vorangestellt werden, vom selben Verb abhängen müssen \citep[\page67]{Fanselow93a}, dadurch zu erfassen, dass bei der Einführung
+% der Fernabhängigkeiten offen gelassen wird, ob sich ein oder mehrere Elemente in \slasch befinden
+% (zu \slasch und der Behandlung der Fernabhängigkeiten siehe Kapitel~\ref{Kapitel-nla}).
+% Für die mehrfache Vorfeldbesetzung würde man annehmen, dass es mehrere Elemente in \slasch gibt,
+% die jeweils zum selben Kopf in Beziehung stehen. Die Fernabhängigkeiten können dann entweder mit einem
+% flach verzweigenden Schema gemeinsam oder aber eins nach dem anderen abgebunden werden.
+% Die Ausarbeitung einer solchen Analyse muss folgende Fakten erklären:
+% \begin{enumerate}
+% \item Sowohl Adjunkte als auch Argumente können in Sätzen mit scheinbar mehrfacher Vorfeldbesetzung auf"|treten.
+%       Man vergleiche die Datensammlung in \citew{Mueller2003b}, ein Beispiel sei hier gegeben (von S.\,36):
+%       \ea
+%       {}[Gezielt] [Mitglieder] [im Seniorenbereich] wollen die Kendoka allerdings nicht
+%       werben.\label{bsp-gezielt-mitglieder}\footnote{
+%         taz, 07.07.1999, S.\,18.
+%       }
+%       \z
+% \item In Fällen, in denen mehr als ein Bestandteil eines idiomatischen Ausdrucks vorangestellt wurde,
+%       kann mitunter einer der Idiombestandteile nicht in Isolation vorangestellt werden, ohne dass die
+%       Äußerung ungrammatisch würde bzw.\ die idiomatische Lesart verlöre. Die entsprechenden Daten
+%       wurden bereits ab S.\,\pageref{page-MVF-Idiome} diskutiert.
+% % \citep[Abschnitt~2.9]{Mueller2005d}.
+% \end{enumerate}
+% Diese Fakten sind für eine Analyse mit mehreren Elementen in \slasch aus folgenden Gründen problematisch:
+% Der semantische Beitrag einer Konstituente muss berücksichtigt werden. In der HPSG"=Theorie
+% wird das bei der Einführung der Fernabhängigkeit gemacht. Deshalb müsste die Tatsache, dass
+% sowohl Adjunkte als auch Argumente in den verschiedensten Kombinationen im Vorfeld stehen
+% können, bei der Einführung der Fernabhängigkeiten berücksichtigt werden. Werden Adjunkte
+% syntaktisch eingeführt, bedeutet das, dass der \modw eines zu extrahierenden Adjunkts mit dem
+% \synsemw des Kopfes, den das Adjunkt modifiziert, identifiziert werden muss. Bei Argumenten
+% ist dies natürlich nicht der Fall.\footnote{
+%   Bei einer Analyse, die Adjunkte als Argumente behandelt \citep*{BMS2001a}, entfällt dieses Problem. Allerdings hat
+%   eine solche Analyse Probleme mit bestimmten Skopusverhältnissen bei koordinierten VPen.
+%   Siehe \citew{Cipollone2001a,Levine2003a}, \citew[Abschnitt~3.6.1]{LH2006a}. Siehe aber auch \citew{Chaves2009a}.%
+% }
+% Das heißt, man kann nicht ohne Weiteres, wie das von
+% Crysmann vorgeschlagen wurde, annehmen, dass die Anzahl der extrahierten Elemente unterspezifiziert
+% bleibt. Es ist sicher möglich, eine unterspezifizierte Einführung von Fernabhängigkeiten
+% zu entwickeln, allerdings ist das dann eine Spezialbehandlung, während bei Verwendung
+% eines leeren Kopfes, wie er für die Verbbewegung verwendet wurde, keine zusätzlichen Annahmen
+% nötig sind. Adjunkte im Vorfeld werden ganz normal über das Kopf"=Adjunkt"=Schema mit dem leeren
+% verbalen Kopf verbunden und Argumente werden ebenfalls unspektakulär über das Kopf"=Komplement"=Schema
+% mit dem leeren verbalen Kopf kombiniert \citep[Abschnitt~4]{Mueller2005d}.
+\is{Vorfeldbesetzung!scheinbar mehrfache|)}
 
 %% In der Diskussion von (\ref{bsp-absichtlich-nicht-anal}) haben wir gesehen, dass linksstehende
 %% Elemente Skopus über rechtsstehende Elemente haben. Dabei werden Verberstsätze wie (\ref{bsp-absichtlich-nicht-anal-v1}) 
@@ -2541,6 +2956,7 @@ Kapitel besprochen, da sie mit der Vorfeldbesetzung interagiert.
 In den folgenden beiden Teilabschnitten diskutiere ich erst Ansätze, die die funktionalen Projektionen
 AgrS, AgrO und AgrIO benutzen und dann solche, die spezielle funktionale Projektionen 
 mit Informationsstrukturbezug verwenden.
+\largerpage
 
 \subsubsubsection{AgrS, AgrO und AgrIO}
 
@@ -2614,11 +3030,12 @@ Informationsstruktur im Rahmen der HPSG.%
 
 
 \subsubsubsection{TopP, FocP und KontrP}
+\label{sec-TopP-FocP-KontrP}
 
-\mbox{}\citet[27]{Frey2004a}\is{Topik|(}\is{Fokus|(}\is{Informationsstruktur|(} nimmt eine KontrP (Kontrastphrase) und 
+\mbox{}\citet[27]{Frey2004a}\is{Topik|(}\is{Fokus|(}\is{Informationsstruktur|(} nimmt eine KontrP\is{Kategorie!funktionale!Kontr} (Kontrastphrase) und 
 %\citet[\page165]{Frey2000a-u} 
 \citet[Abschnitt~5]{Frey2004b-u}
-eine TopP (Topikphrase) an (siehe auch \citew{Rizzi97a-u} für TopP und FocP (Fokusphrase) im Italienischen und 
+eine TopP\is{Kategorie!funktionale!Top} (Topikphrase) an (siehe auch \citew{Rizzi97a-u} für TopP und FocP\is{Kategorie!funktionale!Foc} (Fokusphrase) im Italienischen und 
 \citew{Haftka95a}, \citew[\page19]{Abraham2003a} für Analysen mit TopP und/""oder FocP für das Deutsche).
 Konstituenten müssen je nach ihrem informationsstrukturellen Status in die Spezifikatorpositionen
 dieser funktionalen Köpfe bewegt werden. \citet{Fanselow2003b} hat gezeigt, dass solche bewegungsbasierten
@@ -2688,6 +3105,7 @@ mit Skopus"=Daten argumentiert. Sätze wie (\mex{1}b) sind hinsichtlich des Quan
 \ex Es ist nicht der Fall, dass er mindestens einem Verleger fast jedes Gedicht anbot.
 \ex Es ist nicht der Fall, dass er fast jedes Gedicht$_i$ mindestens einem Verleger \_$_i$ anbot.
 \zl
+\largerpage
 Es wurde behauptet, dass man zur Erklärung der Ambiguität verschiedene Strukturen benötigt, nämlich
 zum einen die direkt beobachtbare und zum anderen solche, die der Rückübertragung einer oder
 mehrerer umgestellter Phrasen in die Position der Spur entsprechen \citep[185]{Frey93a}.
@@ -2765,6 +3183,7 @@ ein Argument mit einer verbalen Projektion kombiniert wird und die Argumente in 
 angeordnet sind, die auch sichtbar ist. Die Argumente werden in eine Linearisierungsdomäne
 eingesetzt und Linearisierungsbeschränkungen werden dann auf die Elemente dieser Liste angewendet.
 Siehe dazu Abschnitt~\ref{sec-Reape-Linearisierung} und \citew[\page 23]{MaslochPoppekKiss2024a}.
+\largerpage
 
 Interessanterweise setzen Analysen wie die von \citet{Kiss2001a},
 \citet{Fanselow2001a}, \citet{Mueller2005c} und \citet{MaslochPoppekKiss2024a} angenommenen voraus,
@@ -2842,7 +3261,7 @@ dürften die Sätze in (\ref{ex-Gartenvereinsvorsitzenden}) nicht grammatisch se
 ohnehin nicht strikt ist, fällt auch dieses Argument für die Behandlung der mittelfeldinternen
 Stellungsvarianten mittels Bewegung weg.
 %
-\is{Freezing@\emph{Freezing}|)}\is{Konstitutentenstellung|)}
+\is{Freezing@\emph{Freezing}|)}\is{Konstituentenstellung|)}
 
 
 %\section*{Kontrollfragen}
