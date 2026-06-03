@@ -336,6 +336,7 @@ Der Affe, den Aicke kennt, schmatzt.
 Die Relativphrase bindet die Fernabhängigkeit aus dem finiten Satz in Verbletztstellung ab,
 weshalb der \slashw der Mutter die leere Liste ist. Genauso wird die Information über das
 Relativpronomen innerhalb des Relativsatzes abgebunden: Der \relw der Gesamtstruktur ist die leere Liste. 
+\largerpage
 
 Das Relativsatzschema entspricht im Wesentlichen
 dem Kopf"=Füller"=Schema, das auf S.\,\pageref{hf-schemaa} vorgestellt wurde. Es unterscheidet sich lediglich im
@@ -374,6 +375,7 @@ andere Abfolge ist ungrammatisch, wie das folgende Beispiel zeigt:
 Affe, [\sub{S} Aicke \_$_i$ kennt] den$_i$
 }
 \z
+\largerpage
 Außerdem kann die Relativphrase nicht innerhalb einer komplexen
 Nominalphrase rechts des Kopfnomens stehen:\footnote{
   Hierin unterscheiden sich Relativsätze von Interrogativsätzen\is{Interrogativsatz},
@@ -514,9 +516,76 @@ alle drei Satztypen gemeinsam haben:
 \z
 
 \noindent
-Der Typ \type{filler-phrase} ist ein Obertyp von \type{relative-clause} und von \type{head-filler-phrase}. Siehe Abbildung~\vref{abb-sign-relcl} für einen Überblick über die aktuelle Typhierarchie
-unter \type{phrase}. 
+Der Typ \type{filler-phrase} ist ein Obertyp von \type{relative-clause} und von
+\type{head-filler-phrase}. Siehe Abbildung~\vref{abb-sign-relcl} für einen
+Überblick über die aktuelle Typhierarchie unter \type{phrase}. 
 %
+% \begin{figure}
+% \centering
+% \oneline{%
+% %\scalebox{0.8}{%
+% %\begin{sideways}%
+% \begin{forest}
+% type hierarchy,
+%  % for tree={
+%  %   calign=fixed angles,
+%  %   calign angle=50
+%  % } 
+% % all maximal types are aligned
+% for tree={where n children=0{tier=word}{}}
+% [phrase
+%     %[non-headed-phrase, l sep*=2
+%     [filler-phrase, name=filler, s sep+=3mm
+%       [relative-clause]]
+%     [headed-phrase, l sep*=2, for children={l sep*=4}
+%       [head-non-filler-phrase, name=non-filler, 
+%         [head-filler-phrase,no edge, name=head-filler]]
+%       [head-non-argument-phrase, name=non-arg
+%         [head-argument-phrase,no edge, name=argument]]
+%       [head-non-adjunct-phrase, name= non-adjunct
+%         [head-adjunct-phrase, no edge, name=adjunct]]
+%       [head-non-specifier-phrase, name=non-specifier
+%         [head-specifier-phrase, no edge, name=specifier]]]]
+% \draw[out=290, in=150] (filler.south) to (head-filler.north);
+% \draw (non-adjunct.south) to (argument.north);
+% \draw (non-adjunct.south) to (head-filler.north);
+% \draw (non-adjunct.south) to (specifier.north);
+% \draw (non-arg.south) to (adjunct.north);
+% \draw (non-arg.south) to (head-filler.north);
+% \draw (non-arg.south) to (specifier.north);
+% \draw (non-filler.south) to (adjunct.north);
+% \draw (non-filler.south) to (argument.north);
+% \draw (non-filler.south) to (specifier.north);
+% \draw (non-specifier.south) to (adjunct.north);
+% \draw (non-specifier.south) to (argument.north);
+% \draw (non-specifier.south) to (head-filler.north);
+% \end{forest}
+% %\end{sideways}
+% }
+% \caption{\label{abb-sign-relcl}Typhierarchie für \type{phrase}}
+% \end{figure}
+
+Damit kann das Relativsatzschema stark vereinfacht werden:
+\begin{schema}[Relativsatzschema (strukturelle Aspekte)]
+\label{rs-schema-struk-mit-Vererbung}
+\type{relative-clause}\istype{relative"=clause} \impl\\
+\onems{ loc$|$cat \ms{ head & relativizer \\
+                       spr  & \eliste\\
+                       comps & \eliste \\
+                     } \\[-5\baselineskip]
+   dtrs \sliste{ [nonloc$|$rel \sliste{ [] }], [loc$|$cat$|$head$|$initial $-$ ] } 
+}
+\end{schema}
+
+\noindent
+Das Kopf"=Füller"=Schema wird noch einfacher:
+\begin{schema}[Kopf"=Füller"=Schema]
+\label{schema-Füller-Kopf-mit-Vererbung}\is{Schema!Kopf"=Füller"=}
+\type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
+\onems{ 
+   dtrs \sliste{ [nonloc$|$rel \eliste], [loc$|$cat$|$head$|$initial $+$ ] } 
+}
+\end{schema}
 \begin{figure}
 \centering
 \oneline{%
@@ -562,27 +631,6 @@ for tree={where n children=0{tier=word}{}}
 \caption{\label{abb-sign-relcl}Typhierarchie für \type{phrase}}
 \end{figure}
 
-Damit kann das Relativsatzschema stark vereinfacht werden:
-\begin{schema}[Relativsatzschema (strukturelle Aspekte)]
-\label{rs-schema-struk-mit-Vererbung}
-\type{relative-clause}\istype{relative"=clause} \impl\\
-\onems{ loc$|$cat \ms{ head & relativizer \\
-                       spr  & \eliste\\
-                       comps & \eliste \\
-                     } \\[-5\baselineskip]
-   dtrs \sliste{ [nonloc$|$rel \sliste{ [] }], [loc$|$cat$|$head$|$initial $-$ ] } 
-}
-\end{schema}
-
-\noindent
-Das Kopf"=Füller"=Schema wird noch einfacher:
-\begin{schema}[Kopf"=Füller"=Schema]
-\label{schema-Füller-Kopf-mit-Vererbung}\is{Schema!Kopf"=Füller"=}
-\type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
-\onems{ 
-   dtrs \sliste{ [nonloc$|$rel \eliste], [loc$|$cat$|$head$|$initial $+$ ] } 
-}
-\end{schema}
 
 \noindent
 Beschränkungen in Bezug auf Kopf- und Valenzmerkmale werden in Kopf"=Füller"=Strukturen von Obertypen geerbt.
@@ -668,16 +716,18 @@ mit der Ereignisvariable des finiten Verbs identisch. Der Wert ist im Prinzip eg
 Relativsatz eine Maximalprojektion ist, die nicht erweitert und auch nicht 
 als Argument genommen wird. Der Wert ist dennoch im Relativsatzschema festgelegt, damit die
 Parallelität zu anderen Strukturen gewährleistet ist.
+\largerpage
 
 Adjektive wie \emph{interessantes} steuern in ihrem Lexikoneintrag eine Relation zur Gesamtbedeutung
 der Phrase bei, in der sie dann verwendet werden. In Relativsätzen entspricht diese Relation der Relation, die
 vom Verb im Relativsatz kommt. Diese wird als Element von \rels nach oben gereicht. Da der \ltopw
 der Satztochter mit dem \ltopw des modifizierten Nomens identifiziert wird, sind Nomen und
 Hauptrelation des Relativsatzes miteinander verknüpft. Für einen einfachen Relativsatz wie den in
-(\mex{1}) bekommt man somit eine Struktur wie (\mex{2}):
+(\mex{1}) bekommt man somit eine Struktur wie (\mex{2}).
 \ea
 Das Kind, das spielt, lacht.
 \z
+\begin{figure}
 \ea
 \ms{ phon & \phonliste{ das, spielt }\\
    loc & \ms{ cat & \ms{ head & \ms[relativizer]
@@ -694,6 +744,8 @@ rels & \liste{\ms[spielen]{
                 arg0 & \ibox{3} event\\
                 arg1 & \ibox{1} }} }
 \z
+\vspace{-\baselineskip}
+\end{figure}
 Die Bedeutungskombination der gesamten Nominalphrase in (\mex{-1}) erfolgt dann wie in
 Abschnitt~\ref{Semantik-Adjektivmodifikation} bzw.~\ref{Abschnitt-Semantik-Adjektivmodifikation-mutmaßlich} beschrieben: Da Relativsätze Adjunkte sind, werden sie in Kopf"=Adjunkt"=Strukturen
 mit einer entsprechenden \nbar kombiniert. In (\mex{-1}) ist das das Nomen \emph{Kind}. Der \modw des Relativsatzes
@@ -772,6 +824,7 @@ h4 = h6 ausgedrückt. Weiter oben im Baum haben sowohl \relation{kind} als auch 
 
 Damit ist die Relativsatzanalyse fast vollständig erklärt. Es bleibt ein interessantes Problem: das
 Problem mit possessiven Relativpronomen. 
+\largerpage
 
 Die MRS für unser komplexestes Beispiel in (\mex{1}a) zeigt (\mex{1}b):
 \eal
@@ -796,7 +849,8 @@ Die ERG-Grammatik unterscheidet sich von der hier vorgestellten Grammatik dadurc
 des \contwes ist. Zum \contw siehe Abschnitt~\ref{Abschnitt MRS und Fernabhängigkeiten}.
 }
 Der Lexikoneintrag für das possessive Relativpronomen \emph{dessen} hat die Form in (\mex{1}):
-\ea
+%\largerpage
+\eas
 \label{le-dessen}%
 Lexikoneintrag für das possessive Relativpronomen \emph{dessen}:\\
 % dessen Frau / Mann / Kind
@@ -839,7 +893,7 @@ Lexikoneintrag für das possessive Relativpronomen \emph{dessen}:\\
                   }
               }
 }
-\z
+\zs
 Das Possessivpronomen \emph{dessen} führt einen definiten Quantor für das Nomen ein, dessen Artikel
 es ist. Die Variable -- der Wert von \argzero{} -- ist \ibox{2}, auch der Index des Nomens. Die Restriktion des Quantors ist
 \ibox{6} und \ibox{6} ist \qeq mit \ibox{1}, dem \ltopw des Nomens. Ansonsten bringt das
@@ -857,6 +911,7 @@ sind und der \ltopw des Relativsatzes ohnehin mit dem \ltopw des modifizierten N
 wird, weil die Modifikation intersektiv ist. \ltopw des Satzes (in \ibox{2}\,) und \ltopw der
 Relativphrase müssten dann aber immernoch einzeln erwähnt werden. Ich finde es klarer, die Werte einzeln aufzuführen.
 }
+\newpage
 
 %\begin{figure}
 \begin{schema}[Relativsatzschema]
@@ -946,6 +1001,7 @@ Relativsatz auf alle Eigenschaften der \nbar zugreifen und auch die Identität d
 Indexes der modifizierten \nbar mit dem Index des Relativpronomens erzwingen. Der \ltopw des
 Relativsatzes \ibox{1} wird mit dem \ltopw des modifizierten Nomens über das Semantikprinzip
 identifiziert, da Relativsätze intersektive Modifikatoren sind (siehe Abschnitt~\ref{Abschnitt-Semantikprinzip}).
+\largerpage
 
 Die detaillierte Version der Analyse, die auch noch \rels- und \hcons-Werte enthält, zeigt Abbildung~\vref{abb-Kind-von-dessen-Fahrrad-RELS}.
 \begin{figure}
@@ -1100,6 +1156,7 @@ Satztyp zuzuweisen.
 \ea
 der Affe den Stock greift
 \z
+\largerpage
 (\mex{0}) enthält das transitive Verb \emph{greifen} mit allen benötigten Argumenten. Es handelt
 sich also um eine vollständige Verbalprojektion. Allerdings ist diese ohne nebensatzeinleitende
 Konjunktion nicht in größeren Kontexten verwendbar. Wenn der \modw von (\mex{0}) nicht spezifiziert
@@ -1180,6 +1237,7 @@ apples which Harry eats
 \ea
 (N$\backslash$N)/(S/NP)
 \z
+\largerpage
 Die Symbole `/' und `$\backslash$' stehen für Kombination nach links bzw.\
 rechts, \dash, S/NP steht für etwas, das einen Satz ergibt, wenn es mit einer NP,
 die sich rechts von ihm befindet, kombiniert wird. In (\mex{0}) steht
@@ -1257,6 +1315,7 @@ the contract the loss of which after so much wrangling John would finally have t
 \citew[\page 203]{Morrill95a}
 }
 \z
+%\largerpage[2]
 Morrill stellt fest, dass man alle Fälle durch zusätzliche lexikalische Stipulationen behandeln
 kann. Er schlägt stattdessen zusätzliche Arten der Kombination von Funktoren und Argumenten vor,
 die einen Funktor B $\uparrow$ A sein Argument A umschließen lassen und B ergeben bzw.\ einen Funktor A $\downarrow$
@@ -1283,6 +1342,7 @@ Aus wem noch etwas herausgequetscht werden kann, ist sozial dazu verpflichtet, e
         Wiglaf Droste, taz, 01.08.1997, S.\,16.
       }
 \z
+%\largerpage[2]
 Diese Analyse kann nicht erfassen, wieso das Relativpronomen den Kasus hat, den die Präposition
 \emph{aus} verlangt (Dativ) und wieso der gesamte freie Relativsatz trotzdem den Platz des
 Nominativarguments von \emph{verpflichtet} einnehmen kann. Man könnte die Analyse technisch retten,
