@@ -17,6 +17,7 @@ werden. Damit werden wir dann in der Lage sein, Verbzweitsätze und Relativsätz
 
 \section{Verschiedene Arten von Fernabhängigkeiten}
 
+\largerpage
 Im\is{Extraktion|(}\is{nichtlokale Abhängigkeit|(}\is{Konstituentenstellung|(} Deutschen stehen die Konstituenten in
 Aussagesätzen nicht wie im Englischen in Subjekt-Verb-Objekt-Reihenfolge. Das finite Verb steht
 initial und die Position vor dem finiten Verb kann mit einer beliebigen Konstituente (Adjunkt, Subjekt oder Komplement) besetzt sein \parencites[Abschnitt~2.4]{Erdmann1886a}[\page69, \page 77]{Paul1919a}, weshalb das Deutsche zu den Verbzweitsprachen\is{Verbzweitsprache} gezählt wird.\footnote{%
@@ -200,6 +201,7 @@ eingehen.\is{Extraposition|)}
 Nichtlokale\is{Relativsatz|(} Abhängigkeiten sind auch innerhalb von Relativsätzen zu beobachten: Die Phrase, die
 das Relativpronomen enthält, kann zu tiefer eingebetteten Konstituenten gehören, wie die
 Beispiele in (\mex{1}) und (\mex{2}) zeigen:
+%\largerpage
 \eal
 \label{bsp-nla-rs}
 \ex\iw{bitten}
@@ -215,8 +217,9 @@ Wollen wir mal da hingehen, wo$_i$\iw{wo!Relativpronomen} Jochen gesagt hat, [da
 \z\is{Relativsatz|)}
 Relativsätze werden im Kapitel~\ref{Kapitel-rs} behandelt. Interrogativnebensätze\is{Interrogativsatz} sind syntaktisch ähnlich aufgebaut.
 Sie werden in diesem Buch nicht besprochen. Im Folgenden wenden wir uns der Vorfeldbesetzung
-zu.\itdopt{Feldhaus97a:29 eine mit wievielen Kugeln Eis gefüllte Tüte: Ich möchte wissen über eine
-  mit wievielen Kugeln Eis gefüllte Tüte ihr gesprochen habt}
+zu.
+%\itdopt{Feldhaus97a:29 eine mit wievielen Kugeln Eis gefüllte Tüte: Ich möchte wissen über eine
+%  mit wievielen Kugeln Eis gefüllte Tüte ihr gesprochen habt}
 
 
 \section{Vorfeldbesetzung}
@@ -239,11 +242,13 @@ loc  & \ms{ cat  & \ms{ head   & head \\
                         comps & list of signs\\
                         arg-st & list of signs\\
                       } \\
-            cont & cont\\
+            cont & hook\\
           }\\
 nonloc & nonloc\\
 }
-\z\todostefan{\type{cont} müsste \type{hook}\istype{hook} sein. Das überall im Buch. Auch bei Lokalität.}
+\z
+%\todostefan{\type{cont} müsste \type{hook}\istype{hook} sein. Das überall im Buch. Auch bei Lokalität.}
+%\largerpage
 Der \nonlocw ist selbst noch weiter strukturiert:
 \ea
 \ms[nonloc]{
@@ -359,7 +364,9 @@ Wie auch bei den in den Abschnitten~\ref{Abschnitt-Valenzprinzip} und~\ref{Absch
 Formalisierung dieses Prinzips, der wir uns dann nach der Diskussion des Kopf"=Füller"=Schemas
 zuwenden.
 
-Das Kopf"=Füller"=Schema lizenziert den obersten Knoten in Abbildung~\ref{abb-das-buch-kennt-er-variable-verzweigung}:
+Das Kopf"=Füller"=Schema (Schema~\ref{hf-schemaa}) lizenziert den obersten Knoten in
+Abbildung~\ref{abb-das-buch-kennt-er-variable-verzweigung}.
+%\begin{figure}
 \begin{schema}[Kopf"=Füller"=Schema (vorläufig)]
 \label{hf-schemaa}\is{Schema!Kopf"=Füller"=}%
 \type{head-filler-phrase}\istype{head"=filler"=phrase} \impl\\
@@ -378,10 +385,12 @@ dtrs \liste{ \onems{ loc \ibox{2}\\
                         }}\\
 }
 \end{schema}
+%\vspace{-\baselineskip}
+%\end{figure}
 Dieses Schema kombiniert einen finiten Satz mit Verb in Verberststellung (\textsc{initial}+) und einem Element in \textsc{slash}
 mit einer Nicht-Kopf"|tochter, deren \textsc{local}"=Wert identisch mit diesem \textsc{slash}"=Element ist.
-In der Struktur werden keine Argumente gesättigt. Der Typ \type{head-filler-phrase} ist Untertyp von \type{head-non-complement-phrase}
-(siehe Abbildung~\vref{abb-sign-hf-struc}).
+In der Struktur werden keine Argumente gesättigt. Der Typ \type{head-filler-phrase} ist Untertyp von
+\type{head-non-complement-phrase} (siehe Abbildung~\ref{abb-sign-hf-struc}).
 \begin{figure}
 \oneline{
 % Das tut so, als wäre head-complement-phrase eine Tochter von head-non-complement-phrase, zeichnet aber
@@ -420,6 +429,7 @@ Dadurch wird der \compsw der Kopf"|tochter automatisch mit dem der Mutter identi
 Der semantische Beitrag (\ltop- und \textsc{index}-Wert) kommt vom Verb (der Kopf"|tochter). Das
 folgt aus dem Semantikprinzip (siehe Abschnitt~\ref{Abschnitt-Semantikprinzip}), denn der
 Typ \type{head-filler-phrase} ist ein Untertyp von \type{head-non-adjunct-phrase}.
+\newpage
 
 Die Abbildung~\ref{abb-sign-hf-struc} enthält auch einen Typ \type{head"=non"=filler"=phrase}. Die Beschränkung
 für diesen Typ sieht wie folgt aus:\footnote{%
@@ -456,6 +466,7 @@ nonloc$|$slash            \eliste\\[1mm]
 dtrs \sliste{ [loc \ibox{1}], [nonloc$|$slash \sliste{ \ibox{1} }] }\\
 }
 \zs
+\largerpage
 
 \noindent
 In\is{Spur!Extraktionsspur|(} (\ref{le-spur-acc-o-kennen}) wurde eine Spur für das Akkusativobjekt von \emph{kennen} angegeben.
@@ -493,6 +504,7 @@ hier als (\mex{1}) mit Markierungen für die Verbspur wiederholt:
 \ea
 {}[Das Buch]$_i$ kennt$_j$  \_$_i$ jeder \_$_j$.
 \z
+\largerpage
 \begin{figure}
 % %\centerline{\mbox{\includegraphics[width=0.9\textwidth]{netter-verb-movement}}}
 % %\centerline{%
@@ -567,7 +579,9 @@ for level={3}{l+=\baselineskip}
 \end{forest}}
 \caption{\label{abb-das-buch-kennt-jeder}Analyse für:\ \emph{Das Buch kennt jeder.} kombiniert mit der Verbbewegungsanalyse für die Verberststellung}
 \end{figure}
-\itdopt{Pfeile}
+\todostefan{Pfeile}
+
+\noindent
 Die Verbbewegungsspur für \emph{kennt} (\_$_j$ im Beispiel, ganz rechts in der Abbildung) wird mit
 einer Nominativ"=NP (\emph{jeder}) und einer Extraktionsspur (\_$_i$ im Beispiel, in der Mitte in
 der Abbildung) kombiniert. 
@@ -577,7 +591,7 @@ gelangt die Valenzinformation, die im ursprünglichen Eintrag für \emph{kennt} 
 (\sliste{ \ibox{3}, \ibox{4} }), zur Verbspur. Die Kombination der Projektion der Verbspur mit der
 Extraktionsspur verläuft genau so, wie wir es bisher gesehen haben. Der \slashw der Extraktionsspur
 wird im Baum nach oben gereicht und letztendlich durch das Kopf"=Füller"=Schema abgebunden.
-
+%\newpage
 
 Die wesentlichen Punkte der Analyse kann man wie folgt zusammenfassen:
 \begin{itemize}
@@ -712,6 +726,7 @@ Und es gibt elliptische Äußerungen, in denen keine Konstituente vor dem finite
 A: Und was ist mit Peter?\\
 B: Kommt heute.
 \z
+%\largerpage
 Im Antwortsatz in (\mex{0}) wurde das Subjekt weggelassen. Es würde normalerweise vor dem Finitum im Vorfeld
 stehen, weshalb man auch von Vorfeldellipse\is{Vorfeldellipse} spricht (\citealt{Fries88b}; siehe
 auch S.\,\pageref{ex-Vorfeldellipse}).
@@ -723,6 +738,7 @@ nicht von einem Fragesatz unterscheiden, wenn man einfach nur die Abfolge der W�
 \ex Und was ist mit dem Kuchen?\\
     Hat er schon gegessen.
 \zl
+\largerpage
 
 \noindent
 Außerdem ist zu berücksichtigen, dass es auch Imperativsätze mit den beiden Verbstellungen gibt:
@@ -756,7 +772,7 @@ Relation wie \relation{proposition}, \relation{assertion}, \relation{question},
 \parencites[378, 380]{GSag2000a-u}[59]{Kathol2001a}[Abschnitt~6.1.4]{mrs}{MuellerSatztypen} oder
 man verwendet ein Merkmal innerhalb des \indexwes von Verben und Verbalprojektionen
 \parencites[107]{SagW99a-u}[144, 170]{Kathol2000a}.
-
+\largerpage
 %Kathol2000a Komm ist nur ein Wort, also müssen Zeichen kreuzklassifiziert werden, nicht Phrasen.
 
 Verwendet man Relationen, so bekommt man für Sätze wie (\mex{1}a) Repräsentationen wie (\mex{1}b)
@@ -804,6 +820,7 @@ Abschnitt~\ref{sec-satztypen-kathol} besprochen. Die Alternative ist, dass man a
 nimmt. Beim Zusammenbau der Strukturen kann man morphologische Information (Verben sind für den
 Imperativ mitunter speziell morphologisch markiert: \emph{gib}, \emph{lies}), Information über die
 Intonation (Frage vs.\ Aussage) und über die Stellung (Verberst, Verbletzt, Verbzweit) berücksichtigen.
+\largerpage
 
 Zum Beispiel kann man am \slashw der Projektion der Verbspur sehen, ob ein Verbzweitsatz oder ein
 Verberstsatz vorliegt. Das wird in den folgenden Implikationen ausgenutzt:
@@ -1004,6 +1021,7 @@ um einen Topik\is{Topik} oder um einen Fokus\is{Fokus} handeln.\footnote{
 \ex Leider hat keiner dem alten Mann geholfen.
 \ex In Europa spielen Jungen gerne Fußball.
 \zl
+\largerpage
 Dass das Vorfeld nicht mit einer pragmatischen Funktion wie Topik oder Fokus verbunden ist,
 wird noch klarer, wenn man sich die Wetterverben\is{Verb!Wetter-} ansieht:
 \ea
@@ -1187,6 +1205,7 @@ zwischen der Abfolge sichtbarer Elemente und dem Satztyp gäbe. Dem ist jedoch n
 Wie bereits in den Kapiteln~\ref{sec-konst-test-probleme-voranstellung}
 und~\ref{sec-flache-strukturen} erwähnt wurde, scheint bei oberflächlicher Betrachtung 
 das Vorfeld auch mehrfach besetzbar zu sein. Die relevanten Beispiele werden im Folgenden diskutiert.
+\largerpage[2]
 
 Kathol definiert Verberst- und Verbzweitsätze als Sätze, in deren linker Satzklammer
 ein finites Verb steht. Es gibt im Deutschen aber Äußerungen wie die in (\mex{1}),
@@ -1235,6 +1254,7 @@ Man kann die Satztypbestimmung retten, indem man ein phonologisch leeres Verb an
 %I gives a lexical entry for a trace as used in nonlocal dependency constructions.
 Eine weitere Argumentation gegen leere Elemente findet sich in \citew[\page 38]{Kathol2001a}.
 In Kathols nicht"=abstrakter Syntax haben leere Elemente keinen Platz.
+\largerpage[2]
 
 Ein anderes Phänomen, das ebenfalls problematisch für den Linearisierungsansatz ist,
 ist die sogenannte Vorfeldellipse\is{Ellipse!Vorfeld-}, die auch \emph{Topic Drop} genannt
@@ -1271,7 +1291,8 @@ Genauso könnte man Typen für die Fälle mit fehlender Kopula\is{Kopula} defini
 man jedoch nur alle Abfolgemuster aufzählen, ohne die Zusammenhänge zwischen diesen Mustern
 zu erfassen. Für die bisher diskutierten Fälle ist es zwar unschön, aber doch immerhin
 möglich, sie in die Typhierarchie zu integrieren. Betrachtet man jedoch die Beispiele mit scheinbar
-mehrfacher Vorfeldbesetzung\is{Vorfeldbesetzung!scheinbar mehrfache}, wie sie schon im Abschnitt~\ref{sec-konst-test-probleme-voranstellung}
+mehrfacher Vorfeldbesetzung\is{Vorfeldbesetzung!scheinbar mehrfache}, wie sie schon in den
+Abschnitten~\ref{sec-konst-test-probleme-voranstellung} und~\ref{sec-Wetta}
 diskutiert wurden, sieht man, dass ein rein linearisierungsbasierter Ansatz ohne leere Elemente
 erhebliche Probleme bekommt.
 \eal
@@ -1290,6 +1311,7 @@ erhebliche Probleme bekommt.
 In diesen Beispielen steht das finite Verb nicht an zweiter Stelle, obwohl es sich um Deklarativsätze
 handelt. Eine Möglichkeit, das zu erfassen, wäre, die Typbeschränkung in (\ref{v2-clause-type}) so aufzuweichen,
 dass beliebig viele Elemente vor dem Verb in der linken Satzklammer stehen können:
+\largerpage
 \ea
  \type{Vn-clause} \impl \onems{
                                                   S[\type{fin}]\\
@@ -1298,7 +1320,7 @@ dass beliebig viele Elemente vor dem Verb in der linken Satzklammer stehen könn
                                                                               }, \ldots{} }
                                                   }
 \z
-Das ist aber problematisch, da Kathol Linearisierungsbeschränkungen annimmt, die dafür sorgen,
+Das ist aber problematisch, da Kathol\label{page-Kathol-1-2-3-4} Linearisierungsbeschränkungen annimmt, die dafür sorgen,
 dass alle Domänenelemente entsprechend ihrer Feldnummer angeordnet sind. Daraus folgt, dass
 vor \type{2} nur \type{1}"=Elemente stehen können. Für die Sätze in (\mex{1}) ergibt sich
 deshalb, dass \emph{los} und \emph{damit} und \emph{den Atem} und \emph{an} bzw.\ \emph{gut}
@@ -1352,6 +1374,7 @@ Deshalb hielt die ganze Judenheit an den Atem.
 Die Rede kommt an gut.
 }
 \zl
+\largerpage
 
 \noindent
 Eine Alternative zur Aufweichung der Beschränkung, dass nur eine Konstituente vor dem finiten
@@ -1375,8 +1398,7 @@ in die Grammatik aufgenommen werden müssen. Aus diesem Grund ist der in Abschni
 und im Abschnitt~\ref{sec-semantik-v1-v2} entwickelten Analyse der Satztypen im Deutschen
 gegenüber der linearisierungsbasierten Analyse der Vorzug zu geben.%
 \is{leere Kategorie|)}\is{Linearisierung!-sdomäne|)}
-
-\itdopt{Wetta diskutieren}
+\todostefan{Wetta diskutieren}
 
 
 \subsection{Lexikalische Einführung von Fernabhängigkeiten}
@@ -1426,7 +1448,8 @@ unter anderem die drei \compslen in (\mex{1}b--d):
 \zl
 Das Subjekt, das Dativ"=Objekt bzw.\ das Akkusativ"=Objekt ist in (\mex{0}b--d) extrahiert, wird
 also nicht von \textsc{deps} auf die \compsl übernommen.
-\itdopt{Diskussion der Extraktion von Adjunkten und Koordination hinzufügen.}
+\todostefan{Diskussion der Extraktion von Adjunkten und Koordination hinzufügen.}
+\largerpage
 
 \citet[\page147--148]{Nerbonne94a} argumentiert gegen die Verwendung von Spuren\is{leere Kategorie} und für
 die lexikalische Einführung von Fernabhängigkeiten, da man bei der Verwendung von Spuren
@@ -1471,6 +1494,7 @@ für (\mex{1}a) auch ein Adjunkt enthalten:
 \ex weil dem Affen hoffentlich ein Kind einen Stock gibt
 \ex \liste{ NP[\type{dat}, \textsc{def}+], Adjunct, NP[\type{nom}, \textsc{def}$-$], NP[\type{acc}, \textsc{def}$-$] }
 \zl
+\largerpage
 Die beiden folgenden Beispiele von \citet[\page 6]{Frey2004a} zeigen, dass
 Frame"=Adverbiale (\mex{1}a) im Gegensatz zu Instrumental"=Präpositionalphrasen (\mex{1}b) ins
 Vorfeld gestellt werden können, ohne dass die Sätze pragmatisch markiert wären.
@@ -1502,6 +1526,7 @@ da \phon nicht Teil der in \type{synsem}"=Objekten enthaltenen Information ist. 
 erkennen, ob ein unbetonbares Pronomen\is{Pronomen!Linearisierung} vor dem zu extrahierenden Element steht oder nicht, was für
 die Analyse von Sätzen wie (\ref{bsp-den-otto-friert-es}) -- hier als (\mex{1}) wiederholt -- ein
 Problem darstellt. 
+\largerpage
 \ea
 \label{bsp-den-otto-friert-es-zwei}
 Den Otto friert es.
