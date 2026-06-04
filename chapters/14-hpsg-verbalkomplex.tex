@@ -362,6 +362,35 @@ unechter Mehrdeutigkeiten, sondern auch für den Ausschluss unmöglicher Vorfeld
 eine Rolle spielt.
 
 Wie die Analyse von (\ref{ex-er-geholfen-haben-wird}) im Detail funktioniert, zeigt die Abbildung~\vref{abb-kombin1}.
+% \begin{figure}
+% \oneline{
+% \begin{forest}
+% sm edges
+% [{\ms[cat]{ head   & \ibox{1} \\
+%            comps & \ibox{2}\\
+%             }}
+%    [\iboxt{4}~\onems{ \ldots \ms{ head & \ibox{3} \\
+%                                comps & \ibox{2} \\
+%                              }} 
+%      [\iboxt{5}~\onems{ \ldots \onems{ head  \ms[verb]{ vform & ppp  \\
+%                                                    }  \\
+%                                     comps~\ibox{2} \sliste{ NP[\type{nom}], NP[\type{dat}] } \\
+%                                   }\\
+%                       } [geholfen]]
+%      [{\onems[cat]{ head~\ibox{3} \ms[verb]{ vform & bse \\
+%                             } \\
+%             comps ~ \ibox{2} $\oplus$ \sliste{ \ibox{5} } \\
+%           }} [haben]]]
+%    [{\ms[cat]{ head & \ibox{1} \ms[verb]{ vform & fin \\
+%                                           } \\
+%                  comps & \ibox{2} $\oplus$ \sliste{ \ibox{4} } \\
+%                }} [wird]]]
+% \end{forest}
+% }
+% \caption{Analyse des Verbalkomplexes in:\ \emph{dass Aicke dem Kind geholfen haben wird}}\label{abb-kombin1}%
+% \end{figure}
+Das Perfekthilfsverb \emph{haben} bettet das Partizip \emph{geholfen} (ein Verb mit \textsc{vform} \type{ppp}\istype{ppp})
+ein. 
 \begin{figure}
 \oneline{
 \begin{forest}
@@ -389,8 +418,7 @@ sm edges
 }
 \caption{Analyse des Verbalkomplexes in:\ \emph{dass Aicke dem Kind geholfen haben wird}}\label{abb-kombin1}%
 \end{figure}
-Das Perfekthilfsverb \emph{haben} bettet das Partizip \emph{geholfen} (ein Verb mit \textsc{vform} \type{ppp}\istype{ppp})
-ein. Es übernimmt die Argumente dieses Verbs \iboxb{2}. Der resultierende Verbalkomplex hat dieselbe
+Es übernimmt die Argumente dieses Verbs \iboxb{2}. Der resultierende Verbalkomplex hat dieselbe
 Valenz wie \emph{geholfen}. Dieser Komplex wird unter \emph{wird} eingebettet. \emph{wird} zieht
 ebenfalls die Argumente des eingebetteten Komplexes an, so dass der gesamte Komplex \emph{geholfen haben wird}
 dieselben Argumente wie \emph{geholfen} verlangt.
@@ -437,6 +465,7 @@ dann den gesamten Relativsatz:
 das Buch, [\sub{rc} das$_i$ [\sub{h-arg} \_$_i$ [\sub{h-arg} lesen [\sub{h-arg} niemand wird]]]]
 }
 \z
+\largerpage\enlargethispage{5pt}
 Es ist klar, dass einzelne Verben bzw.\ Verbalkomplexe nicht als Komplemente in
 Kopf"=Komplement"=Strukturen vorkommen sollen. Ein solches Vorkommen kann man dadurch ausschließen, dass man verlangt,
 dass die Argumente immer den \lexw $-$ haben. Schema~\ref{schema-bin} ist
@@ -481,6 +510,7 @@ befindet, scheint auf den ersten Blick problematisch zu sein: Während man diese
 in \pref{pvp-ein-maerchen-erzaehlen} -- hier als (\mex{1}a) wiederholt -- ausschließen will,
 soll sie in (\mex{1}b) als Binder der Fernabhängigkeit
 für die Vorfeldbesetzung auf"|treten:
+\largerpage\enlargethispage{4pt}
 \eal
 \ex er ihr [[ein Märchen erzählen] muss]
 \ex {}[Ein Märchen erzählen] wird er ihr müssen.
@@ -526,10 +556,11 @@ zulässig.\footnote{
         können nur gebildet werden, wenn der Relativsatz entweder nicht extraponiert wird (i.c) oder
         wenn er ganz nach rechts hinausgestellt wird, wie in (i.d).
 }
-Abbildung~\vref{abb-seiner-tochter-erzaehlen} zeigt die Analyse von (\mex{1}).
+Abbildung~\ref{abb-seiner-tochter-erzaehlen} zeigt die Analyse von (\mex{1}).\todostefan{Abbildung floated eine Seite zu weit.}
 \ea
 Seiner Tochter erzählen wird er das Märchen.
 \z
+\pagebreak
 \begin{figure}
 \resizebox{0.9\textwidth}{!}{\begin{sideways}%
 \begin{forest}
@@ -575,6 +606,9 @@ sm edges
 \caption{\label{abb-seiner-tochter-erzaehlen}%
 Analyse von \emph{Seiner Tochter erzählen wird er das Märchen.}}
 \end{figure}
+
+\clearpage
+\noindent
 Ungrammatische Sätze wie der in (\mex{1}) werden durch die Bedingung
 in (\ref{constr-non-complex-forming}) ausgeschlossen.
 \ea[*]{
@@ -646,7 +680,7 @@ Abschnitt~\ref{sec-anhebung-anal}.
 Durch die Reduktion der Anzahl der Valenzmerkmale ist es außerdem möglich geworden,
 die Analyse der scheinbar mehrfachen Vorfeldbesetzung wesentlich zu vereinfachen.
 Für die Analyse von Sätzen wie (\ref{bsp-smvfb}) auf S.\,\pageref{bsp-smvfb} schlage ich in
-\citew{Mueller2005d,MuellerGS}\todostefan{Seitenzahlen für Buch}
+\textcites{Mueller2005d}[Abschnitt~3.2.1]{MuellerGS}
 eine Lexikonregel vor, die zur Verbbewegungsregel in (\ref{lr-verb-movement2})
 völlig parallel ist. Frühere Vorschläge von mir zur Behandlung der 
 scheinbar mehrfachen Vorfeldbesetzung \citep{Mueller2002f,Mueller2002c} haben
@@ -792,9 +826,107 @@ was nicht den beobachtbaren Fakten entspricht.
 Im Prinzipien-und-Parameter-Framework\indexgb werden die im Abschnitt~\ref{sec-pvp} diskutierten
 Voranstellungen unvollständiger Projektionen
 oft als Restbewegung\is{Restbewegung} (\emph{Remnant Movement}) analysiert (siehe \zb G. \citealp{GMueller96a,GMueller98a}).
-\citet[\page281]{Haider93a}, \citet[Abschnitt~4.2.5]{deKuthy2002a}, \citet[Abschnitt~2]{dKM2001a}\todostefan{Mehr zu den Einwänden} und \citet{Fanselow2002a} haben jedoch gezeigt, 
-dass Restbewegungsansätze mit empirischen Problemen zu kämpfen haben, 
-die Argumentkompositionsansätze wie der hier vorgestellte nicht haben.%
+Wissenschaftler*innen wie \citet[\page281]{Haider93a}, \citet[Abschnitt~4.2.5]{deKuthy2002a},
+\citet[Abschnitt~2]{dKM2001a} und \citet{Fanselow2002a} haben Restbewegungsansätze wegen
+verschiedener empirischer Punkte kritisiert, die Argumentkompositionsansätze wie der hier vorgestellte nicht haben.%
+
+\citet[281]{Haider93a} vergleicht zum Beispiel (\mex{1}a) mit (\mex{1}b):
+\eal
+\ex[*]{
+\label{ex-dass-wer-mit-was-wen-traktiert-hat}
+dass wer [mit was]$_i$ wen \_$_i$ traktiert hat
+}
+\ex[]{
+[ \_$_i$ \_$_j$ Traktiert]$_k$ hat wer [wen]$_i$ [mit was]$_j$ \_$_k$?
+}
+\zl
+(\mex{0}a) zeigt, dass indefinite \emph{w}-Pronomina nicht gescramblet werden dürfen. Wenn nun aber
+(\mex{0}b) mit Bezug auf Scrambling erklärt werden soll, dann müssen die \emph{w}-Phrasen aus der VP
+\emph{wen mit was traktiert} herausbewegt worden sein, bevor \emph{traktiert} ins Vorfeld gestellt
+wurde. Da die \emph{w}"=Phrasen aber nicht umgestellt werden können, wie (\mex{0}a) zeigt, kann
+(\mex{0}b) nicht abgeleitet werden.
+
+\citet{GMueller2014a-u} greift die Kritik auf und weist darauf hin, dass die Sätze in (\mex{1}b,c)
+und (\mex{1}d) keine Minimalpaare sind. 
+\eal
+\judgewidth{??*}
+\ex[]{
+dass der Karl der Maria was$_1$ gegeben hat
+}
+\ex[??]{
+dass der Karl was$_1$ der Maria \_$_1$ gegeben hat
+}
+\ex[??*]{
+dass was$_1$ der Karl der Maria \_$_1$ gegeben hat
+}
+\ex[]{
+{}[\sub{VP2} \_$_1$ Gegeben] hat er ihr was$_1$ \_$_2$.
+}
+\zl
+Kombiniert man die Voranstellungen der \emph{w}"=Elemente mit der Restbewegung bekommt man dieselben
+Abweichungen wie bei Voranstellung im Mittelfeld (Scrambling):
+\eal
+\judgewidth{??*}
+\ex[??]{
+{}[\sub{VP2} \_$_1$ Gegeben] hat Karl was$_1$ der Maria \_$_2$.
+}
+\ex[??*]{
+{}[\sub{VP2} \_$_1$ Gegeben] hat was$_1$ der Karl der Maria \_$_2$.
+}
+\zl
+Müller erklärt das damit, dass für die Leerung der VP für die nachfolgende Voranstellung nur extrem
+kurzes, so genanntes \emph{string vacuous movement} nötig ist. Die Zwischenschritte sind in
+(\mex{1}) zu sehen:
+\eal
+\ex[]{
+{} er ihr [\sub{VP2} was$_1$ gegeben] hat
+}
+\ex[]{
+{} er ihr was$_1$ [\sub{VP2} \_$_1$ gegeben] hat
+}
+\ex[]{
+{} hat er ihr was$_1$ [\sub{VP2} \_$_1$ gegeben]
+}
+\ex[]{
+{}[\sub{VP2} \_$_1$ Gegeben] hat er ihr was$_1$ \_$_2$.
+}
+\zl
+Zuerst wird das \emph{was} aus der VP bewegt und landet direkt neben ihr. In einer Position, in der
+überhaupt nicht zu sehen ist, dass \emph{was} bewegt wurde. Dann wird das finite Verb vorangestellt
+und dann in einem letzten Schritt die entleerte VP. Gereon Müller geht auch andere Kritikpunkte mit
+dem Verweis auf extrem lokale Bewegung (``extremly local string-vacuous movement'')
+durch. Betrachtet man nun aber das Beispiel von \citet[281]{Haider93a}, das oben angegeben wurde,
+kann man feststellen, dass dieses Beispiel nicht string vacous erklärt werden kann.
+\eal
+\ex[]{
+[[wen]$_i$ [mit was]$_j$ traktiert] hat
+}
+\ex[]{
+[[mit was]$_j$ [[wen]$_i$ \_$_j$  traktiert]] hat
+}
+\ex[]{
+[[wen]$_i$ [[mit was]$_j$ [ \_$_i$ \_$_j$  traktiert]]] hat
+}
+\ex[]{
+[wer [[wen]$_i$ [[mit was]$_j$ [ \_$_i$ \_$_j$  traktiert]]]] hat
+}
+\ex[]{
+[ \_$_i$ \_$_j$ Traktiert]$_k$ hat [wer [[wen]$_i$ [[mit was]$_j$ \_$_k$]]]?
+}
+\zl
+Da Bewegung immer so erfolgt, dass ein herausgestelltes Element links oder rechts an einen
+bestehenden Baum adjungiert wird, muss die Ableitung in dieser Reihenfolge erfolgen, denn würde man
+zuerst \emph{wen} string vacuous bewegen, bekäme man aus (\mex{0}a) dann (\mex{1}):
+\ea[]{
+[wen]$_i$ [\_$_i$ [mit was]$_j$  traktiert] hat
+}
+\z
+Die Reihenfolge in (\mex{-1}c) könnte man daraus aber nicht mehr erzeugen, weil \emph{mit was} bei Bewegung ganz links
+angebunden werden muss und somit vor \emph{wen} landen würde. Das bedeutet nun aber, dass die
+Bewegung in (\mex{-1}b) überhaupt nicht string vacuous ist. \emph{mit was} muss über \emph{wen}
+hinwegbewegt werden, auch wenn das Ergebnis nach der Bewegung wieder so aussieht wie vorher. Da das
+\emph{wen} nicht gezwungen werden kann, sich weiterzubewegen, würde man erwarten, dass (\mex{-1}b)
+in Sätzen direkt verwendet werden kann. Dass dem nicht so ist, zeigt Haiders Beispiel (\ref{ex-dass-wer-mit-was-wen-traktiert-hat}).
 \is{Verbalkomplex|)}
 
 
