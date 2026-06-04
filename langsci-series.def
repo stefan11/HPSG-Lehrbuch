@@ -59,8 +59,8 @@
             Klaus Grübl (Leipzig University, Germany),
             Judith Huber (LMU Munich, Germany),
             Simon Pickl (University of Salzburg, Austria),
-            Lea Schäfer (University of Düsseldorf, Germany),
-            Markus Schiegg (University of Erlangen-Nürnberg, Germany)
+            Lea Schäfer (University of Bamberg, Germany),
+            Markus Schiegg (University of Fribourg, Switzerland)
 
 
             \bigskip
@@ -69,6 +69,10 @@
 
             \begin{enumerate}
             \item Becker, Carsten. Genusresolution bei mittelhochdeutsch beide: Eine Analyse im Rahmen der Lexical Functional Grammar.
+            \item Kellert, Olga.  The (in)transparency of meaning change and variation: A study of the indefinite cualquiera in European and Argentinian Spanish.
+            \item Hartmann, Stefan \& Lena Schnee (eds.). Futures of the past: The diachrony of future constructions across languages.
+            \item Wiemann, Marco. Tracing the history of pronunciation in nineteenth-century English.
+            \item Grestenberger, Laura, Reiter, Viktoria \& Malzahn, Melanie (eds.). Deadjectival verb formation in Indo-European and beyond.
             \end{enumerate}
         }
 \fi
@@ -93,7 +97,7 @@
             \item  Namyalo, Saudah,   Alena Witzlack-Makarevich,   Anatole Kiriggwajjo,   Amos Atuhairwe,   Zarina Molochieva,   Ruth Gimbo Mukama   \& Margaret Zellers. A dictionary and grammatical sketch of Ruruuli-Lunyala.
             \item Gunnink, Hilde. A grammar of Fwe.
             \item Childs, Tucker G. A grammar of Sherbro.
-            \item
+            \item Vanhove, Martine \& Hamid-Ahmed, Mohamed-Tahir. A dictionary and grammatical sketch of Beja (Sudan).
             \end{enumerate}
         }
 \fi
@@ -113,7 +117,7 @@
 
             In this series:
 
-            \begin{enumerate}
+            \lsSeriesHistoryWheel[11]{
             \item Payne, Doris L., Sara Pacchiarotti \& Mokaya Bosire (eds.). Diversity in African languages: Selected papers from the 46th Annual Conference on African Linguistics.
             \item Persohn, Bastian. The verb in Nyakyusa: A focus on tense, aspect and modality.
             \item Kandybowicz, Jason, Travis Major, Harold Torrence  \& Philip T. Duncan (eds.). African linguistics on the prairie: Selected papers from the 45th Annual Conference on African Linguistics.
@@ -127,7 +131,9 @@
             \item Huang, Yaqian, Nina Hagen Kaldhol, Jun Jie Lim, Sharon Rose \& Anthony Struthers-Young (eds.). ACAL in SoCAL: Selected papers from the 53rd Annual Conference on African Linguistics.
             \item van der Wal, Jenneke (ed.). The expression of information structure in Bantu.
             \item Akinlabi, Akinbiyi, Sampson Korsah, Sharon Rose \& Abdul-Razak Sulemana (eds.). Cross-disciplinary approaches to Information Structure in Niger-Congo languages.
-            \end{enumerate}
+            \item Carstens, Vicki, Katherine Russell, Olawale Akingbade, Deborah Morton \& Michael Diercks (eds.). Pamoja tena ‘Together again’: African linguistics after COVID.
+            \item Lovestrand, Joseph. Directional extensions in Chadic languages.
+            }
             }
 \fi
 \ifx\lsSeries\cam
@@ -189,6 +195,7 @@ diaspora.
           \item Polinsky, Maria \& Michael T. Putnam (eds.). Formal approaches to complexity in heritage language grammars.
           \item Allen, Shanley E. M., Mareike Keller, Artemis Alexiadou \& Heike Wiese (eds.). Linguistic dynamics in heritage speakers: Insights from the RUEG group.
           \item Anne Reath Warren, Jonas Yassin Iversen \& Boglárka Straszer (eds.). Teacher education for working in linguistically diverse classrooms: Nordic perspectives.
+          \item Kašćelan, Draško,  María del Carmen  Parafita Couto, Peredur Webb-Davies, Rocío Pérez-Tattam, \& Hans Stadthagen-González, Hans. Current insights into code-switching.
         \end{enumerate}
         }
 \fi
@@ -681,6 +688,7 @@ diaspora.
             \item Bárány, András, Theresa Biberauer, Jamie Douglas \& Sten Vikner (eds.). Syntactic architecture and its consequences III: Inside syntax.
             \item Laszakovits, Sabine \& Zheng Shen (eds.). The size of things I: Structure building.
             \item Shen, Zheng \& Sabine Laszakovits (eds.). The size of things II: Movement, features, and interpretation.
+            \item Köhlich, Viktor. The Japanese DP and the structure of its modifiers.
             \end{enumerate}
             }
 \fi
@@ -787,6 +795,11 @@ diaspora.
             \item Mohammadirad, Masoud. Echoes of the past: Hewramî narratives.
             \item Lindsey, Kate L. The Ende way: Short stories and songs from Limol prepared with the Ende Language Committee.
             \item Zielenbach, Maria. Half silver, half gold: Modole folk stories and a first sketch grammar.
+            \item  Gerstner-Link, Claudia. Clans, spirits, land and food: Kilmeri texts.
+            \item Pakendorf, Brigitte. I always migrated by reindeer: Lamunkhin and Bystraja Even narratives about their traditional way of life.
+            \item Visser, Eline. Life and death on Karas: Ten Uruangnirin texts.
+            \item Denk, Lukas \& Chee, Melvatha. Nine Navajo narratives.
+            \item Vogel, Alan. Histórias de Siko e de Yowao: Textos jarawaras.
             \end{enumerate}
         }
 \fi
@@ -846,6 +859,11 @@ diaspora.
                 \item  Persohn, Bastian. The polyfunctionality of `still' expressions: A cross-linguistic exploration.
                 \item Pakendorf, Brigitte \& Françoise Rose. Fillers: Hesitatives and placeholders.
                 \item  Däbritz, Chris Lasse, Josefina Budzisch \& Rodolfo Basile (eds.). Locative and existential predication: On forms, functions and neighboring domains.
+                 \item Miestamo, Matti  \& Ljuba Veselinova (eds.). Negation in the world’s languages I: Africa.
+                \item Miestamo, Matti  \& Ljuba Veselinova (eds.). Negation in the world’s languages II: Eurasia.
+                \item Miestamo, Matti  \& Ljuba Veselinova (eds.). Negation in the world’s languages III: Papunesia, Australia, and the Americas.
+                \item Faller, Martina, Vuillermet, Marine & Schultze-Berndt, Eva (eds.). Apprehensional constructions in a cross-linguistic perspective.
+
             \end{enumerate}
             }
 \fi
@@ -944,7 +962,7 @@ diaspora.
 
             Chief Editor:  Martine Grice% (Chief Editor, University of Cologne, Germany),
             \\
-            Editors:    Doris Mücke, % (University of Cologne, Germany),
+            Editors:    Aviad Albert, % (University of Cologne, Germany),
                 Taehong Cho % (Hanyang University, Seoul, South Korea)
 
             \bigskip
@@ -1003,6 +1021,11 @@ diaspora.
              \item Müller, Stefan. Germanic syntax: A constraint-based view.
              \item Neacșu, Vlad A. Linguistics Olympiad: Training guide.
              \item Glass, Lelia, Markus Dickinson, Chris Brew \& Detmar Meurers. Language and computers. 2nd edition.
+             \item Marques, Rui. Modalidade e modo em português europeu.
+             \item The Saguaro Group (ed.). Indigenous languages of the Americas and their structures: Sounds.
+             %\item Müller HPSG
+             %\item Berthele
+             %\item Reynolds
              \end{enumerate}
              }
 \fi
@@ -1075,12 +1098,14 @@ diaspora.
             \item Nitzke, Jean \& Silvia Hansen-Schirra. A short guide to post-editing.
             \item Hoberg, Felix. Informationsintegration in mehrsprachigen Textchats: Der Skype Translator im Sprachenpaar Katalanisch-Deutsch.
             \item Kenny, Dorothy (ed.). Machine translation for everyone: Empowering users in the age of artificial intelligence.
-(*             \item Kajzer-Wietrzny, Marta, Adriano Ferraresi,   Ilmari Ivaska \& Silvia Bernardini. Mediated discourse at the European Parliament: Empirical investigations. *)
+            \item Kajzer-Wietrzny, Marta, Adriano Ferraresi,   Ilmari Ivaska \& Silvia Bernardini. Mediated discourse at the European Parliament: Empirical investigations.
             \item Marzouk, Shaimaa. Sprachkontrolle im Spiegel der Maschinellen Übersetzung: Untersuchung zur Wechselwirkung ausgewählter Regeln der Kontrollierten Sprache mit verschiedenen Ansätzen der Maschinellen Übersetzung.
             \item Frittella, Francesca Maria. Usability research for interpreter-centred technology: The case study of SmarTerp.
             \item Prandi, Bianca. Computer-assisted simultaneous interpreting: A cognitive-experimental study on terminology.
+            \item Kenny, Dorothy (ed.). \lsSeriesHistoryFandolSong{机器翻译知识普及: 为人工智能时代的用户赋能}.
             \item Czulo, Oliver, Martin Kappus \& Felix Hoberg (eds.). Digitale Translatologie.
             \item Penet, JC, Joss Moorkens \& Masaru Yamada (eds.). Teaching translation in the age of generative AI: New paradigm, new learning?
+            \item Lardelli, Manuel. Gender-fair language in translation and post-editing: Insights and best practices.
             }
             }
 \fi
@@ -1137,6 +1162,7 @@ diaspora.
 
             \begin{enumerate}
             \item Williams, Geoffrey, Mathilde Le Meur \& Andrès Echavarria-Pelaez (eds.). West meets East: Papers in historical lexicography and lexicology from across the globe.
+            \item Gloria Mambelli. The multilingual lexis of the medieval English manor: A trilingual thesaurus.
             \end{enumerate}
             }
         
@@ -1190,7 +1216,7 @@ diaspora.
             In this series:
 
             \begin{enumerate}
-            \item
+            \item The Austronesian languages of eastern Indonesia and Timor-Leste: Unravelling their prehistory and classification.
             \end{enumerate}
             }
 \fi
