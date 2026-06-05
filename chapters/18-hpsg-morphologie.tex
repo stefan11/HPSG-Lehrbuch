@@ -19,7 +19,7 @@ Fragen, die hier nicht einmal gestreift werden können. Im folgenden Kapitel bes
 mich also nur auf einige Grundprobleme. Ich werde zeigen, wie man die bereits im Abschnitt~\ref{sec-lr}
 erwähnten Lexikonregeln für die Modellierung morphologischer Zusammenhänge nutzen kann, und den alternativen Ansatz, der Affixe als eigenständige
 Morphe annimmt, diskutieren.
-
+\largerpage
 
 \section{Die Phänomene}
 
@@ -89,6 +89,7 @@ den Stamm \stem{lach}:
 \ex Sie lachten.
 \zl
 \end{multicols}
+\largerpage
 
 \noindent
 Betrachtet man ein anderes Verb wie \zb \stem{lieb}, stellt man fest, dass die
@@ -243,6 +244,7 @@ zur Derivation gezählt wird.
 In den beiden folgenden Abschnitten zeige ich, wie Flexion und Derivation mittels lexikalischer Regeln
 analysiert werden können. Der Abschnitt~\ref{morph-pv} zeigt, wie die Analyse der Partikelverben, die
 im Kapitel~\ref{Kapitel-partikel} vorgestellt wurde, mit der Analyse von Flexion und Derivation zusammenwirkt.
+\largerpage
 
 \subsection{Flexion}
 \label{sec-morph-flex-anal}
@@ -251,9 +253,9 @@ im Kapitel~\ref{Kapitel-partikel} vorgestellt wurde, mit der Analyse von Flexion
 Im\is{Flexion|(} Kapitel~\ref{Kapitel-Lexikon} haben wir bereits eine Lexikonregel gesehen, die einen Verbstamm zu einer
 flektierten Form in Verbindung setzt (S.\,\pageref{passive-lr-mit-phon}). Wie der \phonw aber genau berechnet
 wird, wurde bisher nicht erklärt. Betrachtet man die Präsensformen in (\ref{verb-konjugation-praesens}),
-so liegt \zb für die zweite Person Singular die folgende Spezifikation
-nahe:\is{Kongruenz|(}\todostefan{FB: list-of... muss man erklären}
-
+so liegt \zb für die zweite Person Singular die Spezifikation in (\mex{1})
+nahe.\is{Kongruenz|(}\todostefan{FB: list-of... muss man erklären}
+\begin{figure}
 \eas
 \label{lr-verbal-inflection}%
 Lexikonregel für die zweite Person Singular Präsens (vorläufig):\\[1mm]
@@ -282,6 +284,8 @@ lex-dtr  \onems[stem]{
            rels \ibox{6} }\\
 }\is{Lexikonregel!Verbflexion}
 \zs
+\vspace{-1.5\baselineskip}
+\end{figure}
 Diese Lexikonregel bildet einen Verbstamm (unter \textsc{lex-dtr}) auf ein Wort ab. Der Typ
 \type{fin-verb-infl-lr} ist ein Untertyp von \type{word}. Der \phonw des Ausgabezeichens wird durch
 die Funktion \textit{f} berechnet. Der \phonw ist entweder die direkte Verknüpfung des Eingabestamms
@@ -306,7 +310,8 @@ die im Abschnitt~\ref{sec-remote-passive-hpsg} diskutierten Beispiele des
 Fernpassivs\is{Passiv!Fern-} mit Objektkontrollverben\is{Verb!Objektkontroll-} erfassen zu
 können. Es gibt pro \argstl aber maximal eine NP mit strukturellem Nominativ, so dass die Kongruenz
 korrekt geregelt ist (siehe auch S.\,\pageref{Kasusprinzip} zum Kasusprinzip).%
-\is{Kongruenz|)}
+\is{Kongruenz|)}%
+\largerpage
 
 Der \catw des Stammes und der \catw des Wortes sind identisch \iboxb{2}, aber der semantische
 Beitrag des Stammes wird unter die Tempus"=Information,\is{Tempus} die vom Suffix beigesteuert wird,
@@ -537,7 +542,7 @@ die deutsche Sprache aufgenommen worden und sind also relativ neue Wörter.
 
 Die produktive Lexikonregel zur Bildung von \suffix{bar}"=Adjektiven zeigt (\mex{1}). Siehe auch \citew[68]{Riehemann98a}
 zu einer ähnlichen Regel.
-%\begin{figure}
+\begin{figure}
 \eas
 \label{lr-bar-adj}%
 Lexikonregel für die Derivation von Adjektiven mit \bars:\\
@@ -570,7 +575,7 @@ lex-dtr & \onems[stem]{
 }\is{Lexikonregel!bar-Derivation@\emph{-bar}-Derivation}%
 }
 \zs
-%\vspace{-\baselineskip}\end{figure}
+\vspace{-\baselineskip}\end{figure}
 Eingabe der Regel ist ein transitives Verb, \dash ein Verb mit zwei Nominalphrasen mit strukturellem Kasus.
 Die erste NP -- die auch das designierte Argument sein muss \iboxb{8} -- wird wie bei der Passivierung unterdrückt, 
 und die restliche \argstl \iboxb{2} wird zur \argstl des Adjektivs. Das Argumentrealisierungsprinzip\is{Prinzip!Argumentrealisierungs-}
@@ -586,6 +591,7 @@ Der Bedeutungsbeitrag des Verbs (\ltop \ibox{5}\,) wird unter einen Modaloperato
 % Fall muss es in der entsprechenden Welt ein Einhorn geben und im zweiten kann etwas mit einem
 % Einhorn verglichen werden, ohne dass es eins gibt.\todostefan{Geht das nicht auch bei: Ich
 %   vergleiche ihn mit einem Einhorn.?}
+\newpage
 
 Als Beispiel sei die Lexikonregel auf den Stamm \stem{lös} in (\mex{1})
 angewendet. Das Ergebnis der Regelanwendung zeigt (\mex{2}):
@@ -950,6 +956,7 @@ rels & \liste{ \ms[present]{
 }
 \zs
 %\vspace{-\baselineskip}\end{figure}
+\newpage
 
 \noindent
 Obwohl der Bedeutungsbeitrag der Partikelverbkombination (\ltop \ibox{7} und \textsc{ind} \ibox{8}\,) noch unterspezifiziert
@@ -1052,6 +1059,7 @@ das Herumgerenne\footnote{
 \label{ex-herumgerenne-zwei}
 \z
 
+\begin{figure}
 \eas
 \label{lr-gee-nom}%
 Lexikonregel für \geenen:\\
@@ -1079,6 +1087,8 @@ lex-dtr & \onems[stem]{
            }
 }\is{Lexikonregel!ge- -e Nominalisierung@\emph{Ge- -e}-Nominalisierung}
 \zs
+\vspace{-\baselineskip}
+\end{figure}
 
 \noindent
 $f$ ist dabei wieder eine Funktion, die den \phonw des Eingabezeichens
@@ -1480,6 +1490,7 @@ sm edges
 \end{forest}
 \caption{Anwendung der Partikelverbregel auf \stem{fahr}}\label{fig-p-fahrbar-pv-lr}
 \end{figure}
+\largerpage
 
 Die Lexikonregel für die \bard verlangt als Eingabe ein Verb mit einem Objekt mit strukturellem
 Kasus. Da die Ausgabe der Partikelverbregel kompatibel mit dieser Anforderung ist, kann
@@ -1507,6 +1518,7 @@ enthält (\,\ibox{3} $\oplus$ \ibox{1} (\,\etag $\oplus$ \nliste{ NP[\str] } $\o
 Da der \argstw des Eingabezeichens für die \bard in Abbildung~\ref{fig-p-fahrbar-val} die
 Verknüpfung der \argstl des Basisverbs mit dem \subjw und dem \compsw der selegierten Partikel ist, können nur Partikeln, die eine
 NP[\str] in ihrer \subjl oder in ihrer \compsl haben, mit dem Ergebnis der \bard kombiniert werden.
+\largerpage
 
 Abbildung~\vref{fig-anfahrbar-val} zeigt die Kombination von \emph{an}$_5$ und \emph{fahrbar}.\footnote{
   Zu den verschiedenen Formen der Partikel \emph{an} siehe S.\,\pageref{verschiedene-ans}.%
@@ -1615,6 +1627,7 @@ Adjektivs \emph{anfahrbar} ist. Es ergibt sich also folgende MRS:
 \textmrs{ h1, \{ h1:modal-op(h2), h2:gerichtet-auf(e1,y), h2:fahren(e1,x) \}, \{ \} }
 \z
 \iw{\bars|)}
+\largerpage
 
 \noindent
 Bevor wir uns im nächsten Abschnitt alternativen Analysen zuwenden, möchte
@@ -1636,7 +1649,7 @@ In (\mex{0}a) wurde \word{annehmbar} mit \prefix{un} präfigiert und in (\mex{0}
 dass das Schema, das die Partikel mit dem derivierten Nomen oder Adjektiv kombiniert,
 innerhalb der Morphologiekomponente angewendet wird bzw.\ Eingabe zu dieser Komponente sein
 kann. 
-\itdopt{FB: Aber wie würde das bei Dir gehen? Partikel+Nomen/adj. werden doch schon syntaktisch
+\LATER{FB: Aber wie würde das bei Dir gehen? Partikel+Nomen/adj. werden doch schon syntaktisch
   kombiniert. Oder darf man den Mutterknoten in head-cluster-Strukturen wieder in die Morphologie
   stecken, weil er LEX unterspezifiziert ist und es sich gar nicht um eine richtige syntaktische
   Phrase handelt? Dazu müßtest Du vielleicht noch was sagen.\\
@@ -1711,6 +1724,7 @@ gegen eine Behandlung von Affixen als Kopf:
       wäre, wenn Affixe Köpfe wären.
 \item Syntaktische Köpfe können in elliptischen Konstruktionen weggelassen werden, Affixe dagegen nie.
 \end{enumerate}
+\largerpage
 Diese Argumentation ist jedoch aus den folgenden Gründen nicht korrekt: Es ist durchaus sinnvoll,
 von einer Menge von Objekten zu behaupten, dass sie bestimmte Eigenschaften haben, auch wenn diese Menge
 sich in Bezug auf weitere Eigenschaften in Teilmengen auf"|teilen lässt. So kann man durchaus von Köpfen
@@ -1742,21 +1756,26 @@ die jeweils nur für syntaktische bzw.\ morphologische Köpfe zutreffen.
 In vielen Fällen sind die Ansätze ineinander überführbar \parencites[\page168--169]{Koenig99a}[Abschnitt~6.2.5.2]{Mueller2002b},
 es gibt jedoch ein paar Kleinigkeiten, in denen sie sich unterscheiden. Das soll im Folgenden
 anhand der bereits diskutierten \bard diskutiert werden.
-Für die \bard könnte man zum Beispiel folgendes Suffix für \suffix{bar} annehmen:
+Für die \bard könnte man zum Beispiel folgendes Suffix für \suffix{bar} annehmen:\todostefan{INDEX
+  hinzufügen. Was macht der?}
+\largerpage
 \eas
 \oneline{\onems{
 phon   \phonliste{ bar }\\
 synsem$|$loc  \ms{ cat  & \ms{ head   & \ms[adj]{ 
                                                  subj & \sliste{ \ibox{2} NP[\str] }\\
                                                  }\\
-                                        comps & \ibox{3} $\oplus$ \sliste{ V[\comps \liste{ NP[\str], \ibox{2} NP[\str] } $\oplus$ \ibox{3}]:\ibox{4}} \\
+                                        comps & \ibox{3} $\oplus$ \sliste{ V[\comps \liste{
+                                            NP[\str], \ibox{2} NP[\str] } $\oplus$ \ibox{3}, \ltop \ibox{4}]} \\
                                       } \\
-                            cont & \ms[modal-op]{
-                                    soa & \ibox{4}\\
-                                   }\\
-                         }\\
+                            cont & \ms{ ltop & \ibox{5} } }\\
+\addlinespace[3pt]
+rels \liste{ \ms[modal-op]{
+                 lbl  & \ibox{5}\\ 
+                 arg1 & \ibox{4}\\
+                } }
 }}\is{Morphem!-\suffix{bar}-Derivation}%
-\zs\todostefan{anpassen an MRS siehe annotiertes MS}
+\zs
 Das \bars ist in der Struktur für den Stamm \emph{lesbar} der Kopf. Es verlangt als Argument ein transitives
 Verb, dessen Objekt \iboxb{2} es zu seinem Subjekt macht. Das logische Subjekt des transitiven Verbs wird unterdrückt.
 Weitere eventuell vorliegende Argumente des Verbs \iboxb{3} werden angezogen.
@@ -1849,6 +1868,7 @@ Man könnte annehmen, dass diese Fälle von Klitisierung anders behandelt werden
 restliche Morphologie davon ausgehen, dass Affixe Köpfe sind, aus Gründen der Sparsamkeit ist aber
 eine Analyse, die nur einen Mechanismus für die morphologische Analyse verwendet, vorzuziehen.%
 \is{Affix|)}
+\largerpage
 
 \subsection{Flexion als Markierung}
 \label{sec-flex-mark}
@@ -1889,6 +1909,7 @@ wie die für das Präsens und Präteritum in (\mex{1}) und das Futur"=Morphem im
      ich ihn sehen.werde\\
 \glt `Ich werde ihn sehen.'
 \z
+\largerpage
 In Kopf"=Markierer"=Strukturen kommt der semantische Beitrag nämlich vom Kopf \citep[\page 56]{ps2}, in der Analyse
 von (\mex{-1}) und (\mex{0}) hat das Tempus"=Morphem Skopus über den semantischen Beitrag des Stammes,
 der semantische Beitrag muss also vom Flexionsaffix kommen.\is{Morphologie|)}
